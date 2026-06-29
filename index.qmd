@@ -1,0 +1,18 @@
+---
+title: "Using Generative and Agentic AI for Omics Data Analysis"
+subtitle: "Workshop on July 13-14, 2026"
+---
+
+------------------------------------------------------------------------
+
+<hr style="height:1pt; visibility:hidden;" />
+
+#### Monday, July 13
+
+| Time | Instructor | Topic & link |
+|----|----|----|
+| 09:00 - 09:30 am | Jelmer / all | Workshop introduction |
+| 09:30 - 10:00 am | all | How the instructors have used genAI |
+
+
+#### Tuesday, July 14

@@ -1,0 +1,41 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  site-url: TBA
+  repo-url: TBA
+  page-navigation: true
+  back-to-top-navigation: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+    tools:
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  XXX
+          - text: Report an Issue
+            url:  XXX/issues/new?template=Blank+issue
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    highlight-style: atom-one
+    css: styles.css
+    toc: true
+    number-sections: true
+    number-depth: 3
+    grid:
+      body-width: 800px
+
+knitr:
+  opts_chunk:
+    class-output: regular-r-output
+    class-message: regular-r-output
+    class-warning: warning-r-output
+    class-error: error-r-output
