@@ -16,7 +16,7 @@ website:
           - text: "1: Intro to the workshop"
           - text: "2: Intro to Generative AI and LLMs"
           - text: "4: Use cases and tools for research"
-          - text: "5: Toolbox intro and setup"
+          - text: "5: Toolset intro and setup"
           - text: "7: Using Claude Code and GitHub Copilot"
       - text: Day 2
         menu:
@@ -24,7 +24,7 @@ website:
           - text: "9: Advanced agentic options and skills"
           - text: "10: A worked example analysis with agents"
           - text: "11: Limitations and responsible use of AI"
-          - text: "12: DIY with own data or other data"
+          - text: "12: DIY with own (or other) data"
     right:
       - text: Pre-workshop prep
         menu:

@@ -32,7 +32,7 @@ _The schedule below is preliminary and may change slightly before the workshop_
 | 3 | 11:00 am -- 11:30 am | OTDI | Approved AI Tools at OSU |
 | 4 | 11:30 am -- 12:15 pm | Jonathan | GenAI use cases and tools for research |
 |  | [*12:15 pm -- 01:15 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
-| 5 | 01:15 pm -- 02:15 pm | Jelmer | Our toolbox: intro and setup |
+| 5 | 01:15 pm -- 02:15 pm | Jelmer | Our coding and genAI toolset: intro and setup |
 | 6 | 02:15 pm -- 02:45 pm | OSC | LLM options at OSC |
 |  | [*02:45 pm -- 03:00 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
 | 7 | 03:00 pm -- 04:00 pm | Jelmer | Using Claude Code and GitHub Copilot |
@@ -51,6 +51,6 @@ _The schedule below is preliminary and may change slightly before the workshop_
 | 10 | 10:45 am -- 12:00 pm | Jelmer | A worked example analysis with agents |
 |  | [*12:00 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
 | 11     | 01:00 pm -- 01:30 pm | Hannah | Limitations and responsible use of AI |
-| 12 | 01:30 pm -- 04:00 pm | *all* | DIY with own data or other data |
+| 12 | 01:30 pm -- 04:00 pm | *all* | DIY with own (or other) data |
 
 : {.striped .hover tbl-colwidths="[5, 20, 15, 60]"}
