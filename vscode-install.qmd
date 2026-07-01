@@ -12,6 +12,9 @@ author:
         url: https://mcic.osu.edu/bioinformatics
 bibliography: refs.bib
 other-links:
+  - text: "GitHub account setup"
+    icon: bookmarks
+    href: github-account.qmd
   - text: "OSC account setup"
     icon: bookmarks
     href: osc-account.qmd

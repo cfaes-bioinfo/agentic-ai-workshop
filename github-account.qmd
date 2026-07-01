@@ -10,9 +10,12 @@ author:
       - name: CFAES Bioinformatics Core, Ohio State University
         url: https://mcic.osu.edu/bioinformatics
 other-links:
-  - text: "VS Code setup"
+  - text: "VS Code installation"
     icon: bookmarks
-    href: vscode-setup.qmd
+    href: vscode-install.qmd
+  - text: "OSC account setup"
+    icon: bookmarks
+    href: osc-account.qmd
 number-sections: true
 bibliography: refs.bib
 ---
@@ -36,7 +39,7 @@ access to during the workshop,
 but that you will not have access to after the workshop unless you pay for it in some way.
 GitHub Copilot, on the other hand, cannot be used institutionally at OSU,
 but does have a free 'personal' option for academic users.
-As such, for many of you, this may be the easiest way to continue trying out
+As such, for many of you, GitHub Copilot may be the easiest way to continue trying out
 agentic AI tools after the workshop (we'll discuss your options further during the workshop).
 
 ## Create a GitHub account (if you don't have one yet)
@@ -55,7 +58,7 @@ It can therefore be very useful to have a GitHub account beyond GitHub Copilot u
   
    - When choosing your **_username_**, best to keep it professional and include
      (parts of) your real name:
-     you may use GitHub to share your code, like when publishing a paper.
+     you may use GitHub to share your code, like when publishing a paper
   
    - It's recommended to sign up with your **_OSU email address_**,
      as that will make the educational access verification process smoother
@@ -72,12 +75,12 @@ you'll just need to select the appropriate option in the form:
 
 2. Click "**Start an application**":
 
-![](img/github-edu-benefits.png){fig-align="center" width="80%"}
+![](img/github-edu-benefits.png){fig-align="center" width="90%"}
 
 3. Fill out the form as needed. Note that you will most likely need a document
    that proves your current status at the university.
 
 ::: {.callout-caution appearance="simple"}
 Application approval is often quite fast (sometimes in minutes),
-but **access is only granted 72 hours after approval.**
+but **access is only granted 72 hours after approval**.
 :::

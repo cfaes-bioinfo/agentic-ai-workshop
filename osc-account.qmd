@@ -10,9 +10,12 @@ author:
       - name: CFAES Bioinformatics Core, Ohio State University
         url: https://mcic.osu.edu/bioinformatics
 other-links:
-  - text: "VS Code setup"
+  - text: "VS Code installation"
     icon: bookmarks
-    href: vscode-setup.qmd
+    href: vscode-install.qmd
+  - text: "GitHub account setup"
+    icon: bookmarks
+    href: github-account.qmd
 number-sections: true
 toc: true
 ---
