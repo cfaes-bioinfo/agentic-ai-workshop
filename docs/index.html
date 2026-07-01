@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Using Generative and Agentic AI for Omics Data Analysis</title>
+<title>Agentic AI Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./img/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -42,7 +43,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-4e5466e430b1db38349d513585fd1d59.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-18fe6355df9e00e9561dd53ce8dc48ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-931d990cb26e51250a8fe8dd5988784d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,39 +76,85 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Agentic AI Workshop</span>
+    </a>
+  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Day 1</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-day-1">    
+        <li class="dropdown-header">1: Intro to the workshop</li>
+        <li class="dropdown-header">2: Intro to Generative AI and LLMs</li>
+        <li class="dropdown-header">4: Use cases and tools for research</li>
+        <li class="dropdown-header">5: Toolbox intro and setup</li>
+        <li class="dropdown-header">7: Using Claude Code and GitHub Copilot</li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-day-2" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Day 2</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-day-2">    
+        <li class="dropdown-header">8: Prompt engineering</li>
+        <li class="dropdown-header">9: Advanced agentic options and skills</li>
+        <li class="dropdown-header">10: A worked example analysis with agents</li>
+        <li class="dropdown-header">11: Limitations and responsible use of AI</li>
+        <li class="dropdown-header">12: DIY with own data or other data</li>
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pre-workshop-prep" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pre-workshop prep</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-prep">    
+        <li>
+    <a class="dropdown-item" href="./vscode-install.html">
+ <span class="dropdown-text">VS Code installation</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./osc-account.html">
+ <span class="dropdown-text">OSC account setup</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./github-account.html">
+ <span class="dropdown-text">Optional: GitHub account setup</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+<span class="menu-text">Practical Info</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="The GitHub repo for this website"><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="./XXX">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/cfaes-bioinfo/agentic-ai-workshop">
             Source Code
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="./XXX/issues/new?template=Blank+issue">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/cfaes-bioinfo/agentic-ai-workshop/issues/new?template=Blank+issue">
             Report an Issue
             </a>
           </li>
@@ -121,39 +168,40 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Using Generative and Agentic AI for Omics Data Analysis</h1>
-<p class="subtitle lead">Workshop on July 13-14, 2026</p>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<hr>
+<h4 align="center" class="anchored">
+<p><span style="font-size:34px; color:#bb0000"><strong>Using Generative and Agentic AI <br> for Omics Data Analysis</strong></span><br> <span style="font-size:22px; color:#3f4443; display:inline-block; margin-top:8px;">An Ohio State workshop on July 13–14, 2026</span></p>
+</h4>
+<hr style="width:30%; margin:-35px auto 0 auto; border:1px solid #3f4443;">
 <hr style="height:1pt; visibility:hidden;">
-<section id="monday-july-13" class="level4">
-<h4 class="anchored" data-anchor-id="monday-july-13">Monday, July 13</h4>
-<table class="caption-top table">
+<div class="callout callout-style-simple callout-caution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>The schedule below is preliminary and may change slightly before the workshop</em></p>
+</div>
+</div>
+</div>
+<section id="day-1-monday-july-13" class="level3">
+<h3 class="anchored" data-anchor-id="day-1-monday-july-13">Day 1: Monday, July 13</h3>
+<table class="table-striped table-hover caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 60%">
+</colgroup>
 <thead>
 <tr class="header">
+<th style="text-align: center;">Section</th>
 <th>Time</th>
 <th>Instructor</th>
 <th>Topic &amp; link</th>
@@ -161,20 +209,131 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>09:00 - 09:30 am</td>
-<td>Jelmer / all</td>
-<td>Workshop introduction</td>
+<td style="text-align: center;">1</td>
+<td>09:00 am – 09:45 am</td>
+<td><em>all</em></td>
+<td>Intro to the workshop &amp; how the instructors use AI</td>
 </tr>
 <tr class="even">
-<td>09:30 - 10:00 am</td>
-<td>all</td>
-<td>How the instructors have used genAI</td>
+<td style="text-align: center;">2</td>
+<td>09:45 am – 10:45 am</td>
+<td>Menuka</td>
+<td>Intro to Generative AI and LLMs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td><span style="color:steelblue"><em>10:45 am – 11:00 am</em></span></td>
+<td></td>
+<td>☕️ <span style="color:steelblue"><em>Break</em></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td>11:00 am – 11:30 am</td>
+<td>OTDI</td>
+<td>Approved AI Tools at OSU</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td>11:30 am – 12:15 pm</td>
+<td>Jonathan</td>
+<td>GenAI use cases and tools for research</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td><span style="color:steelblue"><em>12:15 pm – 01:15 pm</em></span></td>
+<td></td>
+<td>🍽 <span style="color:steelblue"><em>Lunch</em></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td>01:15 pm – 02:15 pm</td>
+<td>Jelmer</td>
+<td>Our toolbox: intro and setup</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td>02:15 pm – 02:45 pm</td>
+<td>OSC</td>
+<td>LLM options at OSC</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td><span style="color:steelblue"><em>02:45 pm – 03:00 pm</em></span></td>
+<td></td>
+<td>☕️ <span style="color:steelblue"><em>Break</em></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td>03:00 pm – 04:00 pm</td>
+<td>Jelmer</td>
+<td>Using Claude Code and GitHub Copilot</td>
 </tr>
 </tbody>
 </table>
+<hr style="height:1pt; visibility:hidden;">
 </section>
-<section id="tuesday-july-14" class="level4">
-<h4 class="anchored" data-anchor-id="tuesday-july-14">Tuesday, July 14</h4>
+<section id="day-2-tuesday-july-14" class="level3">
+<h3 class="anchored" data-anchor-id="day-2-tuesday-july-14">Day 2: Tuesday, July 14</h3>
+<table class="table-striped table-hover caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Section</th>
+<th>Time</th>
+<th>Instructor</th>
+<th>Topic &amp; link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td>09:00 am – 09:30 am</td>
+<td>Hannah</td>
+<td>Prompt engineering</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td>09:30 am – 10:30 am</td>
+<td>Menuka</td>
+<td>Advanced agentic options and skills</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td><span style="color:steelblue"><em>10:30 am – 10:45 am</em></span></td>
+<td></td>
+<td>☕️ <span style="color:steelblue"><em>Break</em></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td>10:45 am – 12:00 pm</td>
+<td>Jelmer</td>
+<td>A worked example analysis with agents</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td><span style="color:steelblue"><em>12:00 pm – 01:00 pm</em></span></td>
+<td></td>
+<td>🍽 <span style="color:steelblue"><em>Lunch</em></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11</td>
+<td>01:00 pm – 01:30 pm</td>
+<td>Hannah</td>
+<td>Limitations and responsible use of AI</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td>01:30 pm – 04:00 pm</td>
+<td><em>all</em></td>
+<td>DIY with own data or other data</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
@@ -253,7 +412,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("TBA");
+        var filterRegex = new RegExp("https:\/\/cfaes-bioinfo\.github\.io\/agentic-ai-workshop\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -581,6 +740,26 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>2026, Jelmer Poelstra, <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> &nbsp; <img src="http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" class="img-fluid" style="width:10.0%"></p>
+</div>   
+    <div class="nav-footer-center">
+<p><img src="./img/CFAES-Horiz-RGBHEX.svg" class="img-fluid" style="width:40.0%"></p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mcic-osu/pracs-au25">
+      <i class="bi bi-github" role="img" aria-label="The GitHub repo for this website">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

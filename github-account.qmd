@@ -1,0 +1,83 @@
+---
+title: "Optional GitHub account setup"
+subtitle: "Create a GitHub account and apply for free GitHub Copilot Pro access"
+date: 2026-07-01
+author:
+  - name: Jelmer Poelstra
+    orcid: 0000-0002-3514-7462
+    email: poelstra.1@osu.edu
+    affiliation: 
+      - name: CFAES Bioinformatics Core, Ohio State University
+        url: https://mcic.osu.edu/bioinformatics
+other-links:
+  - text: "VS Code setup"
+    icon: bookmarks
+    href: vscode-setup.qmd
+number-sections: true
+bibliography: refs.bib
+---
+
+---------
+
+<hr style="height:1pt; visibility:hidden;" />
+
+## Overview
+
+For the purposes of this workshop,
+a GitHub account will allow you to use the agentic AI tool GitHub Copilot within VS Code.
+
+The following steps are not strictly required before the workshop,
+because creating a GitHub account can be done quite seamlessly during the workshop,
+and because you'll also have access to an alternative, similar AI tool (Claude Code).
+
+However, we do recommend following the steps below.
+Claude Code is a paid tool that we will provide institutional^[for-fee, but free to you]
+access to during the workshop,
+but that you will not have access to after the workshop unless you pay for it in some way.
+GitHub Copilot, on the other hand, cannot be used institutionally at OSU,
+but does have a free 'personal' option for academic users.
+As such, for many of you, this may be the easiest way to continue trying out
+agentic AI tools after the workshop (we'll discuss your options further during the workshop).
+
+## Create a GitHub account (if you don't have one yet)
+
+GitHub is a place where you can store your code and share it with others,
+and where you can find code and software written by others.
+It can therefore be very useful to have a GitHub account beyond GitHub Copilot usage.
+
+1. Go to <https://github.com>
+
+2. Click the "**_Sign Up_**" button all the way in the top right corner of the page
+
+3. Fill out the form to provide your personal details
+   (only use "Continue with Google" if you're happy linking this to your Google
+   account rather than your OSU email address -- see below):
+  
+   - When choosing your **_username_**, best to keep it professional and include
+     (parts of) your real name:
+     you may use GitHub to share your code, like when publishing a paper.
+  
+   - It's recommended to sign up with your **_OSU email address_**,
+     as that will make the educational access verification process smoother
+
+5. Check your email and click the link to **_verify your email address_**.
+   There may also be some two-factor authentication steps to complete.
+
+## Apply for free GitHub Copilot Pro access
+
+The following will work for teachers/faculty and students alike –
+you'll just need to select the appropriate option in the form:
+
+1. Go to <https://github.com/settings/education/benefits>
+
+2. Click "**Start an application**":
+
+![](img/github-edu-benefits.png){fig-align="center" width="80%"}
+
+3. Fill out the form as needed. Note that you will most likely need a document
+   that proves your current status at the university.
+
+::: {.callout-caution appearance="simple"}
+Application approval is often quite fast (sometimes in minutes),
+but **access is only granted 72 hours after approval.**
+:::

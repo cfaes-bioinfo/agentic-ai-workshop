@@ -3,23 +3,56 @@ project:
   output-dir: docs
 
 website:
-  site-url: TBA
-  repo-url: TBA
+  title: "Agentic AI Workshop"
+  favicon: img/favicon.png
+  site-url: https://cfaes-bioinfo.github.io/agentic-ai-workshop/
+  repo-url: https://github.com/cfaes-bioinfo/agentic-ai-workshop
   page-navigation: true
   back-to-top-navigation: true
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: Day 1
+        menu:
+          - text: "1: Intro to the workshop"
+          - text: "2: Intro to Generative AI and LLMs"
+          - text: "4: Use cases and tools for research"
+          - text: "5: Toolbox intro and setup"
+          - text: "7: Using Claude Code and GitHub Copilot"
+      - text: Day 2
+        menu:
+          - text: "8: Prompt engineering"
+          - text: "9: Advanced agentic options and skills"
+          - text: "10: A worked example analysis with agents"
+          - text: "11: Limitations and responsible use of AI"
+          - text: "12: DIY with own data or other data"
+    right:
+      - text: Pre-workshop prep
+        menu:
+          - text: VS Code installation
+            href: vscode-install.qmd
+          - text: OSC account setup
+            href: osc-account.qmd
+          - text: "Optional: GitHub account setup"
+            href: github-account.qmd
+      - text: Practical Info
+        href: about.qmd
     tools:
       - icon: github
+        aria-label: "The GitHub repo for this website"
         menu:
           - text: Source Code
-            url:  XXX
+            url:  https://github.com/cfaes-bioinfo/agentic-ai-workshop
           - text: Report an Issue
-            url:  XXX/issues/new?template=Blank+issue
-
+            url:  https://github.com/cfaes-bioinfo/agentic-ai-workshop/issues/new?template=Blank+issue
+  page-footer:
+    left: |
+      2026, Jelmer Poelstra, [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)   ![](http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png){width="10%"}
+    center: |
+      ![](/img/CFAES-Horiz-RGBHEX.svg){width="40%"}
+    right:
+      - icon: github
+        href: https://github.com/mcic-osu/pracs-au25
+        aria-label: "The GitHub repo for this website"
 format:
   html:
     theme:
@@ -32,6 +65,12 @@ format:
     number-depth: 3
     grid:
       body-width: 800px
+
+execute:
+  freeze: auto
+  engine: knitr
+  eval: true
+editor: source
 
 knitr:
   opts_chunk:

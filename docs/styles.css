@@ -1,5 +1,211 @@
-/* css styles */
+/* --------------------------------------------------------------------------/*
+/* Headings */
+h2 {
+  color: #BB0000;
+  margin-top: 50px;
+}
+h3 {
+  margin-top: 35px;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+h4 {
+  font-size: 1.25em;
+  margin-top: 25px;
+}
+
+/* --------------------------------------------------------------------------/*
+/* Code boxes */
+/* Regular R output: */
+.regular-r-output {
+  color: rgb(141, 141, 143); !important
+}
+
+/* Warning R output: */
+.warning-r-output {
+  color: darkorange; !important
+}
+
+/* Error R output: */
+.error-r-output {
+  color: red; !important
+}
+
+.cell-output {
+    background-color: #e4e7ed;
+    padding: 5px 5px 0px 10px;
+    border-radius: 0px;
+    border-style: none;
+    border-width: 1px;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: #030303;
+    margin: -18px 0px 15px 0px;
+    font-style: italic;
+    color: rgb(141, 141, 143); !important
+}
+
+.styled-output {
+  color: rgb(141, 141, 143); !important
+}
+
+.bash-in-nocolor {
+    background-color: #f0f3f4;
+    padding: 5px 5px 5px 10px;
+    border-radius: 0px;
+    border-style: none;
+    border-width: 1px;
+    margin: 0px 0px 15px 0px;
+}
+
+.bash-out {
+    background-color: #e4e7ed;
+    padding: 5px 5px 0px 10px;
+    border-radius: 0px;
+    border-style: none;
+    border-width: 1px;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: #030303;
+    margin: -18px 0px 15px 0px;
+    font-style: italic;
+    color: rgb(141, 141, 143);
+}
+
+.bash-out-solo {
+    background-color: #e4e7ed;
+    padding: 5px 5px 5px 10px;
+    border-radius: 0px;
+    border-style: none;
+    border-width: 1px;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: #030303;
+    margin: 0px 0px 15px 0px;
+    font-style: italic;
+    color: rgb(141, 141, 143);
+}
+
+/* For manual/fake R output boxes: */
+.r-out {
+    background-color: #e4e7ed;
+    padding: 5px 5px 0px 10px;
+    border-radius: 0px;
+    border-style: none;
+    border-width: 1px;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: #030303;
+    margin: -18px 0px 25px 0px;
+    font-style: italic;
+    color: rgb(141, 141, 143);
+}
+
+/* For manual/fake R output boxes that are by themselves (not below source boxes): */
+.r-out-solo {
+    background-color: #e4e7ed;
+    padding: 5px 5px 5px 10px;
+    border-radius: 0px;
+    border-style: none;
+    border-width: 1px;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: #030303;
+    margin: 0px 0px 20px 0px;
+    font-style: italic;
+    color: rgb(141, 141, 143);
+}
+
+/* --------------------------------------------------------------------------/*
+/* Other */
+.exercise {
+  padding: 0.5em;
+  margin: 0.5em;
+  padding-left: 10px;
+  color: #12433A; /*#1f5386; */
+  border: solid 2px #7a767a;
+  border-radius: 25px;
+}
 
 figure figcaption {
   text-align: center;
+}
+
+.legend2 {
+  text-align: center !important;
+  color: #bebfc2 !important;
+  font-size: 0.9em !important; 
+  font-style: italic !important;
+}
+
+/* --------------------------------------------------------------------------/*
+/* details sections */
+details > summary {
+  padding-top: 4px;
+  padding-right: 10px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  background-color: #EDEFE8;
+  border: none;
+  border-radius: 25px;
+}
+
+details {
+  border-radius: 25px;
+  /* background-color: #EDEFE8; */
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 6px;
+  margin-top: 0px;
+  margin-left: 5px;
+  border-width: 1px;
+  border-left-width: 3px;
+  border-style: solid;
+  border-color: #d9d7d9;
+  border-left-color: #919091;
+  border-radius: 5px;
+}
+
+/* --------------------------------------------------------------------------/*
+/* Callouts */
+.callout-warning {
+  border: 1px solid #e89b2a !important;
+  border-left: 5px solid #e89b2a !important;
+}
+.callout-tip {
+  border: 1px solid #28a745 !important;
+  border-left: 5px solid #28a745 !important;
+}
+.callout-note {
+  border: 1px solid #0d6efd !important;
+  border-left: 5px solid #0d6efd !important;
+}
+.callout-important {
+  border: 1px solid #d63384 !important;
+  border-left: 5px solid #d63384 !important;
+}
+.callout-caution {
+  border: 1px solid #fd7e14 !important;
+  border-left: 5px solid #fd7e14 !important;
+}
+
+/* --------------------------------------------------------------------------/*
+/* Navbar */
+.navbar {
+  background-color: #3f4443 !important;
+}
+.navbar .navbar-brand,
+.navbar .nav-link,
+.navbar .dropdown-toggle {
+  color: #f0f0f0 !important;
+}
+#quarto-search svg,
+#quarto-search .aa-SubmitIcon {
+  color: #f0f0f0 !important;
+  fill: #f0f0f0 !important;
+}
+.navbar .nav-link:hover,
+.navbar .dropdown-toggle:hover {
+  color: #ffffff !important;
 }

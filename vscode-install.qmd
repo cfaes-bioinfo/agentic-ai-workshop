@@ -1,0 +1,78 @@
+---
+title: "VS Code installation"
+subtitle: "Install the Visual Studio Code (VS Code) editor on your own laptop"
+number-sections: true
+date: 2026-07-01
+author:
+  - name: Jelmer Poelstra
+    orcid: 0000-0002-3514-7462
+    email: poelstra.1@osu.edu
+    affiliation: 
+      - name: CFAES Bioinformatics Core, Ohio State University
+        url: https://mcic.osu.edu/bioinformatics
+bibliography: refs.bib
+other-links:
+  - text: "OSC account setup"
+    icon: bookmarks
+    href: osc-account.qmd
+---
+
+---------
+
+<hr style="height:1pt; visibility:hidden;" />
+
+::: {.callout-caution appearance="simple"}
+**_This page is still subject to change_**
+:::
+
+<hr style="height:1pt; visibility:hidden;" />
+
+## Overview
+
+In this workshop, we'll use the Visual Studio Code (VS Code) editor for
+most hands-on tasks: to write and run code, to connect to OSC, and to deploy agentic AI tools.
+This Microsoft program is freely available for anyone and works on Windows, Mac, and Linux computers. 
+
+This brief page will help you to install VS Code on whatever laptop you plan to bring to the workshop.
+
+## What you should do
+
+### If you have an OSU-managed computer
+
+If you are bringing an OSU computer, you may not have the required
+"administrative privileges" to install software on your computer the regular way.
+
+However, your computer should then have an OSU application that allows you to install a
+selection of approved software, and that selection includes VS Code.
+
+::: {.panel-tabset}
+#### Windows
+
+The OSU app is called "Software Center".
+
+*Details TBA*
+
+#### Mac
+
+The OSU app is called "Ohio State Application Self Service".
+
+1. Open this application (it's likely in the Dock, otherwise search for it)
+2. In it, start typing "Visual Studio Code" in the little search box on the top left
+3. Click the "Install" button that appears below the Visual Studio Code entry
+
+![This is the icon for the app on Jelmer's Mac](img/osu-mac_self-service-app.png){align="center" width="400px"}
+
+<hr style="height:1pt; visibility:hidden;" />
+
+![If you start typing "Visual Studio Code" in the search box, this is what you should see: although this screenshot says "Update"; you should see "Install" unless you also have it installed aready.](img/osu-mac_vscode-search.png){align="center" width="600px"}
+
+:::
+
+### If you have a personal computer
+
+Installation is quite straightforward --
+follow the links below for the official VS Code installation instructions for:
+
+- [Windows](https://code.visualstudio.com/docs/setup/windows)
+- [Mac](https://code.visualstudio.com/docs/setup/mac)
+- [Linux](https://code.visualstudio.com/docs/setup/linux)

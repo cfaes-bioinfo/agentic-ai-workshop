@@ -1,0 +1,51 @@
+---
+title: "OSC account setup"
+subtitle: "Create an Ohio Supercomputer Center account if you don't have one"
+date: 2026-07-01
+author:
+  - name: Jelmer Poelstra
+    orcid: 0000-0002-3514-7462
+    email: poelstra.1@osu.edu
+    affiliation: 
+      - name: CFAES Bioinformatics Core, Ohio State University
+        url: https://mcic.osu.edu/bioinformatics
+other-links:
+  - text: "VS Code setup"
+    icon: bookmarks
+    href: vscode-setup.qmd
+number-sections: true
+toc: true
+---
+
+---------
+
+<hr style="height:1pt; visibility:hidden;" />
+
+## Overview
+
+During the workshop, we'll be using the Ohio Supercomputer Center (OSC) so we can all run code
+and access data in the same manner.
+Additionally, OSC's computing resources and data storage capabilities make it
+the go-to location for us at OSU to perform real-world omics data analyses. 
+
+The instructors will add you to the workshop's OSC project (`PAS3454`),
+which will give you access to shared files and allow you to reserve computing resources.
+If you don't yet have an OSC account, 
+being added to the project will additionally trigger the process for you to create an account.
+
+## What you should do
+
+When you receive an invitation email from OSC referencing the workshop's project
+number `PAS3454`:
+
+- **If you don't have an OSC account yet**\
+  Follow the instructions and link in the email to create your OSC account
+  
+- **If you already have an OSC account**\
+  The email will likely tell you that you have been added to the project and don't need to do anything
+
+**In either case, check whether you can log in**\
+Go to <https://ondemand.osc.edu> and log in by typing your username and password
+on the left-hand side of the page.
+(If you just created your account,
+it can sometimes take up to half an hour or so before you can log in.)

@@ -1,5 +1,71 @@
 ---
-title: "About"
+title: "Practical workshop information"
+date: 2026-07-01
+author:
+  - name: Jelmer Poelstra
+    orcid: 0000-0002-3514-7462
+    email: poelstra.1@osu.edu
+    affiliation: 
+      - name: CFAES Bioinformatics Core, Ohio State University
+        url: https://mcic.osu.edu/bioinformatics
 ---
 
-About this site
+------
+
+<hr style="height:1pt; visibility:hidden;" />
+
+This is a 2-day, hands-on Ohio State workshop organized by the
+[CFAES Bioinformatics Core](https://go.osu.edu/bioinformatics-core)
+and the [Department of Plant Pathology](https://plantpath.osu.edu/).
+It is intended for researchers who want to learn how to use generative and agentic
+AI tools for omics data analysis and beyond.
+
+#### Basic information
+
+- **Dates**: July 13 and 14, 2026, 9 am – 4 pm
+- **Location**: In-person in Columbus (Kottman 244) and Wooster (WSB 300) with Zoom connection
+- **Instructors**:
+  - Menuka Bhandari (bioinformatician, [CFAES Bioinformatics Core](https://go.osu.edu/bioinformatics-core))
+  - Jelmer Poelstra (lead, [CFAES Bioinformatics Core](https://go.osu.edu/bioinformatics-core))
+  - Hannah Toth (postdoc, [Department of Plant Pathology](https://plantpath.osu.edu/))
+  - Jonathan Jacobs (professor, [Department of Plant Pathology](https://plantpath.osu.edu/))
+- **Detailed schedule**: [see the website's front page](index.qmd)
+- **Attendance fee**: $150 (an invoice will be sent after the workshop)
+
+#### What you should bring to the workshop
+
+- A laptop – either OSU-managed or personal
+- Optional: A data set you'd like to analyze with AI tools during the workshop's second afternoon
+  (if you don't have one, we can help you find and obtain a relevant publicly available data set during the workshop)
+
+::: {.callout-tip appearance="simple"}
+_You don't need to bring food or drinks, as these will be provided during the breaks._
+:::
+
+#### What setup steps you should do before the workshop
+
+As listed in the "Pre-workshop prep" dropdown in the top navigation bar of this website:
+
+1. [Install VS Code on your laptop](vscode-install.qmd)
+2. [Create an OSC account](osc-account.qmd) if you don't have one
+3. Optional: [Create a GitHub account and request free academic benefits](github-account.qmd)
+
+#### What you should know before the workshop
+
+We expect you to have basic knowledge of the Ohio Supercomputer Center ([OSC](https://www.osc.edu/))
+and the Unix Shell ("terminal" / "command line"),
+including how to run simple shell scripts as Slurm jobs on OSC.
+Some knowledge of programming in R or Python is also helpful, but not required.
+
+**We will organize a 2-hour pre-workshop event for those who need to get up to speed on**
+**OSC and the Unix Shell, and will make its recording and other materials**
+**available for those who cannot attend.**
+
+<hr style="height:1pt; visibility:hidden;" />
+
+::: {.callout-note appearance="simple"}
+_The CFAES Bioinformatics Core also teaches the related 3-credit AU26 course_
+_"Practical Computing Skills for Omics Data" (PLNTPTH 5006)._
+_For more information, contact [Jelmer Poelstra](mailto:poelstra.1@osu.edu) and_
+_see [last year's course website](https://cfaes-bioinfo.github.io/pracs-au25/)._
+:::

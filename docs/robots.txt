@@ -1,1 +1,1 @@
-Sitemap: TBA/sitemap.xml
+Sitemap: https://cfaes-bioinfo.github.io/agentic-ai-workshop/sitemap.xml
