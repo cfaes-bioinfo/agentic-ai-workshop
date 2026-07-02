@@ -640,18 +640,8 @@ rm slurm* sleep.txt
 
 <hr style="height:1pt; visibility:hidden;" />
 
-::: callout-warning
-### Be careful with deleting Slurm files
-If you delete a Slurm log file for a job that is still running,
-the file will **not** be recreated when the job produces more logging output
-later on.
-That means that if you accidentally do this and the logging output is of key
-importance to interpreting other outputs, or making sure it ran successfully,
-you are better off canceling the job entirely and trying again. 😕
-:::
-
 :::{.callout-note collapse="true"}
-### Canceling jobs
+### Canceling jobs _(Click to expand)_
 
 Sometimes, you want to cancel one or more jobs.
 For example, you may realize you made a mistake in the script

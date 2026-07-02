@@ -218,14 +218,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#osc-ondemand" id="toc-osc-ondemand" class="nav-link" data-scroll-target="#osc-ondemand"><span class="header-section-number">5</span> OSC OnDemand</a>
   <ul class="collapse">
   <li><a href="#files-menu" id="toc-files-menu" class="nav-link" data-scroll-target="#files-menu"><span class="header-section-number">5.1</span> Files menu</a></li>
-  <li><a href="#clusters-menu" id="toc-clusters-menu" class="nav-link" data-scroll-target="#clusters-menu"><span class="header-section-number">5.2</span> Clusters menu</a></li>
-  <li><a href="#interactive-apps-menu" id="toc-interactive-apps-menu" class="nav-link" data-scroll-target="#interactive-apps-menu"><span class="header-section-number">5.3</span> Interactive Apps menu</a></li>
+  <li><a href="#interactive-apps-menu" id="toc-interactive-apps-menu" class="nav-link" data-scroll-target="#interactive-apps-menu"><span class="header-section-number">5.2</span> Interactive Apps menu</a></li>
+  <li><a href="#clusters-menu" id="toc-clusters-menu" class="nav-link" data-scroll-target="#clusters-menu"><span class="header-section-number">5.3</span> Clusters menu</a></li>
   </ul></li>
-  <li><a href="#vs-code" id="toc-vs-code" class="nav-link" data-scroll-target="#vs-code"><span class="header-section-number">6</span> VS Code</a>
-  <ul class="collapse">
-  <li><a href="#starting-vs-code-at-osc" id="toc-starting-vs-code-at-osc" class="nav-link" data-scroll-target="#starting-vs-code-at-osc"><span class="header-section-number">6.1</span> Starting VS Code at OSC</a></li>
-  <li><a href="#open-a-terminal-with-a-unix-shell" id="toc-open-a-terminal-with-a-unix-shell" class="nav-link" data-scroll-target="#open-a-terminal-with-a-unix-shell"><span class="header-section-number">6.2</span> Open a Terminal with a Unix shell</a></li>
-  </ul></li>
+  <li><a href="#key-take-home-messages" id="toc-key-take-home-messages" class="nav-link" data-scroll-target="#key-take-home-messages"><span class="header-section-number">6</span> Key take-home messages</a></li>
   </ul>
 </nav>
     </div>
@@ -474,22 +470,6 @@ A facility like OSC that has one or more supercomputers.</li>
 <h4 class="anchored" data-anchor-id="compute-nodes">Compute Nodes</h4>
 <p>Data processing and analysis is done on compute nodes. You can only use compute nodes after putting in a <strong>request for compute resources</strong> (a “compute job”).</p>
 <p>A <em>job scheduler</em> program called Slurm then assigns the requested resources: for example, you may get exclusive access to a specific compute node for two hours.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Key take-home messages so far
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>The distinction between login nodes and compute nodes</li>
-<li>The distinction between your Home folder and folders associated with OSC Projects</li>
-</ul>
-</div>
-</div>
 </section>
 </section>
 </section>
@@ -537,91 +517,67 @@ A facility like OSC that has one or more supercomputers.</li>
 <figcaption><em>The OnDemand file browser</em></figcaption>
 </figure>
 </div>
-<p>This interface is <strong>much like the file browser on your own computer</strong>, so you can also create, delete, move and copy files and folders, and even upload (from your computer to OSC) and download (from OSC your computer) files.</p>
+<p>This interface is <strong>much like the file browser on your own computer</strong>, so you can also create, delete, move and copy files and folders, and even upload (from your computer to OSC) and download (from OSC your computer) files<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> — see the buttons across the top.</p>
+<hr>
 <p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Create a personal folder</strong> inside <code>/fs/ess/PAS3454/people</code>:</p>
 <ol type="1">
 <li>Click on the <code>people</code> folder</li>
-<li>Click the “New Directory” button at the top</li>
+<li>Click the “New Directory” (<em><strong>directory -or dir for short- is another word for folder</strong></em>) at the top</li>
 <li>Give the new folder the <strong>exact same name</strong> as your OSC username. If you forgot your username, you can see it in the top-right corner of the OnDemand webpage.</li>
 <li>Click on the new folder and within it, create one more folder: <code>pre-workshop</code>.</li>
 </ol>
 </section>
-<section id="clusters-menu" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="clusters-menu"><span class="header-section-number">5.2</span> Clusters menu</h3>
+<section id="interactive-apps-menu" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="interactive-apps-menu"><span class="header-section-number">5.2</span> Interactive Apps menu</h3>
+<p>You can access programs with Graphical User Interfaces (<strong>GUI</strong>s; point-and-click interfaces) via the <strong>Interactive Apps</strong> dropdown menu:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/ondemand_apps.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Options in the OSC Ondemand Interactive Apps dropdown menu"><img src="img/ondemand_apps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%" alt="A screenshot of the options in the OSC Ondemand Interactive Apps dropdown menu."></a></p>
+</figure>
+</div>
+<figcaption><em>Options in the OSC Ondemand Interactive Apps dropdown menu</em></figcaption>
+</figure>
+</div>
+<p>Shortly, we’ll start using the VS Code text editor, which is listed here as <code>Code Server</code>.</p>
+</section>
+<section id="clusters-menu" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="clusters-menu"><span class="header-section-number">5.3</span> Clusters menu</h3>
 <p>This menu gives access to a Unix Shell on each cluster, contains a page with information about installed software, and provides a page with live information about cluster usage. Here, we’ll just look at the latter.</p>
 <p>In the “<strong>Clusters</strong>” dropdown menu, click on the item at the bottom, “<strong><code>System Status</code></strong>”:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/ondemand_systemstatus_select.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="The Clusters dropdown menu"><img src="img/ondemand_systemstatus_select.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="A screenshot of the options in the OSC OnDemand Clusters dropdown menu."></a></p>
+<p><a href="img/ondemand_systemstatus_select.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="The Clusters dropdown menu"><img src="img/ondemand_systemstatus_select.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="A screenshot of the options in the OSC OnDemand Clusters dropdown menu."></a></p>
 </figure>
 </div>
 <figcaption><em>The Clusters dropdown menu</em></figcaption>
 </figure>
 </div>
-<p>This page shows an overview of the live, current usage of the two clusters — for now, this should mostly just give you a good idea of the scale of the supercomputer center<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>This page shows an overview of the live, current usage of the two clusters — for now, this should mostly just give you a good idea of the scale of the supercomputer center<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/ondemand_systemstatus.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="A screenshot of the “System Status” page showing live cluster usage."><img src="img/ondemand_systemstatus.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="A screenshot of the OSC Ondemand System Status page showing live cluster usage."></a></p>
+<p><a href="img/ondemand_systemstatus.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="A screenshot of the “System Status” page showing live cluster usage."><img src="img/ondemand_systemstatus.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="A screenshot of the OSC Ondemand System Status page showing live cluster usage."></a></p>
 </figure>
 </div>
 <figcaption>A screenshot of the “System Status” page showing live cluster usage.</figcaption>
 </figure>
 </div>
 </section>
-<section id="interactive-apps-menu" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="interactive-apps-menu"><span class="header-section-number">5.3</span> Interactive Apps menu</h3>
-<p>With the <strong>Interactive Apps</strong> dropdown menu, you can access programs with Graphical User Interfaces (<strong>GUI</strong>s; point-and-click interfaces), such as RStudio, Jupyter Notebook, VS Code, and many more.</p>
 </section>
-</section>
-<section id="vs-code" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="vs-code"><span class="header-section-number">6</span> VS Code</h2>
-<p>VS Code is basically a <strong>fancy text editor</strong>. Its full name is Visual Studio Code, and it’s called “Code Server” at OSC.</p>
-<p>To emphasize the additional functionality relative to basic text editors like Notepad and TextEdit, editors like VS Code are also referred to as <strong>IDEs</strong>: Integrated Development Environments. The RStudio program is another good example of an IDE — and like RStudio is an IDE for R, VS Code will be our IDE for shell (and other) code.</p>
-<p>In this session, we will use VS Code to practice with Unix shell basics and scripting.</p>
-<section id="starting-vs-code-at-osc" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="starting-vs-code-at-osc"><span class="header-section-number">6.1</span> Starting VS Code at OSC</h3>
+<section id="key-take-home-messages" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="key-take-home-messages"><span class="header-section-number">6</span> Key take-home messages</h2>
 <ul>
-<li><p>In the Interactive Apps dropdown menu, near the bottom, click <code>Code Server</code>.</p></li>
-<li><p>Interactive Apps like VS Code and RStudio <strong>run on compute nodes</strong> (not login nodes). Because compute nodes always need to be “reserved”, we have to fill out a form and specify the following details:</p>
-<ul>
-<li>The <strong>Cluster</strong> we want to use: <code>Pitzer</code></li>
-<li>The <strong>Account</strong>, the OSC Project to be billed for the compute node usage: <code>PAS2880</code></li>
-<li>The <strong>Number of hours</strong> we want to make a reservation for: <code>2</code></li>
-<li>This time, leave the <strong>Working Directory</strong> (starting point) for the program blank</li>
-<li>The <strong>App Code Server version</strong>: <code>4.8.3</code> (the only available option)</li>
-</ul></li>
-<li><p>Click <code>Launch</code> and you’ll be sent to the <em>My Interactive Sessions</em> page with a card for your job at the top.</p></li>
-<li><p>First, your job may be <em>Queued</em> for some seconds (i.e., waiting for computing resources to be assigned to it), but it should soon switch to <em>Starting</em> and then be ready for usage (<em>Running</em>) in another couple of seconds:</p></li>
+<li>The distinction between login nodes and compute nodes</li>
+<li>The distinction between your Home folder and folders associated with OSC Projects</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./img/ondemand_vscode_running2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="./img/ondemand_vscode_running2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="A screenshot of the OSC OnDemand page shown when the Code Server job has started running."></a></p>
-</figure>
-</div>
-<ul>
-<li><p>Once the blue <strong>Connect to VS Code</strong> button appears, click that to open VS Code in a new browser tab.</p></li>
-<li><p>When VS Code opens, you may get a pop-up similar to this — click “Yes” and check the box:</p></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./img/vscode-trust2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="./img/vscode-trust2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="A screenshot of a popup you may get when first opening a folder in VS Code."></a></p>
-</figure>
-</div>
-<ul>
-<li>You’ll also see a Welcome document — you don’t have to go through any steps suggested there.</li>
-</ul>
-<p><em>Congratulations: you have started your first compute job at OSC!</em> 🥳</p>
-</section>
-<section id="open-a-terminal-with-a-unix-shell" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="open-a-terminal-with-a-unix-shell"><span class="header-section-number">6.2</span> Open a Terminal with a Unix shell</h3>
-<p>In VS Code, <strong>open a terminal</strong> by clicking <i class="fa-solid fa-bars" aria-label="bars"></i> &nbsp; &gt; <code>Terminal</code> &gt; <code>New Terminal</code>. We’ll use this to practice with Unix shell commands in the next part of this session.</p>
+<hr style="height:1pt; visibility:hidden;">
 
 
-</section>
 </section>
 
 
@@ -629,7 +585,8 @@ A facility like OSC that has one or more supercomputers.</li>
 
 <ol>
 <li id="fn1"><p> Though we don’t have to pay anything for educational projects like this one!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p> This information can also be useful to learn which cluster currently has more available nodes, and what the sizes are of the “queues”, which contain jobs waiting to start<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Though this is not meant for large (&gt;1 GB) transfers. Different methods are available — we’ll talk about those later on.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p> This information can also be useful to learn which cluster currently has more available nodes, and what the sizes are of the “queues”, which contain jobs waiting to start<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

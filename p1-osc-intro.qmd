@@ -126,8 +126,10 @@ OSC has several distinct file systems:
 
 : {.striped .hover tbl-colwidths="[15, 15, 70]"}
 
+<hr style="height:1pt; visibility:hidden;" />
+
 During the workshop, we'll work in the Scratch folder of the workshop's OSC Project
-`PAS3454`, which is located at `/fs/scratch/PAS3454`.
+`PAS3454`, located at `/fs/scratch/PAS3454`.
 
 Key file system terminology:
 
@@ -136,24 +138,24 @@ Key file system terminology:
 
 <hr style="height:1pt; visibility:hidden;" />
 
-![A diagram showing the part of the OSC file system structure, focusing on folders relevant for this workshop, and with OSC Project-associated dirs in blue and Home dirs in red.](img/osc-paths2.png){fig-align="center" width="40%" .lightbox fig-alt="A diagram showing paths on OSC and navigating upwards with relative paths"}
+![A diagram showing part of the OSC file system structure, focusing on folders relevant for this workshop, and with OSC Project-associated dirs in blue and Home dirs in red.](img/osc-paths2.png){fig-align="center" width="40%" .lightbox fig-alt="A diagram showing paths on OSC and navigating upwards with relative paths"}
 
 ::: callout-warning
 #### Home directory clarifications and pitfalls
 
-- Even though a project is listed in the path to your Home directory,
+- Even though a project number is part of the path to your Home directory
+  (e.g., `/users/PAS3454/jane`)
   this is merely an OSC naming convention and **your Home directory is not tied to any OSC Project.**
-
-- You will only ever have one Home directory and its location will not change,
-  even if the project that is listed in the path --for example-- ceases to exist.
+  Thefore, your Home directory will remain the same even if you are, say, removed from a project.
 
 - **By default, you will be placed in your Home directory when you --e.g.-- log in to OSC.**
   **But this is typically not where you want to be when working with data and running analyses.**
+  (In those cases, you should start by navigating elsewhere.)
 
 - Avoid storing research project file in your Home dir:
   it has limited storage and is harder to access by collaborators.
 
-- Your Home dir may contain all sorts of automatically generated files and those
+- Your Home dir will contain some automatically generated files and those
   should generally not be deleted!
 :::
 
@@ -165,8 +167,7 @@ and they are shared among everyone, and cannot be reserved for exclusive usage.
 
 Therefore, login nodes are meant only for things like organizing files and
 creating scripts for compute jobs.
-They are ***not*** **meant for serious computing** -- in other words,
-they don't provide compute, which is the function of compute nodes.
+They are ***not*** **meant for serious computing**.
 
 #### Compute Nodes
 
@@ -174,43 +175,43 @@ Data processing and analysis is done on compute nodes.
 You can only use compute nodes after putting in a **request for compute resources**
 (a "compute job").
 
-A *job scheduler* program called _Slurm_,
-which you'll learn more about shortly, then assigns the requested resources:
+A *job scheduler* program called Slurm then assigns the requested resources:
 for example, you may get exclusive access to a specific compute node for two hours.
+
+::: callout-tip
+#### Key take-home messages so far
+
+- The distinction between login nodes and compute nodes
+- The distinction between your Home folder and folders associated with OSC Projects
+:::
 
 ## OSC OnDemand
 
-The OSC OnDemand web portal is an amazing recourse that allows you to use a
-web browser to access OSC resources. For example, it offers access to:
-
-- A **file browser/explorer**
-- A **Unix shell**
-- "**Interactive Apps**": programs such as RStudio and VS Code
-
------
+The OSC OnDemand web portal is a great resource that allows you to access OSC resources
+within a web browser.
 
 {{< fa user-edit >}} **Go to <https://ondemand.osc.edu> and log in** (use the boxes on the left-hand side).
 Once logged in, you should see a landing page similar to the one below:
 
-![_The OSC OnDemand landing page_](img/ondemand_home.png){fig-align="center" width="95%" fig-alt="A screenshot of the OSC OnDemand landing page" .lightbox}
+![_A screenshot at the OSC OnDemand landing page. Details will vary depending on your account and OSC updates._](img/ondemand_home.png){fig-align="center" width="95%" fig-alt="A screenshot of the OSC OnDemand landing page" .lightbox}
 
-We will now go through some of the dropdown menus in the **blue bar along the top**.
+We will now go through some of the dropdown menus in the **blue bar along the top**:
 
 ### Files menu
 
-Hovering over the **Files** dropdown menu gives a list of folders that you have access to.
-If your account is brand new, and you were added to `PAS3454`,
+Hovering over the **Files** dropdown menu gives a list of folders you can access.
+If your account is brand new and was created after you were added to `PAS3454`,
 you should only see three folders listed:
 
 1.  A **Home** folder (starts with `/users/`)
 2.  The `PAS3454` project's "**project**" folder (`/fs/ess/PAS3454`)
 3.  The `PAS3454` project's "**scratch**" folder (`/fs/scratch/PAS3454`) 
 
-You will only ever have one Home folder at OSC,
+::: {.callout-note appearance="simple"}
+As mentioned above: you will only ever have one Home folder at OSC,
 but for every additional project you are a member of,
 you will usually see additional `/fs/ess` and `/fs/scratch` folders appear.
-
------
+:::
 
 {{< fa user-edit >}} **Click on folder `/fs/scratch/PAS3454`**.
 Once there, you should see the folders and files present at the selected location,
@@ -218,28 +219,17 @@ and can click on folders to explore their contents:
 
 ![_The OnDemand file browser_](img/ondemand_files_PAS2880.png){fig-align="center" width="95%" fig-alt="A screenshot of the OSC OnDemand file browser." .lightbox}
 
-This interface is **much like the file browser on your own computer**, so you can also create, delete, move and copy files and folders, and even upload (from your computer to OSC) and download (from OSC your computer) files^[Though this is not meant for large (\>1 GB) transfers. Different methods are available --- we'll talk about those later on.] --- see the buttons across the top.
-
----- 
+This interface is **much like the file browser on your own computer**,
+so you can also create, delete, move and copy files and folders,
+and even upload (from your computer to OSC) and download (from OSC your computer) files.
 
 {{< fa user-edit >}} **Create a personal folder** inside `/fs/ess/PAS3454/people`:
 
 1. Click on the `people` folder
-2. Click the "New Directory" (_**directory -or dir for short- is another word for folder**_)
-   at the top
+2. Click the "New Directory" button at the top
 3. Give the new folder the **exact same name** as your OSC username.
    If you forgot your username, you can see it in the top-right corner of the OnDemand webpage.
 4. Click on the new folder and within it, create one more folder: `pre-workshop`.
-
-### Interactive Apps menu
-
-You can access programs with Graphical User Interfaces (**GUI**s; point-and-click interfaces)
-via the **Interactive Apps** dropdown menu:
-
-![_Options in the OSC Ondemand Interactive Apps dropdown menu_](img/ondemand_apps.png){fig-align="center" width="20%" fig-alt="A screenshot of the options in the OSC Ondemand Interactive Apps dropdown menu." .lightbox}
-
-Shortly, we'll start using the VS Code text editor,
-which is listed here as `Code Server`.
 
 ### Clusters menu
 
@@ -260,9 +250,61 @@ and what the sizes are of the "queues", which contain jobs waiting to start].
 
 ![A screenshot of the "System Status" page showing live cluster usage.](img/ondemand_systemstatus.png){fig-align="center" width="90%" fig-alt="A screenshot of the OSC Ondemand System Status page showing live cluster usage." .lightbox}
 
-## Key take-home messages
+### Interactive Apps menu
 
-- The distinction between login nodes and compute nodes
-- The distinction between your Home folder and folders associated with OSC Projects
+With the **Interactive Apps** dropdown menu,
+you can access programs with Graphical User Interfaces (**GUI**s; point-and-click interfaces),
+such as RStudio, Jupyter Notebook, VS Code, and many more.
 
-<hr style="height:1pt; visibility:hidden;" />
+## VS Code
+
+VS Code is basically a **fancy text editor**.
+Its full name is Visual Studio Code, and it's called "Code Server" at OSC.
+
+To emphasize the additional functionality relative to basic text editors like Notepad and TextEdit,
+editors like VS Code are also referred to as **IDEs**: Integrated Development Environments.
+The RStudio program is another good example of an IDE ---
+and like RStudio is an IDE for R, VS Code will be our IDE for shell (and other) code.
+
+In this session, we will use VS Code to practice with Unix shell basics and scripting.
+
+### Starting VS Code at OSC
+
+- In the Interactive Apps dropdown menu, near the bottom, click `Code Server`.
+
+- Interactive Apps like VS Code and RStudio **run on compute nodes** (not login nodes).
+  Because compute nodes always need to be "reserved",
+  we have to fill out a form and specify the following details:
+  - The **Cluster** we want to use: `Pitzer`
+  - The **Account**, the OSC Project to be billed for the compute node usage: `PAS2880`
+  - The **Number of hours** we want to make a reservation for: `2`
+  - This time, leave the **Working Directory** (starting point) for the program blank
+  - The **App Code Server version**: `4.8.3` (the only available option)
+
+- Click `Launch` and you'll be sent to the _My Interactive Sessions_ page
+  with a card for your job at the top.
+
+- First, your job may be *Queued* for some seconds
+  (i.e., waiting for computing resources to be assigned to it),
+  but it should soon switch to *Starting* and then
+  be ready for usage (*Running*) in another couple of seconds:
+
+![](/img/ondemand_vscode_running2.png){fig-align="center" width="75%" fig-alt="A screenshot of the OSC OnDemand page shown when the Code Server job has started running." .lightbox}
+
+- Once the blue **Connect to VS Code** button appears,
+  click that to open VS Code in a new browser tab.
+
+- When VS Code opens, you may get a pop-up similar to this ---
+  click "Yes" and check the box:
+
+![](/img/vscode-trust2.png){fig-align="center" width="60%" fig-alt="A screenshot of a popup you may get when first opening a folder in VS Code." .lightbox}
+
+- You'll also see a Welcome document ---
+  you don't have to go through any steps suggested there.
+
+_Congratulations: you have started your first compute job at OSC!_ 🥳
+
+### Open a Terminal with a Unix shell
+
+In VS Code, **open a terminal** by clicking {{< fa bars >}}   > `Terminal` > `New Terminal`.
+We'll use this to practice with Unix shell commands in the next part of this session.

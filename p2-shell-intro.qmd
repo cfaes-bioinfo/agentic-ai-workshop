@@ -23,7 +23,6 @@ bibliography: refs.bib
 
 <hr style="height:1pt; visibility:hidden;" />
 
-
 ## Introduction
 
 In this part, you'll learn:
@@ -33,41 +32,29 @@ In this part, you'll learn:
 - How Unix commands are stuctured
 - How to navigate around your computer with Unix commands
 
-## The Unix shell
-
 ### Some terminology and concepts
 
-**Unix-based (or Unix-like) operating systems include MacOS and Linux** but not Windows.
-For scientific computing, Unix-based operating systems are generally preferable.
-Linux specifically, while not as familiar to the general public,
-is what supercomputers like OSC and servers worldwide tend to run on.
-
-This session introduces the "Unix shell".
-How does that relate to some other terms you may have heard of?
+Terminology around the Unix shell can be confusing, and some terms are used interchangeably.
 Let's run by these terms going from more general ones to more specific ones:
 
 | Term | Explanation
 |----|----------|
 | **Command Line** /<br>**Command Line Interface (CLI)** |   A user interface where you **type commands** rather than clicking-and pointing like in a _Graphical User Interface (GUI)_. This "interface" can be from anything from a specific bioinformatics program to your computer's operating system. |
 | **Shell** | A more specific term for a command line interface _to your computer_.
-| **Unix shell** |The type of shell found on Unix-based (Linux + Mac) computers.
+| **Unix shell** | The type of shell on computers with Mac or Linux (i.e., Unix-based) operating systems.
 
 : {.striped .hover}
 
 <hr style="height:1pt; visibility:hidden;" />
 
-Additionally, **Bash** is a specific Unix shell _language_ (the most common one and the one we'll use)
 Also related is the word **terminal**:
 the program/app/window in which the shell is run.
-A general observation is that while all these terms are not synonyms, 
-they are in practice often used interchangeably. 
 
 ### Why use the Unix shell?
 
 The Unix shell can be used for a wide variety of tasks,
 from "file browser" functionality to running specialized software.
-
-The Unix shell has been around for a long time and may seem a bit archaic.
+It has been around for a long time and may seem archaic.
 But astonishingly, a system largely built decades ago in an era with very
 different computers and datasets has stood the test of time,
 and the ability to use it is a crucial skill in computational biology.
@@ -94,7 +81,7 @@ languages like R and Python:
 - **Efficiency**\
   Built-in shell tools are often faster in terms of coding and processing time,
   especially for simpler tasks.
-- **Remote computing -- especially supercomputers**\
+- **Remote computing --- especially supercomputers**\
   When doing remote computing, your point of entry is commonly the Unix shell.
 
 ## First steps in the shell
@@ -105,9 +92,9 @@ languages like R and Python:
 2. In the blue top bar, select `Interactive Apps` and near the bottom, click `Code Server`
 3. Fill out the form as follows:
    - **Cluster**: `pitzer`
-   - **Account**: `PAS2880`
+   - **Account**: `PAS3454`
    - **Number of hours**: `2`
-   - **Working Directory**:" `/fs/ess/PAS2880/user/<username>` (replace `<username>` with your actual user name)
+   - **Working Directory**:" `/fs/ess/PAS3454/user/<username>` (replace `<username>` with your actual user name)
    - **App Code Server version**: `4.8.3`
 4. Click `Launch`
 5. Click the `Connect to VS Code` button once it appears
@@ -133,9 +120,10 @@ Which represents the following pieces of information:
 [<username>@<node-name> <working-dir>]$
 ```
 
-The `<working-dir>` part only shows the name of the directory you are directly
+A `<working-dir>` is the directory that you are currently located in.
+Here, for brevity, it only shows the name of the dir you are directly
 located in (e.g. `jelmer`) rather than the entire path
-(e.g. `/fs/ess/PAS2880/users/jelmer`).
+(e.g. `/fs/ess/PAS3454/users/jelmer`).
 
 **You type your commands after the dollar sign `$`,**
 **and then press <kbd>Enter</kbd> to execute the command.**
@@ -159,7 +147,7 @@ you'll "get your prompt back" and can type and execute a new command.
 #### Is the printed directory not your username? _(Click to expand)_
 If you see a `~` as the working-dir-part of your prompt,
 you are instead in your Home directory in `/users/` and you will need to go
-to `/fs/ess/PAS2880/users/<user>` instead.
+to `/fs/ess/PAS3454/users/<user>` instead.
 To do so: click `File` > `Open Folder` in VS Code and then type/select that dir.
 When you then open a Terminal again, the correct dir should be displayed.
 :::
@@ -188,7 +176,7 @@ Let's start with a few simple commands:
   pwd
   ```
   ``` bash-out
-  /fs/ess/PAS2880/users/jelmer
+  /fs/ess/PAS3454/users/jelmer
   ```
 
 - The `echo` command simply prints the text you provide it with,
@@ -455,58 +443,6 @@ In this case, we learn that each option to `cal` can be referred to in one of tw
    </details>
 :::
 
-## Environment variables
-
-You may be familiar with the concept of **variables** from previous experience
-with perhaps R or another language.
-Either way, variables can hold values and other pieces of data,
-and they are essential in coding.
-
-While you can create variables yourself, **environment variables**
-are _pre-existing_ variables that have been automatically created by the computer.
-Two examples are:
-
-- `$HOME`, which contains the path to your Home directory
-- `$USER`, which contains your user name
-
-Note that in the Unix shell, *variables are always referenced using a leading `$`.*
-This helps you recognize them as variables.
-Additionally, if you want to print the values of variables,
-you need the `echo` command:
-
-```bash
-echo $HOME
-```
-```bash-out
-/users/PAS0471/jelmer
-```
-
-```bash
-echo $USER
-```
-```bash-out
-jelmer
-```
-
-::: exercise
-#### {{< fa user-edit >}} Exercise: environment variables and `echo`
-
-Using an environment variable,
-get the Unix shell to print `Hello, my name is <username>`
-(e.g. `Hello, my name is natalie`) to the screen.
-
-<details><summary>*Click for the solution*</summary>
-
-``` bash
-# (This would also work without the " " quotes)
-echo "Hello, my name is $USER"
-```
-``` bash-out
-Hello, my name is jelmer
-```
-</details>
-:::
-
 ## Navigation
 
 ### `cd` and command "actions"
@@ -517,20 +453,20 @@ But many commands perform another kind of **action**.
 
 For example, the command **`cd`** will change your *working* directory.
 But first, check again where you are ---
-you should be in your personal dir within `/fs/ess/PAS2880/users`:
+you should be in your personal dir within `/fs/ess/PAS3454/users`:
 
 ```bash
 pwd
 ```
 ```bash-out
-/fs/ess/PAS2880/users/jelmer
+/fs/ess/PAS3454/users/jelmer
 ```
 
 Now, use `cd` to move to another directory by specifying the *path* to that
 dir as an argument:
 
 ``` bash
-cd /fs/ess/PAS2880
+cd /fs/ess/PAS3454
 ```
 
 ```bash
@@ -538,7 +474,7 @@ cd /fs/ess/PAS2880
 pwd
 ```
 ``` bash-out
-/fs/ess/PAS2880
+/fs/ess/PAS3454
 ```
 
 In summary:
@@ -553,11 +489,11 @@ In summary:
 Let's also see what happens when `cd` does not succeed — it gives an error:
 
   ``` bash
-  cd /fs/ess/PAs2880
+  cd /fs/ess/PAS3454
   ```
   
   ``` bash-out
-  -bash: cd: /fs/ess/PAs2880: No such file or directory
+  -bash: cd: /fs/ess/PAS3454: No such file or directory
   ```
 
 ::: callout-important
@@ -587,7 +523,7 @@ Some examples of `..`:
   pwd
   ```
   ```bash-out
-  /fs/ess/PAS2880
+  /fs/ess/PAS3454
   ```
   ```bash
   # Move one level up:
@@ -603,7 +539,7 @@ Some examples of `..`:
 - You can "continue" a path like usual after `..`, e.g.:
 
   ```bash
-  cd ../scratch/PAS2880
+  cd ../scratch/PAS3454
   ```
 
 - Therefore, you can also move up multiple levels at once, e.g.:
@@ -639,24 +575,24 @@ perhaps this diagram helps:
 #### {{< fa user-edit >}} Exercise: navigation
 
 1. Use a relative path to move back to your personal dir 
-   `/fs/ess/PAS2880/users/$USER`
+   `/fs/ess/PAS3454/users/$USER`
 
    <details><summary>*Click to see the solution*</summary>
    
    Since you are in `/fs`:
    
    ``` bash
-   cd ess/PAS2880/users/$USER
+   cd ess/PAS3454/users/$USER
    ```
    </details>
 
 2. From there, use another relative path to move into the
-   `/fs/ess/PAS2880/share` dir.
+   `/fs/ess/PAS3454/share` dir.
 
    <details><summary>*Click to see the solution*</summary>
    
-   Since you are in `/fs/ess/PAS2880/users/$USER`,
-   you will first need to go up two levels (to `/fs/ess/PAS2880`),
+   Since you are in `/fs/ess/PAS3454/users/$USER`,
+   you will first need to go up two levels (to `/fs/ess/PAS3454`),
    and then into `share`:
    
    ``` bash
@@ -739,12 +675,12 @@ Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to get your regular prompt back.
   **twice in quick succession** (a single Tab won't do anything):
   you should see at least four dirs that start with `PAS288`.
 
-- Add `0` so your line reads `/fs/ess/PAS2880`. Press <kbd>Enter</kbd>.
+- Add `0` so your line reads `/fs/ess/PAS3454`. Press <kbd>Enter</kbd>.
   You will get the following output, which is an error.
   Can you think of any reason why this you may have gotten an error here?
 
   ```bash-out-solo
-  bash: /fs/ess/PAS2880/: Is a directory
+  bash: /fs/ess/PAS3454/: Is a directory
   ```
 
 <details><summary>*Click to see the solution*</summary>
@@ -761,7 +697,7 @@ Instead, since a path is not a command, you will get an error.
 - Add `cd` and a space in front of the dir, and press <kbd>Enter</kbd> again.
 
   ```bash
-  cd /fs/ess/PAS2880/
+  cd /fs/ess/PAS3454/
   ```
 
 ::: {.callout-tip appearance="simple"}
@@ -769,3 +705,5 @@ Your **cursor** can be anywhere on a line (not just at the end) when you press <
 :::
 
 :::
+
+## TBA: Some file (`ls` etc) examples or as optional homework?

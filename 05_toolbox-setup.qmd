@@ -44,6 +44,65 @@ and it is a setup that you can continue to use after the workshop
 
 ## Some VS Code exploration
 
+VS Code is basically a **fancy text editor**.
+Its full name is Visual Studio Code, and it's called "Code Server" at OSC.
+
+To emphasize the additional functionality relative to basic text editors like Notepad and TextEdit,
+editors like VS Code are also referred to as **IDEs**: Integrated Development Environments.
+The RStudio program is another good example of an IDE ---
+and like RStudio is an IDE for R, VS Code will be our IDE for shell (and other) code.
+
+### The VS Code User Interface
+
+![](/img/vscode-welcome_ed.png){fig-align="center" width="80%" fig-alt="An annotated screenshot of the VS Code user interace" .lightbox}
+
+#### Side bars
+
+By default, the (wide) **Side Bar** will show a file explorer,
+where you see your files, create new folders and files, and so on.
+
+The **Activity Bar** (narrow side bar) on the far left has:
+
+- A {{< fa bars >}} ("hamburger menu"),
+  which has menu items like `File` that you often find in a top bar
+- A {{< fa cog >}} (cog wheel icon) in the bottom,
+  through which you can mainly access *settings*
+- Icons to toggle between options for the wide Side Bar:
+  we'll talk about those in a later session
+  
+### A folder as a starting point
+
+Very conveniently, VS Code takes a specific
+**folder as a starting point in all parts of the program**:
+
+- In its file explorer
+- When saving files
+- In the Unix shell its terminal
+
+{{< fa user-edit >}} Click `File` > `Open Folder` and then type/select the
+personal dir within `/fs/ess/PAS3454/users` you made last week
+(for example, I will select `/fs/ess/PAS3454/users/jelmer`).
+_This will cause the program to reload._
+
+#### Terminal (with a Unix shell)
+
+{{< fa user-edit >}} **Open a terminal** by clicking
+{{< fa bars >}}   > `Terminal` > `New Terminal`.
+We'll start using this terminal in the next lecture.
+For now, practice _resizing panes_
+(terminal vs. editor, and the width of the side bar)
+by hovering your cursor over the lines dividing them and then dragging.
+
+#### Editor pane and `Welcome` document
+
+The main part of the VS Code is the **editor pane**.
+Here, you can open scripts and other types of text files, images, and so on.
+Like in a web browser, you can have multiple tabs open.
+
+Whenever you open VS Code,
+an editor tab with a `Welcome` document is automatically opened.
+This provides some help and shortcuts to recently opened files and folders.
+
 ## A first dive: GitHub Copilot
 
 GitHub Copilot is an agentic AI tool that can help you write code and perform other tasks.
@@ -67,10 +126,6 @@ especially because you also have access to Claude Code (which we will set up lat
 - TBA - Question in the chat
 
 - TBA - Inline code example
-
-## A brief overview of OSC
-
-TBA
 
 ## Connect VS Code to OSC
 

@@ -194,12 +194,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-setup">    
         <li>
-    <a class="dropdown-item" href="./vscode-install.html">
- <span class="dropdown-text">VS Code installation</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./osc-account.html">
  <span class="dropdown-text">OSC account setup</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./vscode-install.html">
+ <span class="dropdown-text">VS Code installation</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./github-account.html">
@@ -242,29 +242,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#the-unix-shell" id="toc-the-unix-shell" class="nav-link" data-scroll-target="#the-unix-shell"><span class="header-section-number">2</span> The Unix shell</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
   <ul class="collapse">
-  <li><a href="#some-terminology-and-concepts" id="toc-some-terminology-and-concepts" class="nav-link" data-scroll-target="#some-terminology-and-concepts"><span class="header-section-number">2.1</span> Some terminology and concepts</a></li>
-  <li><a href="#why-use-the-unix-shell" id="toc-why-use-the-unix-shell" class="nav-link" data-scroll-target="#why-use-the-unix-shell"><span class="header-section-number">2.2</span> Why use the Unix shell?</a></li>
+  <li><a href="#some-terminology-and-concepts" id="toc-some-terminology-and-concepts" class="nav-link" data-scroll-target="#some-terminology-and-concepts"><span class="header-section-number">1.1</span> Some terminology and concepts</a></li>
+  <li><a href="#why-use-the-unix-shell" id="toc-why-use-the-unix-shell" class="nav-link" data-scroll-target="#why-use-the-unix-shell"><span class="header-section-number">1.2</span> Why use the Unix shell?</a></li>
   </ul></li>
-  <li><a href="#first-steps-in-the-shell" id="toc-first-steps-in-the-shell" class="nav-link" data-scroll-target="#first-steps-in-the-shell"><span class="header-section-number">3</span> First steps in the shell</a>
+  <li><a href="#first-steps-in-the-shell" id="toc-first-steps-in-the-shell" class="nav-link" data-scroll-target="#first-steps-in-the-shell"><span class="header-section-number">2</span> First steps in the shell</a>
   <ul class="collapse">
-  <li><a href="#the-shells-prompt" id="toc-the-shells-prompt" class="nav-link" data-scroll-target="#the-shells-prompt"><span class="header-section-number">3.1</span> The shell’s prompt</a></li>
-  <li><a href="#a-few-simple-commands" id="toc-a-few-simple-commands" class="nav-link" data-scroll-target="#a-few-simple-commands"><span class="header-section-number">3.2</span> A few simple commands</a></li>
+  <li><a href="#the-shells-prompt" id="toc-the-shells-prompt" class="nav-link" data-scroll-target="#the-shells-prompt"><span class="header-section-number">2.1</span> The shell’s prompt</a></li>
+  <li><a href="#a-few-simple-commands" id="toc-a-few-simple-commands" class="nav-link" data-scroll-target="#a-few-simple-commands"><span class="header-section-number">2.2</span> A few simple commands</a></li>
   </ul></li>
-  <li><a href="#options-arguments-and-help" id="toc-options-arguments-and-help" class="nav-link" data-scroll-target="#options-arguments-and-help"><span class="header-section-number">4</span> Options, arguments, and help</a>
+  <li><a href="#options-arguments-and-help" id="toc-options-arguments-and-help" class="nav-link" data-scroll-target="#options-arguments-and-help"><span class="header-section-number">3</span> Options, arguments, and help</a>
   <ul class="collapse">
-  <li><a href="#the-cal-command-and-options-arguments" id="toc-the-cal-command-and-options-arguments" class="nav-link" data-scroll-target="#the-cal-command-and-options-arguments"><span class="header-section-number">4.1</span> The <code>cal</code> command — and options &amp; arguments</a></li>
-  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="header-section-number">4.2</span> Getting help</a></li>
+  <li><a href="#the-cal-command-and-options-arguments" id="toc-the-cal-command-and-options-arguments" class="nav-link" data-scroll-target="#the-cal-command-and-options-arguments"><span class="header-section-number">3.1</span> The <code>cal</code> command — and options &amp; arguments</a></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="header-section-number">3.2</span> Getting help</a></li>
   </ul></li>
-  <li><a href="#environment-variables" id="toc-environment-variables" class="nav-link" data-scroll-target="#environment-variables"><span class="header-section-number">5</span> Environment variables</a></li>
-  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation"><span class="header-section-number">6</span> Navigation</a>
+  <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation"><span class="header-section-number">4</span> Navigation</a>
   <ul class="collapse">
-  <li><a href="#cd-and-command-actions" id="toc-cd-and-command-actions" class="nav-link" data-scroll-target="#cd-and-command-actions"><span class="header-section-number">6.1</span> <code>cd</code> and command “actions”</a></li>
-  <li><a href="#path-shortcuts" id="toc-path-shortcuts" class="nav-link" data-scroll-target="#path-shortcuts"><span class="header-section-number">6.2</span> Path shortcuts</a></li>
+  <li><a href="#cd-and-command-actions" id="toc-cd-and-command-actions" class="nav-link" data-scroll-target="#cd-and-command-actions"><span class="header-section-number">4.1</span> <code>cd</code> and command “actions”</a></li>
+  <li><a href="#path-shortcuts" id="toc-path-shortcuts" class="nav-link" data-scroll-target="#path-shortcuts"><span class="header-section-number">4.2</span> Path shortcuts</a></li>
   </ul></li>
-  <li><a href="#keyboard-shortcuts" id="toc-keyboard-shortcuts" class="nav-link" data-scroll-target="#keyboard-shortcuts"><span class="header-section-number">7</span> Keyboard shortcuts</a></li>
+  <li><a href="#keyboard-shortcuts" id="toc-keyboard-shortcuts" class="nav-link" data-scroll-target="#keyboard-shortcuts"><span class="header-section-number">5</span> Keyboard shortcuts</a></li>
+  <li><a href="#tba-some-file-ls-etc-examples-or-as-optional-homework" id="toc-tba-some-file-ls-etc-examples-or-as-optional-homework" class="nav-link" data-scroll-target="#tba-some-file-ls-etc-examples-or-as-optional-homework"><span class="header-section-number">6</span> TBA: Some file (<code>ls</code> etc) examples or as optional homework?</a></li>
   </ul>
 </nav>
     </div>
@@ -334,13 +333,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>How Unix commands are stuctured</li>
 <li>How to navigate around your computer with Unix commands</li>
 </ul>
-</section>
-<section id="the-unix-shell" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="the-unix-shell"><span class="header-section-number">2</span> The Unix shell</h2>
-<section id="some-terminology-and-concepts" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="some-terminology-and-concepts"><span class="header-section-number">2.1</span> Some terminology and concepts</h3>
-<p><strong>Unix-based (or Unix-like) operating systems include MacOS and Linux</strong> but not Windows. For scientific computing, Unix-based operating systems are generally preferable. Linux specifically, while not as familiar to the general public, is what supercomputers like OSC and servers worldwide tend to run on.</p>
-<p>This session introduces the “Unix shell”. How does that relate to some other terms you may have heard of? Let’s run by these terms going from more general ones to more specific ones:</p>
+<section id="some-terminology-and-concepts" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="some-terminology-and-concepts"><span class="header-section-number">1.1</span> Some terminology and concepts</h3>
+<p>Terminology around the Unix shell can be confusing, and some terms are used interchangeably. Let’s run by these terms going from more general ones to more specific ones:</p>
 <table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 28%">
@@ -363,17 +358,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td><strong>Unix shell</strong></td>
-<td>The type of shell found on Unix-based (Linux + Mac) computers.</td>
+<td>The type of shell on computers with Mac or Linux (i.e., Unix-based) operating systems.</td>
 </tr>
 </tbody>
 </table>
 <hr style="height:1pt; visibility:hidden;">
-<p>Additionally, <strong>Bash</strong> is a specific Unix shell <em>language</em> (the most common one and the one we’ll use) Also related is the word <strong>terminal</strong>: the program/app/window in which the shell is run. A general observation is that while all these terms are not synonyms, they are in practice often used interchangeably.</p>
+<p>Also related is the word <strong>terminal</strong>: the program/app/window in which the shell is run.</p>
 </section>
-<section id="why-use-the-unix-shell" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="why-use-the-unix-shell"><span class="header-section-number">2.2</span> Why use the Unix shell?</h3>
-<p>The Unix shell can be used for a wide variety of tasks, from “file browser” functionality to running specialized software.</p>
-<p>The Unix shell has been around for a long time and may seem a bit archaic. But astonishingly, a system largely built decades ago in an era with very different computers and datasets has stood the test of time, and the ability to use it is a crucial skill in computational biology.</p>
+<section id="why-use-the-unix-shell" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="why-use-the-unix-shell"><span class="header-section-number">1.2</span> Why use the Unix shell?</h3>
+<p>The Unix shell can be used for a wide variety of tasks, from “file browser” functionality to running specialized software. It has been around for a long time and may seem archaic. But astonishingly, a system largely built decades ago in an era with very different computers and datasets has stood the test of time, and the ability to use it is a crucial skill in computational biology.</p>
 <p>Using the Unix shell rather than programs with GUIs has some of the general advantages of using code:</p>
 <ul>
 <li><strong>Automation and fewer errors</strong><br>
@@ -389,13 +383,13 @@ Many programs used for omics data analysis have a CLI and are most easily run fr
 Shell commands are excellent at viewing and processing <em>large, plain-text files</em> (common in omics data).</li>
 <li><strong>Efficiency</strong><br>
 Built-in shell tools are often faster in terms of coding and processing time, especially for simpler tasks.</li>
-<li><strong>Remote computing – especially supercomputers</strong><br>
+<li><strong>Remote computing — especially supercomputers</strong><br>
 When doing remote computing, your point of entry is commonly the Unix shell.</li>
 </ul>
 </section>
 </section>
-<section id="first-steps-in-the-shell" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="first-steps-in-the-shell"><span class="header-section-number">3</span> First steps in the shell</h2>
+<section id="first-steps-in-the-shell" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="first-steps-in-the-shell"><span class="header-section-number">2</span> First steps in the shell</h2>
 <details>
 <summary>
 You should already have a VS Code session with a Unix shell open! If not, click here to see instructions.
@@ -406,9 +400,9 @@ You should already have a VS Code session with a Unix shell open! If not, click 
 <li>Fill out the form as follows:
 <ul>
 <li><strong>Cluster</strong>: <code>pitzer</code></li>
-<li><strong>Account</strong>: <code>PAS2880</code></li>
+<li><strong>Account</strong>: <code>PAS3454</code></li>
 <li><strong>Number of hours</strong>: <code>2</code></li>
-<li><strong>Working Directory</strong>:” <code>/fs/ess/PAS2880/user/&lt;username&gt;</code> (replace <code>&lt;username&gt;</code> with your actual user name)</li>
+<li><strong>Working Directory</strong>:” <code>/fs/ess/PAS3454/user/&lt;username&gt;</code> (replace <code>&lt;username&gt;</code> with your actual user name)</li>
 <li><strong>App Code Server version</strong>: <code>4.8.3</code></li>
 </ul></li>
 <li>Click <code>Launch</code></li>
@@ -420,13 +414,13 @@ You should already have a VS Code session with a Unix shell open! If not, click 
 </ul></li>
 </ol>
 </details>
-<section id="the-shells-prompt" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="the-shells-prompt"><span class="header-section-number">3.1</span> The shell’s prompt</h3>
+<section id="the-shells-prompt" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="the-shells-prompt"><span class="header-section-number">2.1</span> The shell’s prompt</h3>
 <p>Inside your terminal, the “prompt” indicates that the shell is ready for a command. What is shown exactly varies across shells and can also be customized, but our prompts at OSC should show something like this:</p>
 <pre class="bash-in-nocolor"><code>[jelmer@p0362 jelmer]$ </code></pre>
 <p>Which represents the following pieces of information:</p>
 <pre class="bash-in-nocolor"><code>[&lt;username&gt;@&lt;node-name&gt; &lt;working-dir&gt;]$</code></pre>
-<p>The <code>&lt;working-dir&gt;</code> part only shows the name of the directory you are directly located in (e.g.&nbsp;<code>jelmer</code>) rather than the entire path (e.g.&nbsp;<code>/fs/ess/PAS2880/users/jelmer</code>).</p>
+<p>A <code>&lt;working-dir&gt;</code> is the directory that you are currently located in. Here, for brevity, it only shows the name of the dir you are directly located in (e.g.&nbsp;<code>jelmer</code>) rather than the entire path (e.g.&nbsp;<code>/fs/ess/PAS3454/users/jelmer</code>).</p>
 <p><strong>You type your commands after the dollar sign <code>$</code>,</strong> <strong>and then press <kbd>Enter</kbd> to execute the command.</strong> When the command has finished executing, you’ll “get your prompt back” and can type and execute a new command.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -456,13 +450,13 @@ You should already have a VS Code session with a Unix shell open! If not, click 
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you see a <code>~</code> as the working-dir-part of your prompt, you are instead in your Home directory in <code>/users/</code> and you will need to go to <code>/fs/ess/PAS2880/users/&lt;user&gt;</code> instead. To do so: click <code>File</code> &gt; <code>Open Folder</code> in VS Code and then type/select that dir. When you then open a Terminal again, the correct dir should be displayed.</p>
+<p>If you see a <code>~</code> as the working-dir-part of your prompt, you are instead in your Home directory in <code>/users/</code> and you will need to go to <code>/fs/ess/PAS3454/users/&lt;user&gt;</code> instead. To do so: click <code>File</code> &gt; <code>Open Folder</code> in VS Code and then type/select that dir. When you then open a Terminal again, the correct dir should be displayed.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="a-few-simple-commands" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="a-few-simple-commands"><span class="header-section-number">3.2</span> A few simple commands</h3>
+<section id="a-few-simple-commands" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="a-few-simple-commands"><span class="header-section-number">2.2</span> A few simple commands</h3>
 <p>The Unix shell comes with hundreds of <strong>commands</strong>: small programs that perform specific actions<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Let’s start with a few simple commands:</p>
 <ul>
 <li><p>The <code>date</code> command prints the current date and time:</p>
@@ -470,7 +464,7 @@ You should already have a VS Code session with a Unix shell open! If not, click 
 <pre class="bash-out"><code>Thu Sep 02 13:58:19 EST 2025</code></pre></li>
 <li><p>The <code>pwd</code> (Print Working Directory) command prints the path to the directory you are currently located in:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>/fs/ess/PAS2880/users/jelmer</code></pre></li>
+<pre class="bash-out"><code>/fs/ess/PAS3454/users/jelmer</code></pre></li>
 <li><p>The <code>echo</code> command simply prints the text you provide it with, typically between double quotes <kbd>“</kbd> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Welcome to PLNTPTH 5006"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Welcome to PLNTPTH 5006</code></pre></li>
@@ -479,10 +473,10 @@ You should already have a VS Code session with a Unix shell open! If not, click 
 <p><i class="fa-solid fa-comments" aria-label="comments"></i> <em>Does <code>echo</code> seem useless, or can you think of ways in which it could be useful?</em> <em>(We’ll get back to this later.)</em></p>
 </section>
 </section>
-<section id="options-arguments-and-help" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="options-arguments-and-help"><span class="header-section-number">4</span> Options, arguments, and help</h2>
-<section id="the-cal-command-and-options-arguments" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="the-cal-command-and-options-arguments"><span class="header-section-number">4.1</span> The <code>cal</code> command — and options &amp; arguments</h3>
+<section id="options-arguments-and-help" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="options-arguments-and-help"><span class="header-section-number">3</span> Options, arguments, and help</h2>
+<section id="the-cal-command-and-options-arguments" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="the-cal-command-and-options-arguments"><span class="header-section-number">3.1</span> The <code>cal</code> command — and options &amp; arguments</h3>
 <p>The <code>cal</code> command is another example of a command that simply prints some information to the screen, in this case a calendar. It’s not a particularly useful command in this day and age, but we’ll use it as a low-stakes example to learn about command <em>options</em> and <em>arguments</em>.</p>
 <p>Just running <code>cal</code> will print a calendar for the current month:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cal</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -599,8 +593,8 @@ Sun Mon Tue Wed Thu Fri Sat   Sun Mon Tue Wed Thu Fri Sat
 </div>
 </section>
 </section>
-<section id="getting-help" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">4.2</span> Getting help</h3>
+<section id="getting-help" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">3.2</span> Getting help</h3>
 <p>Many Unix commands have a <strong><code>-h</code></strong> option for help, which usually gives a concise summary of the command’s syntax, such as its available options and arguments:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cal</span> <span class="at">-h</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>
@@ -662,53 +656,27 @@ Mon Tue Wed Thu Fri Sat Sun
 </section>
 </section>
 </section>
-<section id="environment-variables" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="environment-variables"><span class="header-section-number">5</span> Environment variables</h2>
-<p>You may be familiar with the concept of <strong>variables</strong> from previous experience with perhaps R or another language. Either way, variables can hold values and other pieces of data, and they are essential in coding.</p>
-<p>While you can create variables yourself, <strong>environment variables</strong> are <em>pre-existing</em> variables that have been automatically created by the computer. Two examples are:</p>
-<ul>
-<li><code>$HOME</code>, which contains the path to your Home directory</li>
-<li><code>$USER</code>, which contains your user name</li>
-</ul>
-<p>Note that in the Unix shell, <em>variables are always referenced using a leading <code>$</code>.</em> This helps you recognize them as variables. Additionally, if you want to print the values of variables, you need the <code>echo</code> command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$HOME</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>/users/PAS0471/jelmer</code></pre>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>jelmer</code></pre>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-environment-variables-and-echo" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-environment-variables-and-echo"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: environment variables and <code>echo</code></h4>
-<p>Using an environment variable, get the Unix shell to print <code>Hello, my name is &lt;username&gt;</code> (e.g.&nbsp;<code>Hello, my name is natalie</code>) to the screen.</p>
-<details>
-<summary>
-<em>Click for the solution</em>
-</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (This would also work without the " " quotes)</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Hello, my name is </span><span class="va">$USER</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>Hello, my name is jelmer</code></pre>
-</details>
-</section>
-</section>
-<section id="navigation" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="navigation"><span class="header-section-number">6</span> Navigation</h2>
-<section id="cd-and-command-actions" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="cd-and-command-actions"><span class="header-section-number">6.1</span> <code>cd</code> and command “actions”</h3>
+<section id="navigation" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="navigation"><span class="header-section-number">4</span> Navigation</h2>
+<section id="cd-and-command-actions" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="cd-and-command-actions"><span class="header-section-number">4.1</span> <code>cd</code> and command “actions”</h3>
 <p>All commands so far “merely” provided some information, which was printed to the screen. But many commands perform another kind of <strong>action</strong>.</p>
-<p>For example, the command <strong><code>cd</code></strong> will change your <em>working</em> directory. But first, check again where you are — you should be in your personal dir within <code>/fs/ess/PAS2880/users</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>/fs/ess/PAS2880/users/jelmer</code></pre>
+<p>For example, the command <strong><code>cd</code></strong> will change your <em>working</em> directory. But first, check again where you are — you should be in your personal dir within <code>/fs/ess/PAS3454/users</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>/fs/ess/PAS3454/users/jelmer</code></pre>
 <p>Now, use <code>cd</code> to move to another directory by specifying the <em>path</em> to that dir as an argument:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/ess/PAS2880</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Double-check that you moved:</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>/fs/ess/PAS2880</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/ess/PAS3454</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Double-check that you moved:</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>/fs/ess/PAS3454</code></pre>
 <p>In summary:</p>
 <ul>
 <li>Like <code>cal</code>, <code>cd</code> accepts an argument. Unlike <code>cal</code>, this argument takes the form of a path that the command should operate on (which is very typical among Unix commands).</li>
 <li><code>cd</code> gives no output when it successfully changed the working directory. This is very common behavior for Unix commands that perform operations: <strong>when they succeed, they are silent</strong>.</li>
 </ul>
 <p>Let’s also see what happens when <code>cd</code> does not succeed — it gives an error:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/ess/PAs2880</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>-bash: cd: /fs/ess/PAs2880: No such file or directory</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/ess/PAS3454</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>-bash: cd: /fs/ess/PAS3454: No such file or directory</code></pre>
 <div class="callout callout-style-default callout-important callout-empty-content callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -723,8 +691,8 @@ Mon Tue Wed Thu Fri Sat Sun
 </div>
 </div>
 </section>
-<section id="path-shortcuts" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="path-shortcuts"><span class="header-section-number">6.2</span> Path shortcuts</h3>
+<section id="path-shortcuts" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="path-shortcuts"><span class="header-section-number">4.2</span> Path shortcuts</h3>
 <p>A number of “shortcuts” exist for paths:</p>
 <table class="table-striped table-hover caption-top table">
 <colgroup>
@@ -756,22 +724,22 @@ Mon Tue Wed Thu Fri Sat Sun
 <p>Some examples of <code>..</code>:</p>
 <ul>
 <li><p>Use <code>..</code> to go up one level in the dir hierarchy:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start by reminding yourself of where you are:</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>/fs/ess/PAS2880</code></pre>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Move one level up:</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check where you are now:</span></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start by reminding yourself of where you are:</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>/fs/ess/PAS3454</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Move one level up:</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check where you are now:</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>/fs/ess/</code></pre></li>
 <li><p>You can “continue” a path like usual after <code>..</code>, e.g.:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../scratch/PAS2880</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../scratch/PAS3454</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Therefore, you can also move up multiple levels at once, e.g.:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Move up to levels</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Move up to levels</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../..</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>/fs</code></pre></li>
 </ul>
 <hr style="height:1pt; visibility:hidden;">
@@ -804,28 +772,28 @@ Mon Tue Wed Thu Fri Sat Sun
 <section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-navigation" class="level4 exercise">
 <h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-navigation"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: navigation</h4>
 <ol type="1">
-<li><p>Use a relative path to move back to your personal dir <code>/fs/ess/PAS2880/users/$USER</code></p>
+<li><p>Use a relative path to move back to your personal dir <code>/fs/ess/PAS3454/users/$USER</code></p>
 <details>
 <summary>
 <p><em>Click to see the solution</em></p>
 </summary>
 <p>Since you are in <code>/fs</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ess/PAS2880/users/<span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ess/PAS3454/users/<span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details></li>
-<li><p>From there, use another relative path to move into the <code>/fs/ess/PAS2880/share</code> dir.</p>
+<li><p>From there, use another relative path to move into the <code>/fs/ess/PAS3454/share</code> dir.</p>
 <details>
 <summary>
 <p><em>Click to see the solution</em></p>
 </summary>
-<p>Since you are in <code>/fs/ess/PAS2880/users/$USER</code>, you will first need to go up two levels (to <code>/fs/ess/PAS2880</code>), and then into <code>share</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../../share</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Since you are in <code>/fs/ess/PAS3454/users/$USER</code>, you will first need to go up two levels (to <code>/fs/ess/PAS3454</code>), and then into <code>share</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ../../share</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details></li>
 </ol>
 </section>
 </section>
 </section>
-<section id="keyboard-shortcuts" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="keyboard-shortcuts"><span class="header-section-number">7</span> Keyboard shortcuts</h2>
+<section id="keyboard-shortcuts" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="keyboard-shortcuts"><span class="header-section-number">5</span> Keyboard shortcuts</h2>
 <p>Using keyboard shortcuts help you work much more efficiently in the shell. Here are some of the most useful ones:</p>
 <ul>
 <li><p><strong>Command history</strong> — <code>Up</code> / <code>Down</code> arrow keys to cycle through your command history.</p></li>
@@ -836,9 +804,9 @@ Mon Tue Wed Thu Fri Sat Sun
 <h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-canceling"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: canceling</h4>
 <p>To simulate a long-running command that you may want to abort, we’ll use the <code>sleep</code> command, which makes the computer wait for a specified amount of time before it gives your prompt back (or, e.g.&nbsp;moves to the next command in the context of a script).</p>
 <p>Run the below command and instead of waiting for the full 60 seconds, <strong>press <kbd>Ctrl</kbd> + <kbd>C</kbd></strong> to get your prompt back sooner!</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 60s</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 60s</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>As another example of a situation where you might have to use <kbd>Ctrl</kbd> + <kbd>C</kbd>, simply type an opening parenthesis <code>(</code> and press <kbd>Enter</kbd>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>When you do this, nothing is executed and you are not getting your prompt back: you should see a <code>&gt;</code> on the next line. This is the shell wanting you to “complete” you command. Why would that be?</p>
 <details>
 <summary>
@@ -859,8 +827,8 @@ This is an incomplete command by definition because any opening parenthesis shou
 <pre class="bash-out"><code>Display all 619 possibilities? (y or n)</code></pre></li>
 <li><p>Type <code>n</code> to answer no: we don’t need to see all the dirs starting with <code>PAS</code>.</p></li>
 <li><p>Add <strong><code>288</code></strong> (<em>/fs/ess/PAS288</em>) and press <kbd>Tab</kbd> <strong>twice in quick succession</strong> (a single Tab won’t do anything): you should see at least four dirs that start with <code>PAS288</code>.</p></li>
-<li><p>Add <code>0</code> so your line reads <code>/fs/ess/PAS2880</code>. Press <kbd>Enter</kbd>. You will get the following output, which is an error. Can you think of any reason why this you may have gotten an error here?</p>
-<pre class="bash-out-solo"><code>bash: /fs/ess/PAS2880/: Is a directory</code></pre></li>
+<li><p>Add <code>0</code> so your line reads <code>/fs/ess/PAS3454</code>. Press <kbd>Enter</kbd>. You will get the following output, which is an error. Can you think of any reason why this you may have gotten an error here?</p>
+<pre class="bash-out-solo"><code>bash: /fs/ess/PAS3454/: Is a directory</code></pre></li>
 </ul>
 <details>
 <summary>
@@ -872,7 +840,7 @@ Basically, everything you type in the shell should start with a command. Just ty
 <li><p>Press <strong><kbd>⇧</kbd></strong> to get the previous “command” back on the prompt.</p></li>
 <li><p>Press <strong><kbd>Ctrl</kbd>+<kbd>A</kbd></strong> to move to the beginning of the line at once.</p></li>
 <li><p>Add <code>cd</code> and a space in front of the dir, and press <kbd>Enter</kbd> again.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/ess/PAS2880/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/ess/PAS3454/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ul>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
@@ -885,6 +853,9 @@ Basically, everything you type in the shell should start with a command. Just ty
 </div>
 </div>
 </section>
+</section>
+<section id="tba-some-file-ls-etc-examples-or-as-optional-homework" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="tba-some-file-ls-etc-examples-or-as-optional-homework"><span class="header-section-number">6</span> TBA: Some file (<code>ls</code> etc) examples or as optional homework?</h2>
 
 
 </section>

@@ -81,6 +81,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-18fe6355df9e00e9561dd53ce8dc48ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -162,16 +167,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-learning">    
         <li>
-    <a class="dropdown-item" href="./osc-intro.html">
+    <a class="dropdown-item" href="./p1-osc-intro.html">
  <span class="dropdown-text">1: Intro to OSC</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./shell-intro.html">
+    <a class="dropdown-item" href="./p2-shell-intro.html">
  <span class="dropdown-text">2: Unix shell basics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./shell-scripts.html">
- <span class="dropdown-text">3: Command-line programs with shell scripts and Slurm</span></a>
+    <a class="dropdown-item" href="./p3-cl-software.html">
+ <span class="dropdown-text">3: Command-line software</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./p4-shell-scripts.html">
+ <span class="dropdown-text">4: Shell scripts and Slurm</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./p5-homework.html">
+ <span class="dropdown-text">5: Optional homework</span></a>
   </li>  
     </ul>
   </li>
@@ -181,12 +194,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-setup">    
         <li>
-    <a class="dropdown-item" href="./vscode-install.html">
- <span class="dropdown-text">VS Code installation</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./osc-account.html">
  <span class="dropdown-text">OSC account setup</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./vscode-install.html">
+ <span class="dropdown-text">VS Code installation</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./github-account.html">
@@ -230,11 +243,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a></li>
-  <li><a href="#some-vs-code-exploration" id="toc-some-vs-code-exploration" class="nav-link" data-scroll-target="#some-vs-code-exploration"><span class="header-section-number">2</span> Some VS Code exploration</a></li>
+  <li><a href="#some-vs-code-exploration" id="toc-some-vs-code-exploration" class="nav-link" data-scroll-target="#some-vs-code-exploration"><span class="header-section-number">2</span> Some VS Code exploration</a>
+  <ul class="collapse">
+  <li><a href="#the-vs-code-user-interface" id="toc-the-vs-code-user-interface" class="nav-link" data-scroll-target="#the-vs-code-user-interface"><span class="header-section-number">2.1</span> The VS Code User Interface</a></li>
+  <li><a href="#a-folder-as-a-starting-point" id="toc-a-folder-as-a-starting-point" class="nav-link" data-scroll-target="#a-folder-as-a-starting-point"><span class="header-section-number">2.2</span> A folder as a starting point</a></li>
+  </ul></li>
   <li><a href="#a-first-dive-github-copilot" id="toc-a-first-dive-github-copilot" class="nav-link" data-scroll-target="#a-first-dive-github-copilot"><span class="header-section-number">3</span> A first dive: GitHub Copilot</a></li>
-  <li><a href="#a-brief-overview-of-osc" id="toc-a-brief-overview-of-osc" class="nav-link" data-scroll-target="#a-brief-overview-of-osc"><span class="header-section-number">4</span> A brief overview of OSC</a></li>
-  <li><a href="#connect-vs-code-to-osc" id="toc-connect-vs-code-to-osc" class="nav-link" data-scroll-target="#connect-vs-code-to-osc"><span class="header-section-number">5</span> Connect VS Code to OSC</a></li>
-  <li><a href="#install-and-set-up-claude-code" id="toc-install-and-set-up-claude-code" class="nav-link" data-scroll-target="#install-and-set-up-claude-code"><span class="header-section-number">6</span> Install and set up Claude Code</a></li>
+  <li><a href="#connect-vs-code-to-osc" id="toc-connect-vs-code-to-osc" class="nav-link" data-scroll-target="#connect-vs-code-to-osc"><span class="header-section-number">4</span> Connect VS Code to OSC</a></li>
+  <li><a href="#install-and-set-up-claude-code" id="toc-install-and-set-up-claude-code" class="nav-link" data-scroll-target="#install-and-set-up-claude-code"><span class="header-section-number">5</span> Install and set up Claude Code</a></li>
   </ul>
 <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="osc-account.qmd"><i class="bi bi-bookmarks"></i>OSC account setup</a></li></ul></div></nav>
     </div>
@@ -307,6 +323,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="some-vs-code-exploration" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="some-vs-code-exploration"><span class="header-section-number">2</span> Some VS Code exploration</h2>
+<p>VS Code is basically a <strong>fancy text editor</strong>. Its full name is Visual Studio Code, and it’s called “Code Server” at OSC.</p>
+<p>To emphasize the additional functionality relative to basic text editors like Notepad and TextEdit, editors like VS Code are also referred to as <strong>IDEs</strong>: Integrated Development Environments. The RStudio program is another good example of an IDE — and like RStudio is an IDE for R, VS Code will be our IDE for shell (and other) code.</p>
+<section id="the-vs-code-user-interface" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="the-vs-code-user-interface"><span class="header-section-number">2.1</span> The VS Code User Interface</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/vscode-welcome_ed.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./img/vscode-welcome_ed.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="An annotated screenshot of the VS Code user interace"></a></p>
+</figure>
+</div>
+<section id="side-bars" class="level4">
+<h4 class="anchored" data-anchor-id="side-bars">Side bars</h4>
+<p>By default, the (wide) <strong>Side Bar</strong> will show a file explorer, where you see your files, create new folders and files, and so on.</p>
+<p>The <strong>Activity Bar</strong> (narrow side bar) on the far left has:</p>
+<ul>
+<li>A <i class="fa-solid fa-bars" aria-label="bars"></i> (“hamburger menu”), which has menu items like <code>File</code> that you often find in a top bar</li>
+<li>A <i class="fa-solid fa-cog" aria-label="cog"></i> (cog wheel icon) in the bottom, through which you can mainly access <em>settings</em></li>
+<li>Icons to toggle between options for the wide Side Bar: we’ll talk about those in a later session</li>
+</ul>
+</section>
+</section>
+<section id="a-folder-as-a-starting-point" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="a-folder-as-a-starting-point"><span class="header-section-number">2.2</span> A folder as a starting point</h3>
+<p>Very conveniently, VS Code takes a specific <strong>folder as a starting point in all parts of the program</strong>:</p>
+<ul>
+<li>In its file explorer</li>
+<li>When saving files</li>
+<li>In the Unix shell its terminal</li>
+</ul>
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Click <code>File</code> &gt; <code>Open Folder</code> and then type/select the personal dir within <code>/fs/ess/PAS3454/users</code> you made last week (for example, I will select <code>/fs/ess/PAS3454/users/jelmer</code>). <em>This will cause the program to reload.</em></p>
+<section id="terminal-with-a-unix-shell" class="level4">
+<h4 class="anchored" data-anchor-id="terminal-with-a-unix-shell">Terminal (with a Unix shell)</h4>
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Open a terminal</strong> by clicking <i class="fa-solid fa-bars" aria-label="bars"></i> &nbsp; &gt; <code>Terminal</code> &gt; <code>New Terminal</code>. We’ll start using this terminal in the next lecture. For now, practice <em>resizing panes</em> (terminal vs.&nbsp;editor, and the width of the side bar) by hovering your cursor over the lines dividing them and then dragging.</p>
+</section>
+<section id="editor-pane-and-welcome-document" class="level4">
+<h4 class="anchored" data-anchor-id="editor-pane-and-welcome-document">Editor pane and <code>Welcome</code> document</h4>
+<p>The main part of the VS Code is the <strong>editor pane</strong>. Here, you can open scripts and other types of text files, images, and so on. Like in a web browser, you can have multiple tabs open.</p>
+<p>Whenever you open VS Code, an editor tab with a <code>Welcome</code> document is automatically opened. This provides some help and shortcuts to recently opened files and folders.</p>
+</section>
+</section>
 </section>
 <section id="a-first-dive-github-copilot" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="a-first-dive-github-copilot"><span class="header-section-number">3</span> A first dive: GitHub Copilot</h2>
@@ -324,12 +379,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>TBA - Inline code example</p></li>
 </ul>
 </section>
-<section id="a-brief-overview-of-osc" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="a-brief-overview-of-osc"><span class="header-section-number">4</span> A brief overview of OSC</h2>
-<p>TBA</p>
-</section>
-<section id="connect-vs-code-to-osc" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="connect-vs-code-to-osc"><span class="header-section-number">5</span> Connect VS Code to OSC</h2>
+<section id="connect-vs-code-to-osc" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="connect-vs-code-to-osc"><span class="header-section-number">4</span> Connect VS Code to OSC</h2>
 <p>Next, we will set up VS Code to connect to OSC. This one-time setup is a bit of a process, but is well worth it. This so-called “SSH tunneling” of VS Code is a very convenient and powerful way to access OSC, with or without the added benefit of agentic AI tools. It will move a VS Code window entirely to OSC - not just the terminal, but also the file system, the code editor, and so on.</p>
 <ol type="1">
 <li><p>Open VS Code on your laptop</p></li>
@@ -425,8 +476,8 @@ Are you sure you want to continue?</p>
 </div>
 </div>
 </section>
-<section id="install-and-set-up-claude-code" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="install-and-set-up-claude-code"><span class="header-section-number">6</span> Install and set up Claude Code</h2>
+<section id="install-and-set-up-claude-code" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="install-and-set-up-claude-code"><span class="header-section-number">5</span> Install and set up Claude Code</h2>
 <ol type="1">
 <li><p>In the Extensions sidebar of VS Code, search for “Claude Code” and install the extension “<a href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code">Claude Code for VS Code</a>”</p></li>
 <li><p>TBA</p></li>
@@ -858,6 +909,38 @@ Are you sure you want to continue?</p>
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

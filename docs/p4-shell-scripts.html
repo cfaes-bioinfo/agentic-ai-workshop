@@ -191,12 +191,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-setup">    
         <li>
-    <a class="dropdown-item" href="./vscode-install.html">
- <span class="dropdown-text">VS Code installation</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="./osc-account.html">
  <span class="dropdown-text">OSC account setup</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./vscode-install.html">
+ <span class="dropdown-text">VS Code installation</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./github-account.html">
@@ -698,30 +698,17 @@ Click for the solutions
 <p>Let’s keep things tidy and remove the script’s outputs:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> slurm<span class="pp">*</span> sleep.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr style="height:1pt; visibility:hidden;">
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Be careful with deleting Slurm files
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you delete a Slurm log file for a job that is still running, the file will <strong>not</strong> be recreated when the job produces more logging output later on. That means that if you accidentally do this and the logging output is of key importance to interpreting other outputs, or making sure it ran successfully, you are better off canceling the job entirely and trying again. 😕</p>
-</div>
-</div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Canceling jobs
+<span class="screen-reader-only">Note</span>Canceling jobs <em>(Click to expand)</em>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Sometimes, you want to cancel one or more jobs. For example, you may realize you made a mistake in the script or used the wrong input files as arguments. You can cancel jobs that are either pending or running using <code>scancel</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [Examples - DON'T run this: the second line would cancel your VS Code job]</span></span>
