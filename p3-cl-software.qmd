@@ -1,0 +1,583 @@
+---
+title: "Command-line software"
+subtitle: "Part III of the pre-workshop learning session"
+number-sections: true
+date: 2026-07-01
+author:
+  - name: Jelmer Poelstra
+    orcid: 0000-0002-3514-7462
+    email: poelstra.1@osu.edu
+    affiliation: 
+      - name: CFAES Bioinformatics Core, Ohio State University
+        url: https://mcic.osu.edu/bioinformatics
+bibliography: refs.bib
+---
+
+---------
+
+<hr style="height:1pt; visibility:hidden;" />
+
+::: {.callout-caution appearance="simple"}
+**_This page is still subject to change_**
+:::
+
+<hr style="height:1pt; visibility:hidden;" />
+
+
+## Introduction
+
+To analyze omics data sets, especially in genomics and transcriptomics,
+a typical workflow includes running a sequence of specialized bioinformatics
+software/programs/tools (I will use these terms interchangeably).
+Most commonly, these are command-line interface (CLI) programs that you run in a Unix shell.
+
+For example,
+let's take another look at the steps in the RNA-Seq analysis workflow we'll go through,
+where each step is associated with a specific program (gray text):
+
+![](/img/rnaseq-wf-3.png){fig-align="center" width="60%" fig-alt="A diagram showing the steps in an RNA-Seq analysis pipeline." .lightbox}
+
+Two main questions arise when we want to run these programs:
+
+1. How do we **get access** to these programs, in particular at OSC?
+2. How do we **run** these programs?
+
+That's what we'll cover in this session,
+and in the next session about shell scripts and Slurm.
+
+### The FastQC software
+
+As an example piece of bioinformatics software,
+we will use FastQC [@andrews2010] in this session.
+FastQC is a ubiquitous tool for **quality control of FASTQ files**,
+the files that contain reads from a high-throughput sequencing (HTS) experiment.
+Running FastQC or a similar program is the first step in nearly any project
+with HTS data.
+FastQC is also a good introductory example of a CLI tool.
+
+::: {.callout-tip appearance="simple"}
+If you don't know what FASTQ files are ... TBA
+:::
+
+For each FASTQ file that it analyzes,
+FastQC outputs an **HTML file** that you can open in your browser with about a
+dozen graphs showing different QC (Quality Control) metrics.
+The most important one is this per-base quality score graph:
+
+![A FastQC per-base quality score graph for files with reasonably good quality reads. The y-axis shows Phred quality scores (higher is better, see also the color-coding) and the x-axis shows the position along the read.](/img/fastqc_good.png){fig-align="center" width="70%" fig-alt="An example FastQC per-base quality graph." .lightbox}
+
+## Software management at OSC: overview
+
+At OSC, there are system-wide installations of a number of bioinformatics programs.
+We do need to "**load modules**" with these programs before we can use them.
+In this session, we will first talk about that process.
+
+However, because OSC's collection of bioinformatics programs is not comprehensive,
+we therefore need an additional way to get access to bioinformatics programs.
+But installing software like you are used to on your own computer
+is not really possible at a supercomputer center like OSC.
+
+Instead, the two best approaches are:
+
+- The **Conda** software management program,
+  which installs software in "environments" you can load.
+- **Containers**, self-contained software environments with pre-installed software.
+  
+## Loading software with Lmod modules
+
+OSC administrators manage software with the "Lmod" system of software modules.
+This means that a lot of installed software can only be used after its
+**module is explicitly loaded** ^[That may seem like a drag,
+but this practice enables the use of different
+versions of the same software,
+and of mutually incompatible software, on a single system.].
+
+For example, let's try to run FastQC without loading its module first:
+
+```bash
+fastqc -v
+```
+```bash-out
+bash: fastqc: command not found...
+Failed to search for file: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Could not activate remote peer.
+```
+
+Notes on the above command:
+
+- The command to run FastQC is `fastqc`
+- Like Unix commands, `fastqc` has many options,
+  and we can pass FASTQ files as arguments.
+- To test for the program's availability, we will simply run `fastqc -v`,
+  which prints the FastQC version.
+
+::: callout-tip
+#### Not all software has to be loaded
+Not all software has to be loaded:
+besides the basic Unix commands we have used so far,
+very widely used software like Git, Python, and Apptainer
+is available without the need to load anything.
+:::
+
+You can load, unload, and search for available software modules using the
+**`module`** command and its sub-commands.
+
+OSC has a ["Module Browser" on OnDemand](https://ondemand.osc.edu/pun/sys/dashboard/module-browser)
+(in the Clusters drop-down menu).
+You can also search for available software in the shell using (e.g.)
+`module spider`, which lists all installed modules.
+
+For example, try to use `module spider` to search for `fastqc` 
+(the search is case-insensitive):
+
+```bash
+module spider fastqc
+```
+``` {.bash-out}
+--------------------------------------------------------------------------------
+  fastqc: fastqc/0.12.1
+--------------------------------------------------------------------------------
+
+    This module can be loaded directly: module load fastqc/0.12.1
+
+    Help:
+      A quality control tool for high throughput sequence data.
+```
+
+We can see that `fastqc` is available, namely version `0.12.1`
+(that is, the module is printed as `<software>/<version>`).
+
+To make FastQC available to us,
+we need to load the module with the `module load` command
+suggested by the `module spider` output:
+
+```bash
+module load fastqc/0.12.1
+```
+
+And then check once again whether you can use FastQC:
+
+```bash
+fastqc -v
+```
+```bash-out
+FastQC v0.12.1
+```
+
+Success! 🥳
+
+A final note:
+module loading does **not persist across shell sessions**.
+Whenever you are in a fresh shell session
+(including but not limited to after you log into OSC for the day),
+you'll have to reload any modules you want to use!
+
+::: {.callout-note collapse="true"}
+#### Another `module load` example: two-step procedure with R _(Click to expand)_
+
+First, test if R is available without loading anything:
+
+```bash
+R
+```
+```bash-out
+bash: R: command not found...
+```
+
+Nope. Is it available as a module?
+
+```bash
+module spider R
+```
+```bash-out
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+  R: R/4.4.0
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+     Other possible modules matches:
+        amber, app_code_server, app_jupyter, blender, connectome-workbench, darshan-runtime, darshan-util, deepemhancer, fmriprep, freesurfer, ...
+
+    You will need to load all module(s) on any one of the lines below before the "R/4.4.0" module is available to load.
+
+      gcc/12.3.0
+ 
+    Help:
+      R is 'GNU S', a freely available language and environment for
+      statistical computing and graphics which provides a wide variety of
+      statistical and graphical techniques: linear and nonlinear modelling,
+      statistical tests, time series analysis, classification, clustering,
+      etc. Please consult the R project homepage for further information.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+  To find other possible module matches execute:
+
+      $ module -r spider '.*R.*'
+```
+
+Yes, so let's try to load it:
+
+```bash
+module load R/4.4.0
+```
+```bash-out
+Lmod has detected the following error:  These module(s) or extension(s) exist but cannot be loaded as requested: "R/4.4.0"
+
+   You encountered this error for one of the following reasons:
+   1. Missing version specification: On Ascend, you must specify an available version.
+   2. Missing required modules: Ensure you have loaded the appropriate compiler and MPI modules.
+
+   Try: "module spider R/4.4.0" to view available versions or required modules.
+
+   If you need further assistance, please contact oschelp@osc.edu with the subject line "lmod error: R/4.4.0"
+```
+
+That didn't work.
+Carefully reading the earlier message printed by `module spider`,
+it appears you first need to load the module `gcc/12.3.0` before you can load R.
+Specifically, it said:
+
+```bash-out
+    You will need to load all module(s) on any one of the lines below before the "R/4.4.0" module is available to load.
+
+      gcc/12.3.0
+```
+
+Therefore, let's try to load `gcc` along with `R` --
+you can use the command below to load both at the same time:
+
+```bash
+module load gcc/12.3.0 R/4.4.0
+```
+```bash-out
+Lmod is automatically replacing "intel/2021.10.0" with "gcc/12.3.0".
+
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) mvapich/3.0
+```
+
+Finally, let's check that R works:
+
+```bash
+R
+```
+```bash-out
+R version 4.4.0 (2024-04-24) -- "Puppy Cup"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> 
+```
+
+Now you're in the R console --
+type `q()` or use the general keyboard short for exiting
+<kbd>Ctrl/Cmd</kbd>+<kbd>D</kbd> to exit R.
+:::
+
+::: exercise
+#### {{< fa user-edit >}} Exercise: Modules
+
+1. Search for the program MultiQC^[
+   MultiQC summarizes the outputs of FastQC and many other bioinformatics programs.]
+   -- is it available?
+
+   <details><summary>_Click to see the solution_</summary>
+   
+   No, it isn't available!
+   
+   ```bash
+   module spider multiqc
+   ```
+   ```bash-out
+   Lmod has detected the following error:  Unable to find: "multiqc".
+   ```
+   </summary>
+   
+2. Search for the program STAR^[
+   STAR is an RNA-Seq aligner that we will use to align the reads from our 
+   example dataset to our reference genome.]
+   -- is it available?
+   
+   <details><summary>_Click to see the solution_</summary>
+   
+   Yes, it's available:
+   
+   ```bash
+   module spider star
+   ```
+   ```bash-out
+   --------------------------------------------------------------------------------
+   star: star/2.7.10b
+   --------------------------------------------------------------------------------
+     Other possible modules matches:
+        starccm
+    This module can be loaded directly: module load star/2.7.10b
+    Help:
+      STAR is an ultrafast universal RNA-seq aligner.
+   --------------------------------------------------------------------------------
+   To find other possible module matches execute:
+      $ module -r spider '.*star.*'
+   ```
+   </summary>
+   
+3. Load the STAR module and test whether you can use the program
+   by running `STAR` (without adding any options). 
+   
+   <details><summary>_Click to see the solution_</summary>
+   ```bash
+   module load star/2.7.10b
+   STAR
+   ```
+   ```bash-out
+   Usage: STAR  [options]... --genomeDir /path/to/genome/index/   --readFilesIn R1.fq R2.fq
+   Spliced Transcripts Alignment to a Reference (c) Alexander Dobin, 2009-2022
+   STAR version=2.7.10b
+   STAR compilation time,server,dir=2025-06-11T15:35:30-04:00 pitzer-rw02.ten.osc.edu:/tmp/kkoepcke/spack/stage/spack-stage-star-2.7.10b-itj64jf32ufsx7x6kbmlpcprqq5xo5
+   in/spack-src/source
+   For more details see:
+   <https://github.com/alexdobin/STAR>
+   <https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf>
+   To list all parameters, run STAR --help
+   ```
+   </summary>
+
+:::
+
+## A practical example: running FastQC
+
+To analyze a FASTQ file with default FastQC settings,
+the command is simply `fastqc` followed by the FASTQ file path --
+and we could use one of the FASTQ files in our Garrigos practice data set:
+
+``` bash
+# [Don't run this]
+apptainer exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 \
+  fastqc ../garrigos-data/fastq/ERR10802863_R1.fastq.gz
+```
+
+To shorten subsequent commands,
+let's start by assigning the container link and FASTQ file path to variables:
+
+```bash
+FASTQC_APPT=oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960
+FASTQ_R1=../garrigos-data/fastq/ERR10802863_R1.fastq.gz
+```
+
+```bash
+echo "$FASTQC_APPT"
+ls -lh "$FASTQ_R1"
+```
+```bash-out
+oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960
+-rw-rw----+ 1 jelmer PAS0471 21M Sep  9 13:46 ../garrigos-data/fastq/ERR10802863_R1.fastq.gz
+```
+
+With that, the above command becomes:
+
+```bash
+# [Don't run this]
+apptainer exec "$FASTQC_APPT" \
+  fastqc "$FASTQ_R1"
+```
+
+However, an annoying default behavior of FastQC is that it writes its output files
+in the same dir that contains the input FASTQ files ---
+this means mixing your raw data with your results, which we don't want!
+
+### Changing the output directory?
+
+To figure out how to change that behavior,
+consider that many standard Unix commands and bioinformatics tools alike
+have an option `-h` and/or `--help` to print usage information to the screen.
+Let's try that:
+
+``` bash
+apptainer exec "$FASTQC_APPT" \
+  fastqc -h
+```
+``` bash-out
+INFO:    Using cached SIF image
+INFO:    gocryptfs not found, will not be able to use gocryptfs
+
+            FastQC - A high throughput sequence QC analysis tool
+
+SYNOPSIS
+
+        fastqc seqfile1 seqfile2 .. seqfileN
+
+    fastqc [-o output dir] [--(no)extract] [-f fastq|bam|sam] 
+           [-c contaminant file] seqfile1 .. seqfileN
+
+# [...output truncated...]
+```
+
+<hr style="height:1pt; visibility:hidden;" />
+
+::: exercise
+#### {{< fa user-edit >}} Exercise: FastQC help and output dir
+Look at FastQC's help info,
+and figure out which option can be used to specify a custom output directory.
+
+<details><summary>*Click for the solution*</summary>
+
+The option to do this is `-o`/`--outdir`:
+
+``` bash
+fastqc -h
+```
+``` bash-out
+  -o --outdir     Create all output files in the specified output directory.
+                    Please note that this directory must exist as the program
+                    will not create it.  If this option is not set then the 
+                    output file for each sequence file is created in the same
+                    directory as the sequence file which was processed.
+```
+</details>
+
+:::
+
+### The final FastQC command
+
+With the added `--outdir` (or `-o`) option,
+try to run the following FastQC command:
+
+``` bash
+# We'll have to first create the outdir ourselves, in this case:
+mkdir -p results/fastqc
+
+# Now we run FastQC:
+apptainer exec "$FASTQC_APPT" \
+  fastqc --outdir results/fastqc "$FASTQ_R1"
+```
+``` bash-out
+Started analysis of ERR10802863_R1.fastq.gz
+Approx 5% complete for ERR10802863_R1.fastq.gz
+Approx 10% complete for ERR10802863_R1.fastq.gz
+Approx 15% complete for ERR10802863_R1.fastq.gz
+[...truncated...]
+Analysis complete for ERR10802863_R1.fastq.gz
+```
+
+Success!
+Above, FastQC printed some "logging" information to screen,
+telling us about its progress.
+The main output, however, is in the output dir we specified:
+
+- A `.zip` file, which contains tables with FastQC's data summaries
+- An `.html` (HTML) file, which contains the graphs we'd like to see
+
+``` bash
+ls -lh results/fastqc
+```
+``` bash-out
+total 512K
+-rw-rw----+ 1 jelmer PAS0471 241K Mar 21 09:53 ERR10802863_R1_fastqc.html
+-rw-rw----+ 1 jelmer PAS0471 256K Mar 21 09:53 ERR10802863_R1_fastqc.zip
+```
+
+<hr style="height:1pt; visibility:hidden;" />
+
+::: callout-tip
+#### Specifying an output dir vs. output file(s)
+FastQC allows us to specify the output directory, but not the output file names:
+these will be automatically determined based on the input file name(s).
+This kind of behavior is fairly common for bioinformatics programs,
+since they will often produce multiple output files.
+:::
+
+::: exercise
+#### {{< fa user-edit >}} Exercise: Another FastQC run
+
+Run FastQC for the corresponding R2 FASTQ file.
+Would you use the same output dir or a different one?
+
+<details><summary>*Click for the solution*</summary>
+
+It makes sense to use the same output dir.
+This is because, as you could see above,
+the output file names have the input file identifiers in them.
+As such, because we don't need to worry about overwriting files,
+it will be more convenient to have all results in a single dir.
+
+To run FastQC for the R2 (reverse-read) file:
+
+``` bash
+FASTQ_R2=../garrigos-data/fastq/ERR10802863_R2.fastq.gz
+
+apptainer exec "$FASTQC_APPT" \
+  fastqc --outdir results/fastqc "$FASTQ_R2"
+```
+``` bash-out
+Started analysis of ERR10802863_R2.fastq.gz
+Approx 5% complete for ERR10802863_R2.fastq.gz
+Approx 10% complete for ERR10802863_R2.fastq.gz
+Approx 15% complete for ERR10802863_R2.fastq.gz
+[...truncated...]
+Analysis complete for ERR10802863_R2.fastq.gz
+```
+
+``` bash
+ls -lh results/fastqc
+```
+``` bash-out
+total 1008K
+-rw-rw----+ 1 jelmer PAS0471 241K Mar 21 09:53 ERR10802863_R1_fastqc.html
+-rw-rw----+ 1 jelmer PAS0471 256K Mar 21 09:53 ERR10802863_R1_fastqc.zip
+-rw-rw----+ 1 jelmer PAS0471 234K Mar 21 09:55 ERR10802863_R2_fastqc.html
+-rw-rw----+ 1 jelmer PAS0471 244K Mar 21 09:55 ERR10802863_R2_fastqc.zip
+```
+
+Now, we have four files: two for each of our preceding successful FastQC runs.
+
+</details>
+:::
+
+::: exercise
+#### {{< fa user-edit >}} **Bonus Exercise**: Download the HTML files and open them
+
+<details><summary>*Click to expand*</summary>
+
+Unfortunately, it's tricky to view HTML files in VS Code --
+or at least it is in the current Code Server version at OSC.
+
+Therefore, to look at the FastQC HTML files,
+you should first download them to your computer.
+
+We'll cover more scalable methods for downloading files from and uploading them
+to OSC in a couple of weeks,
+but here is a quick method when you just need one or few files:
+in the VS Code file explorer in the side bar,
+you can download a file by right-clicking on it and then selecting the
+"Download..." option.
+
+![](/img/vscode-download.png){fig-align="center" width="55%" fig-alt="A screenshot showing the file download option in the VS Code file explorer." .lightbox}
+
+Your turn:
+
+1. Download the two FastQC HTML files to your computer.
+
+2. In your computer's file browser, navigate to the folder you downloaded the files to,
+   and click on each of them.
+   This should open the files in your default web browser.
+
+3. Explore the files.
+   Which graphs do you and which do you not understand?
+  
+4. Are there noticeable differences between the two files
+   (i.e. between the forward and reverse reads for the same sample)?
+
+</details>
+:::

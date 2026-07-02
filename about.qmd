@@ -44,7 +44,7 @@ _You don't need to bring food or drinks, as these will be provided during the br
 
 #### What setup steps you should do before the workshop
 
-As listed in the "Pre-workshop prep" dropdown in the top navigation bar of this website:
+As listed in the "Pre-workshop setup" menu in the navigation bar:
 
 1. [Install VS Code on your laptop](vscode-install.qmd)
 2. [Create an OSC account](osc-account.qmd) if you don't have one

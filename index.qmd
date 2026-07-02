@@ -51,6 +51,7 @@ _The schedule below is preliminary and may change slightly before the workshop_
 | 10 | 10:45 am -- 12:00 pm | Jelmer | A worked example analysis with agents |
 |  | [*12:00 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
 | 11     | 01:00 pm -- 01:30 pm | Hannah | Limitations and responsible use of AI |
-| 12 | 01:30 pm -- 04:00 pm | *all* | DIY with own (or other) data |
+| 12 | 01:30 pm -- 03:30 pm | *all* | DIY with own (or other) data |
+| 13 | 03:30 pm -- 04:00 pm | *all* | Concluding remarks and looking forward |
 
 : {.striped .hover tbl-colwidths="[5, 20, 15, 60]"}

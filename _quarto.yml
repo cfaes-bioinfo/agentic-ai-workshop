@@ -26,12 +26,24 @@ website:
           - text: "11: Limitations and responsible use of AI"
           - text: "12: DIY with own (or other) data"
     right:
-      - text: Pre-workshop prep
+      - text: Pre-workshop learning
         menu:
-          - text: VS Code installation
-            href: vscode-install.qmd
+          - text: "1: Intro to OSC"
+            href: p1-osc-intro.qmd
+          - text: "2: Unix shell basics"
+            href: p2-shell-intro.qmd
+          - text: "3: Command-line software"
+            href: p3-cl-software.qmd
+          - text: "4: Shell scripts and Slurm"
+            href: p4-shell-scripts.qmd
+          - text: "5: Optional homework"
+            href: p5-homework.qmd
+      - text: Pre-workshop setup
+        menu:
           - text: OSC account setup
             href: osc-account.qmd
+          - text: VS Code installation
+            href: vscode-install.qmd
           - text: "Optional: GitHub account setup"
             href: github-account.qmd
       - text: Practical Info
