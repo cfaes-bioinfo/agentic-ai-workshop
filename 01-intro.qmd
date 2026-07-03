@@ -1,0 +1,87 @@
+---
+title: "Workshop Introduction"
+subtitle: "Using Generative and Agentic AI <br> for Omics Data Analysis" 
+date: 2025-08-26
+author:
+  - name: Jelmer Poelstra
+    email: poelstra.1@osu.edu
+    affiliation: 
+      - name: CFAES Bioinformatics Core
+        url: https://go.osu.edu/bioinformatics-core
+  - name: Menuka Bhandari
+    email: bhandari.1@osu.edu
+    affiliation: 
+      - name: CFAES Bioinformatics Core
+        url: https://go.osu.edu/bioinformatics-core
+  - name: Hannah Toth
+    email: toth.1@osu.edu
+    affiliation: 
+      - name: Department of Plant Pathology
+        url: https://plantpath.osu.edu/
+  - name: Jonathan Jacobs
+    email: jacobs.1@osu.edu
+    affiliation: 
+      - name: Department of Plant Pathology
+        url: https://plantpath.osu.edu/
+title-slide-attributes:
+  data-background-color: "silver"
+format:
+  revealjs:
+    theme: [default, theme_mod.scss]
+    css: slides.css
+    smaller: true
+    scrollable: false
+    progress: true
+    incremental: false
+    slide-number: true
+    slide-level: 2
+    highlight-style: pygments
+    embed-resources: false # Can't be used with chalkboard
+    chalkboard:
+      theme: whiteboard
+    toc: true
+    toc-depth: 1
+    toc-title: Overview
+    footer: "[~ GenAI-workshop ~](https://cfaes-bioinfo.github.io/agentic-ai-workshop/)"
+    logo: img/CFAES-Horiz-RGBHEX.svg
+    menu:
+      width: wide
+      numbers: true
+editor_options: 
+  chunk_output_type: console
+bibliography: refs.bib
+---
+
+# Instructor introductions {background-color="silver"}
+
+## Introductions: Jelmer (instructor)
+
+**Lead of the CFAES Bioinformatics and Microscopy cores**
+
+- Part of what is currently known as the Molecular & Cellular Imaging Center (MCIC)
+- We are now officially under **CFAES Research & Analytical Service Cores (RASC)**,
+  a set of core facilities providing services in molecular biology,
+  high-throughput sequencing, bioinformatics, microscopy, and soil analyses.
+
+. . .
+
+**What I work on**
+
+- Providing research assistance with omics data analysis
+
+- Teaching, such as this course, workshops, and Code Club
+  (<https://osu-codeclub.github.io>)
+
+. . .
+
+**Otherwise**
+
+- Research background in animal evolutionary genomics & speciation
+
+- In my free time, I enjoy bird watching -- locally & across the world
+
+# Brief participant introductions {background-color="silver"}
+
+# Overview of the workshop's topics and schedule {background-color="silver"}
+
+# How to follow along, ask questions, etc. {background-color="silver"}

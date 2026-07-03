@@ -46,9 +46,10 @@ _You don't need to bring food or drinks, as these will be provided during the br
 
 As listed in the "Pre-workshop setup" menu in the navigation bar:
 
-1. [Install VS Code on your laptop](vscode-install.qmd)
-2. [Create an OSC account](osc-account.qmd) if you don't have one
-3. Optional: [Create a GitHub account and request free academic benefits](github-account.qmd)
+1. [Create an OSC account](s1-osc-account.qmd) if you don't have one
+2. [Install VS Code on your laptop](s2-vscode-install.qmd)
+3. _Optional: [Create a GitHub account and request free academic benefits](s3-github-account.qmd)_
+4. _Optional: [Install Positron](s4-positron-install.qmd) (a modern and AI-friendly RStudio alternative for R)_
 
 #### What you should know before the workshop
 
@@ -57,9 +58,18 @@ and the Unix Shell ("terminal" / "command line"),
 including how to run simple shell scripts as Slurm jobs on OSC.
 Some knowledge of programming in R or Python is also helpful, but not required.
 
-**We will organize a 2-hour pre-workshop event for those who need to get up to speed on**
-**OSC and the Unix Shell, and will make its recording and other materials**
-**available for those who cannot attend.**
+A 2-hour pre-workshop session will be held for those who need to get up to speed on
+these topics, and will make its Zoom recording available for those who cannot attend.
+That session will go over the following material:
+
+1. [Ohio Supercomputer Center (OSC) introduction](p1-osc-intro.qmd)
+2. [Unix shell basics](p2-shell-intro.qmd)
+3. [Command-line software](p3-cl-software.qmd)
+4. [Shell scripts and Slurm](p4-shell-scripts.qmd)
+
+Finally, there is the following optional self-study material:
+
+5. [Variables, for loops, and Apptainer containers](p5-homework.qmd)
 
 <hr style="height:1pt; visibility:hidden;" />
 

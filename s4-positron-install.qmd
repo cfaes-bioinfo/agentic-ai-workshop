@@ -1,0 +1,26 @@
+---
+title: "Positron installation"
+subtitle: "Optional installation and setup of the Positron IDE for R"
+number-sections: true
+date: 2026-07-01
+author:
+  - name: Jelmer Poelstra
+    orcid: 0000-0002-3514-7462
+    email: poelstra.1@osu.edu
+    affiliation: 
+      - name: CFAES Bioinformatics Core, Ohio State University
+        url: https://go.osu.edu/bioinformatics-core
+bibliography: refs.bib
+---
+
+---------
+
+<hr style="height:1pt; visibility:hidden;" />
+
+::: {.callout-caution appearance="simple"}
+**_This page is still subject to change_**
+:::
+
+<hr style="height:1pt; visibility:hidden;" />
+
+## Overview

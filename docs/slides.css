@@ -1,0 +1,43 @@
+h1, h2 {
+  text-align: center;
+}
+
+p.caption {
+  text-align: center !important;
+  color: #bebfc2 !important;
+  font-size: 0.85em !important; 
+  font-style: italic !important;
+}
+
+.legend2 {
+  text-align: center !important;
+  color: #bebfc2 !important;
+  font-size: 0.85em !important; 
+  font-style: italic !important;
+  margin-top: -30px;
+}
+
+details > summary {
+  padding: 10px 10px;
+  background-color: #f1f6f1;
+  border: none;
+  border-radius: 25px;
+  /*box-shadow: 3px 3px 4px black;*/
+}
+
+details {
+  border-radius: 25px;
+  background-color: #f1f6f1;
+  padding: 5px 5px;
+  margin-left: 5px;
+  border-left-width: 0px;
+  border-left-style: solid;
+  border-left-color: #DCCFDE;
+  border-radius: 5px;
+}
+
+.quarto-float {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+}

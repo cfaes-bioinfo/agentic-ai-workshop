@@ -67,7 +67,7 @@
     "href": "about.html",
     "title": "Practical workshop information",
     "section": "",
-    "text": "This is a 2-day, hands-on Ohio State workshop organized by the CFAES Bioinformatics Core and the Department of Plant Pathology. It is intended for researchers who want to learn how to use generative and agentic AI tools for omics data analysis and beyond.\n\nBasic information\n\nDates: July 13 and 14, 2026, 9 am – 4 pm\nLocation: In-person in Columbus (Kottman 244) and Wooster (WSB 300) with Zoom connection\nInstructors:\n\nMenuka Bhandari (bioinformatician, CFAES Bioinformatics Core)\nJelmer Poelstra (lead, CFAES Bioinformatics Core)\nHannah Toth (postdoc, Department of Plant Pathology)\nJonathan Jacobs (professor, Department of Plant Pathology)\n\nDetailed schedule: see the website’s front page\nAttendance fee: $150 (an invoice will be sent after the workshop)\n\n\n\nWhat you should bring to the workshop\n\nA laptop – either OSU-managed or personal\nOptional: A data set you’d like to analyze with AI tools during the workshop’s second afternoon (if you don’t have one, we can help you find and obtain a relevant publicly available data set during the workshop)\n\n\n\n\n\n\n\nYou don’t need to bring food or drinks, as these will be provided during the breaks.\n\n\n\n\n\nWhat setup steps you should do before the workshop\nAs listed in the “Pre-workshop setup” menu in the navigation bar:\n\nInstall VS Code on your laptop\nCreate an OSC account if you don’t have one\nOptional: Create a GitHub account and request free academic benefits\n\n\n\nWhat you should know before the workshop\nWe expect you to have basic knowledge of the Ohio Supercomputer Center (OSC) and the Unix Shell (“terminal” / “command line”), including how to run simple shell scripts as Slurm jobs on OSC. Some knowledge of programming in R or Python is also helpful, but not required.\nWe will organize a 2-hour pre-workshop event for those who need to get up to speed on OSC and the Unix Shell, and will make its recording and other materials available for those who cannot attend.\n\n\n\n\n\n\n\nThe CFAES Bioinformatics Core also teaches the related 3-credit AU26 course “Practical Computing Skills for Omics Data” (PLNTPTH 5006). For more information, contact Jelmer Poelstra and see last year’s course website.\n\n\n\n\n\n\n\n Back to top"
+    "text": "This is a 2-day, hands-on Ohio State workshop organized by the CFAES Bioinformatics Core and the Department of Plant Pathology. It is intended for researchers who want to learn how to use generative and agentic AI tools for omics data analysis and beyond.\n\nBasic information\n\nDates: July 13 and 14, 2026, 9 am – 4 pm\nLocation: In-person in Columbus (Kottman 244) and Wooster (WSB 300) with Zoom connection\nInstructors:\n\nMenuka Bhandari (bioinformatician, CFAES Bioinformatics Core)\nJelmer Poelstra (lead, CFAES Bioinformatics Core)\nHannah Toth (postdoc, Department of Plant Pathology)\nJonathan Jacobs (professor, Department of Plant Pathology)\n\nDetailed schedule: see the website’s front page\nAttendance fee: $150 (an invoice will be sent after the workshop)\n\n\n\nWhat you should bring to the workshop\n\nA laptop – either OSU-managed or personal\nOptional: A data set you’d like to analyze with AI tools during the workshop’s second afternoon (if you don’t have one, we can help you find and obtain a relevant publicly available data set during the workshop)\n\n\n\n\n\n\n\nYou don’t need to bring food or drinks, as these will be provided during the breaks.\n\n\n\n\n\nWhat setup steps you should do before the workshop\nAs listed in the “Pre-workshop setup” menu in the navigation bar:\n\nCreate an OSC account if you don’t have one\nInstall VS Code on your laptop\nOptional: Create a GitHub account and request free academic benefits\nOptional: Install Positron (a modern and AI-friendly RStudio alternative for R)\n\n\n\nWhat you should know before the workshop\nWe expect you to have basic knowledge of the Ohio Supercomputer Center (OSC) and the Unix Shell (“terminal” / “command line”), including how to run simple shell scripts as Slurm jobs on OSC. Some knowledge of programming in R or Python is also helpful, but not required.\nA 2-hour pre-workshop session will be held for those who need to get up to speed on these topics, and will make its Zoom recording available for those who cannot attend. That session will go over the following material:\n\nOhio Supercomputer Center (OSC) introduction\nUnix shell basics\nCommand-line software\nShell scripts and Slurm\n\nFinally, there is the following optional self-study material:\n\nVariables, for loops, and Apptainer containers\n\n\n\n\n\n\n\n\nThe CFAES Bioinformatics Core also teaches the related 3-credit AU26 course “Practical Computing Skills for Omics Data” (PLNTPTH 5006). For more information, contact Jelmer Poelstra and see last year’s course website.\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "5_toolbox-setup.html#overview",
@@ -852,5 +852,117 @@
     "title": "Shell scripts and Slurm",
     "section": "2 A first shell script",
     "text": "2 A first shell script\n\n2.1 A script to run FastQC\nCreate your first script, fastqc.sh (shell scripts usually have the extension .sh) as follows:\n# Create an empty file with the touch command:\ntouch fastqc.sh\nFind the fastqc.sh file in the VS Code file explorer (you may need to refresh the explorer if you don’t see it immediately) and click on it to open it in the editor pane. Then, copy the following into the script:\necho \"This script will run FastQC\"\nShell scripts mostly contain the same Unix shell code you have become familiar with. As such, the fastqc.sh file with a single echo command constitutes a functional shell script!\nOne way of running the script is by typing bash followed by the path to the script1:\nbash fastqc.sh\nThis script will run FastQC\nThat worked! The script doesn’t yet run FastQC like it “promises” to do, but we will add that functionality in a little bit.\n\n\n\n\n\n\nWarningAuto Save in VS Code (Click to expand)\n\n\n\n\n\nAny changes you make to this and other files in the editor pane should be immediately, automatically saved by VS Code. If that’s not happening for some reason, you should see an indication of unsaved changes like a large black dot next to the script’s file name in the editor pane tab header.\nIf the file is not auto-saving, you can always save it manually (including with Ctrl/Cmd+S) like you would do in other programs. However, it may be convenient to turn Auto Save on: press Ctrl/Cmd+Shift+S to open the Command Palette and type “Auto Save”. You should see an option “Toggle Auto Save”: click on that.\n\n\n\n\n\n2.2 Add a shebang line\nA so-called “shebang” line is commonly used as the first line of a script to indicate which computer language the script uses. For the sake of time, we won’t go into the details of how this weird-looking line is structured, but for shell scripts, you can add:\n#!/bin/bash\nWhile not always strictly necessary, adding a shebang line to every shell script is good practice, especially when you submit your script with Slurm, as we’ll do later.\nAdd the shebang line to your fastqc.sh script, so it will now contain the following:\n#!/bin/bash\n\necho \"This script will run FastQC\"\n\n\n2.3 Make the script run FastQC\n\n Exercise\n\nAdd a line to the fastqc.sh script that runs FastQC on the first FASTQ file (TBA) and writes the output to the results/fastqc directory.\nRun the script again.\n\n\n\nClick for the solution\n\n\nThe full script should now look like this:\n\n#!/bin/bash\n\necho \"This script will run FastQC\"\n\nfastqc --outdir results/fastqc data/ERR10802863_R1.fastq.gz\n\nRun the script again:\n\nbash fastqc.sh\nTBA"
+  },
+  {
+    "objectID": "s3-github-account.html#overview",
+    "href": "s3-github-account.html#overview",
+    "title": "Optional GitHub account setup",
+    "section": "1 Overview",
+    "text": "1 Overview\nFor the purposes of this workshop, a GitHub account will allow you to use the agentic AI tool GitHub Copilot within VS Code.\nThe following steps are not strictly required before the workshop, because creating a GitHub account can be done quite seamlessly during the workshop, and because you’ll also have access to an alternative, similar AI tool (Claude Code).\nHowever, we do recommend following the steps below. Claude Code is a paid tool that we will provide institutional1 access to during the workshop, but that you will not have access to after the workshop unless you pay for it in some way. GitHub Copilot, on the other hand, cannot be used institutionally at OSU, but does have a free ‘personal’ option for academic users. As such, for many of you, GitHub Copilot may be the easiest way to continue trying out agentic AI tools after the workshop (we’ll discuss your options further during the workshop)."
+  },
+  {
+    "objectID": "s3-github-account.html#create-a-github-account-if-you-dont-have-one-yet",
+    "href": "s3-github-account.html#create-a-github-account-if-you-dont-have-one-yet",
+    "title": "Optional GitHub account setup",
+    "section": "2 Create a GitHub account (if you don’t have one yet)",
+    "text": "2 Create a GitHub account (if you don’t have one yet)\nGitHub is a place where you can store your code and share it with others, and where you can find code and software written by others. It can therefore be very useful to have a GitHub account beyond GitHub Copilot usage.\n\nGo to https://github.com\nClick the “Sign Up” button all the way in the top right corner of the page\nFill out the form to provide your personal details (only use “Continue with Google” if you’re happy linking this to your Google account rather than your OSU email address – see below):\n\nWhen choosing your username, best to keep it professional and include (parts of) your real name: you may use GitHub to share your code, like when publishing a paper\nIt’s recommended to sign up with your OSU email address, as that will make the educational access verification process smoother\n\nCheck your email and click the link to verify your email address. There may also be some two-factor authentication steps to complete."
+  },
+  {
+    "objectID": "s3-github-account.html#apply-for-free-github-copilot-pro-access",
+    "href": "s3-github-account.html#apply-for-free-github-copilot-pro-access",
+    "title": "Optional GitHub account setup",
+    "section": "3 Apply for free GitHub Copilot Pro access",
+    "text": "3 Apply for free GitHub Copilot Pro access\nThe following will work for teachers/faculty and students alike – you’ll just need to select the appropriate option in the form:\n\nGo to https://github.com/settings/education/benefits\nClick “Start an application”:\n\n\n\n\n\n\n\nFill out the form as needed. Note that you will most likely need a document that proves your current status at the university.\n\n\n\n\n\n\n\nApplication approval is often quite fast (sometimes in minutes), but access is only granted 72 hours after approval."
+  },
+  {
+    "objectID": "s3-github-account.html#footnotes",
+    "href": "s3-github-account.html#footnotes",
+    "title": "Optional GitHub account setup",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nfor-fee, but free to you↩︎"
+  },
+  {
+    "objectID": "s1-osc-account.html#overview",
+    "href": "s1-osc-account.html#overview",
+    "title": "OSC account setup",
+    "section": "1 Overview",
+    "text": "1 Overview\nDuring the workshop, we’ll be using the Ohio Supercomputer Center (OSC) so we can all run code and access data in the same manner. Additionally, OSC’s computing resources and data storage capabilities make it the go-to location for us at OSU to perform real-world omics data analyses.\nThe instructors will add you to the workshop’s OSC project (PAS3454), which will give you access to shared files and allow you to reserve computing resources. If you don’t yet have an OSC account, being added to the project will additionally trigger the process for you to create an account."
+  },
+  {
+    "objectID": "s1-osc-account.html#what-you-should-do",
+    "href": "s1-osc-account.html#what-you-should-do",
+    "title": "OSC account setup",
+    "section": "2 What you should do",
+    "text": "2 What you should do\nWhen you receive an invitation email from OSC referencing the workshop’s project number PAS3454:\n\nIf you don’t have an OSC account yet\nFollow the instructions and link in the email to create your OSC account\nIf you already have an OSC account\nThe email will likely tell you that you have been added to the project and don’t need to do anything\n\nIn either case, check whether you can log in\nGo to https://ondemand.osc.edu and log in by typing your username and password on the left-hand side of the page. (If you just created your account, it can sometimes take up to half an hour or so before you can log in.)"
+  },
+  {
+    "objectID": "s2-vscode-install.html#overview",
+    "href": "s2-vscode-install.html#overview",
+    "title": "VS Code installation",
+    "section": "1 Overview",
+    "text": "1 Overview\nIn this workshop, we’ll use the Visual Studio Code (VS Code) editor for most hands-on tasks: to write and run code, to connect to OSC, and to deploy agentic AI tools. This Microsoft program is freely available for anyone and works on Windows, Mac, and Linux computers.\nThis brief page will help you to install VS Code on whatever laptop you plan to bring to the workshop."
+  },
+  {
+    "objectID": "s2-vscode-install.html#what-you-should-do",
+    "href": "s2-vscode-install.html#what-you-should-do",
+    "title": "VS Code installation",
+    "section": "2 What you should do",
+    "text": "2 What you should do\n\n2.1 If you have an OSU-managed computer\nIf you are bringing an OSU computer, you may not have the required “administrative privileges” to install software on your computer the regular way.\nHowever, your computer should then have an OSU application that allows you to install a selection of approved software, and that selection includes VS Code.\n\nWindowsMac\n\n\nThe OSU app is called “Software Center”.\nDetails TBA\n\n\nThe OSU app is called “Ohio State Application Self Service”.\n\nOpen this application (it’s likely in the Dock, otherwise search for it)\nIn it, start typing “Visual Studio Code” in the little search box on the top left\nClick the “Install” button that appears below the Visual Studio Code entry\n\n\n\n\nThis is the icon for the app on Jelmer’s Mac\n\n\n\n\n\n\nIf you start typing “Visual Studio Code” in the search box, this is what you should see: although this screenshot says “Update”; you should see “Install” unless you also have it installed aready.\n\n\n\n\n\n\n\n2.2 If you have a personal computer\nInstallation is quite straightforward – follow the links below for the official VS Code installation instructions for:\n\nWindows\nMac\nLinux"
+  },
+  {
+    "objectID": "s4-positron-install.html#overview",
+    "href": "s4-positron-install.html#overview",
+    "title": "Positron installation",
+    "section": "1 Overview",
+    "text": "1 Overview"
+  },
+  {
+    "objectID": "01-intro.html",
+    "href": "01-intro.html",
+    "title": "Agentic AI Workshop",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "05-toolbox-setup.html#overview",
+    "href": "05-toolbox-setup.html#overview",
+    "title": "Our toolbox: intro and setup",
+    "section": "1 Overview",
+    "text": "1 Overview\nIn the rest of this workshop, we’ll primarily use the following set of tools to enable us to run code, access data, and deploy agentic AI tools:\n\nVS Code: a code editor that we’ll use to write and run code\nGitHub Copilot and Claude Code, in the form of plugins for VS Code, for generative and agentic AI access\nOSC: the Ohio Supercomputer Center, which will provide us with a powerful shared computing environment and access to data\n\nThis same setup is what the instructors use in their own work, and it is a setup that you can continue to use after the workshop (with some caveats regarding the AI tools, which we’ll discuss)."
+  },
+  {
+    "objectID": "05-toolbox-setup.html#some-vs-code-exploration",
+    "href": "05-toolbox-setup.html#some-vs-code-exploration",
+    "title": "Our toolbox: intro and setup",
+    "section": "2 Some VS Code exploration",
+    "text": "2 Some VS Code exploration\nVS Code is basically a fancy text editor. Its full name is Visual Studio Code, and it’s called “Code Server” at OSC.\nTo emphasize the additional functionality relative to basic text editors like Notepad and TextEdit, editors like VS Code are also referred to as IDEs: Integrated Development Environments. The RStudio program is another good example of an IDE — and like RStudio is an IDE for R, VS Code will be our IDE for shell (and other) code.\n\n2.1 The VS Code User Interface\n\n\n\n\n\n\nSide bars\nBy default, the (wide) Side Bar will show a file explorer, where you see your files, create new folders and files, and so on.\nThe Activity Bar (narrow side bar) on the far left has:\n\nA  (“hamburger menu”), which has menu items like File that you often find in a top bar\nA  (cog wheel icon) in the bottom, through which you can mainly access settings\nIcons to toggle between options for the wide Side Bar: we’ll talk about those in a later session\n\n\n\n\n2.2 A folder as a starting point\nVery conveniently, VS Code takes a specific folder as a starting point in all parts of the program:\n\nIn its file explorer\nWhen saving files\nIn the Unix shell its terminal\n\n Click File &gt; Open Folder and then type/select the personal dir within /fs/ess/PAS3454/users you made last week (for example, I will select /fs/ess/PAS3454/users/jelmer). This will cause the program to reload.\n\nTerminal (with a Unix shell)\n Open a terminal by clicking    &gt; Terminal &gt; New Terminal. We’ll start using this terminal in the next lecture. For now, practice resizing panes (terminal vs. editor, and the width of the side bar) by hovering your cursor over the lines dividing them and then dragging.\n\n\nEditor pane and Welcome document\nThe main part of the VS Code is the editor pane. Here, you can open scripts and other types of text files, images, and so on. Like in a web browser, you can have multiple tabs open.\nWhenever you open VS Code, an editor tab with a Welcome document is automatically opened. This provides some help and shortcuts to recently opened files and folders."
+  },
+  {
+    "objectID": "05-toolbox-setup.html#a-first-dive-github-copilot",
+    "href": "05-toolbox-setup.html#a-first-dive-github-copilot",
+    "title": "Our toolbox: intro and setup",
+    "section": "3 A first dive: GitHub Copilot",
+    "text": "3 A first dive: GitHub Copilot\nGitHub Copilot is an agentic AI tool that can help you write code and perform other tasks. Among other things, it is available as a pre-installed plugin for VS Code. While this is a Microsoft product, it is not one you can –currently– use institutionally at OSU. Instead, access runs through a personal GitHub account, which you can create for free and which you can use for other purposes as well.\nWhen you open VS Code, you should see XXXX login button to log into GitHub. For those without a GitHub account, you can create one on the fly, including semi-automatically via a Google login if you have a Google account.\n\n\n\nFrom https://github.blog/changelog/2025-07-15-social-login-with-google-is-now-generally-available\n\n\nUnless you had previously set up GitHub Pro access, you will now be automatically using the Free Tier of GitHub Copilot. This free tier is not sufficient for sustained use of GitHub Copilot, but is sufficient for the purposes of this workshop, especially because you also have access to Claude Code (which we will set up later).\n\nTBA - Question in the chat\nTBA - Inline code example"
+  },
+  {
+    "objectID": "05-toolbox-setup.html#connect-vs-code-to-osc",
+    "href": "05-toolbox-setup.html#connect-vs-code-to-osc",
+    "title": "Our toolbox: intro and setup",
+    "section": "4 Connect VS Code to OSC",
+    "text": "4 Connect VS Code to OSC\nNext, we will set up VS Code to connect to OSC. This one-time setup is a bit of a process, but is well worth it. This so-called “SSH tunneling” of VS Code is a very convenient and powerful way to access OSC, with or without the added benefit of agentic AI tools. It will move a VS Code window entirely to OSC - not just the terminal, but also the file system, the code editor, and so on.\n\nOpen VS Code on your laptop\nIn the narrow sidebar on the left, click the square icon with four squares inside it (the “Extensions” icon), and now, the wide sidebar on the left will show a search box at the top and a list of extensions below it\nIn the search box, type “Remote Development” and you should see the “Remote Development extension pack” appear\nClick the “Install” button to install this extension pack\n\nNow, we will use functionality from this extension pack to connect to OSC:\n\nOpen the VS Code Command Palette by pressing Ctrl/⌘+Shift+P) and start typing “Remote SSH”:\n\nAmong the options that pop up, select “Remote-SSH: Add New SSH Host…” and type the following, replacing &lt;osc-username&gt; with your OSC username:\nssh &lt;osc-username&gt;@cardinal.osc.edu\nFor example, if your username is marie, you would type:\nssh marie@cardinal.osc.edu \nIn the dialog “Select SSH configuration file to update” that pops up, select the first (top) option\n\nYou’ll see a “Host Added!” pop-up (may be in the bottom-right of your screen): in that pop-up, click “Connect”, and:\n\nWhen you get a message like that shown below, click “Continue”:\n\n“cardinal.osc.edu” has fingerprint &lt;…&gt;\nAre you sure you want to continue?\n\nEnter your OSC password when you’re prompted for it\nIf you’re asked about the operating system of the host, select Linux\n\nNow, you’re connected, most likely in a new VS Code window, and some more pop-ups may appear:\n\nIf you’re asked whether you “Trust the Authors” of the folder you ended up in, click “Yes”\nIf a pop-up in the bottom-right asks you to update Git, click “No” and check “Don’t show again”\n\nOpen a folder\nClose the window?\n\n\n\n\n\n\n\nTipConnecting from now on\n\n\n\nWith the above one-time setup done, connecting to OSC with your local VS Code installation will be quick:\n\nOpen the Command Palette and start typing “SSH Connect”\nClick on “SSH: Connect to Host” and then select your OSC connection\nEnter your password (but this won’t be necessary anymore after you do the below setup!)\n\nAlso, any previously opened folders on OSC will….TBA\n\n\n\n\n\n\n\n\nNoteOptional setup so you won’t have to enter your OSC password again (Click to expand)\n\n\n\n\n\nIf you take the following steps, you will no longer be prompted for your OSC password every time you connect to OSC with the above method (or with any other SSH-based method).\n\nOn your own computer, open a terminal application.\n\nOn a Mac, you should have an app called “Terminal” and potentially other options like “iTerm”: any of these fill work\nOn Windows 11+, this should be called the “Windows Terminal”\n\nGenerate a public-private SSH key-pair:\nssh-keygen -t rsa\nYou’ll get some output and will then be asked several questions, but in each case, you can just press Enter to select the default answer.\nTransfer the public key to OSC’s Cardinal cluster:\n\nWindowsMac\n\n\ncat ~/.ssh/id_rsa.pub | ssh &lt;user&gt;@cardinal.osc.edu 'mkdir -p .ssh && cat &gt;&gt; .ssh/authorized_keys'\n\n\n# Replace &lt;user&gt; by your username, e.g. \"ssh-copy-id jelmer@cardinal.osc.edu\"\nssh-copy-id &lt;user&gt;@cardinal.osc.edu\n\n\n\nAll done! Test if it works by connecting"
+  },
+  {
+    "objectID": "05-toolbox-setup.html#install-and-set-up-claude-code",
+    "href": "05-toolbox-setup.html#install-and-set-up-claude-code",
+    "title": "Our toolbox: intro and setup",
+    "section": "5 Install and set up Claude Code",
+    "text": "5 Install and set up Claude Code\n\nIn the Extensions sidebar of VS Code, search for “Claude Code” and install the extension “Claude Code for VS Code”\nTBA"
+  },
+  {
+    "objectID": "01-intro.html#introductions-jelmer-instructor",
+    "href": "01-intro.html#introductions-jelmer-instructor",
+    "title": "Workshop Introduction",
+    "section": "Introductions: Jelmer (instructor)",
+    "text": "Introductions: Jelmer (instructor)\nLead of the CFAES Bioinformatics and Microscopy cores\n\nPart of what is currently known as the Molecular & Cellular Imaging Center (MCIC)\nWe are now officially under CFAES Research & Analytical Service Cores (RASC), a set of core facilities providing services in molecular biology, high-throughput sequencing, bioinformatics, microscopy, and soil analyses.\n\n\nWhat I work on\n\nProviding research assistance with omics data analysis\nTeaching, such as this course, workshops, and Code Club (https://osu-codeclub.github.io)\n\n\n\nOtherwise\n\nResearch background in animal evolutionary genomics & speciation\nIn my free time, I enjoy bird watching – locally & across the world"
   }
 ]

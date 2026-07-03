@@ -8,14 +8,7 @@ author:
     email: poelstra.1@osu.edu
     affiliation: 
       - name: CFAES Bioinformatics Core, Ohio State University
-        url: https://mcic.osu.edu/bioinformatics
-other-links:
-  - text: "VS Code installation"
-    icon: bookmarks
-    href: vscode-install.qmd
-  - text: "GitHub account setup"
-    icon: bookmarks
-    href: github-account.qmd
+        url: https://go.osu.edu/bioinformatics-core
 number-sections: true
 toc: true
 ---

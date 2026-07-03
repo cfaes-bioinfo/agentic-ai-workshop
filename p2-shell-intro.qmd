@@ -9,7 +9,7 @@ author:
     email: poelstra.1@osu.edu
     affiliation: 
       - name: CFAES Bioinformatics Core, Ohio State University
-        url: https://mcic.osu.edu/bioinformatics
+        url: https://go.osu.edu/bioinformatics-core
 bibliography: refs.bib
 ---
 

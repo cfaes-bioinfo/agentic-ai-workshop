@@ -28,7 +28,7 @@ website:
     right:
       - text: Pre-workshop learning
         menu:
-          - text: "1: Intro to OSC"
+          - text: "1: OSC intro"
             href: p1-osc-intro.qmd
           - text: "2: Unix shell basics"
             href: p2-shell-intro.qmd
@@ -36,16 +36,20 @@ website:
             href: p3-cl-software.qmd
           - text: "4: Shell scripts and Slurm"
             href: p4-shell-scripts.qmd
-          - text: "5: Optional homework"
+          - text: "--------------"
+          - text: "5: Optional self-study material"
             href: p5-homework.qmd
       - text: Pre-workshop setup
         menu:
           - text: OSC account setup
-            href: osc-account.qmd
+            href: s1-osc-account.qmd
           - text: VS Code installation
-            href: vscode-install.qmd
+            href: s2-vscode-install.qmd
+          - text: "--------------"
           - text: "Optional: GitHub account setup"
-            href: github-account.qmd
+            href: s3-github-account.qmd
+          - text: "Optional: Positron setup (for R)"
+            href: s4-positron-install.qmd
       - text: Practical Info
         href: about.qmd
     tools:

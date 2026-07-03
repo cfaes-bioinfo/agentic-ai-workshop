@@ -1,0 +1,33 @@
+/*-- scss:defaults --*/
+
+// headings
+$presentation-heading-color: #bb0000;
+$body-color: black; //#4f4f4f;
+$code-block-font-size: 0.73em;
+$presentation-font-size-root: 30px;
+$presentation-font-smaller: 0.84;
+$presentation-heading-line-height: 2.1;
+
+.reveal .footer {
+  font-size: 0.75em !important;
+  text-align: center !important;
+  color: #bb0000 !important;
+  a:link {
+    color: #bb0000;
+    text-decoration: underline;
+  }
+}
+
+// https://github.com/quarto-dev/quarto-cli/discussions/7356
+.table-striped {
+  > tbody > tr:nth-of-type(odd) > * {
+    background-color: #f2f2f2;
+  }
+}
+
+div {
+  &.callout {
+    font-size: 1.45rem !important;
+    font-style: italic;
+  }
+}
