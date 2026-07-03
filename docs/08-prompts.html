@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jelmer Poelstra">
-<meta name="dcterms.date" content="2026-07-01">
+<meta name="author" content="Hannah Toth">
+<meta name="dcterms.date" content="2026-07-03">
 
-<title>OSC account setup – Agentic AI Workshop</title>
+<title>Prompt engineering – Agentic AI Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -122,21 +122,54 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pre-workshop-prep" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Pre-workshop prep</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pre-workshop-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pre-workshop learning</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-prep">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-learning">    
         <li>
-    <a class="dropdown-item" href="./vscode-install.html">
- <span class="dropdown-text">VS Code installation</span></a>
+    <a class="dropdown-item" href="./p1-osc-intro.html">
+ <span class="dropdown-text">1: OSC intro</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./osc-account.html">
+    <a class="dropdown-item" href="./p2-shell-intro.html">
+ <span class="dropdown-text">2: Unix shell basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./p3-cl-software.html">
+ <span class="dropdown-text">3: Command-line software</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./p4-shell-scripts.html">
+ <span class="dropdown-text">4: Shell scripts and Slurm</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./p5-homework.html">
+ <span class="dropdown-text">5: Optional self-study material</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pre-workshop-setup" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pre-workshop setup</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-setup">    
+        <li>
+    <a class="dropdown-item" href="./s1-osc-account.html">
  <span class="dropdown-text">OSC account setup</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./github-account.html">
+    <a class="dropdown-item" href="./s2-vscode-install.html">
+ <span class="dropdown-text">VS Code installation</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./s3-github-account.html">
  <span class="dropdown-text">Optional: GitHub account setup</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./s4-positron-install.html">
+ <span class="dropdown-text">Optional: Positron setup (for R)</span></a>
   </li>  
     </ul>
   </li>
@@ -175,18 +208,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a></li>
-  <li><a href="#what-you-should-do" id="toc-what-you-should-do" class="nav-link" data-scroll-target="#what-you-should-do"><span class="header-section-number">2</span> What you should do</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="vscode-install.qmd"><i class="bi bi-bookmarks"></i>VS Code installation</a></li><li><a href="github-account.qmd"><i class="bi bi-bookmarks"></i>GitHub account setup</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">OSC account setup</h1>
-<p class="subtitle lead">Create an Ohio Supercomputer Center account if you don’t have one</p>
+<h1 class="title">Prompt engineering</h1>
+<p class="subtitle lead">TBA</p>
 </div>
 
 
@@ -195,12 +227,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author">Jelmer Poelstra <a href="mailto:poelstra.1@osu.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-3514-7462" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    <p class="author">Hannah Toth <a href="mailto:toth.302@osu.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            <a href="https://mcic.osu.edu/bioinformatics">
-            CFAES Bioinformatics Core, Ohio State University
+            <a href="https://plantpath.osu.edu">
+            Department of Plant Pathology, Ohio State University
             </a>
           </p>
       </div>
@@ -212,10 +244,16 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 1, 2026</p>
+      <p class="date">July 3, 2026</p>
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">July 3, 2026</p>
+    </div>
+  </div>
     
   </div>
   
@@ -226,22 +264,19 @@ ul.task-list li input[type="checkbox"] {
 
 <hr>
 <hr style="height:1pt; visibility:hidden;">
-<section id="overview" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
-<p>During the workshop, we’ll be using the Ohio Supercomputer Center (OSC) so we can all run code and access data in the same manner. Additionally, OSC’s computing resources and data storage capabilities make it the go-to location for us at OSU to perform real-world omics data analyses.</p>
-<p>The instructors will add you to the workshop’s OSC project (<code>PAS3454</code>), which will give you access to shared files and allow you to reserve computing resources. If you don’t yet have an OSC account, being added to the project will additionally trigger the process for you to create an account.</p>
-</section>
-<section id="what-you-should-do" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="what-you-should-do"><span class="header-section-number">2</span> What you should do</h2>
-<p>When you receive an invitation email from OSC referencing the workshop’s project number <code>PAS3454</code>:</p>
-<ul>
-<li><p><strong>If you don’t have an OSC account yet</strong><br>
-Follow the instructions and link in the email to create your OSC account</p></li>
-<li><p><strong>If you already have an OSC account</strong><br>
-The email will likely tell you that you have been added to the project and don’t need to do anything</p></li>
-</ul>
-<p><strong>In either case, check whether you can log in</strong><br>
-Go to <a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a> and log in by typing your username and password on the left-hand side of the page. (If you just created your account, it can sometimes take up to half an hour or so before you can log in.)</p>
+<div class="callout callout-style-simple callout-caution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong><em>This page is still subject to change</em></strong></p>
+</div>
+</div>
+</div>
+<hr style="height:1pt; visibility:hidden;">
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 
 
 </section>

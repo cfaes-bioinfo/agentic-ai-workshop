@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jelmer Poelstra">
-<meta name="dcterms.date" content="2026-07-01">
+<meta name="dcterms.date" content="2026-07-03">
 
-<title>Ohio Supercomputer Center (OSC) introduction – Agentic AI Workshop</title>
+<title>Concluding remarks and looking forward – Agentic AI Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -46,11 +46,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-18fe6355df9e00e9561dd53ce8dc48ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -132,20 +127,25 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-learning">    
         <li>
-    <a class="dropdown-item" href="./osc-intro.html">
- <span class="dropdown-text">1: Intro to OSC</span></a>
+    <a class="dropdown-item" href="./p1-osc-intro.html">
+ <span class="dropdown-text">1: OSC intro</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./shell-intro.html">
+    <a class="dropdown-item" href="./p2-shell-intro.html">
  <span class="dropdown-text">2: Unix shell basics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./cl-software.html">
+    <a class="dropdown-item" href="./p3-cl-software.html">
  <span class="dropdown-text">3: Command-line software</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./shell-scripts.html">
+    <a class="dropdown-item" href="./p4-shell-scripts.html">
  <span class="dropdown-text">4: Shell scripts and Slurm</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./p5-homework.html">
+ <span class="dropdown-text">5: Optional self-study material</span></a>
   </li>  
     </ul>
   </li>
@@ -155,16 +155,21 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-setup">    
         <li>
-    <a class="dropdown-item" href="./vscode-install.html">
- <span class="dropdown-text">VS Code installation</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./osc-account.html">
+    <a class="dropdown-item" href="./s1-osc-account.html">
  <span class="dropdown-text">OSC account setup</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./github-account.html">
+    <a class="dropdown-item" href="./s2-vscode-install.html">
+ <span class="dropdown-text">VS Code installation</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./s3-github-account.html">
  <span class="dropdown-text">Optional: GitHub account setup</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./s4-positron-install.html">
+ <span class="dropdown-text">Optional: Positron setup (for R)</span></a>
   </li>  
     </ul>
   </li>
@@ -203,24 +208,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
-  <ul class="collapse">
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">1.1</span> Overview</a></li>
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals"><span class="header-section-number">1.2</span> Learning goals</a></li>
-  </ul></li>
-  <li><a href="#high-performance-computing" id="toc-high-performance-computing" class="nav-link" data-scroll-target="#high-performance-computing"><span class="header-section-number">2</span> High-performance computing</a></li>
-  <li><a href="#the-ohio-supercomputer-center-osc" id="toc-the-ohio-supercomputer-center-osc" class="nav-link" data-scroll-target="#the-ohio-supercomputer-center-osc"><span class="header-section-number">3</span> The Ohio Supercomputer Center (OSC)</a></li>
-  <li><a href="#the-structure-of-a-supercomputer-center" id="toc-the-structure-of-a-supercomputer-center" class="nav-link" data-scroll-target="#the-structure-of-a-supercomputer-center"><span class="header-section-number">4</span> The structure of a supercomputer center</a>
-  <ul class="collapse">
-  <li><a href="#terminology" id="toc-terminology" class="nav-link" data-scroll-target="#terminology"><span class="header-section-number">4.1</span> Terminology</a></li>
-  <li><a href="#supercomputer-components" id="toc-supercomputer-components" class="nav-link" data-scroll-target="#supercomputer-components"><span class="header-section-number">4.2</span> Supercomputer components</a></li>
-  </ul></li>
-  <li><a href="#osc-ondemand" id="toc-osc-ondemand" class="nav-link" data-scroll-target="#osc-ondemand"><span class="header-section-number">5</span> OSC OnDemand</a>
-  <ul class="collapse">
-  <li><a href="#files-menu" id="toc-files-menu" class="nav-link" data-scroll-target="#files-menu"><span class="header-section-number">5.1</span> Files menu</a></li>
-  <li><a href="#interactive-apps-menu" id="toc-interactive-apps-menu" class="nav-link" data-scroll-target="#interactive-apps-menu"><span class="header-section-number">5.2</span> Interactive Apps menu</a></li>
-  <li><a href="#clusters-menu" id="toc-clusters-menu" class="nav-link" data-scroll-target="#clusters-menu"><span class="header-section-number">5.3</span> Clusters menu</a></li>
-  </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
   </ul>
 </nav>
     </div>
@@ -229,8 +217,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Ohio Supercomputer Center (OSC) introduction</h1>
-<p class="subtitle lead">Part I of the pre-workshop learning session</p>
+<h1 class="title">Concluding remarks and looking forward</h1>
+<p class="subtitle lead">TBA</p>
 </div>
 
 
@@ -256,10 +244,16 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 1, 2026</p>
+      <p class="date">July 3, 2026</p>
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">July 3, 2026</p>
+    </div>
+  </div>
     
   </div>
   
@@ -281,312 +275,13 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <hr style="height:1pt; visibility:hidden;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/osc_logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/osc_logo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%" alt="The Ohio Supercomputer Center logo."></a></p>
-</figure>
-</div>
-<hr style="height:1pt; visibility:hidden;">
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<section id="overview" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1.1</span> Overview</h3>
-<p>This session introduces high-performance computing and the Ohio Supercomputer Center (OSC).</p>
-</section>
-<section id="learning-goals" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="learning-goals"><span class="header-section-number">1.2</span> Learning goals</h3>
-<p>In this session, you will learn:</p>
-<ul>
-<li>What a supercomputer is and why they are useful</li>
-<li>What resources the Ohio Supercomputer Center (OSC) provides</li>
-<li>How to access OSC resources through its OnDemand webportal</li>
-</ul>
-</section>
-</section>
-<section id="high-performance-computing" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="high-performance-computing"><span class="header-section-number">2</span> High-performance computing</h2>
-<p>A <strong>supercomputer</strong> (also known as a “compute cluster” or simply a “<strong>cluster</strong>”) consists of many computers that are connected by a high-speed network, and that can be <em>accessed remotely</em> by its users.</p>
-<p>Supercomputers provide high-performance computing (<strong>HPC</strong>) resources, which consists of two main aspects:</p>
-<ul>
-<li><strong>Compute</strong>: computing power to run your data processing and analysis</li>
-<li><strong>Storage</strong>: space for (long-term) storage of your data and results</li>
-</ul>
-<p>This is what Cardinal, one of the OSC supercomputers, physically looks like:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/cardinal_photo.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="The Cardinal OSC cluster"><img src="img/cardinal_photo.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="A photo of the Cardinal OSC cluster"></a></p>
-</figure>
-</div>
-<figcaption><em>The Cardinal OSC cluster</em></figcaption>
-</figure>
-</div>
-<p>Here are some possible reasons to use a supercomputer instead of your own laptop or desktop:</p>
-<ul>
-<li>Your analyses take a long time to run, need large numbers of processors, or a large amount of memory.</li>
-<li>You need to run an analysis many times.</li>
-<li>You need to store a lot of data.</li>
-<li>Your analyses require software available only for the Linux operating system, but you have Windows.</li>
-<li>Your analyses require specialized hardware, such as GPUs (Graphical Processing Units).</li>
-</ul>
-<p><strong>When you’re working with omics data, many of these reasons typically apply.</strong> This can make it hard or impossible to run your analyses on your personal workstation, and supercomputers provide a solution.</p>
-</section>
-<section id="the-ohio-supercomputer-center-osc" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="the-ohio-supercomputer-center-osc"><span class="header-section-number">3</span> The Ohio Supercomputer Center (OSC)</h2>
-<p>The Ohio Supercomputer Center (OSC) is a facility provided by the state of Ohio. It has several supercomputers, lots of storage space, and an excellent infrastructure for accessing these resources.</p>
-<p>Access to OSC’s compute and storage goes through <strong>OSC “Projects”</strong>:</p>
-<ul>
-<li>A project can be tied to a research project or lab, or be educational like this workshop’s project, <code>PAS3454</code>.</li>
-<li>Each project has a budget in terms of “compute hours” and storage space<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
-<li>As a user, it’s possible to be a member of multiple different projects.</li>
-<li>OSC projects are typically requested and managed by PIs.</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>OSC websites
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>OSC has <strong>three main websites</strong> — in this workshop, we will almost exclusively use the first:</p>
-<ul>
-<li><strong><a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a></strong>: A web portal to use OSC resources through your browser (<em>login needed</em>).</li>
-<li><a href="https://my.osc.edu" class="uri">https://my.osc.edu</a>: Account and project management (<em>login needed</em>).</li>
-<li><a href="https://osc.edu" class="uri">https://osc.edu</a>: General website with information about the supercomputers, installed software, and usage.</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="the-structure-of-a-supercomputer-center" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="the-structure-of-a-supercomputer-center"><span class="header-section-number">4</span> The structure of a supercomputer center</h2>
-<section id="terminology" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="terminology"><span class="header-section-number">4.1</span> Terminology</h3>
-<p>Let’s start with some (super)computing terminology, going from smaller things to bigger things:</p>
-<ul>
-<li><strong>Node</strong><br>
-A single computer that is a part of a supercomputer.</li>
-<li><strong>Supercomputer / Cluster</strong><br>
-A collection of connected computers. OSC currently has three: “Ascend”, “Cardinal”, and “Pitzer”.</li>
-<li><strong>Supercomputer Center</strong><br>
-A facility like OSC that has one or more supercomputers.</li>
-</ul>
-</section>
-<section id="supercomputer-components" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="supercomputer-components"><span class="header-section-number">4.2</span> Supercomputer components</h3>
-<p>We can think of a supercomputer as having three main parts:</p>
-<ul>
-<li><strong>File Systems</strong>: Where files are stored (these are shared between the OSC supercomputers!)</li>
-<li><strong>Login Nodes</strong>: The handful of computers everyone shares after logging in</li>
-<li><strong>Compute Nodes</strong>: The many computers you can reserve to run your analyses</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/cluster_overview_ed.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="The structure of a supercomputer with three main components: file systems, login nodes, and compute nodes"><img src="img/cluster_overview_ed.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="A diagram showing the structure of a supercomputer with three main components: file systems, login nodes, and compute nodes"></a></p>
-</figure>
-</div>
-<figcaption><em>The structure of a supercomputer with three main components: file systems, login nodes, and compute nodes</em></figcaption>
-</figure>
-</div>
-<section id="file-systems" class="level4">
-<h4 class="anchored" data-anchor-id="file-systems">File systems</h4>
-<p>OSC has several distinct file systems:</p>
-<table class="table-striped table-hover caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 70%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>File system</th>
-<th>Located at</th>
-<th>Main purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Project</strong></td>
-<td><code>/fs/ess/</code></td>
-<td>OSC’s main data storage location</td>
-</tr>
-<tr class="even">
-<td><strong>Scratch</strong></td>
-<td><code>/fs/scratch/</code></td>
-<td>Additional, temporary storage</td>
-</tr>
-<tr class="odd">
-<td><strong>Home</strong></td>
-<td><code>/users/</code></td>
-<td>General, <em>personal</em> files not tied to research projects or courses</td>
-</tr>
-</tbody>
-</table>
-<p>During the workshop, we’ll work in the Scratch folder of the workshop’s OSC Project <code>PAS3454</code>: <code>/fs/scratch/PAS3454</code>.</p>
-<hr style="height:1pt; visibility:hidden;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/osc-paths2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="A diagram showing the key dirs on OSC for this workshop, with OSC Project-associated dirs in blue and Home dirs in red. The PAS3454 box in the Home dir is faded, because your Home dir may be in a differently named dir, and also because it is important to realize that this dir is not associated with any OSC Project other than in name."><img src="img/osc-paths2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="A diagram showing paths on OSC and navigating upwards with relative paths"></a></p>
-</figure>
-</div>
-<figcaption>A diagram showing the key dirs on OSC for this workshop, with OSC Project-associated dirs in blue and Home dirs in red. The <code>PAS3454</code> box in the Home dir is faded, because your Home dir may be in a differently named dir, and also because it is important to realize that this dir is not associated with any OSC Project other than in name.</figcaption>
-</figure>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Your Home directory is not tied to any OSC Project
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Your Home directory is not tied to any OSC Project, and therefore it is not associated with any compute or storage budget. Many users are confused by this, because the Home directory is located in a folder that has the same name as the workshop’s OSC Project (<code>PAS3454</code>). TBA</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Paths?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Paths, like those shown in the table above, specify the <em>locations of folders and files on a computer</em>. You will learn more about them in the next few weeks.</p>
-</div>
-</div>
-</section>
-<section id="login-nodes" class="level4">
-<h4 class="anchored" data-anchor-id="login-nodes">Login Nodes</h4>
-<p>Login nodes are an initial landing spot for everyone who logs in to a supercomputer. Each supercomputer only has a handful of login nodes, and they are shared among everyone, and cannot be reserved for exclusive usage.</p>
-<p>Therefore, login nodes are meant only for things like organizing files and creating scripts for compute jobs. They are <strong><em>not</em></strong> <strong>meant for serious computing</strong> – in other words, they don’t provide compute, which is the function of compute nodes.</p>
-</section>
-<section id="compute-nodes" class="level4">
-<h4 class="anchored" data-anchor-id="compute-nodes">Compute Nodes</h4>
-<p>Data processing and analysis is done on compute nodes. You can only use compute nodes after putting in a <strong>request for compute resources</strong> (a “compute job”).</p>
-<p>A <em>job scheduler</em> program called <em>Slurm</em>, which you’ll learn more about shortly, then assigns the requested resources: for example, you may get exclusive access to a specific compute node for two hours.</p>
-</section>
-</section>
-</section>
-<section id="osc-ondemand" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="osc-ondemand"><span class="header-section-number">5</span> OSC OnDemand</h2>
-<p>The OSC OnDemand web portal is an amazing recourse that allows you to use a web browser to access OSC resources. For example, it offers access to:</p>
-<ul>
-<li>A <strong>file browser/explorer</strong></li>
-<li>A <strong>Unix shell</strong></li>
-<li>“<strong>Interactive Apps</strong>”: programs such as RStudio and VS Code</li>
-</ul>
-<hr>
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Go to <a href="https://ondemand.osc.edu" class="uri">https://ondemand.osc.edu</a> and log in</strong> (use the boxes on the left-hand side). Once logged in, you should see a landing page similar to the one below:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/ondemand_home.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="The OSC OnDemand landing page"><img src="img/ondemand_home.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="A screenshot of the OSC OnDemand landing page"></a></p>
-</figure>
-</div>
-<figcaption><em>The OSC OnDemand landing page</em></figcaption>
-</figure>
-</div>
-<p>We will now go through some of the dropdown menus in the <strong>blue bar along the top</strong>.</p>
-<section id="files-menu" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="files-menu"><span class="header-section-number">5.1</span> Files menu</h3>
-<p>Hovering over the <strong>Files</strong> dropdown menu gives a list of folders that you have access to. If your account is brand new, and you were added to <code>PAS3454</code>, you should only see three folders listed:</p>
-<ol type="1">
-<li>A <strong>Home</strong> folder (starts with <code>/users/</code>)</li>
-<li>The <code>PAS3454</code> project’s “<strong>project</strong>” folder (<code>/fs/ess/PAS3454</code>)</li>
-<li>The <code>PAS3454</code> project’s “<strong>scratch</strong>” folder (<code>/fs/scratch/PAS3454</code>)</li>
-</ol>
-<p>You will only ever have one Home folder at OSC, but for every additional project you are a member of, you will usually see additional <code>/fs/ess</code> and <code>/fs/scratch</code> folders appear.</p>
-<hr>
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Click on folder <code>/fs/scratch/PAS3454</code></strong>. Once there, you should see the folders and files present at the selected location, and can click on folders to explore their contents:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/ondemand_files_PAS2880.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="The OnDemand file browser"><img src="img/ondemand_files_PAS2880.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="A screenshot of the OSC OnDemand file browser."></a></p>
-</figure>
-</div>
-<figcaption><em>The OnDemand file browser</em></figcaption>
-</figure>
-</div>
-<p>This interface is <strong>much like the file browser on your own computer</strong>, so you can also create, delete, move and copy files and folders, and even upload (from your computer to OSC) and download (from OSC your computer) files<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> — see the buttons across the top.</p>
-<hr>
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Create a personal folder</strong> inside <code>/fs/ess/PAS3454/people</code>:</p>
-<ol type="1">
-<li>Click on the <code>people</code> folder</li>
-<li>Click the “New Directory” (<em><strong>directory -or dir for short- is another word for folder</strong></em>) at the top</li>
-<li>Give the new folder the <strong>exact same name</strong> as your OSC username. If you forgot your username, you can see it in the top-right corner of the OnDemand webpage.</li>
-<li>Click on the new folder and within it, create one more folder: <code>pre-workshop</code>.</li>
-</ol>
-</section>
-<section id="interactive-apps-menu" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="interactive-apps-menu"><span class="header-section-number">5.2</span> Interactive Apps menu</h3>
-<p>You can access programs with Graphical User Interfaces (<strong>GUI</strong>s; point-and-click interfaces) via the <strong>Interactive Apps</strong> dropdown menu:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/ondemand_apps.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Options in the OSC Ondemand Interactive Apps dropdown menu"><img src="img/ondemand_apps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%" alt="A screenshot of the options in the OSC Ondemand Interactive Apps dropdown menu."></a></p>
-</figure>
-</div>
-<figcaption><em>Options in the OSC Ondemand Interactive Apps dropdown menu</em></figcaption>
-</figure>
-</div>
-<p>Shortly, we’ll start using the VS Code text editor, which is listed here as <code>Code Server</code>.</p>
-</section>
-<section id="clusters-menu" class="level3" data-number="5.3">
-<h3 data-number="5.3" class="anchored" data-anchor-id="clusters-menu"><span class="header-section-number">5.3</span> Clusters menu</h3>
-<section id="system-status" class="level4">
-<h4 class="anchored" data-anchor-id="system-status">System Status</h4>
-<p>In the “<strong>Clusters</strong>” dropdown menu, click on the item at the bottom, “<strong><code>System Status</code></strong>”:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/ondemand_systemstatus_select.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="The Clusters dropdown menu"><img src="img/ondemand_systemstatus_select.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="A screenshot of the options in the OSC OnDemand Clusters dropdown menu."></a></p>
-</figure>
-</div>
-<figcaption><em>The Clusters dropdown menu</em></figcaption>
-</figure>
-</div>
-<p>This page shows an overview of the live, current usage of the two clusters — for now, this should mostly just give you a good idea of the scale of the supercomputer center<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="img/ondemand_systemstatus.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="A screenshot of the “System Status” page showing live cluster usage."><img src="img/ondemand_systemstatus.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="A screenshot of the OSC Ondemand System Status page showing live cluster usage."></a></p>
-</figure>
-</div>
-<figcaption>A screenshot of the “System Status” page showing live cluster usage.</figcaption>
-</figure>
-</div>
-<hr style="height:1pt; visibility:hidden;">
 
 
 </section>
-</section>
-</section>
 
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p> Though we don’t have to pay anything for educational projects like this one!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Though this is not meant for large (&gt;1 GB) transfers. Different methods are available — we’ll talk about those later on.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p> This information can also be useful to learn which cluster currently has more available nodes, and what the sizes are of the “queues”, which contain jobs waiting to start<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1008,38 +703,6 @@ A facility like OSC that has one or more supercomputers.</li>
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

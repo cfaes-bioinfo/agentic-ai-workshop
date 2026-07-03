@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jelmer Poelstra">
-<meta name="dcterms.date" content="2026-07-01">
+<meta name="dcterms.date" content="2026-07-03">
 
-<title>VS Code installation – Agentic AI Workshop</title>
+<title>Using Cloud Code and GitHub Copilot – Agentic AI Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -122,21 +122,54 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pre-workshop-prep" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Pre-workshop prep</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pre-workshop-learning" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pre-workshop learning</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-prep">    
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-learning">    
         <li>
-    <a class="dropdown-item" href="./vscode-install.html">
- <span class="dropdown-text">VS Code installation</span></a>
+    <a class="dropdown-item" href="./p1-osc-intro.html">
+ <span class="dropdown-text">1: OSC intro</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./osc-account.html">
+    <a class="dropdown-item" href="./p2-shell-intro.html">
+ <span class="dropdown-text">2: Unix shell basics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./p3-cl-software.html">
+ <span class="dropdown-text">3: Command-line software</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./p4-shell-scripts.html">
+ <span class="dropdown-text">4: Shell scripts and Slurm</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./p5-homework.html">
+ <span class="dropdown-text">5: Optional self-study material</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-pre-workshop-setup" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Pre-workshop setup</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-pre-workshop-setup">    
+        <li>
+    <a class="dropdown-item" href="./s1-osc-account.html">
  <span class="dropdown-text">OSC account setup</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./github-account.html">
+    <a class="dropdown-item" href="./s2-vscode-install.html">
+ <span class="dropdown-text">VS Code installation</span></a>
+  </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./s3-github-account.html">
  <span class="dropdown-text">Optional: GitHub account setup</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./s4-positron-install.html">
+ <span class="dropdown-text">Optional: Positron setup (for R)</span></a>
   </li>  
     </ul>
   </li>
@@ -175,22 +208,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a></li>
-  <li><a href="#what-you-should-do" id="toc-what-you-should-do" class="nav-link" data-scroll-target="#what-you-should-do"><span class="header-section-number">2</span> What you should do</a>
-  <ul class="collapse">
-  <li><a href="#if-you-have-an-osu-managed-computer" id="toc-if-you-have-an-osu-managed-computer" class="nav-link" data-scroll-target="#if-you-have-an-osu-managed-computer"><span class="header-section-number">2.1</span> If you have an OSU-managed computer</a></li>
-  <li><a href="#if-you-have-a-personal-computer" id="toc-if-you-have-a-personal-computer" class="nav-link" data-scroll-target="#if-you-have-a-personal-computer"><span class="header-section-number">2.2</span> If you have a personal computer</a></li>
-  </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
   </ul>
-<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="github-account.qmd"><i class="bi bi-bookmarks"></i>GitHub account setup</a></li><li><a href="osc-account.qmd"><i class="bi bi-bookmarks"></i>OSC account setup</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">VS Code installation</h1>
-<p class="subtitle lead">Install the Visual Studio Code (VS Code) editor on your own laptop</p>
+<h1 class="title">Using Cloud Code and GitHub Copilot</h1>
+<p class="subtitle lead">TBA</p>
 </div>
 
 
@@ -216,10 +244,16 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 1, 2026</p>
+      <p class="date">July 3, 2026</p>
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">July 3, 2026</p>
+    </div>
+  </div>
     
   </div>
   
@@ -241,59 +275,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <hr style="height:1pt; visibility:hidden;">
-<section id="overview" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
-<p>In this workshop, we’ll use the Visual Studio Code (VS Code) editor for most hands-on tasks: to write and run code, to connect to OSC, and to deploy agentic AI tools. This Microsoft program is freely available for anyone and works on Windows, Mac, and Linux computers.</p>
-<p>This brief page will help you to install VS Code on whatever laptop you plan to bring to the workshop.</p>
-</section>
-<section id="what-you-should-do" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="what-you-should-do"><span class="header-section-number">2</span> What you should do</h2>
-<section id="if-you-have-an-osu-managed-computer" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="if-you-have-an-osu-managed-computer"><span class="header-section-number">2.1</span> If you have an OSU-managed computer</h3>
-<p>If you are bringing an OSU computer, you may not have the required “administrative privileges” to install software on your computer the regular way.</p>
-<p>However, your computer should then have an OSU application that allows you to install a selection of approved software, and that selection includes VS Code.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Mac</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>The OSU app is called “Software Center”.</p>
-<p><em>Details TBA</em></p>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>The OSU app is called “Ohio State Application Self Service”.</p>
-<ol type="1">
-<li>Open this application (it’s likely in the Dock, otherwise search for it)</li>
-<li>In it, start typing “Visual Studio Code” in the little search box on the top left</li>
-<li>Click the “Install” button that appears below the Visual Studio Code entry</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/osu-mac_self-service-app.png" class="img-fluid figure-img" data-align="center" width="400"></p>
-<figcaption>This is the icon for the app on Jelmer’s Mac</figcaption>
-</figure>
-</div>
-<hr style="height:1pt; visibility:hidden;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/osu-mac_vscode-search.png" class="img-fluid figure-img" data-align="center" width="600"></p>
-<figcaption>If you start typing “Visual Studio Code” in the search box, this is what you should see: although this screenshot says “Update”; you should see “Install” unless you also have it installed aready.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="if-you-have-a-personal-computer" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="if-you-have-a-personal-computer"><span class="header-section-number">2.2</span> If you have a personal computer</h3>
-<p>Installation is quite straightforward – follow the links below for the official VS Code installation instructions for:</p>
-<ul>
-<li><a href="https://code.visualstudio.com/docs/setup/windows">Windows</a></li>
-<li><a href="https://code.visualstudio.com/docs/setup/mac">Mac</a></li>
-<li><a href="https://code.visualstudio.com/docs/setup/linux">Linux</a></li>
-</ul>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
