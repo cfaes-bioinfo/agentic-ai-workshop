@@ -2,7 +2,8 @@
 title: "Our toolbox: intro and setup"
 subtitle: "An introduction to, and setup of, the main tools we'll use in the workshop"
 number-sections: true
-date: 2026-07-01
+date: 2026-07-03
+date-modified: today
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462
@@ -10,11 +11,6 @@ author:
     affiliation: 
       - name: CFAES Bioinformatics Core, Ohio State University
         url: https://mcic.osu.edu/bioinformatics
-bibliography: refs.bib
-other-links:
-  - text: "OSC account setup"
-    icon: bookmarks
-    href: osc-account.qmd
 ---
 
 ---------
@@ -27,7 +23,7 @@ other-links:
 
 <hr style="height:1pt; visibility:hidden;" />
 
-## Overview
+## Introduction
 
 In the rest of this workshop, we'll primarily use the following set of tools to
 enable us to run code, access data, and deploy agentic AI tools:

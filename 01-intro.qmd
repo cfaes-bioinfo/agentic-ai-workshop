@@ -1,27 +1,23 @@
 ---
 title: "Workshop Introduction"
 subtitle: "Using Generative and Agentic AI <br> for Omics Data Analysis" 
-date: 2025-08-26
+date: 2026-07-01
 author:
   - name: Jelmer Poelstra
-    email: poelstra.1@osu.edu
     affiliation: 
-      - name: CFAES Bioinformatics Core
+      - name: Lead,<br> CFAES Bioinformatics Core
         url: https://go.osu.edu/bioinformatics-core
   - name: Menuka Bhandari
-    email: bhandari.1@osu.edu
     affiliation: 
-      - name: CFAES Bioinformatics Core
+      - name: Bioinformatician,<br> CFAES Bioinformatics Core
         url: https://go.osu.edu/bioinformatics-core
   - name: Hannah Toth
-    email: toth.1@osu.edu
     affiliation: 
-      - name: Department of Plant Pathology
+      - name: Postdoc,<br> Department of Plant Pathology
         url: https://plantpath.osu.edu/
   - name: Jonathan Jacobs
-    email: jacobs.1@osu.edu
     affiliation: 
-      - name: Department of Plant Pathology
+      - name: Faculty,<br> Department of Plant Pathology
         url: https://plantpath.osu.edu/
 title-slide-attributes:
   data-background-color: "silver"
@@ -54,34 +50,112 @@ bibliography: refs.bib
 
 # Instructor introductions {background-color="silver"}
 
-## Introductions: Jelmer (instructor)
-
-**Lead of the CFAES Bioinformatics and Microscopy cores**
-
-- Part of what is currently known as the Molecular & Cellular Imaging Center (MCIC)
-- We are now officially under **CFAES Research & Analytical Service Cores (RASC)**,
-  a set of core facilities providing services in molecular biology,
-  high-throughput sequencing, bioinformatics, microscopy, and soil analyses.
-
-. . .
-
-**What I work on**
-
-- Providing research assistance with omics data analysis
-
-- Teaching, such as this course, workshops, and Code Club
-  (<https://osu-codeclub.github.io>)
-
-. . .
-
-**Otherwise**
-
-- Research background in animal evolutionary genomics & speciation
-
-- In my free time, I enjoy bird watching -- locally & across the world
-
 # Brief participant introductions {background-color="silver"}
+
+## Brief participant introductions
+
+- Name
+- Position and department
+- One thing you have used AI for (most) regularly
+- Who should win the world cup
 
 # Overview of the workshop's topics and schedule {background-color="silver"}
 
-# How to follow along, ask questions, etc. {background-color="silver"}
+## Day 1: Monday, July 13
+
+::: {style="font-size: 0.85em;"}
+| Section | Time | Instructor | Topic & link |
+|:-:|----|---|------------|
+| 1 | 09:00 am -- 09:45 am | _all_ | Intro to the workshop & how the instructors use AI |
+| 2 | 09:45 am -- 10:45 am | Menuka | Intro to Generative AI and LLMs |
+|  | [*10:45 am -- 11:00 am*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
+| 3 | 11:00 am -- 11:30 am | OTDI | Approved AI Tools at OSU |
+| 4 | 11:30 am -- 12:15 pm | Jonathan | GenAI use cases and tools for research |
+|  | [*12:15 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
+| 5 | 01:00 pm -- 02:00 pm | Jelmer | Our coding and genAI toolset: intro and setup |
+| 6 | 02:00 pm -- 02:30 pm | OSC | LLM options at OSC |
+|  | [*02:30 pm -- 02:45 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
+| 7 | 02:45 pm -- 04:00 pm | Jelmer | Using Claude Code and GitHub Copilot |
+
+: {.striped .hover tbl-colwidths="[5, 25, 15, 55]"}
+:::
+
+## Day 2: Tuesday, July 14
+
+::: {style="font-size: 0.85em;"}
+| Section | Time | Instructor | Topic & link |
+|:-:|----|---|------------|
+| 8 | 09:00 am -- 09:30 am | Hannah | Prompt engineering |
+| 9 | 09:30 am -- 10:30 am | Menuka | Advanced agentic options and skills |
+|  | [*10:30 am -- 10:45 am*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
+| 10 | 10:45 am -- 11:45 am | Jelmer | A worked example analysis with agents |
+| 11 | 11:45 am -- 12:15 pm | Hannah | Limitations and responsible use of AI |
+|  | [*12:15 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
+| 12 | 01:00 pm -- 03:30 pm | *all* | DIY with own (or other) data |
+| 13 | 03:30 pm -- 04:00 pm | *all* | Concluding remarks and looking forward |
+
+: {.striped .hover tbl-colwidths="[5, 25, 15, 55]"}
+:::
+
+# Application form answers {background-color="silver"}
+
+## Application form answers
+
+TBA
+
+# Practicalities {background-color="silver"}
+
+## What to expect
+
+- Much of the workshop will be **hands-on**, where you are expected to follow along
+  with the instructors on your laptop and/or try things yourself
+
+<hr style="height:1pt; visibility:hidden;" />
+
+. . .
+
+- We'll use a **setup** (with VS Code and OSC, etc.) you can also use after the workshop.
+  - The flip side is that this involves some setup work, some of which was homework,
+    and some of which will be done during the workshop.
+  - This prep can be tedious and sometimes frustrating, but we think it's worth it!
+
+<hr style="height:1pt; visibility:hidden;" />
+
+. . .
+
+- Hands-on **examples** will involve running command-line tools at OSC to process and
+  analyze an RNA-Seq dataset, and getting AI tools to help with this.
+  - This is why we expect basic knowledge of OSC and the Unix Shell
+
+## Practical information
+
+- Coffee, snacks, and lunch will be provided during breaks
+
+<hr style="height:1pt; visibility:hidden;" />
+
+. . .
+
+- If you didn't manage to install VS Code or set up your OSC account,
+  do this in today's morning or lunch break ---
+  we'll start using these in the afternoon
+
+<hr style="height:1pt; visibility:hidden;" />
+
+. . .
+
+- If you didn't bring a dataset, you can talk to us during the day today and we
+  can help you find one to work with ––
+  you'll work with this data tomorrow
+
+## How to ask questions
+
+- Don't hesitate to interrupt us at any time if you have a question or are stuck!
+
+<hr style="height:1pt; visibility:hidden;" />
+
+- For less urgent questions, you can:
+  - Ask during an exercise or break
+  - Put a TBA sticky note on your laptop
+  - Type your question in the Zoom chat (if you're connected)
+
+# Questions? {background-color="silver"}

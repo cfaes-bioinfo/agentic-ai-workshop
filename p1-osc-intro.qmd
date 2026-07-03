@@ -3,6 +3,7 @@ title: "Ohio Supercomputer Center (OSC) introduction"
 subtitle: "Part I of the pre-workshop learning session"
 number-sections: true
 date: 2026-07-01
+date-modified: today
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462
@@ -30,7 +31,7 @@ bibliography: refs.bib
 
 ## Introduction
 
-This session introduces high-performance computing 
+This part introduces high-performance computing 
 and the Ohio Supercomputer Center (OSC). You will learn:
 
 - What a supercomputer is and why they are useful
@@ -47,38 +48,35 @@ Supercomputers provide high-performance computing (**HPC**) resources,
 which consists of two main aspects:
 
 - **Compute**: computing power to run your data processing and analysis
-- **Storage**: space for (long-term) storage of your data and results
+- **Storage**: storage space for your data and results
 
-For a visual reference, this is what Cardinal, one of the OSC supercomputers, looks like:
+![_The Cardinal OSC cluster on OSC's premises in Columbus. The cabinets are filled with computers (nodes), which are interconnected to form a supercomputer._](img/cardinal_photo.jpeg){fig-align="center" width="50%" fig-alt="A photo of the Cardinal OSC cluster" .lightbox}
 
-![_The Cardinal OSC cluster_](img/cardinal_photo.jpeg){fig-align="center" width="50%" fig-alt="A photo of the Cardinal OSC cluster" .lightbox}
-
-Here are some possible reasons to use a supercomputer instead of your own laptop or desktop:
+Here are some possible reasons to use a supercomputer instead of your own computer:
 
 - Your analysis takes a long time to run or needs high computational power.
 - You need to run an analysis many times.
-- You need to store a lot of data.
 - Your analysis requires software available only for the Linux operating system, while you have Windows.
+- You need to store a lot of data.
 
 **When you're working with omics data, many of these reasons typically apply.**
-This can make it hard or impossible to run your analyses on your personal workstation,
-and supercomputers provide a solution.
 
 ## The Ohio Supercomputer Center (OSC)
 
-The Ohio Supercomputer Center (OSC) is a facility provided by the state of Ohio.
+The Ohio Supercomputer Center (OSC) is a facility provided by the state of Ohio ---
+it's not part of OSU.
 It has several supercomputers, lots of storage space,
 and an excellent infrastructure for accessing these resources.
 
 Access to OSC's compute and storage goes through **OSC "Projects"**:
 
-- A project can be tied to a research project or lab, or be educational like this workshop's project, `PAS3454`.
+- A project can be tied to a research project or lab, or be educational like this workshop's project (`PAS3454`).
 - Each project has a budget in terms of "compute hours" and storage space^[
   Though we don't have to pay anything for educational projects like this one!].
-- As a user, it's possible to be a member of multiple different projects.
+- A user can be a member of multiple projects.
 
-::: {.callout-note}
-#### OSC websites
+::: {.callout-note collapse="true"}
+#### OSC websites (_Click to expand_)
 
 OSC has **three main websites** ---
 in this workshop, we will almost exclusively use the first:
@@ -94,7 +92,7 @@ in this workshop, we will almost exclusively use the first:
 ### Terminology
 
 Let's start with some (super)computing terminology,
-going from smaller things to bigger things:
+going from smaller to bigger things:
 
 - **Node**\
   A single computer that is a part of a supercomputer.
@@ -108,15 +106,15 @@ going from smaller things to bigger things:
 
 We can think of a supercomputer as having three main parts:
 
-- **File Systems**: Where files are stored (these are shared between the OSC supercomputers!)
-- **Login Nodes**: The handful of computers everyone shares after logging in
-- **Compute Nodes**: The many computers you can reserve to run your analyses
+- **File Systems**: Where files are stored (shared between the various OSC supercomputers!)
+- **Login Nodes**: The computers everyone shares after logging in (only a handful per supercomputer)
+- **Compute Nodes**: The computers you can reserve to run your analyses (many per supercomputer)
 
 ![_The structure of a supercomputer with three main components: file systems, login nodes, and compute nodes_ ](img/cluster_overview_ed.png){fig-align="center" width="85%" fig-alt="A diagram showing the structure of a supercomputer with three main components: file systems, login nodes, and compute nodes" .lightbox}
 
 #### File systems
 
-OSC has several distinct file systems:
+OSC has several distinct file systems, and it is important to know which one to use for which purpose:
 
 | File system | Located at | Main purpose | How many
 |------|-------|-----------------|---|
@@ -124,17 +122,19 @@ OSC has several distinct file systems:
 | **Scratch**     | `/fs/scratch/`    | Additional, temporary storage | One per OSC Project
 | **Home**        | `/users/`         | General, _personal_ files | One per OSC Project
 
-: {.striped .hover tbl-colwidths="[15, 15, 70]"}
+: {.striped .hover tbl-colwidths="[15, 20, 40, 35]"}
 
 <hr style="height:1pt; visibility:hidden;" />
 
 During the workshop, we'll work in the Project folder of the workshop's OSC Project
 `PAS3454`, located at `/fs/ess/PAS3454`.
 
-Key file system terminology:
+::: callout-tip
+#### Key file system terminology (applies to any computer)
 
 - A **path** is the location of a file or folder on a computer.
 - A **directory** (or "dir" for short) is simply another word for a folder.
+:::
 
 <hr style="height:1pt; visibility:hidden;" />
 
@@ -143,39 +143,39 @@ Key file system terminology:
 ::: callout-warning
 #### Home directory clarifications and pitfalls
 
+Many new OSC users are confused about the Home directory, so let's clarify a few things:
+
 - Even though a project number is part of the path to your Home directory
   (e.g., `/users/PAS3454/jane`)
   this is merely an OSC naming convention and **your Home directory is not tied to any OSC Project.**
   Thefore, your Home directory will remain the same even if you are, say, removed from a project.
 
 - **By default, you will be placed in your Home directory when you --e.g.-- log in to OSC.**
-  **But this is typically not where you want to be when working with data and running analyses.**
-  That includes during this workshop, where you should be within `/fs/ess/PAS3454`.
+  But this is typically not where you want to be when working with data and running analyses.
+  During this workshop, for example, you should be within `/fs/ess/PAS3454/` ---
+  we'll show you how to navigate there.
+
+------
 
 - Avoid storing research project file in your Home dir:
-  it has limited storage and is harder to access by collaborators.
+  it has limited space and is harder to access by collaborators.
 
 - Your Home dir will contain some automatically generated files and those
   should generally not be deleted!
 :::
 
-#### Login Nodes
+#### Login vs. compute nodes
 
-Login nodes are an initial landing spot for everyone who logs in to a supercomputer.
+**Login nodes** are an initial landing spot for everyone who logs in to a supercomputer.
 Each supercomputer only has a handful of login nodes,
-and they are shared among everyone, and cannot be reserved for exclusive usage.
+and they are shared among everyone and cannot be reserved for exclusive usage.
+Login nodes are meant for things like organizing files and creating scripts
+for compute jobs, and ***not*** **for serious computing**.
 
-Therefore, login nodes are meant only for things like organizing files and
-creating scripts for compute jobs.
-They are ***not*** **meant for serious computing**.
-
-#### Compute Nodes
-
-Data processing and analysis is done on compute nodes.
-You can only use compute nodes after putting in a **request for compute resources**
+**Compute nodes** are where data processing and analysis is done.
+You can only use compute nodes after putting in a **request for resources**
 (a "compute job").
-
-A *job scheduler* program called Slurm then assigns the requested resources:
+A scheduling program called **Slurm** then assigns the requested resources:
 for example, you may get exclusive access to a specific compute node for two hours.
 
 ::: callout-tip
@@ -217,23 +217,32 @@ you will usually see additional `/fs/ess` and `/fs/scratch` folders appear.
 Once there, you should see the folders and files present at the selected location,
 and can click on folders to explore their contents:
 
-![_The OnDemand file browser_](img/ondemand_files_PAS2880.png){fig-align="center" width="95%" fig-alt="A screenshot of the OSC OnDemand file browser." .lightbox}
+![_The OnDemand file browser_ -- **TBA replace screenshot**](img/ondemand_files_PAS2880.png){fig-align="center" width="95%" fig-alt="A screenshot of the OSC OnDemand file browser." .lightbox}
 
-This interface is **much like the file browser on your own computer**,
+This interface is **much like your own computer's file browser**,
 so you can also create, delete, move and copy files and folders,
-and even upload (from your computer to OSC) and download (from OSC your computer) files.
+and even upload (from your computer to OSC) and download (from OSC to your computer) files.
 
 {{< fa user-edit >}} **Create a personal folder** inside `/fs/ess/PAS3454/people`:
 
 1. Click on the `people` folder
 2. Click the "New Directory" button at the top
 3. Give the new folder the **exact same name** as your OSC username.
-   If you forgot your username, you can see it in the top-right corner of the OnDemand webpage.
-4. Click on the new folder and within it, create one more folder: `pre` (short for "pre-workshop").
+   (If you forgot your username, you can see it in the top-right corner of the OnDemand webpage.)
+4. Click on your new folder and within it, create one more folder: `pre` (short for "pre-workshop").
 
-### Clusters menu
+### Interactive Apps menu
 
-This menu gives access to a Unix Shell on each cluster,
+With the **Interactive Apps** dropdown menu,
+you can access programs with Graphical User Interfaces (**GUI**s; point-and-click interfaces),
+such as RStudio, Jupyter Notebook, VS Code, and many more.
+
+<hr style="height:1pt; visibility:hidden;" />
+
+::: {.callout-note collapse="true"}
+### Cluster usage info in the Clusters menu _(Click to expand)_
+
+The Clusters menu gives access to a Unix Shell on each cluster,
 contains a page with information about installed software,
 and provides a page with live information about cluster usage.
 Here, we'll just look at the latter.
@@ -249,12 +258,7 @@ This information can also be useful to learn which cluster currently has more av
 and what the sizes are of the "queues", which contain jobs waiting to start].
 
 ![A screenshot of the "System Status" page showing live cluster usage.](img/ondemand_systemstatus.png){fig-align="center" width="90%" fig-alt="A screenshot of the OSC Ondemand System Status page showing live cluster usage." .lightbox}
-
-### Interactive Apps menu
-
-With the **Interactive Apps** dropdown menu,
-you can access programs with Graphical User Interfaces (**GUI**s; point-and-click interfaces),
-such as RStudio, Jupyter Notebook, VS Code, and many more.
+:::
 
 ## VS Code
 
@@ -308,4 +312,6 @@ _Congratulations: you have started your first compute job at OSC!_ 🥳
 ### Open a Terminal with a Unix shell
 
 In VS Code, **open a terminal** by clicking {{< fa bars >}}   > `Terminal` > `New Terminal`.
-We'll use this to practice with Unix shell commands in the next part of this session.
+We'll use this to practice with Unix shell commands next.
+
+<hr style="height:1pt; visibility:hidden;" />

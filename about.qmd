@@ -67,7 +67,7 @@ That session will go over the following material:
 3. [Command-line software](p3-cl-software.qmd)
 4. [Shell scripts and Slurm](p4-shell-scripts.qmd)
 
-Finally, there is the following optional self-study material:
+Finally, the following optional self-study material is available:
 
 5. [Variables, for loops, and Apptainer containers](p5-homework.qmd)
 

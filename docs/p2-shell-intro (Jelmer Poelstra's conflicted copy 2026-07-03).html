@@ -792,16 +792,16 @@ Mon Tue Wed Thu Fri Sat Sun
 </section>
 <section id="keyboard-shortcuts" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="keyboard-shortcuts"><span class="header-section-number">5</span> Keyboard shortcuts</h2>
-<p>Using keyboard shortcuts help you work more efficiently in the shell. Here are some of the most useful ones:</p>
+<p>Using keyboard shortcuts help you work much more efficiently in the shell. Here are some of the most useful ones:</p>
 <ul>
 <li><p><strong>Command history</strong> — <code>Up</code> / <code>Down</code> arrow keys to cycle through your command history.</p></li>
-<li><p><strong>Tab completion</strong> — The shell will auto-complete file paths (or commands) when you press <kbd>Tab</kbd>.</p></li>
+<li><p><strong>Tab completion</strong> — The shell will auto-complete partial commands or file paths when you press <kbd>Tab</kbd>.</p></li>
 <li><p><strong>Cancel/stop/abort</strong> — If your prompt is “missing”, the shell is still busy executing your command, <em>or</em> you typed an incomplete command. To abort, press <kbd>Ctrl</kbd>+<kbd>C</kbd> and you will get your prompt back.</p></li>
 </ul>
 <hr style="height:1pt; visibility:hidden;">
 <section id="lets-try-tab-completion-together" class="level4">
 <h4 class="anchored" data-anchor-id="lets-try-tab-completion-together">Let’s try Tab completion together</h4>
-<p>In the shell, whenever you type something and press <kbd>Tab</kbd>, the shell will try to autocomplete what you typed based on the available commands and files/dirs in your current working dir. This is incredibly useful, because it saves you from typing long paths and also helps you avoid typos.</p>
+<hr style="height:1pt; visibility:hidden;">
 <table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 45%">
@@ -810,36 +810,36 @@ Mon Tue Wed Thu Fri Sat Sun
 <thead>
 <tr class="header">
 <th>Type this</th>
-<th>Expected response</th>
+<th>Response</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong><code>/f</code></strong> =&gt; <kbd>Tab</kbd></td>
+<td><strong><code>/f</code></strong> &amp; <kbd>Tab</kbd></td>
 <td>Autocompletes to <code>/fs/</code></td>
 </tr>
 <tr class="even">
-<td>Add <strong><code>e</code></strong> (to <code>/fs/e</code>) =&gt; <kbd>Tab</kbd></td>
+<td>Add <strong><code>e</code></strong> (to <code>/fs/e</code>) &amp; <kbd>Tab</kbd></td>
 <td>Autocompletes to<code>/fs/ess/</code></td>
 </tr>
 <tr class="odd">
-<td>Add <strong><code>PAS</code></strong> (to <code>/fs/ess/PAS</code>) =&gt; <kbd>Tab</kbd></td>
+<td>Add <strong><code>PAS</code></strong> (to <code>/fs/ess/PAS</code>) &amp; <kbd>Tab</kbd></td>
 <td>Nothing happens because there are many options</td>
 </tr>
 <tr class="even">
 <td><kbd>Tab</kbd> twice</td>
-<td>Prints <code>Display all 687 possibilities? (y or n)</code></td>
+<td>Prints <code>Display all 619 possibilities? (y or n)</code></td>
 </tr>
 <tr class="odd">
 <td>Type <code>n</code> to answer no</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Add <strong><code>34</code></strong> (<code>/fs/ess/PAS34</code>) =&gt; <kbd>Tab</kbd> twice</td>
-<td>Displays the 8 or so dirs that start with <code>PAS34</code></td>
+<td>Add <strong><code>34</code></strong> (<code>/fs/ess/PAS34</code>) &amp; <kbd>Tab</kbd> twice</td>
+<td>Displays 8 or so dirs</td>
 </tr>
 <tr class="odd">
-<td>Add <strong><code>5</code></strong> (<code>/fs/ess/PAS3454</code>) =&gt; <kbd>Tab</kbd> twice</td>
+<td>Add <strong><code>5</code></strong> (<code>/fs/ess/PAS3454</code>) &amp; <kbd>Tab</kbd> twice</td>
 <td><code>/fs/ess/PAS3454/</code></td>
 </tr>
 <tr class="even">
@@ -848,65 +848,44 @@ Mon Tue Wed Thu Fri Sat Sun
 </tr>
 </tbody>
 </table>
-<hr style="height:1pt; visibility:hidden;">
 <details>
 <summary>
-<i class="fa-solid fa-comments" aria-label="comments"></i> Why did we get an error here?
+{{&lt; fa-comments &gt;}} Why did we get an error here?
 </summary>
 Basically, everything you type in the shell should start with a command. Just typing a path will not make the shell print some info about, or the contents of, this dir or file. Instead, since a path is not a command, you will get an error.
 </details>
-<hr style="height:1pt; visibility:hidden;">
-<table class="table-striped table-hover caption-top table">
-<colgroup>
-<col style="width: 45%">
-<col style="width: 55%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Type this</th>
-<th>Expected response</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><kbd>⇧</kbd> (Up arrow)</td>
-<td>You get the path back on the prompt</td>
-</tr>
-<tr class="even">
-<td><kbd>Ctrl</kbd>+<kbd>A</kbd></td>
-<td>Cursor moves to the start of the line</td>
-</tr>
-<tr class="odd">
-<td>Prepend <code>cd</code> (to <code>cd /fs/ess/PAS3454/</code>) =&gt; <kbd>Enter</kbd></td>
-<td>You are now in the <code>PAS3454</code> dir</td>
-</tr>
-</tbody>
-</table>
+
+<ul>
+<li><p>Press <strong><kbd>⇧</kbd></strong> to get the previous “command” back on the prompt.</p></li>
+<li><p>Press <strong><kbd>Ctrl</kbd>+<kbd>A</kbd></strong> to move to the beginning of the line at once.</p></li>
+<li><p>Add <code>cd</code> and a space in front of the dir, and press <kbd>Enter</kbd> again.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/ess/PAS3454/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+</ul>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Your <strong>cursor</strong> can be anywhere in a line (not just at the end) when you press <kbd>Enter</kbd> to execute a command!</p>
+<p>Your <strong>cursor</strong> can be anywhere on a line (not just at the end) when you press <kbd>Enter</kbd> to execute a command!</p>
 </div>
 </div>
 </div>
+<p>:::</p>
 </section>
 <section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-bonus-exercise-canceling" class="level4 exercise">
 <h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-bonus-exercise-canceling"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Bonus exercise: canceling</h4>
-<p>To <em>simulate</em> a long-running command that you may want to abort, we’ll use the <code>sleep</code> command, which makes the computer wait for a specified amount of time before it gives your prompt back.</p>
+<p>To simulate a long-running command that you may want to abort, we’ll use the <code>sleep</code> command, which makes the computer wait for a specified amount of time before it gives your prompt back (or, e.g.&nbsp;moves to the next command in the context of a script).</p>
 <p>Run the below command and instead of waiting for the full 60 seconds, <strong>press <kbd>Ctrl</kbd> + <kbd>C</kbd></strong> to get your prompt back sooner!</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 60s</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 60s</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>As another example of a situation where you might have to use <kbd>Ctrl</kbd> + <kbd>C</kbd>, simply type an opening parenthesis <code>(</code> and press <kbd>Enter</kbd>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>When you do this, nothing is executed and you are not getting your prompt back: you should see a <code>&gt;</code> on the next line. This is the shell wanting you to “complete” you command. Why would that be?</p>
 <details>
 <summary>
 <em>Click to see the solution</em>
 </summary>
-This is an incomplete command by definition: any opening parenthesis should have a matching closing parenthesis.
+This is an incomplete command by definition because any opening parenthesis should have a matching closing parenthesis.
 </details>
 <p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to get your regular prompt back.</p>
 </section>
@@ -914,10 +893,10 @@ This is an incomplete command by definition: any opening parenthesis should have
 <section id="listing-files-with-ls" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="listing-files-with-ls"><span class="header-section-number">6</span> Listing files with <code>ls</code></h2>
 <p>The Unix shell has a lot of commands for dealing with files and directories. We’ll only cover the most basic one here: <strong><code>ls</code></strong>, which lists files and directories.</p>
-<p>First, let’s move to a dir which has some files we can display:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/ess/PAS3454/data/TBA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>First, let’s move to a dir which has some files we can work with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/ess/PAS3454/data/TBA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>By default, <code>ls</code> lists files and dirs in your current working directory:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code><span style="color: #0328fc;">fastq</span>  <span style="color: #0328fc;">meta</span>  <span style="color: black;">README.md</span>  <span style="color: #0328fc;">ref</span></code></pre>
 <p><code>ls</code> uses different colors to indicate different types of files:</p>
 <ul>
@@ -935,8 +914,8 @@ This is an incomplete command by definition: any opening parenthesis should have
 </div>
 </div>
 </div>
-<p>You can use an <strong>argument</strong> to change the dir (or file) that <code>ls</code> operates on, and you can use <strong>options</strong> to change how it shows the output. Let’s start with two very commonly used options <strong><code>-l</code></strong> (lowercase L) and <strong><code>-h</code></strong>, which can be combined as <code>-lh</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can use an <strong>argument</strong> to change the dir (or file) that <code>ls</code> operates on, and you can use <strong>options</strong> to change how it shows the output. Let’s start with two very commonly used options <strong><code>-l</code></strong> (lowercase L) and <strong><code>-h</code></strong>,<code>which can be combined as</code>-lh`:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>total 2.0K
 drwxr-x---+ 2 jelmer PAS0471 4.0K Nov 24  2024 fastq
 drwxr-x---+ 2 jelmer PAS0471 4.0K Nov 13  2024 meta
@@ -965,27 +944,25 @@ drwxr-x---+ 2 jelmer PAS0471 4.0K Jul  4 20:52 ref</code></pre>
 </div>
 </div>
 <p>Moving on to <strong>argument(s)</strong> — we can list the contents of custom dirs by specifying one or more as arguments:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> fastq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> fastq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>TBA</code></pre>
 <p>And like you saw earlier with <code>cal</code>, options and arguments can be combined:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb53"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> fastq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> fastq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>TBA
 # [...output truncated...]</code></pre>
 <p>The files have a <code>.gz</code> extension and are <strong><span style="color:#bb0000">red</span></strong>, which indicates they have been <em>compressed</em> with <code>gzip</code>.</p>
-<hr style="height:1pt; visibility:hidden;">
 <section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-listing-a-single-file" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-listing-a-single-file"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Listing a single file</h4>
-<p>If you want to check the size of a single file, it may not be convenient to list all of a dir’s contents. Can you figure out how to use <code>ls</code> to show you the file size <strong>only</strong> for the <code>fastq/TBA</code> file?</p>
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-listing-a-single-file"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Exercise</strong>: Listing a single file</h4>
+<p>Say you want to check the size of a single file. Then, it may be always not be convenient to list an entire dir’s contents. Can you figure out how to use <code>ls</code> to show you the file size <strong>only</strong> for the <code>fastq/ERR10802865_R2.fastq.gz</code> file?</p>
 <details>
 <summary>
 <em>Click to see the solution</em>
 </summary>
 <p>The argument to <code>ls</code> can be a path of any kind, including to a file rather than to a dir:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> fastq/ERR10802865_R2.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> fastq/ERR10802865_R2.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>-rw-r-----+ 1 jelmer PAS0471 22M Nov 13  2024 fastq/ERR10802865_R2.fastq.gz</code></pre>
 </details>
 </section>
-<hr style="height:1pt; visibility:hidden;">
 
 
 </section>

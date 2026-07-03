@@ -21,7 +21,6 @@ format:
 _The schedule below is preliminary and may change slightly before the workshop_
 :::
 
-
 ### Day 1: Monday, July 13
 
 | Section | Time | Instructor | Topic & link |

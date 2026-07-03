@@ -3,6 +3,7 @@ title: "Command-line software"
 subtitle: "Part III of the pre-workshop learning session"
 number-sections: true
 date: 2026-07-01
+date-modified: today
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462
@@ -44,6 +45,15 @@ Two main questions arise:
 That's what we'll cover in this session,
 and in the next session about shell scripts and Slurm.
 
+::: {.callout-note collapse="true"}
+### Free vs. commercial software (_Click to expand_)
+Here, we'll only cover free and open-source software.
+As such, "getting access" just refers to installation, and so on.
+
+Luckily, if you're willing to use the command line, there is a wealth of such software available for omics data analysis.
+At the CFAES Bioinformatics Core, for example, we don't currently have a need for any commercial software for omics data analysis.
+:::
+
 ## The FastQC software
 
 As an example piece of bioinformatics software,
@@ -53,7 +63,7 @@ FastQC is a ubiquitous tool for **quality control of FASTQ files**,
 the files that contain reads from a high-throughput sequencing (HTS) experiment.
 Running FastQC or a similar program is the first step in nearly any project
 with HTS data.
-FastQC is also a good introductory example of a CLI tool.
+FastQC is also a **good introductory example of a CLI tool**.
 
 ::: {.callout-tip appearance="simple"}
 If you don't know what FASTQ files are, take a look at [this and the following slides](https://cfaes-bioinfo.github.io/pracs-au25/week03/w3a_file-overview.html#/fastq-files),
@@ -61,15 +71,16 @@ until slide 11.
 :::
 
 For each FASTQ file that it analyzes,
-FastQC outputs an **HTML file** that you can open in your browser with about a
-dozen graphs showing different QC (Quality Control) metrics.
+FastQC outputs an **HTML report** with about a dozen graphs showing different
+QC (Quality Control) metrics.
 For example, a per-base quality score graph:
 
 ![A FastQC per-base quality score graph for files with reasonably good quality reads. The y-axis shows Phred quality scores (higher is better, see also the color-coding) and the x-axis shows the position along the read.](/img/fastqc_good.png){fig-align="center" width="70%" fig-alt="An example FastQC per-base quality graph." .lightbox}
 
-The command to run FastQC is simply `fastqc`.
-But like many Unix commands, `fastqc` has many options, and we can pass (FASTQ) files as arguments.
-To see if FastQC is available to us, we can simply run `fastqc -v`,
+The command to run FastQC is simply `fastqc` ---
+though, like most Unix commands, `fastqc` has many options, and we can pass (FASTQ) files as arguments.
+
+To see if FastQC is available, simply run `fastqc -v`,
 which uses the `-v` option to print the FastQC version:
 
 ```bash
@@ -109,7 +120,7 @@ You can load, unload, and search for available software modules using the
 note that OSC also has a ["Module Browser" on OnDemand](https://ondemand.osc.edu/pun/sys/dashboard/module-browser)).
 
 For example, the `module spider` command can be used to search for modules,
-such as `fastqc` (the search is case-insensitive):
+such as a potential module for `fastqc` (the search is case-insensitive):
 
 ```bash
 module spider fastqc
@@ -149,7 +160,7 @@ Success! 🥳
 ::: {.callout-important appearance="simple"}
 Module loading does **not persist across shell sessions**.
 Whenever you are in a fresh shell session
-(including but not limited to after you log into OSC for the day),
+(including but not limited to after you log into OSC again),
 you'll have to reload any modules you want to use!
 :::
 
@@ -232,7 +243,7 @@ Instead, the two best approaches are:
 
 - The **Conda** software management program,
   which installs software in "environments" you can load.
-- **Containers**, self-contained software environments with pre-installed software.
+- **Containers**, self-contained software environments with (typically) pre-installed software.
 
 In the workshop, we'll show some examples of using containers,
 and if you want to learn a bit about that in advance,
@@ -241,8 +252,8 @@ see the [optional homework page](p5-homework.qmd).
 ## A practical example: running FastQC
 
 To analyze a FASTQ file with default FastQC settings,
-the command is simply `fastqc` followed by the FASTQ file path --
-and we could use one of the FASTQ files in our Garrigos practice data set:
+the command is simply `fastqc` followed by the FASTQ file path ---
+and we could use one of the FASTQ files from the workshop's example data set:
 
 ``` bash
 # [Don't run this]
@@ -250,15 +261,13 @@ fastqc PATH-TBA
 ```
 
 However, an annoying default behavior of FastQC is that it writes its output files
-in the same dir that contains the input FASTQ files ---
-this means mixing your raw data with your results, which is not good practice.
+in the same dir that contains the input FASTQ files.
+This means mixing your raw data with your results, which is not good practice.
 
 ### Changing the output directory?
 
 To figure out how to change that behavior,
-consider that many standard Unix commands and bioinformatics tools alike
-have an option `-h` and/or `--help` to print usage information to the screen.
-Let's try that:
+let's try to get help with `-h` just like we did with the `cal` command:
 
 ``` bash
 fastqc -h

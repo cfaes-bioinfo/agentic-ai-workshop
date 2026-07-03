@@ -260,7 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#software-with-apptainer-containers" id="toc-software-with-apptainer-containers" class="nav-link" data-scroll-target="#software-with-apptainer-containers"><span class="header-section-number">3</span> Software with Apptainer containers</a>
   <ul class="collapse">
   <li><a href="#obtaining-a-container-image" id="toc-obtaining-a-container-image" class="nav-link" data-scroll-target="#obtaining-a-container-image"><span class="header-section-number">3.1</span> Obtaining a container image</a></li>
-  <li><a href="#running-a-program-thats-in-a-container" id="toc-running-a-program-thats-in-a-container" class="nav-link" data-scroll-target="#running-a-program-thats-in-a-container"><span class="header-section-number">3.2</span> Running a program that’s in a container</a></li>
+  <li><a href="#running-a-container-image" id="toc-running-a-container-image" class="nav-link" data-scroll-target="#running-a-container-image"><span class="header-section-number">3.2</span> Running a container image</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -641,17 +641,17 @@ Submitted batch job 12431944
 <p>As mentioned previously, many programs needed for omics data analysis are not available through OSC modules, and you need an alternative way to access these. <strong>Conda</strong> and <strong>containers</strong> are both great options — here, we will go over containers.</p>
 <section id="obtaining-a-container-image" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="obtaining-a-container-image"><span class="header-section-number">3.1</span> Obtaining a container image</h3>
-<p>To find container images for bioinformatics software, I strongly recommend the <strong>Seqera Containers</strong> repository. It allows you to select:</p>
+<p>To find container images for bioinformatics software, I strongly recommend the <strong>Seqera Containers</strong> repository<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. It allows you to select:</p>
 <ul>
 <li>Any recent version of software that’s available – and nearly all open-source bioinformatics software is</li>
 <li>Any combination of software that’s not mutually incompatible</li>
 </ul>
-<p>Then, it will see if a container with your exact requirements is already available and if not, it will build it and make it available (!).</p>
-<p>Here is a step-by-step procedure to find a container image — again using FastQC version 0.12.1 as the example, but the procedure would be the same for any other program:</p>
+<p>Then, it will see if a container with your exact requirements is already available and if not, it will build it and make it available.</p>
+<p>Here is a step-by-step procedure to find a container image – again using FastQC version 0.12.1 as the example, but the procedure would be the same for any other available program:</p>
 <ol type="1">
-<li><p>Go to <strong><a href="https://seqera.io/containers" class="uri">https://seqera.io/containers</a></strong>.</p></li>
+<li><p>Go to <strong><a href="https://seqera.io/containers" class="uri">https://seqera.io/containers</a></strong></p></li>
 <li><p>In the <strong>search box</strong> below “Containers”, type <code>fastqc</code>.</p></li>
-<li><p>After waiting for the list to populate, the <strong>top hit</strong> should be <code>bioconda::fastqc</code>, with version <code>0.12.1</code> selected (the most recent version is always selected by default).</p></li>
+<li><p>After waiting for the list to populate, the <strong>top hit</strong> should be <code>bioconda::fastqc</code>, with version <code>0.12.1</code> selected (the most recent version is always selected by default)</p></li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -659,8 +659,8 @@ Submitted batch job 12431944
 </figure>
 </div>
 <ol start="4" type="1">
-<li><p><strong>Add FastQC</strong> to your container request by clicking the blue <code>+ Add</code> button. At this point, you could add additional programs, but for this example, we are happy with a container with only FastQC.</p></li>
-<li><p>In “<strong>Container settings</strong>” below the search box, change from <code>Docker</code> to <code>Singularity</code><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> (and leave the other dropdown as is – <code>linux/amd64</code> should be selected).</p></li>
+<li><p><strong>Add FastQC</strong> to your container request by clicking the blue <code>+ Add</code> button. At this point, you could add additional programs, but for this example, we are happy with a container that only has FastQC.</p></li>
+<li><p>In “<strong>Container settings</strong>” below the search box, change from <code>Docker</code> to <code>Singularity</code> (and leave the other dropdown as is – <code>linux/amd64</code> should be selected).</p></li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -669,7 +669,7 @@ Submitted batch job 12431944
 </div>
 <ol start="6" type="1">
 <li><p><strong>Get a link</strong> to the container image by clicking the blue <code>Get Container</code> button.</p></li>
-<li><p><strong>Copy the link</strong> to the container image that should appear immediately (use the copy icon on the far left):</p></li>
+<li><p><strong>Copy the link</strong> (URL/URI) to the container image that should appear immediately (use the copy icon on the far left). The link should be: <code>oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960</code></p></li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -690,8 +690,7 @@ Submitted batch job 12431944
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In this case, after we clicked Get Container, the pop-up box should have immediately said “Container is ready”. That means the container image was already available in the repository.</p>
-<p>In other cases, however, the container may still need to be built, and the box should say <strong>“Fetching container”</strong> for a while. This could take one or a few minutes, and even though the URL is made available immediately and won’t change, you can only download/use the container once the “Container is ready”.</p>
-<p>If you use an URL before the container is ready, you get this error:</p>
+<p>In other cases, however, the container may still need to be built, and the box should say <strong>“Fetching container”</strong> for a while. This could take one or a few minutes, and even though the URL is made available immediately and won’t change, you can only download/use the container once the “Container is ready”. If you use an URL before the container is ready, you get this error:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/multiqc_trim-galore:15a1e9f26daf266f <span class="dt">\</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    multiqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>FATAL:   Unable to handle oras://community.wave.seqera.io/library/multiqc_trim-galore:15a1e9f26daf266f uri: failed to get checksum for oras://community.wave.seqera.io/library/multiqc_trim-galore:15a1e9f26daf266f: GET https://community.wave.seqera.io/v2/library/multiqc_trim-galore/manifests/15a1e9f26daf266f: MANIFEST_UNKNOWN: manifest unknown; map[Tag:15a1e9f26daf266f]</code></pre>
@@ -699,32 +698,35 @@ Submitted batch job 12431944
 </div>
 </div>
 </section>
-<section id="running-a-program-thats-in-a-container" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="running-a-program-thats-in-a-container"><span class="header-section-number">3.2</span> Running a program that’s in a container</h3>
-<p>To run a command (program) that’s in a container, the general syntax is:</p>
+<section id="running-a-container-image" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="running-a-container-image"><span class="header-section-number">3.2</span> Running a container image</h3>
+<p>To run a command in a container, the general syntax is:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec <span class="op">&lt;</span>container-URL<span class="op">&gt;</span> <span class="op">&lt;</span>command<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>For example, if the command you want to run is <code>fastqc -v</code>:</p>
+<p>For example, if the command (<code>&lt;command&gt;</code> above) you want to run is <code>fastqc -v</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec <span class="op">&lt;</span>container-URL<span class="op">&gt;</span> fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Finally, with the actual link to the container:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>So, you need to preface your “regular” command with <code>apptainer exec &lt;container-URL&gt;</code>. Now with the actual link to the container:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 <span class="dt">\</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>INFO:    Downloading oras image
 384.0MiB / 384.0MiB [======================================================================================================================] 100 % 51.8 MiB/s 0s
 INFO:    gocryptfs not found, will not be able to use gocryptfs
 FastQC v0.12.1</code></pre>
-<p>So, when running a program that’s in a container, you need to preface your “regular” command with <code>apptainer exec &lt;container-URL&gt;</code>.</p>
-<p>The first time you run this command, the container image will be downloaded to a default location (see box below), as you can see in he output above — this will take a minute or so. When you run the same command again, it will use the cached version of the container image.</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p>You will keep seeing the <code>gocryptfs not found</code> warning message, but this is nothing to worry about.</p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Breaking up a command across lines with <code>\</code>
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<p>Above, I broke the command up across two lines, which can be done by ending the first line with a <code>\</code>. With a <code>\</code>, the shell understands that the command is still incomplete despite the newline. Using <code>\</code> to break up your commands across multiple lines helps with readability for long commands like this one.</p>
 </div>
+</div>
+<p>The first time you run this command, the container image will be downloaded to a default location (see box below), as you can see in he output above — this will take a minute or so. When you run the same command again, it will use the cached version of the container image.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -733,21 +735,22 @@ FastQC v0.12.1</code></pre>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The easiest way to run a container image you already downloaded is to simply keep re-use the exact same command with the URL to the container. Apptainer will realize that the image has already been downloaded and automatically use the downloaded version:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The easiest way to run a container image you already downloaded is to simply keep re-use the exact same command with the URL to the container (!): Apptainer will realize that the image has already been downloaded and will automatically use the downloaded version:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 <span class="dt">\</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>INFO:    Using cached SIF image
 INFO:    gocryptfs not found, will not be able to use gocryptfs
 FastQC v0.12.1</code></pre>
 <ul>
 <li>The <code>Using cached SIF image</code> line tells you that it is using a previously-downloaded SIF file</li>
+<li>You will keep seeing the <code>gocryptfs not found</code> message, but this is nothing to worry about.</li>
 </ul>
 <p>By default, containers are downloaded to a hidden directory in your Home dir, <code>~/.apptainer/cache</code>.</p>
 </div>
 </div>
 </div>
-<hr style="height:1pt; visibility:hidden;">
 
 
 </section>
@@ -759,7 +762,7 @@ FastQC v0.12.1</code></pre>
 <ol>
 <li id="fn1"><p> Because of this, anytime you see a word/string that starts with a <code>$</code> in the shell, you can safely assume that it is a variable.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p> Compare this with the situation for file names, which ideally do not contain spaces and special characters either, but in which <code>-</code> and <code>.</code> <em>are</em> recommended.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p> Singularity is the previous name of Apptainer, which is the software we use at OSC to run containers.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p> It is actually more than just a repository: when a container with the program(s) you request is not available in the repository, it will build it for you!<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

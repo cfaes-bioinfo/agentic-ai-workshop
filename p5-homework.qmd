@@ -1,8 +1,9 @@
 ---
-title: "Optional homework"
-subtitle: "Part V of the pre-workshop learning session"
+title: "Optional self-study material"
+subtitle: "Part V of the pre-workshop learning material"
 number-sections: true
 date: 2026-07-01
+date-modified: today
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462
@@ -28,17 +29,11 @@ bibliography: refs.bib
 ### Variables
 
 Variables are ubiquitous in programming.
-They are typically used for items that:
+If you don't know what they are,
+think of them as **placeholders** for values that you can use in your scripts.
+We'll start with some examples.
 
-- Are referred to repeatedly and/or
-- Are subject to change.
-
-These tend to be _settings_ like the paths to input and output files,
-and parameter values for programs.
-Using variables makes it easier to change such settings and makes it possible
-to write scripts and programs that are flexible depending on user input.
-
-To **assign** a value to a variable in the shell, use the syntax `variable_name=value`:
+To **assign** a value to a variable in the shell, use the notation `variable_name=value`:
 
 ```bash
 # Assign the value "beach" to a variable with the name "location":
@@ -55,8 +50,7 @@ nr_samples=200
 To **reference** a variable (i.e., to access its value):
 
 - You need to put a dollar sign `$` in front of its name.
-- It is good practice to double-quote (`"..."`) variable names^[
-  We'll talk more about quoting later.].
+- It is good practice to double-quote (`"..."`) its name.
 
 We'll use the `echo` command to see what values our variables contain:
 
@@ -86,7 +80,17 @@ ls -lh "$input_file"
 -rw-rw----+ 1 jelmer PAS0471 0 Mar  7 13:17 data/fastq/sample1_R1.fastq
 ```
 
-::: {.callout-note collapse="true"}
+Variables are typically used for items that:
+
+- Are referred to repeatedly and/or
+- Are subject to change.
+
+These tend to be _settings_ like the paths to input and output files,
+and parameter values for programs.
+Using variables makes it easier to change such settings (only a single instead of multiple replacements)
+and makes it possible to write scripts that are flexible depending on user input.
+
+::: {.callout-tip collapse="true"}
 #### In case you're familiar with R: syntax comparison _(Click to expand)_
 
 - Assigning and printing the value of a variable **in R**:
@@ -122,8 +126,8 @@ Difference are that in the Unix shell:
   to print the value of `$x` (cf. in R).
 :::
 
-::: {.callout-tip collapse="true"}
-#### Variable name rules _(Click to expand)_
+::: {.callout-note collapse="true"}
+#### Shell variable name rules _(Click to expand)_
 
 In the shell, variable names:
 
@@ -148,8 +152,6 @@ When you run a script, you can pass arguments to it,
 such as a file to operate on.
 This allows you to make **scripts that are flexible** when it comes to inputs,
 outputs, and possibly other settings.
-
-#### Executing a script with arguments
 
 Executing a script with arguments
 is much like when you provide a command like `ls` with arguments:
@@ -193,8 +195,6 @@ bash printname.sh John Doe
 :::
 :::
 
-#### Handling these arguments inside a script
-
 Any command-line arguments you pass to a script are
 **automatically available in it as variables**.
 Specifically:
@@ -210,19 +210,29 @@ Specifically:
 what are these variables and their values?
 
 <details><summary>_Click here for the solution_</summary>
-<hr style="height:1pt; visibility:hidden;" />
 
-- In `bash scripts/fastqc.sh data/sampleA.fastq.gz`, a single argument,
-  `data/sampleA.fastq.gz`, is passed to the script, and will be assigned to `$1`.
+```bash
+bash fastqc.sh sampleA.fastq
+```
+A single argument `sampleA.fastq`, is passed to the script, and will be assigned to `$1`.
 
-- In `bash scripts/printname.sh John Doe`, two arguments are passed to the script:
-  the first one (`John`) will be stored in `$1`, and the second one (`Doe`) in `$2`.
+```bash
+bash printname.sh John Doe
+```
+
+-----
+
+Two arguments are passed to the script:
+
+- The first one (`John`) will be stored in `$1`
+- The second one (`Doe`) will be stored in `$2`.
 </details>
 :::
 
 However, even though they are _made available_,
 these variables are not automatically _used_.
-Therefore, let's ... TBA
+Therefore, let's work our way backwards to use the argument passed to the script.
+A FASTQ filename was passed to the script, so let's use that in the script to run FastQC on that file:
 
 ```bash
 #!/bin/bash
@@ -232,7 +242,8 @@ echo "This script will run FastQC"
 fastqc --outdir results/fastqc "$1"
 ```
 
-Next, run the script, passing the file name as an argument:
+Now, let's actually run the script with a filename argument ---
+we'll use one of the example dataset FASTQ files:
 
 ```bash
 bash fastqc.sh TBA
@@ -243,23 +254,32 @@ This script will run FastQC
 TBA
 ```
 
+<hr style="height:1pt; visibility:hidden;" />
+
+<details><summary> {{< fa comments >}} _Is it a good choice to pass the FASTQ file name as an argument to the script? How could this be useful?_</summary>
+
+Yes, that's a good choice, because it allows you to run the same script on many
+different FASTQ files without having to modify the script itself.
+
+</details>
+
+<hr style="height:1pt; visibility:hidden;" />
+
 ::: {.callout-note collapse="true"}
 ### Copying to variables with descriptive names _(Click to expand)_
 
 While you could use the `$1`-style variables throughout your script,
-I highly recommend always copying them to more descriptively named variables ---
+I highly recommend copying these to more descriptively named variables ---
 for example:
 
 ```bash
 #!/bin/bash
-set -euo pipefail
 
-first_name="$1"
-last_name="$2"
+echo "This script will run FastQC"
 
-echo "This script will print a first and a last name"
-echo "First name: $first_name"
-echo "Last name: $last_name"
+fastq_file="$1"
+
+fastqc --outdir results/fastqc "$fastq_file"
 ```
 
 Using descriptively named variables in your scripts has several advantages, such as:
@@ -275,23 +295,23 @@ Loops are another universal element of programming languages,
 and are used to **repeat operations**.
 Here, we'll only cover the most common type of loop: the `for` loop.
 
-A `for` loop **iterates** over a collection, such as a list of files,
-and allows you to perform one or more actions for each element in the collection.
+A `for` loop **iterates** over a collection of items, such as a list of files,
+and allows you to perform one or more actions for each of these items.
 In the example below,
 the collection is just a short list of numbers (`1`, `2`, and `3`):
 
 ```bash
 for a_number in 1 2 3; do
-    echo "In this iteration of the loop, the number is $a_number"
+    echo "In this iteration of the loop, we are working with number $a_number"
     echo "--------"
 done
 ```
 ```bash-out
-In this iteration of the loop, the number is 1
+In this iteration of the loop, we are working with number 1
 --------
-In this iteration of the loop, the number is 2
+In this iteration of the loop, we are working with number 2
 --------
-In this iteration of the loop, the number is 3
+In this iteration of the loop, we are working with number 3
 --------
 ```
 
@@ -318,18 +338,17 @@ echo "--------"
 
 Here are two key things to understand about `for` loops:
 
-- In each iteration of the loop, one element in the collection
-  **is being assigned to the variable** specified after `for`.
-  In the example above, we used `a_number` as the variable name,
-  so that variable contained `1` when the loop ran for the first time,
-  `2` when it ran for the second time,
-  and `3` when it ran for the third and last time.
+- In each iteration of the loop, one item in the collection
+  **is being assigned to the specified variable**.
+  Above, we used `a_number` as the variable name,
+  which then `1` when the loop ran for the first time,
+  `2` when it ran for the second time, and so on.
 
 - The loop runs sequentially for each item in the collection,
-  and will run exactly as many times as there are items in the collection.
+  and will run as many times as there are items in the collection.
 
-::: {.callout-note}
-#### A further explanation of `for` loop syntax
+::: {.callout-note collapse="true"}
+#### A further explanation of `for` loop syntax _(Click to expand)_
 
 On the first and last, unindented lines,
 `for` loops contain the following mandatory keywords:
@@ -347,10 +366,11 @@ On the first and last, unindented lines,
 
 ### Submitting a script many times with a loop
 
-You will now loop over all FASTQ files in the `TBA` dir,
+Let's now loop over all FASTQ files in the `TBA` dir,
 and submit your `fastqc.sh` script for each file.
 
-First, note that you can select all FASTQ files in the `TBA` dir with a wildcard pattern:
+First, note that you can select all FASTQ files in the `TBA` dir with a wildcard pattern
+(`*` matches any string of characters and will attempt to match file names in this context):
 
 ```bash
 ls TBA/*fastq.gz
@@ -373,26 +393,22 @@ Submitted batch job 12431944
 # [...output truncated...]
 ```
 
-This is incredibly useful, because it allows you to submit a single script for many files,
-without having to manually type out a command for each file.
-It is also TBA
+Using loops in combination with scripts that submit with `sbatch` is incredibly useful.
+Because we're using a supercomputer with many nodes and cores,
+you may be able to run up to hundreds of jobs at the same time,
+speeding up your analysis tremendously.
 
 ## Software with Apptainer containers
 
 As mentioned previously,
 many programs needed for omics data analysis are not available through OSC modules,
 and you need an alternative way to access these.
-
-**Conda** and **containers** are both great options,
-and here, we will go over containers.
+**Conda** and **containers** are both great options --- here, we will go over containers.
 
 ### Obtaining a container image
 
-Several online repositories with publicly available container images exist,
-but I strongly recommend **Seqera Containers**.
-This is actually more than just a repository:
-when a container with the program(s) you request is not available in the repository,
-it will build the container for you.
+To find container images for bioinformatics software, 
+I strongly recommend the **Seqera Containers** repository.
 It allows you to select:
 
 - Any recent version of software that's available --
@@ -400,29 +416,30 @@ It allows you to select:
 - Any combination of software that's not mutually incompatible
 
 Then, it will see if a container with your exact requirements is already available
-and if not, it will build it and make it available.
+and if not, it will build it and make it available (!).
 
-Here is a step-by-step procedure to find a container image --
+Here is a step-by-step procedure to find a container image ---
 again using FastQC version 0.12.1 as the example,
-but the procedure would be the same for any other available program:
+but the procedure would be the same for any other program:
 
-1. Go to **<https://seqera.io/containers>**
+1. Go to **<https://seqera.io/containers>**.
 
 2. In the **search box** below "Containers", type `fastqc`.
 
 3. After waiting for the list to populate,
    the **top hit** should be `bioconda::fastqc`,
    with version `0.12.1` selected
-   (the most recent version is always selected by default)
+   (the most recent version is always selected by default).
 
 ![](/img/container_search.png){width="90%" fig-align="center" fig-alt="A screenshot showing the search result for FastQC on the Seqera containers website." .lightbox}
 
 4. **Add FastQC** to your container request by clicking the blue `+ Add` button.
    At this point, you could add additional programs,
-   but for this example, we are happy with a container that only has FastQC.
+   but for this example, we are happy with a container with only FastQC.
 
 5. In "**Container settings**" below the search box,
-   change from `Docker` to `Singularity`
+   change from `Docker` to `Singularity`^[
+   Singularity is the previous name of Apptainer, which is the software we use at OSC to run containers.]
    (and leave the other dropdown as is -- `linux/amd64` should be selected).
 
 ![](/img/container_added.png){width="90%" fig-align="center" fig-alt="A screenshot showing the correct selections before getting the link to the container." .lightbox}
@@ -430,10 +447,8 @@ but the procedure would be the same for any other available program:
 6. **Get a link** to the container image by clicking the blue
    `Get Container` button.
 
-7. **Copy the link** (URL/URI) to the container image that should appear immediately
-   (use the copy icon on the far left).
-   The link should be: 
-   `oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960`
+7. **Copy the link** to the container image that should appear immediately
+   (use the copy icon on the far left):
 
 ![](/img/container_link2.png){width="90%" fig-align="center" fig-alt="A screenshot showing the download link for the container." .lightbox}
 
@@ -451,6 +466,7 @@ and the box should say **"Fetching container"** for a while.
 This could take one or a few minutes,
 and even though the URL is made available immediately and won't change,
 you can only download/use the container once the "Container is ready".
+
 If you use an URL before the container is ready, you get this error:
   
 ```bash
@@ -462,26 +478,24 @@ FATAL:   Unable to handle oras://community.wave.seqera.io/library/multiqc_trim-g
 ```
 :::
 
-### Running a container image
+### Running a program that's in a container
 
-To run a command in a container, the general syntax is:
+To run a command (program) that's in a container, the general syntax is:
 
 ```bash
 apptainer exec <container-URL> <command>
 ```
 
-For example, if the command (`<command>` above) you want to run is `fastqc -v`:
+For example, if the command you want to run is `fastqc -v`:
 
 ```bash
 apptainer exec <container-URL> fastqc -v
 ```
 
-So, you need to preface your "regular" command with `apptainer exec <container-URL>`.
-Now with the actual link to the container:
+Finally, with the actual link to the container:
 
 ```bash
-apptainer exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 \
-  fastqc -v
+apptainer exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 fastqc -v
 ```
 ```bash-out
 INFO:    Downloading oras image
@@ -490,32 +504,29 @@ INFO:    gocryptfs not found, will not be able to use gocryptfs
 FastQC v0.12.1
 ```
 
-::: callout-tip
-#### Breaking up a command across lines with `\` 
-Above, I broke the command up across two lines,
-which can be done by ending the first line with a `\`.
-With a `\`, the shell understands that the command is still incomplete despite the
-newline.
-Using `\` to break up your commands across multiple lines helps with readability
-for long commands like this one.
-:::
+So, when running a program that's in a container,
+you need to preface your "regular" command with `apptainer exec <container-URL>`.
 
 The first time you run this command,
 the container image will be downloaded to a default location (see box below),
 as you can see in he output above --- this will take a minute or so.
 When you run the same command again, it will use the cached version of the container image.
 
+::: {.callout-tip appearance="simple"}
+You will keep seeing the `gocryptfs not found` warning message,
+but this is nothing to worry about.
+:::
+
 ::: {.callout-note collapse="true"}
 ### Container image storage and reuse _(Click to expand)_
 
 The easiest way to run a container image you already downloaded is to simply
-keep re-use the exact same command with the URL to the container (!):
+keep re-use the exact same command with the URL to the container.
 Apptainer will realize that the image has already been downloaded and
-will automatically use the downloaded version:
+automatically use the downloaded version:
 
 ```bash
-apptainer exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 \
-  fastqc -v
+apptainer exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 fastqc -v
 ```
 ```bash-out
 INFO:    Using cached SIF image
@@ -525,10 +536,9 @@ FastQC v0.12.1
 
 - The `Using cached SIF image` line tells you that it is using a
   previously-downloaded SIF file
-- You will keep seeing the `gocryptfs not found` message,
-  but this is nothing to worry about.
 
 By default, containers are downloaded to a hidden directory in your Home dir,
 `~/.apptainer/cache`.
-
 :::
+
+<hr style="height:1pt; visibility:hidden;" />

@@ -319,6 +319,12 @@ div.csl-indent {
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">July 3, 2026</p>
+    </div>
+  </div>
     
   </div>
   
@@ -355,11 +361,28 @@ div.csl-indent {
 <li>How do we <strong>run</strong> such programs?</li>
 </ol>
 <p>That’s what we’ll cover in this session, and in the next session about shell scripts and Slurm.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Free vs.&nbsp;commercial software (<em>Click to expand</em>)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Here, we’ll only cover free and open-source software. As such, “getting access” just refers to installation, and so on.</p>
+<p>Luckily, if you’re willing to use the command line, there is a wealth of such software available for omics data analysis. At the CFAES Bioinformatics Core, for example, we don’t currently have a need for any commercial software for omics data analysis.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="the-fastqc-software" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="the-fastqc-software"><span class="header-section-number">2</span> The FastQC software</h2>
 <p>As an example piece of bioinformatics software, we will use FastQC <span class="citation" data-cites="andrews2010">(<a href="#ref-andrews2010" role="doc-biblioref">Andrews 2010</a>)</span> in this session.</p>
-<p>FastQC is a ubiquitous tool for <strong>quality control of FASTQ files</strong>, the files that contain reads from a high-throughput sequencing (HTS) experiment. Running FastQC or a similar program is the first step in nearly any project with HTS data. FastQC is also a good introductory example of a CLI tool.</p>
+<p>FastQC is a ubiquitous tool for <strong>quality control of FASTQ files</strong>, the files that contain reads from a high-throughput sequencing (HTS) experiment. Running FastQC or a similar program is the first step in nearly any project with HTS data. FastQC is also a <strong>good introductory example of a CLI tool</strong>.</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -370,7 +393,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>For each FASTQ file that it analyzes, FastQC outputs an <strong>HTML file</strong> that you can open in your browser with about a dozen graphs showing different QC (Quality Control) metrics. For example, a per-base quality score graph:</p>
+<p>For each FASTQ file that it analyzes, FastQC outputs an <strong>HTML report</strong> with about a dozen graphs showing different QC (Quality Control) metrics. For example, a per-base quality score graph:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -381,7 +404,8 @@ div.csl-indent {
 <figcaption>A FastQC per-base quality score graph for files with reasonably good quality reads. The y-axis shows Phred quality scores (higher is better, see also the color-coding) and the x-axis shows the position along the read.</figcaption>
 </figure>
 </div>
-<p>The command to run FastQC is simply <code>fastqc</code>. But like many Unix commands, <code>fastqc</code> has many options, and we can pass (FASTQ) files as arguments. To see if FastQC is available to us, we can simply run <code>fastqc -v</code>, which uses the <code>-v</code> option to print the FastQC version:</p>
+<p>The command to run FastQC is simply <code>fastqc</code> — though, like most Unix commands, <code>fastqc</code> has many options, and we can pass (FASTQ) files as arguments.</p>
+<p>To see if FastQC is available, simply run <code>fastqc -v</code>, which uses the <code>-v</code> option to print the FastQC version:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>bash: fastqc: command not found...
 Failed to search for file: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Could not activate remote peer.</code></pre>
@@ -406,7 +430,7 @@ Failed to search for file: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner
 </div>
 </div>
 <p>You can load, unload, and search for available software modules using the <strong><code>module</code></strong> command and its sub-commands (for searching and exploring, note that OSC also has a <a href="https://ondemand.osc.edu/pun/sys/dashboard/module-browser">“Module Browser” on OnDemand</a>).</p>
-<p>For example, the <code>module spider</code> command can be used to search for modules, such as <code>fastqc</code> (the search is case-insensitive):</p>
+<p>For example, the <code>module spider</code> command can be used to search for modules, such as a potential module for <code>fastqc</code> (the search is case-insensitive):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> spider fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>--------------------------------------------------------------------------------
   fastqc: fastqc/0.12.1
@@ -429,7 +453,7 @@ Failed to search for file: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Module loading does <strong>not persist across shell sessions</strong>. Whenever you are in a fresh shell session (including but not limited to after you log into OSC for the day), you’ll have to reload any modules you want to use!</p>
+<p>Module loading does <strong>not persist across shell sessions</strong>. Whenever you are in a fresh shell session (including but not limited to after you log into OSC again), you’ll have to reload any modules you want to use!</p>
 </div>
 </div>
 </div>
@@ -489,20 +513,20 @@ To list all parameters, run STAR --help</code></pre>
 <p>OSC’s collection of bioinformatics programs is not comprehensive, so we need an additional way to get access to bioinformatics programs. But installing software like you are used to on your own computer is not really possible at a supercomputer center like OSC. Instead, the two best approaches are:</p>
 <ul>
 <li>The <strong>Conda</strong> software management program, which installs software in “environments” you can load.</li>
-<li><strong>Containers</strong>, self-contained software environments with pre-installed software.</li>
+<li><strong>Containers</strong>, self-contained software environments with (typically) pre-installed software.</li>
 </ul>
 <p>In the workshop, we’ll show some examples of using containers, and if you want to learn a bit about that in advance, see the <a href="./p5-homework.html">optional homework page</a>.</p>
 </section>
 </section>
 <section id="a-practical-example-running-fastqc" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="a-practical-example-running-fastqc"><span class="header-section-number">4</span> A practical example: running FastQC</h2>
-<p>To analyze a FASTQ file with default FastQC settings, the command is simply <code>fastqc</code> followed by the FASTQ file path – and we could use one of the FASTQ files in our Garrigos practice data set:</p>
+<p>To analyze a FASTQ file with default FastQC settings, the command is simply <code>fastqc</code> followed by the FASTQ file path — and we could use one of the FASTQ files from the workshop’s example data set:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [Don't run this]</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> PATH-TBA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>However, an annoying default behavior of FastQC is that it writes its output files in the same dir that contains the input FASTQ files — this means mixing your raw data with your results, which is not good practice.</p>
+<p>However, an annoying default behavior of FastQC is that it writes its output files in the same dir that contains the input FASTQ files. This means mixing your raw data with your results, which is not good practice.</p>
 <section id="changing-the-output-directory" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="changing-the-output-directory"><span class="header-section-number">4.1</span> Changing the output directory?</h3>
-<p>To figure out how to change that behavior, consider that many standard Unix commands and bioinformatics tools alike have an option <code>-h</code> and/or <code>--help</code> to print usage information to the screen. Let’s try that:</p>
+<p>To figure out how to change that behavior, let’s try to get help with <code>-h</code> just like we did with the <code>cal</code> command:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">-h</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>            FastQC - A high throughput sequence QC analysis tool
 

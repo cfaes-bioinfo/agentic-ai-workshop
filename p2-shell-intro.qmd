@@ -3,6 +3,7 @@ title: "Unix Shell basics"
 subtitle: "Part II of the pre-workshop learning session"
 number-sections: true
 date: 2026-07-01
+date-modified: today
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462
@@ -62,27 +63,22 @@ and the ability to use it is a crucial skill in computational biology.
 Using the Unix shell rather than programs with GUIs has some of the general
 advantages of using code:
 
-- **Automation and fewer errors**\
+- **Automation, fewer errors, and reproducibility**\
   The shell allows you to repeat and automate tasks easily and without
-  introducing errors.
-- **Reproducibility**\
-  When working in the shell,
+  introducing errors, and
   it's straightforward to keep a detailed record of what you have done.
   
 There are also specific reasons to use the Unix shell when compared to
-languages like R and Python:
+languages like R and Python, such as:
 
 - **Software needs**\
   Many programs used for omics data analysis
   have a CLI and are most easily run from the Unix shell.
-- **Viewing and processing large files**\
-  Shell commands are excellent at viewing and processing
-  _large, plain-text files_ (common in omics data).
-- **Efficiency**\
+- **Efficiency and convenience**\
   Built-in shell tools are often faster in terms of coding and processing time,
   especially for simpler tasks.
-- **Remote computing --- especially supercomputers**\
-  When doing remote computing, your point of entry is commonly the Unix shell.
+  And when doing remote computing, your point of entry, and a universal interface,
+  is the Unix shell.
 
 ## First steps in the shell
 
@@ -146,7 +142,7 @@ you'll "get your prompt back" and can type and execute a new command.
 ::: {.callout-warning collapse="true"}
 #### Are you instead seeing a `~` as the working directory? _(Click to expand)_
 If you see a `~` as the working-dir-part of your prompt,
-you are instead in your Home directory in `/users/` and you will need to go
+you are instead in your Home directory in `/people/` and you will need to go
 to `/fs/ess/PAS3454/people/<user>/pre` instead.
 
 While you could navigate there with a simple Unix command,
@@ -181,7 +177,7 @@ Let's start with a few simple commands:
   pwd
   ```
   ``` bash-out
-  /fs/ess/PAS3454/users/jelmer
+  /fs/ess/PAS3454/people/jelmer
   ```
 
 - The `echo` command simply prints the text you provide it with,
@@ -196,11 +192,9 @@ Let's start with a few simple commands:
   Welcome to PLNTPTH 5006
   ```
 
-All the above commands provided us with some output.
+All these commands provided us with some output.
 That output was **printed to screen**,
 which is the default behavior for nearly every Unix command.
-
-{{< fa comments >}} _Does `echo` seem useless, or can you think of ways in which it could be useful?_
 
 ## Options, arguments, and help
 
@@ -208,9 +202,9 @@ which is the default behavior for nearly every Unix command.
 
 The `cal` command is another example of a command that simply prints some
 information to the screen, in this case a calendar.
-It's not a particularly useful command in this day and age,
+It's not a particularly useful command in this day and age 🙃,
 but we'll use it as a low-stakes example to learn about command
-*options* and *arguments*.
+**options** and **arguments**.
 
 Just running `cal` will print a calendar for the current month:
 
@@ -353,13 +347,6 @@ Sun Mon Tue Wed Thu Fri Sat   Sun Mon Tue Wed Thu Fri Sat
 # [...output truncated, entire year is shown...]
 ```
   
-To summarize how command _arguments_ differ from options --- arguments...
-
-- usually tell the command _what_ to operate on, instead of changing _how_ it operates
-- are not preceded by `-` and a letter (or `--` and a keyword)
-- if options and arguments are combined, arguments **go after** options^[
-  Though some commands are flexible and accept either order.].
-
 ![**Command structure visualization**<br>Note that regrettably, the most common way to refer to this entire line is also "command". Therefore, the term "command" can either refer to just a command like `cal` **or** a full command-line expression that includes options and arguments like `cal -j 2020`.](/img/w2-3_command-structure.png){width="50%" fig-align="center" fig-alt="A diagram showing the structure of a command." .lightbox}
 
 ### Getting help
@@ -457,13 +444,13 @@ But many commands perform another kind of **action**.
 
 For example, the command **`cd`** will change your *working* directory.
 But first, check again where you are ---
-you should be in your personal dir within `/fs/ess/PAS3454/users`:
+you should be in your personal dir within `/fs/ess/PAS3454`:
 
 ```bash
 pwd
 ```
 ```bash-out
-/fs/ess/PAS3454/users/jelmer
+/fs/ess/PAS3454/people/jelmer/pre
 ```
 
 Now, use `cd` to move to another directory by specifying the *path* to that
@@ -493,16 +480,21 @@ In summary:
 Let's also see what happens when `cd` does not succeed — it gives an error:
 
   ``` bash
-  cd /fs/ess/PAS3454
+  cd /fs/ess/pas3454
   ```
   
   ``` bash-out
-  -bash: cd: /fs/ess/PAS3454: No such file or directory
+  -bash: cd: /fs/ess/pas3454: No such file or directory
   ```
 
-::: callout-important
-#### Everything in the shell is **case-sensitive**, including commands and file names --- hence the error above.
-:::
+<hr style="height:1pt; visibility:hidden;" />
+
+<details><summary>{{< fa comments >}} *What went wrong here? And what does that imply?*</summary>
+
+1. We spelled `cas` in lowercase letters, while the actual dir is spelled `PAS3454` in uppercase letters.
+2. It appears that the shell is **case-sensitive** --- it treats uppercase and lowercase letters as different characters.
+
+</details>
 
 ### Path shortcuts
 
@@ -578,55 +570,100 @@ perhaps this diagram helps:
 ::: exercise
 #### {{< fa user-edit >}} Exercise: navigation
 
-1. Use a relative path to move back to your personal dir 
-   `/fs/ess/PAS3454/users/$USER`
+1. Use a relative path to move to  `/fs/ess/PAS3454/people/<user>/`
 
    <details><summary>*Click to see the solution*</summary>
    
-   Since you are in `/fs`:
+   Since you are (or should be) in `/fs`:
    
    ``` bash
-   cd ess/PAS3454/users/$USER
+   cd ess/PAS3454/people/<user>
    ```
    </details>
 
 2. From there, use another relative path to move into the
-   `/fs/ess/PAS3454/share` dir.
+   `/fs/ess/PAS3454/data` (TBA - CHECK PATH) dir.
 
    <details><summary>*Click to see the solution*</summary>
    
-   Since you are in `/fs/ess/PAS3454/users/$USER`,
+   Since you are in `/fs/ess/PAS3454/people/<user>`,
    you will first need to go up two levels (to `/fs/ess/PAS3454`),
-   and then into `share`:
+   and then into `data`:
    
    ``` bash
-   cd ../../share
+   cd ../../data
    ```
    </details>
 :::
 
 ## Keyboard shortcuts
 
-Using keyboard shortcuts help you work much more efficiently in the shell.
+Using keyboard shortcuts help you work more efficiently in the shell.
 Here are some of the most useful ones:
 
 - **Command history** ---
   `Up` / `Down` arrow keys to cycle through your command history.
 
 - **Tab completion** ---
-  The shell will auto-complete partial commands or file paths when you press <kbd>Tab</kbd>.
+  The shell will auto-complete file paths (or commands) when you press <kbd>Tab</kbd>.
 
 - **Cancel/stop/abort** --- If your prompt is "missing", the shell is still
   busy executing your command, *or* you typed an incomplete command. To abort,
   press <kbd>Ctrl</kbd>+<kbd>C</kbd> and you will get your prompt back.
 
-::: exercise
-#### {{< fa user-edit >}} Exercise: canceling
+<hr style="height:1pt; visibility:hidden;" />
 
-To simulate a long-running command that you may want to abort,
+#### Let's try Tab completion together
+
+In the shell, whenever you type something and press <kbd>Tab</kbd>,
+the shell will try to autocomplete what you typed based on the available commands
+and files/dirs in your current working dir.
+This is incredibly useful,
+because it saves you from typing long paths and also helps you avoid typos.
+
+| Type this | Expected response |
+|----|-------|
+| **`/f`** => <kbd>Tab</kbd> | Autocompletes to `/fs/`
+| Add **`e`** (to `/fs/e`) => <kbd>Tab</kbd> | Autocompletes to`/fs/ess/`
+| Add **`PAS`** (to `/fs/ess/PAS`) => <kbd>Tab</kbd> | Nothing happens because there are many options
+| <kbd>Tab</kbd> twice  | Prints `Display all 687 possibilities? (y or n)` |
+| Type `n` to answer no | |
+| Add **`34`** (`/fs/ess/PAS34`) => <kbd>Tab</kbd> twice | Displays the 8 or so dirs that start with `PAS34`
+| Add **`5`** (`/fs/ess/PAS3454`) => <kbd>Tab</kbd> twice | `/fs/ess/PAS3454/`
+| <kbd>Enter</kbd> | Prints `bash: /fs/ess/PAS3454/: Is a directory`
+
+: {.striped .hover tbl-colwidths="[45, 55]"}
+
+<hr style="height:1pt; visibility:hidden;" />
+
+<details><summary> {{< fa comments >}} Why did we get an error here?</summary>
+Basically, everything you type in the shell should start with a command.
+Just typing a path will not make the shell print some info about, or the contents of,
+this dir or file.
+Instead, since a path is not a command, you will get an error.
+</details>
+
+<hr style="height:1pt; visibility:hidden;" />
+
+| Type this | Expected response |
+|----|-------|
+| <kbd>⇧</kbd> (Up arrow) | You get the path back on the prompt
+| <kbd>Ctrl</kbd>+<kbd>A</kbd> | Cursor moves to the start of the line
+| Prepend `cd ` (to `cd /fs/ess/PAS3454/`) => <kbd>Enter</kbd> | You are now in the `PAS3454` dir
+
+: {.striped .hover tbl-colwidths="[45, 55]"}
+
+::: {.callout-tip appearance="simple"}
+Your **cursor** can be anywhere in a line (not just at the end) when you press <kbd>Enter</kbd> to execute a command!
+:::
+
+::: exercise
+#### {{< fa user-edit >}} Bonus exercise: canceling
+
+To _simulate_ a long-running command that you may want to abort,
 we'll use the `sleep` command,
 which makes the computer wait for a specified amount of time before it gives your
-prompt back (or, e.g. moves to the next command in the context of a script).
+prompt back.
 
 Run the below command and instead of waiting for the full 60 seconds,
 **press <kbd>Ctrl</kbd> + <kbd>C</kbd>** to get your prompt back sooner!
@@ -634,6 +671,8 @@ Run the below command and instead of waiting for the full 60 seconds,
 ``` bash
 sleep 60s
 ```
+
+--------
 
 As another example of a situation where you might have to use
 <kbd>Ctrl</kbd> + <kbd>C</kbd>,
@@ -648,66 +687,11 @@ you should see a `>` on the next line.
 This is the shell wanting you to "complete" you command. Why would that be?
 
 <details><summary>*Click to see the solution*</summary>
-This is an incomplete command by definition because any opening parenthesis
-should have a matching closing parenthesis.
+This is an incomplete command by definition:
+any opening parenthesis should have a matching closing parenthesis.
 </details>
 
 Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to get your regular prompt back.
-:::
-
-<hr style="height:1pt; visibility:hidden;" />
-
-::: exercise
-#### {{< fa user-edit >}} Exercise: Tab completion & command history
-
-- Type **`/f`** and press <kbd>Tab</kbd> (will autocomplete to */fs/*)
-
-- Add **`e`** (*/fs/e*) and press <kbd>Tab</kbd> (will autocomplete to */fs/ess/*).
-
-- Add **`PAS`** (*/fs/ess/PAS*) and press <kbd>Tab</kbd>. Nothing should
-  happen: there are multiple (many!) options.
-
-- Press <kbd>Tab</kbd> <kbd>Tab</kbd> (i.e., twice in quick succession) and it should say:
-
-  ``` bash-out
-  Display all 619 possibilities? (y or n)
-  ```
-
-- Type `n` to answer no: we don't need to see all the dirs starting with `PAS`.
-
-- Add **`288`** (*/fs/ess/PAS288*) and press <kbd>Tab</kbd>
-  **twice in quick succession** (a single Tab won't do anything):
-  you should see at least four dirs that start with `PAS288`.
-
-- Add `0` so your line reads `/fs/ess/PAS3454`. Press <kbd>Enter</kbd>.
-  You will get the following output, which is an error.
-  Can you think of any reason why this you may have gotten an error here?
-
-  ```bash-out-solo
-  bash: /fs/ess/PAS3454/: Is a directory
-  ```
-
-<details><summary>*Click to see the solution*</summary>
-Basically, everything you type in the shell should start with a command.
-Just typing a path will not make the shell print some info about, or the contents of,
-this dir or file.
-Instead, since a path is not a command, you will get an error.
-</details>
-
-- Press **<kbd>⇧</kbd>** to get the previous "command" back on the prompt.
-
-- Press **<kbd>Ctrl</kbd>+<kbd>A</kbd>** to move to the beginning of the line at once.
-
-- Add `cd` and a space in front of the dir, and press <kbd>Enter</kbd> again.
-
-  ```bash
-  cd /fs/ess/PAS3454/
-  ```
-
-::: {.callout-tip appearance="simple"}
-Your **cursor** can be anywhere on a line (not just at the end) when you press <kbd>Enter</kbd> to execute a command!
-:::
-
 :::
 
 ## Listing files with `ls`
@@ -715,7 +699,7 @@ Your **cursor** can be anywhere on a line (not just at the end) when you press <
 The Unix shell has a lot of commands for dealing with files and directories.
 We'll only cover the most basic one here: **`ls`**, which lists files and directories.
 
-First, let's move to a dir which has some files we can work with:
+First, let's move to a dir which has some files we can display:
 
 ```bash
 cd /fs/ess/PAS3454/data/TBA
@@ -745,7 +729,7 @@ _E.g., white for regular files in dark themes._
 
 You can use an **argument** to change the dir (or file) that `ls` operates on, 
 and you can use **options** to change how it shows the output.
-Let's start with two very commonly used options **`-l`** (lowercase L) and **`-h`**,`
+Let's start with two very commonly used options **`-l`** (lowercase L) and **`-h`**,
 which can be combined as `-lh`:
 
 ``` bash
@@ -795,13 +779,15 @@ TBA
 The files have a `.gz` extension and are **[red]{style="color:#bb0000"}**,
 which indicates they have been _compressed_ with `gzip`.
 
-::: exercise
-#### {{< fa user-edit >}} **Exercise**: Listing a single file
+<hr style="height:1pt; visibility:hidden;" />
 
-Say you want to check the size of a single file.
-Then, it may be always not be convenient to list an entire dir's contents.
+::: exercise
+#### {{< fa user-edit >}} Exercise: Listing a single file
+
+If you want to check the size of a single file,
+it may not be convenient to list all of a dir's contents.
 Can you figure out how to use `ls` to show you the file size **only** for the 
-`fastq/ERR10802865_R2.fastq.gz` file?
+`fastq/TBA` file?
 
 <details><summary>*Click to see the solution*</summary>
 
@@ -816,3 +802,5 @@ ls -lh fastq/ERR10802865_R2.fastq.gz
 ```
 </details>
 :::
+
+<hr style="height:1pt; visibility:hidden;" />
