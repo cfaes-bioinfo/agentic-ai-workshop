@@ -67,7 +67,7 @@ website:
       ![](/img/CFAES-Horiz-RGBHEX.svg){width="40%"}
     right:
       - icon: github
-        href: https://github.com/mcic-osu/pracs-au25
+        href: https://github.com/cfaes-bioinfo/agentic-ai-workshop
         aria-label: "The GitHub repo for this website"
 format:
   html:
