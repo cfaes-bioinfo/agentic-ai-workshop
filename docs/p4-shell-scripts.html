@@ -239,11 +239,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#shell-scripts" id="toc-shell-scripts" class="nav-link" data-scroll-target="#shell-scripts"><span class="header-section-number">2</span> Shell scripts</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
   <ul class="collapse">
-  <li><a href="#a-basic-shell-script" id="toc-a-basic-shell-script" class="nav-link" data-scroll-target="#a-basic-shell-script"><span class="header-section-number">2.1</span> A basic shell script</a></li>
+  <li><a href="#what-are-shell-scripts-and-why-use-them" id="toc-what-are-shell-scripts-and-why-use-them" class="nav-link" data-scroll-target="#what-are-shell-scripts-and-why-use-them"><span class="header-section-number">1.1</span> What are shell scripts and why use them?</a></li>
+  </ul></li>
+  <li><a href="#a-first-shell-script" id="toc-a-first-shell-script" class="nav-link" data-scroll-target="#a-first-shell-script"><span class="header-section-number">2</span> A first shell script</a>
+  <ul class="collapse">
+  <li><a href="#a-script-to-run-fastqc" id="toc-a-script-to-run-fastqc" class="nav-link" data-scroll-target="#a-script-to-run-fastqc"><span class="header-section-number">2.1</span> A script to run FastQC</a></li>
   <li><a href="#add-a-shebang-line" id="toc-add-a-shebang-line" class="nav-link" data-scroll-target="#add-a-shebang-line"><span class="header-section-number">2.2</span> Add a shebang line</a></li>
+  <li><a href="#make-the-script-run-fastqc" id="toc-make-the-script-run-fastqc" class="nav-link" data-scroll-target="#make-the-script-run-fastqc"><span class="header-section-number">2.3</span> Make the script run FastQC</a></li>
   </ul></li>
   <li><a href="#submitting-scripts-as-batch-jobs-with-slurm" id="toc-submitting-scripts-as-batch-jobs-with-slurm" class="nav-link" data-scroll-target="#submitting-scripts-as-batch-jobs-with-slurm"><span class="header-section-number">3</span> Submitting scripts as batch jobs with Slurm</a>
   <ul class="collapse">
@@ -315,43 +319,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr style="height:1pt; visibility:hidden;">
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>In this session, you will learn:</p>
+<p>In this part, you will learn:</p>
 <ol type="1">
 <li>The basics of shell scripts</li>
 <li>Running command-line programs using shell scripts</li>
 <li>Submitting shell scripts as batch jobs with Slurm</li>
 </ol>
-</section>
-<section id="shell-scripts" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="shell-scripts"><span class="header-section-number">2</span> Shell scripts</h2>
-<p>In the previous session, we ran a first bioinformatics program, FastQC, from the command line. However, we ran it commands in an “interactive” manner: typing the command in the shell and then pressing <kbd>Enter</kbd>, waiting for the program to finish before moving on the the next command.</p>
-<p>But when you run bioinformatics tools, it is in most cases a much better idea to <strong>run them via shell scripts</strong>, which are plain-text files that contain shell code.</p>
-<section id="why-use-shell-scripts" class="level4">
-<h4 class="anchored" data-anchor-id="why-use-shell-scripts">Why use shell scripts</h4>
-<p>General reasons why it can be beneficial to use shell scripts instead of running code interactively line-by-line:</p>
+<section id="what-are-shell-scripts-and-why-use-them" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="what-are-shell-scripts-and-why-use-them"><span class="header-section-number">1.1</span> What are shell scripts and why use them?</h3>
+<p>Previously, we ran a first bioinformatics program, FastQC, from the command line. However, we ran it <em>interactively</em>: typing the command in the shell and then pressing <kbd>Enter</kbd>, waiting for the program to finish before moving on the the next command.</p>
+<p>But when you run bioinformatics tools, it is often a much better idea to <strong>do so via shell scripts</strong>, plain-text files with shell code, because, first of all:</p>
 <ul>
 <li>It is a good way to save and organize your code.</li>
 <li>You can easily rerun scripts and re-use them in similar contexts.</li>
 </ul>
-<p>And very importantly for our purposes at OSC, we can <strong>submit scripts as “batch jobs”</strong> to the compute job scheduling program (which is called Slurm), and this allows us to:</p>
+<p>And at OSC, we can <strong>submit scripts as “batch jobs”</strong> to the compute job scheduling program (called Slurm), and this allows us to:</p>
 <ul>
-<li>Run scripts remotely without needing to stay connected to the running process, or even to be connected at all to it: we can submit a script, log out from OSC and shut down our computer, and it will still run.</li>
+<li>Run scripts remotely without needing to stay connected to the running process: we can submit a script, log out from OSC and shut down our computer, and it will still run.</li>
 <li>Easily run analyses that take many hours or even multiple days.</li>
 <li>Run a script many times <em>simultaneously</em>, such as for different files/samples.</li>
 </ul>
 </section>
-<section id="a-basic-shell-script" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="a-basic-shell-script"><span class="header-section-number">2.1</span> A basic shell script</h3>
-<p>Create your first script, <code>printname.sh</code> (shell scripts usually have the extension <code>.sh</code>) as follows:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty file</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> scripts/printname.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A nice VS Code trick mentioned before is that is if you hold <kbd>Ctrl</kbd> (Windows) / <kbd>⌘</kbd> (Mac) while hovering over a file path in the terminal, the path should become underlined and you can click on it to open the file. Try that with the <code>printname.sh</code> script<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Once the file is open in your editor pane, type or paste the following inside the script:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"This script will print a first and a last name"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Shell scripts mostly contain the same Unix shell code you have become familiar with. As such, the <code>printline.sh</code> file with a single <code>echo</code> command <em>constitutes a functional shell script</em>!</p>
-<p>One way of running the script is by typing <code>bash</code> followed by the path to the script<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/printname.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>This script will print a first and a last name</code></pre>
-<p>That worked! The script doesn’t yet print any names like it “promises” to do, but we will add that functionality in a little bit. First, you’ll learn about two header lines that are good practice to add to every shell script.</p>
+</section>
+<section id="a-first-shell-script" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="a-first-shell-script"><span class="header-section-number">2</span> A first shell script</h2>
+<section id="a-script-to-run-fastqc" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="a-script-to-run-fastqc"><span class="header-section-number">2.1</span> A script to run FastQC</h3>
+<p>Create your first script, <code>fastqc.sh</code> (shell scripts usually have the extension <code>.sh</code>) as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty file with the touch command:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Find the <code>fastqc.sh</code> file in the VS Code file explorer (you may need to refresh the explorer if you don’t see it immediately) and click on it to open it in the editor pane. Then, copy the following into the script:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"This script will run FastQC"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Shell scripts mostly contain the same Unix shell code you have become familiar with. As such, the <code>fastqc.sh</code> file with a single <code>echo</code> command <em>constitutes a functional shell script</em>!</p>
+<p>One way of running the script is by typing <code>bash</code> followed by the path to the script<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>This script will run FastQC</code></pre>
+<p>That worked! The script doesn’t yet run FastQC like it “promises” to do, but we will add that functionality in a little bit.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -372,238 +375,148 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="add-a-shebang-line" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="add-a-shebang-line"><span class="header-section-number">2.2</span> Add a shebang line</h3>
-<p>A so-called “<em>shebang</em>” line is commonly used as the first line of a script to <strong>indicate which computer language the script uses</strong>. More specifically, this line tells the computer where to find the binary (executable) that runs your script – and since this is a Bash shell script, that will be the Bash program.</p>
+<p>A so-called “<em>shebang</em>” line is commonly used as the first line of a script to <strong>indicate which computer language the script uses</strong>. For the sake of time, we won’t go into the details of how this weird-looking line is structured, but for shell scripts, you can add:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Such a line starts with <strong><code>#!</code></strong> (hash-bang), basically marking it as a special type of comment. Those two characters are followed by the path to the relevant program: in our case Bash, which itself is just a program with an executable file that is located at <code>/bin/bash</code> on Linux and Mac computers.</p>
-<p>While not always strictly necessary, adding a <em>shebang</em> line to every shell script is good practice, especially when you submit your script to OSC’s Slurm queue, as we’ll do later.</p>
-<p>Add the shebang line to your <code>printname.sh</code> script, so it will now contain the following:</p>
+<p>While not always strictly necessary, adding a <em>shebang</em> line to every shell script is good practice, especially when you submit your script with Slurm, as we’ll do later.</p>
+<p>Add the shebang line to your <code>fastqc.sh</code> script, so it will now contain the following:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"This script will print a first and a last name"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Can I run scripts without the <code>bash</code> command? <em>(Click to expand)</em>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>It’s possible to execute scripts by only typing their path – for example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If the script is in a different dir:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">scripts/printname.sh</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If the script is in your working dir:</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">./printname.sh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>To be able to do this, the script:</p>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"This script will run FastQC"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="make-the-script-run-fastqc" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="make-the-script-run-fastqc"><span class="header-section-number">2.3</span> Make the script run FastQC</h3>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise</h4>
 <ol type="1">
-<li>Needs to have a <em>shebang</em> line so the computer knows which language to execute the script with</li>
-<li>The script needs to be “executable”. You can do that by changing the file permissions, e.g.:</li>
+<li><p>Add a line to the <code>fastqc.sh</code> script that runs FastQC on the first FASTQ file (<code>TBA</code>) and writes the output to the <code>results/fastqc</code> directory.</p></li>
+<li><p>Run the script again.</p></li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add 'execute permissions' for printname.sh:</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x printname.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><em>Why do you need <code>./</code> in the example above when the script is in your working dir?</em> The <code>./</code> is necessary to make explicit that you’re referring to a file name. Without it (running just <code>printname.sh</code>), the shell would look for a command or program of that name, and wouldn’t find it. With yet another step, it <em>is</em> possible to add your script to the computer’s registry of commands/programs, but we won’t cover that here (Google <code>$PATH</code> if you’re curious).</p>
-</div>
-</div>
-</div>
+<details>
+<summary>
+<em>Click for the solution</em>
+</summary>
+<ol type="1">
+<li>The full script should now look like this:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"This script will run FastQC"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc data/ERR10802863_R1.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="2" type="1">
+<li>Run the script again:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>TBA</code></pre>
+</details>
+</section>
 </section>
 </section>
 <section id="submitting-scripts-as-batch-jobs-with-slurm" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="submitting-scripts-as-batch-jobs-with-slurm"><span class="header-section-number">3</span> Submitting scripts as batch jobs with Slurm</h2>
 <section id="compute-jobs-overview" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="compute-jobs-overview"><span class="header-section-number">3.1</span> Compute jobs overview</h3>
-<p>Automated scheduling software allows hundreds of people with different requirements to effectively and fairly access compute nodes at supercomputers. OSC uses <strong>Slurm</strong> (Simple Linux Utility for Resource Management) for this.</p>
+<p>Automated scheduling software allows many with different requirements to effectively and fairly access compute nodes at supercomputers. OSC uses <strong>Slurm</strong> (Simple Linux Utility for Resource Management) for this.</p>
 <p>As you’ve learned, a reservation of resources on compute nodes is called a <strong>compute job</strong>. Here are the main ways to start a compute job at OSC:</p>
 <ol type="1">
-<li>“<strong>Interactive Apps</strong>” — Run programs with GUIs (e.g.&nbsp;VS Code or RStudio) in your browser through the OnDemand website.</li>
+<li>“<strong>Interactive Apps</strong>” — Run programs with GUIs (e.g.&nbsp;VS Code or RStudio) in your browser.</li>
 <li><strong>Interactive shell jobs</strong> — Start an interactive shell on a compute node.</li>
-<li><strong>Batch (non-interactive) jobs</strong> — Run a script on a compute node “remotely”: without going to that node yourself.</li>
+<li><strong>Batch jobs</strong> — Run a script on a compute node “remotely”: without going to that node yourself.</li>
 </ol>
-<p>In this session, we’ll focus on <strong>batch jobs</strong>.</p>
-<p>When you submit a batch job, you ask the Slurm scheduler to <strong>run a script “out of sight” on a compute node</strong>. While that script runs on a compute node, you will stay in your current shell at your current node. After you submit a batch job, it will continue to run even if you log off from OSC and shut down your computer.</p>
+<p>In this session, we’ll focus on <strong>batch jobs</strong>. When you submit a batch job, you ask the Slurm scheduler to <strong>run a script “out of sight” on a compute node</strong>. While that script runs on a compute node, you will stay in your current shell at your current node. After you submit a batch job, it will continue to run even if you log off from OSC and shut down your computer.</p>
 </section>
 <section id="the-sbatch-command" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="the-sbatch-command"><span class="header-section-number">3.2</span> The <code>sbatch</code> command</h3>
-<p>You can use Slurm’s <code>sbatch</code> command to submit a batch job. But first, let’s recall how we’ve run shell scripts so far:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/printname.sh Jane Doe</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>This script will print a first and a last name
-First name: Jane
-Last name: Doe</code></pre>
+<p>You can use Slurm’s <code>sbatch</code> command to submit a batch job. First,recall how we’ve run shell scripts so far:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The above command ran the script on whatever node you are on, and printed output to the screen. To instead submit the script to the Slurm queue, start by simply <strong>replacing <code>bash</code> with <code>sbatch</code></strong>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> scripts/printname.sh Jane Doe</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>srun: error: ERROR: Job invalid: Must specify account for job  
 srun: error: Unable to allocate resources: Unspecified error</code></pre>
-<p>However, as the above error message –“<em>Must specify account for job</em>”– informs us, you need to indicate which OSC Project (or as Slurm puts it, “account”) you want to use for this compute job. Use the <code>--account=</code> option to do this:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> <span class="at">--account</span><span class="op">=</span>PAS3454 scripts/printname.sh Jane Doe</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>However, as the above error message –“<em>Must specify account for job</em>”– informs us, you need to indicate which OSC Project (AKA “account”) you want to use for this compute job. Use the <code>--account</code> option to do this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> <span class="at">--account</span> PAS3454 fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Submitted batch job 12431935</code></pre>
 <p>This output line means your job was successfully submitted (no further job output will be printed to your screen — more about that below). The job has a <strong>unique identifier</strong> among all compute jobs by all users at OSC, and you can use this number to monitor and manage it. Each of us will therefore see a different job number pop up.</p>
 <p>After submitting a batch job, you <strong>immediately get your prompt back</strong>. The job will run outside of your immediate view, and you can continue doing other things in the shell while it does, or even log off. This behavior allows you to submit many jobs at the same time: you don’t have to wait for other jobs to finish, or even to start!</p>
 </section>
 <section id="where-does-the-scripts-output-go" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="where-does-the-scripts-output-go"><span class="header-section-number">3.3</span> Where does the script’s output go?</h3>
-<p>Above, we saw that when you ran <code>printname.sh</code> “directly” with <code>bash</code>, the script’s output was printed to the screen, whereas when you submitted it as a batch job, only <code>Submitted batch job &lt;job-number&gt;</code> was printed to screen. In the latter case, where did this output go?</p>
-<p>It ended up in a file called <code>slurm-&lt;job-number&gt;.out</code> (e.g., <code>slurm-12431942.out</code>; since each job number is unique to a given job, each file has a different number). We’ll call this type of file a <strong>Slurm log file</strong>.</p>
-<details>
-<summary>
-Getting this output in log files instead of printed to screen may seem inconvenient. Can you think of any reasons why we may not want batch job output printed to screen, even if it were possible? <em>(Click for the answer)</em>
-</summary>
-<p>There are several reasons, such as:</p>
-<ul>
-<li>If you log off after submitting a batch job, any output printed to screen would be lost.</li>
-<li>The power of submitting batch jobs is that you can submit many at once — e.g.&nbsp;one per sample, running the same script. If the output from all those scripts ends up on your screen, things become a big mess, and you have no lasting record of what happened.</li>
-</ul>
-</details>
+<p>Above, when you ran <code>bash fastqc.sh</code>, the script’s output was printed to screen — but when you submitted it as a batch job, the only thing printed to screen was <code>Submitted batch job &lt;job-number&gt;</code>. So, for batch jobs, where does this output go?</p>
+<p>It ends up in a file called <code>slurm-&lt;job-number&gt;.out</code> (e.g., <code>slurm-12431942.out</code>; since each job number is unique, each file has a different number). We’ll call this type of file a <strong>Slurm log file</strong>.</p>
 <p>If you run <code>ls</code>, you should see a Slurm log file for the job you just submitted:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>scripts slurm-12431935.out</code></pre>
-<p>Let’s take a look at its contents:</p>
+<p>Let’s take a look at its contents –– you can click on the file in VS Code or use the <code>cat</code> command to print the contents of a file to screen:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> slurm<span class="pp">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>This script will print a first and a last name
-First name: Jane  
-Last name: Doe</code></pre>
-<p>This file contains the script’s output that was printed to screen when we ran it with <code>bash</code> – nothing more or less<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>The working directory stays the same
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>When the scripts in batch jobs are being run, they start in the directory that they were submitted from: that is, the working directory remains the same, and you shouldn’t have to make special adjustments to paths.</p>
-<p>Additionally, as you’ve seen, Slurm log files will (by default) be created in the dir you submitted the job from.</p>
-</div>
-</div>
-<section id="two-types-of-output-files" class="level4">
-<h4 class="anchored" data-anchor-id="two-types-of-output-files">Two types of output files</h4>
-<p>There is an important distinction between two general types of output that scripts, commands, and programs may have:</p>
-<ol type="1">
-<li>Output that is <strong>printed to screen</strong>.<br>
-The technical terms for such output are “<strong>standard output</strong>” for non-error output and “<strong>standard error</strong>” for error output.
-<ul>
-<li>We’ve seen that most Unix commands by default print their output to the screen.</li>
-<li>Other programs, like bioinformatics tools, will commonly print “logging”-type output to the screen, like you’ve seen with FastQC. But some programs will by default also print their main results to the screen. (This can sometimes be changed with a program’s options, and otherwise, you can always redirect (<code>&gt;</code>) output to a file.)</li>
-</ul></li>
-<li>Output that is <strong>written to files</strong>.</li>
-</ol>
-<p>To summarize what happens to these when you submit a script as a batch job instead of running it directly:</p>
-<ul>
-<li>A script’s standard out and standard error will be written to a file when you submit the script with <code>sbatch</code></li>
-<li>Output of commands written to output files inside the script (either via redirection or otherwise) <em>will end up in the exact same files</em> regardless of how you run the script.</li>
-</ul>
-<p>Your <code>printline.sh</code> script only had the first type of output, but scripts typically have both, and we’ll see examples of that below.</p>
-</section>
+<pre class="bash-out"><code>This script will run FastQC
+...
+TBA</code></pre>
 </section>
 <section id="adding-sbatch-options-in-scripts" class="level3" data-number="3.4">
 <h3 data-number="3.4" class="anchored" data-anchor-id="adding-sbatch-options-in-scripts"><span class="header-section-number">3.4</span> Adding <code>sbatch</code> options in scripts</h3>
-<p>The <code>--account=</code> option is just one of many options you can use when submitting a compute job, but is the only <em>required</em> one. This is because defaults exist for all other options, such as the amount of time (1 hour) and the number of cores (1 core).</p>
+<p>The <code>--account</code> option is just one of many you can use for a batch job, but is the only <em>required</em> one. Defaults exist for all other options, such as the amount of time (1 hour) and number of cores (1 core).</p>
 <p>Instead of adding these options after the <code>sbatch</code> command when submitting the script, you can also <strong>add them inside the script</strong>. This is a useful alternative because:</p>
 <ul>
 <li>You’ll often want to specify several options, which could otherwise lead to very long <code>sbatch</code> commands.</li>
-<li>It allows you to store a script’s typical Slurm options as part of the script, so you don’t have to remember them.</li>
+<li>It allows you to store a script’s typical Slurm options in the script, so you don’t have to remember them.</li>
 </ul>
-<p>These options are added in the script using another <strong>type of special comment line</strong> (akin to the shebang <code>#!/bin/bash</code> line) that is marked by <code>#SBATCH</code>. Just like the shebang line, <code>#SBATCH</code> line(s) should be located at the top of the script.</p>
-<p>Let’s add one such line to the <code>printname.sh</code> script, such that the first few lines read:</p>
+<p>These options are added in the script using a <strong>type of special comment line</strong> (akin to the shebang line) that is marked by <code>#SBATCH</code>. These line(s) should be located at the top of the script, right below the shebang line.</p>
+<p>Let’s add a few <code>sbatch</code> options in the <code>fastqc.sh</code> script, such that the first few lines read:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --account=PAS3454</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>So, the equivalent of adding <code>--account=PAS3454</code> after <code>sbatch</code> on the command line is a line in your script that reads <code>#SBATCH --account=PAS3454</code>.</p>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --account=PAS3454</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --time=3:00:00</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --cpus-per-task=4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now, submitting this script would request a batch job for it that:</p>
+<ul>
+<li>Uses the <code>PAS3454</code> account (just like before</li>
+<li>Requests a maximum of 3 hours of compute time<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+<li>Requests 4 CPU cores for the job<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+</ul>
 <p>Now, you are able to run the <code>sbatch</code> command without options (which failed earlier):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> scripts/printname.sh Jane Doe</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Submitted batch job 12431942</code></pre>
-<hr style="height:1pt; visibility:hidden;">
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Running a script with <code>#SBATCH</code> lines elsewhere
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>Because <code>#SBATCH</code> lines are special <em>comment</em> lines, they will simply be ignored (and not throw any errors) when you run a script with such lines in other contexts: for example, when not running it as a batch job at OSC, or even when running it on a computer without Slurm installed.</p>
+<div class="callout-body-container">
+<p>See <a href="https://cfaes-bioinfo.github.io/pracs-au25/week07/w7b_slurm2.html#common-slurmsbatch-options">this page</a> for more about these and other Slurm options.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="monitoring-batch-jobs" class="level3" data-number="3.5">
 <h3 data-number="3.5" class="anchored" data-anchor-id="monitoring-batch-jobs"><span class="header-section-number">3.5</span> Monitoring batch jobs</h3>
-<p>Real batch jobs for your research projects may run for a while, You may also be submitting many jobs at once. Finally, longer-running jobs and those that ask for many cores sometimes remain queued for a while before they start. For these reasons, it’s important to know how you can monitor your batch jobs.</p>
-<section id="a-sleepy-script-for-practice" class="level4">
-<h4 class="anchored" data-anchor-id="a-sleepy-script-for-practice">A sleepy script for practice</h4>
-<p>We’ll use another short shell script to practice monitoring and managing batch jobs. First create a new file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> scripts/sleep.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Open the file in the VS Code editor and copy the following into it:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --account=PAS3454</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"I will sleep for 30 seconds"</span> <span class="op">&gt;</span> sleep.txt</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 30s</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"I'm awake! Successfully finished script sleep.sh"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr style="height:1pt; visibility:hidden;">
-</section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-batch-job-output-recap" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-batch-job-output-recap"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Batch job output recap</h4>
-<p>Predict what would happen if you submit the <code>sleep.sh</code> script as a batch job using <code>sbatch scripts/sleep.sh</code>:</p>
-<ol type="1">
-<li>How many output files will this batch job produce?</li>
-<li>What will be in each of those files?</li>
-<li>In which directory will the file(s) appear?</li>
-<li>In terms of output files, what would be different if we instead run the script using <code>bash scripts/sleep.sh</code>?</li>
-</ol>
-<p>Then, test your predictions by running the script.</p>
-<details>
-<summary>
-Click for the solutions
-</summary>
-<ol type="1">
-<li><p>The job will produce 2 files:</p>
-<ul>
-<li><code>slurm-&lt;job-number&gt;.out</code>: The Slurm log file, containing output normally printed to screen.</li>
-<li><code>sleep.txt</code>: Containing output that was redirected to this file in the script.</li>
-</ul></li>
-<li><p>The those files will contain the following:</p>
-<ul>
-<li><code>slurm-&lt;job-number&gt;.out</code>: <em>I’m awake! Done with script sleep.sh</em></li>
-<li><code>sleep.txt</code>: <em>“I will sleep for 30 seconds”</em></li>
-</ul></li>
-<li><p>Both files will end up in your current working directory. Slurm log files always go to the directory from which you submitted the job. Slurm jobs also <em>run</em> from the directory from which you submitted your job, and since we redirected the output simply to <code>sleep.txt</code>, that file was created in our working directory.</p></li>
-<li><p>If we had run the script directly, <code>sleep.txt</code> would have also been created with the same content, but “<em>All done!</em>” would have been printed to screen.</p></li>
-</ol>
-<p>Run the script and check the outputs:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> scripts/sleep.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>Submitted batch job 27935840</code></pre>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> sleep.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>I will sleep for 30 seconds</code></pre>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> slurm-27935840.out</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>I'm awake! Successfully finished script sleep.sh</code></pre>
-</details>
-</section>
-<section id="batch-job-behavior" class="level4">
-<h4 class="anchored" data-anchor-id="batch-job-behavior">Batch job behavior</h4>
-<p>After you submit a job, it may initially be waiting to get resources allocated to it: in other words, the job may be <strong>pending</strong>. Eventually, and often very quickly, the job will start running. You’ve seen this process with the VS Code Interactive App job as well.</p>
-<p>Whereas Interactive App jobs will keep running until they’ve reached the end of the allocated time<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, <strong>batch jobs will stop as soon as the script has finished</strong>. And if the script is still running when the job runs out of its allocated time, it will be killed (stopped) right away.</p>
-</section>
+<p>It’s important to know how you can monitor your batch jobs, because real-life batch jobs may run for a while, and/or you may submit many jobs at once.</p>
+<p>Additionally, after you submit a job, it may initially be waiting to get resources allocated to it: the job may be <strong>pending</strong>. Eventually, and often very quickly, the job will start running. (You’ve seen this process with the VS Code Interactive App job as well.)</p>
 <section id="the-squeue-command" class="level4">
 <h4 class="anchored" data-anchor-id="the-squeue-command">The <code>squeue</code> command</h4>
-<p>You can check the status of your batch jobs using the <code>squeue</code> Slurm command – try the following:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can check the status of your batch jobs using the <code>squeue</code> Slurm command — try the following:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -l gives more verbose output; replace `jelmer` with your OSC username</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> jelmer <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Thu Apr 4 15:47:51 2025
         JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
      23640814 condo-osu ondemand   jelmer  RUNNING       6:34   2:00:00      1 p0133</code></pre>
-<p>In the command above:</p>
-<ul>
-<li>You specify your username with the <strong><code>-u</code></strong> option (without this, you’d see everyone’s jobs!). In this example, I used the environment variable <code>$USER</code> to get your user name, but you can simply type your username if that’s easier.</li>
-<li>The option <strong><code>-l</code></strong> (lowercase L, “long”) will produce the more verbose output shown. Without it, the output will be a bit more cryptic.</li>
-</ul>
 <p>In the <code>squeue</code> output, following a line with the date &amp; time and a header line, you should see information about a single compute job, as shown above: this is the Interactive App job that runs VS Code – that’s not a batch job, but it <em>is</em> a compute job, and all compute jobs are listed.</p>
+<p>The key pieces of information are:</p>
+<ul>
+<li>The <code>STATE</code> column, indicating whether a job is <code>PENDING</code> or <code>RUNNING</code> (completed jobs will not appear)</li>
+<li>The <code>TIME</code> column, indicating how long the job has been running</li>
+<li>The <code>TIME_LIMIT</code> column, indicating how long the job is allowed to run</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Information about each column of the <code>squeue</code> output <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>The following pieces of information about each job are listed:</p>
 <table class="table-striped table-hover caption-top table">
 <colgroup>
@@ -655,71 +568,71 @@ Click for the solutions
 </tr>
 </tbody>
 </table>
-</section>
-<section id="squeue-example" class="level4">
-<h4 class="anchored" data-anchor-id="squeue-example"><code>squeue</code> example</h4>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A fuller <code>squeue</code> example <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We’ll use another short shell script to practice monitoring and managing batch jobs. First create a new file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> sleep.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Open the file in the VS Code editor and copy the following into it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --account=PAS3454</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"I will sleep for 30 seconds"</span> <span class="op">&gt;</span> sleep.txt</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sleep</span> 30s</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"I'm awake! Successfully finished script sleep.sh"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now, let’s see a batch job in the <code>squeue</code> listing. Start by submitting the <code>sleep.sh</code> script as a batch job:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> scripts/sleep.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> sleep.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Submitted batch job 12431945</code></pre>
 <p>If you’re quick enough, you may be able to catch the job’s <code>STATE</code> as <code>PENDING</code> before it starts:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Thu Apr 4 15:48:26 2025
          JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       12520046 serial-40 sleep.sh   jelmer  PENDING       0:00   1:00:00      1 (None)
       23640814 condo-osu ondemand   jelmer  RUNNING       7:12   2:00:00      1 p0133</code></pre>
 <p>But soon enough it should read <code>RUNNING</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Thu Apr 4 15:48:39 2025
          JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       12520046 condo-osu sleep.sh   jelmer  RUNNING       0:12   1:00:00      1 p0133
       23640814 condo-osu ondemand   jelmer  RUNNING       8:15   2:00:00      1 p0133</code></pre>
 <p>The script should finish after 30 seconds (because your command was <code>sleep 30s</code>), after which the job will immediately disappear from the <code>squeue</code> listing, because only pending and running jobs are shown:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Mon Aug 21 15:49:26 2025
          JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       23640814 condo-osu ondemand   jelmer  RUNNING       9:02   2:00:00      1 p0133</code></pre>
-</section>
-<section id="checking-a-jobs-output-files" class="level4">
-<h4 class="anchored" data-anchor-id="checking-a-jobs-output-files">Checking a job’s output files</h4>
-<p>Whenever you’ve ran a script as a batch job, even if you’ve been monitoring it with <code>squeue</code>, you should also make sure it ran <em>successfully</em>. You can do this by checking the output file(s) – as mentioned above, you’ll usually have two types of output from a batch job:</p>
-<ul>
-<li>A Slurm log file with the script’s standard output and standard error, which would have been printed to screen if the job hadn’t been submitted with <code>sbatch</code> (<em>typically: logging-type output and errors</em>)</li>
-<li>Output file(s) created inside the script (<em>typically: the main results</em>)</li>
-</ul>
-<p>And as you saw in the exercise above, this is also the case for the output of our sleepy script:</p>
-<ul>
-<li><p>The output file that the code in the script directly produced:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> sleep.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>I will sleep for 30 seconds</code></pre></li>
-<li><p>The Slurm log file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> slurm-12520046.out</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>I'm awake! Done with script sleep.sh</code></pre></li>
-</ul>
-<p>Let’s keep things tidy and remove the script’s outputs:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> slurm<span class="pp">*</span> sleep.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<hr style="height:1pt; visibility:hidden;">
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Canceling jobs <em>(Click to expand)</em>
+<span class="screen-reader-only">Tip</span>Checking a job’s output files
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Sometimes, you want to cancel one or more jobs. For example, you may realize you made a mistake in the script or used the wrong input files as arguments. You can cancel jobs that are either pending or running using <code>scancel</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [Examples - DON'T run this: the second line would cancel your VS Code job]</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Cancel a specific job:</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="ex">scancel</span> 2979968</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Cancel all your running and queued jobs (careful with this!):</span></span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="ex">scancel</span> <span class="at">-u</span> <span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Whenever you’ve ran a script as a batch job, you should make sure it ran <em>successfully</em>. You can do this by checking the output file(s) — you’ll usually have two types of output from a batch job:</p>
+<ul>
+<li>A Slurm log file that typically contains logging-type output and potential errors</li>
+<li>Output file(s) created by commands in the script (in the case, the FastQC output files)</li>
+</ul>
 </div>
 </div>
-</div>
+<hr style="height:1pt; visibility:hidden;">
 
 
 </section>
@@ -730,10 +643,9 @@ Click for the solutions
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p> Alternatively, find the script in the file explorer in the side bar and click on it there.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p> Bash is the name of the shell program that will run the script.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p> Unless you explicitly instruct Slurm to print regular output (“standard output”) and error messages (“standard error”) to separate files — see the box in the <a href="#output-slurm-log-files">section on Slurm log files</a> for more.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Unless you actively “Delete” the job on the Ondemand website.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p> Bash is the name of the shell program that will run the script.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>If the script is still running after 3 hours, it will be automatically stopped by Slurm.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Many bioinformatics tools, including FastQC, can use multiple CPU cores to speed up their computations.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

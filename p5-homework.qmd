@@ -35,12 +35,8 @@ They are typically used for items that:
 
 These tend to be _settings_ like the paths to input and output files,
 and parameter values for programs.
-**Using variables makes it easier to change such settings and makes it possible**
-**to write scripts and programs that are flexible depending on user input.**
-We have already seen some handy applications of variables,
-like the environment variable `$USER`, which contains your user name.
-
-#### Assigning and referencing variables
+Using variables makes it easier to change such settings and makes it possible
+to write scripts and programs that are flexible depending on user input.
 
 To **assign** a value to a variable in the shell, use the syntax `variable_name=value`:
 
@@ -53,7 +49,7 @@ nr_samples=200
 ```
 
 :::{.callout-warning}
-##### Note: there can't be spaces around the equals sign (`=`)!
+##### No spaces are allowed around the equals sign (`=`)!
 :::
 
 To **reference** a variable (i.e., to access its value):
@@ -62,8 +58,7 @@ To **reference** a variable (i.e., to access its value):
 - It is good practice to double-quote (`"..."`) variable names^[
   We'll talk more about quoting later.].
 
-As before with the environment variables `$USER` and `$HOME`,
-we'll use the `echo` command to see what values our variables contain:
+We'll use the `echo` command to see what values our variables contain:
 
 ```bash
 echo "$location"
@@ -83,7 +78,7 @@ Conveniently, you can use variables in lots of contexts,
 _as if you had directly typed their values_:
 
 ```bash
-input_file=../garrigos-data/fastq/ERR10802863_R1.fastq.gz
+input_file=TBA
 
 ls -lh "$input_file"
 ```
@@ -159,41 +154,49 @@ outputs, and possibly other settings.
 Executing a script with arguments
 is much like when you provide a command like `ls` with arguments:
 
-```bash
-# Running a command like `ls` with or without arguments
-# [Don't run any of this, these are just syntax examples]
+:::: {.columns}
 
+::: {.column width="48%"}
+
+- Running `ls` with or without arguments:
+
+```bash
 # Run ls without arguments:
 ls
 
 # Pass 1 filename as an argument to ls:
-ls data/sampleA.fastq.gz
+ls sampleA.fastq
 
-# Pass 2 filenames as arguments to ls, separated by spaces:
-ls data/sampleA.fastq.gz data/sampleB.fastq.gz
+# Pass 2 filenames as arguments to ls:
+ls sampleA.fastq sampleB.fastq
 ```
+
+:::
+
+::: {.column width="2%"}
+:::
+
+::: {.column width="48%"}
+
+- Running a script with or without arguments:
 
 ```bash
-# Running a script with or without arguments
-# [Don't run any of this, these are just syntax examples]
-
 # Run scripts without arguments:
-bash scripts/fastqc.sh
-bash scripts/printname.sh
+bash fastqc.sh
 
-# Run scripts with 1 or 2 arguments:
-bash scripts/fastqc.sh data/sampleA.fastq.gz  # 1 argument: a filename
-bash scripts/printname.sh John Doe            # 2 arguments: strings representing names
+# Pass an argument to a script:
+bash fastqc.sh sampleA.fastq
+
+# Pass 2 arguments to a script:
+bash printname.sh John Doe
 ```
+:::
+:::
 
-In the next section,
-you'll see how you can use these arguments inside your script.
+#### Handling these arguments inside a script
 
-#### Positional parameters
-
-Inside the script, any command-line arguments that you pass to it are
-**automatically available in variables**,
-the so-called "positional parameters".
+Any command-line arguments you pass to a script are
+**automatically available in it as variables**.
 Specifically:
 
 - Any first argument will be assigned to the variable **`$1`**
@@ -219,33 +222,25 @@ what are these variables and their values?
 
 However, even though they are _made available_,
 these variables are not automatically _used_.
-So, unless you include code in the script to _do_ something with these variables,
-nothing happens with them.
-
-Therefore, let's add some code to your `printname.sh` script to "process"
-any first and last name that are passed to the script.
-For now, your script will simply `echo` the placeholder variables,
-so that we can see what happens:
+Therefore, let's ... TBA
 
 ```bash
 #!/bin/bash
 
-echo "This script will print a first and a last name"
-echo "First name: $1"
-echo "Last name: $2"
+echo "This script will run FastQC"
 
-# [Paste this into you script - don't enter this directly in your terminal.]
+fastqc --outdir results/fastqc "$1"
 ```
 
-Next, run the script, passing the arguments `John` and `Doe` to it:
+Next, run the script, passing the file name as an argument:
 
 ```bash
-bash scripts/printname.sh John Doe
+bash fastqc.sh TBA
 ```
 ```{.bash-out}
-This script will print a first and a last name
-First name: John
-Last name: Doe
+This script will run FastQC
+
+TBA
 ```
 
 ::: {.callout-note collapse="true"}
@@ -350,123 +345,46 @@ On the first and last, unindented lines,
 
 :::
 
-#### Combining loops and globbing
+### Submitting a script many times with a loop
 
-An extremely common strategy is to loop over files with globbing, for example:
+You will now loop over all FASTQ files in the `TBA` dir,
+and submit your `fastqc.sh` script for each file.
+
+First, note that you can select all FASTQ files in the `TBA` dir with a wildcard pattern:
 
 ```bash
-for fastq_file in ../garrigos-data/fastq/*fastq.gz; do
-    echo "# Running an analysis on $fastq_file"
-    # [This is where you would put additional commands to process each FASTQ file]
+ls TBA/*fastq.gz
+```
+```bash-out
+TBA
+```
+
+You can use this wildcard pattern in a `for` loop to submit your script for each FASTQ file:
+
+```bash
+for fastq in TBA/*fastq.gz; do
+    bash fastqc.sh "$fastq"
 done
 ```
 ```bash-out
-# Running an analysis on ../garrigos-data/fastq/ERR10802863_R1.fastq.gz
-# Running an analysis on ../garrigos-data/fastq/ERR10802863_R2.fastq.gz
-# Running an analysis on ../garrigos-data/fastq/ERR10802864_R1.fastq.gz
-# Running an analysis on ../garrigos-data/fastq/ERR10802864_R2.fastq.gz
+Submitted batch job 12431942
+Submitted batch job 12431943
+Submitted batch job 12431944
 # [...output truncated...]
 ```
 
-:::{.exercise}
-#### {{< fa user-edit >}} Exercise: Another loop
-
-Modify the loop in the previous example to print the following for each FASTQ
-file (output for 2 files shown):
-
-```bash-out-solo
-# Running an analysis on ../garrigos-data/fastq/ERR10802863_R1.fastq.gz
-# File size:
--rw-rw----+ 1 jelmer PAS0471 21M Sep  9 13:46 ../garrigos-data/fastq/ERR10802863_R1.fastq.gz
-# Number of lines:
-2000000
-
-# Running an analysis on ../garrigos-data/fastq/ERR10802863_R2.fastq.gz
-# File size:
--rw-rw----+ 1 jelmer PAS0471 22M Sep  9 13:46 ../garrigos-data/fastq/ERR10802863_R2.fastq.gz
-# Number of lines:
-2000000
-```
-
-<hr style="height:1pt; visibility:hidden;" />
-<details><summary>Click for the solution</summary>
-
-```bash
-for fastq_file in ../garrigos-data/fastq/*fastq.gz; do
-    echo "# Running an analysis on $fastq_file"
-    echo "# File size:"
-    ls -lh "$fastq_file"
-    echo "# Number of lines:"
-    zcat "$fastq_file" | wc -l
-    echo
-done
-```
-</details>
-
-:::
-
-### Running a script many times with a loop
-
-You will now loop over all FASTQ files in the `../garrigos-data/fastq` dir,
-and run your `fastqc.sh` script for each file.
-Add the following to your `README.md` file,
-and then run the code inside the code block:
-
-````markdown
-- Step 1 - Run FastQC for each FASTQ file:
-
-```bash
-for fastq in ../garrigos-data/fastq/*fastq.gz; do
-    bash scripts/fastqc.sh "$fastq" results/fastqc
-done
-```
-````
-
-```bash-out
-# Starting script fastqc.sh
-Thu Sep 25 13:58:21 EDT 2025
-# Input FASTQ file:   ../garrigos-data/fastq/ERR10802863_R1.fastq.gz
-# Output dir:         results/fastqc
-
-Started analysis of ERR10802863_R1.fastq.gz
-Approx 5% complete for ERR10802863_R1.fastq.gz
-# [...output truncated...]
-
-# Successfully finished script fastqc.sh
-Thu Sep 25 13:58:26 EDT 2025
-
-# Starting script fastqc.sh
-Thu Sep 25 13:58:26 EDT 2025
-# Input FASTQ file:   ../garrigos-data/fastq/ERR10802863_R2.fastq.gz
-# Output dir:         results/fastqc
-
-Started analysis of ERR10802863_R2.fastq.gz
-Approx 5% complete for ERR10802863_R2.fastq.gz
-# [...output truncated...]
-```
-
-That produces a lot of output!
-You can hopefully see that this looping approach is quite powerful,
-allowing you to easily run a script many times.
-
-However, note that this runs the `fastqc.sh` script _sequentially_:
-after it was run for the first FASTQ file, it will run for the second file,
-and so on.
-If these had been full-size FASTQ files,
-it may have still taken hours for this to finish.
-So, while you have now learned an elegant way to run a script many times,
-you have not yet learned how to run it simultaneously in parallel. 
-Next week, you'll learn about submitting scripts like this as batch jobs,
-so they can be run simultaneously, which saves a lot of time.
+This is incredibly useful, because it allows you to submit a single script for many files,
+without having to manually type out a command for each file.
+It is also TBA
 
 ## Software with Apptainer containers
 
-As mentioned above,
-because many programs needed for omics data analysis are not available
-through OSC modules, you need an alternative way to access these.
+As mentioned previously,
+many programs needed for omics data analysis are not available through OSC modules,
+and you need an alternative way to access these.
 
 **Conda** and **containers** are both great options,
-and here, we will go over containers,
+and here, we will go over containers.
 
 ### Obtaining a container image
 
@@ -582,11 +500,13 @@ Using `\` to break up your commands across multiple lines helps with readability
 for long commands like this one.
 :::
 
-The **first time** you run this command,
+The first time you run this command,
 the container image will be downloaded to a default location (see box below),
 as you can see in he output above --- this will take a minute or so.
+When you run the same command again, it will use the cached version of the container image.
 
-### The container image cache (storage)
+::: {.callout-note collapse="true"}
+### Container image storage and reuse _(Click to expand)_
 
 The easiest way to run a container image you already downloaded is to simply
 keep re-use the exact same command with the URL to the container (!):
@@ -608,37 +528,7 @@ FastQC v0.12.1
 - You will keep seeing the `gocryptfs not found` message,
   but this is nothing to worry about.
 
-::: {.callout-note collapse="true"}
-#### Where is the cache located? _(Click to expand)_
-
 By default, containers are downloaded to a hidden directory in your Home dir,
 `~/.apptainer/cache`.
-That is generally fine,
-but you can change it *for your current shell session* by setting the
-`$APPTAINER_CACHEDIR` environment variable, e.g.:
 
-```bash
-export APPTAINER_CACHEDIR=/fs/scratch/PAS2880/$USER/containers
-```
-
-_(To permamently change this location, you would need to add_
-_this line to your `~/.bashrc` shell configuration file._
-_We won't cover this file in class.)_ 
-
-You can check what's in your cache as follows --
-though this is only informative in terms of how many containers are there
-and how much space they take up,
-because the container names are very cryptic:
-
-```bash
-apptainer cache list -v
-```
-```bash-out
-NAME                     DATE CREATED           SIZE             TYPE
-sha256:e0c976cb2eca5fe   2025-09-20 19:08:51    383.99 MiB       oras
-
-There are 1 container file(s) using 383.99 MiB and 0 oci blob file(s) using 0.00 KiB of space
-Total space used: 383.99 MiB
-```
-<hr style="height:1pt; visibility:hidden;" />
 :::

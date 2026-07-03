@@ -272,6 +272,7 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#changing-the-output-directory" id="toc-changing-the-output-directory" class="nav-link" data-scroll-target="#changing-the-output-directory"><span class="header-section-number">4.1</span> Changing the output directory?</a></li>
   <li><a href="#the-final-fastqc-command" id="toc-the-final-fastqc-command" class="nav-link" data-scroll-target="#the-final-fastqc-command"><span class="header-section-number">4.2</span> The final FastQC command</a></li>
+  <li><a href="#trying-one-more-time" id="toc-trying-one-more-time" class="nav-link" data-scroll-target="#trying-one-more-time"><span class="header-section-number">4.3</span> Trying one more time</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -359,7 +360,7 @@ div.csl-indent {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>If you don’t know what FASTQ files are, take a look at <a href="https://cfaes-bioinfo.github.io/pracs-au25/week03/w3a_file-overview.html#/fastq-files">this and the following slides</a>, until slide 11 (press the arrow keys to navigate).</p>
+<p>If you don’t know what FASTQ files are, take a look at <a href="https://cfaes-bioinfo.github.io/pracs-au25/week03/w3a_file-overview.html#/fastq-files">this and the following slides</a>, until slide 11.</p>
 </div>
 </div>
 </div>
@@ -491,8 +492,8 @@ To list all parameters, run STAR --help</code></pre>
 <h2 data-number="4" class="anchored" data-anchor-id="a-practical-example-running-fastqc"><span class="header-section-number">4</span> A practical example: running FastQC</h2>
 <p>To analyze a FASTQ file with default FastQC settings, the command is simply <code>fastqc</code> followed by the FASTQ file path – and we could use one of the FASTQ files in our Garrigos practice data set:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [Don't run this]</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> ../garrigos-data/fastq/ERR10802863_R1.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>However, an annoying default behavior of FastQC is that it writes its output files in the same dir that contains the input FASTQ files — this means mixing your raw data with your results, which we don’t want!</p>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> PATH-TBA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>However, an annoying default behavior of FastQC is that it writes its output files in the same dir that contains the input FASTQ files — this means mixing your raw data with your results, which is not good practice.</p>
 <section id="changing-the-output-directory" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="changing-the-output-directory"><span class="header-section-number">4.1</span> Changing the output directory?</h3>
 <p>To figure out how to change that behavior, consider that many standard Unix commands and bioinformatics tools alike have an option <code>-h</code> and/or <code>--help</code> to print usage information to the screen. Let’s try that:</p>
@@ -528,11 +529,23 @@ SYNOPSIS
 <section id="the-final-fastqc-command" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="the-final-fastqc-command"><span class="header-section-number">4.2</span> The final FastQC command</h3>
 <p>With the added <code>--outdir</code> (or <code>-o</code>) option, try to run the following FastQC command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We'll have to first create the outdir ourselves, in this case:</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/fastqc</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we run FastQC:</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc <span class="st">"</span><span class="va">$FASTQ_R1</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc TBA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>Specified output directory 'results/fastqc' does not exist</code></pre>
+<hr style="height:1pt; visibility:hidden;">
+<details>
+<summary>
+<i class="fa-solid fa-comments" aria-label="comments"></i> What appears to the problem and how could we fix this? <em>(Click to see the answer)</em>
+</summary>
+<p>As the message suggests, the problem is that the output dir <code>results/fastqc</code> does not exist yet. And oddly enough, FastQC does not create the output dir for us<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+<p>So, we’ll have to fix this by creating the output dir ourselves before running FastQC. We can create it with the <code>mkdir</code> command (short for “make directory”):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the -p optionis needed because we are creating a nested dir (results/fastqc)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</section>
+<section id="trying-one-more-time" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="trying-one-more-time"><span class="header-section-number">4.3</span> Trying one more time</h3>
+<p>Now, you should be able to run the exact same FastQC command again –– you can e.g.&nbsp;practice with pressing the up arrow to recall the previous command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc TBA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Started analysis of ERR10802863_R1.fastq.gz
 Approx 5% complete for ERR10802863_R1.fastq.gz
 Approx 10% complete for ERR10802863_R1.fastq.gz
@@ -544,34 +557,26 @@ Analysis complete for ERR10802863_R1.fastq.gz</code></pre>
 <li>A <code>.zip</code> file, which contains tables with FastQC’s data summaries</li>
 <li>An <code>.html</code> (HTML) file, which contains the graphs we’d like to see</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> results/fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>total 512K
--rw-rw----+ 1 jelmer PAS0471 241K Mar 21 09:53 ERR10802863_R1_fastqc.html
--rw-rw----+ 1 jelmer PAS0471 256K Mar 21 09:53 ERR10802863_R1_fastqc.zip</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> results/fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>TBA</code></pre>
 <hr style="height:1pt; visibility:hidden;">
 <section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-another-fastqc-run" class="level4 exercise">
 <h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-another-fastqc-run"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Another FastQC run</h4>
-<p>Run FastQC for the corresponding R2 FASTQ file.</p>
+<p>Run FastQC for another FASTQ file.</p>
 <details>
 <summary>
 <em>Click for the solution</em>
 </summary>
-<p>To run FastQC for the R2 (reverse-read) file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="va">FASTQ_R2</span><span class="op">=</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc ../garrigos-data/fastq/ERR10802863_R2.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For example, to run FastQC on the R2 (reverse-read) file for the same sample:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc /fs/ess/PAS3454/data/iqbal/fastq/TBA.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Started analysis of ERR10802863_R2.fastq.gz
 Approx 5% complete for ERR10802863_R2.fastq.gz
 Approx 10% complete for ERR10802863_R2.fastq.gz
 Approx 15% complete for ERR10802863_R2.fastq.gz
 [...truncated...]
 Analysis complete for ERR10802863_R2.fastq.gz</code></pre>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> results/fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>total 1008K
--rw-rw----+ 1 jelmer PAS0471 241K Mar 21 09:53 ERR10802863_R1_fastqc.html
--rw-rw----+ 1 jelmer PAS0471 256K Mar 21 09:53 ERR10802863_R1_fastqc.zip
--rw-rw----+ 1 jelmer PAS0471 234K Mar 21 09:55 ERR10802863_R2_fastqc.html
--rw-rw----+ 1 jelmer PAS0471 244K Mar 21 09:55 ERR10802863_R2_fastqc.zip</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> results/fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>TBA</code></pre>
 <p>Now, we have four files: two for each of our preceding successful FastQC runs.</p>
 </details>
 </section>
@@ -615,6 +620,7 @@ Andrews, S. 2010. <em>FASTQC. A Quality Control Tool for High Throughput Sequenc
 <li id="fn1"><p> That may seem like a drag, but this practice enables the use of different versions of the same software, and of mutually incompatible software, on a single system.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p> MultiQC summarizes the outputs of FastQC and many other bioinformatics programs.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p> STAR is an RNA-Seq aligner that we will use to align the reads from our example dataset to our reference genome.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p> Many bioinformatics tools do create output dirs for you as needed, but FastQC is not one of them.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

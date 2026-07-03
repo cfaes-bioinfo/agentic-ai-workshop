@@ -249,13 +249,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops"><span class="header-section-number">2</span> For loops</a>
   <ul class="collapse">
-  <li><a href="#running-a-script-many-times-with-a-loop" id="toc-running-a-script-many-times-with-a-loop" class="nav-link" data-scroll-target="#running-a-script-many-times-with-a-loop"><span class="header-section-number">2.1</span> Running a script many times with a loop</a></li>
+  <li><a href="#submitting-a-script-many-times-with-a-loop" id="toc-submitting-a-script-many-times-with-a-loop" class="nav-link" data-scroll-target="#submitting-a-script-many-times-with-a-loop"><span class="header-section-number">2.1</span> Submitting a script many times with a loop</a></li>
   </ul></li>
   <li><a href="#software-with-apptainer-containers" id="toc-software-with-apptainer-containers" class="nav-link" data-scroll-target="#software-with-apptainer-containers"><span class="header-section-number">3</span> Software with Apptainer containers</a>
   <ul class="collapse">
   <li><a href="#obtaining-a-container-image" id="toc-obtaining-a-container-image" class="nav-link" data-scroll-target="#obtaining-a-container-image"><span class="header-section-number">3.1</span> Obtaining a container image</a></li>
   <li><a href="#running-a-container-image" id="toc-running-a-container-image" class="nav-link" data-scroll-target="#running-a-container-image"><span class="header-section-number">3.2</span> Running a container image</a></li>
-  <li><a href="#the-container-image-cache-storage" id="toc-the-container-image-cache-storage" class="nav-link" data-scroll-target="#the-container-image-cache-storage"><span class="header-section-number">3.3</span> The container image cache (storage)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -326,9 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Are referred to repeatedly and/or</li>
 <li>Are subject to change.</li>
 </ul>
-<p>These tend to be <em>settings</em> like the paths to input and output files, and parameter values for programs. <strong>Using variables makes it easier to change such settings and makes it possible</strong> <strong>to write scripts and programs that are flexible depending on user input.</strong> We have already seen some handy applications of variables, like the environment variable <code>$USER</code>, which contains your user name.</p>
-<section id="assigning-and-referencing-variables" class="level4">
-<h4 class="anchored" data-anchor-id="assigning-and-referencing-variables">Assigning and referencing variables</h4>
+<p>These tend to be <em>settings</em> like the paths to input and output files, and parameter values for programs. Using variables makes it easier to change such settings and makes it possible to write scripts and programs that are flexible depending on user input.</p>
 <p>To <strong>assign</strong> a value to a variable in the shell, use the syntax <code>variable_name=value</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign the value "beach" to a variable with the name "location":</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">location</span><span class="op">=</span>beach</span>
@@ -341,7 +338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Note: there can’t be spaces around the equals sign (<code>=</code>)!
+<span class="screen-reader-only">Warning</span>No spaces are allowed around the equals sign (<code>=</code>)!
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -353,13 +350,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>You need to put a dollar sign <code>$</code> in front of its name.</li>
 <li>It is good practice to double-quote (<code>"..."</code>) variable names<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
 </ul>
-<p>As before with the environment variables <code>$USER</code> and <code>$HOME</code>, we’ll use the <code>echo</code> command to see what values our variables contain:</p>
+<p>We’ll use the <code>echo</code> command to see what values our variables contain:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$location</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>beach</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$nr_samples</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>200</code></pre>
 <p>Conveniently, you can use variables in lots of contexts, <em>as if you had directly typed their values</em>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span>../garrigos-data/fastq/ERR10802863_R1.fastq.gz</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span>TBA</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>-rw-rw----+ 1 jelmer PAS0471 0 Mar  7 13:17 data/fastq/sample1_R1.fastq</code></pre>
@@ -424,39 +421,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-</section>
 <section id="command-line-arguments-for-scripts" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="command-line-arguments-for-scripts"><span class="header-section-number">1.2</span> Command-line arguments for scripts</h3>
 <p>When you run a script, you can pass arguments to it, such as a file to operate on. This allows you to make <strong>scripts that are flexible</strong> when it comes to inputs, outputs, and possibly other settings.</p>
 <section id="executing-a-script-with-arguments" class="level4">
 <h4 class="anchored" data-anchor-id="executing-a-script-with-arguments">Executing a script with arguments</h4>
 <p>Executing a script with arguments is much like when you provide a command like <code>ls</code> with arguments:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Running a command like `ls` with or without arguments</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [Don't run any of this, these are just syntax examples]</span></span>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>Running <code>ls</code> with or without arguments:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run ls without arguments:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run ls without arguments:</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass 1 filename as an argument to ls:</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> sampleA.fastq</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass 1 filename as an argument to ls:</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> data/sampleA.fastq.gz</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass 2 filenames as arguments to ls, separated by spaces:</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> data/sampleA.fastq.gz data/sampleB.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Running a script with or without arguments</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># [Don't run any of this, these are just syntax examples]</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass 2 filenames as arguments to ls:</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> sampleA.fastq sampleB.fastq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:2%;">
+
+</div><div class="column" style="width:48%;">
+<ul>
+<li>Running a script with or without arguments:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run scripts without arguments:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run scripts without arguments:</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/fastqc.sh</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/printname.sh</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Run scripts with 1 or 2 arguments:</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/fastqc.sh data/sampleA.fastq.gz  <span class="co"># 1 argument: a filename</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/printname.sh John Doe            <span class="co"># 2 arguments: strings representing names</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>In the next section, you’ll see how you can use these arguments inside your script.</p>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass an argument to a script:</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh sampleA.fastq</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Pass 2 arguments to a script:</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> printname.sh John Doe</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 </section>
-<section id="positional-parameters" class="level4">
-<h4 class="anchored" data-anchor-id="positional-parameters">Positional parameters</h4>
-<p>Inside the script, any command-line arguments that you pass to it are <strong>automatically available in variables</strong>, the so-called “positional parameters”. Specifically:</p>
+<section id="handling-these-arguments-inside-a-script" class="level4">
+<h4 class="anchored" data-anchor-id="handling-these-arguments-inside-a-script">Handling these arguments inside a script</h4>
+<p>Any command-line arguments you pass to a script are <strong>automatically available in it as variables</strong>. Specifically:</p>
 <ul>
 <li>Any first argument will be assigned to the variable <strong><code>$1</code></strong></li>
 <li>Any second argument will be assigned to <strong><code>$2</code></strong></li>
@@ -476,20 +479,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </details>
 </div>
-<p>However, even though they are <em>made available</em>, these variables are not automatically <em>used</em>. So, unless you include code in the script to <em>do</em> something with these variables, nothing happens with them.</p>
-<p>Therefore, let’s add some code to your <code>printname.sh</code> script to “process” any first and last name that are passed to the script. For now, your script will simply <code>echo</code> the placeholder variables, so that we can see what happens:</p>
+<p>However, even though they are <em>made available</em>, these variables are not automatically <em>used</em>. Therefore, let’s … TBA</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"This script will print a first and a last name"</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"First name: </span><span class="va">$1</span><span class="st">"</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Last name: </span><span class="va">$2</span><span class="st">"</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># [Paste this into you script - don't enter this directly in your terminal.]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Next, run the script, passing the arguments <code>John</code> and <code>Doe</code> to it:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/printname.sh John Doe</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>This script will print a first and a last name
-First name: John
-Last name: Doe</code></pre>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"This script will run FastQC"</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc <span class="st">"</span><span class="va">$1</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Next, run the script, passing the file name as an argument:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh TBA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>This script will run FastQC
+
+TBA</code></pre>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -599,86 +599,27 @@ In this iteration of the loop, the number is 3
 </table>
 </div>
 </div>
-<section id="combining-loops-and-globbing" class="level4">
-<h4 class="anchored" data-anchor-id="combining-loops-and-globbing">Combining loops and globbing</h4>
-<p>An extremely common strategy is to loop over files with globbing, for example:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq_file <span class="kw">in</span> ../garrigos-data/fastq/<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"# Running an analysis on </span><span class="va">$fastq_file</span><span class="st">"</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># [This is where you would put additional commands to process each FASTQ file]</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code># Running an analysis on ../garrigos-data/fastq/ERR10802863_R1.fastq.gz
-# Running an analysis on ../garrigos-data/fastq/ERR10802863_R2.fastq.gz
-# Running an analysis on ../garrigos-data/fastq/ERR10802864_R1.fastq.gz
-# Running an analysis on ../garrigos-data/fastq/ERR10802864_R2.fastq.gz
+<section id="submitting-a-script-many-times-with-a-loop" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="submitting-a-script-many-times-with-a-loop"><span class="header-section-number">2.1</span> Submitting a script many times with a loop</h3>
+<p>You will now loop over all FASTQ files in the <code>TBA</code> dir, and submit your <code>fastqc.sh</code> script for each file.</p>
+<p>First, note that you can select all FASTQ files in the <code>TBA</code> dir with a wildcard pattern:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> TBA/<span class="pp">*</span>fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>TBA</code></pre>
+<p>You can use this wildcard pattern in a <code>for</code> loop to submit your script for each FASTQ file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq <span class="kw">in</span> TBA/<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bash</span> fastqc.sh <span class="st">"</span><span class="va">$fastq</span><span class="st">"</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>Submitted batch job 12431942
+Submitted batch job 12431943
+Submitted batch job 12431944
 # [...output truncated...]</code></pre>
-</section>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-another-loop" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-another-loop"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Another loop</h4>
-<p>Modify the loop in the previous example to print the following for each FASTQ file (output for 2 files shown):</p>
-<pre class="bash-out-solo"><code># Running an analysis on ../garrigos-data/fastq/ERR10802863_R1.fastq.gz
-# File size:
--rw-rw----+ 1 jelmer PAS0471 21M Sep  9 13:46 ../garrigos-data/fastq/ERR10802863_R1.fastq.gz
-# Number of lines:
-2000000
-
-# Running an analysis on ../garrigos-data/fastq/ERR10802863_R2.fastq.gz
-# File size:
--rw-rw----+ 1 jelmer PAS0471 22M Sep  9 13:46 ../garrigos-data/fastq/ERR10802863_R2.fastq.gz
-# Number of lines:
-2000000</code></pre>
-<hr style="height:1pt; visibility:hidden;">
-<details>
-<summary>
-Click for the solution
-</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq_file <span class="kw">in</span> ../garrigos-data/fastq/<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"# Running an analysis on </span><span class="va">$fastq_file</span><span class="st">"</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"# File size:"</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ls</span> <span class="at">-lh</span> <span class="st">"</span><span class="va">$fastq_file</span><span class="st">"</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"# Number of lines:"</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">zcat</span> <span class="st">"</span><span class="va">$fastq_file</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</section>
-<section id="running-a-script-many-times-with-a-loop" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="running-a-script-many-times-with-a-loop"><span class="header-section-number">2.1</span> Running a script many times with a loop</h3>
-<p>You will now loop over all FASTQ files in the <code>../garrigos-data/fastq</code> dir, and run your <code>fastqc.sh</code> script for each file. Add the following to your <code>README.md</code> file, and then run the code inside the code block:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Step 1 - Run FastQC for each FASTQ file:</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="in">```bash</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq <span class="kw">in</span> ../garrigos-data/fastq/<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bash</span> scripts/fastqc.sh <span class="st">"</span><span class="va">$fastq</span><span class="st">"</span> results/fastqc</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code># Starting script fastqc.sh
-Thu Sep 25 13:58:21 EDT 2025
-# Input FASTQ file:   ../garrigos-data/fastq/ERR10802863_R1.fastq.gz
-# Output dir:         results/fastqc
-
-Started analysis of ERR10802863_R1.fastq.gz
-Approx 5% complete for ERR10802863_R1.fastq.gz
-# [...output truncated...]
-
-# Successfully finished script fastqc.sh
-Thu Sep 25 13:58:26 EDT 2025
-
-# Starting script fastqc.sh
-Thu Sep 25 13:58:26 EDT 2025
-# Input FASTQ file:   ../garrigos-data/fastq/ERR10802863_R2.fastq.gz
-# Output dir:         results/fastqc
-
-Started analysis of ERR10802863_R2.fastq.gz
-Approx 5% complete for ERR10802863_R2.fastq.gz
-# [...output truncated...]</code></pre>
-<p>That produces a lot of output! You can hopefully see that this looping approach is quite powerful, allowing you to easily run a script many times.</p>
-<p>However, note that this runs the <code>fastqc.sh</code> script <em>sequentially</em>: after it was run for the first FASTQ file, it will run for the second file, and so on. If these had been full-size FASTQ files, it may have still taken hours for this to finish. So, while you have now learned an elegant way to run a script many times, you have not yet learned how to run it simultaneously in parallel. Next week, you’ll learn about submitting scripts like this as batch jobs, so they can be run simultaneously, which saves a lot of time.</p>
+<p>This is incredibly useful, because it allows you to submit a single script for many files, without having to manually type out a command for each file. It is also TBA</p>
 </section>
 </section>
 <section id="software-with-apptainer-containers" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="software-with-apptainer-containers"><span class="header-section-number">3</span> Software with Apptainer containers</h2>
-<p>As mentioned above, because many programs needed for omics data analysis are not available through OSC modules, you need an alternative way to access these.</p>
-<p><strong>Conda</strong> and <strong>containers</strong> are both great options, and here, we will go over containers,</p>
+<p>As mentioned previously, many programs needed for omics data analysis are not available through OSC modules, and you need an alternative way to access these.</p>
+<p><strong>Conda</strong> and <strong>containers</strong> are both great options, and here, we will go over containers.</p>
 <section id="obtaining-a-container-image" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="obtaining-a-container-image"><span class="header-section-number">3.1</span> Obtaining a container image</h3>
 <p>Several online repositories with publicly available container images exist, but I strongly recommend <strong>Seqera Containers</strong>. This is actually more than just a repository: when a container with the program(s) you request is not available in the repository, it will build the container for you. It allows you to select:</p>
@@ -731,8 +672,8 @@ Approx 5% complete for ERR10802863_R2.fastq.gz
 <div class="callout-body-container callout-body">
 <p>In this case, after we clicked Get Container, the pop-up box should have immediately said “Container is ready”. That means the container image was already available in the repository.</p>
 <p>In other cases, however, the container may still need to be built, and the box should say <strong>“Fetching container”</strong> for a while. This could take one or a few minutes, and even though the URL is made available immediately and won’t change, you can only download/use the container once the “Container is ready”. If you use an URL before the container is ready, you get this error:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/multiqc_trim-galore:15a1e9f26daf266f <span class="dt">\</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    multiqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/multiqc_trim-galore:15a1e9f26daf266f <span class="dt">\</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    multiqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>FATAL:   Unable to handle oras://community.wave.seqera.io/library/multiqc_trim-galore:15a1e9f26daf266f uri: failed to get checksum for oras://community.wave.seqera.io/library/multiqc_trim-galore:15a1e9f26daf266f: GET https://community.wave.seqera.io/v2/library/multiqc_trim-galore/manifests/15a1e9f26daf266f: MANIFEST_UNKNOWN: manifest unknown; map[Tag:15a1e9f26daf266f]</code></pre>
 </div>
 </div>
@@ -741,12 +682,12 @@ Approx 5% complete for ERR10802863_R2.fastq.gz
 <section id="running-a-container-image" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="running-a-container-image"><span class="header-section-number">3.2</span> Running a container image</h3>
 <p>To run a command in a container, the general syntax is:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec <span class="op">&lt;</span>container-URL<span class="op">&gt;</span> <span class="op">&lt;</span>command<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec <span class="op">&lt;</span>container-URL<span class="op">&gt;</span> <span class="op">&lt;</span>command<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>For example, if the command (<code>&lt;command&gt;</code> above) you want to run is <code>fastqc -v</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec <span class="op">&lt;</span>container-URL<span class="op">&gt;</span> fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec <span class="op">&lt;</span>container-URL<span class="op">&gt;</span> fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>So, you need to preface your “regular” command with <code>apptainer exec &lt;container-URL&gt;</code>. Now with the actual link to the container:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 <span class="dt">\</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 <span class="dt">\</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>INFO:    Downloading oras image
 384.0MiB / 384.0MiB [======================================================================================================================] 100 % 51.8 MiB/s 0s
 INFO:    gocryptfs not found, will not be able to use gocryptfs
@@ -764,13 +705,22 @@ FastQC v0.12.1</code></pre>
 <p>Above, I broke the command up across two lines, which can be done by ending the first line with a <code>\</code>. With a <code>\</code>, the shell understands that the command is still incomplete despite the newline. Using <code>\</code> to break up your commands across multiple lines helps with readability for long commands like this one.</p>
 </div>
 </div>
-<p>The <strong>first time</strong> you run this command, the container image will be downloaded to a default location (see box below), as you can see in he output above — this will take a minute or so.</p>
-</section>
-<section id="the-container-image-cache-storage" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="the-container-image-cache-storage"><span class="header-section-number">3.3</span> The container image cache (storage)</h3>
+<p>The first time you run this command, the container image will be downloaded to a default location (see box below), as you can see in he output above — this will take a minute or so. When you run the same command again, it will use the cached version of the container image.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Container image storage and reuse <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>The easiest way to run a container image you already downloaded is to simply keep re-use the exact same command with the URL to the container (!): Apptainer will realize that the image has already been downloaded and will automatically use the downloaded version:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 <span class="dt">\</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 <span class="dt">\</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>INFO:    Using cached SIF image
 INFO:    gocryptfs not found, will not be able to use gocryptfs
 FastQC v0.12.1</code></pre>
@@ -778,29 +728,7 @@ FastQC v0.12.1</code></pre>
 <li>The <code>Using cached SIF image</code> line tells you that it is using a previously-downloaded SIF file</li>
 <li>You will keep seeing the <code>gocryptfs not found</code> message, but this is nothing to worry about.</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Where is the cache located? <em>(Click to expand)</em>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>By default, containers are downloaded to a hidden directory in your Home dir, <code>~/.apptainer/cache</code>. That is generally fine, but you can change it <em>for your current shell session</em> by setting the <code>$APPTAINER_CACHEDIR</code> environment variable, e.g.:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">APPTAINER_CACHEDIR</span><span class="op">=</span>/fs/scratch/PAS2880/<span class="va">$USER</span>/containers</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><em>(To permamently change this location, you would need to add</em> <em>this line to your <code>~/.bashrc</code> shell configuration file.</em> <em>We won’t cover this file in class.)</em></p>
-<p>You can check what’s in your cache as follows – though this is only informative in terms of how many containers are there and how much space they take up, because the container names are very cryptic:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> cache list <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>NAME                     DATE CREATED           SIZE             TYPE
-sha256:e0c976cb2eca5fe   2025-09-20 19:08:51    383.99 MiB       oras
-
-There are 1 container file(s) using 383.99 MiB and 0 oci blob file(s) using 0.00 KiB of space
-Total space used: 383.99 MiB</code></pre>
-<hr style="height:1pt; visibility:hidden;">
+<p>By default, containers are downloaded to a hidden directory in your Home dir, <code>~/.apptainer/cache</code>.</p>
 </div>
 </div>
 </div>

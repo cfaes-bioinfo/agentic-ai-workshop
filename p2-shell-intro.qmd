@@ -94,7 +94,7 @@ languages like R and Python:
    - **Cluster**: `pitzer`
    - **Account**: `PAS3454`
    - **Number of hours**: `2`
-   - **Working Directory**:" `/fs/ess/PAS3454/user/<username>` (replace `<username>` with your actual user name)
+   - **Working Directory**:" `/fs/ess/PAS3454/people/<username>/pre` (replace `<username>` with your actual user name)
    - **App Code Server version**: `4.8.3`
 4. Click `Launch`
 5. Click the `Connect to VS Code` button once it appears
@@ -111,7 +111,7 @@ command. What is shown exactly varies across shells and can also be customized,
 but our prompts at OSC should show something like this:
 
 ``` bash-in-nocolor
-[jelmer@p0362 jelmer]$ 
+[jelmer@p0362 pre]$ 
 ```
 
 Which represents the following pieces of information:
@@ -122,8 +122,8 @@ Which represents the following pieces of information:
 
 A `<working-dir>` is the directory that you are currently located in.
 Here, for brevity, it only shows the name of the dir you are directly
-located in (e.g. `jelmer`) rather than the entire path
-(e.g. `/fs/ess/PAS3454/users/jelmer`).
+located in (e.g. `pre`) rather than the entire path
+(e.g. `/fs/ess/PAS3454/people/jelmer/pre`).
 
 **You type your commands after the dollar sign `$`,**
 **and then press <kbd>Enter</kbd> to execute the command.**
@@ -144,10 +144,15 @@ you'll "get your prompt back" and can type and execute a new command.
 :::
 
 ::: {.callout-warning collapse="true"}
-#### Is the printed directory not your username? _(Click to expand)_
+#### Are you instead seeing a `~` as the working directory? _(Click to expand)_
 If you see a `~` as the working-dir-part of your prompt,
 you are instead in your Home directory in `/users/` and you will need to go
-to `/fs/ess/PAS3454/users/<user>` instead.
+to `/fs/ess/PAS3454/people/<user>/pre` instead.
+
+While you could navigate there with a simple Unix command,
+we will instead use the "Open Folder" functionality in VS Code,
+so that the entire program (and not just the terminal) moves to the correct dir.
+
 To do so: click `File` > `Open Folder` in VS Code and then type/select that dir.
 When you then open a Terminal again, the correct dir should be displayed.
 :::
@@ -196,7 +201,6 @@ That output was **printed to screen**,
 which is the default behavior for nearly every Unix command.
 
 {{< fa comments >}} _Does `echo` seem useless, or can you think of ways in which it could be useful?_
-_(We'll get back to this later.)_
 
 ## Options, arguments, and help
 
@@ -567,7 +571,7 @@ a path/file name, and not just with `cd`.
 If the relative paths with `..` are confusing to you,
 perhaps this diagram helps:
 
-![A diagram showing the key dirs on OSC for this course, with OSC Project-associated dirs in blue and Home dirs in red. The `PAS2880` box in the Home dir is faded, because your Home dir may be in a differently named dir, and also because it is important to realize that this dir is not associated with any OSC Project other than in name. Example commands to navigate (partially) upwards with relative paths are shown in purple.](/img/osc-paths.png){fig-align="left" width="70%" .lightbox fig-alt="A diagram showing paths on OSC and navigating upwards with relative paths"}
+![A diagram showing the key dirs on OSC for this course, with OSC Project-associated dirs in blue and Home dirs in red. The `PAS3454` box in the Home dir is faded, because your Home dir may be in a differently named dir, and also because it is important to realize that this dir is not associated with any OSC Project other than in name. Example commands to navigate (partially) upwards with relative paths are shown in purple.](/img/paths-navigation.png){fig-align="left" width="70%" .lightbox fig-alt="A diagram showing paths on OSC and navigating upwards with relative paths"}
 
 <hr style="height:1pt; visibility:hidden;" />
 
@@ -706,4 +710,109 @@ Your **cursor** can be anywhere on a line (not just at the end) when you press <
 
 :::
 
-## TBA: Some file (`ls` etc) examples or as optional homework?
+## Listing files with `ls`
+
+The Unix shell has a lot of commands for dealing with files and directories.
+We'll only cover the most basic one here: **`ls`**, which lists files and directories.
+
+First, let's move to a dir which has some files we can work with:
+
+```bash
+cd /fs/ess/PAS3454/data/TBA
+```
+
+By default, `ls` lists files and dirs in your current working directory:
+
+``` bash
+ls
+```
+```{=html}
+<pre class="bash-out"><code><span style="color: #0328fc;">fastq</span>  <span style="color: #0328fc;">meta</span>  <span style="color: black;">README.md</span>  <span style="color: #0328fc;">ref</span></code></pre>
+```
+
+`ls` uses different colors to indicate different types of files:
+
+- Entries in **[blue]{style="color: #0328fc"}** are directories
+  (`fastq`, `meta`, and `ref` above)
+- Entries in **black** are regular files (`README.md` above)
+- Entries in **[red]{style="color: #d92118"}** are compressed files
+  (we'll see examples of this soon).
+
+::: {.callout-tip appearance="simple"}
+_Some colors depend on the color scheme of your terminal / VS Code._
+_E.g., white for regular files in dark themes._
+:::
+
+You can use an **argument** to change the dir (or file) that `ls` operates on, 
+and you can use **options** to change how it shows the output.
+Let's start with two very commonly used options **`-l`** (lowercase L) and **`-h`**,`
+which can be combined as `-lh`:
+
+``` bash
+ls -lh
+```
+``` bash-out
+total 2.0K
+drwxr-x---+ 2 jelmer PAS0471 4.0K Nov 24  2024 fastq
+drwxr-x---+ 2 jelmer PAS0471 4.0K Nov 13  2024 meta
+-rw-rw----+ 1 jelmer PAS0471 1.6K Nov 13  2024 README.md
+drwxr-x---+ 2 jelmer PAS0471 4.0K Jul  4 20:52 ref
+```
+
+The same items as before were printed, but now **in a different format**:
+one item per line,
+with information such as the date and time that each file was last
+modified, and file sizes (directly to the left of the date).
+
+::: {.callout-note collapse="true"}
+#### More info about the columns in long-format `ls` output _(Click to expand)_
+
+The following image shows what each column in long-format `ls` represents:
+
+![](/img/long-ls2.png){fig-align="center" width="90%" fig-alt="An annotated screenshot of long-format ls output." .lightbox}
+:::
+
+Moving on to **argument(s)** ---
+we can list the contents of custom dirs by specifying one or more as arguments:
+
+``` bash
+ls fastq
+```
+``` bash-out
+TBA
+```
+
+And like you saw earlier with `cal`, options and arguments can be combined:
+
+``` bash
+ls -lh fastq
+```
+``` bash-out
+TBA
+# [...output truncated...]
+```
+
+The files have a `.gz` extension and are **[red]{style="color:#bb0000"}**,
+which indicates they have been _compressed_ with `gzip`.
+
+::: exercise
+#### {{< fa user-edit >}} **Exercise**: Listing a single file
+
+Say you want to check the size of a single file.
+Then, it may be always not be convenient to list an entire dir's contents.
+Can you figure out how to use `ls` to show you the file size **only** for the 
+`fastq/ERR10802865_R2.fastq.gz` file?
+
+<details><summary>*Click to see the solution*</summary>
+
+The argument to `ls` can be a path of any kind,
+including to a file rather than to a dir:
+
+```bash
+ls -lh fastq/ERR10802865_R2.fastq.gz
+```
+``` bash-out
+-rw-r-----+ 1 jelmer PAS0471 22M Nov 13  2024 fastq/ERR10802865_R2.fastq.gz
+```
+</details>
+:::

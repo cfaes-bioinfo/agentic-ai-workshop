@@ -25,82 +25,73 @@ bibliography: refs.bib
 
 ## Introduction
 
-In this session, you will learn:
+In this part, you will learn:
 
 1. The basics of shell scripts
 2. Running command-line programs using shell scripts
 3. Submitting shell scripts as batch jobs with Slurm
 
-## Shell scripts
+### What are shell scripts and why use them?
 
-In the previous session, we ran a first bioinformatics program, FastQC, from the command line.
-However, we ran it commands in an "interactive" manner:
+Previously, we ran a first bioinformatics program, FastQC, from the command line.
+However, we ran it _interactively_:
 typing the command in the shell and then pressing <kbd>Enter</kbd>,
 waiting for the program to finish before moving on the the next command.
 
 But when you run bioinformatics tools,
-it is in most cases a much better idea to **run them via shell scripts**,
-which are plain-text files that contain shell code.
-
-#### Why use shell scripts
-
-General reasons why it can be beneficial to use shell scripts
-instead of running code interactively line-by-line:
+it is often a much better idea to **do so via shell scripts**,
+plain-text files with shell code, because, first of all:
 
 - It is a good way to save and organize your code.
 - You can easily rerun scripts and re-use them in similar contexts.
 
-And very importantly for our purposes at OSC,
+And at OSC,
 we can **submit scripts as "batch jobs"** to the compute job scheduling program
-(which is called Slurm), and this allows us to:
+(called Slurm), and this allows us to:
 
-- Run scripts remotely without needing to stay connected to the running process,
-  or even to be connected at all to it:
+- Run scripts remotely without needing to stay connected to the running process:
   we can submit a script, log out from OSC and shut down our computer, and it will still run.
 - Easily run analyses that take many hours or even multiple days.
 - Run a script many times _simultaneously_, such as for different files/samples.
 
-### A basic shell script
+## A first shell script
 
-Create your first script, `printname.sh`
+### A script to run FastQC
+
+Create your first script, `fastqc.sh`
 (shell scripts usually have the extension `.sh`) as follows:
 
 ```bash
-# Create an empty file
-touch scripts/printname.sh
+# Create an empty file with the touch command:
+touch fastqc.sh
 ```
 
-A nice VS Code trick mentioned before is that is if you hold <kbd>Ctrl</kbd> (Windows)
-/ <kbd>⌘</kbd> (Mac) while hovering over a file path in the terminal,
-the path should become underlined and you can click on it to open the file.
-Try that with the `printname.sh` script^[
-Alternatively, find the script in the file explorer in the side bar and click
-on it there.].
-Once the file is open in your editor pane, type or paste the following inside the script:
+Find the `fastqc.sh` file in the VS Code file explorer
+(you may need to refresh the explorer if you don't see it immediately)
+and click on it to open it in the editor pane.
+Then, copy the following into the script:
 
 ```bash
-echo "This script will print a first and a last name"
+echo "This script will run FastQC"
 ```
 
 Shell scripts mostly contain the same Unix shell code you have become familiar with.
-As such, the `printline.sh` file with a single `echo` command
+As such, the `fastqc.sh` file with a single `echo` command
 _constitutes a functional shell script_!
 
 One way of running the script is by typing `bash` followed by the path to the script^[
 Bash is the name of the shell program that will run the script.]:
 
 ```bash
-bash scripts/printname.sh
+bash fastqc.sh
 ```
 ```{.bash-out}
-This script will print a first and a last name
+This script will run FastQC
 ```
 
 That worked! 
-The script doesn't yet print any names like it "promises" to do,
+The script doesn't yet run FastQC like it "promises" to do,
 but we will add that functionality in a little bit.
-First, you'll learn about two header lines that are good practice to
-add to every shell script.
 
 ::: {.callout-warning collapse="true"}
 #### Auto Save in VS Code _(Click to expand)_
@@ -121,74 +112,66 @@ type "Auto Save". You should see an option "**_Toggle Auto Save_**": click on th
 
 A so-called "_shebang_" line is commonly used as the first line of a script to
 **indicate which computer language the script uses**.
-More specifically, this line tells the computer where to find the binary
-(executable) that runs your script --
-and since this is a Bash shell script, that will be the Bash program.
+For the sake of time, we won't go into the details of how this weird-looking line is structured,
+but for shell scripts, you can add:
 
 ```sh
 #!/bin/bash
 ```
 
-Such a line starts with **`#!`** (hash-bang),
-basically marking it as a special type of comment.
-Those two characters are followed by the path to the relevant program:
-in our case Bash, which itself is just a program with an executable file
-that is located at `/bin/bash` on Linux and Mac computers.
-
 While not always strictly necessary,
 adding a _shebang_ line to every shell script is good practice,
-especially when you submit your script to OSC's Slurm queue,
-as we'll do later.
+especially when you submit your script with Slurm, as we'll do later.
 
-Add the shebang line to your `printname.sh` script,
+Add the shebang line to your `fastqc.sh` script,
 so it will now contain the following:
 
 ```bash
 #!/bin/bash
 
-echo "This script will print a first and a last name"
+echo "This script will run FastQC"
 ```
-  
-::: {.callout-note collapse="true"}
-#### Can I run scripts without the `bash` command? _(Click to expand)_
 
-It's possible to execute scripts by only typing their path
--- for example:
+### Make the script run FastQC
+
+::: exercise
+#### {{< fa user-edit >}} Exercise
+
+1. Add a line to the `fastqc.sh` script that runs FastQC on the first FASTQ file
+   (`TBA`) and writes the output to the `results/fastqc` directory.
+
+2. Run the script again.
+
+<details><summary>*Click for the solution*</summary>
+
+1. The full script should now look like this:
 
 ```bash
-# If the script is in a different dir:
-scripts/printname.sh
+#!/bin/bash
 
-# If the script is in your working dir:
-./printname.sh
+echo "This script will run FastQC"
+
+fastqc --outdir results/fastqc data/ERR10802863_R1.fastq.gz
 ```
 
-To be able to do this, the script:
+2. Run the script again:
 
-1. Needs to have a _shebang_ line so the computer knows which language to
-   execute the script with
-2. The script needs to be "executable".
-   You can do that by changing the file permissions, e.g.:
+```bash
+bash fastqc.sh
+```
+```bash-out
+TBA
+```
 
-  ```bash
-  # Add 'execute permissions' for printname.sh:
-  chmod +x printname.sh
-  ```
+</details>
 
-_Why do you need `./` in the example above when the script is in your working dir?_
-The `./` is necessary to make explicit that you're referring to a file name.
-Without it (running just `printname.sh`),
-the shell would look for a command or program of that name, and wouldn't find it.
-With yet another step,
-it _is_ possible to add your script to the computer's registry of commands/programs,
-but we won't cover that here (Google `$PATH` if you're curious).
 :::
 
 ## Submitting scripts as batch jobs with Slurm
 
 ### Compute jobs overview
 
-Automated scheduling software allows hundreds of people with different
+Automated scheduling software allows many with different
 requirements to effectively and fairly access compute nodes at supercomputers.
 OSC uses **Slurm** (Simple Linux Utility for Resource Management) for this.
 
@@ -197,14 +180,12 @@ a reservation of resources on compute nodes is called a **compute job**.
 Here are the main ways to start a compute job at OSC:
 
 1. "**Interactive Apps**" ---
-   Run programs with GUIs (e.g. VS Code or RStudio) in your browser through
-   the OnDemand website.
+   Run programs with GUIs (e.g. VS Code or RStudio) in your browser.
 2. **Interactive shell jobs** --- Start an interactive shell on a compute node.
-3. **Batch (non-interactive) jobs** ---
+3. **Batch jobs** ---
    Run a script on a compute node "remotely": without going to that node yourself.
 
 In this session, we'll focus on **batch jobs**.
-
 When you submit a batch job,
 you ask the Slurm scheduler to **run a script "out of sight" on a compute node**.
 While that script runs on a compute node,
@@ -215,15 +196,10 @@ it will continue to run even if you log off from OSC and shut down your computer
 ### The `sbatch` command
 
 You can use Slurm's `sbatch` command to submit a batch job.
-But first, let's recall how we've run shell scripts so far:
+First,recall how we've run shell scripts so far:
 
 ```bash
-bash scripts/printname.sh Jane Doe
-```
-```{.bash-out}
-This script will print a first and a last name
-First name: Jane
-Last name: Doe
+bash fastqc.sh
 ```
 
 The above command ran the script on whatever node you are on,
@@ -232,7 +208,7 @@ To instead submit the script to the Slurm queue,
 start by simply **replacing `bash` with `sbatch`**:
 
 ```bash
-sbatch scripts/printname.sh Jane Doe
+sbatch fastqc.sh
 ```
 ``` {.bash-out}
 srun: error: ERROR: Job invalid: Must specify account for job  
@@ -240,12 +216,11 @@ srun: error: Unable to allocate resources: Unspecified error
 ```
 
 However, as the above error message --"_Must specify account for job_"-- informs us,
-you need to indicate which OSC Project (or as Slurm puts it, "account")
-you want to use for this compute job.
-Use the `--account=` option to do this:
+you need to indicate which OSC Project (AKA "account") you want to use for this compute job.
+Use the `--account` option to do this:
 
 ```bash
-sbatch --account=PAS3454 scripts/printname.sh Jane Doe
+sbatch --account PAS3454 fastqc.sh
 ```
 ```{.bash-out}
 Submitted batch job 12431935
@@ -265,27 +240,15 @@ you don't have to wait for other jobs to finish, or even to start!
 
 ### Where does the script's output go?
 
-Above, we saw that when you ran `printname.sh` "directly" with `bash`,
-the script's output was printed to the screen,
-whereas when you submitted it as a batch job,
-only `Submitted batch job <job-number>` was printed to screen.
-In the latter case, where did this output go?
+Above, when you ran `bash fastqc.sh`,
+the script's output was printed to screen ---
+but when you submitted it as a batch job,
+the only thing printed to screen was `Submitted batch job <job-number>`.
+So, for batch jobs, where does this output go?
 
-It ended up in a file called `slurm-<job-number>.out` (e.g., `slurm-12431942.out`;
-since each job number is unique to a given job, each file has a different number).
+It ends up in a file called `slurm-<job-number>.out` (e.g., `slurm-12431942.out`;
+since each job number is unique, each file has a different number).
 We'll call this type of file a **Slurm log file**.
-
-<details><summary>Getting this output in log files instead of printed to screen may seem inconvenient. Can you think of any reasons why we may not want batch job output printed to screen, even if it were possible? _(Click for the answer)_</summary>
-
-There are several reasons, such as:
-
-- If you log off after submitting a batch job,
-  any output printed to screen would be lost.
-- The power of submitting batch jobs is that you can submit many at once ---
-  e.g. one per sample, running the same script.
-  If the output from all those scripts ends up on your screen,
-  things become a big mess, and you have no lasting record of what happened.
-</details>
 
 If you run `ls`, you should see a Slurm log file for the job you just submitted:
 
@@ -296,68 +259,24 @@ ls
 scripts slurm-12431935.out
 ```
 
-Let's take a look at its contents:
+Let's take a look at its contents –– you can click on the file in VS Code or use
+the `cat` command to print the contents of a file to screen:
 
 ```bash
 cat slurm*
 ```
 ``` {.bash-out}
-This script will print a first and a last name
-First name: Jane  
-Last name: Doe
+This script will run FastQC
+...
+TBA
 ```
-
-This file contains the script's output that was printed to screen 
-when we ran it with `bash` -- nothing more or less^[
-Unless you explicitly instruct Slurm to print regular output ("standard output") and
-error messages ("standard error") to separate files --- see the box in the
-[section on Slurm log files](#output-slurm-log-files) for more.].
-
-::: callout-tip
-## The working directory stays the same
-When the scripts in batch jobs are being run,
-they start in the directory that they were submitted from:
-that is, the working directory remains the same,
-and you shouldn't have to make special adjustments to paths.
-
-Additionally, as you've seen,
-Slurm log files will (by default) be created in the dir you submitted the job from.
-:::
-
-#### Two types of output files
-
-There is an important distinction between two general types of output that
-scripts, commands, and programs may have:
-
-1. Output that is **printed to screen**.\
-   The technical terms for such output are "**standard output**" for non-error output
-   and "**standard error**" for error output.
-   - We've seen that most Unix commands by default print their output to the screen.
-   - Other programs, like bioinformatics tools, will commonly print "logging"-type
-     output to the screen, like you've seen with FastQC.
-     But some programs will by default also print their main results to the screen.
-     (This can sometimes be changed with a program's options, and otherwise,
-     you can always redirect (`>`) output to a file.)
-2. Output that is **written to files**.
-
-To summarize what happens to these when you submit a script as a batch job
-instead of running it directly:
-
-- A script's standard out and standard error
-  will be written to a file when you submit the script with `sbatch`
-- Output of commands written to output files inside the script
-  (either via redirection or otherwise)
-  *will end up in the exact same files* regardless of how you run the script.
-
-Your `printline.sh` script only had the first type of output,
-but scripts typically have both, and we'll see examples of that below.
 
 ### Adding `sbatch` options in scripts
 
-The `--account=` option is just one of many options you can use when submitting a
-compute job, but is the only _required_ one.
-This is because defaults exist for all other options,
-such as the amount of time (1 hour) and the number of cores (1 core).
+The `--account` option is just one of many you can use for a batch job,
+but is the only _required_ one.
+Defaults exist for all other options,
+such as the amount of time (1 hour) and number of cores (1 core).
 
 Instead of adding these options after the `sbatch` command when submitting the
 script, you can also **add them inside the script**.
@@ -365,152 +284,64 @@ This is a useful alternative because:
 
 - You'll often want to specify several options,
   which could otherwise lead to very long `sbatch` commands.
-- It allows you to store a script's typical Slurm options as part of the script,
+- It allows you to store a script's typical Slurm options in the script,
   so you don't have to remember them.
 
-These options are added in the script using another **type of special comment line**
-(akin to the shebang `#!/bin/bash` line) that is marked by `#SBATCH`.
-Just like the shebang line,
-`#SBATCH` line(s) should be located at the top of the script.
+These options are added in the script using a **type of special comment line**
+(akin to the shebang line) that is marked by `#SBATCH`.
+These line(s) should be located at the top of the script,
+right below the shebang line.
 
-Let's add one such line to the `printname.sh` script,
+Let's add a few `sbatch` options in the `fastqc.sh` script,
 such that the first few lines read:
 
 ```bash
 #!/bin/bash
 #SBATCH --account=PAS3454
+#SBATCH --time=3:00:00
+#SBATCH --cpus-per-task=4
 ```
 
-So, the equivalent of adding `--account=PAS3454` after `sbatch` on the command line
-is a line in your script that reads `#SBATCH --account=PAS3454`.
+Now, submitting this script would request a batch job for it that:
+
+- Uses the `PAS3454` account (just like before
+- Requests a maximum of 3 hours of compute time^[If the script is still running after 3 hours, it will be automatically stopped by Slurm.]
+- Requests 4 CPU cores for the job^[Many bioinformatics tools, including FastQC, can use multiple CPU cores to speed up their computations.]
 
 Now, you are able to run the `sbatch` command without options (which failed earlier):
 
 ```bash
-sbatch scripts/printname.sh Jane Doe
+sbatch fastqc.sh
 ```
 ```bash-out
 Submitted batch job 12431942
 ```
 
-<hr style="height:1pt; visibility:hidden;" />
-
-:::{.callout-tip collapse="false"}
-## Running a script with `#SBATCH` lines elsewhere
-Because `#SBATCH` lines are special _comment_ lines,
-they will simply be ignored (and not throw any errors) when you run a script with
-such lines in other contexts:
-for example, when not running it as a batch job at OSC,
-or even when running it on a computer without Slurm installed.
+::: {.callout-tip appearance="simple"}
+See [this page](https://cfaes-bioinfo.github.io/pracs-au25/week07/w7b_slurm2.html#common-slurmsbatch-options)
+for more about these and other Slurm options.
 :::
+
 
 ### Monitoring batch jobs
 
-Real batch jobs for your research projects may run for a while,
-You may also be submitting many jobs at once.
-Finally, longer-running jobs and those that ask for many cores sometimes
-remain queued for a while before they start.
-For these reasons, it's important to know how you can monitor your batch jobs.
+It's important to know how you can monitor your batch jobs,
+because real-life batch jobs may run for a while,
+and/or you may submit many jobs at once.
 
-#### A sleepy script for practice
-
-We'll use another short shell script to practice monitoring and managing batch jobs.
-First create a new file:
-
-```bash
-touch scripts/sleep.sh
-```
-
-Open the file in the VS Code editor and copy the following into it:
-
-```bash
-#!/bin/bash
-#SBATCH --account=PAS3454
-
-echo "I will sleep for 30 seconds" > sleep.txt
-sleep 30s
-echo "I'm awake! Successfully finished script sleep.sh"
-```
-
-<hr style="height:1pt; visibility:hidden;" />
-
-:::exercise
-#### {{< fa user-edit >}} Exercise: Batch job output recap
-
-Predict what would happen if you submit the `sleep.sh` script as a batch job 
-using `sbatch scripts/sleep.sh`:
-
-1. How many output files will this batch job produce?
-2. What will be in each of those files?
-3. In which directory will the file(s) appear?
-4. In terms of output files, what would be different if we instead run the script 
-   using `bash scripts/sleep.sh`?
-
-Then, test your predictions by running the script.
-
-<details><summary>Click for the solutions</summary>
-
-1. The job will produce 2 files:
-    - `slurm-<job-number>.out`: The Slurm log file, containing output normally printed to screen.
-    - `sleep.txt`: Containing output that was redirected to this file in the script.
-
-2. The those files will contain the following:
-    - `slurm-<job-number>.out`: _I'm awake! Done with script sleep.sh_
-    - `sleep.txt`: _"I will sleep for 30 seconds"_
-
-3. Both files will end up in your current working directory.
-   Slurm log files always go to the directory from which you submitted the job.
-   Slurm jobs also _run_ from the directory from which you submitted your job,
-   and since we redirected the output simply to `sleep.txt`,
-   that file was created in our working directory. 
-
-4. If we had run the script directly, `sleep.txt` would have also been created
-   with the same content, but "_All done!_" would have been printed to screen.
-    
-Run the script and check the outputs:
-
-```bash
-sbatch scripts/sleep.sh
-```
-```bash-out
-Submitted batch job 27935840
-```
-```bash
-cat sleep.txt
-```
-```bash-out
-I will sleep for 30 seconds
-```
-```bash
-cat slurm-27935840.out
-```
-```bash-out
-I'm awake! Successfully finished script sleep.sh
-```
-</details>
-
-:::
-
-#### Batch job behavior
-
-After you submit a job, it may initially be waiting to get resources allocated to it:
-in other words, the job may be **pending**.
+Additionally, after you submit a job, it may initially be waiting to get resources allocated to it:
+the job may be **pending**.
 Eventually, and often very quickly, the job will start running.
-You've seen this process with the VS Code Interactive App job as well.
-
-Whereas Interactive App jobs will keep running until they've reached the end
-of the allocated time^[Unless you actively "Delete" the job on the Ondemand website.],
-**batch jobs will stop as soon as the script has finished**.
-And if the script is still running when the job runs out of its allocated time,
-it will be killed (stopped) right away.
+(You've seen this process with the VS Code Interactive App job as well.)
 
 #### The `squeue` command
 
-You can check the status of your batch jobs using the `squeue` Slurm command --
+You can check the status of your batch jobs using the `squeue` Slurm command ---
 try the following:
 
 ```bash
-squeue -u $USER -l
+# -l gives more verbose output; replace `jelmer` with your OSC username
+squeue -u jelmer -l
 ```
 ```{.bash-out}
 Thu Apr 4 15:47:51 2025
@@ -518,20 +349,20 @@ Thu Apr 4 15:47:51 2025
      23640814 condo-osu ondemand   jelmer  RUNNING       6:34   2:00:00      1 p0133
 ```
 
-In the command above:
-
-- You specify your username with the **`-u`** option
-  (without this, you'd see everyone's jobs!).
-  In this example, I used the environment variable `$USER` to get your user name,
-  but you can simply type your username if that's easier.
-- The option **`-l`** (lowercase L, "long") will produce the more verbose output shown.
-  Without it, the output will be a bit more cryptic.
-
 In the `squeue` output, following a line with the date & time and a header line,
 you should see information about a single compute job, as shown above:
 this is the Interactive App job that runs VS Code --
 that's not a batch job, but it _is_ a compute job, and all compute jobs are listed.
 
+The key pieces of information are:
+
+- The `STATE` column, indicating whether a job is `PENDING` or `RUNNING`
+  (completed jobs will not appear)
+- The `TIME` column, indicating how long the job has been running
+- The `TIME_LIMIT` column, indicating how long the job is allowed to run
+
+::: {.callout-note collapse="true"}
+#### Information about each column of the `squeue` output _(Click to expand)_
 The following pieces of information about each job are listed:
 
 | Column | Explanation
@@ -547,14 +378,34 @@ The following pieces of information about each job are listed:
 | `NODELIST(REASON)` | - When running: the ID of the node on which it is running.<br>- When pending: why the job is pending |
 
 : {.striped .hover}
+:::
 
-#### `squeue` example
+::: {.callout-note collapse="true"}
+#### A fuller `squeue` example _(Click to expand)_
+
+We'll use another short shell script to practice monitoring and managing batch jobs.
+First create a new file:
+
+```bash
+touch sleep.sh
+```
+
+Open the file in the VS Code editor and copy the following into it:
+
+```bash
+#!/bin/bash
+#SBATCH --account=PAS3454
+
+echo "I will sleep for 30 seconds" > sleep.txt
+sleep 30s
+echo "I'm awake! Successfully finished script sleep.sh"
+```
 
 Now, let's see a batch job in the `squeue` listing.
 Start by submitting the `sleep.sh` script as a batch job:
 
 ```bash
-sbatch scripts/sleep.sh
+sbatch sleep.sh
 ```
 ``` {.bash-out}
 Submitted batch job 12431945
@@ -597,63 +448,17 @@ Mon Aug 21 15:49:26 2025
          JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       23640814 condo-osu ondemand   jelmer  RUNNING       9:02   2:00:00      1 p0133
 ```
+:::
 
+::: {.callout-tip}
 #### Checking a job's output files
 
-Whenever you've ran a script as a batch job,
-even if you've been monitoring it with `squeue`,
-you should also make sure it ran _successfully_.
-You can do this by checking the output file(s) --
-as mentioned above, you'll usually have two types of output from a batch job:
+Whenever you've ran a script as a batch job, you should make sure it ran _successfully_.
+You can do this by checking the output file(s) ---
+you'll usually have two types of output from a batch job:
 
-- A Slurm log file with the script's standard output and standard error,
-  which would have been printed to screen if the job hadn't been submitted with `sbatch`
-  (_typically: logging-type output and errors_)
-- Output file(s) created inside the script (_typically: the main results_)
-
-And as you saw in the exercise above,
-this is also the case for the output of our sleepy script:
-
-- The output file that the code in the script directly produced:
-
-  ```bash
-  cat sleep.txt
-  ```
-  ``` {.bash-out}
-  I will sleep for 30 seconds
-  ```
-
-- The Slurm log file:
-  
-  ```bash
-  cat slurm-12520046.out
-  ```
-  ``` {.bash-out}
-  I'm awake! Done with script sleep.sh
-  ```
-
-Let's keep things tidy and remove the script's outputs:
-
-```bash
-rm slurm* sleep.txt
-```
+- A Slurm log file that typically contains logging-type output and potential errors
+- Output file(s) created by commands in the script (in the case, the FastQC output files)
+:::
 
 <hr style="height:1pt; visibility:hidden;" />
-
-:::{.callout-note collapse="true"}
-### Canceling jobs _(Click to expand)_
-
-Sometimes, you want to cancel one or more jobs.
-For example, you may realize you made a mistake in the script
-or used the wrong input files as arguments.
-You can cancel jobs that are either pending or running using `scancel`:
-
-```bash
-# [Examples - DON'T run this: the second line would cancel your VS Code job]
-# Cancel a specific job:
-scancel 2979968
-
-# Cancel all your running and queued jobs (careful with this!):
-scancel -u $USER
-```
-:::

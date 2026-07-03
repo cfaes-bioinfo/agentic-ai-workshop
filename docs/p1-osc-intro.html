@@ -429,7 +429,7 @@ A facility like OSC that has one or more supercomputers.</li>
 </tbody>
 </table>
 <hr style="height:1pt; visibility:hidden;">
-<p>During the workshop, we’ll work in the Scratch folder of the workshop’s OSC Project <code>PAS3454</code>, located at <code>/fs/scratch/PAS3454</code>.</p>
+<p>During the workshop, we’ll work in the Project folder of the workshop’s OSC Project <code>PAS3454</code>, located at <code>/fs/ess/PAS3454</code>.</p>
 <p>Key file system terminology:</p>
 <ul>
 <li>A <strong>path</strong> is the location of a file or folder on a computer.</li>
@@ -440,10 +440,10 @@ A facility like OSC that has one or more supercomputers.</li>
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/osc-paths2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="A diagram showing part of the OSC file system structure, focusing on folders relevant for this workshop, and with OSC Project-associated dirs in blue and Home dirs in red."><img src="img/osc-paths2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="A diagram showing paths on OSC and navigating upwards with relative paths"></a></p>
+<p><a href="img/osc-paths3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="A diagram showing part of the OSC file system structure, focusing on folders relevant for this workshop, for fictitious participant Jane. OSC Project-associated dirs are shown in blue and Home dirs in red. During the workshop, Jane will be working in /fs/ess/PAS3454/people/jane, and not in her Home dir /users/PAS3454/jane."><img src="img/osc-paths3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="A diagram showing paths on OSC and navigating upwards with relative paths"></a></p>
 </figure>
 </div>
-<figcaption>A diagram showing part of the OSC file system structure, focusing on folders relevant for this workshop, and with OSC Project-associated dirs in blue and Home dirs in red.</figcaption>
+<figcaption>A diagram showing part of the OSC file system structure, focusing on folders relevant for this workshop, for fictitious participant Jane. OSC Project-associated dirs are shown in blue and Home dirs in red. During the workshop, Jane will be working in <code>/fs/ess/PAS3454/people/jane</code>, and <strong>not</strong> in her Home dir <code>/users/PAS3454/jane</code>.</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -458,7 +458,7 @@ A facility like OSC that has one or more supercomputers.</li>
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>Even though a project number is part of the path to your Home directory (e.g., <code>/users/PAS3454/jane</code>) this is merely an OSC naming convention and <strong>your Home directory is not tied to any OSC Project.</strong> Thefore, your Home directory will remain the same even if you are, say, removed from a project.</p></li>
-<li><p><strong>By default, you will be placed in your Home directory when you –e.g.– log in to OSC.</strong> <strong>But this is typically not where you want to be when working with data and running analyses.</strong> (In those cases, you should start by navigating elsewhere.)</p></li>
+<li><p><strong>By default, you will be placed in your Home directory when you –e.g.– log in to OSC.</strong> <strong>But this is typically not where you want to be when working with data and running analyses.</strong> That includes during this workshop, where you should be within <code>/fs/ess/PAS3454</code>.</p></li>
 <li><p>Avoid storing research project file in your Home dir: it has limited storage and is harder to access by collaborators.</p></li>
 <li><p>Your Home dir will contain some automatically generated files and those should generally not be deleted!</p></li>
 </ul>
@@ -526,7 +526,7 @@ A facility like OSC that has one or more supercomputers.</li>
 </div>
 </div>
 </div>
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Click on folder <code>/fs/scratch/PAS3454</code></strong>. Once there, you should see the folders and files present at the selected location, and can click on folders to explore their contents:</p>
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Click on folder <code>/fs/ess/PAS3454</code></strong>. Once there, you should see the folders and files present at the selected location, and can click on folders to explore their contents:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -543,7 +543,7 @@ A facility like OSC that has one or more supercomputers.</li>
 <li>Click on the <code>people</code> folder</li>
 <li>Click the “New Directory” button at the top</li>
 <li>Give the new folder the <strong>exact same name</strong> as your OSC username. If you forgot your username, you can see it in the top-right corner of the OnDemand webpage.</li>
-<li>Click on the new folder and within it, create one more folder: <code>pre-workshop</code>.</li>
+<li>Click on the new folder and within it, create one more folder: <code>pre</code> (short for “pre-workshop”).</li>
 </ol>
 </section>
 <section id="clusters-menu" class="level3" data-number="5.2">
@@ -591,7 +591,7 @@ A facility like OSC that has one or more supercomputers.</li>
 <li>The <strong>Cluster</strong> we want to use: <code>Pitzer</code></li>
 <li>The <strong>Account</strong>, the OSC Project to be billed for the compute node usage: <code>PAS2880</code></li>
 <li>The <strong>Number of hours</strong> we want to make a reservation for: <code>2</code></li>
-<li>This time, leave the <strong>Working Directory</strong> (starting point) for the program blank</li>
+<li>The <strong>Working Directory</strong> (starting location – replace <code>&lt;your-username&gt;</code> with your OSC username): <code>/fs/ess/PAS3454/people/&lt;your-username&gt;/pre</code></li>
 <li>The <strong>App Code Server version</strong>: <code>4.8.3</code> (the only available option)</li>
 </ul></li>
 <li><p>Click <code>Launch</code> and you’ll be sent to the <em>My Interactive Sessions</em> page with a card for your job at the top.</p></li>

@@ -57,7 +57,7 @@ FastQC is also a good introductory example of a CLI tool.
 
 ::: {.callout-tip appearance="simple"}
 If you don't know what FASTQ files are, take a look at [this and the following slides](https://cfaes-bioinfo.github.io/pracs-au25/week03/w3a_file-overview.html#/fastq-files),
-until slide 11 (press the arrow keys to navigate).
+until slide 11.
 :::
 
 For each FASTQ file that it analyzes,
@@ -246,12 +246,12 @@ and we could use one of the FASTQ files in our Garrigos practice data set:
 
 ``` bash
 # [Don't run this]
-fastqc ../garrigos-data/fastq/ERR10802863_R1.fastq.gz
+fastqc PATH-TBA
 ```
 
 However, an annoying default behavior of FastQC is that it writes its output files
 in the same dir that contains the input FASTQ files ---
-this means mixing your raw data with your results, which we don't want!
+this means mixing your raw data with your results, which is not good practice.
 
 ### Changing the output directory?
 
@@ -306,12 +306,38 @@ fastqc -h
 With the added `--outdir` (or `-o`) option,
 try to run the following FastQC command:
 
-``` bash
-# We'll have to first create the outdir ourselves, in this case:
-mkdir -p results/fastqc
+```bash
+fastqc --outdir results/fastqc TBA
+```
+```bash-out
+Specified output directory 'results/fastqc' does not exist
+```
 
-# Now we run FastQC:
-fastqc --outdir results/fastqc "$FASTQ_R1"
+<hr style="height:1pt; visibility:hidden;" />
+
+<details><summary> {{< fa comments >}} What appears to the problem and how could we fix this? _(Click to see the answer)_ </summary>
+
+As the message suggests, the problem is that the output dir `results/fastqc` does not exist yet.
+And oddly enough, FastQC does not create the output dir for us^[
+Many bioinformatics tools do create output dirs for you as needed, but FastQC is not one of them.].
+
+So, we'll have to fix this by creating the output dir ourselves before running FastQC.
+We can create it with the `mkdir` command (short for "make directory"):
+
+```bash
+# the -p optionis needed because we are creating a nested dir (results/fastqc)
+mkdir -p results/fastqc
+```
+
+</details>
+
+### Trying one more time
+
+Now, you should be able to run the exact same FastQC command again ––
+you can e.g. practice with pressing the up arrow to recall the previous command:
+
+``` bash
+fastqc --outdir results/fastqc TBA
 ```
 ``` bash-out
 Started analysis of ERR10802863_R1.fastq.gz
@@ -334,9 +360,7 @@ The main output, however, is in the output dir we specified:
 ls -lh results/fastqc
 ```
 ``` bash-out
-total 512K
--rw-rw----+ 1 jelmer PAS0471 241K Mar 21 09:53 ERR10802863_R1_fastqc.html
--rw-rw----+ 1 jelmer PAS0471 256K Mar 21 09:53 ERR10802863_R1_fastqc.zip
+TBA
 ```
 
 <hr style="height:1pt; visibility:hidden;" />
@@ -344,16 +368,14 @@ total 512K
 ::: exercise
 #### {{< fa user-edit >}} Exercise: Another FastQC run
 
-Run FastQC for the corresponding R2 FASTQ file.
+Run FastQC for another FASTQ file.
 
 <details><summary>*Click for the solution*</summary>
 
-To run FastQC for the R2 (reverse-read) file:
+For example, to run FastQC on the R2 (reverse-read) file for the same sample:
 
 ``` bash
-FASTQ_R2=
-
-fastqc --outdir results/fastqc ../garrigos-data/fastq/ERR10802863_R2.fastq.gz
+fastqc --outdir results/fastqc /fs/ess/PAS3454/data/iqbal/fastq/TBA.fastq.gz
 ```
 ``` bash-out
 Started analysis of ERR10802863_R2.fastq.gz
@@ -368,11 +390,7 @@ Analysis complete for ERR10802863_R2.fastq.gz
 ls -lh results/fastqc
 ```
 ``` bash-out
-total 1008K
--rw-rw----+ 1 jelmer PAS0471 241K Mar 21 09:53 ERR10802863_R1_fastqc.html
--rw-rw----+ 1 jelmer PAS0471 256K Mar 21 09:53 ERR10802863_R1_fastqc.zip
--rw-rw----+ 1 jelmer PAS0471 234K Mar 21 09:55 ERR10802863_R2_fastqc.html
--rw-rw----+ 1 jelmer PAS0471 244K Mar 21 09:55 ERR10802863_R2_fastqc.zip
+TBA
 ```
 
 Now, we have four files: two for each of our preceding successful FastQC runs.

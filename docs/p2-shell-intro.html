@@ -263,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#path-shortcuts" id="toc-path-shortcuts" class="nav-link" data-scroll-target="#path-shortcuts"><span class="header-section-number">4.2</span> Path shortcuts</a></li>
   </ul></li>
   <li><a href="#keyboard-shortcuts" id="toc-keyboard-shortcuts" class="nav-link" data-scroll-target="#keyboard-shortcuts"><span class="header-section-number">5</span> Keyboard shortcuts</a></li>
-  <li><a href="#tba-some-file-ls-etc-examples-or-as-optional-homework" id="toc-tba-some-file-ls-etc-examples-or-as-optional-homework" class="nav-link" data-scroll-target="#tba-some-file-ls-etc-examples-or-as-optional-homework"><span class="header-section-number">6</span> TBA: Some file (<code>ls</code> etc) examples or as optional homework?</a></li>
+  <li><a href="#listing-files-with-ls" id="toc-listing-files-with-ls" class="nav-link" data-scroll-target="#listing-files-with-ls"><span class="header-section-number">6</span> Listing files with <code>ls</code></a></li>
   </ul>
 </nav>
     </div>
@@ -402,7 +402,7 @@ You should already have a VS Code session with a Unix shell open! If not, click 
 <li><strong>Cluster</strong>: <code>pitzer</code></li>
 <li><strong>Account</strong>: <code>PAS3454</code></li>
 <li><strong>Number of hours</strong>: <code>2</code></li>
-<li><strong>Working Directory</strong>:” <code>/fs/ess/PAS3454/user/&lt;username&gt;</code> (replace <code>&lt;username&gt;</code> with your actual user name)</li>
+<li><strong>Working Directory</strong>:” <code>/fs/ess/PAS3454/people/&lt;username&gt;/pre</code> (replace <code>&lt;username&gt;</code> with your actual user name)</li>
 <li><strong>App Code Server version</strong>: <code>4.8.3</code></li>
 </ul></li>
 <li>Click <code>Launch</code></li>
@@ -417,10 +417,10 @@ You should already have a VS Code session with a Unix shell open! If not, click 
 <section id="the-shells-prompt" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="the-shells-prompt"><span class="header-section-number">2.1</span> The shell’s prompt</h3>
 <p>Inside your terminal, the “prompt” indicates that the shell is ready for a command. What is shown exactly varies across shells and can also be customized, but our prompts at OSC should show something like this:</p>
-<pre class="bash-in-nocolor"><code>[jelmer@p0362 jelmer]$ </code></pre>
+<pre class="bash-in-nocolor"><code>[jelmer@p0362 pre]$ </code></pre>
 <p>Which represents the following pieces of information:</p>
 <pre class="bash-in-nocolor"><code>[&lt;username&gt;@&lt;node-name&gt; &lt;working-dir&gt;]$</code></pre>
-<p>A <code>&lt;working-dir&gt;</code> is the directory that you are currently located in. Here, for brevity, it only shows the name of the dir you are directly located in (e.g.&nbsp;<code>jelmer</code>) rather than the entire path (e.g.&nbsp;<code>/fs/ess/PAS3454/users/jelmer</code>).</p>
+<p>A <code>&lt;working-dir&gt;</code> is the directory that you are currently located in. Here, for brevity, it only shows the name of the dir you are directly located in (e.g.&nbsp;<code>pre</code>) rather than the entire path (e.g.&nbsp;<code>/fs/ess/PAS3454/people/jelmer/pre</code>).</p>
 <p><strong>You type your commands after the dollar sign <code>$</code>,</strong> <strong>and then press <kbd>Enter</kbd> to execute the command.</strong> When the command has finished executing, you’ll “get your prompt back” and can type and execute a new command.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -444,13 +444,15 @@ You should already have a VS Code session with a Unix shell open! If not, click 
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Is the printed directory not your username? <em>(Click to expand)</em>
+<span class="screen-reader-only">Warning</span>Are you instead seeing a <code>~</code> as the working directory? <em>(Click to expand)</em>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you see a <code>~</code> as the working-dir-part of your prompt, you are instead in your Home directory in <code>/users/</code> and you will need to go to <code>/fs/ess/PAS3454/users/&lt;user&gt;</code> instead. To do so: click <code>File</code> &gt; <code>Open Folder</code> in VS Code and then type/select that dir. When you then open a Terminal again, the correct dir should be displayed.</p>
+<p>If you see a <code>~</code> as the working-dir-part of your prompt, you are instead in your Home directory in <code>/users/</code> and you will need to go to <code>/fs/ess/PAS3454/people/&lt;user&gt;/pre</code> instead.</p>
+<p>While you could navigate there with a simple Unix command, we will instead use the “Open Folder” functionality in VS Code, so that the entire program (and not just the terminal) moves to the correct dir.</p>
+<p>To do so: click <code>File</code> &gt; <code>Open Folder</code> in VS Code and then type/select that dir. When you then open a Terminal again, the correct dir should be displayed.</p>
 </div>
 </div>
 </div>
@@ -470,7 +472,7 @@ You should already have a VS Code session with a Unix shell open! If not, click 
 <pre class="bash-out"><code>Welcome to PLNTPTH 5006</code></pre></li>
 </ul>
 <p>All the above commands provided us with some output. That output was <strong>printed to screen</strong>, which is the default behavior for nearly every Unix command.</p>
-<p><i class="fa-solid fa-comments" aria-label="comments"></i> <em>Does <code>echo</code> seem useless, or can you think of ways in which it could be useful?</em> <em>(We’ll get back to this later.)</em></p>
+<p><i class="fa-solid fa-comments" aria-label="comments"></i> <em>Does <code>echo</code> seem useless, or can you think of ways in which it could be useful?</em></p>
 </section>
 </section>
 <section id="options-arguments-and-help" class="level2" data-number="3">
@@ -762,10 +764,10 @@ Mon Tue Wed Thu Fri Sat Sun
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><a href="./img/osc-paths.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="A diagram showing the key dirs on OSC for this course, with OSC Project-associated dirs in blue and Home dirs in red. The PAS2880 box in the Home dir is faded, because your Home dir may be in a differently named dir, and also because it is important to realize that this dir is not associated with any OSC Project other than in name. Example commands to navigate (partially) upwards with relative paths are shown in purple."><img src="./img/osc-paths.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%" alt="A diagram showing paths on OSC and navigating upwards with relative paths"></a></p>
+<p><a href="./img/paths-navigation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="A diagram showing the key dirs on OSC for this course, with OSC Project-associated dirs in blue and Home dirs in red. The PAS3454 box in the Home dir is faded, because your Home dir may be in a differently named dir, and also because it is important to realize that this dir is not associated with any OSC Project other than in name. Example commands to navigate (partially) upwards with relative paths are shown in purple."><img src="./img/paths-navigation.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%" alt="A diagram showing paths on OSC and navigating upwards with relative paths"></a></p>
 </figure>
 </div>
-<figcaption>A diagram showing the key dirs on OSC for this course, with OSC Project-associated dirs in blue and Home dirs in red. The <code>PAS2880</code> box in the Home dir is faded, because your Home dir may be in a differently named dir, and also because it is important to realize that this dir is not associated with any OSC Project other than in name. Example commands to navigate (partially) upwards with relative paths are shown in purple.</figcaption>
+<figcaption>A diagram showing the key dirs on OSC for this course, with OSC Project-associated dirs in blue and Home dirs in red. The <code>PAS3454</code> box in the Home dir is faded, because your Home dir may be in a differently named dir, and also because it is important to realize that this dir is not associated with any OSC Project other than in name. Example commands to navigate (partially) upwards with relative paths are shown in purple.</figcaption>
 </figure>
 </div>
 <hr style="height:1pt; visibility:hidden;">
@@ -854,8 +856,79 @@ Basically, everything you type in the shell should start with a command. Just ty
 </div>
 </section>
 </section>
-<section id="tba-some-file-ls-etc-examples-or-as-optional-homework" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="tba-some-file-ls-etc-examples-or-as-optional-homework"><span class="header-section-number">6</span> TBA: Some file (<code>ls</code> etc) examples or as optional homework?</h2>
+<section id="listing-files-with-ls" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="listing-files-with-ls"><span class="header-section-number">6</span> Listing files with <code>ls</code></h2>
+<p>The Unix shell has a lot of commands for dealing with files and directories. We’ll only cover the most basic one here: <strong><code>ls</code></strong>, which lists files and directories.</p>
+<p>First, let’s move to a dir which has some files we can work with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb50"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/ess/PAS3454/data/TBA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>By default, <code>ls</code> lists files and dirs in your current working directory:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code><span style="color: #0328fc;">fastq</span>  <span style="color: #0328fc;">meta</span>  <span style="color: black;">README.md</span>  <span style="color: #0328fc;">ref</span></code></pre>
+<p><code>ls</code> uses different colors to indicate different types of files:</p>
+<ul>
+<li>Entries in <strong><span style="color: #0328fc">blue</span></strong> are directories (<code>fastq</code>, <code>meta</code>, and <code>ref</code> above)</li>
+<li>Entries in <strong>black</strong> are regular files (<code>README.md</code> above)</li>
+<li>Entries in <strong><span style="color: #d92118">red</span></strong> are compressed files (we’ll see examples of this soon).</li>
+</ul>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>Some colors depend on the color scheme of your terminal / VS Code.</em> <em>E.g., white for regular files in dark themes.</em></p>
+</div>
+</div>
+</div>
+<p>You can use an <strong>argument</strong> to change the dir (or file) that <code>ls</code> operates on, and you can use <strong>options</strong> to change how it shows the output. Let’s start with two very commonly used options <strong><code>-l</code></strong> (lowercase L) and <strong><code>-h</code></strong>,<code>which can be combined as</code>-lh`:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb52"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>total 2.0K
+drwxr-x---+ 2 jelmer PAS0471 4.0K Nov 24  2024 fastq
+drwxr-x---+ 2 jelmer PAS0471 4.0K Nov 13  2024 meta
+-rw-rw----+ 1 jelmer PAS0471 1.6K Nov 13  2024 README.md
+drwxr-x---+ 2 jelmer PAS0471 4.0K Jul  4 20:52 ref</code></pre>
+<p>The same items as before were printed, but now <strong>in a different format</strong>: one item per line, with information such as the date and time that each file was last modified, and file sizes (directly to the left of the date).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>More info about the columns in long-format <code>ls</code> output <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The following image shows what each column in long-format <code>ls</code> represents:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/long-ls2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="./img/long-ls2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="An annotated screenshot of long-format ls output."></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Moving on to <strong>argument(s)</strong> — we can list the contents of custom dirs by specifying one or more as arguments:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> fastq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>TBA</code></pre>
+<p>And like you saw earlier with <code>cal</code>, options and arguments can be combined:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb56"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> fastq</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>TBA
+# [...output truncated...]</code></pre>
+<p>The files have a <code>.gz</code> extension and are <strong><span style="color:#bb0000">red</span></strong>, which indicates they have been <em>compressed</em> with <code>gzip</code>.</p>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-listing-a-single-file" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-listing-a-single-file"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Exercise</strong>: Listing a single file</h4>
+<p>Say you want to check the size of a single file. Then, it may be always not be convenient to list an entire dir’s contents. Can you figure out how to use <code>ls</code> to show you the file size <strong>only</strong> for the <code>fastq/ERR10802865_R2.fastq.gz</code> file?</p>
+<details>
+<summary>
+<em>Click to see the solution</em>
+</summary>
+<p>The argument to <code>ls</code> can be a path of any kind, including to a file rather than to a dir:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb58"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> fastq/ERR10802865_R2.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>-rw-r-----+ 1 jelmer PAS0471 22M Nov 13  2024 fastq/ERR10802865_R2.fastq.gz</code></pre>
+</details>
+</section>
 
 
 </section>
