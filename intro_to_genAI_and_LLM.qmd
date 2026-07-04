@@ -1,0 +1,96 @@
+---
+title: "Introduction to Generative AI and LLMs"
+subtitle: "Day 1 -- Lecture A"
+pagetitle: "d1: Gen AI and LLM"
+author: Menuka Bhandari
+date: 2025-07-04
+institute: "CFAES Bioinformatics Core, OSU"
+title-slide-attributes:
+  data-background-color: "silver"
+format:
+  revealjs:
+    theme: [default, theme_mod.scss]
+    css: ../slides.css
+    smaller: true
+    scrollable: false
+    progress: true
+    incremental: false
+    slide-number: true
+    slide-level: 2
+    highlight-style: pygments
+    embed-resources: false # Can't be used with chalkboard
+    chalkboard:
+      theme: whiteboard
+    toc: true
+    toc-depth: 1
+    toc-title: TBD
+    footer: "[~ Gen and agentic AI workshop ~](https://cfaes-bioinfo.github.io/agentic-ai-workshop/)"
+    logo: ../img/CFAES-Horiz-RGBHEX.svg
+    menu:
+      width: wide
+      numbers: true
+editor_options: 
+  chunk_output_type: console
+bibliography: refs.bib
+---
+
+## Overview
+
+- Introduction to Artificial intelligence (AI) and Large language model (LLM)
+
+- Transformer architectures - Encoder only model, Decoder only model, Encoder-decoder model 
+
+- Reinforcement Learning 
+
+- Tokens, Context windows, Embedding 
+
+- Chat-and-answer vs. agentic AI 
+
+- Different models with different capabilities and costs 
+
+## Introduction to AI
+
+- **Artificial intelligence (AI)**\
+  - AI is the branch of computer science that **simulates human intelligence and trains computers to learn human behaviors**
+  - Objective - make machines think like humans and learn human behaviors reasoning, planning, predicting, problem solving, decision making 
+  - Major applications of AI in bioinformatics is protein structure prediction
+
+![](/img/branches_of_AI.png){fig-align="center" width="50%"}
+
+## Introduction to LLM
+
+- **Large language model (LLM)**\
+  - LLMs are the core of many modern AI applications
+  - LLMs are built on **Transformer architecture** & trained on **massive collections of data**
+  - **Large** in LLM refers to both the enormous number of model parameters and the vast quantity of training data used during development 
+  - LLMs are trained to predict the **next token or sequence of token** in a piece of text.
+  - Two key characteristics of LLMS are **large parameter counts** and **in-context learning capabilities**
+  - Examples; ChatGPT (Open AI), Claude (Anthropic), Gemini (Google Deep Mind), Llama (Meta)
+  
+## Introduction to LLM (cont.)
+
+- **What can LLM do for the biological scientists?**\
+  - LLM can generate code from the natural language description, auto complete code, execute complex tasks, manage multiple files and execute everything in a secure environment.
+  - Agentic AI can execute scripts, troubleshoot errors, validate outputs, and propose changes autonomously.
+  - Therefore, programming is no longer a barrier to biological scientists. 
+
+![](/img/evolution_LLM.png){fig-align="center" width="30%"}
+
+## Introduction to LLM (cont.)
+
+- **Transformer**\
+  - **Foundation of modern LLM** introduced in 2017
+   - Can process an entire input sequence in parallel - faster and efficient computation
+  - Ability to capture long-range dependencies within text - understand relationships between words and phrases across extensive contexts
+   - Relies on a **self-attention mechanism** that enables the model to analyze and weigh the importance of input sequence while making predictions
+
+**Advantages of transformer**\
+•	Read the whole sequence at once \
+•	Capture long-range relationships \
+•	Train much faster
+
+**Three Transformer architectures** - Encoder-only, Decoder-only & Encoder-Decoder
+
+## Transformer architectures
+
+- **Encoder-only**\

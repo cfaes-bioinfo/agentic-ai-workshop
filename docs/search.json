@@ -390,5 +390,47 @@
     "title": "Optional self-study material",
     "section": "Footnotes",
     "text": "Footnotes\n\n\n Because of this, anytime you see a word/string that starts with a $ in the shell, you can safely assume that it is a variable.↩︎\n Compare this with the situation for file names, which ideally do not contain spaces and special characters either, but in which - and . are recommended.↩︎\n Singularity is the previous name of Apptainer, which is the software we use at OSC to run containers.↩︎"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#overview",
+    "href": "intro_to_genAI_and_LLM.html#overview",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Overview",
+    "text": "Overview\n\nIntroduction to Artificial intelligence (AI) and Large language model (LLM)\nEncoder only model, Decoder only model, Encoder-decoder model\nReinforcement Learning\nTokens, Context windows, Embedding\nChat-and-answer vs. agentic AI\nDifferent models with different capabilities and costs"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#introduction-to-ai-and-llm",
+    "href": "intro_to_genAI_and_LLM.html#introduction-to-ai-and-llm",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Introduction to AI and LLM",
+    "text": "Introduction to AI and LLM\n\nArtificial intelligence (AI)\nArtificial intelligence is the branch of computer science that simulates human intelligence and trains computers to learn human behaviors"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#introduction-to-ai",
+    "href": "intro_to_genAI_and_LLM.html#introduction-to-ai",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Introduction to AI",
+    "text": "Introduction to AI\n\nArtificial intelligence (AI)\n\n\nAI is the branch of computer science that simulates human intelligence and trains computers to learn human behaviors\nObjective - make machines think like humans and learn human behaviors reasoning, planning, predicting, problem solving, decision making\nMajor applications of AI in bioinformatics is protein structure prediction"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#introduction-to-llm",
+    "href": "intro_to_genAI_and_LLM.html#introduction-to-llm",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Introduction to LLM",
+    "text": "Introduction to LLM\n\nLarge language model (LLM)\n\n\nLLMs are the core of many modern AI applications\nLLMs are built on Transformer architecture & trained on massive collections of data\nLarge in LLM refers to both the enormous number of model parameters and the vast quantity of training data used during development\nLLMs are trained to predict the next token or sequence of token in a piece of text.\nTwo key characteristics of LLMS are large parameter counts and in-context learning capabilities\nExamples; ChatGPT (Open AI), Claude (Anthropic), Gemini (Google Deep Mind), Llama (Meta)"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#introduction-to-llm-cont.",
+    "href": "intro_to_genAI_and_LLM.html#introduction-to-llm-cont.",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Introduction to LLM (cont.)",
+    "text": "Introduction to LLM (cont.)\n\nWhat can LLM do for the biological scientists?\n\n\nLLM can generate code from the natural language description, auto complete code, execute complex tasks, manage multiple files and execute everything in a secure environment.\nAgentic AI can execute scripts, troubleshoot errors, validate outputs, and propose changes autonomously.\nTherefore, programming is no longer a barrier to biological scientists."
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#introduction-to-llm-cont.-1",
+    "href": "intro_to_genAI_and_LLM.html#introduction-to-llm-cont.-1",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Introduction to LLM (cont.)",
+    "text": "Introduction to LLM (cont.)\n\nTransformer\n\n\nFoundation of modern LLM introduced in 2017\nCan process an entire input sequence in parallel - faster and efficient computation\nAbility to capture long-range dependencies within text - understand relationships between words and phrases across extensive contexts\nRelies on a self-attention mechanism that enables the model to analyze and weigh the importance of input sequence while making predictions\n\n\nAdvantages of transformer\n• Read the whole sequence at once\n• Capture long-range relationships\n• Train much faster\nThree Transformer architectures - Encoder-only, Decoder-only & Encoder-Decoder"
   }
 ]
