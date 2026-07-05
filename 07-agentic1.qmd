@@ -1,6 +1,6 @@
 ---
-title: "Using Cloud Code and GitHub Copilot"
-subtitle: "TBA"
+title: "Using Claude Code and GitHub Copilot"
+subtitle: "Exploring different options, settings, and workflows"
 date: 2026-07-03
 date-modified: today
 author:
@@ -24,3 +24,51 @@ bibliography: refs.bib # You can add reference to this files if you have and cit
 <hr style="height:1pt; visibility:hidden;" />
 
 ## Introduction
+
+In this session, we'll start using the AI tools Claude Code and GitHub Copilot,
+while connected to OSC in VS Code.
+
+These tools are quite similar.
+But we'll **focus on Claude Code** because the workshop has usage credits for this tool,
+and because of its approval for institutional data use^[
+But recall: this applied **only** to the current setup, with an API key via OTDI's Generative AI Services.
+]: you can use it also with your own data tomorrow afternoon.
+
+But we'll **start with GitHub Copilot**, because it provides a nice feature
+Claude Code does not have:
+it can generate code _directly_ in your VS Code editor,
+providing suggestions as you type your text and code.
+
+## Code completions with GitHub Copilot
+
+"Code completions", also known as "Code suggestions" or "Inline suggestions",
+are a feature of GitHub Copilot that allows you to get code ---or other text---
+suggestions as you type in your VS Code editor.
+
+There are two types of code completions, and we'll go over these one by one:
+
+### Ghost text suggestions
+
+Ghost text suggestions are the most common type of code completions.
+As you type, GitHub Copilot will provide suggestions in a light gray font,
+which you can accept by pressing the <kbd>Tab</kbd> key.
+
+There are two subtypes of ghost text suggestions:
+
+- Suggestions that are based on the current line of code you are typing,
+  and that try to complete that line of code for you.
+  Or similarly, they may also suggest the next line of code based on the previous one,
+  after you press <kbd>Enter</kbd> to go to the next line. 
+  
+  We're focusing on code here, but these suggestions also work (and do so quite well!)
+  based on regular text, like comments or documentation files.
+
+
+
+
+
+### Next edit suggestions
+
+
+- TBA - is this on or off by default?
+- <https://docs.github.com/en/copilot/concepts/completions/code-suggestions>

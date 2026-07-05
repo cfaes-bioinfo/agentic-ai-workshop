@@ -26,12 +26,15 @@ The following steps are not strictly required before the workshop,
 because creating a GitHub account can be done quite seamlessly during the workshop,
 and because you'll also have access to an alternative, similar AI tool (Claude Code).
 
-However, we do recommend following the steps below.
-Claude Code is a paid tool that we will provide institutional^[for-fee, but free to you]
-access to during the workshop,
-but that you will not have access to after the workshop unless you pay for it in some way.
-GitHub Copilot, on the other hand, cannot be used institutionally at OSU,
-but does have a free 'personal' option for academic users.
+However, we do recommend following the steps below, considering that:
+
+- Claude Code is a paid tool that we will provide institutional^[for-fee, but free to you]
+  access to during the workshop,
+  but that you will not have access to after the workshop unless you pay for it in some way.
+
+- While GitHub Copilot, on the other hand, cannot be used institutionally (i.e., with private data) at OSU,
+  it does have a free 'personal' option for academic users.
+
 As such, for many of you, GitHub Copilot may be the easiest way to continue trying out
 agentic AI tools after the workshop (we'll discuss your options further during the workshop).
 
@@ -77,3 +80,11 @@ you'll just need to select the appropriate option in the form:
 Application approval is often quite fast (sometimes in minutes),
 but **access is only granted 72 hours after approval**.
 :::
+
+## Plans
+
+https://docs.github.com/en/copilot/concepts/billing/individual-plans
+
+- Free: 2,000 code completions per month, ~50 chat requests 
+- Student: unlimited code completions, 200 credits
+- Pro: unlimited code completions, 1,500 credits

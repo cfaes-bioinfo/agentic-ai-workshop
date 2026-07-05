@@ -9,7 +9,7 @@
 <meta name="author" content="Jelmer Poelstra">
 <meta name="dcterms.date" content="2026-07-03">
 
-<title>Our toolbox: intro and setup – Agentic AI Workshop</title>
+<title>Our coding + genAI toolset: intro and setup – Agentic AI Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -249,14 +249,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#some-vs-code-exploration" id="toc-some-vs-code-exploration" class="nav-link" data-scroll-target="#some-vs-code-exploration"><span class="header-section-number">2</span> Some VS Code exploration</a>
+  <li><a href="#exploring-vs-code" id="toc-exploring-vs-code" class="nav-link" data-scroll-target="#exploring-vs-code"><span class="header-section-number">2</span> Exploring VS Code</a>
   <ul class="collapse">
-  <li><a href="#the-vs-code-user-interface" id="toc-the-vs-code-user-interface" class="nav-link" data-scroll-target="#the-vs-code-user-interface"><span class="header-section-number">2.1</span> The VS Code User Interface</a></li>
-  <li><a href="#a-folder-as-a-starting-point" id="toc-a-folder-as-a-starting-point" class="nav-link" data-scroll-target="#a-folder-as-a-starting-point"><span class="header-section-number">2.2</span> A folder as a starting point</a></li>
+  <li><a href="#introduction-1" id="toc-introduction-1" class="nav-link" data-scroll-target="#introduction-1"><span class="header-section-number">2.1</span> Introduction</a></li>
+  <li><a href="#the-vs-code-user-interface" id="toc-the-vs-code-user-interface" class="nav-link" data-scroll-target="#the-vs-code-user-interface"><span class="header-section-number">2.2</span> The VS Code User Interface</a></li>
   </ul></li>
-  <li><a href="#a-first-dive-github-copilot" id="toc-a-first-dive-github-copilot" class="nav-link" data-scroll-target="#a-first-dive-github-copilot"><span class="header-section-number">3</span> A first dive: GitHub Copilot</a></li>
-  <li><a href="#connect-vs-code-to-osc" id="toc-connect-vs-code-to-osc" class="nav-link" data-scroll-target="#connect-vs-code-to-osc"><span class="header-section-number">4</span> Connect VS Code to OSC</a></li>
-  <li><a href="#install-and-set-up-claude-code" id="toc-install-and-set-up-claude-code" class="nav-link" data-scroll-target="#install-and-set-up-claude-code"><span class="header-section-number">5</span> Install and set up Claude Code</a></li>
+  <li><a href="#setting-up-the-osc-connection-in-vs-code" id="toc-setting-up-the-osc-connection-in-vs-code" class="nav-link" data-scroll-target="#setting-up-the-osc-connection-in-vs-code"><span class="header-section-number">3</span> Setting up the OSC connection in VS Code</a>
+  <ul class="collapse">
+  <li><a href="#configure-the-connection-to-osc" id="toc-configure-the-connection-to-osc" class="nav-link" data-scroll-target="#configure-the-connection-to-osc"><span class="header-section-number">3.1</span> Configure the connection to OSC</a></li>
+  <li><a href="#connect-to-osc" id="toc-connect-to-osc" class="nav-link" data-scroll-target="#connect-to-osc"><span class="header-section-number">3.2</span> Connect to OSC</a></li>
+  <li><a href="#open-a-folder-on-osc" id="toc-open-a-folder-on-osc" class="nav-link" data-scroll-target="#open-a-folder-on-osc"><span class="header-section-number">3.3</span> Open a folder on OSC</a></li>
+  </ul></li>
+  <li><a href="#setting-up-github-copilot" id="toc-setting-up-github-copilot" class="nav-link" data-scroll-target="#setting-up-github-copilot"><span class="header-section-number">4</span> Setting up GitHub Copilot</a>
+  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">4.1</span> Background</a></li>
+  <li><a href="#the-setup-steps" id="toc-the-setup-steps" class="nav-link" data-scroll-target="#the-setup-steps"><span class="header-section-number">4.2</span> The setup steps</a></li>
+  <li><a href="#one-example-prompt" id="toc-one-example-prompt" class="nav-link" data-scroll-target="#one-example-prompt"><span class="header-section-number">4.3</span> One example prompt</a></li>
+  </ul></li>
+  <li><a href="#setting-up-claude-code" id="toc-setting-up-claude-code" class="nav-link" data-scroll-target="#setting-up-claude-code"><span class="header-section-number">5</span> Setting up Claude Code</a>
+  <ul class="collapse">
+  <li><a href="#background-1" id="toc-background-1" class="nav-link" data-scroll-target="#background-1"><span class="header-section-number">5.1</span> Background</a></li>
+  <li><a href="#the-setup-steps-1" id="toc-the-setup-steps-1" class="nav-link" data-scroll-target="#the-setup-steps-1"><span class="header-section-number">5.2</span> The setup steps</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -265,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Our toolbox: intro and setup</h1>
+<h1 class="title">Our coding + genAI toolset: intro and setup</h1>
 <p class="subtitle lead">An introduction to, and setup of, the main tools we’ll use in the workshop</p>
 </div>
 
@@ -299,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 3, 2026</p>
+      <p class="date-modified">July 4, 2026</p>
     </div>
   </div>
     
@@ -325,130 +339,294 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr style="height:1pt; visibility:hidden;">
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>In the rest of this workshop, we’ll primarily use the following set of tools to enable us to run code, access data, and deploy agentic AI tools:</p>
-<ul>
-<li><strong>VS Code</strong>: a code editor that we’ll use to write and run code</li>
-<li><strong>GitHub Copilot</strong> and <strong>Claude Code</strong>, in the form of plugins for VS Code, for generative and agentic AI access</li>
-<li><strong>OSC</strong>: the Ohio Supercomputer Center, which will provide us with a powerful shared computing environment and access to data</li>
-</ul>
-<p>This same setup is what the instructors use in their own work, and it is a setup that you can continue to use after the workshop (with some caveats regarding the AI tools, which we’ll discuss).</p>
-</section>
-<section id="some-vs-code-exploration" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="some-vs-code-exploration"><span class="header-section-number">2</span> Some VS Code exploration</h2>
-<p>VS Code is basically a <strong>fancy text editor</strong>. Its full name is Visual Studio Code, and it’s called “Code Server” at OSC.</p>
-<p>To emphasize the additional functionality relative to basic text editors like Notepad and TextEdit, editors like VS Code are also referred to as <strong>IDEs</strong>: Integrated Development Environments. The RStudio program is another good example of an IDE — and like RStudio is an IDE for R, VS Code will be our IDE for shell (and other) code.</p>
-<section id="the-vs-code-user-interface" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="the-vs-code-user-interface"><span class="header-section-number">2.1</span> The VS Code User Interface</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./img/vscode-welcome_ed.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./img/vscode-welcome_ed.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="An annotated screenshot of the VS Code user interace"></a></p>
-</figure>
-</div>
-<section id="side-bars" class="level4">
-<h4 class="anchored" data-anchor-id="side-bars">Side bars</h4>
-<p>By default, the (wide) <strong>Side Bar</strong> will show a file explorer, where you see your files, create new folders and files, and so on.</p>
-<p>The <strong>Activity Bar</strong> (narrow side bar) on the far left has:</p>
-<ul>
-<li>A <i class="fa-solid fa-bars" aria-label="bars"></i> (“hamburger menu”), which has menu items like <code>File</code> that you often find in a top bar</li>
-<li>A <i class="fa-solid fa-cog" aria-label="cog"></i> (cog wheel icon) in the bottom, through which you can mainly access <em>settings</em></li>
-<li>Icons to toggle between options for the wide Side Bar: we’ll talk about those in a later session</li>
-</ul>
-</section>
-</section>
-<section id="a-folder-as-a-starting-point" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="a-folder-as-a-starting-point"><span class="header-section-number">2.2</span> A folder as a starting point</h3>
-<p>Very conveniently, VS Code takes a specific <strong>folder as a starting point in all parts of the program</strong>:</p>
-<ul>
-<li>In its file explorer</li>
-<li>When saving files</li>
-<li>In the Unix shell its terminal</li>
-</ul>
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Click <code>File</code> &gt; <code>Open Folder</code> and then type/select the personal dir within <code>/fs/ess/PAS3454/users</code> you made last week (for example, I will select <code>/fs/ess/PAS3454/users/jelmer</code>). <em>This will cause the program to reload.</em></p>
-<section id="terminal-with-a-unix-shell" class="level4">
-<h4 class="anchored" data-anchor-id="terminal-with-a-unix-shell">Terminal (with a Unix shell)</h4>
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Open a terminal</strong> by clicking <i class="fa-solid fa-bars" aria-label="bars"></i> &nbsp; &gt; <code>Terminal</code> &gt; <code>New Terminal</code>. We’ll start using this terminal in the next lecture. For now, practice <em>resizing panes</em> (terminal vs.&nbsp;editor, and the width of the side bar) by hovering your cursor over the lines dividing them and then dragging.</p>
-</section>
-<section id="editor-pane-and-welcome-document" class="level4">
-<h4 class="anchored" data-anchor-id="editor-pane-and-welcome-document">Editor pane and <code>Welcome</code> document</h4>
-<p>The main part of the VS Code is the <strong>editor pane</strong>. Here, you can open scripts and other types of text files, images, and so on. Like in a web browser, you can have multiple tabs open.</p>
-<p>Whenever you open VS Code, an editor tab with a <code>Welcome</code> document is automatically opened. This provides some help and shortcuts to recently opened files and folders.</p>
-</section>
-</section>
-</section>
-<section id="a-first-dive-github-copilot" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="a-first-dive-github-copilot"><span class="header-section-number">3</span> A first dive: GitHub Copilot</h2>
-<p>GitHub Copilot is an agentic AI tool that can help you write code and perform other tasks. Among other things, it is available as a pre-installed plugin for VS Code. While this is a Microsoft product, it is not one you can –currently– use institutionally at OSU. Instead, access runs through a personal GitHub account, which you can create for free and which you can use for other purposes as well.</p>
-<p>When you open VS Code, you should see <strong>XXXX</strong> login button to log into GitHub. For those without a GitHub account, you can create one on the fly, including semi-automatically via a Google login if you have a Google account.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="img/github-login-vscode.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption>From <a href="https://github.blog/changelog/2025-07-15-social-login-with-google-is-now-generally-available" class="uri">https://github.blog/changelog/2025-07-15-social-login-with-google-is-now-generally-available</a></figcaption>
-</figure>
-</div>
-<p>Unless you had previously set up GitHub Pro access, you will now be automatically using the Free Tier of GitHub Copilot. This free tier is not sufficient for sustained use of GitHub Copilot, but is sufficient for the purposes of this workshop, especially because you also have access to Claude Code (which we will set up later).</p>
-<ul>
-<li><p>TBA - Question in the chat</p></li>
-<li><p>TBA - Inline code example</p></li>
-</ul>
-</section>
-<section id="connect-vs-code-to-osc" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="connect-vs-code-to-osc"><span class="header-section-number">4</span> Connect VS Code to OSC</h2>
-<p>Next, we will set up VS Code to connect to OSC. This one-time setup is a bit of a process, but is well worth it. This so-called “SSH tunneling” of VS Code is a very convenient and powerful way to access OSC, with or without the added benefit of agentic AI tools. It will move a VS Code window entirely to OSC - not just the terminal, but also the file system, the code editor, and so on.</p>
+<p>In the rest of this workshop, we’ll primarily use the following set of tools to run code, access data, and make use of agentic AI tools:</p>
 <ol type="1">
-<li><p>Open VS Code on your laptop</p></li>
-<li><p>In the narrow sidebar on the left, click the square icon with four squares inside it (the “Extensions” icon), and now, the wide sidebar on the left will show a search box at the top and a list of extensions below it</p></li>
-<li><p>In the search box, type “Remote Development” and you should see the “<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development extension pack</a>” appear</p></li>
-<li><p>Click the “Install” button to install this extension pack</p></li>
+<li><p>A code editor, <strong>VS Code</strong></p></li>
+<li><p>A shared computing environment, <strong>OSC</strong> (the Ohio Supercomputer Center)</p></li>
+<li><p>Generative and Agentic AI tools, <strong>GitHub Copilot</strong> and <strong>Claude Code</strong>, in the form of plugins for VS Code</p></li>
 </ol>
-<p>Now, we will use functionality from this extension pack to connect to OSC:</p>
-<ol start="5" type="1">
-<li><p>Open the VS Code Command Palette by pressing <kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and start typing “<em>Remote SSH</em>”:</p>
-<ul>
-<li><p>Among the options that pop up, select “<strong>Remote-SSH: Add New SSH Host…</strong>” and type the following, replacing <code>&lt;osc-username&gt;</code> with your OSC username:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="op">&lt;</span>osc-username<span class="op">&gt;</span>@cardinal.osc.edu</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>For example, if your username is <code>marie</code>, you would type:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> marie@cardinal.osc.edu </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>In the dialog “<strong>Select SSH configuration file to update</strong>” that pops up, select the first (top) option</p></li>
-</ul></li>
-<li><p>You’ll see a “<strong>Host Added!</strong>” pop-up (may be in the bottom-right of your screen): in that pop-up, click “<strong>Connect</strong>”, and:</p>
-<ul>
-<li><p>When you get a message like that shown below, click “Continue”:</p>
-<blockquote class="blockquote">
-<p>“cardinal.osc.edu” has fingerprint &lt;…&gt;<br>
-Are you sure you want to continue?</p>
-</blockquote></li>
-<li><p>Enter your <strong>OSC password</strong> when you’re prompted for it</p></li>
-<li><p>If you’re asked about the operating system of the host, select <strong>Linux</strong></p></li>
-</ul></li>
-<li><p>Now, you’re connected, most likely in a new VS Code window, and some more pop-ups may appear:</p>
-<ul>
-<li>If you’re asked whether you “Trust the Authors” of the folder you ended up in, click “Yes”</li>
-<li>If a pop-up in the bottom-right asks you to update Git, click “No” and check “Don’t show again”</li>
-</ul></li>
-<li><p><strong>Open a folder</strong></p></li>
-<li><p>Close the window?</p></li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
+<p>In this session, we will go through the necessary steps be able to use this setup, providing context about the various tools and their use in and after the workshop.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>This same setup is what I use in my own work, and you can continue use it after the workshop (with some caveats regarding the AI tools, which we’ll discuss). Getting this setup configured on your own computer is a bit of a process, but it is well worth it in my opinion.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exploring-vs-code" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="exploring-vs-code"><span class="header-section-number">2</span> Exploring VS Code</h2>
+<section id="introduction-1" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="introduction-1"><span class="header-section-number">2.1</span> Introduction</h3>
+<p>VS Code is basically a <strong>fancy text editor</strong>. To emphasize the additional functionality relative to basic text editors like Notepad, editors like VS Code are also referred to as <strong>IDEs</strong>: Integrated Development Environments<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Connecting from now on
+<span class="screen-reader-only">Note</span>Why we use VS Code here
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>With the above one-time setup done, connecting to OSC with your local VS Code installation will be quick:</p>
+<p>It’s a great editor all around, and when working at OSC in particular —at least if you need to run command-line programs, and not just, say, R— it’s by far the most convenient and user-friendly way, in my opinion.</p>
+<p>You can also use VS Code at OSC in a web browser via OSC OnDemand, like we did in the pre-workshop session. That’s nice because it requires no installation or other setup.</p>
+<p>But in the long run, connecting your own VS Code installation to OSC is preferable. In the context of this workshop, for example: we can’t use AI tools like GitHub Copilot in the OnDemand version of VS Code, but we can when connecting our own VS Code installation to OSC.</p>
+</div>
+</div>
+<p>You should have already installed VS Code (full name: Visual Studio Code) on your laptop. Go ahead and open it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-open.png" class="img-fluid figure-img" style="width:75.0%" alt="Screenshot of the VS Code icon on a Mac"></p>
+<figcaption>Finding VS Code with a Mac’s Spotlight Search.</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-vs-code-user-interface" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="the-vs-code-user-interface"><span class="header-section-number">2.2</span> The VS Code User Interface</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/vscode-ui.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="A screenshot of the VS Code user interface from the official VS Code docs. In this example, multiple files are open in the editor pane (Editor Groups), and those have been split into two side-by-side groups."><img src="./img/vscode-ui.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="An annotated screenshot of the VS Code user interace"></a></p>
+</figure>
+</div>
+<figcaption>A screenshot of the VS Code user interface <a href="https://code.visualstudio.com/docs/editing/userinterface">from the official VS Code docs</a>. In this example, multiple files are open in the editor pane (Editor Groups), and those have been split into two side-by-side groups.</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>The main part of the VS Code window is the <strong>Editor Pane</strong> (<code>C</code> above), where you can open and edit text files.</p></li>
+<li><p>The panel at the bottom (<code>D</code> above) contains a <strong>terminal</strong>, but isn’t open by default.<br> <i class="fa-solid fa-user-edit" aria-label="user-edit"></i> In the top menu, click <code>Terminal</code> &gt; <code>New Terminal</code> to open it.</p></li>
+<li><p>By default, the <strong>Primary Side Bar</strong> (<code>B</code> above) shows a file explorer, where you can see your files and create new ones, and so on.</p></li>
+<li><p>The <strong>Activity Bar</strong> (narrow side bar, <code>A</code> above) on the far left has:</p>
+<ul>
+<li><p>Icons to toggle between options for the Primary Side Bar. For now, pay attention to the bottom one, Extensions, which we’ll use soon.</p></li>
+<li><p>A <i class="fa-solid fa-cog" aria-label="cog"></i> (cog wheel icon) in the bottom, with two key options:</p>
+<ul>
+<li><strong>Command Palette</strong>, where you can access all VS Code functionality</li>
+<li><strong>Settings</strong>, where you can configure VS Code</li>
+</ul></li>
+</ul></li>
+</ul>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-your-turn" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-your-turn"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Your turn</h4>
+<ul>
+<li><p>In the cog wheel <i class="fa-solid fa-cog" aria-label="cog"></i> menu, click <code>Themes</code> and then <code>Color Theme</code> to explore VS Code color themes and optionally <strong>change the color theme</strong> to your liking.</p></li>
+<li><p>You can <strong>resize panes</strong> by dragging the borders between them: try to do this with the Primary Side Bar and the Panel with the terminal.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="setting-up-the-osc-connection-in-vs-code" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="setting-up-the-osc-connection-in-vs-code"><span class="header-section-number">3</span> Setting up the OSC connection in VS Code</h2>
+<section id="configure-the-connection-to-osc" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="configure-the-connection-to-osc"><span class="header-section-number">3.1</span> Configure the connection to OSC</h3>
+<p>Now, we’ll set up VS Code to connect to OSC via so-called “SSH tunneling”. Once configured, this is a very convenient and powerful way to access OSC. This process moves a VS Code window <em>entirely</em> to OSC: the terminal, the file system, the code editor, and so on<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>The configuration process below is a one-time setup: once done, you can use it to connect to OSC at any time.</p>
+<section id="install-the-remote-development-extension" class="level4">
+<h4 class="anchored" data-anchor-id="install-the-remote-development-extension">Install the Remote Development extension</h4>
 <ol type="1">
-<li><p>Open the Command Palette and start typing “<em>SSH Connect</em>”</p></li>
-<li><p>Click on “SSH: Connect to Host” and then select your OSC connection</p></li>
-<li><p>Enter your password <em>(but this won’t be necessary anymore after you do the below setup!)</em></p></li>
+<li>In the VS Code Activity Bar, click the <strong>Extensions</strong> icon at the bottom (left screenshot below).</li>
 </ol>
-<p>Also, any previously opened folders on OSC will….TBA</p>
+<div class="colummns">
+<div class="column" style="width:48%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-narrow-sidebar-items.png" class="img-fluid figure-img" style="width:12.0%" alt="Screenshot of the VS Code Activity Bar, showing the Extensions icon highlighted"></p>
+<figcaption>Screenshot of the VS Code Activity Bar, with the Extensions icon at the bottom</figcaption>
+</figure>
+</div>
+</div>
+<div class="column" style="width:48%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/vscode-remote-dev.png" class="img-fluid figure-img" style="width:90.0%" alt="Screenshot of the VS Code Remote Development extension"></p>
+<figcaption>Screenshot showing the Remove Development extension popping up when you search for it. Clicking the “Install” button will install the extension.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li><p>Now, the Primary Sidebar will show the Extensions view, where you can search for and install extensions. In the search box, type “remote development” and the “<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack">Remote Development</a>” extension should appear (right screenshot above).</p></li>
+<li><p>Click the “Install” button to install this extension.</p></li>
+</ol>
+</section>
+<section id="setup-the-connection" class="level4">
+<h4 class="anchored" data-anchor-id="setup-the-connection">Setup the connection</h4>
+<p>Next, we’ll use functionality from this extension pack to set up the connection to OSC:</p>
+<ol start="4" type="1">
+<li><p>Open the VS Code <strong>Command Palette</strong><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and start typing “<em>remote open</em>”.</p></li>
+<li><p>Click the top option that shows up, “<strong>Remote-SSH: Open SSH Configuration File…</strong>”, and then again the top option, a file that contains your computer username and ends in <code>/.ssh/config</code> (see screenshots below):</p></li>
+</ol>
+<div class="colummns">
+<div class="column" style="width:48%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-open-ssh-config.png" class="img-fluid figure-img" style="width:98.0%" alt="Screenshot of the VS Code Command Palette, showing the 'Remote-SSH: Open SSH Configuration File...' option highlighted"></p>
+<figcaption>After typing remote open in the Command Palette, select the option shown in this screenshot (should be the only one to appear).</figcaption>
+</figure>
+</div>
+</div>
+<div class="column" style="width:3%;">
+
+</div>
+<div class="column" style="width:48%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-open-ssh-config2.png" class="img-fluid figure-img" style="width:85.0%" alt="Screenshot of the VS Code Command Palette, showing the 'Remote-SSH: Open SSH Configuration File...' option highlighted"></p>
+<figcaption>Next, a few options will appear. Select the top one, which should contain your computer username.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Paste the following (<em>note Mac vs.&nbsp;Windows instructions</em>) into the file that opens, then:
+<ul>
+<li>In two places, change <code>User &lt;osc-username&gt;</code> to your OSC username (for example, to <code>User jane</code>).</li>
+<li>Save the file (File &gt; Save or <kbd>Ctrl/⌘</kbd>+<kbd>S</kbd>).</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Mac</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    HostName cardinal.osc.edu</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal-compute</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    ForwardAgent yes</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    StrictHostKeyChecking no</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    UserKnownHostsFile=/dev/null</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    ProxyCommand ssh osc-cardinal "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc $SLURM_NODELIST 22'"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    HostName cardinal.osc.edu</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal-compute</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    ForwardAgent yes</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    StrictHostKeyChecking no</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    UserKnownHostsFile=/dev/null</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    ProxyCommand ssh osc-cardinal "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc \$SLURM_NODELIST 22'"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div></li>
+<li>Open the VS Code <strong>Settings</strong> (cog wheel <i class="fa-solid fa-cog" aria-label="cog"></i> =&gt; Settings) and search for <code>remote.SSH.connectTimeout</code>. Change the value from 15 to 300 (seconds).</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-connection-timeout.png" class="img-fluid figure-img" style="width:95.0%" alt="Screenshot of the VS Code Settings, showing the 'Remote.SSH: Connect Timeout' option highlighted"></p>
+<figcaption>Find the connection timeout setting and change it to 300 seconds, as shown in this screenshot.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What we just did
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this SSH configuration file, we defined two remote “hosts” that we can connect to:</p>
+<ul>
+<li><p><code>osc-cardinal</code>, which will connect to a <strong>login node</strong> of OSC’s Cardinal cluster. However, because the VS Code program will actually run on the login node when you connect it with SSH-tunneling, the below connection to a compute node is preferred.</p></li>
+<li><p><code>osc-cardinal-compute</code> will connect to a <strong>compute node</strong> of OSC’s Cardinal cluster. We can’t connect directly to a compute node but have to request a compute job, which is why that connection is more complicated. This connection will last for 5 hours (300 minutes), as it requests a compute job of that duration.</p></li>
+</ul>
+<p>Because compute jobs (for <code>osc-cardinal-compute</code>) may take a while to start, we also increased the “connection timeout” (amount of time VS Code will wait for the connection to be established) to 5 minutes.</p>
+<p>(<em>To connect to other OSC clusters, you can add additional entries to this SSH configuration file,</em> <em>simply replacing <code>cardinal</code> by the name of the other cluster.</em>)</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>For after the workshop: Changing the account to be charged for compute time <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <code>-A PAS3454</code> part of the connection instructs OSC to charge the compute time to the workshop’s OSC Project. While it’s OK to keep using this for a bit after the workshop, if you have access to another OSC project, you should change <code>PAS3454</code> to that project’s number.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="connect-to-osc" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="connect-to-osc"><span class="header-section-number">3.2</span> Connect to OSC</h3>
+<p>With the configuration all done, you can now (and in the future) connect to OSC like so:</p>
+<ol type="1">
+<li><p>Open the Command Palette and start typing “<em><strong>SSH connect</strong></em>”</p></li>
+<li><p>Click on <code>SSH: Connect to Host</code> and then select the second of the connections you just set up, <code>osc-cardinal-compute</code>:</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-select-connection.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Screenshot of the VS Code Command Palette, showing the 'SSH: Connect to Host' option highlighted"></p>
+</figure>
+</div>
+<ol start="3" type="1">
+<li><p>A new VS Code window will open. In the little pop-up at the top, enter your OSC password <em>(this won’t be necessary in the future if you do the optional setup below)</em>.</p></li>
+<li><p>The connection may take a little while (typically 5–30 seconds) to establish, because a compute job has to be requested, assigned resources, and started.</p>
+<p>Once connected, a pop-up may appear, asking whether you “trust the authors” of the folder you ended up in: click <code>Trust and Continue</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-trust.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Screenshot of the VS Code pop-up asking whether to trust the authors of the folder you ended up in, with the 'Trust and Continue' button highlighted"></p>
+</figure>
+</div>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If the connection fails or takes more than a minute to establish, ask us for troubleshooting help. As a last resort, try connecting to <code>osc-cardinal</code> (the login node connection) instead.</p>
+</div>
+</div>
+</div></li>
+</ol>
+</section>
+<section id="open-a-folder-on-osc" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="open-a-folder-on-osc"><span class="header-section-number">3.3</span> Open a folder on OSC</h3>
+<p>VS Code takes a specific <strong>folder as a starting point in all parts of the program</strong>: in its file explorer, in the terminal, when saving files, and so on.</p>
+<p>By default, this folder is your Home directory. In this workshop, we’ll only be working in a folder specific to it, so let’s open that one now.</p>
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Click <code>File</code> &gt; <code>Open Folder</code> and then enter and select <code>/fs/ess/PAS3454</code>.</p>
+<p>This will cause the program to reload and the “trust popup” will appear again<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+<p>In the File Explorer, you should now see files … TBA ….</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>From now on: Connecting directly to a specific folder at OSC <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The above two-step procedure (connect to OSC, then open a folder) can be done in one even simpler step, after you’ve connected to that folder at least once, as follows.</p>
+<p>After you re-open VS Code (or open a new window with <code>File</code> &gt; <code>New Window</code>), the <code>Recent</code> section in the VS Code “Welcome” document will show the folder(s) you previously opened:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-recents.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Screenshot of the VS Code Welcome document, showing the 'Recents' section with the 'Open Folder...' button highlighted"></p>
+</figure>
+</div>
+<p>Simply clicking on that line will open that folder and in the process connect to OSC!</p>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -457,49 +635,342 @@ Are you sure you want to continue?</p>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you take the following steps, you will no longer be prompted for your OSC password every time you connect to OSC with the above method (or with any other SSH-based method).</p>
+<p>If you take the following steps, you will no longer be prompted for your OSC password when you connect to OSC:</p>
 <ol type="1">
-<li><p>On your own computer, open a terminal application.</p>
-<ul>
-<li>On a Mac, you should have an app called “Terminal” and potentially other options like “iTerm”: any of these fill work</li>
-<li>On Windows 11+, this should be called the “Windows Terminal”</li>
-</ul></li>
-<li><p>Generate a public-private SSH key-pair:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You’ll get some output and will then be asked several questions, but in each case, you can just press <kbd>Enter</kbd> to select the default answer.</p></li>
-<li><p>Transfer the public key to OSC’s Cardinal cluster:</p>
+<li><p>Open the terminal in VS Code (in a window that’s on your own computer, <strong>not</strong> at OSC).</p></li>
+<li><p>In the terminal (regardless of the type or operating system), execute the following command to generate a public-private SSH key-pair:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>You’ll get some (odd-looking!) output and will then be asked several questions. In each case, you can <strong>simply press <kbd>Enter</kbd> to select the default answer</strong>; do this until you get your command prompt back.</p></li>
+<li><p>Excute the following command to transfer the public key to OSC’s Cardinal cluster, <strong>but make sure to replace <code>&lt;user&gt;</code> with your OSC username</strong>:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Mac</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Mac</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_rsa.pub <span class="kw">|</span> <span class="fu">ssh</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@cardinal.osc.edu <span class="st">'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace &lt;user&gt; by your username, e.g. "jelmer@cardinal.osc.edu"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_rsa.pub <span class="kw">|</span> <span class="fu">ssh</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@cardinal.osc.edu <span class="st">'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace &lt;user&gt; by your username, e.g. "ssh-copy-id jelmer@cardinal.osc.edu"</span></span>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace &lt;user&gt; by your username, e.g. "jelmer@cardinal.osc.edu"</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-copy-id</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@cardinal.osc.edu</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div></li>
-<li><p>All done! Test if it works by connecting</p></li>
+<li><p>All done! Test if it works by connecting to OSC once again.</p></li>
 </ol>
 </div>
 </div>
 </div>
 </section>
-<section id="install-and-set-up-claude-code" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="install-and-set-up-claude-code"><span class="header-section-number">5</span> Install and set up Claude Code</h2>
+</section>
+<section id="setting-up-github-copilot" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="setting-up-github-copilot"><span class="header-section-number">4</span> Setting up GitHub Copilot</h2>
+<section id="background" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="background"><span class="header-section-number">4.1</span> Background</h3>
+<p>GitHub Copilot is an generative and agentic AI tool that can help you write code and perform other tasks. It’s the first of two similar tools we will use in this workshop, the other being Claude Code.</p>
+<p>GitHub Copilot is <strong>not</strong> the same as the “general” Microsoft Copilot. And while GitHub Copilot <em>is</em> a Microsoft product, hence the similar name, you cannot –currently– use it institutionally at OSU.</p>
+<p>Instead, access runs through a personal GitHub account. It’s easy and free to create a GitHub account, and you may have already had an account, or created one following the <a href="./s3-github-account.html">optional pre-workshop material</a>.</p>
+<p>Keep in mind that GitHub is a much more general platform than just GitHub Copilot, widely used for sharing and collaborating on code. Nevertheless, with your GitHub account, you are nowadays also automatically enrolled in the Free Tier of GitHub Copilot.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>GitHub Copilot tiers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This free tier will work for the purposes of this workshop, but is <em>not</em> sufficient for sustained GitHub Copilot use.</p>
+<p>You may have done the optional pre-workshop setup step to <a href="./s3-github-account.html">obtain GitHub Pro access via your academic credentials</a>. If that was approved (should be quick) and processed (72 hours later), you’ll now have much more extensive, though not unlimited, access to GitHub Copilot.</p>
+<p>If you didn’t do that, there isn’t much point in doing it <em>right now</em>, because you won’t obtain access during the workshop. But feel free to do so in a break or after the workshop.</p>
+</div>
+</div>
+<p>While there’s also a stand-alone app and web-based interface for GitHub Copilot, we will use it within VS Code, where it is available as a pre-installed plugin. The setup below only serves to log in to your GitHub account or create one along the way.</p>
+</section>
+<section id="the-setup-steps" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="the-setup-steps"><span class="header-section-number">4.2</span> The setup steps</h3>
 <ol type="1">
-<li><p>In the Extensions sidebar of VS Code, search for “Claude Code” and install the extension “<a href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code">Claude Code for VS Code</a>”</p></li>
-<li><p>TBA</p></li>
+<li><p>Towards the right side of the top VS Code bar, click the <strong>Sign In</strong> button to log into GitHub:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-copilot-signin.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%" alt="Screenshot of the VS Code interface, showing the GitHub Copilot icon in the top right corner of the window"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Don’t see the Sign In button? <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In the VS Code Status Bar (the thin bar way at the bottom), there should be a <strong>GitHub Copilot</strong> icon — the icon to the left of the bell in the screenshot below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-copilot-icon.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%" alt="Screenshot of the VS Code interface, showing the GitHub Copilot icon in the top right corner of the window"></p>
+</figure>
+</div>
+<p>Your version of the icon may be striked-through, which means that GitHub Copilot is not yet active. Click on the icon and the login pop-up should appear.</p>
+</div>
+</div>
+</div></li>
+<li><p>A pop-up similar to the left-hand image below should appear, and if you click on Continue with GitHub, you should see something like the right-hand image:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/github-login-vscode.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Logging into GitHub to use GitHub Copilot. <a href="https://github.blog/changelog/2025-07-15-social-login-with-google-is-now-generally-available">From the GitHub Blog</a>.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>GitHub account options
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>For those <strong>without</strong> a GitHub account, you can create one on the fly, either with the “Create an account” button on the bottom, or semi-automatically via an existing Google login by clicking the “Continue with Google” button.</p></li>
+<li><p>For those <strong>with</strong> a GitHub account, you can log in with your existing credentials. Don’t use Continue with Google unless you know your GitHub account is already linked to your Google account, or account confusion may arise.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Were you already signed in to GitHub? Then the prompt should look like this <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/copilot-already-signed-in.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%" alt="Screenshot of the VS Code interface, showing the GitHub Copilot login prompt"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></li>
+<li><p>Finally, you may be prompted to authorize VS Code to access your GitHub account, which you should do:</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/copilot-signin-send-back.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%" alt="Screenshot of the GitHub login page, showing the 'Authorize Visual Studio Code' button highlighted"></p>
+</figure>
+</div>
+<ol start="5" type="1">
+<li><p>GitHub Copilot lives in a “Secondary Side Bar” on the righthand side, which you can toggle by pressing the rightmost icon in the screenshot below, on the right side of the top VS Code bar:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-copilot-sidebar.png" class="img-fluid figure-img" style="width:35.0%" alt="Screenshot of the VS Code interface, showing the GitHub Copilot sidebar"></p>
+<figcaption>Clicking the rightmost icon toggles the Secondary Side Bar with GitHub Copilot.</figcaption>
+</figure>
+</div>
+<p>That sidebar should look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-copilot-blank.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the VS Code interface, showing the GitHub Copilot sidebar"></p>
+</figure>
+</div></li>
+</ol>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>As mentioned above, unless you have already <a href="./s3-github-account.html">obtained GitHub Pro access via your academic credentials</a>, you will be automatically using the Free Tier of GitHub Copilot after logging in or creating a new account.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="one-example-prompt" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="one-example-prompt"><span class="header-section-number">4.3</span> One example prompt</h3>
+<p>Let’s give it one quick try, before we go into more detail in the next sessions. In the Copilot prompt box (which should have the ghost text “<em>Describe what to build</em>”), enter:</p>
+<blockquote class="blockquote">
+<p><em>How many reads are in data/iqbal/SRR31869590_1.fastq?</em></p>
+</blockquote>
+<p>Because we’re asking Copilot for information it can only get after actually doing something (running a command), it will by default ask for permission to do so:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/copilot-asks-permission.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the GitHub Copilot prompt asking for permission to run a command"></p>
+</figure>
+</div>
+<p>Click <code>Allow</code> and it will run the command and return the answer:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/copilot-prompt1-answer.png" class="img-fluid figure-img" style="width:70.0%" alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"></p>
+<figcaption>TBA - Replace with subsampled FASTQ files</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="setting-up-claude-code" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="setting-up-claude-code"><span class="header-section-number">5</span> Setting up Claude Code</h2>
+<section id="background-1" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="background-1"><span class="header-section-number">5.1</span> Background</h3>
+<p><strong>Like with GitHub Copilot</strong>, the Anthropic product Claude Code comes in various forms, but we will use it within VS Code, where it is available as a plugin.</p>
+<p><strong>Unlike with GitHub Copilot</strong>, we will not use a personal account to access Claude Code. Instead, we will use an access key that the workshop instructors have obtained using OSU OTDI’s <a href="https://it.osu.edu/generative-ai-service">Generative AI Service</a>.</p>
+<p>The advantages of this approach —not just during this workshop, but for you moving forward— are:</p>
+<ol type="1">
+<li>It is approved at OSU for use with institutional data, all the way to the most sensitive category (S4 classification). 🎉</li>
+<li>At least in principle, you can get a work-related rather than personal funding source for your AI usage.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Wait, why are we showing GitHub Copilot at all, again?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>For academics, there is a generous free personal option for GitHub Copilot, which is not the case for Claude Code.</p></li>
+<li><p>You may not be able to set up the abovementioned <a href="https://it.osu.edu/generative-ai-service">Generative AI Service</a> because you don’t have a work-related funding source to pay for it.</p></li>
+<li><p>Even though it’s ideal to use a tool approved for private data, you may not be working with private data at all, or be able to get help without exposing it. If so, then GitHub Copilot is a perfectly fine option.</p></li>
+<li><p>Seemingly minor but very handy: only GitHub Copilot has inline code suggestions. (<em>And:</em> if you only use the inline code suggestions, you never have to worry about data privacy.)</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Don’t get confused about data approval contexts
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Claude Code is <strong>only</strong> approved for use with institutional data when it is accessed via an access key (API key) from OTDI’s Generative AI Service. If you pay for a personal Anthropic account and use that to access Claude Code, you are <strong>not</strong> using it in an approved way.</p>
+</div>
+</div>
+</section>
+<section id="the-setup-steps-1" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="the-setup-steps-1"><span class="header-section-number">5.2</span> The setup steps</h3>
+<ol type="1">
+<li>In the <strong>Extensions</strong> sidebar, search for “claude” and install the extension “<a href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code">Claude Code for VS Code</a>”:</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-claude-install.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the VS Code Extensions sidebar, showing the Claude Code extension highlighted"></p>
+</figure>
+</div>
+<ol start="2" type="1">
+<li><p>To authenticate to Claude Code, we will use a settings file with an access key. <strong>In the terminal</strong>, run this to copy this file to your Home directory (where it will be automatically read by Claude Code):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> /fs/ess/PAS3454/share/settings.json ~/.claude/settings.json</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>What does this file contain? <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We can’t share this file on the website in full, because it contains an API key that cannot be exposed publicly. But for your reference, the contents of this file minus the API key (here replaced by <code>REPLACE_WITH_API_KEY</code>) are as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>"theme": "auto",</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>"env": {                                                                                                                                                                                        </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_BASE_URL": "https://litellm.cloud.osu.edu",                                                                                                                                        </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_AUTH_TOKEN": <span class="dt">&lt;</span><span class="kw">REPLACE_WITH_API_KEY</span><span class="dt">&gt;</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6",</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-6",</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5-20251001",</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"                                                                                                                                        </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    }   </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div></li>
+<li><p>A second tab should now be available in the Copilot side bar, named “CLAUDE” — click on that (<em>if you don’t see it, you may have to widen the side bar!</em>):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-claude-in-sidebar.png" class="img-fluid figure-img" style="width:70.0%" alt="Screenshot of the VS Code interface, showing the Claude Code icon in the top right corner of the window"></p>
+<figcaption>Next to “CHAT” (i.e., GitHub Copilot), a “CLAUDE CODE” tab is now available.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Alternative way of opening a Claude Code window <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Once installed, a Claude Code icon will appear in the topright of the editor pane:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/vscode-claude-icon.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%" alt="Screenshot of the VS Code interface, showing the Claude Code icon in the top right corner of the window"></p>
+</figure>
+</div>
+<p>Clicking this icon will also open a Claude Code window, but this one will be opened within the editor pane rather than in the sidebar.</p>
+</div>
+</div>
+</div></li>
+<li><p>You should for some moments see the following messages in the Claude Code window, indicating that you are not authenticated yet:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/claude-login.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the Claude Code interface, showing the first window after logging in, with a message indicating that you are not authenticated yet"></p>
+</figure>
+</div>
+<p>Simply wait, and if all goes well, Claude will process the settings file behind the scenes, and switch to an interface similar to the Copilot one:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/claude-first-window.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%" alt="Screenshot of the Claude Code interface, showing the first window after logging in"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Does the window with login options not automatically disappear?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Don’t try to log in via the options in that window, but warn the instructors and we’ll troubleshoot.</p>
+</div>
+</div></li>
 </ol>
 <hr style="height:1pt; visibility:hidden;">
 
 
 </section>
+</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p> The RStudio program is another good example of an IDE — and like RStudio is an IDE for R, VS Code will be our IDE for shell (and other) code.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p> In case you’re familiar with the <code>ssh</code> command, this is similar to connecting your terminal to OSC with <code>ssh &lt;username&gt;@cardinal.osc.edu</code>, but instead of connecting just your terminal, this approach allows you to run the entire VS Code environment on OSC.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p> cog wheel <i class="fa-solid fa-cog" aria-label="cog"></i> =&gt; Command Palette or press <kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p> for this folder, it won’t appear again in the future, once you’ve trusted it.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

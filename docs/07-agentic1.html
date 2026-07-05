@@ -9,7 +9,7 @@
 <meta name="author" content="Jelmer Poelstra">
 <meta name="dcterms.date" content="2026-07-03">
 
-<title>Using Cloud Code and GitHub Copilot – Agentic AI Workshop</title>
+<title>Using Claude Code and GitHub Copilot – Agentic AI Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -209,6 +209,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#code-completions-with-github-copilot" id="toc-code-completions-with-github-copilot" class="nav-link" data-scroll-target="#code-completions-with-github-copilot"><span class="header-section-number">2</span> Code completions with GitHub Copilot</a>
+  <ul class="collapse">
+  <li><a href="#ghost-text-suggestions" id="toc-ghost-text-suggestions" class="nav-link" data-scroll-target="#ghost-text-suggestions"><span class="header-section-number">2.1</span> Ghost text suggestions</a></li>
+  <li><a href="#next-edit-suggestions" id="toc-next-edit-suggestions" class="nav-link" data-scroll-target="#next-edit-suggestions"><span class="header-section-number">2.2</span> Next edit suggestions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -217,8 +222,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Using Cloud Code and GitHub Copilot</h1>
-<p class="subtitle lead">TBA</p>
+<h1 class="title">Using Claude Code and GitHub Copilot</h1>
+<p class="subtitle lead">Exploring different options, settings, and workflows</p>
 </div>
 
 
@@ -251,7 +256,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 3, 2026</p>
+      <p class="date-modified">July 4, 2026</p>
     </div>
   </div>
     
@@ -277,11 +282,41 @@ ul.task-list li input[type="checkbox"] {
 <hr style="height:1pt; visibility:hidden;">
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>In this session, we’ll start using the AI tools Claude Code and GitHub Copilot, while connected to OSC in VS Code.</p>
+<p>These tools are quite similar. But we’ll <strong>focus on Claude Code</strong> because the workshop has usage credits for this tool, and because of its approval for institutional data use<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: you can use it also with your own data tomorrow afternoon.</p>
+<p>But we’ll <strong>start with GitHub Copilot</strong>, because it provides a nice feature Claude Code does not have: it can generate code <em>directly</em> in your VS Code editor, providing suggestions as you type your text and code.</p>
+</section>
+<section id="code-completions-with-github-copilot" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="code-completions-with-github-copilot"><span class="header-section-number">2</span> Code completions with GitHub Copilot</h2>
+<p>“Code completions”, also known as “Code suggestions” or “Inline suggestions”, are a feature of GitHub Copilot that allows you to get code —or other text— suggestions as you type in your VS Code editor.</p>
+<p>There are two types of code completions, and we’ll go over these one by one:</p>
+<section id="ghost-text-suggestions" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="ghost-text-suggestions"><span class="header-section-number">2.1</span> Ghost text suggestions</h3>
+<p>Ghost text suggestions are the most common type of code completions. As you type, GitHub Copilot will provide suggestions in a light gray font, which you can accept by pressing the <kbd>Tab</kbd> key.</p>
+<p>There are two subtypes of ghost text suggestions:</p>
+<ul>
+<li><p>Suggestions that are based on the current line of code you are typing, and that try to complete that line of code for you. Or similarly, they may also suggest the next line of code based on the previous one, after you press <kbd>Enter</kbd> to go to the next line.</p>
+<p>We’re focusing on code here, but these suggestions also work (and do so quite well!) based on regular text, like comments or documentation files.</p></li>
+</ul>
+</section>
+<section id="next-edit-suggestions" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="next-edit-suggestions"><span class="header-section-number">2.2</span> Next edit suggestions</h3>
+<ul>
+<li>TBA - is this on or off by default?</li>
+<li><a href="https://docs.github.com/en/copilot/concepts/completions/code-suggestions" class="uri">https://docs.github.com/en/copilot/concepts/completions/code-suggestions</a></li>
+</ul>
 
 
 </section>
+</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p> But recall: this applied <strong>only</strong> to the current setup, with an API key via OTDI’s Generative AI Services.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
