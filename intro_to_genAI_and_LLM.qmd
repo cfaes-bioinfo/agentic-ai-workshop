@@ -109,9 +109,9 @@ bibliography: refs.bib
 - **Encoder-only model (Google’s BERT) **\
 
   - DNABERT is a AI model that uses DNA as a language
-  - Tokens are generated based on k-mers or Byte Pair Encoding
+  - Tokens are generated based on k-mers (DNABERT) or Byte Pair Encoding (DNABERT-2)
   - DNABERT reads the entire DNA sequence and understand the biological function of even distant nucleotide bases
-  - DNABERT can recognize important functional regions such as promoters, splice sites, and transcription factor binding sites \
+  - DNABERT can recognize important functional regions such as promoters, splice sites, and transcription factor binding sites at the nearby region or distant region \
   
   **Read → Understand → Predict**
   
