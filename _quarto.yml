@@ -17,7 +17,9 @@ website:
           - text: "2: Intro to Generative AI and LLMs"
           - text: "4: Use cases and tools for research"
           - text: "5: Toolset intro and setup"
-          - text: "7: Using Claude Code and GitHub Copilot"
+            href: 05-toolbox-setup.qmd
+          - text: "7: Using GitHub Copilot and Claude Code"
+            href: 07-agentic1.qmd
       - text: Day 2
         menu:
           - text: "8: Prompt engineering"
@@ -50,8 +52,13 @@ website:
             href: s3-github-account.qmd
           - text: "Optional: Positron setup (for R)"
             href: s4-positron-install.qmd
-      - text: Practical Info
-        href: about.qmd
+      - text: Other
+        menu: 
+          - text: Practical Workshop Info
+            href: o1-practical.qmd
+          - text: "---------------"
+          - text: Further Resources
+            href: o2-resources.qmd
     tools:
       - icon: github
         aria-label: "The GitHub repo for this website"

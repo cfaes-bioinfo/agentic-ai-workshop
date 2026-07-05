@@ -4,7 +4,7 @@ toc: false
 format:
   html:
     grid:
-      body-width: 850px
+      body-width: 900px
 ---
 
 <h4 align="center">
@@ -21,7 +21,9 @@ format:
 _The schedule below is preliminary and may change slightly before the workshop_
 :::
 
-### Day 1: Monday, July 13
+::: {.panel-tabset}
+
+### Day 1: Monday
 
 | Section | Time | Instructor | Topic & link |
 |:-:|----|---|------------|
@@ -31,16 +33,14 @@ _The schedule below is preliminary and may change slightly before the workshop_
 | 3 | 11:00 am -- 11:30 am | OTDI | Approved genAI Tools at OSU |
 | 4 | 11:30 am -- 12:15 pm | Jonathan | GenAI use cases and tools for research |
 |  | [*12:15 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
-| 5 | 01:00 pm -- 02:00 pm | Jelmer | Our coding + genAI toolset: intro and setup |
+| 5 | 01:00 pm -- 02:00 pm | Jelmer | [Our coding + genAI toolset: intro and setup](./05-toolbox-setup.qmd) |
 | 6 | 02:00 pm -- 02:30 pm | OSC | LLM options at OSC |
 |  | [*02:30 pm -- 02:45 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
-| 7 | 02:45 pm -- 04:00 pm | Jelmer | Using Claude Code and GitHub Copilot |
+| 7 | 02:45 pm -- 04:00 pm | Jelmer | Using GitHub Copilot and Claude Code |
 
 : {.striped .hover tbl-colwidths="[5, 20, 15, 60]"}
 
-<hr style="height:1pt; visibility:hidden;" />
-
-### Day 2: Tuesday, July 14
+### Day 2: Tuesday
 
 | Section | Time | Instructor | Topic & link |
 |:-:|----|---|------------|
@@ -54,3 +54,7 @@ _The schedule below is preliminary and may change slightly before the workshop_
 | 13 | 03:30 pm -- 04:00 pm | *all* | Concluding remarks and looking forward |
 
 : {.striped .hover tbl-colwidths="[5, 20, 15, 60]"}
+
+:::
+
+<hr style="height:1pt; visibility:hidden;" />

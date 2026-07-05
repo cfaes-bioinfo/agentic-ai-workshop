@@ -33,7 +33,7 @@ However, we do recommend doing this, considering that:
   but that you will not have access to after the workshop unless you pay for it in some way.
 
 - While GitHub Copilot, on the other hand,
-  cannot be used institutionally (i.e., with private data) at OSU,
+  is not OSU-approved for use with with private data,
   it does have fairly generous free 'personal' options for students and especially
   teachers/faculty.
 
@@ -43,7 +43,7 @@ agentic AI tools after the workshop (we'll discuss your options further during t
 ## Create a GitHub account (if you don't have one yet)
 
 GitHub is a place where you can store your code and share it with others,
-and where you can find code and software written by others.
+and find code and software written by others.
 It can therefore be very useful to have a GitHub account ---
 not just for GitHub Copilot usage.
 
@@ -69,19 +69,22 @@ not just for GitHub Copilot usage.
 
 Anyone with a GitHub account will be automatically enrolled in the free GitHub Copilot plan,
 which has a limit of 2,000 code completions per month and ~50 chat requests.
-That's not enough for most people to use GitHub Copilot in a meaningful, sustained way,
+That's not enough for most people to use GitHub Copilot in a sustained way ---
 but as students and teachers/faculty, we can get additional free access after applying for it.
-
 In summary (see also this [GitHub page](https://docs.github.com/en/copilot/concepts/billing/individual-plans)):
 
 | Plan | Free for whom | How to get it | Code completions | Chat requests |
 |------|----------|------------------|---------------|---------------|
 | Free | Everyone | Automatically | 2,000 per month | ~50 |
-| Student | Students | Through education benefits | Unlimited | 200 |
-| Pro | Teachers/Faculty | Through education benefits | Unlimited | 1,500 |
+| Student | Students | Apply for education benefits | Unlimited | 200 |
+| Pro | Teachers/Faculty | Apply for education benefits | Unlimited | 1,500 |
 
-The following will work for teachers/faculty and students alike –
-you'll just need to select the appropriate option in the form:
+: {.striped .hover}
+
+<hr style="height:1pt; visibility:hidden;" />
+
+The following will work for teachers/faculty and students alike; 
+just select the appropriate option in the form:
 
 1. Go to <https://github.com/settings/education/benefits>
 

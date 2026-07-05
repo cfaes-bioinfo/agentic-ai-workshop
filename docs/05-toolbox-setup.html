@@ -143,8 +143,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="dropdown-header">1: Intro to the workshop</li>
         <li class="dropdown-header">2: Intro to Generative AI and LLMs</li>
         <li class="dropdown-header">4: Use cases and tools for research</li>
-        <li class="dropdown-header">5: Toolset intro and setup</li>
-        <li class="dropdown-header">7: Using Claude Code and GitHub Copilot</li>
+        <li>
+    <a class="dropdown-item" href="./05-toolbox-setup.html">
+ <span class="dropdown-text">5: Toolset intro and setup</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./07-agentic1.html">
+ <span class="dropdown-text">7: Using GitHub Copilot and Claude Code</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -213,10 +219,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">Practical Info</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-other" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Other</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-other">    
+        <li>
+    <a class="dropdown-item" href="./o1-practical.html">
+ <span class="dropdown-text">Practical Workshop Info</span></a>
   </li>  
+        <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./o2-resources.html">
+ <span class="dropdown-text">Further Resources</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -411,12 +429,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul></li>
 </ul>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-your-turn" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-your-turn"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Your turn</h4>
-<ul>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercises" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercises"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercises</h4>
+<ol type="1">
 <li><p>In the cog wheel <i class="fa-solid fa-cog" aria-label="cog"></i> menu, click <code>Themes</code> and then <code>Color Theme</code> to explore VS Code color themes and optionally <strong>change the color theme</strong> to your liking.</p></li>
 <li><p>You can <strong>resize panes</strong> by dragging the borders between them: try to do this with the Primary Side Bar and the Panel with the terminal.</p></li>
-</ul>
+<li><p>If you didn’t do the pre-workshop learning, you won’t yet have <strong>your own dir</strong> <code>/fs/ess/PAS3454/people/&lt;your-username&gt;</code>. Create this dir, where <code>&lt;your-username&gt;</code> should be your exact OSC username.</p>
+<details>
+<summary>
+<p>Click to expand for some hints</p>
+</summary>
+<p>You can do this in several ways, but here is the most foolproof way:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># `$USER` is an environment variable that contains your username,</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># so this command will work for everyone:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> /fs/ess/PAS3454/people/<span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Alternatively, assuming you are in <code>/fs/ess/PAS3454</code> and your username is <code>jane</code>, a simpler command would be:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> people/jane</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If you already had a <code>/fs/ess/PAS3454/people/&lt;your-username&gt;</code> dir, the above commands should have failed with an error message like <code>mkdir: cannot create directory ‘/fs/ess/PAS3454/people/jane’: File exists</code>.</p>
+</div>
+</div>
+</div>
+<p>Other alternatives are to use the VS Code file explorer to create the folder (there’s a “New Folder” button), or to use <a href="https://ondemand.osc.edu/">OSC OnDemand</a> file browser.</p>
+</details></li>
+</ol>
 </section>
 </section>
 </section>
@@ -492,28 +533,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Mac</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    HostName cardinal.osc.edu</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal-compute</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    ForwardAgent yes</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    StrictHostKeyChecking no</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    UserKnownHostsFile=/dev/null</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    ProxyCommand ssh osc-cardinal "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc $SLURM_NODELIST 22'"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    HostName cardinal.osc.edu</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal-compute</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    ForwardAgent yes</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    StrictHostKeyChecking no</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    UserKnownHostsFile=/dev/null</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    ProxyCommand ssh osc-cardinal "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc $SLURM_NODELIST 22'"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    HostName cardinal.osc.edu</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal-compute</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    ForwardAgent yes</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    StrictHostKeyChecking no</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    UserKnownHostsFile=/dev/null</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    ProxyCommand ssh osc-cardinal "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc \$SLURM_NODELIST 22'"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    HostName cardinal.osc.edu</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal-compute</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    ForwardAgent yes</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    StrictHostKeyChecking no</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    UserKnownHostsFile=/dev/null</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    ProxyCommand ssh osc-cardinal "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc \$SLURM_NODELIST 22'"</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div></li>
@@ -641,19 +682,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><p>Open the terminal in VS Code (in a window that’s on your own computer, <strong>not</strong> at OSC).</p></li>
 <li><p>In the terminal (regardless of the type or operating system), execute the following command to generate a public-private SSH key-pair:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>You’ll get some (odd-looking!) output and will then be asked several questions. In each case, you can <strong>simply press <kbd>Enter</kbd> to select the default answer</strong>; do this until you get your command prompt back.</p></li>
 <li><p>Excute the following command to transfer the public key to OSC’s Cardinal cluster, <strong>but make sure to replace <code>&lt;user&gt;</code> with your OSC username</strong>:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Mac</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace &lt;user&gt; by your username, e.g. "jelmer@cardinal.osc.edu"</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_rsa.pub <span class="kw">|</span> <span class="fu">ssh</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@cardinal.osc.edu <span class="st">'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace &lt;user&gt; by your username, e.g. "jelmer@cardinal.osc.edu"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_rsa.pub <span class="kw">|</span> <span class="fu">ssh</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@cardinal.osc.edu <span class="st">'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace &lt;user&gt; by your username, e.g. "jelmer@cardinal.osc.edu"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-copy-id</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@cardinal.osc.edu</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace &lt;user&gt; by your username, e.g. "jelmer@cardinal.osc.edu"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-copy-id</span> <span class="op">&lt;</span>user<span class="op">&gt;</span>@cardinal.osc.edu</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div></li>
@@ -671,19 +712,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>GitHub Copilot is an generative and agentic AI tool that can help you write code and perform other tasks. It’s the first of two similar tools we will use in this workshop, the other being Claude Code.</p>
 <p>GitHub Copilot is <strong>not</strong> the same as the “general” Microsoft Copilot. And while GitHub Copilot <em>is</em> a Microsoft product, hence the similar name, you cannot –currently– use it institutionally at OSU.</p>
 <p>Instead, access runs through a personal GitHub account. It’s easy and free to create a GitHub account, and you may have already had an account, or created one following the <a href="./s3-github-account.html">optional pre-workshop material</a>.</p>
-<p>Keep in mind that GitHub is a much more general platform than just GitHub Copilot, widely used for sharing and collaborating on code. Nevertheless, with your GitHub account, you are nowadays also automatically enrolled in the Free Tier of GitHub Copilot.</p>
+<p>Keep in mind that GitHub is a much more general platform than just GitHub Copilot, widely used for sharing and collaborating on code. Nevertheless, with your GitHub account, you are nowadays also automatically enrolled in the GitHub Copilot free plan.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>GitHub Copilot tiers
+<span class="screen-reader-only">Note</span>GitHub Copilot plans
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This free tier will work for the purposes of this workshop, but is <em>not</em> sufficient for sustained GitHub Copilot use.</p>
-<p>You may have done the optional pre-workshop setup step to <a href="./s3-github-account.html">obtain GitHub Pro access via your academic credentials</a>. If that was approved (should be quick) and processed (72 hours later), you’ll now have much more extensive, though not unlimited, access to GitHub Copilot.</p>
+<p>This free plan will work for the purposes of this workshop, but is <em>not</em> sufficient for sustained GitHub Copilot use.</p>
+<p>You may have done the optional pre-workshop setup step to <a href="./s3-github-account.html">obtain GitHub Copilot Student/Pro access via your academic credentials</a>. If that was approved (should be quick) and processed (72 hours later), you’ll now have more extensive, though not unlimited, access to GitHub Copilot. For more details, see <a href="./s3-github-account.html#apply-for-additional-free-github-copilot-access">our GitHub setup page</a></p>
 <p>If you didn’t do that, there isn’t much point in doing it <em>right now</em>, because you won’t obtain access during the workshop. But feel free to do so in a break or after the workshop.</p>
 </div>
 </div>
@@ -791,7 +832,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>As mentioned above, unless you have already <a href="./s3-github-account.html">obtained GitHub Pro access via your academic credentials</a>, you will be automatically using the Free Tier of GitHub Copilot after logging in or creating a new account.</p>
+<p>As mentioned above, unless you have already <a href="./s3-github-account.html">obtained GitHub Copilot Student/Pro access via your academic credentials</a>, you will be automatically using the GitHub Copilot free plan after logging in or creating a new account.</p>
 </div>
 </div>
 </div>
@@ -872,7 +913,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <ol start="2" type="1">
 <li><p>To authenticate to Claude Code, we will use a settings file with an access key. <strong>In the terminal</strong>, run this to copy this file to your Home directory (where it will be automatically read by Claude Code):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> /fs/ess/PAS3454/share/settings.json ~/.claude/settings.json</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> /fs/ess/PAS3454/share/settings.json ~/.claude/settings.json</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -886,17 +927,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We can’t share this file on the website in full, because it contains an API key that cannot be exposed publicly. But for your reference, the contents of this file minus the API key (here replaced by <code>REPLACE_WITH_API_KEY</code>) are as follows:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>"theme": "auto",</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>"env": {                                                                                                                                                                                        </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_BASE_URL": "https://litellm.cloud.osu.edu",                                                                                                                                        </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_AUTH_TOKEN": <span class="dt">&lt;</span><span class="kw">REPLACE_WITH_API_KEY</span><span class="dt">&gt;</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6",</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-6",</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5-20251001",</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"                                                                                                                                        </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    }   </span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>"theme": "auto",</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>"env": {                                                                                                                                                                                        </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_BASE_URL": "https://litellm.cloud.osu.edu",                                                                                                                                        </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_AUTH_TOKEN": <span class="dt">&lt;</span><span class="kw">REPLACE_WITH_API_KEY</span><span class="dt">&gt;</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6",</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-6",</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5-20251001",</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"                                                                                                                                        </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    }   </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div></li>

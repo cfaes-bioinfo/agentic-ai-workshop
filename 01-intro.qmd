@@ -59,6 +59,12 @@ bibliography: refs.bib
 - One thing you have used AI for (most) regularly
 - Who should win the world cup
 
+# Application form answers {background-color="silver"}
+
+## Application form answers
+
+TBA
+
 # Overview of the workshop's topics and schedule {background-color="silver"}
 
 ## Day 1: Monday, July 13
@@ -97,9 +103,7 @@ bibliography: refs.bib
 : {.striped .hover tbl-colwidths="[5, 25, 15, 55]"}
 :::
 
-# Application form answers {background-color="silver"}
-
-## Application form answers
+## Data sets
 
 TBA
 

@@ -99,14 +99,46 @@ Go ahead and open it.
     - **Settings**, where you can configure VS Code 
 
 ::: exercise
-#### {{< fa user-edit >}} Your turn
+#### {{< fa user-edit >}} Exercises
 
-- In the cog wheel {{< fa cog >}} menu, click `Themes` and then `Color Theme`
-  to explore VS Code color themes and optionally **change the color theme** to your liking.
+1. In the cog wheel {{< fa cog >}} menu, click `Themes` and then `Color Theme`
+   to explore VS Code color themes and optionally **change the color theme** to your liking.
 
-- You can **resize panes** by dragging the borders between them:
-  try to do this with the Primary Side Bar and the Panel with the terminal.
+2. You can **resize panes** by dragging the borders between them:
+   try to do this with the Primary Side Bar and the Panel with the terminal.
 
+3. If you didn't do the pre-workshop learning,
+   you won't yet have **your own dir** `/fs/ess/PAS3454/people/<your-username>`.
+   Create this dir, where `<your-username>` should be your exact OSC username.
+
+   <details><summary>Click to expand for some hints</summary>
+
+   You can do this in several ways, but here is the most foolproof way:
+
+   ```bash
+   # `$USER` is an environment variable that contains your username,
+   # so this command will work for everyone:
+   mkdir /fs/ess/PAS3454/people/$USER
+   ```
+   
+   Alternatively, assuming you are in `/fs/ess/PAS3454` and your username is
+   `jane`, a simpler command would be:
+
+   ```bash
+   mkdir people/jane
+   ```
+
+   ::: {.callout-tip appearance="simple"}
+   If you already had a `/fs/ess/PAS3454/people/<your-username>` dir,
+   the above commands should have failed with an error message like
+   `mkdir: cannot create directory ‘/fs/ess/PAS3454/people/jane’: File exists`.
+   :::
+
+   Other alternatives are to use the VS Code file explorer to create the folder
+   (there's a "New Folder" button), or to use [OSC OnDemand](https://ondemand.osc.edu/)
+   file browser.
+
+   </details>
 :::
 
 ## Setting up the OSC connection in VS Code
@@ -364,18 +396,19 @@ or created one following the [optional pre-workshop material](s3-github-account.
 Keep in mind that GitHub is a much more general platform than just GitHub Copilot,
 widely used for sharing and collaborating on code.
 Nevertheless, with your GitHub account,
-you are nowadays also automatically enrolled in the Free Tier of GitHub Copilot.
+you are nowadays also automatically enrolled in the GitHub Copilot free plan.
 
 ::: {.callout-note}
-#### GitHub Copilot tiers
+#### GitHub Copilot plans
 
-This free tier will work for the purposes of this workshop,
+This free plan will work for the purposes of this workshop,
 but is _not_ sufficient for sustained GitHub Copilot use.
 
 You may have done the optional pre-workshop setup step to 
-[obtain GitHub Pro access via your academic credentials](s3-github-account.qmd).
+[obtain GitHub Copilot Student/Pro access via your academic credentials](s3-github-account.qmd).
 If that was approved (should be quick) and processed (72 hours later),
-you'll now have much more extensive, though not unlimited, access to GitHub Copilot.
+you'll now have more extensive, though not unlimited, access to GitHub Copilot.
+For more details, see [our GitHub setup page](s3-github-account.qmd#apply-for-additional-free-github-copilot-access)
 
 If you didn't do that, there isn't much point in doing it _right now_,
 because you won't obtain access during the workshop.
@@ -443,8 +476,8 @@ The setup below only serves to log in to your GitHub account or create one along
    ![](/img/vscode-copilot-blank.png){fig-align="center" width="50%" fig-alt="Screenshot of the VS Code interface, showing the GitHub Copilot sidebar"}
 
 ::: {.callout-tip appearance="simple"}
-As mentioned above, unless you have already [obtained GitHub Pro access via your academic credentials](s3-github-account.qmd),
-you will be automatically using the Free Tier of GitHub Copilot after logging in or creating a new account.
+As mentioned above, unless you have already [obtained GitHub Copilot Student/Pro access via your academic credentials](s3-github-account.qmd),
+you will be automatically using the GitHub Copilot free plan after logging in or creating a new account.
 :::
 
 ### One example prompt
