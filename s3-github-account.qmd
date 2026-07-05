@@ -22,27 +22,30 @@ bibliography: refs.bib
 For the purposes of this workshop,
 a GitHub account will allow you to use the agentic AI tool GitHub Copilot within VS Code.
 
-The following steps are not strictly required before the workshop,
+It's not required to do the following steps before the workshop,
 because creating a GitHub account can be done quite seamlessly during the workshop,
 and because you'll also have access to an alternative, similar AI tool (Claude Code).
 
-However, we do recommend following the steps below, considering that:
+However, we do recommend doing this, considering that:
 
 - Claude Code is a paid tool that we will provide institutional^[for-fee, but free to you]
   access to during the workshop,
   but that you will not have access to after the workshop unless you pay for it in some way.
 
-- While GitHub Copilot, on the other hand, cannot be used institutionally (i.e., with private data) at OSU,
-  it does have a free 'personal' option for academic users.
+- While GitHub Copilot, on the other hand,
+  cannot be used institutionally (i.e., with private data) at OSU,
+  it does have fairly generous free 'personal' options for students and especially
+  teachers/faculty.
 
-As such, for many of you, GitHub Copilot may be the easiest way to continue trying out
+As such, for many of you, GitHub Copilot will be an easier way to continue trying out
 agentic AI tools after the workshop (we'll discuss your options further during the workshop).
 
 ## Create a GitHub account (if you don't have one yet)
 
 GitHub is a place where you can store your code and share it with others,
 and where you can find code and software written by others.
-It can therefore be very useful to have a GitHub account beyond GitHub Copilot usage.
+It can therefore be very useful to have a GitHub account ---
+not just for GitHub Copilot usage.
 
 1. Go to <https://github.com>
 
@@ -62,7 +65,20 @@ It can therefore be very useful to have a GitHub account beyond GitHub Copilot u
 5. Check your email and click the link to **_verify your email address_**.
    There may also be some two-factor authentication steps to complete.
 
-## Apply for free GitHub Copilot Pro access
+## Apply for additional free GitHub Copilot access
+
+Anyone with a GitHub account will be automatically enrolled in the free GitHub Copilot plan,
+which has a limit of 2,000 code completions per month and ~50 chat requests.
+That's not enough for most people to use GitHub Copilot in a meaningful, sustained way,
+but as students and teachers/faculty, we can get additional free access after applying for it.
+
+In summary (see also this [GitHub page](https://docs.github.com/en/copilot/concepts/billing/individual-plans)):
+
+| Plan | Free for whom | How to get it | Code completions | Chat requests |
+|------|----------|------------------|---------------|---------------|
+| Free | Everyone | Automatically | 2,000 per month | ~50 |
+| Student | Students | Through education benefits | Unlimited | 200 |
+| Pro | Teachers/Faculty | Through education benefits | Unlimited | 1,500 |
 
 The following will work for teachers/faculty and students alike –
 you'll just need to select the appropriate option in the form:
@@ -83,7 +99,7 @@ but **access is only granted 72 hours after approval**.
 
 ## Plans
 
-https://docs.github.com/en/copilot/concepts/billing/individual-plans
+
 
 - Free: 2,000 code completions per month, ~50 chat requests 
 - Student: unlimited code completions, 200 credits
