@@ -1,0 +1,32 @@
+---
+title: "Further Resources"
+subtitle: "..."
+date: 2026-07-05
+date-modified: today
+number-sections: true
+toc: true
+---
+
+---------
+
+<hr style="height:1pt; visibility:hidden;" />
+
+::: {.callout-caution appearance="simple"}
+**_This page is still subject to change_**
+:::
+
+<hr style="height:1pt; visibility:hidden;" />
+
+## Introduction
+
+## Other AI options in VS Code
+
+### Google Gemini in VS Code
+
+### Free options
+
+## Other resources
+
+### Background reading
+
+### Tutorials, courses, and so on
