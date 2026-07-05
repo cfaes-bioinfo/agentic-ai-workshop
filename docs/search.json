@@ -431,49 +431,49 @@
     "href": "intro_to_genAI_and_LLM.html#introduction-to-ai",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Introduction to AI",
-    "text": "Introduction to AI\n\nArtificial intelligence (AI)\n\n\nAI is the branch of computer science that simulates human intelligence and trains computers to learn human behaviors\nObjective - make machines think like humans and learn human behaviors reasoning, planning, predicting, problem solving, decision making\nMajor applications of AI in bioinformatics is protein structure prediction"
+    "text": "Introduction to AI\n\nArtificial intelligence (AI)\n\n\nAI is the branch of computer science that simulates human intelligence and trains computers to learn human behaviors\nObjective - make machines think like humans and learn human behaviors reasoning, planning, predicting, problem solving, decision making\nAI is a multidisciplinary technology with an ability to integrate cognition, machine learning, emotion recognition, human computer interaction, data storage and decision making\nApplications of AI in biology - protein sequence & structure prediction, recognize the functional element of DNA, drug discovery etc"
   },
   {
     "objectID": "intro_to_genAI_and_LLM.html#introduction-to-llm",
     "href": "intro_to_genAI_and_LLM.html#introduction-to-llm",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Introduction to LLM",
-    "text": "Introduction to LLM\n\nLarge language model (LLM)\n\n\nLLMs are the core of many modern AI applications\nLLMs are built on Transformer architecture & trained on massive collections of data\nLarge in LLM refers to both the enormous number of model parameters and the vast quantity of training data used during development\nLLMs are trained to predict the next token or sequence of token in a piece of text.\nTwo key characteristics of LLMS are large parameter counts and in-context learning capabilities\nExamples; ChatGPT (Open AI), Claude (Anthropic), Gemini (Google Deep Mind), Llama (Meta)"
+    "text": "Introduction to LLM\n\nLarge language model (LLM)\n\n\nLLMs are the core of many AI applications\nLLMs are built on Transformer architecture & trained on massive collections of data\nLarge in LLM refers to both the enormous number of model parameters and the vast quantity of training data used during development\nLLMs are trained to predict the next token or sequence of token in a piece of text\nTwo key characteristics of LLMS are large parameter counts and in-context learning capabilities\nExamples; ChatGPT (Open AI), Claude (Anthropic), Gemini (Google Deep Mind), Llama (Meta)"
   },
   {
     "objectID": "intro_to_genAI_and_LLM.html#introduction-to-llm-cont.",
     "href": "intro_to_genAI_and_LLM.html#introduction-to-llm-cont.",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Introduction to LLM (cont.)",
-    "text": "Introduction to LLM (cont.)\n\nWhat can LLM do for the biological scientists?\n\n\nLLM can generate code from the natural language description, auto complete code, execute complex tasks, manage multiple files and execute everything in a secure environment\nAgentic AI can execute scripts, troubleshoot errors, validate outputs, and propose changes autonomously\nProgramming is no longer a barrier to biological scientists"
+    "text": "Introduction to LLM (cont.)\n\nWhat can LLM do for the biological scientists?\n\n\nGenerate code from the natural language description, auto complete code, execute complex tasks, manage multiple files and execute everything in a secure environment\nAgentic AI can execute scripts, troubleshoot errors, validate outputs, and propose changes autonomously\nProgramming is no longer a barrier to biological scientists"
   },
   {
     "objectID": "intro_to_genAI_and_LLM.html#introduction-to-llm-cont.-1",
     "href": "intro_to_genAI_and_LLM.html#introduction-to-llm-cont.-1",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Introduction to LLM (cont.)",
-    "text": "Introduction to LLM (cont.)\n\nTransformer\n\n\nFoundation of modern LLM introduced in 2017\nCan process an entire input sequence in parallel - faster and efficient computation\nAbility to capture long-range dependencies within text - understand relationships between words and phrases across extensive contexts\nRelies on a self-attention mechanism that enables the model to analyze and weigh the importance of input sequence while making predictions\n\n\nAdvantages of transformer\n• Read the whole sequence at once\n• Capture long-range relationships\n• Train much faster\nThree Transformer architectures - Encoder-only, Decoder-only & Encoder-Decoder model"
+    "text": "Introduction to LLM (cont.)\n\nTransformer\n\n\nFoundation of modern LLM introduced in 2017\nCan process an entire input sequence in parallel - faster and efficient computation\nAbility to capture long-range dependencies within text - understand relationships between words and phrases across extensive contexts\nRelies on a self-attention mechanism - enables model to analyze and weigh the importance of input sequence while making predictions\n\n\nAdvantages of Transformer\n• Read the whole sequence at once\n• Capture long-range relationships\n• Train much faster\nThree Transformer architectures - Encoder-only model, Decoder-only model & Encoder-Decoder model"
   },
   {
     "objectID": "intro_to_genAI_and_LLM.html#transformer-architectures",
     "href": "intro_to_genAI_and_LLM.html#transformer-architectures",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Transformer architectures",
-    "text": "Transformer architectures\n\nEncoder-only model (Google’s BERT) \n\n\nUnderstands the input data\nProcess the input data and convert it to the contextualized internal representation (embedding)\nData is processed in bidirectional manner - understand context left and right side\nExample; DNABERT\nDNABERT is a AI model that uses DNA as a language\nDNABERT reads the entire DNA sequence and learns how different parts relate to each other\nDNABERT can recognize important functional regions such as promoters, splice sites, and transcription factor binding sites\nRead → Understand → Predict"
+    "text": "Transformer architectures\n\nEncoder-only model (Google’s BERT) \n\n\nUnderstands the input data\nProcess the input data and convert it to the contextualized internal representation (embedding)\nData is processed in bidirectional manner - understand context left and right side\nSelf attention - each token in a sequence can look at every other token in the same sequence to understand its context\nExample; DNABERT"
   },
   {
     "objectID": "intro_to_genAI_and_LLM.html#transformer-architectures-cont.",
     "href": "intro_to_genAI_and_LLM.html#transformer-architectures-cont.",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Transformer architectures (cont.)",
-    "text": "Transformer architectures (cont.)\n\nDecoder-only model (OpenAI GPT series)\n\n\nDecoder models are designed to generate the output sequence/new sequence\nIt predicts the next token based on the context of all previously generated tokens\nUnidirectional - Process sequence from left to right to predict what comes next\nSelf attention - Predict the next token based on the previous tokens\nExample - ProGen\nProGen - protein language model trained on millions of raw protein sequences\nProGen predicts the next amino acid based on the amino acids that come before it generating entirely new protein sequences from de novo"
+    "text": "Transformer architectures (cont.)\n\nEncoder-only model (Google’s BERT) \n\n\nDNABERT is a AI model that uses DNA as a language\nTokens are generated based on k-mers or Byte Pair Encoding\nDNABERT reads the entire DNA sequence and understand the biological function of even distant nucleotide bases\nDNABERT can recognize important functional regions such as promoters, splice sites, and transcription factor binding sites\n\n\nRead → Understand → Predict"
   },
   {
     "objectID": "intro_to_genAI_and_LLM.html#transformer-architectures-cont.-1",
     "href": "intro_to_genAI_and_LLM.html#transformer-architectures-cont.-1",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Transformer architectures (cont.)",
-    "text": "Transformer architectures (cont.)\n\nEncoder-decoder model\n\n\nCombines both understanding(encoding) and generation (decoding)\nUnderstands the input and generates the output\nExample: Protein structure-sequence T5 (Prott5)\nProstT5 is a protein language model based on T5 encoder-decoder architecture which can translate between protein sequence and structure\nThe encoder learns a contextual representation of the input (sequence or structure), while the decoder generates the corresponding output (structure or sequence)\nThis enables bidirectional translation between protein sequence and structural information\nRead → Understand → Translate"
+    "text": "Transformer architectures (cont.)\n\nDecoder-only model (OpenAI GPT series)\n\n\nDecoder models are designed to generate the output sequence/new sequence\nIt predicts the next token based on the context of all previously generated tokens\nUnidirectional - process sequence from left to right to predict what comes next\nExample - ProGen\nProGen - protein language model trained on millions of raw protein sequences\nProGen predicts the next amino acid based on the amino acids that come before it generating entirely new protein sequences from de novo"
   },
   {
     "objectID": "intro_to_genAI_and_LLM.html#reinforcement-learning-rl",
@@ -495,5 +495,19 @@
     "title": "Introduction to Generative AI and LLMs",
     "section": "Different models with different capabilities and costs",
     "text": "Different models with different capabilities and costs"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#introduction-to-aicont.",
+    "href": "intro_to_genAI_and_LLM.html#introduction-to-aicont.",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Introduction to AI(cont.)",
+    "text": "Introduction to AI(cont.)\n\nArtificial intelligence (AI)\n\n\n\nFigure 1. Branches of Artificial Intelligence: LLM falls under machine learning, neural network, NLP"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#transformer-architectures-cont.-2",
+    "href": "intro_to_genAI_and_LLM.html#transformer-architectures-cont.-2",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Transformer architectures (cont.)",
+    "text": "Transformer architectures (cont.)\n\nEncoder-decoder model\n\n\nCombines both understanding (encoding) and generation (decoding)\nUnderstands the input and generates the output\nExample: Protein structure-sequence T5 (Prott5)\nProstT5 is a protein language model based on T5 encoder-decoder architecture which can translate between protein sequence and structure\nThe encoder learns a contextual representation of the input (sequence or structure), while the decoder generates the corresponding output (structure or sequence)\nThis enables bidirectional translation between protein sequence and structural information\nRead → Understand → Translate"
   }
 ]
