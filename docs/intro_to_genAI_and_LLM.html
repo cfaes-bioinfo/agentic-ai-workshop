@@ -169,7 +169,7 @@ Menuka Bhandari
 
 <ul>
 <li>AI is the branch of computer science that <strong>simulates human intelligence and trains computers to learn human behaviors</strong></li>
-<li>Objective - make machines think like humans and learn human behaviors reasoning, planning, predicting, problem solving, decision making</li>
+<li>Objective - make machines think like humans and learn human behaviors such as reasoning, planning, predicting, problem solving, decision making</li>
 <li>AI is a multidisciplinary technology with an ability to integrate cognition, machine learning, emotion recognition, human computer interaction, data storage and decision making</li>
 <li>Applications of AI in biology - protein sequence &amp; structure prediction, recognize the functional element of DNA, drug discovery etc</li>
 </ul></li>
@@ -186,10 +186,28 @@ Menuka Bhandari
 <section id="introduction-to-llm" class="slide level2">
 <h2>Introduction to LLM</h2>
 <ul>
+<li><strong>Language model (LM)</strong><br>
+
+<ul>
+<li>LM is a statistical or machine learning model that learns the patterns and relationship within sequences</li>
+<li>It estimates the probability of a sequence and predicts the next word or token based on the surrounding context.</li>
+<li>Example; Consider the two sentences:
+<ul>
+<li>The cat sat on the mat</li>
+<li>The cat sat on the refrigerator</li>
+</ul></li>
+<li>The first sentence occurs more frequently in language, thus LM assigns higher probability to it</li>
+<li>Traditional LM (e.g., N-gram models) struggle with rare or unseen words/tokens &amp; capturing long-range dependencies</li>
+</ul></li>
+</ul>
+</section>
+<section id="introduction-to-llm-cont." class="slide level2">
+<h2>Introduction to LLM (cont.)</h2>
+<ul>
 <li><strong>Large language model (LLM)</strong><br>
 
 <ul>
-<li>LLMs are the core of many AI applications</li>
+<li>LLMs are advanced LM that are core of many AI applications</li>
 <li>LLMs are built on <strong>Transformer architecture</strong> &amp; trained on <strong>massive collections of data</strong></li>
 <li><strong>Large</strong> in LLM refers to both the enormous number of model parameters and the vast quantity of training data used during development</li>
 <li>LLMs are trained to predict the <strong>next token or sequence of token</strong> in a piece of text</li>
@@ -198,7 +216,7 @@ Menuka Bhandari
 </ul></li>
 </ul>
 </section>
-<section id="introduction-to-llm-cont." class="slide level2">
+<section id="introduction-to-llm-cont.-1" class="slide level2">
 <h2>Introduction to LLM (cont.)</h2>
 <ul>
 <li><strong>What can LLM do for the biological scientists?</strong><br>
@@ -210,8 +228,8 @@ Menuka Bhandari
 </ul></li>
 </ul>
 
-<img data-src=".\img/evolution_LLM.png" class="quarto-figure quarto-figure-center r-stretch" style="width:30.0%"></section>
-<section id="introduction-to-llm-cont.-1" class="slide level2">
+<img data-src=".\img/evolution_LLM.png" style="width:30.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 2.</strong> Evolution of LLM</p></section>
+<section id="introduction-to-llm-cont.-2" class="slide level2">
 <h2>Introduction to LLM (cont.)</h2>
 <ul>
 <li><strong>Transformer</strong><br>
@@ -250,7 +268,7 @@ Menuka Bhandari
 </p>
 <ul>
 <li>DNABERT is a AI model that uses DNA as a language</li>
-<li>Tokens are generated based on k-mers or Byte Pair Encoding</li>
+<li>Tokens are generated based on k-mers (DNABERT) or Byte Pair Encoding (DNABERT-2)</li>
 <li>DNABERT reads the entire DNA sequence and understand the biological function of even distant nucleotide bases</li>
 <li>DNABERT can recognize important functional regions such as promoters, splice sites, and transcription factor binding sites<br>
 </li>
@@ -265,7 +283,7 @@ Menuka Bhandari
 
 <ul>
 <li>Decoder models are designed to generate the output sequence/new sequence</li>
-<li>It predicts the next token based on the context of all previously generated tokens</li>
+<li>Predicts the next token based on the context of all previously generated tokens</li>
 <li>Unidirectional - process sequence from left to right to predict what comes next</li>
 <li>Example - <strong>ProGen</strong></li>
 <li>ProGen - protein language model trained on millions of raw protein sequences</li>
@@ -284,8 +302,8 @@ Menuka Bhandari
 <li>Combines both understanding (encoding) and generation (decoding)</li>
 <li>Understands the input and generates the output</li>
 <li>Example: <strong>Protein structure-sequence T5 (Prott5)</strong></li>
-<li>ProstT5 is a protein language model based on T5 encoder-decoder architecture which can translate between protein sequence and structure</li>
-<li>The encoder learns a contextual representation of the input (sequence or structure), while the decoder generates the corresponding output (structure or sequence)</li>
+<li>ProstT5 is a protein language model based on T5 encoder-decoder architecture - translate protein sequence and structure</li>
+<li>The encoder learns a contextual representation of the input (sequence or structure), &amp; decoder generates the corresponding output (structure or sequence)</li>
 <li>This enables bidirectional translation between protein sequence and structural information<br>
 <strong>Read → Understand → Translate</strong></li>
 </ul></li>
@@ -297,7 +315,9 @@ Menuka Bhandari
 <li>A machine learning approach where an agent learns by trial and error</li>
 <li>The agent interacts with an environment to maximize rewards and minimize penalties</li>
 <li>Successful actions are reinforced, while poor actions are discouraged</li>
-<li>Over time, the agent improves its decision-making through experience</li>
+<li>The agent improves its decision-making through experience overtime</li>
+<li>Advantage: Agent can learn in an unknown environment</li>
+<li>Limitations: long traiing times, low sample efficiecny and stability concerns</li>
 <li>Example; De novo Drug discovery to optimize drug candidates<br>
 </li>
 <li>In protein engineering, an AI model generates protein sequences, receives rewards for desirable properties (e.g., higher stability or stronger binding affinity), and learns to generate improved proteins over time</li>

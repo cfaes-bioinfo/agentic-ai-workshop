@@ -52,7 +52,7 @@ bibliography: refs.bib
 
 - **Artificial intelligence (AI)**\
   - AI is the branch of computer science that **simulates human intelligence and trains computers to learn human behaviors**
-  - Objective - make machines think like humans and learn human behaviors reasoning, planning, predicting, problem solving, decision making 
+  - Objective - make machines think like humans and learn human behaviors such as reasoning, planning, predicting, problem solving, decision making 
   - AI is a multidisciplinary technology with an ability to integrate cognition, machine learning, emotion recognition, human computer interaction, data storage and decision making
   - Applications of AI in biology - protein sequence & structure prediction, recognize the functional element of DNA, drug discovery etc
 
@@ -64,8 +64,19 @@ bibliography: refs.bib
 
 ## Introduction to LLM
 
+- **Language model (LM)** \
+  - LM is a statistical or machine learning model that learns the patterns and relationship within sequences
+  - It estimates the probability of a sequence and predicts the next word or token based on the surrounding context.
+  - Example; Consider the two sentences:
+    - The cat sat on the mat
+    - The cat sat on the refrigerator
+  - The first sentence occurs more frequently in language, thus LM assigns higher probability to it
+  - Traditional LM (e.g., N-gram models) struggle with rare or unseen words/tokens & capturing long-range dependencies
+  
+## Introduction to LLM (cont.)
+
 - **Large language model (LLM)**\
-  - LLMs are the core of many AI applications
+  - LLMs are advanced LM that are core of many AI applications
   - LLMs are built on **Transformer architecture** & trained on **massive collections of data**
   - **Large** in LLM refers to both the enormous number of model parameters and the vast quantity of training data used during development 
   - LLMs are trained to predict the **next token or sequence of token** in a piece of text
@@ -79,7 +90,7 @@ bibliography: refs.bib
   - Agentic AI can execute scripts, troubleshoot errors, validate outputs, and propose changes autonomously
   - Programming is no longer a barrier to biological scientists 
 
-![](/img/evolution_LLM.png){fig-align="center" width="30%"}
+![**Figure 2.** Evolution of LLM](/img/evolution_LLM.png){fig-align="center" width="30%"}
 
 ## Introduction to LLM (cont.)
 
@@ -111,14 +122,14 @@ bibliography: refs.bib
   - DNABERT is a AI model that uses DNA as a language
   - Tokens are generated based on k-mers (DNABERT) or Byte Pair Encoding (DNABERT-2)
   - DNABERT reads the entire DNA sequence and understand the biological function of even distant nucleotide bases
-  - DNABERT can recognize important functional regions such as promoters, splice sites, and transcription factor binding sites at the nearby region or distant region \
+  - DNABERT can recognize important functional regions such as promoters, splice sites, and transcription factor binding sites \
   
   **Read → Understand → Predict**
   
 ## Transformer architectures (cont.)
 - **Decoder-only model (OpenAI GPT series)**\
   - Decoder models are designed to generate the output sequence/new sequence
-  - It predicts the next token based on the context of all previously generated tokens 
+  - Predicts the next token based on the context of all previously generated tokens 
   - Unidirectional - process sequence from left to right to predict what comes next
   - Example - **ProGen**
   - ProGen - protein language model trained on millions of raw protein sequences
@@ -131,8 +142,8 @@ bibliography: refs.bib
   - Combines both understanding (encoding) and generation (decoding)
   - Understands the input and generates the output
   - Example: **Protein structure-sequence T5 (Prott5)**
-  - ProstT5 is a protein language model based on T5 encoder-decoder architecture which can translate between protein sequence and structure
-  - The encoder learns a contextual representation of the input (sequence or structure), while the decoder generates the corresponding output (structure or sequence)
+  - ProstT5 is a protein language model based on T5 encoder-decoder architecture - translate protein sequence and structure
+  - The encoder learns a contextual representation of the input (sequence or structure), & decoder generates the corresponding output (structure or sequence)
   - This enables bidirectional translation between protein sequence and structural information \
      **Read → Understand → Translate**
 
@@ -140,9 +151,11 @@ bibliography: refs.bib
 ## Reinforcement learning (RL)
 
   - A machine learning approach where an agent learns by trial and error
-  - The agent interacts with an environment to maximize rewards and minimize penalties
+  - Agent interacts with an environment to maximize rewards and minimize penalties
   - Successful actions are reinforced, while poor actions are discouraged
-  -  Over time, the agent improves its decision-making through experience
+  -  Agent improves its decision-making through experience overtime
+  - Advantage: Agent can learn in an unknown environment
+  - Limitations: long training times, low sample efficiency and stability concerns
   - Example; De novo Drug discovery to optimize drug candidates \
   - In protein engineering, an AI model generates protein sequences, receives rewards for desirable properties (e.g., higher stability or stronger binding affinity), and learns to generate improved proteins over time
   
