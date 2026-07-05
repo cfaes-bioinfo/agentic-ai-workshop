@@ -396,7 +396,7 @@
     "href": "intro_to_genAI_and_LLM.html#overview",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Overview",
-    "text": "Overview\n\nIntroduction to Artificial intelligence (AI) and Large language model (LLM)\nEncoder only model, Decoder only model, Encoder-decoder model\nReinforcement Learning\nTokens, Context windows, Embedding\nChat-and-answer vs. agentic AI\nDifferent models with different capabilities and costs"
+    "text": "Overview\n\nIntroduction to Artificial intelligence (AI) and Large language model (LLM)\nTransformer architectures - Encoder only model, Decoder only model, Encoder-decoder model\nReinforcement Learning\nTokens, Context windows, Embedding\nChat-and-answer vs. agentic AI\nDifferent models with different capabilities and costs"
   },
   {
     "objectID": "intro_to_genAI_and_LLM.html#introduction-to-ai-and-llm",
@@ -424,13 +424,55 @@
     "href": "intro_to_genAI_and_LLM.html#introduction-to-llm-cont.",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Introduction to LLM (cont.)",
-    "text": "Introduction to LLM (cont.)\n\nWhat can LLM do for the biological scientists?\n\n\nLLM can generate code from the natural language description, auto complete code, execute complex tasks, manage multiple files and execute everything in a secure environment.\nAgentic AI can execute scripts, troubleshoot errors, validate outputs, and propose changes autonomously.\nTherefore, programming is no longer a barrier to biological scientists."
+    "text": "Introduction to LLM (cont.)\n\nWhat can LLM do for the biological scientists?\n\n\nLLM can generate code from the natural language description, auto complete code, execute complex tasks, manage multiple files and execute everything in a secure environment\nAgentic AI can execute scripts, troubleshoot errors, validate outputs, and propose changes autonomously\nProgramming is no longer a barrier to biological scientists"
   },
   {
     "objectID": "intro_to_genAI_and_LLM.html#introduction-to-llm-cont.-1",
     "href": "intro_to_genAI_and_LLM.html#introduction-to-llm-cont.-1",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Introduction to LLM (cont.)",
-    "text": "Introduction to LLM (cont.)\n\nTransformer\n\n\nFoundation of modern LLM introduced in 2017\nCan process an entire input sequence in parallel - faster and efficient computation\nAbility to capture long-range dependencies within text - understand relationships between words and phrases across extensive contexts\nRelies on a self-attention mechanism that enables the model to analyze and weigh the importance of input sequence while making predictions\n\n\nAdvantages of transformer\n• Read the whole sequence at once\n• Capture long-range relationships\n• Train much faster\nThree Transformer architectures - Encoder-only, Decoder-only & Encoder-Decoder"
+    "text": "Introduction to LLM (cont.)\n\nTransformer\n\n\nFoundation of modern LLM introduced in 2017\nCan process an entire input sequence in parallel - faster and efficient computation\nAbility to capture long-range dependencies within text - understand relationships between words and phrases across extensive contexts\nRelies on a self-attention mechanism that enables the model to analyze and weigh the importance of input sequence while making predictions\n\n\nAdvantages of transformer\n• Read the whole sequence at once\n• Capture long-range relationships\n• Train much faster\nThree Transformer architectures - Encoder-only, Decoder-only & Encoder-Decoder model"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#transformer-architectures",
+    "href": "intro_to_genAI_and_LLM.html#transformer-architectures",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Transformer architectures",
+    "text": "Transformer architectures\n\nEncoder-only model (Google’s BERT) \n\n\nUnderstands the input data\nProcess the input data and convert it to the contextualized internal representation (embedding)\nData is processed in bidirectional manner - understand context left and right side\nExample; DNABERT\nDNABERT is a AI model that uses DNA as a language\nDNABERT reads the entire DNA sequence and learns how different parts relate to each other\nDNABERT can recognize important functional regions such as promoters, splice sites, and transcription factor binding sites\nRead → Understand → Predict"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#transformer-architectures-cont.",
+    "href": "intro_to_genAI_and_LLM.html#transformer-architectures-cont.",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Transformer architectures (cont.)",
+    "text": "Transformer architectures (cont.)\n\nDecoder-only model (OpenAI GPT series)\n\n\nDecoder models are designed to generate the output sequence/new sequence\nIt predicts the next token based on the context of all previously generated tokens\nUnidirectional - Process sequence from left to right to predict what comes next\nSelf attention - Predict the next token based on the previous tokens\nExample - ProGen\nProGen - protein language model trained on millions of raw protein sequences\nProGen predicts the next amino acid based on the amino acids that come before it generating entirely new protein sequences from de novo"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#transformer-architectures-cont.-1",
+    "href": "intro_to_genAI_and_LLM.html#transformer-architectures-cont.-1",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Transformer architectures (cont.)",
+    "text": "Transformer architectures (cont.)\n\nEncoder-decoder model\n\n\nCombines both understanding(encoding) and generation (decoding)\nUnderstands the input and generates the output\nExample: Protein structure-sequence T5 (Prott5)\nProstT5 is a protein language model based on T5 encoder-decoder architecture which can translate between protein sequence and structure\nThe encoder learns a contextual representation of the input (sequence or structure), while the decoder generates the corresponding output (structure or sequence)\nThis enables bidirectional translation between protein sequence and structural information\nRead → Understand → Translate"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#reinforcement-learning-rl",
+    "href": "intro_to_genAI_and_LLM.html#reinforcement-learning-rl",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Reinforcement learning (RL)",
+    "text": "Reinforcement learning (RL)\n\nA machine learning approach where an agent learns by trial and error\nThe agent interacts with an environment to maximize rewards and minimize penalties\nSuccessful actions are reinforced, while poor actions are discouraged\nOver time, the agent improves its decision-making through experience\nExample; De novo Drug discovery to optimize drug candidates\n\nIn protein engineering, an AI model generates protein sequences, receives rewards for desirable properties (e.g., higher stability or stronger binding affinity), and learns to generate improved proteins over time"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#chat-and-answer-vs.-agentic-ai",
+    "href": "intro_to_genAI_and_LLM.html#chat-and-answer-vs.-agentic-ai",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Chat-and-answer vs. agentic AI",
+    "text": "Chat-and-answer vs. agentic AI"
+  },
+  {
+    "objectID": "intro_to_genAI_and_LLM.html#different-models-with-different-capabilities-and-costs",
+    "href": "intro_to_genAI_and_LLM.html#different-models-with-different-capabilities-and-costs",
+    "title": "Introduction to Generative AI and LLMs",
+    "section": "Different models with different capabilities and costs",
+    "text": "Different models with different capabilities and costs"
   }
 ]

@@ -70,9 +70,9 @@ bibliography: refs.bib
 ## Introduction to LLM (cont.)
 
 - **What can LLM do for the biological scientists?**\
-  - LLM can generate code from the natural language description, auto complete code, execute complex tasks, manage multiple files and execute everything in a secure environment.
-  - Agentic AI can execute scripts, troubleshoot errors, validate outputs, and propose changes autonomously.
-  - Therefore, programming is no longer a barrier to biological scientists. 
+  - LLM can generate code from the natural language description, auto complete code, execute complex tasks, manage multiple files and execute everything in a secure environment
+  - Agentic AI can execute scripts, troubleshoot errors, validate outputs, and propose changes autonomously
+  - Programming is no longer a barrier to biological scientists 
 
 ![](/img/evolution_LLM.png){fig-align="center" width="30%"}
 
@@ -89,8 +89,58 @@ bibliography: refs.bib
 •	Capture long-range relationships \
 •	Train much faster
 
-**Three Transformer architectures** - Encoder-only, Decoder-only & Encoder-Decoder
+**Three Transformer architectures** - Encoder-only, Decoder-only & Encoder-Decoder model
 
 ## Transformer architectures
 
-- **Encoder-only**\
+- **Encoder-only model (Google’s BERT) **\
+  - **Understands the input data**
+  - Process the input data and convert it to the contextualized internal representation (**embedding**)
+  - Data is processed in bidirectional manner - understand context left and right side
+  - Example; **DNABERT**
+  - DNABERT is a AI model that uses DNA as a language 
+  - DNABERT reads the entire DNA sequence and learns how different parts relate to each other
+  - DNABERT can recognize important functional regions such as promoters, splice sites, and transcription factor binding sites \
+  **Read → Understand → Predict**
+  
+## Transformer architectures (cont.)
+- **Decoder-only model (OpenAI GPT series)**\
+  - Decoder models are designed to generate the output sequence/new sequence
+  - It predicts the next token based on the context of all previously generated tokens 
+  - Unidirectional - Process sequence from left to right to predict what comes next
+  - **Self attention** - Predict the next token based on the previous tokens
+  - Example - **ProGen**
+  - ProGen - protein language model trained on millions of raw protein sequences
+  - ProGen predicts the next amino acid based on the amino acids that come before it generating entirely new protein sequences from de novo \
+  
+![](/img/encoder_decoder_model.png){fig-align="center" width="50%"}
+  
+## Transformer architectures (cont.)
+- **Encoder-decoder model**\
+  - Combines both understanding(encoding) and generation (decoding)
+  - Understands the input and generates the output
+  - Example: **Protein structure-sequence T5 (Prott5)**
+  - ProstT5 is a protein language model based on T5 encoder-decoder architecture which can translate between protein sequence and structure
+  - The encoder learns a contextual representation of the input (sequence or structure), while the decoder generates the corresponding output (structure or sequence)
+  - This enables bidirectional translation between protein sequence and structural information \
+     **Read → Understand → Translate**
+
+
+## Reinforcement learning (RL)
+
+  - A machine learning approach where an agent learns by trial and error
+  - The agent interacts with an environment to maximize rewards and minimize penalties
+  - Successful actions are reinforced, while poor actions are discouraged
+  -  Over time, the agent improves its decision-making through experience
+  - Example; De novo Drug discovery to optimize drug candidates \
+  - In protein engineering, an AI model generates protein sequences, receives rewards for desirable properties (e.g., higher stability or stronger binding affinity), and learns to generate improved proteins over time
+  
+## Chat-and-answer vs. agentic AI
+
+![](/img/chat_agentic_AI.png){fig-align="center" width="10%"}
+
+## Different models with different capabilities and costs
+
+  
+  
+  

@@ -155,7 +155,7 @@ Menuka Bhandari
 <h2>Overview</h2>
 <ul>
 <li><p>Introduction to Artificial intelligence (AI) and Large language model (LLM)</p></li>
-<li><p>Encoder only model, Decoder only model, Encoder-decoder model</p></li>
+<li><p>Transformer architectures - Encoder only model, Decoder only model, Encoder-decoder model</p></li>
 <li><p>Reinforcement Learning</p></li>
 <li><p>Tokens, Context windows, Embedding</p></li>
 <li><p>Chat-and-answer vs.&nbsp;agentic AI</p></li>
@@ -196,9 +196,9 @@ Menuka Bhandari
 <li><strong>What can LLM do for the biological scientists?</strong><br>
 
 <ul>
-<li>LLM can generate code from the natural language description, auto complete code, execute complex tasks, manage multiple files and execute everything in a secure environment.</li>
-<li>Agentic AI can execute scripts, troubleshoot errors, validate outputs, and propose changes autonomously.</li>
-<li>Therefore, programming is no longer a barrier to biological scientists.</li>
+<li>LLM can generate code from the natural language description, auto complete code, execute complex tasks, manage multiple files and execute everything in a secure environment</li>
+<li>Agentic AI can execute scripts, troubleshoot errors, validate outputs, and propose changes autonomously</li>
+<li>Programming is no longer a barrier to biological scientists</li>
 </ul></li>
 </ul>
 
@@ -219,7 +219,77 @@ Menuka Bhandari
 • Read the whole sequence at once<br>
 • Capture long-range relationships<br>
 • Train much faster</p>
-<p><strong>Three Transformer architectures</strong> - Encoder-only, Decoder-only &amp; Encoder-Decoder</p>
+<p><strong>Three Transformer architectures</strong> - Encoder-only, Decoder-only &amp; Encoder-Decoder model</p>
+</section>
+<section id="transformer-architectures" class="slide level2">
+<h2>Transformer architectures</h2>
+<ul>
+<li><strong>Encoder-only model (Google’s BERT) </strong><br>
+
+<ul>
+<li><strong>Understands the input data</strong></li>
+<li>Process the input data and convert it to the contextualized internal representation (<strong>embedding</strong>)</li>
+<li>Data is processed in bidirectional manner - understand context left and right side</li>
+<li>Example; <strong>DNABERT</strong></li>
+<li>DNABERT is a AI model that uses DNA as a language</li>
+<li>DNABERT reads the entire DNA sequence and learns how different parts relate to each other</li>
+<li>DNABERT can recognize important functional regions such as promoters, splice sites, and transcription factor binding sites<br>
+<strong>Read → Understand → Predict</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="transformer-architectures-cont." class="slide level2">
+<h2>Transformer architectures (cont.)</h2>
+<ul>
+<li><strong>Decoder-only model (OpenAI GPT series)</strong><br>
+
+<ul>
+<li>Decoder models are designed to generate the output sequence/new sequence</li>
+<li>It predicts the next token based on the context of all previously generated tokens</li>
+<li>Unidirectional - Process sequence from left to right to predict what comes next</li>
+<li><strong>Self attention</strong> - Predict the next token based on the previous tokens</li>
+<li>Example - <strong>ProGen</strong></li>
+<li>ProGen - protein language model trained on millions of raw protein sequences</li>
+<li>ProGen predicts the next amino acid based on the amino acids that come before it generating entirely new protein sequences from de novo<br>
+</li>
+</ul></li>
+</ul>
+
+<img data-src=".\img/encoder_decoder_model.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
+<section id="transformer-architectures-cont.-1" class="slide level2">
+<h2>Transformer architectures (cont.)</h2>
+<ul>
+<li><strong>Encoder-decoder model</strong><br>
+
+<ul>
+<li>Combines both understanding(encoding) and generation (decoding)</li>
+<li>Understands the input and generates the output</li>
+<li>Example: <strong>Protein structure-sequence T5 (Prott5)</strong></li>
+<li>ProstT5 is a protein language model based on T5 encoder-decoder architecture which can translate between protein sequence and structure</li>
+<li>The encoder learns a contextual representation of the input (sequence or structure), while the decoder generates the corresponding output (structure or sequence)</li>
+<li>This enables bidirectional translation between protein sequence and structural information<br>
+<strong>Read → Understand → Translate</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="reinforcement-learning-rl" class="slide level2">
+<h2>Reinforcement learning (RL)</h2>
+<ul>
+<li>A machine learning approach where an agent learns by trial and error</li>
+<li>The agent interacts with an environment to maximize rewards and minimize penalties</li>
+<li>Successful actions are reinforced, while poor actions are discouraged</li>
+<li>Over time, the agent improves its decision-making through experience</li>
+<li>Example; De novo Drug discovery to optimize drug candidates<br>
+</li>
+<li>In protein engineering, an AI model generates protein sequences, receives rewards for desirable properties (e.g., higher stability or stronger binding affinity), and learns to generate improved proteins over time</li>
+</ul>
+</section>
+<section id="chat-and-answer-vs.-agentic-ai" class="slide level2">
+<h2>Chat-and-answer vs.&nbsp;agentic AI</h2>
+
+<img data-src=".\img/chat_agentic_AI.png" class="quarto-figure quarto-figure-center r-stretch" style="width:10.0%"></section>
+<section id="different-models-with-different-capabilities-and-costs" class="slide level2">
+<h2>Different models with different capabilities and costs</h2>
 
 
 </section>
