@@ -515,7 +515,7 @@
     "href": "intro_to_genAI_and_LLM.html#reinforcement-learning-rl",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Reinforcement learning (RL)",
-    "text": "Reinforcement learning (RL)\n\nA machine learning approach where an agent learns by trial and error\nThe agent interacts with an environment to maximize rewards and minimize penalties\nSuccessful actions are reinforced, while poor actions are discouraged\nThe agent improves its decision-making through experience overtime\nAdvantage: Agent can learn in an unknown environment\nLimitations: long traiing times, low sample efficiecny and stability concerns\nExample; De novo Drug discovery to optimize drug candidates\n\nIn protein engineering, an AI model generates protein sequences, receives rewards for desirable properties (e.g., higher stability or stronger binding affinity), and learns to generate improved proteins over time"
+    "text": "Reinforcement learning (RL)\n\nA machine learning approach where an agent learns by trial and error\nAgent interacts with an environment to maximize rewards and minimize penalties\nSuccessful actions are reinforced, while poor actions are discouraged\nAgent improves its decision-making through experience overtime\nAdvantage: Agent can learn in an unknown environment\nLimitations: long training times, low sample efficiency and stability concerns\nExample; De novo Drug discovery to optimize drug candidates\n\nIn protein engineering, an AI model generates protein sequences, receives rewards for desirable properties (e.g., higher stability or stronger binding affinity), and learns to generate improved proteins over time"
   },
   {
     "objectID": "intro_to_genAI_and_LLM.html#chat-and-answer-vs.-agentic-ai",
