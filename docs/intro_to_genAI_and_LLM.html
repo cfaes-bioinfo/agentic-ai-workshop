@@ -7,8 +7,8 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c875dbb4c9335aca9cc352e974a4ec92.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-f81f3c79f694eaf6f88ebcce70241f9e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Menuka Bhandari">
   <meta name="dcterms.date" content="2025-07-04">
@@ -169,8 +169,8 @@ Menuka Bhandari
 
 <ul>
 <li>AI is the branch of computer science that <strong>simulates human intelligence and trains computers to learn human behaviors</strong></li>
-<li>Objective - make machines think like humans and learn human behaviors such as reasoning, planning, predicting, problem solving, decision making</li>
-<li>AI is a multidisciplinary technology with an ability to integrate cognition, machine learning, emotion recognition, human computer interaction, data storage and decision making</li>
+<li>Goal - make machines think like humans and learn human behaviors such as reasoning, planning, predicting, problem solving, decision making</li>
+<li>AI is a multidisciplinary technology - integrate cognition, machine learning, emotion recognition, human computer interaction, data storage and decision making</li>
 <li>Applications of AI in biology - protein sequence &amp; structure prediction, recognize the functional element of DNA, drug discovery etc</li>
 </ul></li>
 </ul>
@@ -182,14 +182,14 @@ Menuka Bhandari
 </li>
 </ul>
 
-<img data-src=".\img/branches_of_AI.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 1.</strong> Branches of Artificial Intelligence: LLM falls under machine learning, neural network, NLP</p></section>
+<img data-src="./img/branches_of_AI.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 1.</strong> Branches of Artificial Intelligence: LLM falls under machine learning, neural network, NLP</p></section>
 <section id="introduction-to-llm" class="slide level2">
 <h2>Introduction to LLM</h2>
 <ul>
 <li><strong>Language model (LM)</strong><br>
 
 <ul>
-<li>LM is a statistical or machine learning model that learns the patterns and relationship within sequences</li>
+<li>LM is a <strong>statistical or machine learning model</strong> that <strong>learns the patterns and relationship within sequences</strong></li>
 <li>It estimates the probability of a sequence and predicts the next word or token based on the surrounding context.</li>
 <li>Example; Consider the two sentences:
 <ul>
@@ -212,6 +212,7 @@ Menuka Bhandari
 <li><strong>Large</strong> in LLM refers to both the enormous number of model parameters and the vast quantity of training data used during development</li>
 <li>LLMs are trained to predict the <strong>next token or sequence of token</strong> in a piece of text</li>
 <li>Two key characteristics of LLMS are <strong>large parameter counts</strong> and <strong>in-context learning capabilities</strong></li>
+<li>Perform wide tasks - simple language translation, summarization, text generation, and even programming help</li>
 <li>Examples; ChatGPT (Open AI), Claude (Anthropic), Gemini (Google Deep Mind), Llama (Meta)</li>
 </ul></li>
 </ul>
@@ -228,7 +229,7 @@ Menuka Bhandari
 </ul></li>
 </ul>
 
-<img data-src=".\img/evolution_LLM.png" style="width:30.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 2.</strong> Evolution of LLM</p></section>
+<img data-src="./img/evolution_LLM.png" style="width:30.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 2.</strong> Evolution of LLM</p></section>
 <section id="introduction-to-llm-cont.-2" class="slide level2">
 <h2>Introduction to LLM (cont.)</h2>
 <ul>
@@ -257,6 +258,7 @@ Menuka Bhandari
 <li>Process the input data and convert it to the contextualized internal representation (<strong>embedding</strong>)</li>
 <li>Data is processed in bidirectional manner - understand context left and right side</li>
 <li><strong>Self attention</strong> - each token in a sequence can look at every other token in the same sequence to understand its context</li>
+<li>Specializes in understanding and classification tasks</li>
 <li>Example; <strong>DNABERT</strong></li>
 </ul></li>
 </ul>
@@ -285,6 +287,7 @@ Menuka Bhandari
 <li>Decoder models are designed to generate the output sequence/new sequence</li>
 <li>Predicts the next token based on the context of all previously generated tokens</li>
 <li>Unidirectional - process sequence from left to right to predict what comes next</li>
+<li>Optimized for text generation &amp; producing coherent continuation</li>
 <li>Example - <strong>ProGen</strong></li>
 <li>ProGen - protein language model trained on millions of raw protein sequences</li>
 <li>ProGen predicts the next amino acid based on the amino acids that come before it generating entirely new protein sequences from de novo<br>
@@ -292,11 +295,11 @@ Menuka Bhandari
 </ul></li>
 </ul>
 
-<img data-src=".\img/encoder_decoder_model.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
+<img data-src="./img/encoder_decoder_model.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
 <section id="transformer-architectures-cont.-2" class="slide level2">
 <h2>Transformer architectures (cont.)</h2>
 <ul>
-<li><strong>Encoder-decoder model</strong><br>
+<li><strong>Encoder-decoder model (T5)</strong><br>
 
 <ul>
 <li>Combines both understanding (encoding) and generation (decoding)</li>
@@ -326,7 +329,7 @@ Menuka Bhandari
 <section id="chat-and-answer-vs.-agentic-ai" class="slide level2">
 <h2>Chat-and-answer vs.&nbsp;agentic AI</h2>
 
-<img data-src=".\img/chat_agentic_AI.png" class="quarto-figure quarto-figure-center r-stretch" style="width:10.0%"></section>
+<img data-src="./img/chat_agentic_AI.png" class="quarto-figure quarto-figure-center r-stretch" style="width:10.0%"></section>
 <section id="different-models-with-different-capabilities-and-costs" class="slide level2">
 <h2>Different models with different capabilities and costs</h2>
 
