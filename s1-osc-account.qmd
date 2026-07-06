@@ -2,6 +2,7 @@
 title: "OSC account setup"
 subtitle: "Create an Ohio Supercomputer Center account if you don't have one"
 date: 2026-07-01
+date-modified: today
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462
@@ -31,17 +32,35 @@ being added to the project will additionally trigger the process for you to crea
 
 ## What you should do
 
-When you receive an invitation email from OSC referencing the workshop's project
-number `PAS3454`:
+::: {.panel-tabset}
 
-- **If you don't have an OSC account yet**\
-  Follow the instructions and link in the email to create your OSC account
-  
-- **If you already have an OSC account**\
-  The email will likely tell you that you have been added to the project and don't need to do anything
+## If you already have an OSC account
 
-**In either case, check whether you can log in**\
-Go to <https://ondemand.osc.edu> and log in by typing your username and password
-on the left-hand side of the page.
-(If you just created your account,
-it can sometimes take up to half an hour or so before you can log in.)
+1. Send us your OSC username (we can likely find it, but it's not foolproof and easier if you tell us).
+   We will then add you to the OSC project, and you will receive an email informing you of this.
+
+2. Check that you can log in at <https://ondemand.osc.edu> using your username and password.
+
+3. Make sure you can access your password during the workshop:
+   you'll need to enter it in the VS Code editor where your browser/computer password manager won't work.
+
+## If you don't have an OSC account yet
+
+1. We will add you to the OSC Project via your OSU email address,
+   which will trigger an email from OSC.
+   Follow the instructions in the email to create your account.
+
+2. Check that you can log in at <https://ondemand.osc.edu> using your username and password
+   (it may take up to half an hour after you create your account for this to work).
+
+3. Make sure you can access your password during the workshop:
+   you'll need to enter it in the VS Code editor where your browser/computer password manager won't work.
+:::
+
+<hr style="height:1pt; visibility:hidden;" />
+
+-----
+
+<hr style="height:1pt; visibility:hidden;" />
+
+![This is the kind of email you will receive from OSC when you've been added to the workshop project and already have an account. If you don't have an account, you will receive a similar email but with a link to create one.](/img/osc-email.png){fig-align="center" width="70%" fig-alt="Screenshot of the OSC email inviting you to the workshop project"}

@@ -66,15 +66,15 @@ providing suggestions as you type your text and code.
    </details>
 
 2. Once connected to OSC, click `File` > `Open Folder...`,
-   and select the folder `/fs/ess/PAS3454/people/<user>`.
+   and select the folder `/fs/scratch/PAS3454/people/<user>`.
 
-3. Open a terminal and make sure you are in dir `/fs/ess/PAS3454/people/<user>`:
+3. Open a terminal and make sure you are in dir `/fs/scratch/PAS3454/people/<user>`:
    
    ```bash
    pwd
    ```
    ```bash-out
-   /fs/ess/PAS3454/people/jane
+   /fs/scratch/PAS3454/people/jane
    ```
 
    If not, redo step 2! The terminal will automatically start in the folder you opened in VS Code.
@@ -82,9 +82,9 @@ providing suggestions as you type your text and code.
 3. Copy a shared data dir to your own dir:
 
    ```bash
-   # After this, the data will be in `/fs/ess/PAS3454/people/<user>/data/iqbal`
+   # After this, the data will be in `/fs/scratch/PAS3454/people/<user>/data/iqbal`
    mkdir data
-   cp -r /fs/ess/PAS3454/data/iqbal data/
+   cp -r /fs/scratch/PAS3454/data/iqbal data/
    ```
 
    ::: {.callout-tip appearance="simple"}
@@ -98,7 +98,7 @@ providing suggestions as you type your text and code.
      is also good practice for reproducible research.
    :::
 
-4. Create a new dir `S07` (as in: session 7) within your `/fs/ess/PAS3454/people/<user>` dir:
+4. Create a new dir `S07` (as in: session 7) within your `/fs/scratch/PAS3454/people/<user>` dir:
 
    ```bash
    mkdir S07
@@ -112,7 +112,7 @@ providing suggestions as you type your text and code.
 
 :::
 
-## Code completions (with GitHub Copilot)
+## Code completions with GitHub Copilot
 
 "[Code completions](https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions)",
 also known as "code suggestions" or "inline suggestions",
@@ -270,12 +270,14 @@ best with code completions: selecting a piece of code and ask Copilot to modify
 
    ![](/img/copilot-inline-chat-modify3.png){fig-align="center" width="75%" fig-alt="Screenshot of Copilot inline chat feature, showing a code snippet and the 'Chat about this code' option in the context menu"}
     
-   The above formatting with the duplicated line may be a bit confusing at first,
+   The above so-called "diff" (as in difference) view with the duplicated line
+   may be a bit confusing at first^[
+   But should be familiar to those of you using version control!],
    but is really neat and informative once you get used to it:
    the [red-highlighted]{style="background-color: #ffcccc;"} line in the
    chat window is the original code you selected, while the
    [green-highlighted]{style="background-color: #ccffcc;"}
-   code snippet below it is the suggested modified line.
+   line below it is the suggested modified code.
 
 4. Click `Keep` to accept the suggestion, which is correct in the example above.
 
@@ -315,7 +317,7 @@ you are not exposing any internal data you may have elsewhere in the dir hierarc
 that you have open in VS Code.
 :::
 
-::: {.callout-note}
+::: {.callout-note collapse="true"}
 #### How to check your Copilot usage stats
 You can see what Copilot plan you have and what your usage stats for the current
 calendar month are by clicking the GitHub Copilot icon in the bottom right of your VS Code window:
@@ -329,6 +331,13 @@ Because inline suggestions are unlimited, they are simply listed as "Enabled":
 
 ![](/img/copilot-usage.png){fig-align="center" width="40%" fig-alt="Screenshot of Copilot usage stats"}
 
+Credit usage for individual chat requests can be seen in the chat window itself,
+such as in the example chat in the previous session:
+
+![TBA - Replace with subsampled FASTQ files](/img/copilot-prompt1-answer.png){fig-align="center" width="70%" fig-alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"}
+
+See also the VS Code / GitHub Copilot docs on
+[optimizing credit usage](https://code.visualstudio.com/docs/agents/guides/optimize-usage).
 :::
 
 ### Practice
@@ -353,12 +362,34 @@ Because inline suggestions are unlimited, they are simply listed as "Enabled":
 ## Claude Code
 
 
+
+<!---
+
 - Check:
   - Equivalent of "Steer with message?" https://code.visualstudio.com/docs/chat/chat-overview#_send-messages-while-a-request-is-running
+  - Equivalent of checkpoints and undo by modifying the prompt and re-running? https://code.visualstudio.com/docs/chat/chat-checkpoints
+  - Equivalent of using entire 'codebase' (dir) as context as in `#codebase` https://code.visualstudio.com/docs/chat/copilot-chat-context
   - In-document diffs like with Copilot
-
+  - BYOK WITH OLLAMA OR CLAUDE? https://code.visualstudio.com/docs/agents/concepts/language-models#_bring-your-own-language-model-key
+  - https://code.visualstudio.com/docs/agents/reference/workspace-context#_improve-agent-search-with-exclusion-settings
+  
 ## TBA
+
+- Mention that the whole chat is loaded every time, so start new chats for new tasks
+  to avoid unnecessary token usage and confusion/hallucinations.
+- Mention: CLAUDE.md also works with GitHub Copilot
+  (https://code.visualstudio.com/docs/agent-customization/custom-instructions#_always-on-instructions)
+
+- Useful context image, something similar for Claude?
+  https://code.visualstudio.com/docs/agents/concepts/context#_how-vs-code-assembles-context
 
 - Include an R example
 - Documentation (Markdown) file examples
-- Find the largest file
+- Prompt to "Find the largest file?""
+
+## Other
+
+> - If you're using the Ask agent, the active file is automatically included as context.
+  - When using Agent, it decides autonomously if the active file needs to be added based on your prompt.
+
+---->

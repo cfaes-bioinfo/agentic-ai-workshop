@@ -18,12 +18,6 @@ bibliography: refs.bib
 
 <hr style="height:1pt; visibility:hidden;" />
 
-::: {.callout-caution appearance="simple"}
-**_This page is still subject to change_**
-:::
-
-<hr style="height:1pt; visibility:hidden;" />
-
 ## Introduction
 
 In this part, you'll learn:
@@ -90,7 +84,7 @@ languages like R and Python, such as:
    - **Cluster**: `pitzer`
    - **Account**: `PAS3454`
    - **Number of hours**: `2`
-   - **Working Directory**:" `/fs/ess/PAS3454/people/<username>/pre` (replace `<username>` with your actual user name)
+   - **Working Directory**:" `/fs/scratch/PAS3454/people/<username>/pre` (replace `<username>` with your actual user name)
    - **App Code Server version**: `4.8.3`
 4. Click `Launch`
 5. Click the `Connect to VS Code` button once it appears
@@ -119,7 +113,7 @@ Which represents the following pieces of information:
 A `<working-dir>` is the directory that you are currently located in.
 Here, for brevity, it only shows the name of the dir you are directly
 located in (e.g. `pre`) rather than the entire path
-(e.g. `/fs/ess/PAS3454/people/jelmer/pre`).
+(e.g. `/fs/scratch/PAS3454/people/jelmer/pre`).
 
 **You type your commands after the dollar sign `$`,**
 **and then press <kbd>Enter</kbd> to execute the command.**
@@ -143,7 +137,7 @@ you'll "get your prompt back" and can type and execute a new command.
 #### Are you instead seeing a `~` as the working directory? _(Click to expand)_
 If you see a `~` as the working-dir-part of your prompt,
 you are instead in your Home directory in `/people/` and you will need to go
-to `/fs/ess/PAS3454/people/<user>/pre` instead.
+to `/fs/scratch/PAS3454/people/<user>/pre` instead.
 
 While you could navigate there with a simple Unix command,
 we will instead use the "Open Folder" functionality in VS Code,
@@ -177,7 +171,7 @@ Let's start with a few simple commands:
   pwd
   ```
   ``` bash-out
-  /fs/ess/PAS3454/people/jelmer
+  /fs/scratch/PAS3454/people/jelmer
   ```
 
 - The `echo` command simply prints the text you provide it with,
@@ -444,20 +438,20 @@ But many commands perform another kind of **action**.
 
 For example, the command **`cd`** will change your *working* directory.
 But first, check again where you are ---
-you should be in your personal dir within `/fs/ess/PAS3454`:
+you should be in your personal dir within `/fs/scratch/PAS3454`:
 
 ```bash
 pwd
 ```
 ```bash-out
-/fs/ess/PAS3454/people/jelmer/pre
+/fs/scratch/PAS3454/people/jelmer/pre
 ```
 
 Now, use `cd` to move to another directory by specifying the *path* to that
 dir as an argument:
 
 ``` bash
-cd /fs/ess/PAS3454
+cd /fs/scratch/PAS3454
 ```
 
 ```bash
@@ -465,7 +459,7 @@ cd /fs/ess/PAS3454
 pwd
 ```
 ``` bash-out
-/fs/ess/PAS3454
+/fs/scratch/PAS3454
 ```
 
 In summary:
@@ -480,11 +474,11 @@ In summary:
 Let's also see what happens when `cd` does not succeed — it gives an error:
 
   ``` bash
-  cd /fs/ess/pas3454
+  cd /fs/scratch/PAS3454
   ```
   
   ``` bash-out
-  -bash: cd: /fs/ess/pas3454: No such file or directory
+  -bash: cd: /fs/scratch/PAS3454: No such file or directory
   ```
 
 <hr style="height:1pt; visibility:hidden;" />
@@ -519,7 +513,7 @@ Some examples of `..`:
   pwd
   ```
   ```bash-out
-  /fs/ess/PAS3454
+  /fs/scratch/PAS3454
   ```
   ```bash
   # Move one level up:
@@ -563,31 +557,31 @@ a path/file name, and not just with `cd`.
 If the relative paths with `..` are confusing to you,
 perhaps this diagram helps:
 
-![A diagram showing the key dirs on OSC for this course, with OSC Project-associated dirs in blue and Home dirs in red. The `PAS3454` box in the Home dir is faded, because your Home dir may be in a differently named dir, and also because it is important to realize that this dir is not associated with any OSC Project other than in name. Example commands to navigate (partially) upwards with relative paths are shown in purple.](/img/paths-navigation.png){fig-align="left" width="70%" .lightbox fig-alt="A diagram showing paths on OSC and navigating upwards with relative paths"}
+![A diagram showing the key dirs on OSC for this course, with OSC Project-associated dirs in blue and Home dirs in red. The `PAS3454` box in the Home dir is faded, because your Home dir may be in a differently named dir, and also because it is important to realize that this dir is not associated with any OSC Project other than in name. Example commands to navigate (partially) upwards with relative paths are shown in purple.](/img/paths-navigation2.png){fig-align="left" width="70%" .lightbox fig-alt="A diagram showing paths on OSC and navigating upwards with relative paths"}
 
 <hr style="height:1pt; visibility:hidden;" />
 
 ::: exercise
 #### {{< fa user-edit >}} Exercise: navigation
 
-1. Use a relative path to move to  `/fs/ess/PAS3454/people/<user>/`
+1. Use a relative path to move to  `/fs/scratch/PAS3454/people/<user>/`
 
    <details><summary>*Click to see the solution*</summary>
    
    Since you are (or should be) in `/fs`:
    
    ``` bash
-   cd ess/PAS3454/people/<user>
+   cd scratch/PAS3454/people/<user>
    ```
    </details>
 
 2. From there, use another relative path to move into the
-   `/fs/ess/PAS3454/data` (TBA - CHECK PATH) dir.
+   `/fs/scratch/PAS3454/data`.
 
    <details><summary>*Click to see the solution*</summary>
    
-   Since you are in `/fs/ess/PAS3454/people/<user>`,
-   you will first need to go up two levels (to `/fs/ess/PAS3454`),
+   Since you are in `/fs/scratch/PAS3454/people/<user>`,
+   you will first need to go up two levels (to `/fs/scratch/PAS3454`),
    and then into `data`:
    
    ``` bash
@@ -624,13 +618,12 @@ because it saves you from typing long paths and also helps you avoid typos.
 | Type this | Expected response |
 |----|-------|
 | **`/f`** => <kbd>Tab</kbd> | Autocompletes to `/fs/`
-| Add **`e`** (to `/fs/e`) => <kbd>Tab</kbd> | Autocompletes to`/fs/ess/`
-| Add **`PAS`** (to `/fs/ess/PAS`) => <kbd>Tab</kbd> | Nothing happens because there are many options
-| <kbd>Tab</kbd> twice  | Prints `Display all 687 possibilities? (y or n)` |
-| Type `n` to answer no | |
-| Add **`34`** (`/fs/ess/PAS34`) => <kbd>Tab</kbd> twice | Displays the 8 or so dirs that start with `PAS34`
-| Add **`5`** (`/fs/ess/PAS3454`) => <kbd>Tab</kbd> twice | `/fs/ess/PAS3454/`
-| <kbd>Enter</kbd> | Prints `bash: /fs/ess/PAS3454/: Is a directory`
+| Add **`s`** (to `/fs/scratch/`) => <kbd>Tab</kbd> | Autocompletes to`/fs/scratch/`
+| Add **`PAS`** (to `/fs/scratch/PAS`) => <kbd>Tab</kbd> | Nothing happens because there are many options
+| <kbd>Tab</kbd> twice  | Prints `Display all 815 possibilities? (y or n)` |
+| Type `n` to answer no | Prompt goes back to `/fs/scratch/PAS` |
+| Add **`345`** (`/fs/scratch/PAS3454`) => <kbd>Tab</kbd> twice | Displays the 6 dirs that start with `PAS3454`
+| Add **`4`** (`/fs/scratch/PAS3454`) => <kbd>Enter</kbd>  | Prints `bash: /fs/scratch/PAS3454/: Is a directory`
 
 : {.striped .hover tbl-colwidths="[45, 55]"}
 
@@ -649,7 +642,7 @@ Instead, since a path is not a command, you will get an error.
 |----|-------|
 | <kbd>⇧</kbd> (Up arrow) | You get the path back on the prompt
 | <kbd>Ctrl</kbd>+<kbd>A</kbd> | Cursor moves to the start of the line
-| Prepend `cd ` (to `cd /fs/ess/PAS3454/`) => <kbd>Enter</kbd> | You are now in the `PAS3454` dir
+| Prepend `cd ` (to `cd /fs/scratch/PAS3454/`) => <kbd>Enter</kbd> | You are now in the `PAS3454` dir
 
 : {.striped .hover tbl-colwidths="[45, 55]"}
 
@@ -702,7 +695,7 @@ We'll only cover the most basic one here: **`ls`**, which lists files and direct
 First, let's move to a dir which has some files we can display:
 
 ```bash
-cd /fs/ess/PAS3454/data/TBA
+cd /fs/scratch/PAS3454/data/iqbal
 ```
 
 By default, `ls` lists files and dirs in your current working directory:
@@ -711,14 +704,14 @@ By default, `ls` lists files and dirs in your current working directory:
 ls
 ```
 ```{=html}
-<pre class="bash-out"><code><span style="color: #0328fc;">fastq</span>  <span style="color: #0328fc;">meta</span>  <span style="color: black;">README.md</span>  <span style="color: #0328fc;">ref</span></code></pre>
+<pre class="bash-out"><code><span style="color: black;">README.md</span>  <span style="color: #0328fc;">fastq</span>  <span style="color: black;">meta</span> <span style="color: #0328fc;">ref</span></code></pre>
 ```
 
 `ls` uses different colors to indicate different types of files:
 
 - Entries in **[blue]{style="color: #0328fc"}** are directories
-  (`fastq`, `meta`, and `ref` above)
-- Entries in **black** are regular files (`README.md` above)
+  (`fastq` and `ref` above)
+- Entries in **black** are regular files (`README.md` and `meta.tsv` above)
 - Entries in **[red]{style="color: #d92118"}** are compressed files
   (we'll see examples of this soon).
 
@@ -736,11 +729,11 @@ which can be combined as `-lh`:
 ls -lh
 ```
 ``` bash-out
-total 2.0K
-drwxr-x---+ 2 jelmer PAS0471 4.0K Nov 24  2024 fastq
-drwxr-x---+ 2 jelmer PAS0471 4.0K Nov 13  2024 meta
--rw-rw----+ 1 jelmer PAS0471 1.6K Nov 13  2024 README.md
-drwxr-x---+ 2 jelmer PAS0471 4.0K Jul  4 20:52 ref
+total 1.5K
+-rw-r--r-- 1 jelmer PAS3454    0 Jul  6 14:59 README.md
+drwxr-x--- 2 jelmer PAS3454 4.0K Jul  6 13:03 fastq
+-rw-r----- 1 jelmer PAS3454  532 Jul  6 13:03 meta.tsv
+drwxr-x--- 2 jelmer PAS3454 4.0K Jul  6 13:03 ref
 ```
 
 The same items as before were printed, but now **in a different format**:
@@ -763,7 +756,10 @@ we can list the contents of custom dirs by specifying one or more as arguments:
 ls fastq
 ```
 ``` bash-out
-TBA
+SRR31869590_1.fastq.gz  SRR31869592_1.fastq.gz  SRR31869594_1.fastq.gz  SRR31869596_1.fastq.gz  SRR31869600_1.fastq.gz  SRR31869602_1.fastq.gz  SRR31869604_1.fastq.gz  SRR31869606_1.fastq.gz  SRR31869608_1.fastq.gz
+SRR31869590_2.fastq.gz  SRR31869592_2.fastq.gz  SRR31869594_2.fastq.gz  SRR31869596_2.fastq.gz  SRR31869600_2.fastq.gz  SRR31869602_2.fastq.gz  SRR31869604_2.fastq.gz  SRR31869606_2.fastq.gz  SRR31869608_2.fastq.gz
+SRR31869591_1.fastq.gz  SRR31869593_1.fastq.gz  SRR31869595_1.fastq.gz  SRR31869597_1.fastq.gz  SRR31869601_1.fastq.gz  SRR31869603_1.fastq.gz  SRR31869605_1.fastq.gz  SRR31869607_1.fastq.gz  SRR31869609_1.fastq.gz
+SRR31869591_2.fastq.gz  SRR31869593_2.fastq.gz  SRR31869595_2.fastq.gz  SRR31869597_2.fastq.gz  SRR31869601_2.fastq.gz  SRR31869603_2.fastq.gz  SRR31869605_2.fastq.gz  SRR31869607_2.fastq.gz  SRR31869609_2.fastq.gz
 ```
 
 And like you saw earlier with `cal`, options and arguments can be combined:
@@ -772,7 +768,12 @@ And like you saw earlier with `cal`, options and arguments can be combined:
 ls -lh fastq
 ```
 ``` bash-out
-TBA
+total 1.4G
+-rw-r----- 1 jelmer PAS3454 38M Jul  6 13:03 SRR31869590_1.fastq.gz
+-rw-r----- 1 jelmer PAS3454 39M Jul  6 13:03 SRR31869590_2.fastq.gz
+-rw-r----- 1 jelmer PAS3454 38M Jul  6 13:03 SRR31869591_1.fastq.gz
+-rw-r----- 1 jelmer PAS3454 39M Jul  6 13:03 SRR31869591_2.fastq.gz
+-rw-r----- 1 jelmer PAS3454 38M Jul  6 13:03 SRR31869592_1.fastq.gz
 # [...output truncated...]
 ```
 
@@ -787,7 +788,7 @@ which indicates they have been _compressed_ with `gzip`.
 If you want to check the size of a single file,
 it may not be convenient to list all of a dir's contents.
 Can you figure out how to use `ls` to show you the file size **only** for the 
-`fastq/TBA` file?
+`SRR31869590_1.fastq.gz` file?
 
 <details><summary>*Click to see the solution*</summary>
 
@@ -795,10 +796,10 @@ The argument to `ls` can be a path of any kind,
 including to a file rather than to a dir:
 
 ```bash
-ls -lh fastq/ERR10802865_R2.fastq.gz
+ls -lh fastq/SRR31869590_1.fastq.gz
 ```
 ``` bash-out
--rw-r-----+ 1 jelmer PAS0471 22M Nov 13  2024 fastq/ERR10802865_R2.fastq.gz
+-rw-r-----+ 1 jelmer PAS3454 38M Jul  6 13:03 fastq/SRR31869590_1.fastq.gz
 ```
 </details>
 :::

@@ -18,13 +18,6 @@ bibliography: refs.bib
 
 <hr style="height:1pt; visibility:hidden;" />
 
-::: {.callout-caution appearance="simple"}
-**_This page is still subject to change_**
-:::
-
-<hr style="height:1pt; visibility:hidden;" />
-
-
 ## Introduction
 
 To analyze omics data sets, especially in genomics and transcriptomics,
@@ -52,6 +45,16 @@ As such, "getting access" just refers to installation, and so on.
 
 Luckily, if you're willing to use the command line, there is a wealth of such software available for omics data analysis.
 At the CFAES Bioinformatics Core, for example, we don't currently have a need for any commercial software for omics data analysis.
+:::
+
+::: exercise
+#### {{< fa user-edit >}} Exercise: Setting up
+
+```bash
+# Replace <user> with your own username
+cd /fs/scratch/PAS3454/people/<user>/pre
+```
+
 :::
 
 ## The FastQC software
@@ -257,7 +260,7 @@ and we could use one of the FASTQ files from the workshop's example data set:
 
 ``` bash
 # [Don't run this]
-fastqc PATH-TBA
+fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz
 ```
 
 However, an annoying default behavior of FastQC is that it writes its output files
@@ -316,7 +319,7 @@ With the added `--outdir` (or `-o`) option,
 try to run the following FastQC command:
 
 ```bash
-fastqc --outdir results/fastqc TBA
+fastqc --outdir results/fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz
 ```
 ```bash-out
 Specified output directory 'results/fastqc' does not exist
@@ -334,7 +337,7 @@ So, we'll have to fix this by creating the output dir ourselves before running F
 We can create it with the `mkdir` command (short for "make directory"):
 
 ```bash
-# the -p optionis needed because we are creating a nested dir (results/fastqc)
+# the -p option is needed because we are creating a nested dir (results/fastqc)
 mkdir -p results/fastqc
 ```
 
@@ -346,15 +349,15 @@ Now, you should be able to run the exact same FastQC command again ––
 you can e.g. practice with pressing the up arrow to recall the previous command:
 
 ``` bash
-fastqc --outdir results/fastqc TBA
+fastqc --outdir results/fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz
 ```
 ``` bash-out
-Started analysis of ERR10802863_R1.fastq.gz
-Approx 5% complete for ERR10802863_R1.fastq.gz
-Approx 10% complete for ERR10802863_R1.fastq.gz
-Approx 15% complete for ERR10802863_R1.fastq.gz
+Started analysis of SRR31869590_1.fastq.gz
+Approx 5% complete for SRR31869590_1.fastq.gz
+Approx 10% complete for SRR31869590_1.fastq.gz
+Approx 15% complete for SRR31869590_1.fastq.gz
 [...truncated...]
-Analysis complete for ERR10802863_R1.fastq.gz
+Analysis complete for SRR31869590_1.fastq.gz
 ```
 
 Success!
@@ -369,7 +372,9 @@ The main output, however, is in the output dir we specified:
 ls -lh results/fastqc
 ```
 ``` bash-out
-TBA
+total 1.5M
+-rw-r--r-- 1 jelmer PAS0471 614K Jul  6 15:19 SRR31869590_1_fastqc.html
+-rw-r--r-- 1 jelmer PAS0471 856K Jul  6 15:19 SRR31869590_1_fastqc.zip
 ```
 
 <hr style="height:1pt; visibility:hidden;" />
@@ -384,22 +389,26 @@ Run FastQC for another FASTQ file.
 For example, to run FastQC on the R2 (reverse-read) file for the same sample:
 
 ``` bash
-fastqc --outdir results/fastqc /fs/ess/PAS3454/data/iqbal/fastq/TBA.fastq.gz
+fastqc --outdir results/fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_2.fastq.gz
 ```
 ``` bash-out
-Started analysis of ERR10802863_R2.fastq.gz
-Approx 5% complete for ERR10802863_R2.fastq.gz
-Approx 10% complete for ERR10802863_R2.fastq.gz
-Approx 15% complete for ERR10802863_R2.fastq.gz
+Started analysis of SRR31869590_2.fastq.gz
+Approx 5% complete for SRR31869590_2.fastq.gz
+Approx 10% complete for SRR31869590_2.fastq.gz
+Approx 15% complete for SRR31869590_2.fastq.gz
 [...truncated...]
-Analysis complete for ERR10802863_R2.fastq.gz
+Analysis complete for SRR31869590_2.fastq.gz
 ```
 
 ``` bash
 ls -lh results/fastqc
 ```
 ``` bash-out
-TBA
+total 2.1M
+-rw-r--r-- 1 jelmer PAS0471 614K Jul  6 15:19 SRR31869590_1_fastqc.html
+-rw-r--r-- 1 jelmer PAS0471 856K Jul  6 15:19 SRR31869590_1_fastqc.zip
+-rw-r--r-- 1 jelmer PAS0471 619K Jul  6 15:19 SRR31869590_2_fastqc.html
+-rw-r--r-- 1 jelmer PAS0471 864K Jul  6 15:19 SRR31869590_2_fastqc.zip
 ```
 
 Now, we have four files: two for each of our preceding successful FastQC runs.

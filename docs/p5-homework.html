@@ -213,10 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./s3-github-account.html">
  <span class="dropdown-text">Optional: GitHub account setup</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./s4-positron-install.html">
- <span class="dropdown-text">Optional: Positron setup (for R)</span></a>
-  </li>  
+        <li class="dropdown-header">Optional: Positron installation (for R)</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -322,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 5, 2026</p>
+      <p class="date-modified">July 6, 2026</p>
     </div>
   </div>
     
@@ -334,17 +331,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <hr>
-<hr style="height:1pt; visibility:hidden;">
-<div class="callout callout-style-simple callout-caution">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong><em>This page is still subject to change</em></strong></p>
-</div>
-</div>
-</div>
 <hr style="height:1pt; visibility:hidden;">
 <section id="variables-and-script-arguments" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="variables-and-script-arguments"><span class="header-section-number">1</span> Variables and script arguments</h2>
@@ -381,10 +367,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$nr_samples</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>200</code></pre>
 <p>Conveniently, you can use variables in lots of contexts, <em>as if you had directly typed their values</em>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span>TBA</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span>/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>-rw-rw----+ 1 jelmer PAS0471 0 Mar  7 13:17 data/fastq/sample1_R1.fastq</code></pre>
+<pre class="bash-out"><code>-rw-r----- 1 jelmer PAS3454 38M Jul  6 13:03 /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz</code></pre>
 <p>Variables are typically used for items that:</p>
 <ul>
 <li>Are referred to repeatedly and/or</li>
@@ -516,10 +502,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc <span class="st">"</span><span class="va">$1</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now, let’s actually run the script with a filename argument — we’ll use one of the example dataset FASTQ files:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh TBA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>This script will run FastQC
-
-TBA</code></pre>
+application/gzip
+Started analysis of SRR31869590_1.fastq.gz
+Approx 5% complete for SRR31869590_1.fastq.gz
+Approx 10% complete for SRR31869590_1.fastq.gz
+Approx 15% complete for SRR31869590_1.fastq.gz
+# [...output truncated...]</code></pre>
 <hr style="height:1pt; visibility:hidden;">
 <details>
 <summary>
@@ -639,12 +629,20 @@ In this iteration of the loop, we are working with number 3
 </div>
 <section id="submitting-a-script-many-times-with-a-loop" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="submitting-a-script-many-times-with-a-loop"><span class="header-section-number">2.1</span> Submitting a script many times with a loop</h3>
-<p>Let’s now loop over all FASTQ files in the <code>TBA</code> dir, and submit your <code>fastqc.sh</code> script for each file.</p>
+<p>Let’s now loop over all FASTQ files in the <code>/fs/scratch/PAS3454/data/iqbal/fastq/</code> dir, and submit your <code>fastqc.sh</code> script for each file.</p>
 <p>First, note that you can select all FASTQ files in the <code>TBA</code> dir with a wildcard pattern (<code>*</code> matches any string of characters and will attempt to match file names in this context):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> TBA/<span class="pp">*</span>fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>TBA</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /fs/scratch/PAS3454/data/iqbal/fastq/<span class="pp">*</span>fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869594_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869601_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869605_2.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869595_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869601_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869606_1.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869591_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869595_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869602_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869606_2.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869591_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869596_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869602_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869607_1.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869592_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869596_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869603_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869607_2.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869592_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869597_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869603_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869608_1.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869593_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869597_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869604_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869608_2.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869593_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869600_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869604_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869609_1.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869594_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869600_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869605_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869609_2.fastq.g</code></pre>
 <p>You can use this wildcard pattern in a <code>for</code> loop to submit your script for each FASTQ file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq <span class="kw">in</span> TBA/<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq <span class="kw">in</span> /fs/scratch/PAS3454/data/iqbal/fastq//<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bash</span> fastqc.sh <span class="st">"</span><span class="va">$fastq</span><span class="st">"</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Submitted batch job 12431942

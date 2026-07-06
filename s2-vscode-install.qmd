@@ -17,12 +17,6 @@ bibliography: refs.bib
 
 <hr style="height:1pt; visibility:hidden;" />
 
-::: {.callout-caution appearance="simple"}
-**_This page is still subject to change_**
-:::
-
-<hr style="height:1pt; visibility:hidden;" />
-
 ## Overview
 
 In this workshop, we'll use the Visual Studio Code (VS Code) editor for
@@ -30,10 +24,9 @@ most hands-on tasks: to write and run code, to connect to OSC, and to deploy age
 This Microsoft program is freely available for anyone and works on Windows, Mac, and Linux computers. 
 
 This brief page will help you to install VS Code on whatever laptop you plan to bring to the workshop.
+There are separate instructions for OSU-managed computers and personal computers below.
 
-## What you should do
-
-### If you have an OSU-managed computer
+## Installation on an OSU-managed computer
 
 If you are bringing an OSU computer, you may not have the required
 "administrative privileges" to install software on your computer the regular way.
@@ -42,31 +35,43 @@ However, your computer should then have an OSU application that allows you to in
 selection of approved software, and that selection includes VS Code.
 
 ::: {.panel-tabset}
-#### Windows
-
-The OSU app is called "Software Center".
-
-*Details TBA*
-
 #### Mac
 
-The OSU app is called "Ohio State Application Self Service".
+The OSU app is called "**_Ohio State Application Self Service_**".
 
-1. Open this application (it's likely in the Dock, otherwise search for it)
+1. Open this application, which should be pinned in your Dock (otherwise, search for it)
 2. In it, start typing "Visual Studio Code" in the little search box on the top left
 3. Click the "Install" button that appears below the Visual Studio Code entry
 
-![This is the icon for the app on Jelmer's Mac](img/osu-mac_self-service-app.png){align="center" width="400px"}
+![This is the icon for the app on my Mac](img/osu-mac_self-service-app.png){align="center" width="400px"}
 
 <hr style="height:1pt; visibility:hidden;" />
 
 ![If you start typing "Visual Studio Code" in the search box, this is what you should see: although this screenshot says "Update"; you should see "Install" unless you also have it installed aready.](img/osu-mac_vscode-search.png){align="center" width="600px"}
 
+See also [this IT page for general Software Center usage instructions](https://osuitsm.service-now.com/selfservice/kb_view.do?sysparm_article=kb05607).
+
+#### Windows
+
+The OSU app is called "**_Software Center_**".
+
+1. Open this application. For example, you can press the Windows start button
+   and start typing "Software Center" in the search box.
+
+2. In it, start typing "Visual Studio Code" in the search box.
+
+3. Click the "Install" button that appears with the Visual Studio Code entry,
+   which has the following logo:
+
+![The Visual Studio Code logo](img/vscode-logo.png){fig-align="center" width="15%"}
+
+See also [this IT page for general Software Center usage instructions](https://osuitsm.service-now.com/selfservice/kb_view.do?sysparm_article=kb07357).
+
 :::
 
-### If you have a personal computer
+## Installation on a personal computer
 
-Installation is quite straightforward --
+Installation is quite straightforward ---
 follow the links below for the official VS Code installation instructions for:
 
 - [Windows](https://code.visualstudio.com/docs/setup/windows)

@@ -173,10 +173,7 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./s3-github-account.html">
  <span class="dropdown-text">Optional: GitHub account setup</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./s4-positron-install.html">
- <span class="dropdown-text">Optional: Positron setup (for R)</span></a>
-  </li>  
+        <li class="dropdown-header">Optional: Positron installation (for R)</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -227,11 +224,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a></li>
-  <li><a href="#what-you-should-do" id="toc-what-you-should-do" class="nav-link" data-scroll-target="#what-you-should-do"><span class="header-section-number">2</span> What you should do</a>
-  <ul class="collapse">
-  <li><a href="#if-you-have-an-osu-managed-computer" id="toc-if-you-have-an-osu-managed-computer" class="nav-link" data-scroll-target="#if-you-have-an-osu-managed-computer"><span class="header-section-number">2.1</span> If you have an OSU-managed computer</a></li>
-  <li><a href="#if-you-have-a-personal-computer" id="toc-if-you-have-a-personal-computer" class="nav-link" data-scroll-target="#if-you-have-a-personal-computer"><span class="header-section-number">2.2</span> If you have a personal computer</a></li>
-  </ul></li>
+  <li><a href="#installation-on-an-osu-managed-computer" id="toc-installation-on-an-osu-managed-computer" class="nav-link" data-scroll-target="#installation-on-an-osu-managed-computer"><span class="header-section-number">2</span> Installation on an OSU-managed computer</a></li>
+  <li><a href="#installation-on-a-personal-computer" id="toc-installation-on-a-personal-computer" class="nav-link" data-scroll-target="#installation-on-a-personal-computer"><span class="header-section-number">3</span> Installation on a personal computer</a></li>
   </ul>
 </nav>
     </div>
@@ -281,46 +275,29 @@ ul.task-list li input[type="checkbox"] {
 
 <hr>
 <hr style="height:1pt; visibility:hidden;">
-<div class="callout callout-style-simple callout-caution">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong><em>This page is still subject to change</em></strong></p>
-</div>
-</div>
-</div>
-<hr style="height:1pt; visibility:hidden;">
 <section id="overview" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
 <p>In this workshop, we’ll use the Visual Studio Code (VS Code) editor for most hands-on tasks: to write and run code, to connect to OSC, and to deploy agentic AI tools. This Microsoft program is freely available for anyone and works on Windows, Mac, and Linux computers.</p>
-<p>This brief page will help you to install VS Code on whatever laptop you plan to bring to the workshop.</p>
+<p>This brief page will help you to install VS Code on whatever laptop you plan to bring to the workshop. There are separate instructions for OSU-managed computers and personal computers below.</p>
 </section>
-<section id="what-you-should-do" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="what-you-should-do"><span class="header-section-number">2</span> What you should do</h2>
-<section id="if-you-have-an-osu-managed-computer" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="if-you-have-an-osu-managed-computer"><span class="header-section-number">2.1</span> If you have an OSU-managed computer</h3>
+<section id="installation-on-an-osu-managed-computer" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="installation-on-an-osu-managed-computer"><span class="header-section-number">2</span> Installation on an OSU-managed computer</h2>
 <p>If you are bringing an OSU computer, you may not have the required “administrative privileges” to install software on your computer the regular way.</p>
 <p>However, your computer should then have an OSU application that allows you to install a selection of approved software, and that selection includes VS Code.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Mac</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Windows</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>The OSU app is called “Software Center”.</p>
-<p><em>Details TBA</em></p>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>The OSU app is called “Ohio State Application Self Service”.</p>
+<p>The OSU app is called “<strong><em>Ohio State Application Self Service</em></strong>”.</p>
 <ol type="1">
-<li>Open this application (it’s likely in the Dock, otherwise search for it)</li>
+<li>Open this application, which should be pinned in your Dock (otherwise, search for it)</li>
 <li>In it, start typing “Visual Studio Code” in the little search box on the top left</li>
 <li>Click the “Install” button that appears below the Visual Studio Code entry</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/osu-mac_self-service-app.png" class="img-fluid figure-img" data-align="center" width="400"></p>
-<figcaption>This is the icon for the app on Jelmer’s Mac</figcaption>
+<figcaption>This is the icon for the app on my Mac</figcaption>
 </figure>
 </div>
 <hr style="height:1pt; visibility:hidden;">
@@ -330,13 +307,29 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>If you start typing “Visual Studio Code” in the search box, this is what you should see: although this screenshot says “Update”; you should see “Install” unless you also have it installed aready.</figcaption>
 </figure>
 </div>
+<p>See also <a href="https://osuitsm.service-now.com/selfservice/kb_view.do?sysparm_article=kb05607">this IT page for general Software Center usage instructions</a>.</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>The OSU app is called “<strong><em>Software Center</em></strong>”.</p>
+<ol type="1">
+<li><p>Open this application. For example, you can press the Windows start button and start typing “Software Center” in the search box.</p></li>
+<li><p>In it, start typing “Visual Studio Code” in the search box.</p></li>
+<li><p>Click the “Install” button that appears with the Visual Studio Code entry, which has the following logo:</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/vscode-logo.png" class="img-fluid figure-img" style="width:15.0%"></p>
+<figcaption>The Visual Studio Code logo</figcaption>
+</figure>
+</div>
+<p>See also <a href="https://osuitsm.service-now.com/selfservice/kb_view.do?sysparm_article=kb07357">this IT page for general Software Center usage instructions</a>.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="if-you-have-a-personal-computer" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="if-you-have-a-personal-computer"><span class="header-section-number">2.2</span> If you have a personal computer</h3>
-<p>Installation is quite straightforward – follow the links below for the official VS Code installation instructions for:</p>
+<section id="installation-on-a-personal-computer" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="installation-on-a-personal-computer"><span class="header-section-number">3</span> Installation on a personal computer</h2>
+<p>Installation is quite straightforward — follow the links below for the official VS Code installation instructions for:</p>
 <ul>
 <li><a href="https://code.visualstudio.com/docs/setup/windows">Windows</a></li>
 <li><a href="https://code.visualstudio.com/docs/setup/mac">Mac</a></li>
@@ -344,7 +337,6 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

@@ -232,10 +232,7 @@ div.csl-indent {
     <a class="dropdown-item" href="./s3-github-account.html">
  <span class="dropdown-text">Optional: GitHub account setup</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./s4-positron-install.html">
- <span class="dropdown-text">Optional: Positron setup (for R)</span></a>
-  </li>  
+        <li class="dropdown-header">Optional: Positron installation (for R)</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -340,7 +337,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 5, 2026</p>
+      <p class="date-modified">July 6, 2026</p>
     </div>
   </div>
     
@@ -352,17 +349,6 @@ div.csl-indent {
 
 
 <hr>
-<hr style="height:1pt; visibility:hidden;">
-<div class="callout callout-style-simple callout-caution">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong><em>This page is still subject to change</em></strong></p>
-</div>
-</div>
-</div>
 <hr style="height:1pt; visibility:hidden;">
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
@@ -396,6 +382,11 @@ div.csl-indent {
 </div>
 </div>
 </div>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-setting-up" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-setting-up"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Setting up</h4>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace &lt;user&gt; with your own username</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/scratch/PAS3454/people/<span class="op">&lt;</span>user<span class="op">&gt;</span>/pre</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
 </section>
 <section id="the-fastqc-software" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="the-fastqc-software"><span class="header-section-number">2</span> The FastQC software</h2>
@@ -424,7 +415,7 @@ div.csl-indent {
 </div>
 <p>The command to run FastQC is simply <code>fastqc</code> — though, like most Unix commands, <code>fastqc</code> has many options, and we can pass (FASTQ) files as arguments.</p>
 <p>To see if FastQC is available, simply run <code>fastqc -v</code>, which uses the <code>-v</code> option to print the FastQC version:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>bash: fastqc: command not found...
 Failed to search for file: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Could not activate remote peer.</code></pre>
 <p>The error above indicates that FastQC is not available to us — at least not yet.</p>
@@ -449,7 +440,7 @@ Failed to search for file: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner
 </div>
 <p>You can load, unload, and search for available software modules using the <strong><code>module</code></strong> command and its sub-commands (for searching and exploring, note that OSC also has a <a href="https://ondemand.osc.edu/pun/sys/dashboard/module-browser">“Module Browser” on OnDemand</a>).</p>
 <p>For example, the <code>module spider</code> command can be used to search for modules, such as a potential module for <code>fastqc</code> (the search is case-insensitive):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> spider fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> spider fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>--------------------------------------------------------------------------------
   fastqc: fastqc/0.12.1
 --------------------------------------------------------------------------------
@@ -460,9 +451,9 @@ Failed to search for file: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner
       A quality control tool for high throughput sequence data.</code></pre>
 <p>We can see that <code>fastqc</code> is available, namely version <code>0.12.1</code> (that is, the module is printed as <code>&lt;software&gt;/&lt;version&gt;</code>).</p>
 <p>Now we need to load the module with the <code>module load</code> command suggested by the <code>module spider</code> output:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/0.12.1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load fastqc/0.12.1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>And then check once again whether we can use FastQC:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>FastQC v0.12.1</code></pre>
 <p>Success! 🥳</p>
 <div class="callout callout-style-simple callout-important">
@@ -484,7 +475,7 @@ Failed to search for file: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner
 <p><em>Click to see the solution</em></p>
 </summary>
 <p>No, it isn’t available!</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> spider multiqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> spider multiqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Lmod has detected the following error:  Unable to find: "multiqc".</code></pre>
 </details></li>
 <li><p>Search for the program STAR<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> – is it available?</p>
@@ -493,7 +484,7 @@ Failed to search for file: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner
 <p><em>Click to see the solution</em></p>
 </summary>
 <p>Yes, it’s available:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> spider star</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> spider star</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>--------------------------------------------------------------------------------
 star: star/2.7.10b
 --------------------------------------------------------------------------------
@@ -511,8 +502,8 @@ To find other possible module matches execute:
 <summary>
 <p><em>Click to see the solution</em></p>
 </summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load star/2.7.10b</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">STAR</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load star/2.7.10b</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">STAR</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Usage: STAR  [options]... --genomeDir /path/to/genome/index/   --readFilesIn R1.fq R2.fq
 Spliced Transcripts Alignment to a Reference (c) Alexander Dobin, 2009-2022
 STAR version=2.7.10b
@@ -539,13 +530,13 @@ To list all parameters, run STAR --help</code></pre>
 <section id="a-practical-example-running-fastqc" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="a-practical-example-running-fastqc"><span class="header-section-number">4</span> A practical example: running FastQC</h2>
 <p>To analyze a FASTQ file with default FastQC settings, the command is simply <code>fastqc</code> followed by the FASTQ file path — and we could use one of the FASTQ files from the workshop’s example data set:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [Don't run this]</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> PATH-TBA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [Don't run this]</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>However, an annoying default behavior of FastQC is that it writes its output files in the same dir that contains the input FASTQ files. This means mixing your raw data with your results, which is not good practice.</p>
 <section id="changing-the-output-directory" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="changing-the-output-directory"><span class="header-section-number">4.1</span> Changing the output directory?</h3>
 <p>To figure out how to change that behavior, let’s try to get help with <code>-h</code> just like we did with the <code>cal</code> command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">-h</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">-h</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>            FastQC - A high throughput sequence QC analysis tool
 
 SYNOPSIS
@@ -565,7 +556,7 @@ SYNOPSIS
 <em>Click for the solution</em>
 </summary>
 <p>The option to do this is <code>-o</code>/<code>--outdir</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">-h</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">-h</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>  -o --outdir     Create all output files in the specified output directory.
                     Please note that this directory must exist as the program
                     will not create it.  If this option is not set then the 
@@ -577,7 +568,7 @@ SYNOPSIS
 <section id="the-final-fastqc-command" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="the-final-fastqc-command"><span class="header-section-number">4.2</span> The final FastQC command</h3>
 <p>With the added <code>--outdir</code> (or <code>-o</code>) option, try to run the following FastQC command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc TBA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Specified output directory 'results/fastqc' does not exist</code></pre>
 <hr style="height:1pt; visibility:hidden;">
 <details>
@@ -586,27 +577,29 @@ SYNOPSIS
 </summary>
 <p>As the message suggests, the problem is that the output dir <code>results/fastqc</code> does not exist yet. And oddly enough, FastQC does not create the output dir for us<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
 <p>So, we’ll have to fix this by creating the output dir ourselves before running FastQC. We can create it with the <code>mkdir</code> command (short for “make directory”):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the -p optionis needed because we are creating a nested dir (results/fastqc)</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the -p option is needed because we are creating a nested dir (results/fastqc)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> results/fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </section>
 <section id="trying-one-more-time" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="trying-one-more-time"><span class="header-section-number">4.3</span> Trying one more time</h3>
 <p>Now, you should be able to run the exact same FastQC command again –– you can e.g.&nbsp;practice with pressing the up arrow to recall the previous command:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc TBA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>Started analysis of ERR10802863_R1.fastq.gz
-Approx 5% complete for ERR10802863_R1.fastq.gz
-Approx 10% complete for ERR10802863_R1.fastq.gz
-Approx 15% complete for ERR10802863_R1.fastq.gz
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>Started analysis of SRR31869590_1.fastq.gz
+Approx 5% complete for SRR31869590_1.fastq.gz
+Approx 10% complete for SRR31869590_1.fastq.gz
+Approx 15% complete for SRR31869590_1.fastq.gz
 [...truncated...]
-Analysis complete for ERR10802863_R1.fastq.gz</code></pre>
+Analysis complete for SRR31869590_1.fastq.gz</code></pre>
 <p>Success! Above, FastQC printed some “logging” information to screen, telling us about its progress. The main output, however, is in the output dir we specified:</p>
 <ul>
 <li>A <code>.zip</code> file, which contains tables with FastQC’s data summaries</li>
 <li>An <code>.html</code> (HTML) file, which contains the graphs we’d like to see</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> results/fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>TBA</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> results/fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>total 1.5M
+-rw-r--r-- 1 jelmer PAS0471 614K Jul  6 15:19 SRR31869590_1_fastqc.html
+-rw-r--r-- 1 jelmer PAS0471 856K Jul  6 15:19 SRR31869590_1_fastqc.zip</code></pre>
 <hr style="height:1pt; visibility:hidden;">
 <section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-another-fastqc-run" class="level4 exercise">
 <h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-another-fastqc-run"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Another FastQC run</h4>
@@ -616,15 +609,19 @@ Analysis complete for ERR10802863_R1.fastq.gz</code></pre>
 <em>Click for the solution</em>
 </summary>
 <p>For example, to run FastQC on the R2 (reverse-read) file for the same sample:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc /fs/ess/PAS3454/data/iqbal/fastq/TBA.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>Started analysis of ERR10802863_R2.fastq.gz
-Approx 5% complete for ERR10802863_R2.fastq.gz
-Approx 10% complete for ERR10802863_R2.fastq.gz
-Approx 15% complete for ERR10802863_R2.fastq.gz
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_2.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>Started analysis of SRR31869590_2.fastq.gz
+Approx 5% complete for SRR31869590_2.fastq.gz
+Approx 10% complete for SRR31869590_2.fastq.gz
+Approx 15% complete for SRR31869590_2.fastq.gz
 [...truncated...]
-Analysis complete for ERR10802863_R2.fastq.gz</code></pre>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> results/fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>TBA</code></pre>
+Analysis complete for SRR31869590_2.fastq.gz</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> results/fastqc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>total 2.1M
+-rw-r--r-- 1 jelmer PAS0471 614K Jul  6 15:19 SRR31869590_1_fastqc.html
+-rw-r--r-- 1 jelmer PAS0471 856K Jul  6 15:19 SRR31869590_1_fastqc.zip
+-rw-r--r-- 1 jelmer PAS0471 619K Jul  6 15:19 SRR31869590_2_fastqc.html
+-rw-r--r-- 1 jelmer PAS0471 864K Jul  6 15:19 SRR31869590_2_fastqc.zip</code></pre>
 <p>Now, we have four files: two for each of our preceding successful FastQC runs.</p>
 </details>
 </section>

@@ -178,10 +178,7 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./s3-github-account.html">
  <span class="dropdown-text">Optional: GitHub account setup</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./s4-positron-install.html">
- <span class="dropdown-text">Optional: Positron setup (for R)</span></a>
-  </li>  
+        <li class="dropdown-header">Optional: Positron installation (for R)</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -291,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 5, 2026</p>
+      <p class="date-modified">July 6, 2026</p>
     </div>
   </div>
     
@@ -303,17 +300,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <hr>
-<hr style="height:1pt; visibility:hidden;">
-<div class="callout callout-style-simple callout-caution">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong><em>This page is still subject to change</em></strong></p>
-</div>
-</div>
-</div>
 <hr style="height:1pt; visibility:hidden;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -460,7 +446,7 @@ A facility like OSC that has one or more supercomputers.</li>
 </tbody>
 </table>
 <hr style="height:1pt; visibility:hidden;">
-<p>During the workshop, we’ll work in the Project folder of the workshop’s OSC Project <code>PAS3454</code>, located at <code>/fs/ess/PAS3454</code>.</p>
+<p>During the workshop, we’ll work in the scratch folder of the workshop’s OSC Project <code>PAS3454</code>, located at <code>/fs/scratch/PAS3454</code>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -482,10 +468,10 @@ A facility like OSC that has one or more supercomputers.</li>
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/osc-paths3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="A diagram showing part of the OSC file system structure, focusing on folders relevant for this workshop, for fictitious participant Jane. OSC Project-associated dirs are shown in blue and Home dirs in red. During the workshop, Jane will be working in /fs/ess/PAS3454/people/jane, and not in her Home dir /users/PAS3454/jane."><img src="img/osc-paths3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="A diagram showing paths on OSC and navigating upwards with relative paths"></a></p>
+<p><a href="img/osc-paths4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="A diagram showing part of the OSC file system structure, focusing on folders relevant for this workshop, for fictitious participant Jane. OSC Project-associated dirs are shown in blue and Home dirs in red. During the workshop, Jane will be working in /fs/scratch/PAS3454/people/jane, and not in her Home dir /users/PAS3454/jane."><img src="img/osc-paths4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="A diagram showing paths on OSC and navigating upwards with relative paths"></a></p>
 </figure>
 </div>
-<figcaption>A diagram showing part of the OSC file system structure, focusing on folders relevant for this workshop, for fictitious participant Jane. OSC Project-associated dirs are shown in blue and Home dirs in red. During the workshop, Jane will be working in <code>/fs/ess/PAS3454/people/jane</code>, and <strong>not</strong> in her Home dir <code>/users/PAS3454/jane</code>.</figcaption>
+<figcaption>A diagram showing part of the OSC file system structure, focusing on folders relevant for this workshop, for fictitious participant Jane. OSC Project-associated dirs are shown in blue and Home dirs in red. During the workshop, Jane will be working in <code>/fs/scratch/PAS3454/people/jane</code>, and <strong>not</strong> in her Home dir <code>/users/PAS3454/jane</code>.</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -501,7 +487,7 @@ A facility like OSC that has one or more supercomputers.</li>
 <p>Many new OSC users are confused about the Home directory, so let’s clarify a few things:</p>
 <ul>
 <li><p>Even though a project number is part of the path to your Home directory (e.g., <code>/users/PAS3454/jane</code>) this is merely an OSC naming convention and <strong>your Home directory is not tied to any OSC Project.</strong> Thefore, your Home directory will remain the same even if you are, say, removed from a project.</p></li>
-<li><p><strong>By default, you will be placed in your Home directory when you –e.g.– log in to OSC.</strong> But this is typically not where you want to be when working with data and running analyses. During this workshop, for example, you should be within <code>/fs/ess/PAS3454/</code> — we’ll show you how to navigate there.</p></li>
+<li><p><strong>By default, you will be placed in your Home directory when you –e.g.– log in to OSC.</strong> But this is typically not where you want to be when working with data and running analyses. During this workshop, for example, you should be within <code>/fs/scratch/PAS3454/</code> — we’ll show you how to navigate there.</p></li>
 </ul>
 <hr>
 <ul>
@@ -567,19 +553,19 @@ A facility like OSC that has one or more supercomputers.</li>
 </div>
 </div>
 </div>
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Click on folder <code>/fs/ess/PAS3454</code></strong>. Once there, you should see the folders and files present at the selected location, and can click on folders to explore their contents:</p>
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Click on folder <code>/fs/scratch/PAS3454</code></strong>. Once there, you should see the folders and files present at the selected location, and can click on folders to explore their contents:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="img/ondemand_files_PAS2880.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="The OnDemand file browser – TBA replace screenshot"><img src="img/ondemand_files_PAS2880.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="A screenshot of the OSC OnDemand file browser."></a></p>
+<p><a href="img/ondemand_files_PAS3454.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="The OnDemand file browser"><img src="img/ondemand_files_PAS3454.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%" alt="A screenshot of the OSC OnDemand file browser."></a></p>
 </figure>
 </div>
-<figcaption><em>The OnDemand file browser</em> – <strong>TBA replace screenshot</strong></figcaption>
+<figcaption><em>The OnDemand file browser</em></figcaption>
 </figure>
 </div>
 <p>This interface is <strong>much like your own computer’s file browser</strong>, so you can also create, delete, move and copy files and folders, and even upload (from your computer to OSC) and download (from OSC to your computer) files.</p>
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Create a personal folder</strong> inside <code>/fs/ess/PAS3454/people</code>:</p>
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Create a personal folder</strong> inside <code>/fs/scratch/PAS3454/people</code>:</p>
 <ol type="1">
 <li>Click on the <code>people</code> folder</li>
 <li>Click the “New Directory” button at the top</li>
@@ -643,9 +629,9 @@ A facility like OSC that has one or more supercomputers.</li>
 <li><p>Interactive Apps like VS Code and RStudio <strong>run on compute nodes</strong> (not login nodes). Because compute nodes always need to be “reserved”, we have to fill out a form and specify the following details:</p>
 <ul>
 <li>The <strong>Cluster</strong> we want to use: <code>Pitzer</code></li>
-<li>The <strong>Account</strong>, the OSC Project to be billed for the compute node usage: <code>PAS2880</code></li>
+<li>The <strong>Account</strong>, the OSC Project to be billed for the compute node usage: <code>PAS3454</code></li>
 <li>The <strong>Number of hours</strong> we want to make a reservation for: <code>2</code></li>
-<li>The <strong>Working Directory</strong> (starting location – replace <code>&lt;your-username&gt;</code> with your OSC username): <code>/fs/ess/PAS3454/people/&lt;your-username&gt;/pre</code></li>
+<li>The <strong>Working Directory</strong> (starting location – replace <code>&lt;user&gt;</code> with your OSC username): <code>/fs/scratch/PAS3454/people/&lt;user&gt;/pre</code></li>
 <li>The <strong>App Code Server version</strong>: <code>4.8.3</code> (the only available option)</li>
 </ul></li>
 <li><p>Click <code>Launch</code> and you’ll be sent to the <em>My Interactive Sessions</em> page with a card for your job at the top.</p></li>

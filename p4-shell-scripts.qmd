@@ -18,12 +18,6 @@ bibliography: refs.bib
 
 <hr style="height:1pt; visibility:hidden;" />
 
-::: {.callout-caution appearance="simple"}
-**_This page is still subject to change_**
-:::
-
-<hr style="height:1pt; visibility:hidden;" />
-
 ## Introduction
 
 In this part, you will learn:
@@ -132,7 +126,8 @@ echo "This script will run FastQC"
 #### {{< fa user-edit >}} Exercise
 
 1. Add a line to the end of the `fastqc.sh` script that runs FastQC on the first FASTQ file
-   (`TBA`) and writes the output to the `results/fastqc` directory.
+   (`/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz`)
+   and writes the output to the `results/fastqc` directory.
 
 2. Run the script again.
 
@@ -145,7 +140,7 @@ echo "This script will run FastQC"
 
 echo "This script will run FastQC"
 
-fastqc --outdir results/fastqc data/ERR10802863_R1.fastq.gz
+fastqc --outdir results/fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz
 ```
 
 2. Run the script again:
@@ -154,7 +149,13 @@ fastqc --outdir results/fastqc data/ERR10802863_R1.fastq.gz
 bash fastqc.sh
 ```
 ```bash-out
-TBA
+This script will run FastQC
+application/gzip
+Started analysis of SRR31869590_1.fastq.gz
+Approx 5% complete for SRR31869590_1.fastq.gz
+Approx 10% complete for SRR31869590_1.fastq.gz
+Approx 15% complete for SRR31869590_1.fastq.gz
+# [...output truncated...]
 ```
 
 </details>
@@ -260,8 +261,12 @@ cat slurm-12431935.out
 ```
 ``` {.bash-out}
 This script will run FastQC
-...
-TBA
+application/gzip
+Started analysis of SRR31869590_1.fastq.gz
+Approx 5% complete for SRR31869590_1.fastq.gz
+Approx 10% complete for SRR31869590_1.fastq.gz
+Approx 15% complete for SRR31869590_1.fastq.gz
+# [...output truncated...]
 ```
 
 ::: callout-note
@@ -305,7 +310,6 @@ try the following:
 squeue -l -u jelmer
 ```
 ```{.bash-out}
-Thu Apr 4 15:47:51 2025
         JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
      23640814 condo-osu ondemand   jelmer  RUNNING       6:34   2:00:00      1 p0133
 ```
@@ -379,7 +383,6 @@ before it starts:
 squeue -u $USER -l
 ```
 ``` {.bash-out}
-Thu Apr 4 15:48:26 2025
          JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       12520046 serial-40 sleep.sh   jelmer  PENDING       0:00   1:00:00      1 (None)
       23640814 condo-osu ondemand   jelmer  RUNNING       7:12   2:00:00      1 p0133
@@ -391,7 +394,6 @@ But soon enough it should read `RUNNING`:
 squeue -u $USER -l
 ```
 ``` {.bash-out}
-Thu Apr 4 15:48:39 2025
          JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       12520046 condo-osu sleep.sh   jelmer  RUNNING       0:12   1:00:00      1 p0133
       23640814 condo-osu ondemand   jelmer  RUNNING       8:15   2:00:00      1 p0133
@@ -405,7 +407,6 @@ because only pending and running jobs are shown:
 squeue -u $USER -l
 ```
 ``` {.bash-out}
-Mon Aug 21 15:49:26 2025
          JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       23640814 condo-osu ondemand   jelmer  RUNNING       9:02   2:00:00      1 p0133
 ```

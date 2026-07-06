@@ -24,3 +24,16 @@ bibliography: refs.bib # You can add reference to this files if you have and cit
 <hr style="height:1pt; visibility:hidden;" />
 
 ## Introduction
+
+
+<!-------
+
+Other application ideas:
+
+- Turn code into a nice pipeline
+
+- For non-coding tasks too, using SKILLS can be useful --
+  e.g. literature review, adverserial review of own manuscript
+
+------>
+

@@ -213,10 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./s3-github-account.html">
  <span class="dropdown-text">Optional: GitHub account setup</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./s4-positron-install.html">
- <span class="dropdown-text">Optional: Positron setup (for R)</span></a>
-  </li>  
+        <li class="dropdown-header">Optional: Positron installation (for R)</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -331,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 5, 2026</p>
+      <p class="date-modified">July 6, 2026</p>
     </div>
   </div>
     
@@ -434,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><p>In the cog wheel <i class="fa-solid fa-cog" aria-label="cog"></i> menu, click <code>Themes</code> and then <code>Color Theme</code> to explore VS Code color themes and optionally <strong>change the color theme</strong> to your liking.</p></li>
 <li><p>You can <strong>resize panes</strong> by dragging the borders between them: try to do this with the Primary Side Bar and the Panel with the terminal.</p></li>
-<li><p>If you didn’t do the pre-workshop learning, you won’t yet have <strong>your own dir</strong> <code>/fs/ess/PAS3454/people/&lt;your-username&gt;</code>. Create this dir, where <code>&lt;your-username&gt;</code> should be your exact OSC username.</p>
+<li><p>If you didn’t do the pre-workshop learning, you won’t yet have <strong>your own dir</strong> <code>/fs/scratch/PAS3454/people/&lt;your-username&gt;</code>. Create this dir, where <code>&lt;your-username&gt;</code> should be your exact OSC username.</p>
 <details>
 <summary>
 <p>Click to expand for some hints</p>
@@ -442,8 +439,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can do this in several ways, but here is the most foolproof way:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># `$USER` is an environment variable that contains your username,</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># so this command will work for everyone:</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> /fs/ess/PAS3454/people/<span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Alternatively, assuming you are in <code>/fs/ess/PAS3454</code> and your username is <code>jane</code>, a simpler command would be:</p>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> /fs/scratch/PAS3454/people/<span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Alternatively, assuming you are in <code>/fs/scratch/PAS3454</code> and your username is <code>jane</code>, a simpler command would be:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> people/jane</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
@@ -451,7 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>If you already had a <code>/fs/ess/PAS3454/people/&lt;your-username&gt;</code> dir, the above commands should have failed with an error message like <code>mkdir: cannot create directory ‘/fs/ess/PAS3454/people/jane’: File exists</code>.</p>
+<p>If you already had a <code>/fs/scratch/PAS3454/people/&lt;your-username&gt;</code> dir, the above commands should have failed with an error message like <code>mkdir: cannot create directory ‘/fs/scratch/PAS3454/people/jane’: File exists</code>.</p>
 </div>
 </div>
 </div>
@@ -640,7 +637,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="3.3" class="anchored" data-anchor-id="open-a-folder-on-osc"><span class="header-section-number">3.3</span> Open a folder on OSC</h3>
 <p>VS Code takes a specific <strong>folder as a starting point in all parts of the program</strong>: in its file explorer, in the terminal, when saving files, and so on.</p>
 <p>By default, this folder is your Home directory. In this workshop, we’ll only be working in a folder specific to it, so let’s open that one now.</p>
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Click <code>File</code> &gt; <code>Open Folder</code> and then enter and select <code>/fs/ess/PAS3454</code>.</p>
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Click <code>File</code> &gt; <code>Open Folder</code> and then enter and select <code>/fs/scratch/PAS3454</code>.</p>
 <p>This will cause the program to reload and the “trust popup” will appear again<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
 <p>In the File Explorer, you should now see files … TBA ….</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -913,7 +910,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <ol start="2" type="1">
 <li><p>To authenticate to Claude Code, we will use a settings file with an access key. <strong>In the terminal</strong>, run this to copy this file to your Home directory (where it will be automatically read by Claude Code):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> /fs/ess/PAS3454/share/settings.json ~/.claude/settings.json</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> /fs/scratch/PAS3454/share/settings.json ~/.claude/settings.json</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">

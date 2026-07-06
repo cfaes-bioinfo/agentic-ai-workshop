@@ -1,7 +1,8 @@
 ---
 title: "Optional GitHub account setup"
-subtitle: "Create a GitHub account and apply for free GitHub Copilot Pro access"
+subtitle: "Create a GitHub account and apply for free GitHub Copilot Student/Pro access"
 date: 2026-07-01
+date-modified: today
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462
@@ -26,19 +27,16 @@ It's not required to do the following steps before the workshop,
 because creating a GitHub account can be done quite seamlessly during the workshop,
 and because you'll also have access to an alternative, similar AI tool (Claude Code).
 
-However, we do recommend doing this, considering that:
+However, you may consider doing this because
+GitHub Copilot will likely be an easier way for you to continue trying out
+agentic AI tools after the workshop:
 
-- Claude Code is a paid tool that we will provide institutional^[for-fee, but free to you]
-  access to during the workshop,
+- Claude Code is a paid tool that we will provide access to during the workshop,
   but that you will not have access to after the workshop unless you pay for it in some way.
 
-- While GitHub Copilot, on the other hand,
-  is not OSU-approved for use with with private data,
-  it does have fairly generous free 'personal' options for students and especially
-  teachers/faculty.
-
-As such, for many of you, GitHub Copilot will be an easier way to continue trying out
-agentic AI tools after the workshop (we'll discuss your options further during the workshop).
+- GitHub Copilot, on the other hand, has fairly generous free 'personal' options
+  for students and especially teachers/faculty^[
+  But it is **not** OSU-approved for use with with private data, as we'll discuss during the workshop.].
 
 ## Create a GitHub account (if you don't have one yet)
 
@@ -47,20 +45,20 @@ and find code and software written by others.
 It can therefore be very useful to have a GitHub account ---
 not just for GitHub Copilot usage.
 
-1. Go to <https://github.com>
+1. Go to <https://github.com>.
 
-2. Click the "**_Sign Up_**" button all the way in the top right corner of the page
+2. Click the "**_Sign Up_**" button all the way in the top right corner of the page.
 
 3. Fill out the form to provide your personal details
    (only use "Continue with Google" if you're happy linking this to your Google
-   account rather than your OSU email address -- see below):
+   account rather than your OSU email address --- see below):
   
    - When choosing your **_username_**, best to keep it professional and include
      (parts of) your real name:
-     you may use GitHub to share your code, like when publishing a paper
+     you may use GitHub to share your code, like when publishing a paper.
   
-   - It's recommended to sign up with your **_OSU email address_**,
-     as that will make the educational access verification process smoother
+   - It's recommended (but not required) to sign up with your **_OSU email address_**,
+     as that will make the educational access verification process smoother.
 
 5. Check your email and click the link to **_verify your email address_**.
    There may also be some two-factor authentication steps to complete.
@@ -83,27 +81,20 @@ In summary (see also this [GitHub page](https://docs.github.com/en/copilot/conce
 
 <hr style="height:1pt; visibility:hidden;" />
 
-The following will work for teachers/faculty and students alike; 
+To apply for educational benefits,
+the following link will work for teachers/faculty and students alike ---
 just select the appropriate option in the form:
 
-1. Go to <https://github.com/settings/education/benefits>
+1. Go to <https://github.com/settings/education/benefits>.
 
 2. Click "**Start an application**":
 
 ![](img/github-edu-benefits.png){fig-align="center" width="90%"}
 
-3. Fill out the form as needed. Note that you will most likely need a document
-   that proves your current status at the university.
+3. Fill out the form as needed.
+   _(You will likely need a document that proves your current status at the university.)_
 
 ::: {.callout-caution appearance="simple"}
 Application approval is often quite fast (sometimes in minutes),
 but **access is only granted 72 hours after approval**.
 :::
-
-## Plans
-
-
-
-- Free: 2,000 code completions per month, ~50 chat requests 
-- Student: unlimited code completions, 200 credits
-- Pro: unlimited code completions, 1,500 credits

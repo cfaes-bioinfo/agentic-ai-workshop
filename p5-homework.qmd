@@ -18,12 +18,6 @@ bibliography: refs.bib
 
 <hr style="height:1pt; visibility:hidden;" />
 
-::: {.callout-caution appearance="simple"}
-**_This page is still subject to change_**
-:::
-
-<hr style="height:1pt; visibility:hidden;" />
-
 ## Variables and script arguments
 
 ### Variables
@@ -72,12 +66,12 @@ Conveniently, you can use variables in lots of contexts,
 _as if you had directly typed their values_:
 
 ```bash
-input_file=TBA
+input_file=/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz
 
 ls -lh "$input_file"
 ```
 ```{.bash-out}
--rw-rw----+ 1 jelmer PAS0471 0 Mar  7 13:17 data/fastq/sample1_R1.fastq
+-rw-r----- 1 jelmer PAS3454 38M Jul  6 13:03 /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz
 ```
 
 Variables are typically used for items that:
@@ -246,12 +240,16 @@ Now, let's actually run the script with a filename argument ---
 we'll use one of the example dataset FASTQ files:
 
 ```bash
-bash fastqc.sh TBA
+bash fastqc.sh /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz
 ```
 ```{.bash-out}
 This script will run FastQC
-
-TBA
+application/gzip
+Started analysis of SRR31869590_1.fastq.gz
+Approx 5% complete for SRR31869590_1.fastq.gz
+Approx 10% complete for SRR31869590_1.fastq.gz
+Approx 15% complete for SRR31869590_1.fastq.gz
+# [...output truncated...]
 ```
 
 <hr style="height:1pt; visibility:hidden;" />
@@ -366,23 +364,31 @@ On the first and last, unindented lines,
 
 ### Submitting a script many times with a loop
 
-Let's now loop over all FASTQ files in the `TBA` dir,
+Let's now loop over all FASTQ files in the `/fs/scratch/PAS3454/data/iqbal/fastq/` dir,
 and submit your `fastqc.sh` script for each file.
 
 First, note that you can select all FASTQ files in the `TBA` dir with a wildcard pattern
 (`*` matches any string of characters and will attempt to match file names in this context):
 
 ```bash
-ls TBA/*fastq.gz
+ls /fs/scratch/PAS3454/data/iqbal/fastq/*fastq.gz
 ```
 ```bash-out
-TBA
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869594_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869601_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869605_2.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869595_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869601_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869606_1.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869591_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869595_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869602_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869606_2.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869591_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869596_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869602_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869607_1.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869592_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869596_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869603_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869607_2.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869592_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869597_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869603_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869608_1.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869593_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869597_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869604_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869608_2.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869593_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869600_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869604_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869609_1.fastq.gz
+/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869594_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869600_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869605_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869609_2.fastq.g
 ```
 
 You can use this wildcard pattern in a `for` loop to submit your script for each FASTQ file:
 
 ```bash
-for fastq in TBA/*fastq.gz; do
+for fastq in /fs/scratch/PAS3454/data/iqbal/fastq/*fastq.gz; do
     bash fastqc.sh "$fastq"
 done
 ```

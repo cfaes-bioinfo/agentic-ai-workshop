@@ -213,10 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./s3-github-account.html">
  <span class="dropdown-text">Optional: GitHub account setup</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./s4-positron-install.html">
- <span class="dropdown-text">Optional: Positron setup (for R)</span></a>
-  </li>  
+        <li class="dropdown-header">Optional: Positron installation (for R)</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -267,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#code-completions-with-github-copilot" id="toc-code-completions-with-github-copilot" class="nav-link" data-scroll-target="#code-completions-with-github-copilot"><span class="header-section-number">2</span> Code completions (with GitHub Copilot)</a>
+  <li><a href="#code-completions-with-github-copilot" id="toc-code-completions-with-github-copilot" class="nav-link" data-scroll-target="#code-completions-with-github-copilot"><span class="header-section-number">2</span> Code completions with GitHub Copilot</a>
   <ul class="collapse">
   <li><a href="#ghost-text-suggestions" id="toc-ghost-text-suggestions" class="nav-link" data-scroll-target="#ghost-text-suggestions"><span class="header-section-number">2.1</span> Ghost text suggestions</a></li>
   <li><a href="#next-edit-suggestions" id="toc-next-edit-suggestions" class="nav-link" data-scroll-target="#next-edit-suggestions"><span class="header-section-number">2.2</span> Next edit suggestions</a></li>
@@ -275,7 +272,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice"><span class="header-section-number">2.4</span> Practice</a></li>
   </ul></li>
   <li><a href="#claude-code" id="toc-claude-code" class="nav-link" data-scroll-target="#claude-code"><span class="header-section-number">3</span> Claude Code</a></li>
-  <li><a href="#tba" id="toc-tba" class="nav-link" data-scroll-target="#tba"><span class="header-section-number">4</span> TBA</a></li>
   </ul>
 </nav>
     </div>
@@ -318,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 5, 2026</p>
+      <p class="date-modified">July 6, 2026</p>
     </div>
   </div>
     
@@ -369,15 +365,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Click the <code>Connect to...</code> button in the “Welcome” document (also visible in the screenshot above), and select the <code>osc-cardinal-compute</code> connection.</li>
 </ol>
 </details></li>
-<li><p>Once connected to OSC, click <code>File</code> &gt; <code>Open Folder...</code>, and select the folder <code>/fs/ess/PAS3454/people/&lt;user&gt;</code>.</p></li>
-<li><p>Open a terminal and make sure you are in dir <code>/fs/ess/PAS3454/people/&lt;user&gt;</code>:</p>
+<li><p>Once connected to OSC, click <code>File</code> &gt; <code>Open Folder...</code>, and select the folder <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>.</p></li>
+<li><p>Open a terminal and make sure you are in dir <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>/fs/ess/PAS3454/people/jane</code></pre>
+<pre class="bash-out"><code>/fs/scratch/PAS3454/people/jane</code></pre>
 <p>If not, redo step 2! The terminal will automatically start in the folder you opened in VS Code.</p></li>
 <li><p>Copy a shared data dir to your own dir:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After this, the data will be in `/fs/ess/PAS3454/people/&lt;user&gt;/data/iqbal`</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After this, the data will be in `/fs/scratch/PAS3454/people/&lt;user&gt;/data/iqbal`</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> data</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /fs/ess/PAS3454/data/iqbal data/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /fs/scratch/PAS3454/data/iqbal data/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -392,7 +388,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div></li>
-<li><p>Create a new dir <code>S07</code> (as in: session 7) within your <code>/fs/ess/PAS3454/people/&lt;user&gt;</code> dir:</p>
+<li><p>Create a new dir <code>S07</code> (as in: session 7) within your <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code> dir:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> S07</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Run the <code>tree</code> command to understand the current structure of your dirs and files:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tree</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
@@ -400,7 +396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="code-completions-with-github-copilot" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="code-completions-with-github-copilot"><span class="header-section-number">2</span> Code completions (with GitHub Copilot)</h2>
+<h2 data-number="2" class="anchored" data-anchor-id="code-completions-with-github-copilot"><span class="header-section-number">2</span> Code completions with GitHub Copilot</h2>
 <p>“<a href="https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions">Code completions</a>”, also known as “code suggestions” or “inline suggestions”, are a feature of GitHub Copilot where you get suggestions for additional or modified code —or other text— as you type in your VS Code editor. There are two types of code completions, and we’ll go over these one by one.</p>
 <section id="ghost-text-suggestions" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="ghost-text-suggestions"><span class="header-section-number">2.1</span> Ghost text suggestions</h3>
@@ -550,7 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="./img/copilot-inline-chat-modify3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Screenshot of Copilot inline chat feature, showing a code snippet and the 'Chat about this code' option in the context menu"></p>
 </figure>
 </div>
-<p>The above formatting with the duplicated line may be a bit confusing at first, but is really neat and informative once you get used to it: the <span style="background-color: #ffcccc;">red-highlighted</span> line in the chat window is the original code you selected, while the <span style="background-color: #ccffcc;">green-highlighted</span> code snippet below it is the suggested modified line.</p></li>
+<p>The above so-called “diff” (as in difference) view with the duplicated line may be a bit confusing at first<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, but is really neat and informative once you get used to it: the <span style="background-color: #ffcccc;">red-highlighted</span> line in the chat window is the original code you selected, while the <span style="background-color: #ccffcc;">green-highlighted</span> line below it is the suggested modified code.</p></li>
 <li><p>Click <code>Keep</code> to accept the suggestion, which is correct in the example above.</p></li>
 </ol>
 <div class="callout callout-style-simple callout-tip">
@@ -600,14 +596,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Note</span>How to check your Copilot usage stats
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can see what Copilot plan you have and what your usage stats for the current calendar month are by clicking the GitHub Copilot icon in the bottom right of your VS Code window:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -620,6 +618,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figure class="figure">
 <p><img src="./img/copilot-usage.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Screenshot of Copilot usage stats"></p>
 </figure>
+</div>
+<p>Credit usage for individual chat requests can be seen in the chat window itself, such as in the example chat in the previous session:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/copilot-prompt1-answer.png" class="img-fluid figure-img" style="width:70.0%" alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"></p>
+<figcaption>TBA - Replace with subsampled FASTQ files</figcaption>
+</figure>
+</div>
+<p>See also the VS Code / GitHub Copilot docs on <a href="https://code.visualstudio.com/docs/agents/guides/optimize-usage">optimizing credit usage</a>.</p>
 </div>
 </div>
 </div>
@@ -641,26 +648,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="claude-code" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="claude-code"><span class="header-section-number">3</span> Claude Code</h2>
-<ul>
-<li>Check:
-<ul>
-<li>Equivalent of “Steer with message?” https://code.visualstudio.com/docs/chat/chat-overview#_send-messages-while-a-request-is-running</li>
-<li>In-document diffs like with Copilot</li>
-</ul></li>
-</ul>
-</section>
-<section id="tba" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="tba"><span class="header-section-number">4</span> TBA</h2>
-<ul>
-<li>Include an R example</li>
-<li>Documentation (Markdown) file examples</li>
-<li>Find the largest file</li>
-</ul>
+<!---
+
+- Check:
+  - Equivalent of "Steer with message?" https://code.visualstudio.com/docs/chat/chat-overview#_send-messages-while-a-request-is-running
+  - Equivalent of checkpoints and undo by modifying the prompt and re-running? https://code.visualstudio.com/docs/chat/chat-checkpoints
+  - Equivalent of using entire 'codebase' (dir) as context as in `#codebase` https://code.visualstudio.com/docs/chat/copilot-chat-context
+  - In-document diffs like with Copilot
+  - BYOK WITH OLLAMA OR CLAUDE? https://code.visualstudio.com/docs/agents/concepts/language-models#_bring-your-own-language-model-key
+  - https://code.visualstudio.com/docs/agents/reference/workspace-context#_improve-agent-search-with-exclusion-settings
+  
+## TBA
+
+- Mention that the whole chat is loaded every time, so start new chats for new tasks
+  to avoid unnecessary token usage and confusion/hallucinations.
+- Mention: CLAUDE.md also works with GitHub Copilot
+  (https://code.visualstudio.com/docs/agent-customization/custom-instructions#_always-on-instructions)
+
+- Useful context image, something similar for Claude?
+  https://code.visualstudio.com/docs/agents/concepts/context#_how-vs-code-assembles-context
+
+- Include an R example
+- Documentation (Markdown) file examples
+- Prompt to "Find the largest file?""
+
+## Other
+
+> - If you're using the Ask agent, the active file is automatically included as context.
+  - When using Agent, it decides autonomously if the active file needs to be added based on your prompt.
+
+---->
 
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p> But should be familiar to those of you using version control!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

@@ -67,6 +67,19 @@ TBA
 
 # Overview of the workshop's topics and schedule {background-color="silver"}
 
+## The general idea
+
+- This workshop focuses on using AI to help with **coding your analysis**,
+  rather than on using AI to analyze your data directly.
+
+- Practical, not theoretical:
+  we will focus on **hands-on exercises** and examples, rather than on theory or background.
+
+## What we won't cover –- at least not in depth
+
+- Ethics and environmental impact of AI
+- ...
+
 ## Day 1: Monday, July 13
 
 ::: {style="font-size: 0.85em;"}

@@ -18,13 +18,6 @@ bibliography: refs.bib
 
 <hr style="height:1pt; visibility:hidden;" />
 
-::: {.callout-caution appearance="simple"}
-**_This page is still subject to change_**
-:::
-
-<hr style="height:1pt; visibility:hidden;" />
-
-
 ![](img/osc_logo.png){fig-align="center" width="25%" fig-alt="The Ohio Supercomputer Center logo." .lightbox}
 
 <hr style="height:1pt; visibility:hidden;" />
@@ -126,8 +119,8 @@ OSC has several distinct file systems, and it is important to know which one to 
 
 <hr style="height:1pt; visibility:hidden;" />
 
-During the workshop, we'll work in the Project folder of the workshop's OSC Project
-`PAS3454`, located at `/fs/ess/PAS3454`.
+During the workshop, we'll work in the scratch folder of the workshop's OSC Project
+`PAS3454`, located at `/fs/scratch/PAS3454`.
 
 ::: callout-tip
 #### Key file system terminology (applies to any computer)
@@ -138,7 +131,7 @@ During the workshop, we'll work in the Project folder of the workshop's OSC Proj
 
 <hr style="height:1pt; visibility:hidden;" />
 
-![A diagram showing part of the OSC file system structure, focusing on folders relevant for this workshop, for fictitious participant Jane. OSC Project-associated dirs are shown in blue and Home dirs in red. During the workshop, Jane will be working in `/fs/ess/PAS3454/people/jane`, and **not** in her Home dir `/users/PAS3454/jane`.](img/osc-paths3.png){fig-align="center" width="40%" .lightbox fig-alt="A diagram showing paths on OSC and navigating upwards with relative paths"}
+![A diagram showing part of the OSC file system structure, focusing on folders relevant for this workshop, for fictitious participant Jane. OSC Project-associated dirs are shown in blue and Home dirs in red. During the workshop, Jane will be working in `/fs/scratch/PAS3454/people/jane`, and **not** in her Home dir `/users/PAS3454/jane`.](img/osc-paths4.png){fig-align="center" width="40%" .lightbox fig-alt="A diagram showing paths on OSC and navigating upwards with relative paths"}
 
 ::: callout-warning
 #### Home directory clarifications and pitfalls
@@ -152,7 +145,7 @@ Many new OSC users are confused about the Home directory, so let's clarify a few
 
 - **By default, you will be placed in your Home directory when you --e.g.-- log in to OSC.**
   But this is typically not where you want to be when working with data and running analyses.
-  During this workshop, for example, you should be within `/fs/ess/PAS3454/` ---
+  During this workshop, for example, you should be within `/fs/scratch/PAS3454/` ---
   we'll show you how to navigate there.
 
 ------
@@ -213,17 +206,17 @@ but for every additional project you are a member of,
 you will usually see additional `/fs/ess` and `/fs/scratch` folders appear.
 :::
 
-{{< fa user-edit >}} **Click on folder `/fs/ess/PAS3454`**.
+{{< fa user-edit >}} **Click on folder `/fs/scratch/PAS3454`**.
 Once there, you should see the folders and files present at the selected location,
 and can click on folders to explore their contents:
 
-![_The OnDemand file browser_ -- **TBA replace screenshot**](img/ondemand_files_PAS2880.png){fig-align="center" width="95%" fig-alt="A screenshot of the OSC OnDemand file browser." .lightbox}
+![_The OnDemand file browser_](img/ondemand_files_PAS3454.png){fig-align="center" width="95%" fig-alt="A screenshot of the OSC OnDemand file browser." .lightbox}
 
 This interface is **much like your own computer's file browser**,
 so you can also create, delete, move and copy files and folders,
 and even upload (from your computer to OSC) and download (from OSC to your computer) files.
 
-{{< fa user-edit >}} **Create a personal folder** inside `/fs/ess/PAS3454/people`:
+{{< fa user-edit >}} **Create a personal folder** inside `/fs/scratch/PAS3454/people`:
 
 1. Click on the `people` folder
 2. Click the "New Directory" button at the top
@@ -280,10 +273,10 @@ In this session, we will use VS Code to practice with Unix shell basics and scri
   Because compute nodes always need to be "reserved",
   we have to fill out a form and specify the following details:
   - The **Cluster** we want to use: `Pitzer`
-  - The **Account**, the OSC Project to be billed for the compute node usage: `PAS2880`
+  - The **Account**, the OSC Project to be billed for the compute node usage: `PAS3454`
   - The **Number of hours** we want to make a reservation for: `2`
-  - The **Working Directory** (starting location -- replace `<your-username>` with your OSC username):
-    `/fs/ess/PAS3454/people/<your-username>/pre`
+  - The **Working Directory** (starting location -- replace `<user>` with your OSC username):
+    `/fs/scratch/PAS3454/people/<user>/pre`
   - The **App Code Server version**: `4.8.3` (the only available option)
 
 - Click `Launch` and you'll be sent to the _My Interactive Sessions_ page

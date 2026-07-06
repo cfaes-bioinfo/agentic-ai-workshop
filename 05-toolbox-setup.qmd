@@ -108,7 +108,7 @@ Go ahead and open it.
    try to do this with the Primary Side Bar and the Panel with the terminal.
 
 3. If you didn't do the pre-workshop learning,
-   you won't yet have **your own dir** `/fs/ess/PAS3454/people/<your-username>`.
+   you won't yet have **your own dir** `/fs/scratch/PAS3454/people/<your-username>`.
    Create this dir, where `<your-username>` should be your exact OSC username.
 
    <details><summary>Click to expand for some hints</summary>
@@ -118,10 +118,10 @@ Go ahead and open it.
    ```bash
    # `$USER` is an environment variable that contains your username,
    # so this command will work for everyone:
-   mkdir /fs/ess/PAS3454/people/$USER
+   mkdir /fs/scratch/PAS3454/people/$USER
    ```
    
-   Alternatively, assuming you are in `/fs/ess/PAS3454` and your username is
+   Alternatively, assuming you are in `/fs/scratch/PAS3454` and your username is
    `jane`, a simpler command would be:
 
    ```bash
@@ -129,9 +129,9 @@ Go ahead and open it.
    ```
 
    ::: {.callout-tip appearance="simple"}
-   If you already had a `/fs/ess/PAS3454/people/<your-username>` dir,
+   If you already had a `/fs/scratch/PAS3454/people/<your-username>` dir,
    the above commands should have failed with an error message like
-   `mkdir: cannot create directory ‘/fs/ess/PAS3454/people/jane’: File exists`.
+   `mkdir: cannot create directory ‘/fs/scratch/PAS3454/people/jane’: File exists`.
    :::
 
    Other alternatives are to use the VS Code file explorer to create the folder
@@ -313,7 +313,7 @@ By default, this folder is your Home directory.
 In this workshop, we'll only be working in a folder specific to it,
 so let's open that one now.
 
-{{< fa user-edit >}} Click `File` > `Open Folder` and then enter and select `/fs/ess/PAS3454`.
+{{< fa user-edit >}} Click `File` > `Open Folder` and then enter and select `/fs/scratch/PAS3454`.
 
 This will cause the program to reload and the "trust popup" will appear again^[
 for this folder, it won't appear again in the future, once you've trusted it.].
@@ -551,7 +551,7 @@ you are **not** using it in an approved way.
    (where it will be automatically read by Claude Code):
 
    ```bash
-   cp /fs/ess/PAS3454/share/settings.json ~/.claude/settings.json
+   cp /fs/scratch/PAS3454/share/settings.json ~/.claude/settings.json
    ```
 
    ::: {.callout-note collapse="true"}

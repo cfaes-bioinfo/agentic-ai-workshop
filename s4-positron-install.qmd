@@ -24,3 +24,15 @@ bibliography: refs.bib
 <hr style="height:1pt; visibility:hidden;" />
 
 ## Overview
+
+
+
+
+<!------
+
+- The Claude Code extension can't see your R session by default, unlike Posit Assistant.
+  But you can connect using `btw::btw_mcp_session()`.
+
+- llmcoder can hook up to free models and Ollama: https://r-posts.com/rstudio-ai-that-doesnt-cost-a-penny-llmcoder-vs-posit-ai-assistant/
+
+-------
