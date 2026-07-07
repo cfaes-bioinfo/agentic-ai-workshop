@@ -578,14 +578,14 @@
     "href": "intro_to_genAI_and_LLM.html#context-windows",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Context windows",
-    "text": "Context windows\n\nMaximum number of tokens LLM can process at one time\nDetermines how much of a conversation or document the model can “remember”\nLarger context windows allow the model to:\n\nProcess longer documents and conversations\nBetter understand context across the entire input\nProduce more coherent and accurate responses\n\nEarly LLMs had short windows, but newer LLMs have large context windows\nLarger context windows require more computation, making them slower and more expensive\n\nAnalogy: Think of the context window as the model’s working memory—the amount of information it can keep “in mind” while generating a response."
+    "text": "Context windows\n\nMaximum number of tokens LLM can process at one time\nDetermines how much of a conversation or document the model can “remember”\nLarger context windows allow the model to:\n\nProcess longer documents and conversations\nBetter understand context across the entire input\nProduce more coherent and accurate responses\n\nEarly LLMs had short windows, but newer LLMs have large context windows\nLarger context windows require more computation, making them slower and more expensive\n\nAnalogy: Think of the context window as the model’s working memory—the amount of information it can keep “in mind” while generating a response"
   },
   {
     "objectID": "intro_to_genAI_and_LLM.html#embedding",
     "href": "intro_to_genAI_and_LLM.html#embedding",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Embedding",
-    "text": "Embedding"
+    "text": "Embedding\n\nAfter tokenization, each token ID is converted into a numerical vector (embedding)\nEmbeddings are continuous lists of numbers that the neural network can process text mathematically\nSimilar words have similar embeddings, allowing the model to capture meaning, relationships, and context\nEmbeddings capture meaning, relationships, and context, enabling the LLM to understand language\n\nEmbeddings (vector embeddings): Learned numerical vectors that capture the semantic meaning and relationships between tokens"
   },
   {
     "objectID": "intro_to_genAI_and_LLM.html#tokenization-method",

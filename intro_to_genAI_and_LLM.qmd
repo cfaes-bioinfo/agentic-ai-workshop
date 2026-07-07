@@ -202,6 +202,13 @@ Input : Transformers are cool
 
 ## Embedding
 
+- After tokenization, each token ID is converted into a numerical vector (embedding)
+- Embeddings are continuous lists of numbers that the neural network can process text mathematically
+- Similar words have similar embeddings, allowing the model to capture meaning, relationships, and context
+- Embeddings capture meaning, relationships, and context, enabling the LLM to understand language
+
+**Embeddings (vector embeddings)**: Learned numerical vectors that capture the semantic meaning and relationships between tokens
+
 ## Context windows
 
 - Maximum number of tokens LLM can process at one time
