@@ -126,7 +126,7 @@ echo "This script will run FastQC"
 #### {{< fa user-edit >}} Exercise
 
 1. Add a line to the end of the `fastqc.sh` script that runs FastQC on the first FASTQ file
-   (`/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz`)
+   (`data/SRR31869590_1.fastq.gz`)
    and writes the output to the `results/fastqc` directory.
 
 2. Run the script again.
@@ -140,7 +140,7 @@ echo "This script will run FastQC"
 
 echo "This script will run FastQC"
 
-fastqc --outdir results/fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz
+fastqc --outdir results/fastqc data/SRR31869590_1.fastq.gz
 ```
 
 2. Run the script again:

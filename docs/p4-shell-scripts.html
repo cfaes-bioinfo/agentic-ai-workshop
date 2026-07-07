@@ -313,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 6, 2026</p>
+      <p class="date-modified">July 7, 2026</p>
     </div>
   </div>
     
@@ -395,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise" class="level4 exercise">
 <h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise</h4>
 <ol type="1">
-<li><p>Add a line to the end of the <code>fastqc.sh</code> script that runs FastQC on the first FASTQ file (<code>/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz</code>) and writes the output to the <code>results/fastqc</code> directory.</p></li>
+<li><p>Add a line to the end of the <code>fastqc.sh</code> script that runs FastQC on the first FASTQ file (<code>data/SRR31869590_1.fastq.gz</code>) and writes the output to the <code>results/fastqc</code> directory.</p></li>
 <li><p>Run the script again.</p></li>
 </ol>
 <details>
@@ -409,7 +409,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"This script will run FastQC"</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc data/SRR31869590_1.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
 <li>Run the script again:</li>
 </ol>

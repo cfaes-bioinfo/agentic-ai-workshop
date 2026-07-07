@@ -313,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 6, 2026</p>
+      <p class="date-modified">July 7, 2026</p>
     </div>
   </div>
     
@@ -361,10 +361,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$nr_samples</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>200</code></pre>
 <p>Conveniently, you can use variables in lots of contexts, <em>as if you had directly typed their values</em>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span>/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">input_file</span><span class="op">=</span>data/SRR31869590_1.fastq.gz</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> <span class="st">"</span><span class="va">$input_file</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>-rw-r----- 1 jelmer PAS3454 38M Jul  6 13:03 /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz</code></pre>
+<pre class="bash-out"><code>-rw-r----- 1 jelmer PAS3454 38M Jul  6 13:03 data/SRR31869590_1.fastq.gz</code></pre>
 <p>Variables are typically used for items that:</p>
 <ul>
 <li>Are referred to repeatedly and/or</li>
@@ -496,7 +496,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">fastqc</span> <span class="at">--outdir</span> results/fastqc <span class="st">"</span><span class="va">$1</span><span class="st">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now, let’s actually run the script with a filename argument — we’ll use one of the example dataset FASTQ files:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh data/SRR31869590_1.fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>This script will run FastQC
 application/gzip
 Started analysis of SRR31869590_1.fastq.gz
@@ -623,27 +623,30 @@ In this iteration of the loop, we are working with number 3
 </div>
 <section id="submitting-a-script-many-times-with-a-loop" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="submitting-a-script-many-times-with-a-loop"><span class="header-section-number">2.1</span> Submitting a script many times with a loop</h3>
-<p>Let’s now loop over all FASTQ files in the <code>/fs/scratch/PAS3454/data/iqbal/fastq/</code> dir, and submit your <code>fastqc.sh</code> script for each file.</p>
-<p>First, note that you can select all FASTQ files in the <code>TBA</code> dir with a wildcard pattern (<code>*</code> matches any string of characters and will attempt to match file names in this context):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /fs/scratch/PAS3454/data/iqbal/fastq/<span class="pp">*</span>fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869594_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869601_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869605_2.fastq.gz
-/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869595_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869601_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869606_1.fastq.gz
-/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869591_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869595_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869602_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869606_2.fastq.gz
-/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869591_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869596_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869602_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869607_1.fastq.gz
-/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869592_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869596_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869603_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869607_2.fastq.gz
-/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869592_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869597_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869603_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869608_1.fastq.gz
-/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869593_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869597_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869604_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869608_2.fastq.gz
-/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869593_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869600_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869604_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869609_1.fastq.gz
-/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869594_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869600_2.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869605_1.fastq.gz  /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869609_2.fastq.g</code></pre>
+<p>Let’s now loop over all FASTQ files in the <code>data</code> dir, and submit your <code>fastqc.sh</code> script for each file. In this case, there’s merely 2 files, but the same approach would work for hundreds of files.</p>
+<p>First, note that you can select multiple files with a wildcard pattern (<code>*</code> matches any string of characters and will attempt to match file names in this context):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> data/<span class="pp">*</span>fastq.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>data/SRR31869590_1.fastq.gz  data/SRR31869590_2.fastq.gz</code></pre>
 <p>You can use this wildcard pattern in a <code>for</code> loop to submit your script for each FASTQ file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq <span class="kw">in</span> /fs/scratch/PAS3454/data/iqbal/fastq//<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq <span class="kw">in</span> data/<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bash</span> fastqc.sh <span class="st">"</span><span class="va">$fastq</span><span class="st">"</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>Submitted batch job 12431942
-Submitted batch job 12431943
-Submitted batch job 12431944
-# [...output truncated...]</code></pre>
+Submitted batch job 12431943</code></pre>
 <p>Using loops in combination with scripts that submit with <code>sbatch</code> is incredibly useful. Because we’re using a supercomputer with many nodes and cores, you may be able to run up to hundreds of jobs at the same time, speeding up your analysis tremendously.</p>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-run-the-script-on-all-fastq-files-from-the-iqbal-dataset" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-run-the-script-on-all-fastq-files-from-the-iqbal-dataset"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Run the script on all FASTQ files from the Iqbal dataset</h4>
+<p>Recall that earlier, we copied only two of the FASTQ files from the Iqbal dataset to the <code>data</code> dir. These files are located in the dir <code>/fs/scratch/PAS3454/data/iqbal/fastq</code>.</p>
+<details>
+<summary>
+<em>Click here for the solution</em>
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> fastq <span class="kw">in</span> /fs/scratch/PAS3454/data/iqbal/fastq/<span class="pp">*</span>fastq.gz<span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bash</span> fastqc.sh <span class="st">"</span><span class="va">$fastq</span><span class="st">"</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This should submit 18 jobs, since there are 18 FASTQ files in that dir.</p>
+</details>
+</section>
 </section>
 </section>
 <section id="software-with-apptainer-containers" class="level2" data-number="3">
@@ -702,8 +705,8 @@ Submitted batch job 12431944
 <p>In this case, after we clicked Get Container, the pop-up box should have immediately said “Container is ready”. That means the container image was already available in the repository.</p>
 <p>In other cases, however, the container may still need to be built, and the box should say <strong>“Fetching container”</strong> for a while. This could take one or a few minutes, and even though the URL is made available immediately and won’t change, you can only download/use the container once the “Container is ready”.</p>
 <p>If you use an URL before the container is ready, you get this error:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/multiqc_trim-galore:15a1e9f26daf266f <span class="dt">\</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    multiqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/multiqc_trim-galore:15a1e9f26daf266f <span class="dt">\</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    multiqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>FATAL:   Unable to handle oras://community.wave.seqera.io/library/multiqc_trim-galore:15a1e9f26daf266f uri: failed to get checksum for oras://community.wave.seqera.io/library/multiqc_trim-galore:15a1e9f26daf266f: GET https://community.wave.seqera.io/v2/library/multiqc_trim-galore/manifests/15a1e9f26daf266f: MANIFEST_UNKNOWN: manifest unknown; map[Tag:15a1e9f26daf266f]</code></pre>
 </div>
 </div>
@@ -712,11 +715,11 @@ Submitted batch job 12431944
 <section id="running-a-program-thats-in-a-container" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="running-a-program-thats-in-a-container"><span class="header-section-number">3.2</span> Running a program that’s in a container</h3>
 <p>To run a command (program) that’s in a container, the general syntax is:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec <span class="op">&lt;</span>container-URL<span class="op">&gt;</span> <span class="op">&lt;</span>command<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec <span class="op">&lt;</span>container-URL<span class="op">&gt;</span> <span class="op">&lt;</span>command<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>For example, if the command you want to run is <code>fastqc -v</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec <span class="op">&lt;</span>container-URL<span class="op">&gt;</span> fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec <span class="op">&lt;</span>container-URL<span class="op">&gt;</span> fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Finally, with the actual link to the container:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>INFO:    Downloading oras image
 384.0MiB / 384.0MiB [======================================================================================================================] 100 % 51.8 MiB/s 0s
 INFO:    gocryptfs not found, will not be able to use gocryptfs
@@ -746,7 +749,7 @@ FastQC v0.12.1</code></pre>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The easiest way to run a container image you already downloaded is to simply keep re-use the exact same command with the URL to the container. Apptainer will realize that the image has already been downloaded and automatically use the downloaded version:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apptainer</span> exec oras://community.wave.seqera.io/library/fastqc:0.12.1--104d26ddd9519960 fastqc <span class="at">-v</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>INFO:    Using cached SIF image
 INFO:    gocryptfs not found, will not be able to use gocryptfs
 FastQC v0.12.1</code></pre>

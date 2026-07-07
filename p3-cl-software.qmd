@@ -41,19 +41,49 @@ and in the next session about shell scripts and Slurm.
 ::: {.callout-note collapse="true"}
 ### Free vs. commercial software (_Click to expand_)
 Here, we'll only cover free and open-source software.
-As such, "getting access" just refers to installation, and so on.
+As such, "getting access" refers only to processes like installation.
 
-Luckily, if you're willing to use the command line, there is a wealth of such software available for omics data analysis.
-At the CFAES Bioinformatics Core, for example, we don't currently have a need for any commercial software for omics data analysis.
+Luckily, if you're willing to use the command line,
+there is a wealth of such software available for omics data analysis.
+At the CFAES Bioinformatics Core, for example,
+we don't currently have a need for any commercial software for omics data analysis.
 :::
 
 ::: exercise
-#### {{< fa user-edit >}} Exercise: Setting up
+#### {{< fa user-edit >}} Setting up
 
-```bash
-# Replace <user> with your own username
-cd /fs/scratch/PAS3454/people/<user>/pre
-```
+In the VS Code terminal, still connected to OSC:
+
+1. Navigate to the `pre` directory in your scratch space:
+
+   ```bash
+   # Replace <user> with your own username
+   # Recall to use Tab completion!
+   cd /fs/scratch/PAS3454/people/<user>/pre
+   ```
+
+2. Create a new dir `data`:
+
+   ```bash
+   mkdir data
+   ```
+
+3. Copy two FASTQ files from the workshop's example data set to your `data` dir:
+
+   ```bash
+   # -v option makes `cp` (copy) print the names of the files it copies
+   cp -v /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_*.fastq.gz data/
+   ```
+   ```bash-out
+   '/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz' -> 'data/SRR31869590_1.fastq.gz'
+   '/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_2.fastq.gz' -> 'data/SRR31869590_2.fastq.gz'
+   ```
+   
+   :::{.callout-tip appearance="simple"}
+   The `*` wildcard in the command above matches any characters,
+   so it copies both the `_1` and `_2` FASTQ files for the same sample
+   (files with forward and reverse reads, respectively).
+   :::
 
 :::
 
@@ -260,7 +290,7 @@ and we could use one of the FASTQ files from the workshop's example data set:
 
 ``` bash
 # [Don't run this]
-fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz
+fastqc data/SRR31869590_1.fastq.gz
 ```
 
 However, an annoying default behavior of FastQC is that it writes its output files
@@ -319,7 +349,7 @@ With the added `--outdir` (or `-o`) option,
 try to run the following FastQC command:
 
 ```bash
-fastqc --outdir results/fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz
+fastqc --outdir results/fastqc data/SRR31869590_1.fastq.gz
 ```
 ```bash-out
 Specified output directory 'results/fastqc' does not exist
@@ -349,7 +379,7 @@ Now, you should be able to run the exact same FastQC command again ––
 you can e.g. practice with pressing the up arrow to recall the previous command:
 
 ``` bash
-fastqc --outdir results/fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_1.fastq.gz
+fastqc --outdir results/fastqc data/SRR31869590_1.fastq.gz
 ```
 ``` bash-out
 Started analysis of SRR31869590_1.fastq.gz
@@ -389,7 +419,7 @@ Run FastQC for another FASTQ file.
 For example, to run FastQC on the R2 (reverse-read) file for the same sample:
 
 ``` bash
-fastqc --outdir results/fastqc /fs/scratch/PAS3454/data/iqbal/fastq/SRR31869590_2.fastq.gz
+fastqc --outdir results/fastqc data/SRR31869590_2.fastq.gz
 ```
 ``` bash-out
 Started analysis of SRR31869590_2.fastq.gz

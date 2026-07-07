@@ -695,6 +695,7 @@ We'll only cover the most basic one here: **`ls`**, which lists files and direct
 First, let's move to a dir which has some files we can display:
 
 ```bash
+# Recall to use Tab completion!
 cd /fs/scratch/PAS3454/data/iqbal
 ```
 
