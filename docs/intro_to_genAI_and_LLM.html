@@ -7,8 +7,8 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-f81f3c79f694eaf6f88ebcce70241f9e.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-c875dbb4c9335aca9cc352e974a4ec92.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Menuka Bhandari">
   <meta name="dcterms.date" content="2025-07-04">
@@ -182,7 +182,7 @@ Menuka Bhandari
 </li>
 </ul>
 
-<img data-src="./img/branches_of_AI.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 1.</strong> Branches of Artificial Intelligence: LLM falls under machine learning, neural network, NLP</p></section>
+<img data-src=".\img/branches_of_AI.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 1.</strong> Branches of Artificial Intelligence: LLM falls under machine learning, neural network, NLP</p></section>
 <section id="introduction-to-llm" class="slide level2">
 <h2>Introduction to LLM</h2>
 <ul>
@@ -229,7 +229,7 @@ Menuka Bhandari
 </ul></li>
 </ul>
 
-<img data-src="./img/evolution_LLM.png" style="width:30.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 2.</strong> Evolution of LLM</p></section>
+<img data-src=".\img/evolution_LLM.png" style="width:30.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 2.</strong> Evolution of LLM</p></section>
 <section id="introduction-to-llm-cont.-2" class="slide level2">
 <h2>Introduction to LLM (cont.)</h2>
 <ul>
@@ -295,7 +295,7 @@ Menuka Bhandari
 </ul></li>
 </ul>
 
-<img data-src="./img/encoder_decoder_model.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
+<img data-src=".\img/encoder_decoder_model.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
 <section id="transformer-architectures-cont.-2" class="slide level2">
 <h2>Transformer architectures (cont.)</h2>
 <ul>
@@ -326,10 +326,91 @@ Menuka Bhandari
 <li>In protein engineering, an AI model generates protein sequences, receives rewards for desirable properties (e.g., higher stability or stronger binding affinity), and learns to generate improved proteins over time</li>
 </ul>
 </section>
+<section id="tokens" class="slide level2">
+<h2>Tokens</h2>
+<ul>
+<li><strong>Tokens could be words, characters or the combination of words and punctuation</strong></li>
+<li><strong>Tokenization </strong>- converts raw text into smaller units called tokens which is a building block of LLM</li>
+<li>Each token is analyzed individually giving AI standard framework to understand the language</li>
+</ul>
+<p><strong>How LLM understand tokens/text</strong><br>
+</p>
+<ul>
+<li>LLM break text into small pieces called tokens</li>
+<li>Assign each token a unique ID number</li>
+<li>Convert the token IDs into <strong>embeddings</strong> (lists of numbers)</li>
+<li>Embeddings capture the meaning and relationships between words, helping the LLM understand context</li>
+</ul>
+</section>
+<section id="tokenization-method" class="slide level2">
+<h2>Tokenization method</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 28%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Level</th>
+<th style="text-align: left;">Example</th>
+<th style="text-align: left;">When It’s Used</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Word level</strong> – text split into individual words</td>
+<td style="text-align: left;">“Transformers”, “are”, “cool”</td>
+<td style="text-align: left;">Simpler models, limited vocabulary</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Subword level</strong> – text split into partial words</td>
+<td style="text-align: left;">“Transform”, “ers”, “are”, “cool”, “!”</td>
+<td style="text-align: left;">Most modern LLMs (Byte Pair Encoding, WordPiece, SentencePiece)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Character level</strong> – text split into individual characters</td>
+<td style="text-align: left;">“T”, “r”, “a”, “n”, “s”, …</td>
+<td style="text-align: left;">Languages with complex morphology or unknown words</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tokens-1" class="slide level2">
+<h2>Tokens</h2>
+<p>Example<br>
+Input : Transformers are cool</p>
+<ul>
+<li>Tokens: [“Transformers”, “are”, “cool”]</li>
+<li>Token IDs: [28471, 527, 9123] (unqiue IDs assigned by tokenizer)</li>
+<li>Embeddings: Each token ID is converted into a numeric vector (hundreds or thousands of numbers)</li>
+<li>LLM uses these embeddings to understand the sentence and predict the next token</li>
+</ul>
+<p><strong>Importance of tokens</strong>: • Models read token not words • Context Window Uses Tokens • Pricing Is Based on Tokens</p>
+</section>
+<section id="embedding" class="slide level2">
+<h2>Embedding</h2>
+</section>
+<section id="context-windows" class="slide level2">
+<h2>Context windows</h2>
+<ul>
+<li>Maximum number of tokens LLM can process at one time</li>
+<li>Determines how much of a conversation or document the model can “remember”</li>
+<li>Larger context windows allow the model to:
+<ul>
+<li>Process longer documents and conversations</li>
+<li>Better understand context across the entire input</li>
+<li>Produce more coherent and accurate responses</li>
+</ul></li>
+<li>Early LLMs had short windows, but newer LLMs have large context windows</li>
+<li>Larger context windows require more computation, making them slower and more expensive</li>
+</ul>
+<p>Analogy: Think of the context window as the model’s working memory—the amount of information it can keep “in mind” while generating a response.</p>
+</section>
 <section id="chat-and-answer-vs.-agentic-ai" class="slide level2">
 <h2>Chat-and-answer vs.&nbsp;agentic AI</h2>
 
-<img data-src="./img/chat_agentic_AI.png" class="quarto-figure quarto-figure-center r-stretch" style="width:10.0%"></section>
+<img data-src=".\img/chat_agentic_AI.png" class="quarto-figure quarto-figure-center r-stretch" style="width:10.0%"></section>
 <section id="different-models-with-different-capabilities-and-costs" class="slide level2">
 <h2>Different models with different capabilities and costs</h2>
 

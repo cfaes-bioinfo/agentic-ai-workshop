@@ -162,6 +162,59 @@ bibliography: refs.bib
   - Example; De novo Drug discovery to optimize drug candidates \
   - In protein engineering, an AI model generates protein sequences, receives rewards for desirable properties (e.g., higher stability or stronger binding affinity), and learns to generate improved proteins over time
   
+## Tokens
+
+  - **Tokens could be words, characters or the combination of words and punctuation**
+  - **Tokenization **- converts raw text into smaller units called tokens which is a building block of LLM
+  - Each token is analyzed individually giving AI standard framework to understand the language 
+  
+**How LLM understand tokens/text** \
+
+  - LLM break text into small pieces called tokens
+  - Assign each token a unique ID number
+  - Convert the token IDs into **embeddings** (lists of numbers)
+  - Embeddings capture the meaning and relationships between words, helping the LLM understand context
+
+  
+## Tokenization method 
+
+| Level | Example | When It's Used |
+|:------|:--------|:---------------|
+| **Word level** – text split into individual words | "Transformers", "are", "cool" | Simpler models, limited vocabulary |
+| **Subword level** – text split into partial words | "Transform", "ers", "are", "cool", "!" | Most modern LLMs (Byte Pair Encoding, WordPiece, SentencePiece) |
+| **Character level** – text split into individual characters | "T", "r", "a", "n", "s", ... | Languages with complex morphology or unknown words |
+
+## Tokens
+
+Example \
+Input : Transformers are cool
+
+- Tokens: ["Transformers", "are", "cool"]
+- Token IDs: [28471, 527, 9123] (unqiue IDs assigned by tokenizer)
+- Embeddings: Each token ID is converted into a numeric vector (hundreds or thousands of numbers)
+- LLM uses these embeddings to understand the sentence and predict the next token
+
+**Importance of tokens**:
+•	Models read token not words
+•	Context Window Uses Tokens
+•	Pricing Is Based on Tokens
+
+
+## Embedding
+
+## Context windows
+
+- Maximum number of tokens LLM can process at one time
+- Determines how much of a conversation or document the model can "remember"
+- Larger context windows allow the model to:
+  - Process longer documents and conversations
+  - Better understand context across the entire input
+  - Produce more coherent and accurate responses
+- Early LLMs had short windows, but newer LLMs have large context windows
+- Larger context windows require more computation, making them slower and more expensive
+
+**Analogy**: Think of the context window as the model's working memory—the amount of information it can keep "in mind" while generating a response
+
 ## Chat-and-answer vs. agentic AI
 
 ![](/img/chat_agentic_AI.png){fig-align="center" width="10%"}
