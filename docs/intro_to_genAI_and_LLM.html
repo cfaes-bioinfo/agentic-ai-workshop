@@ -164,25 +164,54 @@ Menuka Bhandari
 </section>
 <section id="introduction-to-ai" class="slide level2">
 <h2>Introduction to AI</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
 <ul>
 <li><strong>Artificial intelligence (AI)</strong><br>
 
 <ul>
-<li>AI is the branch of computer science that <strong>simulates human intelligence and trains computers to learn human behaviors</strong></li>
-<li>Goal - make machines think like humans and learn human behaviors such as reasoning, planning, predicting, problem solving, decision making</li>
-<li>AI is a multidisciplinary technology - integrate cognition, machine learning, emotion recognition, human computer interaction, data storage and decision making</li>
-<li>Applications of AI in biology - protein sequence &amp; structure prediction, recognize the functional element of DNA, drug discovery etc</li>
+<li>Branch of computer science that <strong>simulates human intelligence and trains computers to learn human behaviors</strong></li>
+<li>Goal - make machines think like humans and learn human behaviors (reason, predict, and solve problems)</li>
+<li>Combines machine learning, cognition, human-computer interaction, and data-driven decision-making</li>
+<li>Applications in biology:
+<ul>
+<li><strong>Protein sequence &amp; structure prediction</strong>,</li>
+<li><strong>Functional DNA element recognition</strong>,</li>
+<li><strong>Drug discovery</strong></li>
+</ul></li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src=".\img/AI.png" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+</figure>
+</div>
+</div></div>
 </section>
 <section id="introduction-to-aicont." class="slide level2">
 <h2>Introduction to AI(cont.)</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
 <li><strong>Artificial intelligence (AI)</strong><br>
-</li>
-</ul>
 
-<img data-src=".\img/branches_of_AI.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 1.</strong> Branches of Artificial Intelligence: LLM falls under machine learning, neural network, NLP</p></section>
+<ul>
+<li>AI branches relevant to bioinformatics fall into three categories:
+<ul>
+<li><strong>Machine learning</strong>: Learns patterns from data. Example: Disease classification from gene expression data</li>
+<li><strong>Neural network</strong>: Learns complex biological patterns. Example: AlphaFold predicts protein structures</li>
+<li><strong>NLP</strong>: Enables computers to understand &amp; generate language. Example: ProtBERT predicts protein function from protein sequences</li>
+</ul></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div style="text-align:center;">
+<p><img data-src=".\img/branches_of_AI.png" style="width:100.0%"></p>
+<p><strong>Figure 1.</strong> Branches of AI</p>
+</div>
+</div></div>
+</section>
 <section id="introduction-to-llm" class="slide level2">
 <h2>Introduction to LLM</h2>
 <ul>
@@ -190,63 +219,104 @@ Menuka Bhandari
 
 <ul>
 <li>LM is a <strong>statistical or machine learning model</strong> that <strong>learns the patterns and relationship within sequences</strong></li>
-<li>It estimates the probability of a sequence and predicts the next word or token based on the surrounding context.</li>
+<li>Predicts the <strong>most likely next word or token</strong> based on the surrounding context</li>
+<li>Assigns a <strong>probability</strong> to different sequences — the more likely a sequence, the higher its probability</li>
 <li>Example; Consider the two sentences:
 <ul>
-<li>The cat sat on the mat</li>
-<li>The cat sat on the refrigerator</li>
+<li><strong>The cat sat on the mat</strong>✅ (higher probability)</li>
+<li><strong>The cat sat on the refrigerator</strong> ❌ (lower probability)</li>
 </ul></li>
-<li>The first sentence occurs more frequently in language, thus LM assigns higher probability to it</li>
-<li>Traditional LM (e.g., N-gram models) struggle with rare or unseen words/tokens &amp; capturing long-range dependencies</li>
+<li><strong>Limitation of traditional LMs (e.g., N-gram models):</strong>
+<ul>
+<li>Struggle with <strong>rare or unseen words</strong></li>
+<li>Cannot capture <strong>long-range context and dependencies</strong></li>
+</ul></li>
 </ul></li>
 </ul>
 </section>
 <section id="introduction-to-llm-cont." class="slide level2">
 <h2>Introduction to LLM (cont.)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
 <ul>
 <li><strong>Large language model (LLM)</strong><br>
 
 <ul>
-<li>LLMs are advanced LM that are core of many AI applications</li>
+<li><strong>Advanced LM trained on massive amounts of text</strong> to understand and generate human language</li>
 <li>LLMs are built on <strong>Transformer architecture</strong> &amp; trained on <strong>massive collections of data</strong></li>
-<li><strong>Large</strong> in LLM refers to both the enormous number of model parameters and the vast quantity of training data used during development</li>
+<li><strong>Large</strong> in LLM - enormous number of model parameters and the vast quantity of training data</li>
 <li>LLMs are trained to predict the <strong>next token or sequence of token</strong> in a piece of text</li>
-<li>Two key characteristics of LLMS are <strong>large parameter counts</strong> and <strong>in-context learning capabilities</strong></li>
-<li>Perform wide tasks - simple language translation, summarization, text generation, and even programming help</li>
-<li>Examples; ChatGPT (Open AI), Claude (Anthropic), Gemini (Google Deep Mind), Llama (Meta)</li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src=".\img/LLM.png" class="quarto-figure quarto-figure-right" style="width:100.0%"></p>
+</figure>
+</div>
+</div></div>
 </section>
 <section id="introduction-to-llm-cont.-1" class="slide level2">
 <h2>Introduction to LLM (cont.)</h2>
 <ul>
+<li><strong>Large language model (LLM)</strong><br>
+
+<ul>
+<li>Predict the next <strong>word (token)</strong> based on context, enabling coherent text generation</li>
+<li>Application - language translation, summarization, text generation, and coding assistance and many more</li>
+<li>Examples:
+<ul>
+<li><strong>Commercial LLM</strong> - ChatGPT (Open AI), Claude (Anthropic) etc</li>
+<li><strong>Open soure LLM</strong> - Llama (Meta)</li>
+</ul></li>
+</ul></li>
 <li><strong>What can LLM do for the biological scientists?</strong><br>
 
 <ul>
-<li>Generate code from the natural language description, auto complete code, execute complex tasks, manage multiple files and execute everything in a secure environment</li>
-<li>Agentic AI can execute scripts, troubleshoot errors, validate outputs, and propose changes autonomously</li>
-<li>Programming is no longer a barrier to biological scientists</li>
+<li>Generate, explain, and debug code from natural language prompts</li>
+<li>Automate complex workflows, troubleshoot errors, and analyze data</li>
+<li>Enable researchers with limited programming experience to perform advanced analyses</li>
+</ul></li>
+</ul>
+</section>
+<section id="introduction-to-llm-cont.-2" class="slide level2">
+<h2>Introduction to LLM (cont.)</h2>
+<ul>
+<li><strong>Large language model (LLM)</strong><br>
+
+<ul>
+<li>Rapidly advanced since the introduction of the <strong>Transformer architecture</strong> in 2017</li>
+<li>Modern LLMs such as GPT, Llama, Claude, Gemini, and DeepSeek have become increasingly capable due to larger datasets, improved training methods, &amp; greater computational power</li>
 </ul></li>
 </ul>
 
 <img data-src=".\img/evolution_LLM.png" style="width:30.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 2.</strong> Evolution of LLM</p></section>
-<section id="introduction-to-llm-cont.-2" class="slide level2">
-<h2>Introduction to LLM (cont.)</h2>
+<section id="transformers" class="slide level2">
+<h2>Transformers</h2>
 <ul>
 <li><strong>Transformer</strong><br>
 
 <ul>
 <li><strong>Foundation of modern LLM</strong> introduced in 2017</li>
-<li>Can process an entire input sequence in parallel - faster and efficient computation</li>
-<li>Ability to capture long-range dependencies within text - understand relationships between words and phrases across extensive contexts</li>
 <li>Relies on a <strong>self-attention mechanism</strong> - enables model to analyze and weigh the importance of input sequence while making predictions</li>
+<li>Processes the entire input sequence in parallel - faster and efficient computation</li>
+<li>Ability to capture long-range dependencies within text</li>
 </ul></li>
 </ul>
-<p><strong>Advantages of Transformer</strong><br>
-• Read the whole sequence at once<br>
+
+<img data-src=".\img/transformer.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 3.</strong> Transformer converting French word to English</p></section>
+<section id="transformers-1" class="slide level2">
+<h2>Transformers</h2>
+<p><strong>Why are Transformers powerful?</strong><br>
+• Read the entire sequence at once<br>
+• Focus on the most important words (self-attention)<br>
 • Capture long-range relationships<br>
 • Train much faster</p>
-<p><strong>Three Transformer architectures</strong> - Encoder-only model, Decoder-only model &amp; Encoder-Decoder model</p>
+<p><strong>Analogy</strong>: Transformers treat biological sequences like language &amp; learns how nucleotides in DNA or amino acids in proteins relate to one another, similar to how they learn relationships between words in a sentence.</p>
+<p><strong>Three Transformer architectures:</strong><br>
+- <strong>Encoder-only model</strong><br>
+- <strong>Decoder-only model</strong><br>
+- <strong>Encoder-Decoder model</strong></p>
 </section>
 <section id="transformer-architectures" class="slide level2">
 <h2>Transformer architectures</h2>
@@ -259,20 +329,20 @@ Menuka Bhandari
 <li>Data is processed in bidirectional manner - understand context left and right side</li>
 <li><strong>Self attention</strong> - each token in a sequence can look at every other token in the same sequence to understand its context</li>
 <li>Specializes in understanding and classification tasks</li>
-<li>Example; <strong>DNABERT</strong></li>
 </ul></li>
 </ul>
-</section>
+
+<img data-src=".\img/encoder.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 4.Encoder-only Transformer (BERT) architecture</strong></p></section>
 <section id="transformer-architectures-cont." class="slide level2">
 <h2>Transformer architectures (cont.)</h2>
 <ul>
 <li><p><strong>Encoder-only model (Google’s BERT) </strong><br>
 </p>
 <ul>
-<li>DNABERT is a AI model that uses DNA as a language</li>
+<li>Example; <strong>DNABERT</strong> is a AI model that uses DNA as a language</li>
 <li>Tokens are generated based on k-mers (DNABERT) or Byte Pair Encoding (DNABERT-2)</li>
 <li>DNABERT reads the entire DNA sequence and understand the biological function of even distant nucleotide bases</li>
-<li>DNABERT can recognize important functional regions such as promoters, splice sites, and transcription factor binding sites<br>
+<li>DNABERT recognizes important functional regions such as promoters, splice sites, and transcription factor binding sites<br>
 </li>
 </ul>
 <p><strong>Read → Understand → Predict</strong></p></li>
@@ -284,48 +354,65 @@ Menuka Bhandari
 <li><strong>Decoder-only model (OpenAI GPT series)</strong><br>
 
 <ul>
-<li>Decoder models are designed to generate the output sequence/new sequence</li>
-<li>Predicts the next token based on the context of all previously generated tokens</li>
+<li>Designed to <strong>generate the output sequence/new sequence</strong></li>
+<li>Predicts the <strong>next token</strong> based on the context of previously generated tokens</li>
 <li>Unidirectional - process sequence from left to right to predict what comes next</li>
-<li>Optimized for text generation &amp; producing coherent continuation</li>
+<li>Optimized for <strong>text, code and coherent seqeunce generation</strong></li>
 <li>Example - <strong>ProGen</strong></li>
 <li>ProGen - protein language model trained on millions of raw protein sequences</li>
 <li>ProGen predicts the next amino acid based on the amino acids that come before it generating entirely new protein sequences from de novo<br>
 </li>
 </ul></li>
 </ul>
-
-<img data-src=".\img/encoder_decoder_model.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
+</section>
 <section id="transformer-architectures-cont.-2" class="slide level2">
 <h2>Transformer architectures (cont.)</h2>
 <ul>
 <li><strong>Encoder-decoder model (T5)</strong><br>
 
 <ul>
-<li>Combines both understanding (encoding) and generation (decoding)</li>
-<li>Understands the input and generates the output</li>
+<li>Combines both <strong>understanding (encoding)</strong> and <strong>generation (decoding)</strong></li>
+<li>Reads and understands the input and before generating the output</li>
+<li>Optimized for <strong>sequence-to-sequence</strong> prediction tasks</li>
 <li>Example: <strong>Protein structure-sequence T5 (Prott5)</strong></li>
-<li>ProstT5 is a protein language model based on T5 encoder-decoder architecture - translate protein sequence and structure</li>
+<li>ProstT5 is a protein language model based on T5 encoder-decoder architecture</li>
+<li>Maps between protein sequences and structural representations</li>
+</ul></li>
+</ul>
+</section>
+<section id="transformer-architectures-cont.-3" class="slide level2">
+<h2>Transformer architectures (cont.)</h2>
+<ul>
+<li><strong>Encoder-decoder model (T5)</strong><br>
+
+<ul>
 <li>The encoder learns a contextual representation of the input (sequence or structure), &amp; decoder generates the corresponding output (structure or sequence)</li>
 <li>This enables bidirectional translation between protein sequence and structural information<br>
 <strong>Read → Understand → Translate</strong></li>
 </ul></li>
 </ul>
-</section>
+
+<img data-src=".\img/encoder_decoder.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 5.Encoder-decoder architecture</strong></p></section>
 <section id="reinforcement-learning-rl" class="slide level2">
 <h2>Reinforcement learning (RL)</h2>
 <ul>
-<li>A machine learning approach where an agent learns by trial and error</li>
-<li>Agent interacts with an environment to maximize rewards and minimize penalties</li>
+<li>A machine learning approach where <strong>an agent learns through trial and error</strong></li>
+<li>Agent interacts with an <strong>environment</strong> to <strong>maximize rewards and minimize penalties</strong></li>
 <li>Successful actions are reinforced, while poor actions are discouraged</li>
 <li>Agent improves its decision-making through experience overtime</li>
-<li>Advantage: Agent can learn in an unknown environment</li>
-<li>Limitations: long training times, low sample efficiency and stability concerns</li>
-<li>Example; De novo Drug discovery to optimize drug candidates<br>
+<li><strong>Advantage</strong>: Agent can learn in an unknown environment</li>
+<li><strong>Limitations</strong>: long training times, low sample efficiency and stability concerns</li>
+</ul>
+</section>
+<section id="reinforcement-learning-rl-1" class="slide level2">
+<h2>Reinforcement learning (RL)</h2>
+<ul>
+<li>Example; AI guided De novo Drug discovery to optimize drug candidates<br>
 </li>
 <li>In protein engineering, an AI model generates protein sequences, receives rewards for desirable properties (e.g., higher stability or stronger binding affinity), and learns to generate improved proteins over time</li>
 </ul>
-</section>
+
+<img data-src=".\img/reinforcement_learning.png" style="width:100.0%" class="r-stretch quarto-figure-center"><p class="caption"><strong>Figure 6. Reinforcement learning process</strong></p></section>
 <section id="tokens" class="slide level2">
 <h2>Tokens</h2>
 <ul>
@@ -386,7 +473,11 @@ Input : Transformers are cool</p>
 <li>Embeddings: Each token ID is converted into a numeric vector (hundreds or thousands of numbers)</li>
 <li>LLM uses these embeddings to understand the sentence and predict the next token</li>
 </ul>
-<p><strong>Importance of tokens</strong>: • Models read token not words • Context Window Uses Tokens • Pricing Is Based on Tokens</p>
+<p><strong>Importance of tokens</strong>:<br>
+• Models read token not words<br>
+• Context Window Uses Tokens<br>
+• Pricing is Based on Tokens<br>
+</p>
 </section>
 <section id="embedding" class="slide level2">
 <h2>Embedding</h2>
@@ -396,7 +487,7 @@ Input : Transformers are cool</p>
 <li>Similar words have similar embeddings, allowing the model to capture meaning, relationships, and context</li>
 <li>Embeddings capture meaning, relationships, and context, enabling the LLM to understand language</li>
 </ul>
-<p>Embeddings (vector embeddings): Learned numerical vectors that capture the semantic meaning and relationships between tokens</p>
+<p><strong>Embeddings (vector embeddings)</strong>: Learned numerical vectors that capture the semantic meaning and relationships between tokens</p>
 </section>
 <section id="context-windows" class="slide level2">
 <h2>Context windows</h2>
@@ -416,10 +507,156 @@ Input : Transformers are cool</p>
 </section>
 <section id="chat-and-answer-vs.-agentic-ai" class="slide level2">
 <h2>Chat-and-answer vs.&nbsp;agentic AI</h2>
+<p><strong>Chat-and-answer AI (Conversational AI)</strong><br>
+</p>
+<ul>
+<li>Interacts with users using natural language</li>
+<li>Answers questions, explains concepts, and generates content in real time</li>
+<li>Common uses include brainstorming, coding assistance, document summarization, writing, and general knowledge questions</li>
+<li>Example: ChatGPT, Microsoft Copilot, Google Gemini etc</li>
+</ul>
+<p><strong>Agentic AI</strong><br>
+</p>
+<ul>
+<li>Goes beyond answering questions by planning and executing multi-step tasks</li>
+<li>Designed to operate autonomously, make decisions, and execute complex tasks with minimal human supervision</li>
+<li>Example: Claude Code, OpenAI Codex etc</li>
+</ul>
+</section>
+<section id="chat-and-answer-vs.-agentic-ai-cont." class="slide level2">
+<h2>Chat-and-answer vs.&nbsp;agentic AI (cont.)</h2>
 
 <img data-src=".\img/chat_agentic_AI.png" class="quarto-figure quarto-figure-center r-stretch" style="width:10.0%"></section>
-<section id="different-models-with-different-capabilities-and-costs" class="slide level2">
-<h2>Different models with different capabilities and costs</h2>
+<section id="chat-and-answer-vs.-agentic-ai-cont.-1" class="slide level2">
+<h2>Chat-and-answer vs.&nbsp;agentic AI (cont.)</h2>
+<p><strong>Application of agentic AI in the analysis of omics field</strong><br>
+</p>
+<ul>
+<li>Automating repetitive tasks</li>
+<li>Supporting informed decision-making, including workflow design, parameter and software selection</li>
+<li>Lowering computational pre-requisites</li>
+<li>Enhancing data organization, management</li>
+<li>Minimizing human errors and improving accuracy and reproducibility</li>
+</ul>
+</section>
+<section id="different-models-with-different-capabilities-costs" class="slide level2">
+<h2>Different models with different capabilities &amp; costs</h2>
+<p><strong>Selecting the Right LLM</strong>: No single model is best for every task. Different models have different strengths, capabilities, and costs.</p>
+<p><strong>Factors to consider </strong><br>
+</p>
+<ul>
+<li><strong>Capability</strong>: How well does the model perform on reasoning, coding, scientific, or language tasks?</li>
+<li><strong>Cost</strong>: How expensive is it per million input and output tokens?</li>
+<li><strong>Speed</strong>: How quickly does the model generate a response?</li>
+<li><strong>Context window</strong>: How much text can the model process at once?</li>
+<li><strong>Multimodal Support</strong>: Can it work with text, images, audio, or video?</li>
+<li><strong>Deployment constraints</strong>: Can it be accessed via an API, run locally, or deployed in a secure environment?</li>
+</ul>
+</section>
+<section id="different-models-with-different-capabilities-costs-1" class="slide level2">
+<h2>Different models with different capabilities &amp; costs</h2>
+<p>Model comparison based on Artificial Analysis data</p>
+<div style="font-size:70%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th style="text-align: right;">Provider / Type</th>
+<th style="text-align: right;">Intelligence Index</th>
+<th style="text-align: right;">Output Speed, tokens/s</th>
+<th style="text-align: right;">Blended Price, USD / 1M tokens</th>
+<th>Best Interpreted As</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>GPT-5.5 xhigh</strong></td>
+<td style="text-align: right;">OpenAI, proprietary</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">4.35</td>
+<td>Highest overall benchmark score in this snapshot</td>
+</tr>
+<tr class="even">
+<td><strong>Claude Opus 4.8 max</strong></td>
+<td style="text-align: right;">Anthropic, proprietary</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">3.85</td>
+<td>Frontier reasoning and writing model</td>
+</tr>
+<tr class="odd">
+<td><strong>Gemini 3.1 Pro Preview</strong></td>
+<td style="text-align: right;">Google, proprietary</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">152</td>
+<td style="text-align: right;">1.74</td>
+<td>Strong frontier model with comparatively high speed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Source:</strong> <a href="https://artificialanalysis.ai/leaderboards/providers">Artificial Analysis – LLM API Providers Leaderboard</a> (accessed June 7, 2026).</p>
+</section>
+<section id="different-models-with-different-capabilities-costs-2" class="slide level2">
+<h2>Different models with different capabilities &amp; costs</h2>
+<p>Guidelines for selecting AI Model - <strong>There is no single “best” AI model.</strong> The right choice depends on your research task, budget, and workflow.</p>
+<div style="font-size:75%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Research Task</th>
+<th>Key Considerations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Literature reviews &amp; grant writing</td>
+<td>Strong reasoning, large context window, citation support</td>
+</tr>
+<tr class="even">
+<td>Coding &amp; data analysis</td>
+<td>Coding ability, tool integration, reliability, cost</td>
+</tr>
+<tr class="odd">
+<td>Long-document analysis</td>
+<td>Large context window, retrieval capabilities, cost</td>
+</tr>
+<tr class="even">
+<td>Qualitative or survey analysis</td>
+<td>Consistency, accuracy, ability to follow instructions</td>
+</tr>
+<tr class="odd">
+<td>Large-scale data extraction</td>
+<td>Low cost, fast response, reliable structured outputs</td>
+</tr>
+<tr class="even">
+<td>Sensitive or confidential data</td>
+<td>Security, privacy, deployment options</td>
+</tr>
+<tr class="odd">
+<td>Teaching &amp; learning</td>
+<td>Ease of use, affordability, fast response</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Test <strong>2–3 models</strong> on a small sample of your actual research task.</li>
+<li>Choose the model that best balances <strong>performance, cost, and reliability</strong>.</li>
+</ul>
 
 
 </section>
