@@ -143,7 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="dropdown-header">1: Intro to the workshop</li>
         <li class="dropdown-header">2: Intro to Generative AI and LLMs</li>
         <li class="dropdown-header">4: Use cases and tools for research</li>
-        <li class="dropdown-header">5: Toolset intro and setup</li>
+        <li class="dropdown-header">5: Toolkit intro and setup</li>
         <li class="dropdown-header">7: Using GitHub Copilot and Claude Code</li>
     </ul>
   </li>
@@ -265,13 +265,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#related-inline-chat" id="toc-related-inline-chat" class="nav-link" data-scroll-target="#related-inline-chat"><span class="header-section-number">2.3</span> Related: Inline chat</a></li>
   <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice"><span class="header-section-number">2.4</span> Practice</a></li>
   </ul></li>
-  <li><a href="#claude-code" id="toc-claude-code" class="nav-link" data-scroll-target="#claude-code"><span class="header-section-number">3</span> Claude Code</a>
+  <li><a href="#chat-with-claude-code" id="toc-chat-with-claude-code" class="nav-link" data-scroll-target="#chat-with-claude-code"><span class="header-section-number">3</span> Chat with Claude Code</a>
   <ul class="collapse">
   <li><a href="#a-few-prompts-to-get-started" id="toc-a-few-prompts-to-get-started" class="nav-link" data-scroll-target="#a-few-prompts-to-get-started"><span class="header-section-number">3.1</span> A few prompts to get started</a></li>
-  <li><a href="#going-over-the-buttons-in-the-claude-window" id="toc-going-over-the-buttons-in-the-claude-window" class="nav-link" data-scroll-target="#going-over-the-buttons-in-the-claude-window"><span class="header-section-number">3.2</span> Going over the buttons in the Claude window</a></li>
+  <li><a href="#features-in-the-claude-code-prompt-box" id="toc-features-in-the-claude-code-prompt-box" class="nav-link" data-scroll-target="#features-in-the-claude-code-prompt-box"><span class="header-section-number">3.2</span> Features in the Claude Code prompt box</a></li>
+  <li><a href="#additional-prompts" id="toc-additional-prompts" class="nav-link" data-scroll-target="#additional-prompts"><span class="header-section-number">3.3</span> Additional prompts</a></li>
+  <li><a href="#miscellaneous-tips" id="toc-miscellaneous-tips" class="nav-link" data-scroll-target="#miscellaneous-tips"><span class="header-section-number">3.4</span> Miscellaneous tips</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="05-setup.html"><i class="bi bi-bookmarks"></i>Previous: Toolkit setup</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -668,8 +670,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
-<section id="claude-code" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="claude-code"><span class="header-section-number">3</span> Claude Code</h2>
+<section id="chat-with-claude-code" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="chat-with-claude-code"><span class="header-section-number">3</span> Chat with Claude Code</h2>
+<p>Now, we’ll <strong>switch gears in two ways</strong>: from GitHub Copilot to Claude Code, and from code completion to chat (recall that Copilot also has chat functionality; and this is similar to that of Claude Code, but here we’ll focus on the latter).</p>
+<p>In the right-hand side bar, if needed, click “CLAUDE CODE” to switch to the Claude Code tab. As we saw in a previous session, that looks something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/claude-first-window.png" class="img-fluid figure-img" style="width:55.0%" alt="Screenshot of the Claude Code interface, showing the first window after logging in"></p>
+<figcaption>The look of the Claude Code window when you first open it. <br>The text in the center is a random tip that pops up: yours is likely different.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Other minor things you may notice right away <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>There might be text just above the prompt box saying: <em>“Prefer the Terminal experience? Switch back in Settings.”</em> This refers to the fact that you can also also use Claude Code in the terminal (the Claude Code CLI), but we will not do that here and don’t really recommend switching.</p></li>
+<li><p>The ghost text in the prompt box says “<em>⌘ [or Ctrl] to focus or unfocus Claude</em>”, which refers to switching your active cursor back and forth between the prompt box and the VS Code editor. At least for me, this doesn’t work and that seems to be a known issue.</p></li>
+</ul>
+</div>
+</div>
+</div>
 <section id="a-few-prompts-to-get-started" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="a-few-prompts-to-get-started"><span class="header-section-number">3.1</span> A few prompts to get started</h3>
 <blockquote class="blockquote">
@@ -678,35 +707,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Then, have it troubleshoot the (likely) <code>module</code> problem.</li>
 </ul>
-<blockquote class="blockquote">
-<p>Add functional bells and whistles to the script</p>
-</blockquote>
-<ul>
-<li>The above will likely trigger plan mode.</li>
-</ul>
-<blockquote class="blockquote">
-<p>Also report the time it took to run the script</p>
-</blockquote>
 </section>
-<section id="going-over-the-buttons-in-the-claude-window" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="going-over-the-buttons-in-the-claude-window"><span class="header-section-number">3.2</span> Going over the buttons in the Claude window</h3>
+<section id="features-in-the-claude-code-prompt-box" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="features-in-the-claude-code-prompt-box"><span class="header-section-number">3.2</span> Features in the Claude Code prompt box</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/claude-prompt-box.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="The Claude Code prompt box."><img src="./img/claude-prompt-box.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Claude Code prompt box"></a></p>
+</figure>
+</div>
+<figcaption>The Claude Code prompt box.</figcaption>
+</figure>
+</div>
+<p>Starting on the left side:</p>
 <ul>
-<li><p><code>+</code> to add context in the form of files</p>
+<li><p>The <code>+</code> icon allows you to add <strong>context in the form of files</strong>. In the context of in-editor chat, the files we want to are present …</p>
 <ul>
-<li>File in focus in the editor is automatically added (+ mention line-highlighting), but can be disregarded by clicking on the filename below the prompt box</li>
-</ul></li>
+<li><p>File in focus in the editor is automatically added (+ mention line-highlighting), but can be disregarded by clicking on the filename below the prompt box</p></li>
+<li><p>Mention <code>@workspace</code> and implicit context of all files in the workspace</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/claude-context-add1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="./img/claude-context-add1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/claude-context-add2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="./img/claude-context-add2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
+</figure>
+</div></li>
 <li><p><code>/</code> also for adding context, and:</p>
 <ul>
 <li>Switching models</li>
 <li>Setting effort, and toggling “Thinking”</li>
 </ul></li>
-<li><p>Modes:</p>
+<li><p>On the right-hand side is the <strong>Permission Modes</strong> indicator. This is essentially to set the permission type Claude has to perform actions like editing files and running commands, and can be toggled between:</p>
 <ul>
-<li>Manual</li>
-<li>Edit automatically</li>
-<li>Plan mode</li>
-<li>Auto mode (not always visible?)</li>
-</ul></li>
+<li><strong>Manual</strong>: Claude asks permission for each action.</li>
+<li><strong>Edit automatically</strong>: Claude makes edits to files and runs basic commands without asking for permission.</li>
+<li><strong>Plan mode</strong>: Claude writes a plan that is then opened as a rendered Markdown document, and which you can approve or (ask to) modify.</li>
+<li><strong>Auto mode</strong> (not always visible): Claude determines on its own whether to ask for permission or not for specific actions, or to write a plan. In this mode, it is also more likely to ask you for clarifying questions.</li>
+</ul>
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Switch to Auto Mode, and you should see something like the following:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/claude-automode-message.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"></p>
+</figure>
+</div></li>
 <li><p>Clock icon: see previous chats</p></li>
 <li><p>Chat icon with <code>+</code>: start new chat</p></li>
 </ul>
@@ -723,6 +771,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>TBA - Show LiteLLM website</em></p>
 </div>
 </div>
+</section>
+<section id="additional-prompts" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="additional-prompts"><span class="header-section-number">3.3</span> Additional prompts</h3>
+<blockquote class="blockquote">
+<p>Add functional bells and whistles to the script</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Also report the time it took to run the script</p>
+</blockquote>
+</section>
+<section id="miscellaneous-tips" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="miscellaneous-tips"><span class="header-section-number">3.4</span> Miscellaneous tips</h3>
+<ul>
+<li><kbd>Option/Alt</kbd> + <kbd>K</kbd> to persistently send a text selection to the prompt box</li>
+</ul>
 <!---
 
 ```bash

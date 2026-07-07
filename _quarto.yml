@@ -16,8 +16,8 @@ website:
           - text: "1: Intro to the workshop"
           - text: "2: Intro to Generative AI and LLMs"
           - text: "4: Use cases and tools for research"
-          - text: "5: Toolset intro and setup"
-            #href: 05-toolbox-setup.qmd
+          - text: "5: Toolkit intro and setup"
+            #href: 05-setup.qmd
           - text: "7: Using GitHub Copilot and Claude Code"
             #href: 07-agentic1.qmd
       - text: Day 2
