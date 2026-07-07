@@ -368,14 +368,14 @@
     "href": "01-workshop-intro.html#the-general-idea",
     "title": "Workshop Introduction",
     "section": "The general idea",
-    "text": "The general idea\n\nThis workshop focuses on using AI to help with coding your analysis, rather than on using AI to analyze your data directly.\nPractical, not theoretical: we will focus on hands-on exercises and examples, rather than on theory or background."
+    "text": "The general idea\n\nThis workshop focuses on using AI to help with coding your analysis, rather than on using AI to analyze your data directly.\nWe will focus on hands-on exercises and examples, but will include background and key context."
   },
   {
     "objectID": "01-workshop-intro.html#what-we-wont-cover---at-least-not-in-depth",
     "href": "01-workshop-intro.html#what-we-wont-cover---at-least-not-in-depth",
     "title": "Workshop Introduction",
     "section": "What we won’t cover –- at least not in depth",
-    "text": "What we won’t cover –- at least not in depth\n\nEthics and environmental impact of AI\n…"
+    "text": "What we won’t cover –- at least not in depth\n\nEthics and environmental impacts of AI\nWhat else?\n\n\nAnd, as implied in the previous slide:\n\nUsing AI to analyze your data directly, as in having the LLM itself analyze the data similar to how you might ask it to summarize one or many text documents. (We’re using established command-line tools for the actual analysis.)\nExtensive theory"
   },
   {
     "objectID": "01-workshop-intro.html#day-1-monday-july-13",
@@ -396,14 +396,14 @@
     "href": "01-workshop-intro.html#data-sets",
     "title": "Workshop Introduction",
     "section": "Data sets",
-    "text": "Data sets\nTBA"
+    "text": "Data sets\n\nMain: RNA-Seq data from Iqbal et al. - DETAILS TBA\nGenomic reads from the same paper"
   },
   {
     "objectID": "01-workshop-intro.html#what-to-expect",
     "href": "01-workshop-intro.html#what-to-expect",
     "title": "Workshop Introduction",
     "section": "What to expect",
-    "text": "What to expect\n\nMuch of the workshop will be hands-on, where you are expected to follow along with the instructors on your laptop and/or try things yourself\n\n\n\n\nWe’ll use a setup (with VS Code and OSC, etc.) you can also use after the workshop.\n\nThe flip side is that this involves some setup work, some of which was homework, and some of which will be done during the workshop.\nThis prep can be tedious and sometimes frustrating, but we think it’s worth it!\n\n\n\n\n\n\nHands-on examples will involve running command-line tools at OSC to process and analyze an RNA-Seq dataset, and getting AI tools to help with this.\n\nThis is why we expect basic knowledge of OSC and the Unix Shell"
+    "text": "What to expect\n\nIn hands-on sections of the workshop, you are expected to follow along with the instructors on your laptop and/or try things yourself\n\n\n\n\nWe’ll use a setup (with VS Code and OSC, etc.) you can also use after the workshop.\n\nThe flip side is that this involves some setup work, some of which was homework, and some of which will be done during the workshop.\nThis prep can be tedious and sometimes frustrating, but we think it’s worth it!\n\n\n\n\n\n\nHands-on examples will involve running command-line tools at OSC to process and analyze an RNA-Seq dataset, and getting AI tools to help with this.\n\nThis is why we expect basic knowledge of OSC and the Unix Shell"
   },
   {
     "objectID": "01-workshop-intro.html#practical-information",
@@ -413,11 +413,11 @@
     "text": "Practical information\n\nCoffee, snacks, and lunch will be provided during breaks\n\n\n\n\nIf you didn’t manage to install VS Code or set up your OSC account, do this in today’s morning or lunch break — we’ll start using these in the afternoon\n\n\n\n\n\nIf you didn’t bring a dataset, you can talk to us during the day today and we can help you find one to work with –– you’ll work with this data tomorrow"
   },
   {
-    "objectID": "01-workshop-intro.html#how-to-ask-questions",
-    "href": "01-workshop-intro.html#how-to-ask-questions",
+    "objectID": "01-workshop-intro.html#how-to-ask-questions-and-contribute",
+    "href": "01-workshop-intro.html#how-to-ask-questions-and-contribute",
     "title": "Workshop Introduction",
-    "section": "How to ask questions",
-    "text": "How to ask questions\n\nDon’t hesitate to interrupt us at any time if you have a question or are stuck!\n\n\n\nFor less urgent questions, you can:\n\nAsk during an exercise or break\nPut a TBA sticky note on your laptop\nType your question in the Zoom chat (if you’re connected)"
+    "section": "How to ask questions and contribute",
+    "text": "How to ask questions and contribute\n\nDon’t hesitate to interrupt us at any time if you have a question or are stuck!\nWe’ll also ask you questions about your experience, and we’re interested to hear your thoughts even when we’re not asking! We’d be happy to have some unplanned discussions!\n\n\n\nFor less urgent questions, you can:\n\nAsk during an exercise or break\nPut a TBA sticky note on your laptop\nType your question in the Zoom chat (if you’re connected)"
   },
   {
     "objectID": "08-prompts.html#introduction",
