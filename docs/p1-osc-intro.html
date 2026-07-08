@@ -172,7 +172,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./s3-github-account.html">
  <span class="dropdown-text">Optional: GitHub account setup</span></a>
   </li>  
-        <li class="dropdown-header">Optional: Positron installation (for R)</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -185,6 +184,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Practical Workshop Info</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./s4-positron-install.html">
+ <span class="dropdown-text">Positron installation and setup (for R)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./o2-resources.html">
  <span class="dropdown-text">Further Resources</span></a>
@@ -282,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 7, 2026</p>
+      <p class="date-modified">July 8, 2026</p>
     </div>
   </div>
     
@@ -384,11 +387,14 @@ A facility like OSC that has one or more supercomputers.</li>
 </section>
 <section id="supercomputer-components" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="supercomputer-components"><span class="header-section-number">4.2</span> Supercomputer components</h3>
-<p>We can think of a supercomputer as having three main parts:</p>
+<p>We can think of a supercomputer as having the following main parts:</p>
 <ul>
 <li><strong>File Systems</strong>: Where files are stored (shared between the various OSC supercomputers!)</li>
+<li>Nodes, with a key distinction between:
+<ul>
 <li><strong>Login Nodes</strong>: The computers everyone shares after logging in (only a handful per supercomputer)</li>
 <li><strong>Compute Nodes</strong>: The computers you can reserve to run your analyses (many per supercomputer)</li>
+</ul></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -422,20 +428,20 @@ A facility like OSC that has one or more supercomputers.</li>
 <tr class="odd">
 <td><strong>Project</strong></td>
 <td><code>/fs/ess/</code></td>
-<td>OSC’s main data storage location</td>
-<td>One per user</td>
+<td>OSC’s main project-based storage</td>
+<td>One per OSC Project</td>
 </tr>
 <tr class="even">
 <td><strong>Scratch</strong></td>
 <td><code>/fs/scratch/</code></td>
-<td>Additional, temporary storage</td>
+<td>Additional, temporary project-based storage</td>
 <td>One per OSC Project</td>
 </tr>
 <tr class="odd">
 <td><strong>Home</strong></td>
 <td><code>/users/</code></td>
 <td>General, <em>personal</em> files</td>
-<td>One per OSC Project</td>
+<td>One per user</td>
 </tr>
 </tbody>
 </table>

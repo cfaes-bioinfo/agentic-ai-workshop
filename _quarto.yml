@@ -50,13 +50,13 @@ website:
           - text: "--------------"
           - text: "Optional: GitHub account setup"
             href: s3-github-account.qmd
-          - text: "Optional: Positron installation (for R)"
-            #href: s4-positron-install.qmd
       - text: Other
         menu: 
           - text: Practical Workshop Info
             href: o1-practical.qmd
           - text: "---------------"
+          - text: "Positron installation and setup (for R)"
+            href: s4-positron-install.qmd
           - text: Further Resources
             href: o2-resources.qmd
     tools:

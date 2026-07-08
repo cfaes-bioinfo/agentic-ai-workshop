@@ -1,7 +1,7 @@
 {
   "permission": {
     "edit": {
-      "*.qmd": "allow"
+      "*.qmd": "permission"
     }
   }
 }

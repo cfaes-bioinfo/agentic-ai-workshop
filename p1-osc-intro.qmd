@@ -97,11 +97,12 @@ going from smaller to bigger things:
 
 ### Supercomputer components
 
-We can think of a supercomputer as having three main parts:
+We can think of a supercomputer as having the following main parts:
 
 - **File Systems**: Where files are stored (shared between the various OSC supercomputers!)
-- **Login Nodes**: The computers everyone shares after logging in (only a handful per supercomputer)
-- **Compute Nodes**: The computers you can reserve to run your analyses (many per supercomputer)
+- Nodes, with a key distinction between:
+  - **Login Nodes**: The computers everyone shares after logging in (only a handful per supercomputer)
+  - **Compute Nodes**: The computers you can reserve to run your analyses (many per supercomputer)
 
 ![_The structure of a supercomputer with three main components: file systems, login nodes, and compute nodes_ ](img/cluster_overview_ed.png){fig-align="center" width="85%" fig-alt="A diagram showing the structure of a supercomputer with three main components: file systems, login nodes, and compute nodes" .lightbox}
 
@@ -111,9 +112,9 @@ OSC has several distinct file systems, and it is important to know which one to 
 
 | File system | Located at | Main purpose | How many
 |------|-------|-----------------|---|
-| **Project**     | `/fs/ess/`   | OSC's main data storage location | One per user
-| **Scratch**     | `/fs/scratch/`    | Additional, temporary storage | One per OSC Project
-| **Home**        | `/users/`         | General, _personal_ files | One per OSC Project
+| **Project**     | `/fs/ess/`   | OSC's main project-based storage | One per OSC Project
+| **Scratch**     | `/fs/scratch/`    | Additional, temporary project-based storage | One per OSC Project
+| **Home**        | `/users/`         | General, _personal_ files | One per user
 
 : {.striped .hover tbl-colwidths="[15, 20, 40, 35]"}
 

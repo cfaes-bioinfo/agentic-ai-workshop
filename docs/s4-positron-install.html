@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jelmer Poelstra">
-<meta name="dcterms.date" content="2026-07-01">
+<meta name="dcterms.date" content="2026-07-07">
 
 <title>Positron installation – Agentic AI Workshop</title>
 <style>
@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -46,6 +81,11 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-18fe6355df9e00e9561dd53ce8dc48ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -167,7 +207,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./s3-github-account.html">
  <span class="dropdown-text">Optional: GitHub account setup</span></a>
   </li>  
-        <li class="dropdown-header">Optional: Positron installation (for R)</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -180,6 +219,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Practical Workshop Info</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./s4-positron-install.html">
+ <span class="dropdown-text">Positron installation and setup (for R)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./o2-resources.html">
  <span class="dropdown-text">Further Resources</span></a>
@@ -218,6 +261,23 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a></li>
+  <li><a href="#installing-positron" id="toc-installing-positron" class="nav-link" data-scroll-target="#installing-positron"><span class="header-section-number">2</span> Installing Positron</a></li>
+  <li><a href="#setting-up-posit-assistant" id="toc-setting-up-posit-assistant" class="nav-link" data-scroll-target="#setting-up-posit-assistant"><span class="header-section-number">3</span> Setting up Posit Assistant</a>
+  <ul class="collapse">
+  <li><a href="#authentication-via-the-osu-litellm-api" id="toc-authentication-via-the-osu-litellm-api" class="nav-link" data-scroll-target="#authentication-via-the-osu-litellm-api"><span class="header-section-number">3.1</span> Authentication via the OSU LiteLLM API</a></li>
+  <li><a href="#authentication-via-github-alternative" id="toc-authentication-via-github-alternative" class="nav-link" data-scroll-target="#authentication-via-github-alternative"><span class="header-section-number">3.2</span> Authentication via GitHub (Alternative)</a></li>
+  <li><a href="#testing-posit-assistant" id="toc-testing-posit-assistant" class="nav-link" data-scroll-target="#testing-posit-assistant"><span class="header-section-number">3.3</span> Testing Posit Assistant</a></li>
+  </ul></li>
+  <li><a href="#connecting-to-osc-compute-nodes" id="toc-connecting-to-osc-compute-nodes" class="nav-link" data-scroll-target="#connecting-to-osc-compute-nodes"><span class="header-section-number">4</span> Connecting to OSC compute nodes</a>
+  <ul class="collapse">
+  <li><a href="#connecting-to-osc-from-positron" id="toc-connecting-to-osc-from-positron" class="nav-link" data-scroll-target="#connecting-to-osc-from-positron"><span class="header-section-number">4.1</span> Connecting to OSC from Positron</a></li>
+  <li><a href="#loading-r-at-osc" id="toc-loading-r-at-osc" class="nav-link" data-scroll-target="#loading-r-at-osc"><span class="header-section-number">4.2</span> Loading R at OSC</a></li>
+  </ul></li>
+  <li><a href="#appendix-setting-up-claude-code-optional-advanced" id="toc-appendix-setting-up-claude-code-optional-advanced" class="nav-link" data-scroll-target="#appendix-setting-up-claude-code-optional-advanced"><span class="header-section-number">5</span> Appendix: Setting up Claude Code (Optional, advanced)</a>
+  <ul class="collapse">
+  <li><a href="#install-the-claude-code-extension" id="toc-install-the-claude-code-extension" class="nav-link" data-scroll-target="#install-the-claude-code-extension"><span class="header-section-number">5.1</span> Install the Claude Code extension</a></li>
+  <li><a href="#configure-authentication" id="toc-configure-authentication" class="nav-link" data-scroll-target="#configure-authentication"><span class="header-section-number">5.2</span> Configure authentication</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -253,10 +313,16 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 1, 2026</p>
+      <p class="date">July 7, 2026</p>
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">July 8, 2026</p>
+    </div>
+  </div>
     
   </div>
   
@@ -277,20 +343,495 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong><em>These instructions assume that you have performed the steps in</em></strong> <strong><em>the workshop’s <a href="./05-setup.html">toolkit setup session</a>.</em></strong></p>
+</div>
+</div>
+</div>
 <hr style="height:1pt; visibility:hidden;">
 <section id="overview" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
-<p>&lt;!——</p>
+<p>Positron is a new IDE (Integrated Development Environment) created by Posit, the company behind RStudio. It’s really an <strong>alternative to RStudio</strong> — and if you’re currently using RStudio, it’s worth considering switching to Positron for a few reasons:</p>
+<ol type="1">
+<li>Positron will be the main focus of development for Posit moving forward.</li>
+<li>In RStudio, Posit’s AI coding assistant (Posit Assistant) can only be used with a Posit AI subscription, while in Positron, it can be used with a GitHub login or with an API key<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
+<li><em>If you’re also using VS Code</em>: it is built on VS Code and extremely similar to it<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</li>
+<li><em>If you’re also using Python</em>: Positron has much better support for Python than RStudio.</li>
+</ol>
+<p>So, if you’d like to experiment with using in-editor AI while coding in R during and after this workshop, Positron will be the way to go. Here, we’ll install Positron and set up “Posit Assistant” for AI assistance in R.</p>
+</section>
+<section id="installing-positron" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="installing-positron"><span class="header-section-number">2</span> Installing Positron</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>If you have an OSU-managed computer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have an OSU-managed computer, whether you can (easily) install Positron depends on your operating system and whether you have local administrative privileges:</p>
+<table class="table-striped table-hover caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Have administrative privileges</th>
+<th>No administrative privileges</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Windows</strong></td>
+<td>✅</td>
+<td>❌ (Contact the IT Service Desk)</td>
+</tr>
+<tr class="even">
+<td><strong>Mac</strong></td>
+<td>✅</td>
+<td>✅ <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></td>
+</tr>
+</tbody>
+</table>
+<hr style="height:1pt; visibility:hidden;">
+<p>So, if you have a Windows OSU-managed computer <em>and</em> no local administrative privileges, you will not be able to follow the below instructions.</p>
+</div>
+</div>
+<ol type="1">
+<li><p>Go to the <a href="https://positron.posit.co/download.html">Positron download page</a> and check the box to accept the license agreement.</p></li>
+<li><p>Download the latest release for your operating system:</p>
 <ul>
-<li><p>The Claude Code extension can’t see your R session by default, unlike Posit Assistant. But you can connect using <code>btw::btw_mcp_session()</code>.</p></li>
-<li><p>llmcoder can hook up to free models and Ollama: https://r-posts.com/rstudio-ai-that-doesnt-cost-a-penny-llmcoder-vs-posit-ai-assistant/</p></li>
+<li><strong>Mac</strong>: Look for the <code>.dmg</code> file (Intel or Apple Silicon)</li>
+<li><strong>Windows</strong>: Look for the <code>.exe</code> installer</li>
+<li><strong>Linux</strong>: Look for the <code>.deb</code> or <code>.rpm</code> file depending on your distribution</li>
+</ul></li>
+<li><p>Install Positron:</p>
+<ul>
+<li><strong>Mac</strong>: Open the <code>.dmg</code> file and drag Positron to your Applications folder.
+<ul>
+<li>If you have a personal computer or an OSU computer with local administrative privileges, you can use the system-wide (standard) Applications folder.</li>
+<li>If you have an OSU-managed computer without local administrative privileges, you should use your personal Applications folder in your Home folder.</li>
+</ul></li>
+<li><strong>Windows</strong>: Run the <code>.exe</code> installer and follow the prompts</li>
+<li><strong>Linux</strong>: Use your package manager to install the downloaded file</li>
+</ul></li>
+</ol>
+</section>
+<section id="setting-up-posit-assistant" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="setting-up-posit-assistant"><span class="header-section-number">3</span> Setting up Posit Assistant</h2>
+<p>Posit Assistant is Positron’s built-in AI coding assistant, designed specifically for data analysis workflows. Among other neat features, it has access to your R/Python session and can see your data frames and variables out of the box (unlike, e.g., Claude Code).</p>
+<p>Posit has its own paid AI service, but fortunately, it’s possible to authenticate in many ways in Positron (unlike in RStudio). For us, it makes much more sense to use authenticate with GitHub Copilot and/or Claude Code, the latter via the API key.</p>
+<section id="authentication-via-the-osu-litellm-api" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="authentication-via-the-osu-litellm-api"><span class="header-section-number">3.1</span> Authentication via the OSU LiteLLM API</h3>
+<p>The recommended approach is to use the <strong>Custom Provider</strong> option with the OSU LiteLLM API. This routes through OSU’s approved Generative AI Service and uses the same API key as Claude Code.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Why use this option?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Approved for use with <strong>institutional data</strong></li>
+<li>Uses the <strong>same API key</strong> you already have for Claude Code</li>
+<li>No need for a separate personal account</li>
 </ul>
-<hr>
+</div>
+</div>
+<ol type="1">
+<li><p>Click on the <strong>Posit Assistant icon</strong> in Positron’s Activity Bar (the narrow bar on the far left):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/positron-assistant-icon.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="The Posit Assistant icon"><img src="./img/positron-assistant-icon.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:13.0%" alt="Posit Assistant icon in the Activity Bar"></a></p>
+</figure>
+</div>
+<figcaption>The Posit Assistant icon</figcaption>
+</figure>
+</div></li>
+<li><p>Click the cog wheel <i class="fa-solid fa-cog" aria-label="cog"></i> icon at the top of the Posit Assistant panel and select <strong>Configure LLM providers</strong> <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p></li>
+<li><p>At the top, select <strong>Custom Provider</strong> from the list of providers.</p></li>
+<li><p>Enter the following information:</p>
+<ul>
+<li><strong>Base URL</strong>: <code>https://litellm.cloud.osu.edu/v1</code></li>
+<li><strong>API Key</strong>: Use the same API key from your <code>~/claude/settings.json</code> file</li>
+</ul></li>
+<li><p>Click <strong>Log in</strong> to authenticate, and close the window.</p></li>
+<li><p>It may require a restart of Positron to take effect.</p></li>
+<li><p>After restarting, you should be able to select an “<strong>OpenAI Compatible</strong>” model from the model selection button in the prompt box.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/positron-select-model1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="A screenshot of the model selection pop-up. In this case, GitHub Copilot has also been authenticated, and those models are shown at the top. Below it are “OpenAI Compatible” models, where you can click on “More models” to select a model."><img src="./img/positron-select-model1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:27.0%" alt="Screenshot of the Posit Assistant panel showing the model selection dropdown."></a></p>
+</figure>
+</div>
+<figcaption>A screenshot of the model selection pop-up. In this case, GitHub Copilot has also been authenticated, and those models are shown at the top. Below it are “OpenAI Compatible” models, where you can click on “More models” to select a model.</figcaption>
+</figure>
+</div>
+<ol start="8" type="1">
+<li>After selecting a model, the prompt should look something like this:</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/positron-select-model2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="./img/positron-select-model2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Posit Assistant panel showing the model selection dropdown."></a></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Model compatibility
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not all models available through the OSU LiteLLM service may work with Posit Assistant’s Custom Provider. If you get an “internal error” when trying to use the assistant:</p>
+<ol type="1">
+<li>Click the <strong>model dropdown</strong> in the Posit Assistant panel (bottom of the chat interface)</li>
+<li>Try switching to a different model — <strong>Opus models</strong> (e.g., <code>claude-opus-4-6</code>) tend to work more reliably</li>
+<li>If Sonnet models give errors, stick with Opus for now</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>How to find your API key <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>After the <a href="./05-setup.html">toolkit setup session</a>, you will have a <code>~/claude/settings.json</code> at OSC. Open that file (e.g.&nbsp;via VS Code) to see the key.</p>
+<p>Alternatively, and after the workshop, you can use an API key you retrieved from <a href="https://go.osu.edu/api-fluency" class="uri">https://go.osu.edu/api-fluency</a>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="authentication-via-github-alternative" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="authentication-via-github-alternative"><span class="header-section-number">3.2</span> Authentication via GitHub (Alternative)</h3>
+<p>You’ll authenticate using your GitHub account (the same one you may have used for GitHub Copilot earlier):</p>
+<ol type="1">
+<li><p>Click on the <strong>Posit Assistant icon</strong> in Positron’s Activity Bar (the narrow bar on the far left):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/positron-assistant-icon.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="The Posit Assistant icon"><img src="./img/positron-assistant-icon.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:13.0%" alt="Posit Assistant icon in the Activity Bar"></a></p>
+</figure>
+</div>
+<figcaption>The Posit Assistant icon</figcaption>
+</figure>
+</div></li>
+<li><p>The Posit Assistant panel should open, and you should see a prompt to <strong>Sign in with GitHub</strong>. Click the button.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Don’t see the Sign in button? <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Click the cog wheel <i class="fa-solid fa-cog" aria-label="cog"></i> icon in the top right of the Posit Assistant panel and select <strong>Configure LLM providers</strong>.</p></li>
+<li><p>In the window that should pop up, scroll right to find the GitHub provider – there will likely be a Sign In button there.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/positron-configure-llm-providers.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Screenshot of the Posit Assistant LLM configuration panel showing the GitHub provider after having successfully logged in."><img src="./img/positron-configure-llm-providers.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%" alt="Posit Assistant configuration panel showing the GitHub provider"></a></p>
+</figure>
+</div>
+<figcaption>Screenshot of the Posit Assistant LLM configuration panel showing the GitHub provider after having successfully logged in.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div></li>
+<li><p>A browser window will open asking you to authorize Posit Assistant to access your GitHub account. Click <strong>Authorize</strong> to continue.</p></li>
+<li><p>After authorizing, you’ll be redirected back to Positron, and the assistant should now be active. The panel should show a prompt box where you can ask questions.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>GitHub vs Custom Provider authentication
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Both authentication methods will work for Posit Assistant:</p>
+<ul>
+<li><p><strong>GitHub Copilot</strong> (above): Quick setup if you already have GitHub Copilot, but uses your personal account and is <strong>not approved for institutional data</strong></p></li>
+<li><p><strong>Custom Provider</strong> (OSU LiteLLM): Approved for institutional data.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="testing-posit-assistant" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="testing-posit-assistant"><span class="header-section-number">3.3</span> Testing Posit Assistant</h3>
+<p>Let’s verify it works:</p>
+<ol type="1">
+<li><p>The “CONSOLE” tab in the bottom Positron panel should be open. By default, this may be an R console, but it could also be a Python console.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>If you’re seeing a Python console instead of R <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>In the top-right corner of the Positron window, you should see something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/positron-python-active.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="./img/positron-python-active.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Screenshot of the Positron console panel showing a Python console."></a></p>
+</figure>
+</div></li>
+<li><p>Click on the Python indicator, and then select <strong>New Console Session</strong>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/positron-new-console-session.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="In the screenshot, Python is selected, but you’ll want to go on to select the option below it."><img src="./img/positron-new-console-session.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Positron console panel showing the New Console Session button."></a></p>
+</figure>
+</div>
+<figcaption>In the screenshot, Python is selected, but you’ll want to go on to select the option below it.</figcaption>
+</figure>
+</div></li>
+<li><p>Switch to R by selecting an appropriate R version:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/positron-switch-to-r-console.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="./img/positron-switch-to-r-console.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Positron console panel showing the Switch to R Console option."></a></p>
+</figure>
+</div></li>
+<li><p>When done, you should see this in the top-right instead…</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/positron-switched-to-r-console.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="./img/positron-switched-to-r-console.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Screenshot of the Positron console panel showing an R console."></a></p>
+</figure>
+</div>
+<p>…and your console should have switched to R as well.</p></li>
+</ul>
+</div>
+</div>
+</div></li>
+<li><p>In the R console, create a simple data frame:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>In the Posit Assistant panel, try asking:</p>
+<blockquote class="blockquote">
+<p>Create a scatter plot of x vs y from df</p>
+</blockquote></li>
+<li><p>Posit Assistant should generate code for a plot and ask for permission to run it: click <strong>Allow</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/positron-prompt1a.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="./img/positron-prompt1a.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Posit Assistant panel showing a prompt and generated code for a scatter plot."></a></p>
+</figure>
+</div></li>
+<li><p>It produces the plot and shows it in its own panel, along with some neat suggestions for next steps! <em>The plot should <em>also</em> appear in the Plots panel, like in RStudio,</em> <em>since it was actually generated on your computer with R code.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/positron-prompt1b.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="./img/positron-prompt1b.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Screenshot of the Posit Assistant panel showing a prompt and generated code for a scatter plot."></a></p>
+</figure>
+</div></li>
+</ol>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Posit Assistant can see your R session’s variables, including data frames. This means you can ask questions about your data without having to explicitly describe it — the assistant already knows what’s in your environment!</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="connecting-to-osc-compute-nodes" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="connecting-to-osc-compute-nodes"><span class="header-section-number">4</span> Connecting to OSC compute nodes</h2>
+<p>Positron, being built on VS Code, can connect to remote systems like OSC using the same SSH configuration. If you’ve already set up VS Code to connect to OSC following <a href="./05-setup.html#setting-up-the-osc-connection-in-vs-code">the earlier setup instructions</a>, <strong>your SSH configuration will automatically work in Positron too</strong>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Haven’t configured the SSH connection yet?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you haven’t set up the SSH connection to OSC in VS Code (or any other editor), you’ll need to do so before you can connect from Positron. The process is identical to what’s described in the <a href="./05-setup.html#setting-up-the-osc-connection-in-vs-code">VS Code setup guide</a>.</p>
+</div>
+</div>
+<section id="connecting-to-osc-from-positron" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="connecting-to-osc-from-positron"><span class="header-section-number">4.1</span> Connecting to OSC from Positron</h3>
+<p>Assuming the SSH configuration is in place:</p>
+<ol type="1">
+<li><p>Open the <strong>Command Palette</strong> (<kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and type “<em><strong>SSH connect</strong></em>”</p></li>
+<li><p>Select <code>Remote-SSH: Connect to Host...</code> and then choose <code>osc-cardinal-compute</code>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/vscode-select-connection.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="./img/vscode-select-connection.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the VS Code window showing the SSH connection options."></a></p>
+</figure>
+</div></li>
+<li><p>A new Positron window will open and connect to OSC. Enter your OSC password if prompted.</p></li>
+<li><p>Once connected, you may see a pop-up asking whether you “trust the authors” — click <strong>Trust and Continue</strong>.</p></li>
+<li><p>Open an appropriate folder, like your workshop folder: <code>File</code> &gt; <code>Open Folder...</code> &gt; enter <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Quick reconnect
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Like in VS Code, after connecting once, the folder will appear in Positron’s “Recent” list on the welcome screen, making it easy to reconnect with a single click in future sessions.</p>
+</div>
+</div>
+</section>
+<section id="loading-r-at-osc" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="loading-r-at-osc"><span class="header-section-number">4.2</span> Loading R at OSC</h3>
+<p>R is not loaded by default on OSC compute nodes. Before you can use R in Positron while connected to OSC, you need to load the R module:</p>
+<ol type="1">
+<li><p>Open a <strong>terminal</strong> in Positron (<code>Terminal</code> &gt; <code>New Terminal</code> or <kbd>Ctrl/⌘</kbd>+<kbd>`</kbd>)</p></li>
+<li><p>Load the R module:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load gcc/12.3.0 R/4.5.0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Now you can start an R console in Positron:</p>
+<ul>
+<li>Look at the language indicator in the top-right of the Console pane</li>
+<li>Click it and select <strong>New Console Session</strong> &gt; choose R</li>
+<li>Positron should find and use the R installation you just loaded</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Making R load automatically <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To avoid manually loading R every time you connect to OSC, add the module load command to your <code>~/.bashrc</code> file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'module load gcc/12.3.0 R/4.5.0'</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This will automatically load R whenever you start a new terminal session at OSC.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The Posit AI assistant will work the same way when connected to OSC as it does on your local computer, and you shouldn’t need additional setup.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="appendix-setting-up-claude-code-optional-advanced" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="appendix-setting-up-claude-code-optional-advanced"><span class="header-section-number">5</span> Appendix: Setting up Claude Code (Optional, advanced)</h2>
+<p>Claude Code works in Positron just like it does in VS Code. Since you’ve already set up Claude Code for VS Code and have a <code>~/claude/settings.json</code> file, the setup in Positron is straightforward.</p>
+<p>You may consider doing this if you’re used to Claude Code or prefer it over Posit Assistant for certain tasks. Otherwise, you can skip this section and just use Posit Assistant — recall that you can use Posit Assistant with the OSU LiteLLM API, which is approved for institutional data.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The instructions below assume you’re at OSC, where you have a <code>~/.claude/settings.json</code> file with your API key. Adjusting this for your personal computer is pretty straightforward, though: you’ll need to download the <code>settings.json</code> file from OSC and put it at the same location on your own computer (<code>~/.claude/settings.json</code>).</p>
+</div>
+</div>
+</div>
+<section id="install-the-claude-code-extension" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="install-the-claude-code-extension"><span class="header-section-number">5.1</span> Install the Claude Code extension</h3>
+<ol type="1">
+<li><p>Open the <strong>Extensions</strong> view in Positron:</p>
+<ul>
+<li>Click the Extensions icon in the Activity Bar (the leftmost sidebar), or</li>
+<li>Press <kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd></li>
+</ul></li>
+<li><p>In the search box, type “<strong>claude code</strong>”.</p></li>
+<li><p>Find the “<strong>Claude Code for VS Code</strong>”<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> extension by Anthropic and click <strong>Install</strong>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/vscode-claude-install.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Example of the Claude Code extension in the Extensions view</figcaption>
+</figure>
+</div></li>
+</ol>
+</section>
+<section id="configure-authentication" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="configure-authentication"><span class="header-section-number">5.2</span> Configure authentication</h3>
+<p>Since you already have a <code>~/claude/settings.json</code> file from your earlier VS Code setup, Claude Code should automatically pick it up and authenticate:</p>
+<ol type="1">
+<li><p>After installing the extension, look for a new <strong>CLAUDE CODE</strong> tab in the sidebar (you may need to widen the sidebar to see both “CHAT” and “CLAUDE CODE” tabs).</p></li>
+<li><p>Click on the <strong>CLAUDE CODE</strong> tab.</p></li>
+<li><p>You should briefly see authentication messages, then the interface should load automatically.</p></li>
+<li><p>Once loaded, you’ll see a prompt box similar to Posit Assistant’s interface.</p></li>
+</ol>
+<!------
+
+Additional notes:
+- The Claude Code extension can't see your R session by default, unlike Posit Assistant.
+  But you can connect using `btw::btw_mcp_session()`.
+- llmcoder can hook up to free models and Ollama: https://r-posts.com/rstudio-ai-that-doesnt-cost-a-penny-llmcoder-vs-posit-ai-assistant/
+
+------->
 
 
 </section>
+</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p> Moreover, in Positron, you can use the Claude Code extension just like in VS Code, which is not possible in RStudio.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p> But with panels for Plots, your Environment, a Console, and so on, like you’re used to from RStudio.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>But you should install it in your personal, not system-wide, Applications folder.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p> The Configure LLM providers window can also be invoked via the Command Palette, or by clicking on the “Person icon” above the cog wheel way at the bottom of the Activity Bar.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p> Yes, “for VS Code”, not “for Positron”. Positron isn’t just similar to VS Code but is really a variant (“fork”) of it.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -712,6 +1253,38 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

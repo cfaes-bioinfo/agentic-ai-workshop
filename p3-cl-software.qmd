@@ -223,43 +223,53 @@ you'll have to reload any modules you want to use!
    
    <details><summary>_Click to see the solution_</summary>
    
-   Yes, it's available:
+   Yes, it's available, and there are two different versions:
    
    ```bash
    module spider star
    ```
    ```bash-out
-   --------------------------------------------------------------------------------
-   star: star/2.7.10b
-   --------------------------------------------------------------------------------
-     Other possible modules matches:
-        starccm
-    This module can be loaded directly: module load star/2.7.10b
-    Help:
-      STAR is an ultrafast universal RNA-seq aligner.
-   --------------------------------------------------------------------------------
-   To find other possible module matches execute:
-      $ module -r spider '.*star.*'
+----------------------------------------------------------------------------------------------------------
+  star:
+----------------------------------------------------------------------------------------------------------
+     Versions:
+        star/2.7.10b
+        star/2.7.11b
+
+----------------------------------------------------------------------------------------------------------
+  For detailed information about a specific "star" package (including how to load the modules) use the module's full name.
+  Note that names that have a trailing (E) are extensions provided by other modules.
+  For example:
+
+     $ module spider star/2.7.11b
+----------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------
+  starccm:
    ```
    </summary>
    
-3. Load the STAR module and test whether you can use the program
-   by running `STAR` --- in this case, without adding any options. 
+3. Load the STAR module with the most recent version of STAR
+   and test whether you can use the program by running `STAR` ---
+   in this case, without adding any options^[
+   Unfortunately, not all programs have the same way to pull version information, and so on. 
+   ]. 
    
    <details><summary>_Click to see the solution_</summary>
    ```bash
-   module load star/2.7.10b
+   module load star/2.7.11b
    STAR
    ```
    ```bash-out
    Usage: STAR  [options]... --genomeDir /path/to/genome/index/   --readFilesIn R1.fq R2.fq
    Spliced Transcripts Alignment to a Reference (c) Alexander Dobin, 2009-2022
-   STAR version=2.7.10b
-   STAR compilation time,server,dir=2025-06-11T15:35:30-04:00 pitzer-rw02.ten.osc.edu:/tmp/kkoepcke/spack/stage/spack-stage-star-2.7.10b-itj64jf32ufsx7x6kbmlpcprqq5xo5
-   in/spack-src/source
+
+   STAR version=2.7.11b
+   STAR compilation time,server,dir=2025-05-15T10:25:22-04:00 cardinal-rw02.ten.osc.edu:/tmp/kkoepcke/spack/stage/spack-stage-star-2.7.11b-bvgy4jcfuw4lbeigwgzlulagqmvz5o65/spack-src/source
    For more details see:
    <https://github.com/alexdobin/STAR>
    <https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf>
+
    To list all parameters, run STAR --help
    ```
    </summary>

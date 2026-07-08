@@ -63,7 +63,8 @@ touch fastqc.sh
 Find the `fastqc.sh` file in the VS Code file explorer
 (you may need to refresh the explorer if you don't see it immediately)
 and click on it to open it in the editor pane.
-Then, copy the following into the script:
+Then, copy the following into the script, and save the script
+(`File` > `Save` or <kbd>Ctrl/Cmd</kbd>+<kbd>S</kbd>):
 
 ```bash
 echo "This script will run FastQC"
@@ -86,22 +87,6 @@ This script will run FastQC
 That worked! 
 The script doesn't yet run FastQC like it "promises" to do,
 but we will add that functionality.
-
-::: {.callout-warning collapse="true"}
-#### Auto Save in VS Code _(Click to expand)_
-
-Any changes you make to this and other files in the editor pane should be
-immediately, automatically saved by VS Code.
-If that's not happening for some reason, you should see an indication of unsaved
-changes like a large black dot next to the script's file name in the editor pane tab header.
-
-If the file is not auto-saving, you can always save it manually
-(including with <kbd>Ctrl/Cmd</kbd>+<kbd>S</kbd>) like you would do in other programs.
-
-However, it may be convenient to turn Auto Save on:
-press <kbd>Ctrl/Cmd</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> to open the Command Palette and
-type "Auto Save". You should see an option "**_Toggle Auto Save_**": click on that.
-:::
 
 ### Add a shebang line
 
@@ -178,6 +163,7 @@ which will request and then run a compute job on a compute node.
 First, recall how we've run shell scripts so far:
 
 ```bash
+# Don't run this
 bash fastqc.sh
 ```
 
@@ -216,7 +202,7 @@ Now, resubmit the script with `sbatch`:
 sbatch fastqc.sh
 ```
 ```{.bash-out}
-Submitted batch job 12431935
+Submitted batch job 12275177
 ```
 
 This output line means your job was successfully submitted,
@@ -249,15 +235,15 @@ If you run `ls`, you should see a Slurm log file for the job you just submitted:
 ls
 ```
 ```bash-out
-scripts slurm-12431935.out
+data  fastqc.sh  results  slurm-12275177.out
 ```
 
 Let's take a look at its contents -- you can click on the file in VS Code or use
 the `cat` command to print the contents of a file to screen:
 
 ```bash
-# Replace 12431935 with your job number -- or better yet, USE AUTO-COMPLETION!
-cat slurm-12431935.out
+# Replace 12275177 with your job number -- or better yet, USE AUTO-COMPLETION!
+cat slurm-12275177.out
 ```
 ``` {.bash-out}
 This script will run FastQC
@@ -310,6 +296,7 @@ try the following:
 squeue -l -u jelmer
 ```
 ```{.bash-out}
+Wed Jul 08 13:56:33 2026
         JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
      23640814 condo-osu ondemand   jelmer  RUNNING       6:34   2:00:00      1 p0133
 ```
@@ -383,6 +370,7 @@ before it starts:
 squeue -u $USER -l
 ```
 ``` {.bash-out}
+Wed Jul 08 13:58:57 2026
          JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       12520046 serial-40 sleep.sh   jelmer  PENDING       0:00   1:00:00      1 (None)
       23640814 condo-osu ondemand   jelmer  RUNNING       7:12   2:00:00      1 p0133
@@ -394,6 +382,7 @@ But soon enough it should read `RUNNING`:
 squeue -u $USER -l
 ```
 ``` {.bash-out}
+Wed Jul 08 13:59:59 2026
          JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       12520046 condo-osu sleep.sh   jelmer  RUNNING       0:12   1:00:00      1 p0133
       23640814 condo-osu ondemand   jelmer  RUNNING       8:15   2:00:00      1 p0133
@@ -407,6 +396,7 @@ because only pending and running jobs are shown:
 squeue -u $USER -l
 ```
 ``` {.bash-out}
+Wed Jul 08 14:00:48 2026
          JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       23640814 condo-osu ondemand   jelmer  RUNNING       9:02   2:00:00      1 p0133
 ```

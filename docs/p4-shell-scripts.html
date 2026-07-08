@@ -204,7 +204,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./s3-github-account.html">
  <span class="dropdown-text">Optional: GitHub account setup</span></a>
   </li>  
-        <li class="dropdown-header">Optional: Positron installation (for R)</li>
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -217,6 +216,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Practical Workshop Info</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
+        <li>
+    <a class="dropdown-item" href="./s4-positron-install.html">
+ <span class="dropdown-text">Positron installation and setup (for R)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./o2-resources.html">
  <span class="dropdown-text">Further Resources</span></a>
@@ -313,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 7, 2026</p>
+      <p class="date-modified">July 8, 2026</p>
     </div>
   </div>
     
@@ -356,31 +359,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Create your first script, <code>fastqc.sh</code> (shell scripts usually have the extension <code>.sh</code>) as follows:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty file with the touch command:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Find the <code>fastqc.sh</code> file in the VS Code file explorer (you may need to refresh the explorer if you don’t see it immediately) and click on it to open it in the editor pane. Then, copy the following into the script:</p>
+<p>Find the <code>fastqc.sh</code> file in the VS Code file explorer (you may need to refresh the explorer if you don’t see it immediately) and click on it to open it in the editor pane. Then, copy the following into the script, and save the script (<code>File</code> &gt; <code>Save</code> or <kbd>Ctrl/Cmd</kbd>+<kbd>S</kbd>):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"This script will run FastQC"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Shell scripts mostly contain the same Unix shell code you have become familiar with. As such, the <code>fastqc.sh</code> file with a single <code>echo</code> command <em>constitutes a functional shell script</em>!</p>
 <p>One way of running the script is by typing <code>bash</code> followed by the path to the script<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>This script will run FastQC</code></pre>
 <p>That worked! The script doesn’t yet run FastQC like it “promises” to do, but we will add that functionality.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Auto Save in VS Code <em>(Click to expand)</em>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Any changes you make to this and other files in the editor pane should be immediately, automatically saved by VS Code. If that’s not happening for some reason, you should see an indication of unsaved changes like a large black dot next to the script’s file name in the editor pane tab header.</p>
-<p>If the file is not auto-saving, you can always save it manually (including with <kbd>Ctrl/Cmd</kbd>+<kbd>S</kbd>) like you would do in other programs.</p>
-<p>However, it may be convenient to turn Auto Save on: press <kbd>Ctrl/Cmd</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> to open the Command Palette and type “Auto Save”. You should see an option “<strong><em>Toggle Auto Save</em></strong>”: click on that.</p>
-</div>
-</div>
-</div>
 </section>
 <section id="add-a-shebang-line" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="add-a-shebang-line"><span class="header-section-number">2.2</span> Add a shebang line</h3>
@@ -435,7 +420,8 @@ Approx 15% complete for SRR31869590_1.fastq.gz
 <section id="the-sbatch-command" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="the-sbatch-command"><span class="header-section-number">3.2</span> The <code>sbatch</code> command</h3>
 <p>First, recall how we’ve run shell scripts so far:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Don't run this</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The above command ran the script on whatever node you are on, and printed output to the screen. To instead submit the script to the Slurm queue, start by simply <strong>replacing <code>bash</code> with <code>sbatch</code></strong>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>srun: error: ERROR: Job invalid: Must specify account for job  
@@ -447,7 +433,7 @@ srun: error: Unable to allocate resources: Unspecified error</code></pre>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#SBATCH --account=PAS3454</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now, resubmit the script with <code>sbatch</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sbatch</span> fastqc.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>Submitted batch job 12431935</code></pre>
+<pre class="bash-out"><code>Submitted batch job 12275177</code></pre>
 <p>This output line means your job was successfully submitted, and you can see the job’s <strong>unique identifier</strong> that you can use to monitor and manage it.</p>
 <p>After submitting a batch job, you <strong>immediately get your prompt back</strong>. The job will run outside of your immediate view, and you can continue doing other things in the shell while it does, or even log off.</p>
 <div class="callout callout-style-simple callout-tip">
@@ -467,10 +453,10 @@ srun: error: Unable to allocate resources: Unspecified error</code></pre>
 <p>It ends up in a file called <code>slurm-&lt;job-number&gt;.out</code> (e.g., <code>slurm-12431942.out</code>; since each job number is unique, each file has a different number). We’ll call this type of file a <strong>Slurm log file</strong>.</p>
 <p>If you run <code>ls</code>, you should see a Slurm log file for the job you just submitted:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>scripts slurm-12431935.out</code></pre>
+<pre class="bash-out"><code>data  fastqc.sh  results  slurm-12275177.out</code></pre>
 <p>Let’s take a look at its contents – you can click on the file in VS Code or use the <code>cat</code> command to print the contents of a file to screen:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace 12431935 with your job number -- or better yet, USE AUTO-COMPLETION!</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> slurm-12431935.out</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace 12275177 with your job number -- or better yet, USE AUTO-COMPLETION!</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> slurm-12275177.out</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>This script will run FastQC
 application/gzip
 Started analysis of SRR31869590_1.fastq.gz
@@ -510,7 +496,8 @@ Approx 15% complete for SRR31869590_1.fastq.gz
 <p>You can check the status of your batch jobs using the <code>squeue</code> command — try the following:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -l gives more verbose output; replace `jelmer` with your OSC username</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-l</span> <span class="at">-u</span> jelmer</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>        JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
+<pre class="bash-out"><code>Wed Jul 08 13:56:33 2026
+        JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
      23640814 condo-osu ondemand   jelmer  RUNNING       6:34   2:00:00      1 p0133</code></pre>
 <p>In the <code>squeue</code> output, following a line with the date &amp; time and a header line, you should see information about a single compute job, as shown above: this is the Interactive App job that runs VS Code — that’s not a batch job, but it <em>is</em> a compute job.</p>
 <p>The key pieces of information are:</p>
@@ -520,7 +507,7 @@ Approx 15% complete for SRR31869590_1.fastq.gz
 <li>The <code>TIME_LIMIT</code>: for how long is the job allowed to run</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -529,7 +516,7 @@ Approx 15% complete for SRR31869590_1.fastq.gz
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The following pieces of information about each job are listed:</p>
 <table class="table-striped table-hover caption-top table">
@@ -586,7 +573,7 @@ Approx 15% complete for SRR31869590_1.fastq.gz
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -595,7 +582,7 @@ Approx 15% complete for SRR31869590_1.fastq.gz
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We’ll use another short shell script to practice monitoring and managing batch jobs. First create a new file:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> sleep.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -611,17 +598,20 @@ Approx 15% complete for SRR31869590_1.fastq.gz
 <pre class="bash-out"><code>Submitted batch job 12431945</code></pre>
 <p>If you’re quick enough, you may be able to catch the job’s <code>STATE</code> as <code>PENDING</code> before it starts:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>         JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
+<pre class="bash-out"><code>Wed Jul 08 13:58:57 2026
+         JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       12520046 serial-40 sleep.sh   jelmer  PENDING       0:00   1:00:00      1 (None)
       23640814 condo-osu ondemand   jelmer  RUNNING       7:12   2:00:00      1 p0133</code></pre>
 <p>But soon enough it should read <code>RUNNING</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>         JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
+<pre class="bash-out"><code>Wed Jul 08 13:59:59 2026
+         JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       12520046 condo-osu sleep.sh   jelmer  RUNNING       0:12   1:00:00      1 p0133
       23640814 condo-osu ondemand   jelmer  RUNNING       8:15   2:00:00      1 p0133</code></pre>
 <p>The script should finish after 30 seconds (because your command was <code>sleep 30s</code>), after which the job will immediately disappear from the <code>squeue</code> listing, because only pending and running jobs are shown:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">squeue</span> <span class="at">-u</span> <span class="va">$USER</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>         JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
+<pre class="bash-out"><code>Wed Jul 08 14:00:48 2026
+         JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
       23640814 condo-osu ondemand   jelmer  RUNNING       9:02   2:00:00      1 p0133</code></pre>
 </div>
 </div>

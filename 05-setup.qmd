@@ -669,3 +669,19 @@ for the following settings to change them:
 ![](/img/vscode-setting-sticky-scroll.png){fig-align="center" width="100%" fig-alt="Screenshot of the VS Code Settings, showing the 'Terminal > Integrated: Sticky Scroll' option highlighted"}
 
 - More TBA
+
+::: {.callout-warning collapse="true"}
+#### Auto Save in VS Code _(Click to expand)_
+
+Any changes you make to this and other files in the editor pane should be
+immediately, automatically saved by VS Code.
+If that's not happening for some reason, you should see an indication of unsaved
+changes like a large black dot next to the script's file name in the editor pane tab header.
+
+If the file is not auto-saving, you can always save it manually
+(including with <kbd>Ctrl/Cmd</kbd>+<kbd>S</kbd>) like you would do in other programs.
+
+However, it may be convenient to turn Auto Save on:
+press <kbd>Ctrl/Cmd</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> to open the Command Palette and
+type "Auto Save". You should see an option "**_Toggle Auto Save_**": click on that.
+:::

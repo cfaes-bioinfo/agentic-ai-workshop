@@ -2,7 +2,8 @@
 title: "Positron installation"
 subtitle: "Optional installation and setup of the Positron IDE for R"
 number-sections: true
-date: 2026-07-01
+date: 2026-07-07
+date-modified: today
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462
@@ -21,18 +22,379 @@ bibliography: refs.bib
 **_This page is still subject to change_**
 :::
 
+::: {.callout-important appearance="simple"}
+**_These instructions assume that you have performed the steps in_**
+**_the workshop's [toolkit setup session](./05-setup.qmd)._**
+:::
+
 <hr style="height:1pt; visibility:hidden;" />
 
 ## Overview
 
+Positron is a new IDE (Integrated Development Environment) created by Posit,
+the company behind RStudio.
+It's really an **alternative to RStudio** --- and if you're currently using RStudio,
+it's worth considering switching to Positron for a few reasons:
 
+1. Positron will be the main focus of development for Posit moving forward.
+2. In RStudio, Posit's AI coding assistant (Posit Assistant) can only be used with
+   a Posit AI subscription,
+   while in Positron, it can be used with a GitHub login or with an API key^[
+   Moreover, in Positron, you can use the Claude Code extension just like in VS Code,
+   which is not possible in RStudio.].
+3. _If you're also using VS Code_: it is built on VS Code and extremely similar to it^[
+   But with panels for Plots, your Environment, a Console, and so on, like you're used to from RStudio.].
+4. _If you're also using Python_: Positron has much better support for Python than RStudio.
 
+So, if you'd like to experiment with using in-editor AI while coding in R during and
+after this workshop, Positron will be the way to go.
+Here, we'll install Positron and set up "Posit Assistant" for AI assistance in R.
+
+## Installing Positron
+
+::: callout-warning
+#### If you have an OSU-managed computer
+
+If you have an OSU-managed computer, whether you can (easily) install Positron
+depends on your operating system and whether you have local administrative privileges:
+
+|  | Have administrative privileges | No administrative privileges |
+|-------|------------------------|------------------|
+| **Windows** | ✅  | ❌ (Contact the IT Service Desk) |
+| **Mac** | ✅  | ✅ ^[But you should install it in your personal, not system-wide, Applications folder.] |
+
+: {.striped .hover tbl-colwidths="[20, 40, 40]"}
+
+<hr style="height:1pt; visibility:hidden;" />
+
+So, if you have a Windows OSU-managed computer _and_ no local administrative privileges,
+you will not be able to follow the below instructions.
+:::
+
+1. Go to the [Positron download page](https://positron.posit.co/download.html)
+   and check the box to accept the license agreement.
+
+2. Download the latest release for your operating system:
+   - **Mac**: Look for the `.dmg` file (Intel or Apple Silicon)
+   - **Windows**: Look for the `.exe` installer
+   - **Linux**: Look for the `.deb` or `.rpm` file depending on your distribution
+
+3. Install Positron:
+   - **Mac**: Open the `.dmg` file and drag Positron to your Applications folder.
+     - If you have a personal computer or an OSU computer with local administrative privileges,
+       you can use the system-wide (standard) Applications folder. 
+     - If you have an OSU-managed computer without local administrative privileges,
+       you should use your personal Applications folder in your Home folder.
+   - **Windows**: Run the `.exe` installer and follow the prompts
+   - **Linux**: Use your package manager to install the downloaded file
+
+## Setting up Posit Assistant
+
+Posit Assistant is Positron's built-in AI coding assistant,
+designed specifically for data analysis workflows.
+Among other neat features,
+it has access to your R/Python session and can see your data frames and variables
+out of the box (unlike, e.g., Claude Code).
+
+Posit has its own paid AI service, but fortunately, it's possible to authenticate
+in many ways in Positron (unlike in RStudio).
+For us, it makes much more sense to use authenticate with GitHub Copilot and/or
+Claude Code, the latter via the API key.
+
+### Authentication via the OSU LiteLLM API
+
+The recommended approach is to use the **Custom Provider** option with the OSU LiteLLM API.
+This routes through OSU's approved Generative AI Service and uses the same API key as Claude Code.
+
+::: {.callout-tip}
+#### Why use this option?
+
+- Approved for use with **institutional data**
+- Uses the **same API key** you already have for Claude Code
+- No need for a separate personal account
+:::
+
+1. Click on the **Posit Assistant icon** in Positron's Activity Bar
+   (the narrow bar on the far left):
+
+   ![The Posit Assistant icon](/img/positron-assistant-icon.png){fig-align="center" width="13%" .lightbox fig-alt="Posit Assistant icon in the Activity Bar"}
+
+2. Click the cog wheel {{<fa cog >}} icon at the top of the Posit Assistant
+   panel and select **Configure LLM providers** ^[
+   The Configure LLM providers window can also be invoked via the Command Palette,
+   or by clicking on the "Person icon" above the cog wheel way at the bottom
+   of the Activity Bar.].
+   
+3. At the top, select **Custom Provider** from the list of providers.
+
+4. Enter the following information:
+   
+   - **Base URL**: `https://litellm.cloud.osu.edu/v1`
+   - **API Key**: Use the same API key from your `~/claude/settings.json` file
+   
+5. Click **Log in** to authenticate, and close the window.
+
+6. It may require a restart of Positron to take effect.
+
+7. After restarting, you should be able to select an "**OpenAI Compatible**" model
+   from the model selection button in the prompt box.
+
+![A screenshot of the model selection pop-up. In this case, GitHub Copilot has also been authenticated, and those models are shown at the top. Below it are "OpenAI Compatible" models, where you can click on "More models" to select a model.](/img/positron-select-model1.png){fig-align="center" width="27%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing the model selection dropdown."}
+
+8. After selecting a model, the prompt should look something like this:
+
+![](/img/positron-select-model2.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing the model selection dropdown."}
+
+::: {.callout-warning}
+#### Model compatibility
+
+Not all models available through the OSU LiteLLM service may work with Posit Assistant's Custom Provider.
+If you get an "internal error" when trying to use the assistant:
+
+1. Click the **model dropdown** in the Posit Assistant panel (bottom of the chat interface)
+2. Try switching to a different model --- **Opus models** (e.g., `claude-opus-4-6`) tend to work more reliably
+3. If Sonnet models give errors, stick with Opus for now
+:::
+
+::: {.callout-tip collapse="true"}
+#### How to find your API key _(Click to expand)_
+
+After the [toolkit setup session](./05-setup.qmd),
+you will have a `~/claude/settings.json` at OSC.
+Open that file (e.g. via VS Code) to see the key.
+
+Alternatively, and after the workshop, you can use an API key you retrieved from
+<https://go.osu.edu/api-fluency>.
+:::
+
+### Authentication via GitHub (Alternative)
+
+You'll authenticate using your GitHub account (the same one you may have used for GitHub Copilot earlier):
+
+1. Click on the **Posit Assistant icon** in Positron's Activity Bar
+   (the narrow bar on the far left):
+
+   ![The Posit Assistant icon](/img/positron-assistant-icon.png){fig-align="center" width="13%" .lightbox fig-alt="Posit Assistant icon in the Activity Bar"}
+
+3. The Posit Assistant panel should open,
+   and you should see a prompt to **Sign in with GitHub**. Click the button.
+
+   ::: {.callout-tip collapse="true"}
+   ### Don't see the Sign in button? _(Click to expand)_
+   - Click the cog wheel {{<fa cog >}} icon in the top right of the Posit Assistant panel and select
+     **Configure LLM providers**.
+
+   - In the window that should pop up, scroll right to find the GitHub provider --
+     there will likely be a Sign In button there.
+
+   ![Screenshot of the Posit Assistant LLM configuration panel showing the GitHub provider after having successfully logged in.](/img/positron-configure-llm-providers.png){fig-align="center" width="65%" .lightbox fig-alt="Posit Assistant configuration panel showing the GitHub provider"}
+
+   :::
+
+4. A browser window will open asking you to authorize Posit Assistant to access your GitHub account.
+   Click **Authorize** to continue.
+
+5. After authorizing, you'll be redirected back to Positron, and the assistant should now be active.
+   The panel should show a prompt box where you can ask questions.
+
+::: {.callout-note}
+#### GitHub vs Custom Provider authentication
+
+Both authentication methods will work for Posit Assistant:
+
+- **GitHub Copilot** (above): Quick setup if you already have GitHub Copilot,
+  but uses your personal account and is **not approved for institutional data**
+  
+- **Custom Provider** (OSU LiteLLM): Approved for institutional data.
+:::
+
+### Testing Posit Assistant
+
+Let's verify it works:
+
+1. The "CONSOLE" tab in the bottom Positron panel should be open.
+   By default, this may be an R console, but it could also be a Python console.
+   
+   ::: {.callout-note collapse="true"}
+   #### If you're seeing a Python console instead of R _(Click to expand)_
+
+   - In the top-right corner of the Positron window, you should see something like this:
+
+     ![](/img/positron-python-active.png){fig-align="center" width="40%" .lightbox fig-alt="Screenshot of the Positron console panel showing a Python console."}
+
+   - Click on the Python indicator, and then select **New Console Session**:
+
+     ![In the screenshot, Python is selected, but you'll want to go on to select the option below it.](/img/positron-new-console-session.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Positron console panel showing the New Console Session button."}
+
+   - Switch to R by selecting an appropriate R version:
+
+     ![](/img/positron-switch-to-r-console.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Positron console panel showing the Switch to R Console option."}
+
+   - When done, you should see this in the top-right instead...
+
+     ![](/img/positron-switched-to-r-console.png){fig-align="center" width="40%" .lightbox fig-alt="Screenshot of the Positron console panel showing an R console."}
+
+     ...and your console should have switched to R as well.
+   :::
+
+2. In the R console, create a simple data frame:
+
+   ```r
+   df <- data.frame(x = 1:10, y = rnorm(10))
+   ```
+
+3. In the Posit Assistant panel, try asking:
+
+   > Create a scatter plot of x vs y from df
+
+3. Posit Assistant should generate code for a plot and ask for permission to run it:
+   click **Allow**.
+
+   ![](/img/positron-prompt1a.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing a prompt and generated code for a scatter plot."}
+
+4. It produces the plot and shows it in its own panel,
+   along with some neat suggestions for next steps!
+   _The plot should _also_ appear in the Plots panel, like in RStudio,_
+   _since it was actually generated on your computer with R code._
+
+   ![](/img/positron-prompt1b.png){fig-align="center" width="80%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing a prompt and generated code for a scatter plot."}
+
+::: {.callout-tip appearance="simple"}
+Posit Assistant can see your R session's variables, including data frames.
+This means you can ask questions about your data without having to explicitly
+describe it — the assistant already knows what's in your environment!
+:::
+
+## Connecting to OSC compute nodes
+
+Positron, being built on VS Code, can connect to remote systems like OSC using the same SSH configuration.
+If you've already set up VS Code to connect to OSC following [the earlier setup instructions](05-setup.qmd#setting-up-the-osc-connection-in-vs-code),
+**your SSH configuration will automatically work in Positron too**.
+
+::: {.callout-important}
+#### Haven't configured the SSH connection yet?
+
+If you haven't set up the SSH connection to OSC in VS Code (or any other editor),
+you'll need to do so before you can connect from Positron.
+The process is identical to what's described in the [VS Code setup guide](05-setup.qmd#setting-up-the-osc-connection-in-vs-code).
+:::
+
+### Connecting to OSC from Positron
+
+Assuming the SSH configuration is in place:
+
+1. Open the **Command Palette** (<kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and type "_**SSH connect**_"
+
+2. Select `Remote-SSH: Connect to Host...` and then choose `osc-cardinal-compute`:
+
+   ![](/img/vscode-select-connection.png){fig-align="center" width="50%" .lightbox fig-alt="Screenshot of the VS Code window showing the SSH connection options."}
+
+3. A new Positron window will open and connect to OSC.
+   Enter your OSC password if prompted.
+
+4. Once connected, you may see a pop-up asking whether you "trust the authors" —
+   click **Trust and Continue**.
+
+5. Open an appropriate folder, like your workshop folder:
+   `File` > `Open Folder...` > enter `/fs/scratch/PAS3454/people/<user>`.
+
+::: {.callout-tip}
+#### Quick reconnect
+
+Like in VS Code, after connecting once,
+the folder will appear in Positron's "Recent" list on the welcome screen,
+making it easy to reconnect with a single click in future sessions.
+:::
+
+### Loading R at OSC
+
+R is not loaded by default on OSC compute nodes. Before you can use R in Positron while connected to OSC,
+you need to load the R module:
+
+1. Open a **terminal** in Positron (`Terminal` > `New Terminal` or <kbd>Ctrl/⌘</kbd>+<kbd>`</kbd>)
+
+2. Load the R module:
+
+   ```bash
+   module load gcc/12.3.0 R/4.5.0
+   ```
+
+4. Now you can start an R console in Positron:
+   - Look at the language indicator in the top-right of the Console pane
+   - Click it and select **New Console Session** > choose R
+   - Positron should find and use the R installation you just loaded
+
+::: {.callout-tip collapse="true"}
+#### Making R load automatically _(Click to expand)_
+
+To avoid manually loading R every time you connect to OSC, add the module load command to your `~/.bashrc` file:
+
+```bash
+echo 'module load gcc/12.3.0 R/4.5.0' >> ~/.bashrc
+```
+
+This will automatically load R whenever you start a new terminal session at OSC.
+:::
+
+::: {.callout-tip appearance="simple"}
+The Posit AI assistant will work the same way when connected to OSC as it does on your local computer,
+and you shouldn't need additional setup.
+:::
+
+## Appendix: Setting up Claude Code (Optional, advanced)
+
+Claude Code works in Positron just like it does in VS Code.
+Since you've already set up Claude Code for VS Code and have a `~/claude/settings.json` file,
+the setup in Positron is straightforward.
+
+You may consider doing this if you're used to Claude Code or prefer it over
+Posit Assistant for certain tasks.
+Otherwise, you can skip this section and just use Posit Assistant ---
+recall that you can use Posit Assistant with the OSU LiteLLM API,
+which is approved for institutional data.
+
+::: {.callout-warning appearance="simple"}
+The instructions below assume you're at OSC,
+where you have a `~/.claude/settings.json` file with your API key.
+Adjusting this for your personal computer is pretty straightforward, though:
+you'll need to download the `settings.json` file from OSC and put it at the same
+location on your own computer (`~/.claude/settings.json`).
+:::
+
+### Install the Claude Code extension
+
+1. Open the **Extensions** view in Positron:
+   - Click the Extensions icon in the Activity Bar (the leftmost sidebar), or
+   - Press <kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>
+
+2. In the search box, type "**claude code**".
+
+3. Find the "**Claude Code for VS Code**"^[
+   Yes, "for VS Code", not "for Positron".
+   Positron isn't just similar to VS Code but is really a variant ("fork") of it.]
+   extension by Anthropic and click **Install**:
+
+   ![Example of the Claude Code extension in the Extensions view](img/vscode-claude-install.png){fig-align="center" width="50%"}
+
+### Configure authentication
+
+Since you already have a `~/claude/settings.json` file from your earlier VS Code setup,
+Claude Code should automatically pick it up and authenticate:
+
+1. After installing the extension, look for a new **CLAUDE CODE** tab in the sidebar
+   (you may need to widen the sidebar to see both "CHAT" and "CLAUDE CODE" tabs).
+
+2. Click on the **CLAUDE CODE** tab.
+
+3. You should briefly see authentication messages, then the interface should load automatically.
+
+4. Once loaded, you'll see a prompt box similar to Posit Assistant's interface.
 
 <!------
 
+Additional notes:
 - The Claude Code extension can't see your R session by default, unlike Posit Assistant.
   But you can connect using `btw::btw_mcp_session()`.
-
 - llmcoder can hook up to free models and Ollama: https://r-posts.com/rstudio-ai-that-doesnt-cost-a-penny-llmcoder-vs-posit-ai-assistant/
 
--------
+------->
