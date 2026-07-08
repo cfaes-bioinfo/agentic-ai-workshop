@@ -394,6 +394,7 @@ Guidelines for selecting AI Model - **There is no single "best" AI model.** The 
 | Teaching & learning | Ease of use, affordability, fast response |
 
 ::: 
+bh
 
 - Test **2–3 models** on a small sample of your actual research task.
 - Choose the model that best balances **performance, cost, and reliability**.
