@@ -1,5 +1,5 @@
 ---
-title: "Our coding + genAI toolset: intro and setup"
+title: "Our coding + genAI toolkit: intro and setup"
 subtitle: "An introduction to, and setup of, the main tools we'll use in the workshop"
 number-sections: true
 date: 2026-07-03
@@ -607,7 +607,7 @@ you are **not** using it in an approved way.
 
 3. A second tab should now be available in the side bar with Copilot,
    named "CLAUDE" --- click on that
-   (_if you don't see it, you may have to widen the side bar!_):
+   (_if you don't see it, you may have to widen the side bar!_)::
 
    ![Next to "CHAT" (i.e., GitHub Copilot), a "CLAUDE CODE" tab is now available.](/img/vscode-claude-in-sidebar.png){fig-align="center" width="70%" fig-alt="Screenshot of the VS Code interface, showing the Claude Code icon in the top right corner of the window"}
 
@@ -636,6 +636,15 @@ you are **not** using it in an approved way.
    #### Does the window with login options not automatically disappear?
    Don't try to log in via the options in that window,
    but warn the instructors and we'll troubleshoot.
+   :::
+
+5. In the prompt box at the bottom,
+   go ahead and ask it a quick, simple question to test that it works.
+
+   ::: {.callout-tip appearance="simple"}
+   No inspiration? Ask a classic stumbling-block question for AIs like:
+
+   > How many "b"s are in the word "blueberry"?
    :::
 
 <hr style="height:1pt; visibility:hidden;" />

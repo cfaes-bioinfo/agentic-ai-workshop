@@ -11,6 +11,10 @@ author:
       - name: CFAES Bioinformatics Core, Ohio State University
         url: https://mcic.osu.edu/bioinformatics
 bibliography: refs.bib # You can add reference to this files if you have and cite any
+other-links:
+  - text: "Previous: Toolkit setup"
+    icon: bookmarks
+    href: 05-setup.html
 ---
 
 ---------
@@ -386,7 +390,31 @@ See also the VS Code / GitHub Copilot docs on
 
 :::
 
-## Claude Code
+## Chat with Claude Code
+
+Now, we'll **switch gears in two ways**: from GitHub Copilot to Claude Code,
+and from code completion to chat
+(recall that Copilot also has chat functionality;
+and this is similar to that of Claude Code, but here we'll focus on the latter).
+
+In the right-hand side bar, if needed, click "CLAUDE CODE" to switch to the Claude Code tab.
+As we saw in a previous session, that looks something like this:
+
+![The look of the Claude Code window when you first open it. <br>The text in the center is a random tip that pops up: yours is likely different.](/img/claude-first-window.png){fig-align="center" width="55%" fig-alt="Screenshot of the Claude Code interface, showing the first window after logging in"}
+
+::: {.callout-note collapse="true"}
+#### Other minor things you may notice right away _(Click to expand)_
+
+- There might be text just above the prompt box saying:
+  _"Prefer the Terminal experience? Switch back in Settings."_
+  This refers to the fact that you can also also use Claude Code in the terminal
+  (the Claude Code CLI), but we will not do that here and don't really recommend switching.
+
+- The ghost text in the prompt box says "_⌘ [or Ctrl] to focus or unfocus Claude_",
+  which refers to switching your active cursor back and forth between the prompt box
+  and the VS Code editor.
+  At least for me, this doesn't work and that seems to be a known issue.
+:::
 
 ### A few prompts to get started
 
@@ -394,27 +422,47 @@ See also the VS Code / GitHub Copilot docs on
 
 - Then, have it troubleshoot the (likely) `module` problem.
 
-> Add functional bells and whistles to the script
+### Features in the Claude Code prompt box
 
-- The above will likely trigger plan mode.
+![The Claude Code prompt box.](/img/claude-prompt-box.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code prompt box"}
 
-> Also report the time it took to run the script
+Starting on the left side:
 
-### Going over the buttons in the Claude window
+- The `+` icon allows you to add **context in the form of files**.
+  In the context of in-editor chat, the files we want to are present ...
 
-- `+` to add context in the form of files
   - File in focus in the editor is automatically added (+ mention line-highlighting),
     but can be disregarded by clicking on the filename below the prompt box
+
+  - Mention `@workspace` and implicit context of all files in the workspace
+
+  ![](/img/claude-context-add1.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"}
+
+  ![](/img/claude-context-add2.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"}
 
 - `/` also for adding context, and:
   - Switching models
   - Setting effort, and toggling "Thinking"
 
-- Modes:
-  - Manual
-  - Edit automatically
-  - Plan mode
-  - Auto mode (not always visible?)
+- On the right-hand side is the **Permission Modes** indicator.
+  This is essentially to set the permission type Claude has to perform actions
+  like editing files and running commands, and can be toggled between:
+
+  - **Manual**:
+    Claude asks permission for each action.
+  - **Edit automatically**:
+    Claude makes edits to files and runs basic commands without asking for permission.
+  - **Plan mode**:
+    Claude writes a plan that is then opened as a rendered Markdown document,
+    and which you can approve or (ask to) modify.
+  - **Auto mode** (not always visible):
+    Claude determines on its own whether to ask for permission or not for specific actions,
+    or to write a plan.
+    In this mode, it is also more likely to ask you for clarifying questions.
+
+  {{< fa user-edit >}} Switch to Auto Mode, and you should see something like the following:
+
+  ![](/img/claude-automode-message.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"}
 
 - Clock icon: see previous chats
 
@@ -426,6 +474,16 @@ See also the VS Code / GitHub Copilot docs on
 _TBA - Show LiteLLM website_
 
 :::
+
+### Additional prompts
+
+> Add functional bells and whistles to the script
+
+> Also report the time it took to run the script
+
+### Miscellaneous tips
+
+- <kbd>Option/Alt</kbd> + <kbd>K</kbd> to persistently send a text selection to the prompt box
 
 <!---
 
