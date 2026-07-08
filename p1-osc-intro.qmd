@@ -24,8 +24,8 @@ bibliography: refs.bib
 
 ## Introduction
 
-This part introduces high-performance computing 
-and the Ohio Supercomputer Center (OSC). You will learn:
+This part introduces _high-performance computing_
+and the **Ohio Supercomputer Center (OSC)**. You will learn:
 
 - What a supercomputer is and why they are useful
 - What resources the Ohio Supercomputer Center (OSC) provides
@@ -50,7 +50,7 @@ Here are some possible reasons to use a supercomputer instead of your own comput
 - Your analysis takes a long time to run or needs high computational power.
 - You need to run an analysis many times.
 - Your analysis requires software available only for the Linux operating system, while you have Windows.
-- You need to store a lot of data.
+- You need to store a _lot_ of data.
 
 **When you're working with omics data, many of these reasons typically apply.**
 
@@ -279,6 +279,12 @@ In this session, we will use VS Code to practice with Unix shell basics and scri
   - The **Working Directory** (starting location -- replace `<user>` with your OSC username):
     `/fs/scratch/PAS3454/people/<user>/pre`
   - The **App Code Server version**: `4.8.3` (the only available option)
+
+  ::: {.callout-warning appearance="simple"}
+  When selecting the Working Directory, don't get confused by the "Select Path" button.
+  This is an _alternative_ to typing the path in the text box,
+  not a way to confirm the path you typed.
+  :::
 
 - Click `Launch` and you'll be sent to the _My Interactive Sessions_ page
   with a card for your job at the top.

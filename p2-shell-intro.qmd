@@ -505,6 +505,9 @@ A number of "shortcuts" exist for paths:
 
 <hr style="height:1pt; visibility:hidden;" />
 
+::: callout-note
+### Using `..` to move up in the directory hierarchy
+
 Some examples of `..`:
 
 - Use `..` to go up one level in the dir hierarchy:
@@ -547,23 +550,16 @@ Some examples of `..`:
 
 <hr style="height:1pt; visibility:hidden;" />
 
-::: callout-tip
-#### These path shortcuts work with many commands
-These are *general shell shortcuts* that work with **any** command that accepts
-a path/file name, and not just with `cd`.
-:::
-
-<hr style="height:1pt; visibility:hidden;" />
-
 If the relative paths with `..` are confusing to you,
 perhaps this diagram helps:
 
 ![A diagram showing the key dirs on OSC for this course, with OSC Project-associated dirs in blue and Home dirs in red. The `PAS3454` box in the Home dir is faded, because your Home dir may be in a differently named dir, and also because it is important to realize that this dir is not associated with any OSC Project other than in name. Example commands to navigate (partially) upwards with relative paths are shown in purple.](/img/paths-navigation2.png){fig-align="left" width="70%" .lightbox fig-alt="A diagram showing paths on OSC and navigating upwards with relative paths"}
+:::
 
 <hr style="height:1pt; visibility:hidden;" />
 
 ::: exercise
-#### {{< fa user-edit >}} Exercise: navigation
+#### {{< fa user-edit >}} Bonus exercise: navigation
 
 1. Use a relative path to move to  `/fs/scratch/PAS3454/people/<user>/`
 

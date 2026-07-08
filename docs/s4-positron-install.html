@@ -270,8 +270,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#connecting-to-osc-compute-nodes" id="toc-connecting-to-osc-compute-nodes" class="nav-link" data-scroll-target="#connecting-to-osc-compute-nodes"><span class="header-section-number">4</span> Connecting to OSC compute nodes</a>
   <ul class="collapse">
-  <li><a href="#connecting-to-osc-from-positron" id="toc-connecting-to-osc-from-positron" class="nav-link" data-scroll-target="#connecting-to-osc-from-positron"><span class="header-section-number">4.1</span> Connecting to OSC from Positron</a></li>
-  <li><a href="#loading-r-at-osc" id="toc-loading-r-at-osc" class="nav-link" data-scroll-target="#loading-r-at-osc"><span class="header-section-number">4.2</span> Loading R at OSC</a></li>
+  <li><a href="#modifying-the-ssh-config-for-positron" id="toc-modifying-the-ssh-config-for-positron" class="nav-link" data-scroll-target="#modifying-the-ssh-config-for-positron"><span class="header-section-number">4.1</span> Modifying the SSH config for Positron</a></li>
+  <li><a href="#connecting-to-osc-from-positron" id="toc-connecting-to-osc-from-positron" class="nav-link" data-scroll-target="#connecting-to-osc-from-positron"><span class="header-section-number">4.2</span> Connecting to OSC from Positron</a></li>
+  <li><a href="#loading-r-at-osc" id="toc-loading-r-at-osc" class="nav-link" data-scroll-target="#loading-r-at-osc"><span class="header-section-number">4.3</span> Loading R at OSC</a></li>
   </ul></li>
   <li><a href="#appendix-setting-up-claude-code-optional-advanced" id="toc-appendix-setting-up-claude-code-optional-advanced" class="nav-link" data-scroll-target="#appendix-setting-up-claude-code-optional-advanced"><span class="header-section-number">5</span> Appendix: Setting up Claude Code (Optional, advanced)</a>
   <ul class="collapse">
@@ -333,16 +334,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <hr>
 <hr style="height:1pt; visibility:hidden;">
-<div class="callout callout-style-simple callout-caution">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong><em>This page is still subject to change</em></strong></p>
-</div>
-</div>
-</div>
 <div class="callout callout-style-simple callout-important">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -680,7 +671,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="connecting-to-osc-compute-nodes" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="connecting-to-osc-compute-nodes"><span class="header-section-number">4</span> Connecting to OSC compute nodes</h2>
-<p>Positron, being built on VS Code, can connect to remote systems like OSC using the same SSH configuration. If you’ve already set up VS Code to connect to OSC following <a href="./05-setup.html#setting-up-the-osc-connection-in-vs-code">the earlier setup instructions</a>, <strong>your SSH configuration will automatically work in Positron too</strong>.</p>
+<p>Positron can connect to remote systems like OSC using SSH, but its SSH handling differs slightly from VS Code’s. Specifically, Positron’s SSH extension doesn’t process inline <code>ProxyCommand</code> shell commands the same way VS Code does, so we need to use a small <strong>proxy script</strong> instead.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -691,12 +682,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you haven’t set up the SSH connection to OSC in VS Code (or any other editor), you’ll need to do so before you can connect from Positron. The process is identical to what’s described in the <a href="./05-setup.html#setting-up-the-osc-connection-in-vs-code">VS Code setup guide</a>.</p>
+<p>If you haven’t done the initial SSH configuration steps from the <a href="./05-setup.html#setting-up-the-osc-connection-in-vs-code">VS Code setup guide</a>, do those first — you’ll need the <code>osc-cardinal</code> and <code>osc-cardinal-compute</code> entries in your SSH config file before proceeding.</p>
 </div>
 </div>
-<section id="connecting-to-osc-from-positron" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="connecting-to-osc-from-positron"><span class="header-section-number">4.1</span> Connecting to OSC from Positron</h3>
-<p>Assuming the SSH configuration is in place:</p>
+<section id="modifying-the-ssh-config-for-positron" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="modifying-the-ssh-config-for-positron"><span class="header-section-number">4.1</span> Modifying the SSH config for Positron</h3>
+<p>The inline <code>ProxyCommand</code> from the VS Code setup instructions doesn’t work in Positron. The fix is to move the command into a small script. This modification is <strong>backward compatible with VS Code</strong> — your VS Code connection will continue to work after these changes.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Mac</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Windows</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li><p>Open a terminal and create the proxy script:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> <span class="op">&gt;</span> ~/.ssh/osc-compute-proxy.sh <span class="op">&lt;&lt; 'EOF'</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">#!/bin/bash</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">exec ssh -o LogLevel=QUIET -o BatchMode=yes osc-cardinal \</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">  "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc \$SLURM_NODELIST 22'" 2&gt;/dev/null</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">EOF</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x ~/.ssh/osc-compute-proxy.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Open your SSH config file (<code>~/.ssh/config</code>) and replace the <code>osc-cardinal-compute</code> entry with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal-compute</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    ForwardAgent yes</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    StrictHostKeyChecking no</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    UserKnownHostsFile=/dev/null</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    ConnectTimeout 120</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    ProxyCommand /Users/<span class="dt">&lt;</span><span class="kw">mac-username</span><span class="dt">&gt;</span>/.ssh/osc-compute-proxy.sh %h</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Replace <code>&lt;osc-username&gt;</code> with your OSC username, and <code>&lt;mac-username&gt;</code> with your Mac username (the same one that appears in the file path at the top of the config file).</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The <code>%h</code> at the end of the <code>ProxyCommand</code> line is required — don’t omit it.</p>
+</div>
+</div>
+</div></li>
+</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ol type="1">
+<li><p>Open <strong>PowerShell</strong> and create the proxy script:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="vs">@"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="vs">@echo off</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="vs">ssh -o LogLevel=QUIET -o BatchMode=yes osc-cardinal "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc </span><span class="va">$SLURM_NODELIST</span><span class="vs"> 22'"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="vs">"@</span> <span class="op">|</span> <span class="fu">Out-File</span> <span class="op">-</span>Encoding ascii <span class="st">"</span><span class="va">$env</span><span class="op">:</span><span class="va">USERPROFILE</span><span class="st">\.ssh\osc-compute-proxy.cmd"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Open your SSH config file (<code>C:\Users\&lt;username&gt;\.ssh\config</code>) and replace the <code>osc-cardinal-compute</code> entry with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Host osc-cardinal-compute</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    User <span class="dt">&lt;</span><span class="kw">osc-username</span><span class="dt">&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    ForwardAgent yes</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    StrictHostKeyChecking no</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    UserKnownHostsFile=/dev/null</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ConnectTimeout 120</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    ProxyCommand C:/Users/<span class="dt">&lt;</span><span class="kw">windows-username</span><span class="dt">&gt;</span>/.ssh/osc-compute-proxy.cmd %h</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Replace <code>&lt;osc-username&gt;</code> with your OSC username, and <code>&lt;windows-username&gt;</code> with your Windows username. Use forward slashes (<code>/</code>) in the path.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The <code>%h</code> at the end of the <code>ProxyCommand</code> line is required — don’t omit it.</p>
+</div>
+</div>
+</div></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="connecting-to-osc-from-positron" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="connecting-to-osc-from-positron"><span class="header-section-number">4.2</span> Connecting to OSC from Positron</h3>
+<p>With the proxy script in place:</p>
 <ol type="1">
 <li><p>Open the <strong>Command Palette</strong> (<kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and type “<em><strong>SSH connect</strong></em>”</p></li>
 <li><p>Select <code>Remote-SSH: Connect to Host...</code> and then choose <code>osc-cardinal-compute</code>:</p>
@@ -705,7 +763,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="./img/vscode-select-connection.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="./img/vscode-select-connection.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the VS Code window showing the SSH connection options."></a></p>
 </figure>
 </div></li>
-<li><p>A new Positron window will open and connect to OSC. Enter your OSC password if prompted.</p></li>
+<li><p>A new Positron window will open and connect to OSC. This may take 30 seconds or more while a compute node is being allocated. Enter your OSC password if prompted.</p></li>
 <li><p>Once connected, you may see a pop-up asking whether you “trust the authors” — click <strong>Trust and Continue</strong>.</p></li>
 <li><p>Open an appropriate folder, like your workshop folder: <code>File</code> &gt; <code>Open Folder...</code> &gt; enter <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>.</p></li>
 </ol>
@@ -722,14 +780,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Like in VS Code, after connecting once, the folder will appear in Positron’s “Recent” list on the welcome screen, making it easy to reconnect with a single click in future sessions.</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Why is this needed? <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>VS Code’s Remote SSH extension runs <code>ProxyCommand</code> through your system shell, so inline commands with redirections (<code>2&gt;/dev/null</code>) and shell escaping (<code>\$</code>) work fine. Positron’s SSH extension instead spawns the command directly (without a shell), which breaks inline shell syntax. Moving the command into a script avoids this issue entirely, and works with both editors.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="loading-r-at-osc" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="loading-r-at-osc"><span class="header-section-number">4.2</span> Loading R at OSC</h3>
+<section id="loading-r-at-osc" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="loading-r-at-osc"><span class="header-section-number">4.3</span> Loading R at OSC</h3>
 <p>R is not loaded by default on OSC compute nodes. Before you can use R in Positron while connected to OSC, you need to load the R module:</p>
 <ol type="1">
 <li><p>Open a <strong>terminal</strong> in Positron (<code>Terminal</code> &gt; <code>New Terminal</code> or <kbd>Ctrl/⌘</kbd>+<kbd>`</kbd>)</p></li>
 <li><p>Load the R module:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load gcc/12.3.0 R/4.5.0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">module</span> load gcc/12.3.0 R/4.5.0</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Now you can start an R console in Positron:</p>
 <ul>
 <li>Look at the language indicator in the top-right of the Console pane</li>
@@ -738,7 +812,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -747,10 +821,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>To avoid manually loading R every time you connect to OSC, add the module load command to your <code>~/.bashrc</code> file:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'module load gcc/12.3.0 R/4.5.0'</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'module load gcc/12.3.0 R/4.5.0'</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This will automatically load R whenever you start a new terminal session at OSC.</p>
 </div>
 </div>
