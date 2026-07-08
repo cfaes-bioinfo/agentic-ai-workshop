@@ -72,13 +72,23 @@ TBA
 - This workshop focuses on using AI to help with **coding your analysis**,
   rather than on using AI to analyze your data directly.
 
-- Practical, not theoretical:
-  we will focus on **hands-on exercises** and examples, rather than on theory or background.
+- We will focus on **hands-on exercises** and examples,
+  but will include background and key context.
 
 ## What we won't cover –- at least not in depth
 
-- Ethics and environmental impact of AI
-- ...
+- Ethics and environmental impacts of AI
+- _What else?_
+
+<br>
+
+And, as implied in the previous slide:
+
+- Using AI to analyze your data directly, as in having the LLM itself analyze the data
+  similar to how you might ask it to summarize one or many text documents.
+  (We're using established command-line tools for the actual analysis.)
+
+- Extensive theory
 
 ## Day 1: Monday, July 13
 
@@ -118,13 +128,15 @@ TBA
 
 ## Data sets
 
-TBA
+- Main: RNA-Seq data from Iqbal et al. - DETAILS TBA
+
+- Genomic reads from the same paper
 
 # Practicalities {background-color="silver"}
 
 ## What to expect
 
-- Much of the workshop will be **hands-on**, where you are expected to follow along
+- In **hands-on** sections of the workshop, you are expected to follow along
   with the instructors on your laptop and/or try things yourself
 
 <hr style="height:1pt; visibility:hidden;" />
@@ -164,9 +176,13 @@ TBA
   can help you find one to work with ––
   you'll work with this data tomorrow
 
-## How to ask questions
+## How to ask questions and contribute
 
 - Don't hesitate to interrupt us at any time if you have a question or are stuck!
+
+- We'll also ask you questions about your experience,
+  and **we're interested to hear your thoughts** even when we're not asking!
+  We'd be happy to have some unplanned discussions!
 
 <hr style="height:1pt; visibility:hidden;" />
 

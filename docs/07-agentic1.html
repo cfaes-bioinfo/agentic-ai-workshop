@@ -265,7 +265,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#related-inline-chat" id="toc-related-inline-chat" class="nav-link" data-scroll-target="#related-inline-chat"><span class="header-section-number">2.3</span> Related: Inline chat</a></li>
   <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice"><span class="header-section-number">2.4</span> Practice</a></li>
   </ul></li>
-  <li><a href="#claude-code" id="toc-claude-code" class="nav-link" data-scroll-target="#claude-code"><span class="header-section-number">3</span> Claude Code</a></li>
+  <li><a href="#claude-code" id="toc-claude-code" class="nav-link" data-scroll-target="#claude-code"><span class="header-section-number">3</span> Claude Code</a>
+  <ul class="collapse">
+  <li><a href="#a-few-prompts-to-get-started" id="toc-a-few-prompts-to-get-started" class="nav-link" data-scroll-target="#a-few-prompts-to-get-started"><span class="header-section-number">3.1</span> A few prompts to get started</a></li>
+  <li><a href="#going-over-the-buttons-in-the-claude-window" id="toc-going-over-the-buttons-in-the-claude-window" class="nav-link" data-scroll-target="#going-over-the-buttons-in-the-claude-window"><span class="header-section-number">3.2</span> Going over the buttons in the Claude window</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -308,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 6, 2026</p>
+      <p class="date-modified">July 7, 2026</p>
     </div>
   </div>
     
@@ -365,16 +369,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre class="bash-out"><code>/fs/scratch/PAS3454/people/jane</code></pre>
 <p>If not, redo step 2! The terminal will automatically start in the folder you opened in VS Code.</p></li>
 <li><p>Copy a shared data dir to your own dir:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After this, the data will be in `/fs/scratch/PAS3454/people/&lt;user&gt;/data/iqbal`</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> data</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> /fs/scratch/PAS3454/data/iqbal data/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After this, the data will be in `/fs/scratch/PAS3454/people/&lt;user&gt;/iqbal`</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-rv</span> /fs/scratch/PAS3454/data/iqbal .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>'/fs/scratch/PAS3454/data/iqbal' -&gt; './iqbal'
+'/fs/scratch/PAS3454/data/iqbal/ref' -&gt; './iqbal/ref'
+'/fs/scratch/PAS3454/data/iqbal/ref/GCA_000004655.2_ASM465v1_genomic.fna' -&gt; './iqbal/ref/GCA_000004655.2_ASM465v1_genomic.fna'
+'/fs/scratch/PAS3454/data/iqbal/ref/GCA_000004655.2_ASM465v1_genomic.gff' -&gt; './iqbal/ref/GCA_000004655.2_ASM465v1_genomic.gff'
+'/fs/scratch/PAS3454/data/iqbal/meta.tsv' -&gt; './iqbal/meta.tsv'
+'/fs/scratch/PAS3454/data/iqbal/README.md' -&gt; './iqbal/README.md'
+'/fs/scratch/PAS3454/data/iqbal/fastq' -&gt; './iqbal/fastq'
+'/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869592_2.fastq.gz' -&gt; './iqbal/fastq/SRR31869592_2.fastq.gz'
+'/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869601_2.fastq.gz' -&gt; './iqbal/fastq/SRR31869601_2.fastq.gz'
+'/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869592_1.fastq.gz' -&gt; './iqbal/fastq/SRR31869592_1.fastq.gz'
+# [...output truncated...]</code></pre>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>We’re trying to mimick a situation where you have a self-contained research project dir, because:</p>
+<p>We’re trying to mimic a situation where you have a self-contained research project dir, because:</p>
 <ul>
 <li>Our genAI tools won’t see files outside of your VS Code-opened dir!</li>
 <li>Having a single dir (with subdirs) with all your files, rather than files scattered around the file system <span style="font-size: 1.2em;">☠️</span>, or files from different projects mixed together <span style="font-size: 1.2em;">☠️</span>, is also good practice for reproducible research.</li>
@@ -383,9 +397,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div></li>
 <li><p>Create a new dir <code>S07</code> (as in: session 7) within your <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code> dir:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> S07</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> S07</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Run the <code>tree</code> command to understand the current structure of your dirs and files:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tree</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tree</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code> .
+ ├── S9
+ ├── iqbal
+ │   ├── README.md
+ │   ├── fastq
+ │   │   ├── SRR31869590_1.fastq.gz
+ │   │   ├── SRR31869590_2.fastq.gz
+ │   │   ├── SRR31869591_1.fastq.gz
+ │   │   ├── SRR31869591_2.fastq.gz
+ │   │   ├── [...output truncated...] 
+ │   ├── meta.tsv
+ │   └── ref
+ │       ├── GCA_000004655.2_ASM465v1_genomic.fna
+ │       └── GCA_000004655.2_ASM465v1_genomic.gff</code></pre></li>
 </ol>
 </section>
 </section>
@@ -492,14 +520,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>As an example of the second scenario, consider the following code, which runs three commands to get information about the <code>people</code> dir and its contents:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of dirs</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> people <span class="at">-type</span> d <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># List all files and dirs (non-recursively)</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> people</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the total size of the `people` dir and its contents (recursively)</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">du</span> <span class="at">-sh</span> people</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of dirs</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> people <span class="at">-type</span> d <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># List all files and dirs (non-recursively)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lh</span> people</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the total size of the `people` dir and its contents (recursively)</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">du</span> <span class="at">-sh</span> people</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>If you change the first instance of <code>people</code> to <code>data</code>, Copilot will suggest to change the other instances as well:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -642,7 +670,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="claude-code" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="claude-code"><span class="header-section-number">3</span> Claude Code</h2>
+<section id="a-few-prompts-to-get-started" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="a-few-prompts-to-get-started"><span class="header-section-number">3.1</span> A few prompts to get started</h3>
+<blockquote class="blockquote">
+<p>Write a very simple script to run FastQC on a FASTQ file</p>
+</blockquote>
+<ul>
+<li>Then, have it troubleshoot the (likely) <code>module</code> problem.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Add functional bells and whistles to the script</p>
+</blockquote>
+<ul>
+<li>The above will likely trigger plan mode.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Also report the time it took to run the script</p>
+</blockquote>
+</section>
+<section id="going-over-the-buttons-in-the-claude-window" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="going-over-the-buttons-in-the-claude-window"><span class="header-section-number">3.2</span> Going over the buttons in the Claude window</h3>
+<ul>
+<li><p><code>+</code> to add context in the form of files</p>
+<ul>
+<li>File in focus in the editor is automatically added (+ mention line-highlighting), but can be disregarded by clicking on the filename below the prompt box</li>
+</ul></li>
+<li><p><code>/</code> also for adding context, and:</p>
+<ul>
+<li>Switching models</li>
+<li>Setting effort, and toggling “Thinking”</li>
+</ul></li>
+<li><p>Modes:</p>
+<ul>
+<li>Manual</li>
+<li>Edit automatically</li>
+<li>Plan mode</li>
+<li>Auto mode (not always visible?)</li>
+</ul></li>
+<li><p>Clock icon: see previous chats</p></li>
+<li><p>Chat icon with <code>+</code>: start new chat</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Usage tracking when using an API key
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>TBA - Show LiteLLM website</em></p>
+</div>
+</div>
 <!---
+
+```bash
+sbatch run_fastqc.sh iqbal/fastq/SRR31869590_1.fastq.gz results/fastqc/
+```
+```bash-out
+Submitted batch job 12241998
+```
+
 
 - Check:
   - Equivalent of "Steer with message?" https://code.visualstudio.com/docs/chat/chat-overview#_send-messages-while-a-request-is-running
@@ -674,6 +763,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ---->
 
 
+</section>
 </section>
 
 

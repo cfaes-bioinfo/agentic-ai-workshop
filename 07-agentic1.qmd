@@ -82,13 +82,25 @@ providing suggestions as you type your text and code.
 3. Copy a shared data dir to your own dir:
 
    ```bash
-   # After this, the data will be in `/fs/scratch/PAS3454/people/<user>/data/iqbal`
-   mkdir data
-   cp -r /fs/scratch/PAS3454/data/iqbal data/
+   # After this, the data will be in `/fs/scratch/PAS3454/people/<user>/iqbal`
+   cp -rv /fs/scratch/PAS3454/data/iqbal .
+   ```
+   ```bash-out
+   '/fs/scratch/PAS3454/data/iqbal' -> './iqbal'
+   '/fs/scratch/PAS3454/data/iqbal/ref' -> './iqbal/ref'
+   '/fs/scratch/PAS3454/data/iqbal/ref/GCA_000004655.2_ASM465v1_genomic.fna' -> './iqbal/ref/GCA_000004655.2_ASM465v1_genomic.fna'
+   '/fs/scratch/PAS3454/data/iqbal/ref/GCA_000004655.2_ASM465v1_genomic.gff' -> './iqbal/ref/GCA_000004655.2_ASM465v1_genomic.gff'
+   '/fs/scratch/PAS3454/data/iqbal/meta.tsv' -> './iqbal/meta.tsv'
+   '/fs/scratch/PAS3454/data/iqbal/README.md' -> './iqbal/README.md'
+   '/fs/scratch/PAS3454/data/iqbal/fastq' -> './iqbal/fastq'
+   '/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869592_2.fastq.gz' -> './iqbal/fastq/SRR31869592_2.fastq.gz'
+   '/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869601_2.fastq.gz' -> './iqbal/fastq/SRR31869601_2.fastq.gz'
+   '/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869592_1.fastq.gz' -> './iqbal/fastq/SRR31869592_1.fastq.gz'
+   # [...output truncated...]
    ```
 
    ::: {.callout-tip appearance="simple"}
-   We're trying to mimick a situation where you have a self-contained research project dir,
+   We're trying to mimic a situation where you have a self-contained research project dir,
    because:
 
    - Our genAI tools won't see files outside of your VS Code-opened dir!
@@ -109,7 +121,22 @@ providing suggestions as you type your text and code.
    ```bash
    tree
    ```
-
+   ```bash-out
+    .
+    ├── S9
+    ├── iqbal
+    │   ├── README.md
+    │   ├── fastq
+    │   │   ├── SRR31869590_1.fastq.gz
+    │   │   ├── SRR31869590_2.fastq.gz
+    │   │   ├── SRR31869591_1.fastq.gz
+    │   │   ├── SRR31869591_2.fastq.gz
+    │   │   ├── [...output truncated...] 
+    │   ├── meta.tsv
+    │   └── ref
+    │       ├── GCA_000004655.2_ASM465v1_genomic.fna
+    │       └── GCA_000004655.2_ASM465v1_genomic.gff
+   ```
 :::
 
 ## Code completions with GitHub Copilot
@@ -361,9 +388,54 @@ See also the VS Code / GitHub Copilot docs on
 
 ## Claude Code
 
+### A few prompts to get started
 
+> Write a very simple script to run FastQC on a FASTQ file
+
+- Then, have it troubleshoot the (likely) `module` problem.
+
+> Add functional bells and whistles to the script
+
+- The above will likely trigger plan mode.
+
+> Also report the time it took to run the script
+
+### Going over the buttons in the Claude window
+
+- `+` to add context in the form of files
+  - File in focus in the editor is automatically added (+ mention line-highlighting),
+    but can be disregarded by clicking on the filename below the prompt box
+
+- `/` also for adding context, and:
+  - Switching models
+  - Setting effort, and toggling "Thinking"
+
+- Modes:
+  - Manual
+  - Edit automatically
+  - Plan mode
+  - Auto mode (not always visible?)
+
+- Clock icon: see previous chats
+
+- Chat icon with `+`: start new chat
+
+::: callout-note
+#### Usage tracking when using an API key
+
+_TBA - Show LiteLLM website_
+
+:::
 
 <!---
+
+```bash
+sbatch run_fastqc.sh iqbal/fastq/SRR31869590_1.fastq.gz results/fastqc/
+```
+```bash-out
+Submitted batch job 12241998
+```
+
 
 - Check:
   - Equivalent of "Steer with message?" https://code.visualstudio.com/docs/chat/chat-overview#_send-messages-while-a-request-is-running
