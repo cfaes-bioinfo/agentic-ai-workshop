@@ -202,33 +202,21 @@ Next, we'll use functionality from this extension pack to set up the connection 
 :::
 ::::
 
-6. Paste the following (_note Mac vs. Windows instructions_) into the file that
-   opens, then:
-   
+6. Paste the following into the file that opens, then:
+
    - In two places, change `User <osc-username>` to your OSC username
      (for example, to `User jane`).
-   
+
+   - Change `<your-username>` in the `ProxyCommand` line to your
+     computer username (the same one that appears in the file path at
+     the top of the config file).
+
    - Save the file (`File` > `Save` or <kbd>Ctrl/⌘</kbd>+<kbd>S</kbd>).
 
    ::: {.panel-tabset}
-   
-   ### Windows
-   
-   ```markdown
-   Host osc-cardinal
-       User <osc-username>
-       HostName cardinal.osc.edu
-
-   Host osc-cardinal-compute
-       User <osc-username>
-       ForwardAgent yes
-       StrictHostKeyChecking no
-       UserKnownHostsFile=/dev/null
-       ProxyCommand ssh osc-cardinal "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc $SLURM_NODELIST 22'"
-   ```
 
    ### Mac
-   
+
    ```markdown
    Host osc-cardinal
        User <osc-username>
@@ -239,11 +227,58 @@ Next, we'll use functionality from this extension pack to set up the connection 
        ForwardAgent yes
        StrictHostKeyChecking no
        UserKnownHostsFile=/dev/null
-       ProxyCommand ssh osc-cardinal "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc \$SLURM_NODELIST 22'"
+       ConnectTimeout 120
+       ProxyCommand /Users/<your-username>/.ssh/osc-compute-proxy.sh %h
    ```
+
+   ### Windows
+
+   ```markdown
+   Host osc-cardinal
+       User <osc-username>
+       HostName cardinal.osc.edu
+
+   Host osc-cardinal-compute
+       User <osc-username>
+       ForwardAgent yes
+       StrictHostKeyChecking no
+       UserKnownHostsFile=/dev/null
+       ConnectTimeout 120
+       ProxyCommand C:/Users/<your-username>/.ssh/osc-compute-proxy.cmd %h
+   ```
+
    :::
 
-7. Open the VS Code **Settings** (cog wheel {{< fa cog >}} => Settings) and search for `remote.SSH.connectTimeout`.
+7. Next, we need to create the **proxy script** that the SSH config references.
+   Open a terminal and run the following command:
+
+   ::: {.panel-tabset}
+
+   ### Mac
+
+   ```bash
+   cat > ~/.ssh/osc-compute-proxy.sh << 'EOF'
+   #!/bin/bash
+   exec ssh -o LogLevel=QUIET -o BatchMode=yes osc-cardinal \
+     "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc \$SLURM_NODELIST 22'" 2>/dev/null
+   EOF
+   chmod +x ~/.ssh/osc-compute-proxy.sh
+   ```
+
+   ### Windows
+
+   Run this in **PowerShell**:
+
+   ```powershell
+   @"
+   @echo off
+   ssh -o LogLevel=QUIET -o BatchMode=yes osc-cardinal "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc $SLURM_NODELIST 22'"
+   "@ | Out-File -Encoding ascii "$env:USERPROFILE\.ssh\osc-compute-proxy.cmd"
+   ```
+
+   :::
+
+8. Open the VS Code **Settings** (cog wheel {{< fa cog >}} => Settings) and search for `remote.SSH.connectTimeout`.
    Change the value from 15 to 300 (seconds).
 
 ![Find the connection timeout setting and change it to 300 seconds, as shown in this screenshot.](/img/vscode-connection-timeout.png){fig-align="center" width="95%" fig-alt="Screenshot of the VS Code Settings, showing the 'Remote.SSH: Connect Timeout' option highlighted"}
@@ -251,7 +286,7 @@ Next, we'll use functionality from this extension pack to set up the connection 
 ::: callout-note
 #### What we just did
 
-In this SSH configuration file, we defined two remote "hosts" that we can connect to:
+In the SSH configuration file, we defined two remote "hosts" that we can connect to:
 
 - `osc-cardinal`, which will connect to a **login node** of OSC's Cardinal cluster.
   However, because the VS Code program will actually run on the login node when
@@ -263,6 +298,10 @@ In this SSH configuration file, we defined two remote "hosts" that we can connec
   This connection will last for 5 hours (300 minutes),
   as it requests a compute job of that duration.
 
+The proxy script handles the compute job submission and connection to the allocated
+compute node. We use a script (rather than an inline command) so that the
+configuration works with both VS Code and [Positron (for R)](./s4-positron-install.qmd).
+
 Because compute jobs (for `osc-cardinal-compute`) may take a while to start,
 we also increased the "connection timeout"
 (amount of time VS Code will wait for the connection to be established) to 5 minutes.
@@ -272,7 +311,7 @@ we also increased the "connection timeout"
 #### Connecting to other OSC clusters
 To configure connect to other OSC clusters (currently, Pitzer and Ascend),
 you can add additional entries to this SSH configuration file,
-simply replacing `cardinal` by the name of the other cluster._
+simply replacing `cardinal` by the name of the other cluster.
 :::
 
 ::: {.callout-warning collapse="true"}
