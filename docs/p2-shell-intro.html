@@ -678,15 +678,15 @@ Mon Tue Wed Thu Fri Sat Sun
 <li><code>cd</code> gives no output when it successfully changed the working directory. This is very common behavior for Unix commands that perform operations: <strong>when they succeed, they are silent</strong>.</li>
 </ul>
 <p>Let’s also see what happens when <code>cd</code> does not succeed — it gives an error:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/scratch/PAS3454</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>-bash: cd: /fs/scratch/PAS3454: No such file or directory</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/scratch/pas3454</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="bash-out"><code>-bash: cd: /fs/scratch/pas3454: No such file or directory</code></pre>
 <hr style="height:1pt; visibility:hidden;">
 <details>
 <summary>
 <i class="fa-solid fa-comments" aria-label="comments"></i> <em>What went wrong here? And what does that imply?</em>
 </summary>
 <ol type="1">
-<li>We spelled <code>cas</code> in lowercase letters, while the actual dir is spelled <code>PAS3454</code> in uppercase letters.</li>
+<li>We spelled <code>pas</code> in lowercase letters, while the actual dir is spelled <code>PAS3454</code> in uppercase letters.</li>
 <li>It appears that the shell is <strong>case-sensitive</strong> — it treats uppercase and lowercase letters as different characters.</li>
 </ol>
 </details>

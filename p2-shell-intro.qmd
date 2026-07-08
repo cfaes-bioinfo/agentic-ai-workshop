@@ -475,18 +475,18 @@ In summary:
 Let's also see what happens when `cd` does not succeed — it gives an error:
 
   ``` bash
-  cd /fs/scratch/PAS3454
+  cd /fs/scratch/pas3454
   ```
   
   ``` bash-out
-  -bash: cd: /fs/scratch/PAS3454: No such file or directory
+  -bash: cd: /fs/scratch/pas3454: No such file or directory
   ```
 
 <hr style="height:1pt; visibility:hidden;" />
 
 <details><summary>{{< fa comments >}} *What went wrong here? And what does that imply?*</summary>
 
-1. We spelled `cas` in lowercase letters, while the actual dir is spelled `PAS3454` in uppercase letters.
+1. We spelled `pas` in lowercase letters, while the actual dir is spelled `PAS3454` in uppercase letters.
 2. It appears that the shell is **case-sensitive** --- it treats uppercase and lowercase letters as different characters.
 
 </details>
