@@ -61,6 +61,7 @@ website:
           - text: "---------------"
           - text: "Positron installation and setup (for R)"
             href: o3-positron-install.qmd
+          - text: "---------------"
           - text: Further Resources (TBA)
             #href: o2-resources.qmd
     tools:

@@ -26,8 +26,8 @@ It's really an **alternative to RStudio** --- and if you're currently using RStu
 it's worth considering switching to Positron for a few reasons:
 
 1. Positron, not RStudio, will be the main focus of development for Posit moving forward.
-2. In RStudio, Posit's AI coding assistant (Posit Assistant) can only be used with
-   a Posit AI subscription,
+2. In RStudio, Posit's AI coding assistant (Posit Assistant) can exclusively
+   be used with a paid Posit AI subscription;
    while in Positron, it can be used with a GitHub login or with an API key^[
    Moreover, in Positron, you can use the Claude Code extension just like in VS Code,
    which is not possible in RStudio.].
@@ -88,14 +88,13 @@ it has access to your R/Python session and can see your data frames and variable
 out of the box.
 
 Posit has its own paid AI service, but fortunately,
-it's possible to authenticate in many ways in Positron (unlike in RStudio!).
-For us, it makes much more sense to use authenticate with GitHub Copilot and/or
-Claude Code, the latter via the OSU LiteLLM API key.
+there are many ways to authenticate with Posit Assistant in Positron (unlike in RStudio).
+For us, it makes sense to authenticate with GitHub Copilot and/or
+the OSU LiteLLM API key.
 
 ::: {.callout-tip appearance="simple"}
 Unlike with VS Code, we will do this set up on your own computer, not on OSC.
-The configuration will carry over to OSC, though, when you follow the connection
-steps later on. 
+The configuration will carry over to OSC, though.
 :::
 
 ### Install the Posit Assistant extension
@@ -133,7 +132,7 @@ and easy to set up.
 ::: {.columns}
 ::: {.column width="70%"}
 
-1. Click on the (newly added) **Posit Assistant icon** in Positron's Activity Bar
+1. Click on the newly added **Posit Assistant icon** in Positron's Activity Bar
    (the narrow bar on the far left):
 
 2. It should show the following --- click "Help me set it up" and then "Configure LLM providers:"
@@ -155,12 +154,12 @@ and easy to set up.
 :::
 :::
 
-3. At the top, select **Custom Provider** from the list of providers,
-   enter the following information, then click **Sign in**:
+3. At the top, select **Custom Provider** from the list of providers, and enter:
    
    - **API Key**: Use the API key from the `~/claude/settings.json` file at OSC,
-     or the key you obtained from <https://go.osu.edu/api-fluency>.
+     or a key you obtained from <https://go.osu.edu/api-fluency>.
    - **Base URL**: `https://litellm.cloud.osu.edu`
+   - Then, click **Sign in**.
 
    ![](/img/positron-assist-init-setup3.png){fig-align="center" width="60%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing the Configure LLM providers button."}
 
@@ -168,12 +167,13 @@ and easy to set up.
 
    ![](/img/positron-assist-init-setup4.png){fig-align="center" width="40%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing the Configure LLM providers button."}
 
-5. In the bottomright of the prompt box, click on Select Model:
+5. In the bottom-right of the prompt box, click Select Model:
 
    ![](/img/positron-assist-init-setup5.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing the Configure LLM providers button."}
 
-6. The models are available under "**OpenAI Compatible**" (the first option in the list) ---
-   Click "More models":
+6. The models you can access via the API key are available under
+   "**OpenAI Compatible**" (the first option in the list) ---
+   click "More models":
 
    ![](/img/positron-assist-init-setup6.png){fig-align="center" width="35%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing the Configure LLM providers button."}
 
@@ -185,35 +185,21 @@ and easy to set up.
 ::: {.callout-warning}
 #### Model compatibility
 
-You don't need to stick to `claude-opus-4-6` all the time and should feel free to
-experiment with other models later.
+You don't need to stick to `claude-opus-4-6` all the time,
+and should feel free to experiment with other models later.
 However, not all models available through the OSU LiteLLM service may work with
 Posit Assistant's Custom Provider.
-If you get an "internal error" when trying to use the assistant,
+If you get an "**internal error**" when trying to use the Posit Assistant,
 switch to a different model and try again.
-:::
-
-::: {.callout-tip collapse="true"}
-#### How to find your API key _(Click to expand)_
-
-After the [toolkit setup session](./05-setup.qmd),
-you will have a `~/claude/settings.json` at OSC.
-Open that file (e.g. via VS Code) to see the key.
-
-Alternatively, and after the workshop, you can use an API key you retrieved from
-<https://go.osu.edu/api-fluency>.
 :::
 
 ### Authentication via GitHub
 
-If you've done the previous setup with the OSU LiteLLM API key, this step is not required.
-However, like in VS Code, GitHub Copilot (but in this case, via Posit Assistant)
-will provide inline code completions, which access via the API key does not. 
-
-::: {.callout-note appearance="simple"}
-If you're happy with just credits via the OSU LiteLLM API key, you can skip this section!
-:::
-
+If you've done the previous setup with the OSU LiteLLM API key,
+setting up authentication via GitHub is not required.
+However, like in VS Code, GitHub Copilot will provide inline code completions^[
+But in this case, does so via Posit Assistant rather than its own extension.],
+which access via the API key does not. 
 
 ::: {.columns}
 ::: {.column width="70%"}
@@ -221,10 +207,10 @@ If you're happy with just credits via the OSU LiteLLM API key, you can skip this
 1. If it's not open already, click on the **Posit Assistant icon** in Positron's
    Activity Bar (the narrow bar on the far left):
 
-2. Assuming you did the setup above, Posit Assitant will already be active
-   and not automatically prompt you to set things up.
-   In that case, click the cog wheel {{<fa cog >}} icon at the top of the Posit Assistant
-   panel and select **Configure LLM providers** ^[
+2. Assuming you did the setup above, Posit Assistant will already be activated
+   and won't automatically prompt you to authenticate.
+   If that's the case, click the cog wheel {{<fa cog >}} icon at the top of the Posit Assistant
+   panel and select **Configure LLM providers**^[
    This window can also be invoked via the Command Palette (<kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>) and typing "_**Configure**_", 
    or by clicking on the "Person icon" above the cog wheel way at the bottom
    of the Activity Bar.
@@ -237,27 +223,38 @@ If you're happy with just credits via the OSU LiteLLM API key, you can skip this
 :::
 :::
 
-3. Select the provider "GitHub Copilot" and click sign in
-   (The by default selected `OAuth` for **Authentication** is correct):
+3. Select the provider "GitHub Copilot" and click "**Sign in**"
+   (keep the default selection of `OAuth` for **Authentication**):
 
-   ![](/img/positron-github-login.png){fig-align="center" width="50%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing the Configure LLM providers button."}
+   ![](/img/positron-github-login.png){fig-align="center" width="55%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing the Configure LLM providers button."}
 
-4. A browser window will open asking you to authorize Posit Assistant to access your GitHub account.
+4. A browser window will open, asking you to authorize Posit Assistant to access your GitHub account.
    Log in and authorize as requested.
 
-5. Now, when clicking on the model selection indicator in the Posit Assistant prompt,
-   you'll see the GitHub Copilot models available:
+5. Done! Now, when clicking on the model selection indicator in the Posit Assistant prompt,
+   you should see models listed under a GitHub Copilot section header:
 
-   ![A screenshot of the model selection pop-up. In this case, GitHub Copilot has also been authenticated, and those models are shown at the top. Below it are "OpenAI Compatible" models, where you can click on "More models" to select a model.](/img/positron-select-model1.png){fig-align="center" width="27%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing the model selection dropdown."}
+   ![](/img/positron-select-model1.png){fig-align="center" width="27%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing the model selection dropdown."}
 
 ### Testing Posit Assistant
 
-Let's verify that it works:
+::: callout-important
+#### This section assumes you have R installed on your computer.
+
+You don't really have to do so for this workshop, but can install R in Windows
+using [this `.exe` file](https://cran.r-project.org/bin/windows/base/release.htm)
+or Mac using [this `.pkg` file](https://cran.r-project.org/bin/macosx/R-latest.pkg).
+Or, if you have an OSU-managed computer, via the Software Center (Windows) or
+Ohio State Application Self Service (Mac).
+:::
+
+Let's verify that it works (with either a model via the API key or GitHub Copilot,
+depending on what you set up):
 
 1. The "CONSOLE" tab in the bottom Positron panel should be open.
-   By default, this may be an R console, but it could also be a Python console.
+   This may be an R console, but it could also be a Python console.
    
-   ::: {.callout-note collapse="true"}
+   ::: {.callout-warning collapse="true"}
    #### If you're seeing a Python console instead of R _(Click to expand)_
 
    - In the top-right corner of the Positron window, you should see something like this:
@@ -296,7 +293,7 @@ Let's verify that it works:
 
 4. It produces the plot and shows it in its own panel,
    along with some neat suggestions for next steps!
-   _The plot should _also_ appear in the Plots panel, like in RStudio,_
+   _The plot should also appear in the Plots panel, like in RStudio,_
    _since it was actually generated on your computer with R code._
 
    ![](/img/positron-prompt1b.png){fig-align="center" width="80%" .lightbox fig-alt="Screenshot of the Posit Assistant panel showing a prompt and generated code for a scatter plot."}
@@ -322,7 +319,7 @@ You'll need to do so before you can connect from Positron.
 Follow the instructions in the [VS Code setup guide](05-setup.qmd#setting-up-the-osc-connection-in-vs-code).
 
 Or, if you don't want to set this up in VS Code at all,
-you can start at [Configure the connection](05-setup.html#configure-the-connection)
+you can start at [Configure the connection](05-setup.qmd#configure-the-osc-connection)
 **_and instead do this in Positron_** (it's identical!).
 :::
 
@@ -340,13 +337,9 @@ Assuming the SSH configuration is in place:
 
 3. A new Positron window will open and connect to OSC.
    This may take 30 seconds or more while a compute node is being allocated.
-   Enter your OSC password if prompted.
 
 4. Once connected, you may see a pop-up asking whether you "trust the authors" —
    click **Trust and Continue**.
-
-5. Open an appropriate folder, like your workshop folder:
-   `File` > `Open Folder...` > enter `/fs/scratch/PAS3454/people/<user>`.
 
 ::: {.callout-tip}
 #### Quick reconnect
@@ -358,49 +351,53 @@ making it easy to reconnect with a single click in future sessions.
 
 ### Loading R at OSC
 
-R is not loaded by default at OSC.
-The easiest way to make sure Positron will find R as it connects to OSC
+R is installed but not automatically loaded at OSC.
+The easiest way to make sure that Positron will find R when it connects to OSC
 is by adding the R module to your Bash settings file (`~/.bashrc`):
 
-1. Open a **terminal** in Positron (e.g., `Terminal` > `New Terminal`)
+1. Open a **terminal** in Positron (e.g., `Terminal` > `New Terminal`).
 
-2. Add the module load command to your `~/.bashrc` file:
+2. Add a `module load` command to load R to your `~/.bashrc` file:
 
    ```bash
    echo 'module load gcc/12.3.0 R/4.5.0' >> ~/.bashrc
    ```
 
-3. Reload the window:  Open the **Command Palette**
+3. Reload Positron:
+   Open the **Command Palette**
    (<kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or `View` > `Command Palette`)
    and start typing "_Reload Window_", then select "**Developer: Reload Window**".
 
 4. Positron should automatically start R in the console.
 
 ::: callout-warning
+#### This isn't a permanent solution to load R at OSC
 Adding this `module load` command to your Bash settings file is not a permanent solution,
-because the version(s) of R available on OSC and/or that you personally want to use may change.
-On the other hand, it does currently work on all three OSC clusters, since they have the same R modules.
+because over time, there may be changes in the version(s) of R available on OSC
+and/or that you personally want to use (usually, multiple versions of R are available).
+On the plus side, this command does currently work on all three OSC clusters,
+since they have the same R modules.
 :::
 
 ### Installing the Posit Assistant extension at OSC
 
 The Posit Assistant does need to be separately installed at OSC:
-open the Extensions, find Posit Assistant,
-and click **Install in SSH: osc-cardinal-compute**.
+like before, open the Extensions view, find Posit Assistant,
+and click **"Install in SSH: osc-cardinal-compute"**.
 
 ![](/img/install-posit-ai-osc.png){fig-align="center" width="50%" .lightbox fig-alt="Screenshot of the Posit Assistant extension in the Extensions view."}
 
 Otherwise, the Posit AI assistant will work the same way when connected to OSC
-as it does on your local computer, and you shouldn't need additional setup!
+as it does on your local computer, and you shouldn't need any additional setup!
 
 ### Open a folder
 
 Positron really wants you to open a specific folder ---
-you may have already seen it prompt you when doing the above setup on your own computer.
+you may have already seen it prompt you early during this configuration process.
 
 At OSC, just like with VS Code,
 you should connect to the `/fs/scratch/PAS3454/people/<user>` folder,
-where `<user>` is your OSU username.
+where `<user>` is your OSC username.
 In the Explorer, click on the "Open Folder" button and enter this path.
 
 ![](/img/positron-open-folder.png){fig-align="center" width="50%" .lightbox fig-alt="Screenshot of the Positron Explorer view showing the Open Folder button."}

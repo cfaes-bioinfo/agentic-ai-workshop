@@ -27,16 +27,9 @@ It's not required to do the following steps before the workshop,
 because creating a GitHub account can be done quite seamlessly during the workshop,
 and because you'll also have access to an alternative, similar AI tool (Claude Code).
 
-However, you may consider doing this because
-GitHub Copilot will likely be an easier way for you to continue trying out
-agentic AI tools after the workshop:
-
-- Claude Code is a paid tool that we will provide access to during the workshop,
-  but that you will not have access to after the workshop unless you pay for it in some way.
-
-- GitHub Copilot, on the other hand, has fairly generous free 'personal' options
-  for students and especially teachers/faculty^[
-  But it is **not** OSU-approved for use with with private data, as we'll discuss during the workshop.].
+Advantages of GitHub Copilot include its tight integration with VS Code and the
+the fairly generous free 'personal' options for students and especially teachers/faculty^[
+But it is **not** OSU-approved for use with with private data, as we'll discuss during the workshop.].
 
 ## Create a GitHub account (if you don't have one yet)
 
@@ -73,9 +66,9 @@ In summary (see also this [GitHub page](https://docs.github.com/en/copilot/conce
 
 | Plan | Free for whom | How to get it | Code completions | Chat requests |
 |------|----------|------------------|---------------|---------------|
-| Free | Everyone | Automatically | 2,000 per month | ~50 |
-| Student | Students | Apply for education benefits | Unlimited | 200 |
-| Pro | Teachers/Faculty | Apply for education benefits | Unlimited | 1,500 |
+| **Free** | Everyone | Automatically | 2,000 per month | ~50 |
+| **Student** | Students | Apply for education benefits | Unlimited | 200 |
+| **Pro** | Teachers/Faculty | Apply for education benefits | Unlimited | 1,500 |
 
 : {.striped .hover}
 
