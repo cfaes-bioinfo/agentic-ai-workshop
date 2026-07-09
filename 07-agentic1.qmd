@@ -382,9 +382,8 @@ See also the VS Code / GitHub Copilot docs on
 ## Chat with Claude Code
 
 Now, we'll **switch gears in two ways**: from GitHub Copilot to Claude Code,
-and from code completion to chat
-(recall that Copilot also has chat functionality;
-and this is similar to that of Claude Code, but here we'll focus on the latter).
+and from code completion to chat^[
+Even though Copilot also has chat functionality, we'll focus on Claude Code here for that.].
 
 In the right-hand side bar, if needed, click "CLAUDE CODE" to switch to the Claude Code tab.
 As we saw in a previous session, that looks something like this:
@@ -395,11 +394,11 @@ As we saw in a previous session, that looks something like this:
 #### Other minor things you may notice right away _(Click to expand)_
 
 - There might be text just above the prompt box saying:
-  _"Prefer the Terminal experience? Switch back in Settings."_
+  _**"Prefer the Terminal experience? Switch back in Settings."**_
   This refers to the fact that you can also also use Claude Code in the terminal
   (the Claude Code CLI), but we will not do that here and don't really recommend switching.
 
-- The ghost text in the prompt box says "_⌘ [or Ctrl] to focus or unfocus Claude_",
+- The ghost text in the prompt box says "**_⌘ [or Ctrl] to focus or unfocus Claude_**",
   which refers to switching your active cursor back and forth between the prompt box
   and the VS Code editor.
   At least for me, this doesn't work and that seems to be a known issue.
@@ -411,51 +410,73 @@ As we saw in a previous session, that looks something like this:
 
 - Then, have it troubleshoot the (likely) `module` problem.
 
-### Features in the Claude Code prompt box
+### Main Claude Code settings and features
 
-![The Claude Code prompt box.](/img/claude-prompt-box.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code prompt box"}
+Now, we'll go over the features and settings in the Claude Code window,
+starting with those in the prompt box:
 
-Starting on the left side:
+![The Claude Code prompt box.](/img/claude-prompt-box.png){fig-align="center" width="65%" .lightbox fig-alt="Screenshot of the Claude Code prompt box"}
 
-- The `+` icon allows you to add **context in the form of files**.
-  In the context of in-editor chat, the files we want to are present ...
+#### Contect with the `+` button or `@` symbol
 
-  - File in focus in the editor is automatically added (+ mention line-highlighting),
-    but can be disregarded by clicking on the filename below the prompt box
+The `+` icon lets you add chat **context in the form of files**.
+While it allows you to upload files, as is common for in-browser chats,
+with this kind of usage,
+you should typically have the relevant files already in your workspace.
+The **_Add context_** button lets you add files from your workspace as context for the chat.
 
-  - Mention `@workspace` and implicit context of all files in the workspace
+![](/img/claude-context-add1.png){fig-align="center" width="40%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"}
 
-  ![](/img/claude-context-add1.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"}
+It will really just insert an `@` symbol in the prompt box,
+which triggers autocomplete to show a list of files in your workspace.
+As such, the fastest way to add context is rather to **type** `@` and then select
+the file or type the first few letters of the file name (it will also find files in subfolders).
 
-  ![](/img/claude-context-add2.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"}
+![](/img/claude-context-add2.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"}
+
+::: callout-tip
+#### Workspaces
+When working with Claude Code in VS Code, you should always open a folder with
+the VS Code Open Folder functionality, and have the relevant files in that folder or subfolders.
+We'll refer to that folder as your "**workspace**" in the rest of this document^[
+You may also run into the word "_codebase_" in documentation and tutorials,
+which refers to the same thing in this context].
+Typically, this will be a research project folder.
+It is good pratice to keep all files related to a project in one folder/workspace
+for many reasons, including for reproducibility and for effectively using
+in-editor AI like Claude Code.
+:::
+  
+However, keep in mind that in general, the easiest way to add context is by simply
+having the relevant file open in the editor.
+Specifically, whichever file is in focus in the editor will automatically be added as context for the chat.
+
+- [Screenshot + screenshot to turn off automatic context for the file in focus + line selection]
+
+Finally, **your entire workspace** is what we may call the "implicit context" for the chat.
+When it considers that useful for a given prompt,
+Claude will often search your workspace for similar or relevant files.
+
+### Command menu
+
+The command menu is opened by clicking the `/`-in-a-box icon to the right of the `+`.
+It has lots of functionality, including:
+
+- Clear conversation
+
+- Rewind
+
+- LLM model selection and parameters:
+  - `Switch model...`
+  - Effort
+  - Thinking toggle
+  - "Switch model when a message is flagged"
+
+- Account & usage
 
 - `/` also for adding context, and:
   - Switching models
   - Setting effort, and toggling "Thinking"
-
-- On the right-hand side is the **Permission Modes** indicator.
-  This is essentially to set the permission type Claude has to perform actions
-  like editing files and running commands, and can be toggled between:
-
-  - **Manual**:
-    Claude asks permission for each action.
-  - **Edit automatically**:
-    Claude makes edits to files and runs basic commands without asking for permission.
-  - **Plan mode**:
-    Claude writes a plan that is then opened as a rendered Markdown document,
-    and which you can approve or (ask to) modify.
-  - **Auto mode** (not always visible):
-    Claude determines on its own whether to ask for permission or not for specific actions,
-    or to write a plan.
-    In this mode, it is also more likely to ask you for clarifying questions.
-
-  {{< fa user-edit >}} Switch to Auto Mode, and you should see something like the following:
-
-  ![](/img/claude-automode-message.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"}
-
-- Clock icon: see previous chats
-
-- Chat icon with `+`: start new chat
 
 ::: callout-note
 #### Usage tracking when using an API key
@@ -463,6 +484,37 @@ Starting on the left side:
 _TBA - Show LiteLLM website_
 
 :::
+
+#### Permission modes
+
+On the right-hand side of the prompt box is the **Permission Modes** indicator.
+This is essentially to set the permission type Claude has to perform actions
+like editing files and running commands, and can be toggled between:
+
+- **Manual**:
+  Claude asks permission for each action.
+- **Edit automatically**:
+  Claude makes edits to files and runs basic commands without asking for permission.
+- **Plan mode**:
+  Claude writes a plan that is then opened as a rendered Markdown document,
+  and which you can approve or (ask to) modify.
+- **Auto mode** (not always visible):
+  Claude determines on its own whether to ask for permission or not for specific actions,
+  or to write a plan.
+  In this mode, it is also more likely to ask you for clarifying questions.
+
+{{< fa user-edit >}} Switch to Auto Mode, and you should see something like the following:
+
+![](/img/claude-automode-message.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"}
+
+#### Icons at the top
+
+- Clock icon: see previous chats
+
+- Chat icon with `+`: start new chat
+
+- Claude icon will open a whole new Claude Code window,
+  which is useful if you want to have multiple chats open at the same time.
 
 ### Additional prompts
 

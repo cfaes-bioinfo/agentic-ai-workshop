@@ -268,9 +268,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#chat-with-claude-code" id="toc-chat-with-claude-code" class="nav-link" data-scroll-target="#chat-with-claude-code"><span class="header-section-number">3</span> Chat with Claude Code</a>
   <ul class="collapse">
   <li><a href="#a-few-prompts-to-get-started" id="toc-a-few-prompts-to-get-started" class="nav-link" data-scroll-target="#a-few-prompts-to-get-started"><span class="header-section-number">3.1</span> A few prompts to get started</a></li>
-  <li><a href="#features-in-the-claude-code-prompt-box" id="toc-features-in-the-claude-code-prompt-box" class="nav-link" data-scroll-target="#features-in-the-claude-code-prompt-box"><span class="header-section-number">3.2</span> Features in the Claude Code prompt box</a></li>
-  <li><a href="#additional-prompts" id="toc-additional-prompts" class="nav-link" data-scroll-target="#additional-prompts"><span class="header-section-number">3.3</span> Additional prompts</a></li>
-  <li><a href="#miscellaneous-tips" id="toc-miscellaneous-tips" class="nav-link" data-scroll-target="#miscellaneous-tips"><span class="header-section-number">3.4</span> Miscellaneous tips</a></li>
+  <li><a href="#main-claude-code-settings-and-features" id="toc-main-claude-code-settings-and-features" class="nav-link" data-scroll-target="#main-claude-code-settings-and-features"><span class="header-section-number">3.2</span> Main Claude Code settings and features</a></li>
+  <li><a href="#command-menu" id="toc-command-menu" class="nav-link" data-scroll-target="#command-menu"><span class="header-section-number">3.3</span> Command menu</a></li>
+  <li><a href="#additional-prompts" id="toc-additional-prompts" class="nav-link" data-scroll-target="#additional-prompts"><span class="header-section-number">3.4</span> Additional prompts</a></li>
+  <li><a href="#miscellaneous-tips" id="toc-miscellaneous-tips" class="nav-link" data-scroll-target="#miscellaneous-tips"><span class="header-section-number">3.5</span> Miscellaneous tips</a></li>
   </ul></li>
   </ul>
 <div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="05-setup.html"><i class="bi bi-bookmarks"></i>Previous: Toolkit setup</a></li></ul></div></nav>
@@ -314,7 +315,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 8, 2026</p>
+      <p class="date-modified">July 9, 2026</p>
     </div>
   </div>
     
@@ -658,7 +659,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="chat-with-claude-code" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="chat-with-claude-code"><span class="header-section-number">3</span> Chat with Claude Code</h2>
-<p>Now, we’ll <strong>switch gears in two ways</strong>: from GitHub Copilot to Claude Code, and from code completion to chat (recall that Copilot also has chat functionality; and this is similar to that of Claude Code, but here we’ll focus on the latter).</p>
+<p>Now, we’ll <strong>switch gears in two ways</strong>: from GitHub Copilot to Claude Code, and from code completion to chat<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <p>In the right-hand side bar, if needed, click “CLAUDE CODE” to switch to the Claude Code tab. As we saw in a previous session, that looks something like this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -679,8 +680,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>There might be text just above the prompt box saying: <em>“Prefer the Terminal experience? Switch back in Settings.”</em> This refers to the fact that you can also also use Claude Code in the terminal (the Claude Code CLI), but we will not do that here and don’t really recommend switching.</p></li>
-<li><p>The ghost text in the prompt box says “<em>⌘ [or Ctrl] to focus or unfocus Claude</em>”, which refers to switching your active cursor back and forth between the prompt box and the VS Code editor. At least for me, this doesn’t work and that seems to be a known issue.</p></li>
+<li><p>There might be text just above the prompt box saying: <em><strong>“Prefer the Terminal experience? Switch back in Settings.”</strong></em> This refers to the fact that you can also also use Claude Code in the terminal (the Claude Code CLI), but we will not do that here and don’t really recommend switching.</p></li>
+<li><p>The ghost text in the prompt box says “<strong><em>⌘ [or Ctrl] to focus or unfocus Claude</em></strong>”, which refers to switching your active cursor back and forth between the prompt box and the VS Code editor. At least for me, this doesn’t work and that seems to be a known issue.</p></li>
 </ul>
 </div>
 </div>
@@ -694,55 +695,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Then, have it troubleshoot the (likely) <code>module</code> problem.</li>
 </ul>
 </section>
-<section id="features-in-the-claude-code-prompt-box" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="features-in-the-claude-code-prompt-box"><span class="header-section-number">3.2</span> Features in the Claude Code prompt box</h3>
+<section id="main-claude-code-settings-and-features" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="main-claude-code-settings-and-features"><span class="header-section-number">3.2</span> Main Claude Code settings and features</h3>
+<p>Now, we’ll go over the features and settings in the Claude Code window, starting with those in the prompt box:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./img/claude-prompt-box.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="The Claude Code prompt box."><img src="./img/claude-prompt-box.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Claude Code prompt box"></a></p>
+<p><a href="./img/claude-prompt-box.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="The Claude Code prompt box."><img src="./img/claude-prompt-box.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%" alt="Screenshot of the Claude Code prompt box"></a></p>
 </figure>
 </div>
 <figcaption>The Claude Code prompt box.</figcaption>
 </figure>
 </div>
-<p>Starting on the left side:</p>
-<ul>
-<li><p>The <code>+</code> icon allows you to add <strong>context in the form of files</strong>. In the context of in-editor chat, the files we want to are present …</p>
-<ul>
-<li><p>File in focus in the editor is automatically added (+ mention line-highlighting), but can be disregarded by clicking on the filename below the prompt box</p></li>
-<li><p>Mention <code>@workspace</code> and implicit context of all files in the workspace</p></li>
-</ul>
+<section id="contect-with-the-button-or-symbol" class="level4">
+<h4 class="anchored" data-anchor-id="contect-with-the-button-or-symbol">Contect with the <code>+</code> button or <code>@</code> symbol</h4>
+<p>The <code>+</code> icon lets you add chat <strong>context in the form of files</strong>. While it allows you to upload files, as is common for in-browser chats, with this kind of usage, you should typically have the relevant files already in your workspace. The <strong><em>Add context</em></strong> button lets you add files from your workspace as context for the chat.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./img/claude-context-add1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="./img/claude-context-add1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
+<p><a href="./img/claude-context-add1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="./img/claude-context-add1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
 </figure>
 </div>
+<p>It will really just insert an <code>@</code> symbol in the prompt box, which triggers autocomplete to show a list of files in your workspace. As such, the fastest way to add context is rather to <strong>type</strong> <code>@</code> and then select the file or type the first few letters of the file name (it will also find files in subfolders).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./img/claude-context-add2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="./img/claude-context-add2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
 </figure>
-</div></li>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Workspaces
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When working with Claude Code in VS Code, you should always open a folder with the VS Code Open Folder functionality, and have the relevant files in that folder or subfolders. We’ll refer to that folder as your “<strong>workspace</strong>” in the rest of this document<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Typically, this will be a research project folder. It is good pratice to keep all files related to a project in one folder/workspace for many reasons, including for reproducibility and for effectively using in-editor AI like Claude Code.</p>
+</div>
+</div>
+<p>However, keep in mind that in general, the easiest way to add context is by simply having the relevant file open in the editor. Specifically, whichever file is in focus in the editor will automatically be added as context for the chat.</p>
+<ul>
+<li>[Screenshot + screenshot to turn off automatic context for the file in focus + line selection]</li>
+</ul>
+<p>Finally, <strong>your entire workspace</strong> is what we may call the “implicit context” for the chat. When it considers that useful for a given prompt, Claude will often search your workspace for similar or relevant files.</p>
+</section>
+</section>
+<section id="command-menu" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="command-menu"><span class="header-section-number">3.3</span> Command menu</h3>
+<p>The command menu is opened by clicking the <code>/</code>-in-a-box icon to the right of the <code>+</code>. It has lots of functionality, including:</p>
+<ul>
+<li><p>Clear conversation</p></li>
+<li><p>Rewind</p></li>
+<li><p>LLM model selection and parameters:</p>
+<ul>
+<li><code>Switch model...</code></li>
+<li>Effort</li>
+<li>Thinking toggle</li>
+<li>“Switch model when a message is flagged”</li>
+</ul></li>
+<li><p>Account &amp; usage</p></li>
 <li><p><code>/</code> also for adding context, and:</p>
 <ul>
 <li>Switching models</li>
 <li>Setting effort, and toggling “Thinking”</li>
 </ul></li>
-<li><p>On the right-hand side is the <strong>Permission Modes</strong> indicator. This is essentially to set the permission type Claude has to perform actions like editing files and running commands, and can be toggled between:</p>
-<ul>
-<li><strong>Manual</strong>: Claude asks permission for each action.</li>
-<li><strong>Edit automatically</strong>: Claude makes edits to files and runs basic commands without asking for permission.</li>
-<li><strong>Plan mode</strong>: Claude writes a plan that is then opened as a rendered Markdown document, and which you can approve or (ask to) modify.</li>
-<li><strong>Auto mode</strong> (not always visible): Claude determines on its own whether to ask for permission or not for specific actions, or to write a plan. In this mode, it is also more likely to ask you for clarifying questions.</li>
-</ul>
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Switch to Auto Mode, and you should see something like the following:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./img/claude-automode-message.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"></p>
-</figure>
-</div></li>
-<li><p>Clock icon: see previous chats</p></li>
-<li><p>Chat icon with <code>+</code>: start new chat</p></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -757,9 +775,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>TBA - Show LiteLLM website</em></p>
 </div>
 </div>
+<section id="permission-modes" class="level4">
+<h4 class="anchored" data-anchor-id="permission-modes">Permission modes</h4>
+<p>On the right-hand side of the prompt box is the <strong>Permission Modes</strong> indicator. This is essentially to set the permission type Claude has to perform actions like editing files and running commands, and can be toggled between:</p>
+<ul>
+<li><strong>Manual</strong>: Claude asks permission for each action.</li>
+<li><strong>Edit automatically</strong>: Claude makes edits to files and runs basic commands without asking for permission.</li>
+<li><strong>Plan mode</strong>: Claude writes a plan that is then opened as a rendered Markdown document, and which you can approve or (ask to) modify.</li>
+<li><strong>Auto mode</strong> (not always visible): Claude determines on its own whether to ask for permission or not for specific actions, or to write a plan. In this mode, it is also more likely to ask you for clarifying questions.</li>
+</ul>
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Switch to Auto Mode, and you should see something like the following:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/claude-automode-message.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"></p>
+</figure>
+</div>
 </section>
-<section id="additional-prompts" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="additional-prompts"><span class="header-section-number">3.3</span> Additional prompts</h3>
+<section id="icons-at-the-top" class="level4">
+<h4 class="anchored" data-anchor-id="icons-at-the-top">Icons at the top</h4>
+<ul>
+<li><p>Clock icon: see previous chats</p></li>
+<li><p>Chat icon with <code>+</code>: start new chat</p></li>
+<li><p>Claude icon will open a whole new Claude Code window, which is useful if you want to have multiple chats open at the same time.</p></li>
+</ul>
+</section>
+</section>
+<section id="additional-prompts" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="additional-prompts"><span class="header-section-number">3.4</span> Additional prompts</h3>
 <blockquote class="blockquote">
 <p>Add functional bells and whistles to the script</p>
 </blockquote>
@@ -767,8 +809,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Also report the time it took to run the script</p>
 </blockquote>
 </section>
-<section id="miscellaneous-tips" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="miscellaneous-tips"><span class="header-section-number">3.4</span> Miscellaneous tips</h3>
+<section id="miscellaneous-tips" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="miscellaneous-tips"><span class="header-section-number">3.5</span> Miscellaneous tips</h3>
 <ul>
 <li><kbd>Option/Alt</kbd> + <kbd>K</kbd> to persistently send a text selection to the prompt box</li>
 </ul>
@@ -820,6 +862,8 @@ Submitted batch job 12241998
 
 <ol>
 <li id="fn1"><p> But should be familiar to those of you using version control!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p> Even though Copilot also has chat functionality, we’ll focus on Claude Code here for that.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p> You may also run into the word “<em>codebase</em>” in documentation and tutorials, which refers to the same thing in this context<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

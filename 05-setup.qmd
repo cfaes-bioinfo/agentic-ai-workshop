@@ -285,6 +285,7 @@ Next, we'll use functionality from this extension pack to set up the connection 
    exec ssh -o LogLevel=QUIET -o BatchMode=yes osc-cardinal-login \
      "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc \$SLURM_NODELIST 22'" 2>/dev/null
    EOF
+   
    chmod +x ~/.ssh/osc-compute-proxy.sh
    ```
 
