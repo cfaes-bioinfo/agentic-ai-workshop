@@ -1,0 +1,311 @@
+---
+title: "Setting up GitHub Copilot and Claude Code"
+#subtitle: "Exploring different functionality, settings, and workflows"
+date: 2026-07-03
+date-modified: today
+author:
+  - name: Jelmer Poelstra
+    orcid: 0000-0002-3514-7462
+    email: poelstra.1@osu.edu
+    affiliation: 
+      - name: CFAES Bioinformatics Core, Ohio State University
+        url: https://mcic.osu.edu/bioinformatics
+bibliography: refs.bib # You can add reference to this files if you have and cite any
+---
+
+---------
+
+<hr style="height:1pt; visibility:hidden;" />
+
+## Introduction
+
+As mentioned in the [previous section](05-setup.qmd):
+
+> In the rest of this workshop, we'll primarily use the following set of tools to
+> run code, access data, and make use of agentic AI tools:
+>
+> 1. A code editor, **VS Code**
+> 2. A shared computing environment, **OSC** (the Ohio Supercomputer Center)
+> 3. Generative and Agentic AI tools _integrated in our code editor_,
+>    **GitHub Copilot** and **Claude Code**
+
+There, we configured and tested the VS Code-OSC connection,
+and now we will set up the two agentic AI tools.
+Don't despair, this is going to be more straightforward! 
+
+## Setting up GitHub Copilot
+
+### Background
+
+GitHub Copilot is an generative and agentic AI tool that can help you write code
+and perform other tasks.
+It's the first of two similar tools we will use in this workshop, the other being Claude Code.
+
+GitHub Copilot is **not** the same as the "general" Microsoft Copilot.
+And while GitHub Copilot _is_ a Microsoft product, hence the similar name,
+you cannot –currently– use it institutionally at OSU.
+Instead, access runs through a **personal GitHub account**.
+It's easy and free to create a GitHub account,
+and you may already have one from previous usage or because you followed 
+[this optional pre-workshop setup step](s3-github-account.qmd).
+
+Keep in mind that GitHub is a much more general platform than just GitHub Copilot,
+widely used for sharing and collaborating on code.
+Nevertheless, with your GitHub account,
+you are nowadays also automatically enrolled in the GitHub Copilot free plan.
+
+While there's also a stand-alone app and web-based interface for it,
+**we will use GitHub Copilot within VS Code**, where it is available as a pre-installed plugin.
+Therefore, little setup is needed:
+the steps below only serve to log in to your GitHub account or create one along the way.
+
+::: {.callout-tip}
+#### Pros of GitHub Copilot
+
+- For academics, there is a generous (more so for teachers than students)
+  free personal option for GitHub Copilot, which is not the case for Claude Code.
+
+- Even though it's ideal to use a tool approved for private data,
+  you may not be working with private data at all, or be able to get help without exposing it.
+  If so, then GitHub Copilot is a perfectly fine option.
+
+- Seemingly minor but very handy: only GitHub Copilot has inline "code completion" features
+  (_And:_ if you only use these, any data privacy concerns can be circumvented.)
+:::
+
+::: {.callout-note}
+#### GitHub Copilot plans
+
+The GitHub Copilot free plan will work for the purposes of this workshop,
+but is _not_ sufficient for sustained Copilot use.
+
+You may have done the optional pre-workshop setup step to 
+[obtain GitHub Copilot Student/Pro access via your academic credentials](s3-github-account.qmd).
+If that was approved (should be quick) and processed (72 hours later),
+you'll now have more extensive, though not unlimited, access to GitHub Copilot.
+For more details, see [our GitHub setup page](s3-github-account.qmd#apply-for-additional-free-github-copilot-access)
+
+If you didn't do that, there isn't much point in doing it _right now_,
+because you won't obtain access during the workshop given the 72-hour processing time.
+But feel free to do so in a break or after the workshop.
+:::
+
+### The setup steps
+
+1. Towards the right side of the top VS Code bar, click the **Sign In** button to log into GitHub:
+
+   ![](/img/vscode-copilot-signin.png){fig-align="center" width="65%" fig-alt="Screenshot of the VS Code interface, showing the GitHub Copilot icon in the top right corner of the window"}
+
+   ::: {.callout-warning collapse="true"}
+   ### Don't see the Sign In button? _(Click to expand)_
+
+   In the VS Code Status Bar (the thin bar way at the bottom),
+   there should be a **GitHub Copilot** icon ---
+   the icon to the left of the bell in the screenshot below:
+
+   ![](/img/vscode-copilot-icon.png){fig-align="center" width="20%" fig-alt="Screenshot of the VS Code interface, showing the GitHub Copilot icon in the top right corner of the window"}
+
+   Your version of the icon may be striked-through, which means that GitHub Copilot is not yet active.
+   Click on the icon and the login pop-up should appear.
+   :::
+
+3. A pop-up similar to the left-hand image below should appear,
+   and if you click on Continue with GitHub, you should see something like the right-hand image:
+
+   ![Logging into GitHub to use GitHub Copilot. [From the GitHub Blog](https://github.blog/changelog/2025-07-15-social-login-with-google-is-now-generally-available).](img/github-login-vscode.png){fig-align="center" width="80%"}
+
+   ::: callout-tip
+   #### GitHub account options
+
+   - For those **without** a GitHub account, you can create one on the fly, either with
+     the "Create an account" button on the bottom, or semi-automatically via an existing
+     Google login by clicking the "Continue with Google" button.
+
+   - For those **with** a GitHub account, you can log in with your existing credentials.
+     Don't use Continue with Google unless you know your GitHub account is already linked to your Google account,
+     or account confusion may arise.
+   :::
+
+   ::: {.callout-note collapse="true"}
+   ### Were you already signed in to GitHub? Then the prompt should look like this _(Click to expand)_
+   
+   ![](/img/copilot-already-signed-in.png){fig-align="center" width="55%" fig-alt="Screenshot of the VS Code interface, showing the GitHub Copilot login prompt"}
+   :::
+
+4. Finally, you may be prompted to authorize VS Code to access your GitHub account, which you should do:
+
+![](/img/copilot-signin-send-back.png){fig-align="center" width="45%" fig-alt="Screenshot of the GitHub login page, showing the 'Authorize Visual Studio Code' button highlighted"}
+
+5. GitHub Copilot lives in a "Secondary Side Bar" on the righthand side,
+   which you can toggle by pressing
+   the rightmost icon in the screenshot below, on the right side of the top VS Code bar:
+
+   ![Clicking the rightmost icon toggles the Secondary Side Bar with GitHub Copilot. _TBA: highlight icon_](/img/vscode-copilot-sidebar.png){fig-align="center" width="35%" fig-alt="Screenshot of the VS Code interface, showing the GitHub Copilot sidebar"}
+
+   That AI chat sidebar should look something like this:
+
+   ![](/img/vscode-copilot-blank.png){fig-align="center" width="50%" fig-alt="Screenshot of the VS Code interface, showing the GitHub Copilot sidebar"}
+
+::: {.callout-tip appearance="simple"}
+As mentioned above, unless you have already [obtained GitHub Copilot Student/Pro access via your academic credentials](s3-github-account.qmd),
+you will be automatically using the GitHub Copilot free plan after logging in or creating a new account.
+:::
+
+### One example prompt
+
+Let's give it one quick try, before we go into more detail in the next sessions.
+In the Copilot prompt box
+(which should have the ghost text "_Describe what to build_"), enter:
+
+> _How many reads are in data/iqbal/SRR31869590_1.fastq?_
+
+Because we're asking Copilot for information it can only get after actually doing
+something (running a command), it will by default ask for permission to do so:
+
+![](/img/copilot-asks-permission.png){fig-align="center" width="70%" fig-alt="Screenshot of the GitHub Copilot prompt asking for permission to run a command"}
+
+Click `Allow` and it will run the command and return the answer:
+
+![TBA - Replace with subsampled FASTQ files](/img/copilot-prompt1-answer.png){fig-align="center" width="70%" fig-alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"}
+
+#### What did we just witness?
+This example shows how in-editor AI like GitHub Copilot can perform actions
+themselves, rather than just providing information or code snippets.
+In technical terms, as part of this agentic behavior, it "calls a tool"
+(or: "performs **tool calls**") that allow it to run arbitrary commands in the terminal.
+
+We'll soon see another type of extremely useful in-editor agentic behavior,
+where it can **read and/or edit your code**.
+This latter type of behavior is what we'll use most in this workshop.
+That's because broadly speaking, the example above notwithstanding,
+_the goal in this workshop is not to let AI analyze the data for us,_
+_but rather to let it help us write code to appropriately analyze the data with_
+_existing non-AI programs._
+
+## Setting up Claude Code
+
+### Background
+
+**Like with GitHub Copilot**, the Anthropic product Claude Code comes in various forms,
+but we will use it within VS Code, where it is available as a plugin.
+
+**Unlike with GitHub Copilot**, we will not use a personal account to access Claude Code.
+Instead, we will use an access key that the workshop instructors have obtained
+using OSU OTDI's [Generative AI Service](https://it.osu.edu/generative-ai-service).
+Moving forward, we will refer to this type of access key as the "**OSU LiteLLM API key**"^[
+It runs via the LiteLLM service, and these kind of keys in general are called "API keys"].
+
+The advantages of using Claude Code via the OSU LiteLLM API key
+---not just during this workshop, but for you moving forward--- are:
+
+1. It is approved at OSU for use with any type of institutional data (S2–S4).
+   <span style="font-size: 1.2em;">🎉</span>
+3. OTDI currently has an initiative where **anyone at OSU can get $100 worth of AI credits**
+   via their own OSU LiteLLM API key (see this page's [appendix](#appendix)). <span style="font-size: 1.2em;">🥳</span>
+2. At least in principle, you can get a work-related rather than personal funding
+   source for additional (as in, beyond this workshop and beyond your free key)
+   AI usage.
+
+::: {.callout-warning collapse="true"}
+#### Don't get confused about data approval contexts _(Click to expand)_
+Claude Code is **only** approved for use with institutional data when it is accessed
+via an access key (API key) from OTDI's Generative AI Service.
+If you pay for a personal Anthropic account and use that to access Claude Code,
+you are **not** using it in an approved way. 
+:::
+
+### The setup steps
+
+1. In the **Extensions** view, search for "claude" and install the extension
+   "[Claude Code for VS Code](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)":
+
+![](/img/vscode-claude-install.png){fig-align="center" width="50%" fig-alt="Screenshot of the VS Code Extensions sidebar, showing the Claude Code extension highlighted"}
+
+2. To authenticate to Claude Code, we will use a settings file where we tell Claude
+   about our API key and settings associated with it.
+   **In the terminal**, copy this file to your Home directory
+   (where it will be automatically read by Claude Code):
+
+   ```bash
+   cp /fs/scratch/PAS3454/share/settings.json ~/.claude/settings.json
+   ```
+
+   ::: {.callout-note collapse="true"}
+   #### What does this file contain? _(Click to expand)_
+
+   We can't share this file on the website in full,
+   because it contains an API key that cannot be exposed publicly.
+   But for your reference, the contents of this file
+   minus the API key (here replaced by `REPLACE_WITH_API_KEY`) are as follows:
+   
+   ```json
+   {
+   "theme": "auto",
+   "env": {                                                                                                                                                                                        
+       "ANTHROPIC_BASE_URL": "https://litellm.cloud.osu.edu",                                                                                                                                        
+       "ANTHROPIC_AUTH_TOKEN": <REPLACE_WITH_API_KEY>,
+       "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6",
+       "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-6",
+       "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5-20251001",
+       "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"                                                                                                                                        
+       }   
+   }
+   ```
+   :::
+
+3. A second tab should now be available in the side bar with Copilot,
+   named "CLAUDE" --- click on that
+   (_if you don't see it, you may have to widen the side bar!_):
+
+   ![Next to "CHAT" (i.e., GitHub Copilot), a "CLAUDE CODE" tab is now available.](/img/vscode-claude-in-sidebar.png){fig-align="center" width="70%" fig-alt="Screenshot of the VS Code interface, showing the Claude Code icon in the top right corner of the window"}
+
+   ::: {.callout-note collapse="true"}
+   #### Alternative way of opening a Claude Code window _(Click to expand)_
+   
+   Once installed, a Claude Code icon will appear in the topright of the editor pane:
+   
+   ![](/img/vscode-claude-icon.png){fig-align="center" width="20%" fig-alt="Screenshot of the VS Code interface, showing the Claude Code icon in the top right corner of the window"}
+   
+   Clicking this icon will also open a Claude Code window,
+   but this one will be opened within the editor pane rather than in the sidebar.
+   :::
+
+4. You should for some moments see the following messages in the Claude Code window,
+   indicating that you are not authenticated yet:
+   
+   ![](/img/claude-login.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the first window after logging in, with a message indicating that you are not authenticated yet"}
+
+5. Simply wait, and if all goes well, Claude will process the settings file behind
+   the scenes, and switch to an interface similar to the Copilot one:
+
+   ![](/img/claude-first-window.png){fig-align="center" width="55%" fig-alt="Screenshot of the Claude Code interface, showing the first window after logging in"}
+
+   ::: {.callout-important}
+   #### Does the window with login options not automatically disappear?
+   Don't try to log in via the options in that window,
+   but warn the instructors and we'll troubleshoot.
+   :::
+
+6. In the prompt box at the bottom,
+   go ahead and ask it a quick, simple question to test that it works.
+
+   ::: {.callout-tip appearance="simple"}
+   No inspiration? Ask a classic stumbling-block question for AIs like:
+
+   > How many "b"s are in the word "blueberry"?
+   :::
+
+<hr style="height:1pt; visibility:hidden;" />
+
+## Appendix
+
+### Getting and using your own API key
+
+1. Go to <https://go.osu.edu/api-fluency> and log in
+2. Click "**Redeem my free key**"
+
+This API key can be used in the same places as in the workshop
+(as well as in other contexts that we have not shown in this workshop),
+i.e. most of all to access Claude Code in VS Code.
+
+![](/img/free-api-key.png){fig-align="center" width="90%" fig-alt="Screenshot of the OSU Generative AI Service website, showing the 'Redeem my free key' button highlighted"}

@@ -30,3 +30,8 @@ toc: true
 ### Background reading
 
 ### Tutorials, courses, and so on
+
+### Ohio State content
+
+- Recorded webinar on June 23:
+  [Risk Management Series: Command AI Safely](https://go.osu.edu/rmsai)

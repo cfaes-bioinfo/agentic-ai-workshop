@@ -1,6 +1,6 @@
 ---
-title: "Our coding + genAI toolkit: intro and setup"
-subtitle: "An introduction to, and setup of, the main tools we'll use in the workshop"
+title: "VS Code and OSC setup"
+#subtitle: "An introduction to, and setup of, the main tools we'll use in the workshop"
 number-sections: true
 date: 2026-07-03
 date-modified: today
@@ -11,19 +11,9 @@ author:
     affiliation: 
       - name: CFAES Bioinformatics Core, Ohio State University
         url: https://mcic.osu.edu/bioinformatics
-other-links:
-  - text: "Next up: Using GitHub Copilot and Claude Code"
-    icon: bookmarks
-    href: 07-agentic1.html
 ---
 
 ---------
-
-<hr style="height:1pt; visibility:hidden;" />
-
-::: {.callout-caution appearance="simple"}
-**_This page is still subject to change_**
-:::
 
 <hr style="height:1pt; visibility:hidden;" />
 
@@ -39,12 +29,12 @@ run code, access data, and make use of agentic AI tools:
 3. Generative and Agentic AI tools _integrated in our code editor_,
    **GitHub Copilot** and **Claude Code**
 
-In this session, we will go through the necessary steps be able to use this setup,
-providing context about the various tools and their use in and after the workshop.
+In this session, we will go through the necessary steps to get the first two components
+configured in such a way that we can next proceed to using the AI tools. 
 
 This same setup is what I use in my own work,
 and you can continue using it after the workshop.
-Getting this setup configured on your own computer is a bit of a process,
+Getting this configured on your own computer is definitely a process,
 but it is well worth it in my opinion.
 
 ::: callout-note
@@ -59,7 +49,7 @@ and run R code by starting R in the terminal.
 
 However, for more extensive and interactive R (and Python!) usage,
 the **Positron editor is the way to go**.
-See the [Positron IDE setup instructions](./s4-positron-install.qmd) for details!
+See the [Positron IDE setup instructions](./o3-positron-install.qmd) for details!
 :::
 
 ## Exploring VS Code
@@ -72,7 +62,7 @@ editors like VS Code are also referred to as **IDEs**: Integrated Development En
 The RStudio program is another good example of an IDE ---
 and like RStudio is an IDE for R, VS Code will be our IDE for shell (and other) code.].
 
-::: callout-note
+::: callout-tip
 #### Why we use VS Code --- and why our own installation
 It's a great editor all around, and when working at OSC in particular
 ---at least if you need to run command-line programs, and not just, say, R---
@@ -84,9 +74,10 @@ You can also use VS Code at OSC in a web browser via OSC OnDemand,
 like we did in the pre-workshop session.
 That's nice because it requires no installation or other setup.
 But in the long run, connecting your own VS Code installation to OSC is preferable.
-In the context of this workshop, the primary reason is that we can only use
-the in-editor AI tools when connecting our own VS Code installation to OSC,
-not when using the OnDemand version.
+In the context of this workshop,
+**the primary reason we use our own VS Code installation is that because it allows us to use**
+**the in-editor AI tools when connecting our own VS Code installation to OSC**
+(this is not possible with the OnDemand version).
 :::
 
 You should have already installed VS Code (full name: Visual Studio Code) on your laptop.
@@ -124,45 +115,11 @@ Go ahead and open it.
 
 2. You can **resize panes** by dragging the borders between them:
    try doing this with the Primary Side Bar and the Panel containing the terminal.
-
-3. If you didn't do the pre-workshop learning,
-   you won't yet have **your own dir** `/fs/scratch/PAS3454/people/<user>`.
-   Create this dir, where `<user>` should be your exact OSC username.
-
-   <details><summary>Click to see some hints</summary>
-
-   You can create this dir in several ways, but here is the most bulletproof one:
-
-   ```bash
-   # `$USER` is an environment variable that contains your username,
-   # so this exact command will work for everyone:
-   mkdir /fs/scratch/PAS3454/people/$USER
-   ```
-   
-   Alternatively, assuming you are in `/fs/scratch/PAS3454` and your username is
-   `jane`, a simpler command would be:
-
-   ```bash
-   mkdir people/jane
-   ```
-
-   ::: {.callout-tip appearance="simple"}
-   If you already had a `/fs/scratch/PAS3454/people/<user>` dir,
-   the above commands should fail with an error message like
-   `mkdir: cannot create directory ‘/fs/scratch/PAS3454/people/jane’: File exists`.
-   :::
-
-   Other alternatives include using the VS Code file explorer (there's a "New Folder" button)
-   or the [OSC OnDemand](https://ondemand.osc.edu/) file browser.
-
-   </details>
 :::
 
 ## Setting up the OSC connection in VS Code
 
-### Configure the connection to OSC
-
-Now, we'll do some **one-time set up** to enable connecting VS Code to OSC via so-called "SSH tunneling".
+Now, we'll do some **one-time configuration** to enable connecting VS Code to OSC via so-called "SSH tunneling".
 This process moves a VS Code window _entirely_ to OSC:
 the terminal, the file system, the code editor, and so on^[
 In case you're familiar with the `ssh` command, this is similar to connecting your terminal to OSC with `ssh <username>@cardinal.osc.edu`.
@@ -171,21 +128,22 @@ which has many benefits.
 ].
 
 While it's most straightforward to set up a connection to an OSC **login node**,
-we will additionally configure a connection to a **compute node**, which is more complicated.
-However, this avoids clogging up OSC's login nodes, and gives you more flexibility
-to test-run code in the terminal.
-(Additionally, we will use a set up that will also work for the R IDE Positron,
-which is a nice bonus.)
+we will additionally configure a connection to a **compute node**,
+which is considerably more complicated.
+However, this avoids clogging up OSC's login nodes,
+and e.g. gives you more flexibility to test-run code in the terminal^[
+Additionally, we will use a set up that will also work for the R IDE Positron,
+which is a nice bonus.].
 
 Once configured, this is a very convenient and powerful way to access OSC.
 
-#### Install the Remote Development extension
+### Install the Remote Development extension
 
 1. In the VS Code Activity Bar, click the **Extensions** icon at the bottom (left screenshot below).
 
 :::: colummns
 ::: {.column width="43%"}
-![Screenshot of the VS Code Activity Bar, with the Extensions icon at the bottom.*](/img/vscode-narrow-sidebar-items.png){fig-align="center" width="14%" fig-alt="Screenshot of the VS Code Activity Bar, showing the Extensions icon highlighted"}
+![Screenshot of the VS Code Activity Bar, with the Extensions icon at the bottom.](/img/vscode-narrow-sidebar-items.png){fig-align="center" width="14%" fig-alt="Screenshot of the VS Code Activity Bar, showing the Extensions icon highlighted"}
 :::
 
 ::: {.column width="51%"}
@@ -200,12 +158,12 @@ Once configured, this is a very convenient and powerful way to access OSC.
 
 4. Click the "**Install**" button to install this extension.
 
-#### Configure the connection
+### Configure the OSC connection
 
 Next, we'll use functionality from this extension pack to set up the connection to OSC:
 
 4. Open the VS Code **Command Palette**
-   (cog wheel {{< fa cog >}} => Command Palette or press <kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>).
+   (cog wheel {{< fa cog >}} => Command Palette or <kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>).
    
 5. Type "_remote open_" and then:
    - Select the top option "**Remote-SSH: Open SSH Configuration File...**"
@@ -215,27 +173,37 @@ Next, we'll use functionality from this extension pack to set up the connection 
 
 :::: colummns
 ::: {.column width="48%"}
-![After typing remote open in the Command Palette, select the option shown in this screenshot (should be the only one to appear).](/img/vscode-open-ssh-config.png){fig-align="center" width="98%" fig-alt="Screenshot of the VS Code Command Palette, showing the 'Remote-SSH: Open SSH Configuration File...' option highlighted"}
+![After typing remote open in the Command Palette, select the option shown in this screenshot (should be the only one to appear).](/img/vscode-open-ssh-config.png){fig-align="center" width="98%" fig-alt="Screenshot of the VS Code Command Palette, showing the 'Remote-SSH: Open SSHConfiguration File...' option   highlighted"}
 :::
 ::: {.column width="3%"}
 :::
 ::: {.column width="48%"}
-![Next, a few options will appear. Select the top one, which should contain the username you have on your computer.](/img/vscode-open-ssh-config2.png){fig-align="center" width="85%" fig-alt="Screenshot of the VS Code Command Palette, showing the 'Remote-SSH: Open SSH Configuration File...' option highlighted"}
+![Next, a few options will appear. Select the top one, which should contain the username you have on your computer.](/img/vscode-open-ssh-config2.png){fig-align="center" width="85%" fig-alt="Screenshot of the VS Code Command Palette, showing the 'Remote-SSH: Open SSH Configuration File...' option  highlighted"}
 :::
 ::::
 
-6. Paste the following into the SSH config file that opens, then:
-
-   - In two places, change `User <osc-username>` to your OSC username
-     (for example, to `User jane`).
-
-   - Change `<computer-username>` in the `ProxyCommand` line to your username
-     on your computer
-     (the same one that appears in the file path at the top of the config file).
-
-   - Save the file (`File` > `Save` or <kbd>Ctrl/⌘</kbd>+<kbd>S</kbd>).
+6. Paste the following into the SSH configuration file that opens:
 
    ::: {.panel-tabset}
+   
+   ### Windows
+   ::: {.callout-important appearance="simple"}
+   These instructions are for Windows, click "Mac" above to see the Mac instructions.
+   :::
+
+   ```markdown
+   Host osc-cardinal-login
+       User <osc-username>
+       HostName cardinal.osc.edu
+
+   Host osc-cardinal-compute
+       User <osc-username>
+       ForwardAgent yes
+       StrictHostKeyChecking no
+       UserKnownHostsFile=/dev/null
+       ConnectTimeout 120
+       ProxyCommand C:/Users/<computer-username>/.ssh/osc-compute-proxy.cmd %h
+   ```
 
    ### Mac
 
@@ -253,29 +221,45 @@ Next, we'll use functionality from this extension pack to set up the connection 
        ProxyCommand /Users/<computer-username>/.ssh/osc-compute-proxy.sh %h
    ```
 
-   ### Windows
-
-   ```markdown
-   Host osc-cardinal-login
-       User <osc-username>
-       HostName cardinal.osc.edu
-
-   Host osc-cardinal-compute
-       User <osc-username>
-       ForwardAgent yes
-       StrictHostKeyChecking no
-       UserKnownHostsFile=/dev/null
-       ConnectTimeout 120
-       ProxyCommand C:/Users/<computer-username>/.ssh/osc-compute-proxy.cmd %h
-   ```
-
    :::
 
-7. In the file above, the first connection is to a login node.
-   The second is to a compute node, and it refers to a proxy script we will create now.
-   Open a terminal and run the following command:
+8. Edit this SSH configuration file to replace the placeholders with your own information:
+
+   - In both instances, change `User <osc-username>` to your **OSC username**,
+     e.g to `User jane`.
+
+   - Change `<computer-username>` to your **username on your computer**
+     (the same one that appears in the file path at the top of the config file^[
+        If you have an OSU-managed computer this will be you `name.#`.
+        If you have you own computer, you likely picked your username yourself.
+     ]), e.g. to `miller.103`.
+
+   Then, save the changes you made to the file
+   (`File` > `Save` or <kbd>Ctrl/⌘</kbd>+<kbd>S</kbd>).
+
+7. In the file above, the first connection (`osc-cardinal-login`) is to a login node.
+   The second (`osc-cardinal-compute`) is to a compute node,
+   and it refers to a "proxy script" we will create now.
+   In the VS Code terminal that you opened earlier, copy-and-paste and then execute
+   the following command as-is:
 
    ::: {.panel-tabset}
+   ### Windows
+   
+   ::: {.callout-important appearance="simple"}
+   These instructions are for Windows, click "Mac" above to see the Mac instructions.
+
+   They also assume you are using PowerShell, which is the default Windows shell in VS Code.
+   If you are using a Unix shell via Git Bash or another mechanism,
+   you should use the Mac instructions instead.
+   :::
+
+   ```powershell
+   @"
+   @echo off
+   ssh -o LogLevel=QUIET -o BatchMode=yes osc-cardinal-login "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc $SLURM_NODELIST 22'"
+   "@ | Out-File -Encoding ascii "$env:USERPROFILE\.ssh\osc-compute-proxy.cmd"
+   ```
 
    ### Mac
 
@@ -288,27 +272,17 @@ Next, we'll use functionality from this extension pack to set up the connection 
    
    chmod +x ~/.ssh/osc-compute-proxy.sh
    ```
-
-   ### Windows
-
-   Run this in **PowerShell**:
-
-   ```powershell
-   @"
-   @echo off
-   ssh -o LogLevel=QUIET -o BatchMode=yes osc-cardinal-login "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc $SLURM_NODELIST 22'"
-   "@ | Out-File -Encoding ascii "$env:USERPROFILE\.ssh\osc-compute-proxy.cmd"
-   ```
-
    :::
 
-8. Open the VS Code **Settings** (cog wheel {{< fa cog >}} => Settings) and search for `remote.SSH.connectTimeout`.
-   Change the value from 15 to 300 (seconds).
+8. Because connecting to a compute node may take a while to establish, we also
+   need to increase the "connection timeout".
+   Open the VS Code **Settings** (cog wheel {{< fa cog >}} => Settings) and search for `remote.SSH.connectTimeout`.
+   Change the value from 15 to **300** (seconds).
 
 ![Find the connection timeout setting and change it to 300 seconds, as shown in this screenshot.](/img/vscode-connection-timeout.png){fig-align="center" width="95%" fig-alt="Screenshot of the VS Code Settings, showing the 'Remote.SSH: Connect Timeout' option highlighted"}
 
-::: callout-note
-#### What we just did
+::: {.callout-note collapse="true"}
+#### Recap and more info about what we just did _(Click to expand)_
 
 In the SSH configuration file, we defined two remote "hosts" that we can connect to:
 
@@ -324,18 +298,11 @@ In the SSH configuration file, we defined two remote "hosts" that we can connect
 
 The proxy script handles the compute job submission and connection to the allocated
 compute node. We use a script rather than a much simpler inline command so that the
-configuration works with both VS Code and [Positron (for R)](./s4-positron-install.qmd).
+configuration works with both VS Code and [Positron (for R)](./o3-positron-install.qmd).
 
 Because compute jobs (for `osc-cardinal-compute`) may take a while to start,
 we also increased the "connection timeout"
 (amount of time VS Code will wait for the connection to be established) to 5 minutes.
-:::
-
-::: {.callout-tip}
-#### Connecting to other OSC clusters
-To configure connect to other OSC clusters (currently, Pitzer and Ascend),
-you can add additional entries to this SSH configuration file,
-simply replacing `cardinal` by the name of the other cluster.
 :::
 
 ::: {.callout-warning collapse="true"}
@@ -346,11 +313,67 @@ While it's OK to keep using this for a bit after the workshop ---
 if you have access to another OSC project, you should change `PAS3454` to that project's number.
 :::
 
+::: {.callout-tip}
+#### Connecting to other OSC clusters
+To configure connect to other OSC clusters (currently, Pitzer and Ascend),
+you can add additional entries to this SSH configuration file,
+simply replacing `cardinal` by the name of the other cluster.
+:::
+
+### Configuration so you won't have to enter your OSC password
+
+The following steps will prevent OSC from prompting you for your OSC password every
+time you connect to OSC via SSH --- it will use an SSH key pair for authentication instead.
+This is convenient when it comes to login node connections,
+and simply necessary for the compute node connection we configured.
+
+10. In the terminal you should have open in VS Code
+    (_regardless of whether you're using Windows or Mac_),
+    execute the following command to generate a SSH key-pair:
+
+    ``` {.bash}
+    ssh-keygen -t rsa
+    ```
+
+11. You will be asked several questions, and in each case,
+    **simply press <kbd>Enter</kbd> to accept the default answer** ---
+    do this until you see some curious-looking artful output,
+    and get your command prompt back.
+
+12. Excute the following command to transfer the public key to OSC's Cardinal cluster,
+    **replacing `<user>` with your OSC username**:
+
+    ::: {.panel-tabset}
+    ### Windows
+    ::: {.callout-important appearance="simple"}
+    These instructions are for Windows, click "Mac" above to see the Mac instructions.
+    :::
+   
+    ```bash
+    # Replace <user> by your username, e.g. "jelmer@cardinal.osc.edu"
+    cat ~/.ssh/id_rsa.pub | ssh <user>@cardinal.osc.edu 'mkdir -p .ssh && cat >> .ssh/authorized_keys'
+    ```
+   
+    ### Mac
+    ```bash
+    # Replace <user> by your username, e.g. "jelmer@cardinal.osc.edu"
+    ssh-copy-id <user>@cardinal.osc.edu
+    ```
+    :::
+
+13. You should be prompted for your password: enter it.
+
+Congratulations on making it this far! Let's now test the connection.
+
+## Connecting VS Code to OSC
+
 ### Connect to OSC
 
-With the one-time configuration steps done, you can from now on connect to OSC like so:
+With the one-time configuration steps done, you should from now on be able to 
+connect to OSC like so:
 
-1. Open the Command Palette.
+1. Open the Command Palette
+   (cog wheel {{< fa cog >}} => Command Palette or <kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>).
 
 2. Start typing "_**SSH connect**_", click on `SSH: Connect to Host`,
 
@@ -358,18 +381,14 @@ With the one-time configuration steps done, you can from now on connect to OSC l
 
    ![](/img/vscode-select-connection.png){fig-align="center" width="60%" fig-alt="Screenshot of the VS Code Command Palette, showing the 'SSH: Connect to Host' option highlighted"}
 
-3. A new VS Code window will open. In the little pop-up at the top, enter your OSC password
-   _(this won't be necessary in the future if you do the optional setup below)_.
-
-4. The connection may take a little while (typically 5–30 seconds, could be longer if you're unlucky)
+3. A new VS Code window will open. 
+   The connection may take a little while (typically 5–30 seconds, could be longer if you're unlucky)
    to establish, because a compute job has to be requested, assigned resources, and started.
-   In the bottom right, you should see something like the following with a moving line
-   while it is trying to connect:
+   In the bottom right, you should see something like the following while it is connecting:
 
-   ![](/img/vscode-connecting.png){fig-align="center" width="60%" fig-alt="Screenshot of the VS Code window while connecting to the remote host"}
+   ![A little indicator will be moving back and forth while it's trying to connect.](/img/vscode-connecting.png){fig-align="center" width="60%" fig-alt="Screenshot of the VS Code window while connecting to the remote host"}
    
-5. Once it has connected, a pop-up may appear, asking whether you "trust the authors"
-   of the folder you ended up in: click `Trust and Continue`.
+5. Once connected, the following pop-up likely appears: click "_Trust Folder and Continue_".
 
    ![](/img/vscode-trust.png){fig-align="center" width="60%" fig-alt="Screenshot of the VS Code pop-up asking whether to trust the authors of the folder you ended up in, with the 'Trust and Continue' button highlighted"}
 
@@ -398,8 +417,40 @@ In the File Explorer, you should now see folders `data`, `people`, and `share`:
 
 ![](/img/vscode-explorer.png){fig-align="center" width="40%" fig-alt="Screenshot of the VS Code file explorer, showing the 'people', 'data', and 'share' folders in the /fs/scratch/PAS3454 folder"}
 
-::: {.callout-tip collapse="true"}
-#### From now on: Connecting directly to a specific folder at OSC _(Click to expand)_
+::: exercise
+#### {{< fa user-edit >}} Create your own folder on OSC
+
+**_This is only necessary if you didn't do the pre-workshop learning,_**
+**_in which you created this folder._**
+
+Create a dir `/fs/scratch/PAS3454/people/<user>`,
+where `<user>` should be your exact OSC username.
+
+<details><summary>Click to see some hints</summary>
+
+You can create this dir in several ways, but here is the most bulletproof one:
+
+```bash
+# `$USER` is an environment variable that contains your username,
+# so this exact command will work for everyone:
+mkdir /fs/scratch/PAS3454/people/$USER
+```
+   
+Alternatively, assuming you are in `/fs/scratch/PAS3454` and your username is
+`jane`, a simpler command would be:
+
+```bash
+mkdir people/jane
+```
+
+Other alternatives include using the VS Code file explorer (there's a "New Folder" button)
+or the [OSC OnDemand](https://ondemand.osc.edu/) file browser.
+
+</details>
+:::
+
+::: {.callout-tip collapse="false"}
+#### From now on: Connecting directly to a specific folder at OSC
 
 The above two-step procedure (connect to OSC, then open a folder) can be done
 in one even simpler step, after you've connected to that folder at least once:
@@ -414,326 +465,7 @@ Simply clicking on that line will open that folder and in the process connect to
 :::
 
 ::: {.callout-note collapse="true"}
-
-### Optional setup so you won't have to enter your OSC password again _(Click to expand)_
-
-If you take the following steps,
-you will no longer be prompted for your OSC password when connecting to OSC via SSH,
-including when connecting VS Code to OSC via the SSH tunneling we just set up.
-
-1. Open the terminal in VS Code (in a window that's on your own computer, **not** at OSC).
-
-2. In the terminal (regardless of whether you're using Windows or Mac),
-   execute the following command to generate a public-private SSH key-pair:
-
-    ``` {.bash}
-    ssh-keygen -t rsa
-    ```
-
-3. You'll get some (odd-looking!) output and will then be asked several questions.
-   In each case, you can **simply press <kbd>Enter</kbd> to select the default answer**;
-   do this until you get your command prompt back.
-
-3. Excute the following command to transfer the public key to OSC's Cardinal cluster,
-   **but make sure to replace `<user>` with your OSC username**:
-
-   ::: {.panel-tabset}
-   ### Windows
-  
-   ```bash
-   # Replace <user> by your username, e.g. "jelmer@cardinal.osc.edu"
-   cat ~/.ssh/id_rsa.pub | ssh <user>@cardinal.osc.edu 'mkdir -p .ssh && cat >> .ssh/authorized_keys'
-   ```
-  
-   ### Mac
-   ```bash
-   # Replace <user> by your username, e.g. "jelmer@cardinal.osc.edu"
-   ssh-copy-id <user>@cardinal.osc.edu
-   ```
-   :::
-
-4. All done! Test if it works by connecting to OSC once again.
-
-:::
-
-## Setting up GitHub Copilot
-
-### Background
-
-GitHub Copilot is an generative and agentic AI tool that can help you write code
-and perform other tasks.
-It's the first of two similar tools we will use in this workshop, the other being Claude Code.
-
-GitHub Copilot is **not** the same as the "general" Microsoft Copilot.
-And while GitHub Copilot _is_ a Microsoft product, hence the similar name,
-you cannot –currently– use it institutionally at OSU.
-Instead, access runs through a **personal GitHub account**.
-It's easy and free to create a GitHub account,
-and you may already have one from previous usage or because you followed 
-[this optional pre-workshop setup step](s3-github-account.qmd).
-
-Keep in mind that GitHub is a much more general platform than just GitHub Copilot,
-widely used for sharing and collaborating on code.
-Nevertheless, with your GitHub account,
-you are nowadays also automatically enrolled in the GitHub Copilot free plan.
-
-While there's also a stand-alone app and web-based interface for it,
-**we will use GitHub Copilot within VS Code**, where it is available as a pre-installed plugin.
-Therefore, little setup is needed:
-the steps below only serve to log in to your GitHub account or create one along the way.
-
-::: {.callout-tip}
-#### Pros of GitHub Copilot
-
-- For academics, there is a generous (more so for teachers than students)
-  free personal option for GitHub Copilot, which is not the case for Claude Code.
-
-- Even though it's ideal to use a tool approved for private data,
-  you may not be working with private data at all, or be able to get help without exposing it.
-  If so, then GitHub Copilot is a perfectly fine option.
-
-- Seemingly minor but very handy: only GitHub Copilot has inline "code completion" features
-  (_And:_ if you only use these, any data privacy concerns can be circumvented.)
-:::
-
-::: {.callout-note}
-#### GitHub Copilot plans
-
-The GitHub Copilot free plan will work for the purposes of this workshop,
-but is _not_ sufficient for sustained Copilot use.
-
-You may have done the optional pre-workshop setup step to 
-[obtain GitHub Copilot Student/Pro access via your academic credentials](s3-github-account.qmd).
-If that was approved (should be quick) and processed (72 hours later),
-you'll now have more extensive, though not unlimited, access to GitHub Copilot.
-For more details, see [our GitHub setup page](s3-github-account.qmd#apply-for-additional-free-github-copilot-access)
-
-If you didn't do that, there isn't much point in doing it _right now_,
-because you won't obtain access during the workshop given the 72-hour processing time.
-But feel free to do so in a break or after the workshop.
-:::
-
-### The setup steps
-
-1. Towards the right side of the top VS Code bar, click the **Sign In** button to log into GitHub:
-
-   ![](/img/vscode-copilot-signin.png){fig-align="center" width="65%" fig-alt="Screenshot of the VS Code interface, showing the GitHub Copilot icon in the top right corner of the window"}
-
-   ::: {.callout-warning collapse="true"}
-   ### Don't see the Sign In button? _(Click to expand)_
-
-   In the VS Code Status Bar (the thin bar way at the bottom),
-   there should be a **GitHub Copilot** icon ---
-   the icon to the left of the bell in the screenshot below:
-
-   ![](/img/vscode-copilot-icon.png){fig-align="center" width="20%" fig-alt="Screenshot of the VS Code interface, showing the GitHub Copilot icon in the top right corner of the window"}
-
-   Your version of the icon may be striked-through, which means that GitHub Copilot is not yet active.
-   Click on the icon and the login pop-up should appear.
-   :::
-
-3. A pop-up similar to the left-hand image below should appear,
-   and if you click on Continue with GitHub, you should see something like the right-hand image:
-
-   ![Logging into GitHub to use GitHub Copilot. [From the GitHub Blog](https://github.blog/changelog/2025-07-15-social-login-with-google-is-now-generally-available).](img/github-login-vscode.png){fig-align="center" width="80%"}
-
-   ::: callout-tip
-   #### GitHub account options
-
-   - For those **without** a GitHub account, you can create one on the fly, either with
-     the "Create an account" button on the bottom, or semi-automatically via an existing
-     Google login by clicking the "Continue with Google" button.
-
-   - For those **with** a GitHub account, you can log in with your existing credentials.
-     Don't use Continue with Google unless you know your GitHub account is already linked to your Google account,
-     or account confusion may arise.
-   :::
-
-   ::: {.callout-note collapse="true"}
-   ### Were you already signed in to GitHub? Then the prompt should look like this _(Click to expand)_
-   
-   ![](/img/copilot-already-signed-in.png){fig-align="center" width="55%" fig-alt="Screenshot of the VS Code interface, showing the GitHub Copilot login prompt"}
-   :::
-
-4. Finally, you may be prompted to authorize VS Code to access your GitHub account, which you should do:
-
-![](/img/copilot-signin-send-back.png){fig-align="center" width="45%" fig-alt="Screenshot of the GitHub login page, showing the 'Authorize Visual Studio Code' button highlighted"}
-
-5. GitHub Copilot lives in a "Secondary Side Bar" on the righthand side,
-   which you can toggle by pressing
-   the rightmost icon in the screenshot below, on the right side of the top VS Code bar:
-
-   ![Clicking the rightmost icon toggles the Secondary Side Bar with GitHub Copilot. _TBA: highlight icon_](/img/vscode-copilot-sidebar.png){fig-align="center" width="35%" fig-alt="Screenshot of the VS Code interface, showing the GitHub Copilot sidebar"}
-
-   That AI chat sidebar should look something like this:
-
-   ![](/img/vscode-copilot-blank.png){fig-align="center" width="50%" fig-alt="Screenshot of the VS Code interface, showing the GitHub Copilot sidebar"}
-
-::: {.callout-tip appearance="simple"}
-As mentioned above, unless you have already [obtained GitHub Copilot Student/Pro access via your academic credentials](s3-github-account.qmd),
-you will be automatically using the GitHub Copilot free plan after logging in or creating a new account.
-:::
-
-### One example prompt
-
-Let's give it one quick try, before we go into more detail in the next sessions.
-In the Copilot prompt box
-(which should have the ghost text "_Describe what to build_"), enter:
-
-> _How many reads are in data/iqbal/SRR31869590_1.fastq?_
-
-Because we're asking Copilot for information it can only get after actually doing
-something (running a command), it will by default ask for permission to do so:
-
-![](/img/copilot-asks-permission.png){fig-align="center" width="70%" fig-alt="Screenshot of the GitHub Copilot prompt asking for permission to run a command"}
-
-Click `Allow` and it will run the command and return the answer:
-
-![TBA - Replace with subsampled FASTQ files](/img/copilot-prompt1-answer.png){fig-align="center" width="70%" fig-alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"}
-
-#### What did we just witness?
-This example shows how in-editor AI like GitHub Copilot can perform actions
-themselves, rather than just providing information or code snippets.
-In technical terms, as part of this agentic behavior, it "calls a tool"
-(or: "performs **tool calls**") that allow it to run arbitrary commands in the terminal.
-
-We'll soon see another type of extremely useful in-editor agentic behavior,
-where it can **read and/or edit your code**.
-This latter type of behavior is what we'll use most in this workshop.
-That's because broadly speaking, the example above notwithstanding,
-_the goal in this workshop is not to let AI analyze the data for us,_
-_but rather to let it help us write code to appropriately analyze the data with_
-_existing non-AI programs._
-
-## Setting up Claude Code
-
-### Background
-
-**Like with GitHub Copilot**, the Anthropic product Claude Code comes in various forms,
-but we will use it within VS Code, where it is available as a plugin.
-
-**Unlike with GitHub Copilot**, we will not use a personal account to access Claude Code.
-Instead, we will use an access key that the workshop instructors have obtained
-using OSU OTDI's [Generative AI Service](https://it.osu.edu/generative-ai-service).
-Moving forward, we will refer to this type of access key as the "**OSU LiteLLM API key**"^[
-It runs via the LiteLLM service, and these kind of keys in general are called "API keys"].
-
-The advantages of using Claude Code via the OSU LiteLLM API key
----not just during this workshop, but for you moving forward--- are:
-
-1. It is approved at OSU for use with any type of institutional data (S2–S4).
-   <span style="font-size: 1.2em;">🎉</span>
-3. OTDI currently has an initiative where **anyone at OSU can get $100 worth of AI credits**
-   via their own OSU LiteLLM API key (see this page's [appendix](#appendix)). <span style="font-size: 1.2em;">🥳</span>
-2. At least in principle, you can get a work-related rather than personal funding
-   source for additional (as in, beyond this workshop and beyond your free key)
-   AI usage.
-
-::: {.callout-warning collapse="true"}
-#### Don't get confused about data approval contexts _(Click to expand)_
-Claude Code is **only** approved for use with institutional data when it is accessed
-via an access key (API key) from OTDI's Generative AI Service.
-If you pay for a personal Anthropic account and use that to access Claude Code,
-you are **not** using it in an approved way. 
-:::
-
-### The setup steps
-
-1. In the **Extensions** view, search for "claude" and install the extension
-   "[Claude Code for VS Code](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)":
-
-![](/img/vscode-claude-install.png){fig-align="center" width="50%" fig-alt="Screenshot of the VS Code Extensions sidebar, showing the Claude Code extension highlighted"}
-
-2. To authenticate to Claude Code, we will use a settings file where we tell Claude
-   about our API key and settings associated with it.
-   **In the terminal**, copy this file to your Home directory
-   (where it will be automatically read by Claude Code):
-
-   ```bash
-   cp /fs/scratch/PAS3454/share/settings.json ~/.claude/settings.json
-   ```
-
-   ::: {.callout-note collapse="true"}
-   #### What does this file contain? _(Click to expand)_
-
-   We can't share this file on the website in full,
-   because it contains an API key that cannot be exposed publicly.
-   But for your reference, the contents of this file
-   minus the API key (here replaced by `REPLACE_WITH_API_KEY`) are as follows:
-   
-   ```json
-   {
-   "theme": "auto",
-   "env": {                                                                                                                                                                                        
-       "ANTHROPIC_BASE_URL": "https://litellm.cloud.osu.edu",                                                                                                                                        
-       "ANTHROPIC_AUTH_TOKEN": <REPLACE_WITH_API_KEY>,
-       "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-6",
-       "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-6",
-       "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5-20251001",
-       "CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS": "1"                                                                                                                                        
-       }   
-   }
-   ```
-   :::
-
-3. A second tab should now be available in the side bar with Copilot,
-   named "CLAUDE" --- click on that
-   (_if you don't see it, you may have to widen the side bar!_):
-
-   ![Next to "CHAT" (i.e., GitHub Copilot), a "CLAUDE CODE" tab is now available.](/img/vscode-claude-in-sidebar.png){fig-align="center" width="70%" fig-alt="Screenshot of the VS Code interface, showing the Claude Code icon in the top right corner of the window"}
-
-   ::: {.callout-note collapse="true"}
-   #### Alternative way of opening a Claude Code window _(Click to expand)_
-   
-   Once installed, a Claude Code icon will appear in the topright of the editor pane:
-   
-   ![](/img/vscode-claude-icon.png){fig-align="center" width="20%" fig-alt="Screenshot of the VS Code interface, showing the Claude Code icon in the top right corner of the window"}
-   
-   Clicking this icon will also open a Claude Code window,
-   but this one will be opened within the editor pane rather than in the sidebar.
-   :::
-
-4. You should for some moments see the following messages in the Claude Code window,
-   indicating that you are not authenticated yet:
-   
-   ![](/img/claude-login.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the first window after logging in, with a message indicating that you are not authenticated yet"}
-
-5. Simply wait, and if all goes well, Claude will process the settings file behind
-   the scenes, and switch to an interface similar to the Copilot one:
-
-   ![](/img/claude-first-window.png){fig-align="center" width="55%" fig-alt="Screenshot of the Claude Code interface, showing the first window after logging in"}
-
-   ::: {.callout-important}
-   #### Does the window with login options not automatically disappear?
-   Don't try to log in via the options in that window,
-   but warn the instructors and we'll troubleshoot.
-   :::
-
-6. In the prompt box at the bottom,
-   go ahead and ask it a quick, simple question to test that it works.
-
-   ::: {.callout-tip appearance="simple"}
-   No inspiration? Ask a classic stumbling-block question for AIs like:
-
-   > How many "b"s are in the word "blueberry"?
-   :::
-
-<hr style="height:1pt; visibility:hidden;" />
-
-## Appendix
-
-### Getting and using your own API key
-
-1. Go to <https://go.osu.edu/api-fluency> and log in
-2. Click "**Redeem my free key**"
-
-This API key can be used in the same places as in the workshop
-(as well as in other contexts that we have not shown in this workshop),
-i.e. most of all to access Claude Code in VS Code.
-
-![](/img/free-api-key.png){fig-align="center" width="90%" fig-alt="Screenshot of the OSU Generative AI Service website, showing the 'Redeem my free key' button highlighted"}
-
-### VS Code settings
+### Optional: useful VS Code settings _(Click to expand)_
 
 Here are some miscellaneous settings that you may want to change in VS Code.
 
@@ -755,3 +487,5 @@ Then, search for the following settings to change them:
 - I also think the so-called "Minimap", which shows a small overview of a file in the editor pane,
   is uninformative and takes up space.
   Search for the option `editor.minimap.enabled` and turn it off.
+
+:::

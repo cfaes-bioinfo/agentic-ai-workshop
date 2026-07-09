@@ -9,7 +9,7 @@
 <meta name="author" content="Jelmer Poelstra">
 <meta name="dcterms.date" content="2026-07-07">
 
-<title>Positron installation – Agentic AI Workshop</title>
+<title>Positron installation and setup – Agentic AI Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -140,11 +140,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Day 1</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-1">    
-        <li class="dropdown-header">1: Intro to the workshop</li>
-        <li class="dropdown-header">2: Intro to Generative AI and LLMs</li>
-        <li class="dropdown-header">4: Use cases and tools for research</li>
-        <li class="dropdown-header">5: Toolkit intro and setup</li>
-        <li class="dropdown-header">7: Using GitHub Copilot and Claude Code</li>
+        <li class="dropdown-header">1: Intro to the workshop (TBA)</li>
+        <li class="dropdown-header">2: Intro to Generative AI and LLMs (TBA)</li>
+        <li class="dropdown-header">3: Approved genAI tools at OSU (TBA)</li>
+        <li class="dropdown-header">4: Use cases and tools for research (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./05-setup.html">
+ <span class="dropdown-text">5: VS Code and OSC setup</span></a>
+  </li>  
+        <li class="dropdown-header">6: LLM options at OSC (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./07a-agentic-setup.html">
+ <span class="dropdown-text">7a: Setting up GitHub Copilot and Claude Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./07b-agentic1.html">
+ <span class="dropdown-text">7b: Using GitHub Copilot and Claude Code</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -152,11 +164,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Day 2</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-2">    
-        <li class="dropdown-header">8: Prompt engineering</li>
-        <li class="dropdown-header">9: Advanced agentic options and skills</li>
-        <li class="dropdown-header">10: A worked example analysis with agents</li>
-        <li class="dropdown-header">11: Limitations and responsible use of AI</li>
-        <li class="dropdown-header">12: DIY with own (or other) data</li>
+        <li class="dropdown-header">8: Prompt engineering (TBA)</li>
+        <li class="dropdown-header">9: Advanced agentic options and skills (TBA)</li>
+        <li class="dropdown-header">10: A worked example analysis with agents (TBA)</li>
+        <li class="dropdown-header">11: Limitations and responsible use of AI (TBA)</li>
+        <li class="dropdown-header">12: DIY with own (or other) data (TBA)</li>
     </ul>
   </li>
 </ul>
@@ -220,10 +232,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li><hr class="dropdown-divider"></li>
         <li>
-    <a class="dropdown-item" href="./s4-positron-install.html">
+    <a class="dropdown-item" href="./o3-positron-install.html">
  <span class="dropdown-text">Positron installation and setup (for R)</span></a>
   </li>  
-        <li class="dropdown-header">Further Resources</li>
+        <li class="dropdown-header">Further Resources (TBA)</li>
     </ul>
   </li>
 </ul>
@@ -273,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#installing-the-posit-assistant-extension-at-osc" id="toc-installing-the-posit-assistant-extension-at-osc" class="nav-link" data-scroll-target="#installing-the-posit-assistant-extension-at-osc"><span class="header-section-number">4.3</span> Installing the Posit Assistant extension at OSC</a></li>
   <li><a href="#open-a-folder" id="toc-open-a-folder" class="nav-link" data-scroll-target="#open-a-folder"><span class="header-section-number">4.4</span> Open a folder</a></li>
   </ul></li>
-  <li><a href="#appendix-setting-up-claude-code-optional-advanced" id="toc-appendix-setting-up-claude-code-optional-advanced" class="nav-link" data-scroll-target="#appendix-setting-up-claude-code-optional-advanced"><span class="header-section-number">5</span> Appendix: Setting up Claude Code (Optional, advanced)</a>
+  <li><a href="#appendix-setting-up-claude-code-optional" id="toc-appendix-setting-up-claude-code-optional" class="nav-link" data-scroll-target="#appendix-setting-up-claude-code-optional"><span class="header-section-number">5</span> Appendix: Setting up Claude Code (optional)</a>
   <ul class="collapse">
   <li><a href="#install-the-claude-code-extension" id="toc-install-the-claude-code-extension" class="nav-link" data-scroll-target="#install-the-claude-code-extension"><span class="header-section-number">5.1</span> Install the Claude Code extension</a></li>
   <li><a href="#configure-authentication" id="toc-configure-authentication" class="nav-link" data-scroll-target="#configure-authentication"><span class="header-section-number">5.2</span> Configure authentication</a></li>
@@ -286,8 +298,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Positron installation</h1>
-<p class="subtitle lead">Optional installation and setup of the Positron IDE for R</p>
+<h1 class="title">Positron installation and setup</h1>
+<p class="subtitle lead">Getting started with this highly recommended new IDE for R</p>
 </div>
 
 
@@ -788,8 +800,8 @@ Warning
 </div>
 </section>
 </section>
-<section id="appendix-setting-up-claude-code-optional-advanced" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="appendix-setting-up-claude-code-optional-advanced"><span class="header-section-number">5</span> Appendix: Setting up Claude Code (Optional, advanced)</h2>
+<section id="appendix-setting-up-claude-code-optional" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="appendix-setting-up-claude-code-optional"><span class="header-section-number">5</span> Appendix: Setting up Claude Code (optional)</h2>
 <p>Claude Code works in Positron just like it does in VS Code with an API key. Since you’ve already set up Claude Code for VS Code and have a <code>~/claude/settings.json</code> file, the setup in Positron is straightforward.</p>
 <p>You may consider doing this if you’re used to Claude Code or prefer it over Posit Assistant for certain tasks. Otherwise, you can skip this section and just use Posit Assistant — recall that you can use Posit Assistant with the OSU LiteLLM API key, which is also approved for institutional data.</p>
 <div class="callout callout-style-simple callout-warning">

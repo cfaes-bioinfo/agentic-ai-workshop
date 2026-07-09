@@ -49,7 +49,6 @@ As listed in the "Pre-workshop setup" menu in the navigation bar:
 1. [Create an OSC account](s1-osc-account.qmd) if you don't have one
 2. [Install VS Code on your laptop](s2-vscode-install.qmd)
 3. _Optional: [Create a GitHub account and request free academic benefits](s3-github-account.qmd)_
-4. _Optional: [Install Positron](s4-positron-install.qmd) (a modern and AI-friendly RStudio alternative for R)_
 
 #### What you should know before the workshop
 

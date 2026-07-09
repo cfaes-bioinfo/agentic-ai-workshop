@@ -11,10 +11,6 @@ author:
       - name: CFAES Bioinformatics Core, Ohio State University
         url: https://mcic.osu.edu/bioinformatics
 bibliography: refs.bib # You can add reference to this files if you have and cite any
-other-links:
-  - text: "Previous: Toolkit setup"
-    icon: bookmarks
-    href: 05-setup.html
 ---
 
 ---------

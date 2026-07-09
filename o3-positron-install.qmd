@@ -1,6 +1,6 @@
 ---
-title: "Positron installation"
-subtitle: "Optional installation and setup of the Positron IDE for R"
+title: "Positron installation and setup"
+subtitle: "Getting started with this highly recommended new IDE for R"
 number-sections: true
 date: 2026-07-07
 date-modified: today
@@ -405,7 +405,7 @@ In the Explorer, click on the "Open Folder" button and enter this path.
 
 ![](/img/positron-open-folder.png){fig-align="center" width="50%" .lightbox fig-alt="Screenshot of the Positron Explorer view showing the Open Folder button."}
 
-## Appendix: Setting up Claude Code (Optional, advanced)
+## Appendix: Setting up Claude Code (optional)
 
 Claude Code works in Positron just like it does in VS Code with an API key.
 Since you've already set up Claude Code for VS Code and have a `~/claude/settings.json` file,
