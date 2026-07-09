@@ -1,5 +1,5 @@
 ---
-title: "VS Code and OSC setup"
+title: "5: VS Code and OSC setup"
 #subtitle: "An introduction to, and setup of, the main tools we'll use in the workshop"
 number-sections: true
 date: 2026-07-03

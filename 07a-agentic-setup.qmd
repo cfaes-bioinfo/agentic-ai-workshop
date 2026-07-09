@@ -1,5 +1,5 @@
 ---
-title: "Setting up GitHub Copilot and Claude Code"
+title: "7a: Setting up GitHub Copilot and Claude Code"
 #subtitle: "Exploring different functionality, settings, and workflows"
 date: 2026-07-03
 date-modified: today
@@ -29,9 +29,9 @@ As mentioned in the [previous section](05-setup.qmd):
 > 3. Generative and Agentic AI tools _integrated in our code editor_,
 >    **GitHub Copilot** and **Claude Code**
 
-There, we configured and tested the VS Code-OSC connection,
-and now we will set up the two agentic AI tools.
-Don't despair, this is going to be more straightforward! 
+After configuring and testing the VS Code-OSC connection in that section,
+we will now set up the two agentic AI tools.
+Don't despair, this should be a lot more straightforward! 
 
 ## Setting up GitHub Copilot
 
@@ -193,7 +193,7 @@ but we will use it within VS Code, where it is available as a plugin.
 Instead, we will use an access key that the workshop instructors have obtained
 using OSU OTDI's [Generative AI Service](https://it.osu.edu/generative-ai-service).
 Moving forward, we will refer to this type of access key as the "**OSU LiteLLM API key**"^[
-It runs via the LiteLLM service, and these kind of keys in general are called "API keys"].
+It runs via the LiteLLM service, and these kind of keys in general are called "API keys".].
 
 The advantages of using Claude Code via the OSU LiteLLM API key
 ---not just during this workshop, but for you moving forward--- are:
@@ -201,7 +201,7 @@ The advantages of using Claude Code via the OSU LiteLLM API key
 1. It is approved at OSU for use with any type of institutional data (S2–S4).
    <span style="font-size: 1.2em;">🎉</span>
 3. OTDI currently has an initiative where **anyone at OSU can get $100 worth of AI credits**
-   via their own OSU LiteLLM API key (see this page's [appendix](#appendix)). <span style="font-size: 1.2em;">🥳</span>
+   via their own OSU LiteLLM API key (see the bottom of this page). <span style="font-size: 1.2em;">🥳</span>
 2. At least in principle, you can get a work-related rather than personal funding
    source for additional (as in, beyond this workshop and beyond your free key)
    AI usage.
@@ -286,26 +286,32 @@ you are **not** using it in an approved way.
    but warn the instructors and we'll troubleshoot.
    :::
 
-6. In the prompt box at the bottom,
-   go ahead and ask it a quick, simple question to test that it works.
+All done!
 
-   ::: {.callout-tip appearance="simple"}
-   No inspiration? Ask a classic stumbling-block question for AIs like:
+::: exercise
+#### {{< fa user-edit >}} Exercise: Test that Claude Code works
 
-   > How many "b"s are in the word "blueberry"?
-   :::
+In the prompt box at the bottom,
+go ahead and ask it a quick, simple question to test that it works.
 
-<hr style="height:1pt; visibility:hidden;" />
+No inspiration? Ask a classic stumbling-block question for AIs, such as
+_"How many b's are in the word blueberry?"_
+:::
 
-## Appendix
+::: callout-tip
+### Getting and using your own, free API key!
 
-### Getting and using your own API key
+OSU currently has a initiative where anyone at OSU can get $100 worth of AI credits
+via their own OSU LiteLLM API key.
+
+This API key is **_valid until the end of September_** and can be used in the same
+way as we do in the workshop,
+as well as in other contexts that we have not shown in this workshop.
 
 1. Go to <https://go.osu.edu/api-fluency> and log in
 2. Click "**Redeem my free key**"
 
-This API key can be used in the same places as in the workshop
-(as well as in other contexts that we have not shown in this workshop),
-i.e. most of all to access Claude Code in VS Code.
 
-![](/img/free-api-key.png){fig-align="center" width="90%" fig-alt="Screenshot of the OSU Generative AI Service website, showing the 'Redeem my free key' button highlighted"}
+
+![](/img/free-api-key.png){fig-align="center" width="70%" fig-alt="Screenshot of the OSU Generative AI Service website, showing the 'Redeem my free key' button highlighted"}
+:::
