@@ -19,11 +19,11 @@ website:
           - text: "4: Use cases and tools for research (TBA)"
           - text: "5: VS Code and OSC setup"
             href: 05-setup.qmd
+          - text: "6: GitHub Copilot and Claude Code setup"
+            href: 06-agentic-setup.qmd
+          - text: "7: GitHub Copilot and Claude Code basics"
+            href: 07-agentic1.qmd
           - text: "6: LLM options at OSC (TBA)"
-          - text: "7a: Setting up GitHub Copilot and Claude Code"
-            href: 07a-agentic-setup.qmd
-          - text: "7b: Using GitHub Copilot and Claude Code"
-            href: 07b-agentic1.qmd
       - text: Day 2
         menu:
           - text: "8: Prompt engineering (TBA)"

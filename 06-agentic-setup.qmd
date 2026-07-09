@@ -1,6 +1,6 @@
 ---
-title: "7a: Setting up GitHub Copilot and Claude Code"
-#subtitle: "Exploring different functionality, settings, and workflows"
+title: "6: GitHub Copilot and Claude Code setup"
+subtitle: "Configuring the VS Code extensions we'll use to get genAI help"
 date: 2026-07-03
 date-modified: today
 author:

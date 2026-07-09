@@ -1,5 +1,5 @@
 ---
-title: "7b: Using GitHub Copilot and Claude Code"
+title: "GitHub Copilot and Claude Code basics"
 subtitle: "Exploring different functionality, settings, and workflows"
 date: 2026-07-03
 date-modified: today

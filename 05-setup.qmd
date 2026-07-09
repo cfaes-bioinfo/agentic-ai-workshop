@@ -141,7 +141,7 @@ Once configured, this is a very convenient and powerful way to access OSC.
 
 1. In the VS Code Activity Bar, click the **Extensions** icon at the bottom (left screenshot below).
 
-:::: colummns
+:::: columns
 ::: {.column width="43%"}
 ![Screenshot of the VS Code Activity Bar, with the Extensions icon at the bottom.](/img/vscode-narrow-sidebar-items.png){fig-align="center" width="14%" fig-alt="Screenshot of the VS Code Activity Bar, showing the Extensions icon highlighted"}
 :::
@@ -171,7 +171,7 @@ Next, we'll use functionality from this extension pack to set up the connection 
    - Again select the top option, a file that contains the username you have on your computer,
      and ends in `/.ssh/config` (right screenshot below):
 
-:::: colummns
+:::: columns
 ::: {.column width="48%"}
 ![After typing remote open in the Command Palette, select the option shown in this screenshot (should be the only one to appear).](/img/vscode-open-ssh-config.png){fig-align="center" width="98%" fig-alt="Screenshot of the VS Code Command Palette, showing the 'Remote-SSH: Open SSHConfiguration File...' option   highlighted"}
 :::
@@ -255,10 +255,10 @@ Next, we'll use functionality from this extension pack to set up the connection 
    :::
 
    ```powershell
-   @"
+   @'
    @echo off
    ssh -o LogLevel=QUIET -o BatchMode=yes osc-cardinal-login "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc $SLURM_NODELIST 22'"
-   "@ | Out-File -Encoding ascii "$env:USERPROFILE\.ssh\osc-compute-proxy.cmd"
+   '@ | Out-File -Encoding ascii "$env:USERPROFILE\.ssh\osc-compute-proxy.cmd"
    ```
 
    ### Mac
@@ -286,7 +286,7 @@ Next, we'll use functionality from this extension pack to set up the connection 
 
 In the SSH configuration file, we defined two remote "hosts" that we can connect to:
 
-- `osc-cardinal`, which will connect to a **login node** of OSC's Cardinal cluster.
+- `osc-cardinal-login`, which will connect to a **login node** of OSC's Cardinal cluster.
   However, because the VS Code program will actually run on the login node when
   you connect it with SSH-tunneling, the below connection to a compute node is preferred.
 
@@ -315,7 +315,7 @@ if you have access to another OSC project, you should change `PAS3454` to that p
 
 ::: {.callout-tip}
 #### Connecting to other OSC clusters
-To configure connect to other OSC clusters (currently, Pitzer and Ascend),
+To configure connections to other OSC clusters (currently, Pitzer and Ascend),
 you can add additional entries to this SSH configuration file,
 simply replacing `cardinal` by the name of the other cluster.
 :::
@@ -340,7 +340,7 @@ and simply necessary for the compute node connection we configured.
     do this until you see some curious-looking artful output,
     and get your command prompt back.
 
-12. Excute the following command to transfer the public key to OSC's Cardinal cluster,
+12. Execute the following command to transfer the public key to OSC's Cardinal cluster,
     **replacing `<user>` with your OSC username**:
 
     ::: {.panel-tabset}

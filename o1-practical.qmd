@@ -58,8 +58,10 @@ including how to run simple shell scripts as Slurm jobs on OSC.
 Some knowledge of programming in R or Python is also helpful, but not required.
 
 A 2-hour pre-workshop session will be held for those who need to get up to speed on
-these topics, and will make its Zoom recording available for those who cannot attend.
-That session will go over the following material:
+these topics, and will make its Zoom recording available for those who cannot attend
+(_7/9 addition:_
+[Zoom link](https://osu.zoom.us/rec/share/7h7goMcENmQhW4vQnSduYfF4FNmc7m8sHVD4vkSYJCkdsAPfSEht9aO6ytGHwqk9.SB3MAZxLiM_ysfJY)
+). That session will go over the following material:
 
 1. [Ohio Supercomputer Center (OSC) introduction](p1-osc-intro.qmd)
 2. [Unix shell basics](p2-shell-intro.qmd)
