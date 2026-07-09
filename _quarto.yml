@@ -58,7 +58,7 @@ website:
           - text: "Positron installation and setup (for R)"
             href: s4-positron-install.qmd
           - text: Further Resources
-            href: o2-resources.qmd
+            #href: o2-resources.qmd
     tools:
       - icon: github
         aria-label: "The GitHub repo for this website"

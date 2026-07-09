@@ -223,10 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./s4-positron-install.html">
  <span class="dropdown-text">Positron installation and setup (for R)</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./o2-resources.html">
- <span class="dropdown-text">Further Resources</span></a>
-  </li>  
+        <li class="dropdown-header">Further Resources</li>
     </ul>
   </li>
 </ul>
@@ -340,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
 <p>Positron is a new IDE (Integrated Development Environment) created by Posit, the company behind RStudio. It’s really an <strong>alternative to RStudio</strong> — and if you’re currently using RStudio, it’s worth considering switching to Positron for a few reasons:</p>
 <ol type="1">
-<li>Positron will be the main focus of development for Posit moving forward.</li>
+<li>Positron, not RStudio, will be the main focus of development for Posit moving forward.</li>
 <li>In RStudio, Posit’s AI coding assistant (Posit Assistant) can only be used with a Posit AI subscription, while in Positron, it can be used with a GitHub login or with an API key<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
 <li><em>If you’re also using VS Code</em>: it is built on VS Code and extremely similar to it<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</li>
 <li><em>If you’re also using Python</em>: Positron has much better support for Python than RStudio.</li>
@@ -700,16 +697,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="4" class="anchored" data-anchor-id="connecting-to-osc-compute-nodes"><span class="header-section-number">4</span> Connecting to OSC compute nodes</h2>
 <p>Positron, being built on VS Code, can connect to remote systems like OSC using the same SSH configuration. If you’ve already set up VS Code to connect to OSC following <a href="./05-setup.html#setting-up-the-osc-connection-in-vs-code">the earlier setup instructions</a>, <strong>your SSH configuration will automatically work in Positron too</strong>.</p>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Haven’t configured the SSH connection yet?
+<span class="screen-reader-only">Important</span>Haven’t configured the SSH connection in VS Code?
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you haven’t set up the SSH connection to OSC in VS Code (or any other editor), you’ll need to do so before you can connect from Positron. Follow the instructions in the <a href="./05-setup.html#setting-up-the-osc-connection-in-vs-code">VS Code setup guide</a>.</p>
+<p>If you haven’t set up the SSH connection to OSC in VS Code (or any other editor):</p>
+<p>You’ll need to do so before you can connect from Positron. Follow the instructions in the <a href="./05-setup.html#setting-up-the-osc-connection-in-vs-code">VS Code setup guide</a>.</p>
+<p>Or, if you don’t want to set this up in VS Code at all, you can start at <a href="05-setup.html#configure-the-connection">Configure the connection</a> <strong><em>and instead do this in Positron</em></strong> (it’s identical!).</p>
+</div>
 </div>
 </div>
 <section id="connecting-to-osc-from-positron" class="level3" data-number="4.1">
@@ -751,6 +753,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Reload the window: Open the <strong>Command Palette</strong> (<kbd>Ctrl/⌘</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> or <code>View</code> &gt; <code>Command Palette</code>) and start typing “<em>Reload Window</em>”, then select “<strong>Developer: Reload Window</strong>”.</p></li>
 <li><p>Positron should automatically start R in the console.</p></li>
 </ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Adding this <code>module load</code> command to your Bash settings file is not a permanent solution, because the version(s) of R available on OSC and/or that you personally want to use may change. On the other hand, it does currently work on all three OSC clusters, since they have the same R modules.</p>
+</div>
+</div>
 </section>
 <section id="installing-the-posit-assistant-extension-at-osc" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="installing-the-posit-assistant-extension-at-osc"><span class="header-section-number">4.3</span> Installing the Posit Assistant extension at OSC</h3>
@@ -765,8 +780,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="open-a-folder" class="level3" data-number="4.4">
 <h3 data-number="4.4" class="anchored" data-anchor-id="open-a-folder"><span class="header-section-number">4.4</span> Open a folder</h3>
 <p>Positron really wants you to open a specific folder — you may have already seen it prompt you when doing the above setup on your own computer.</p>
-<p>At OSC, just like with VS Code, you should connect to the <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code> folder, where <code>&lt;user&gt;</code> is your OSU username.</p>
-<p>In the Explorer, click on the “Open Folder” button and enter the path above.</p>
+<p>At OSC, just like with VS Code, you should connect to the <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code> folder, where <code>&lt;user&gt;</code> is your OSU username. In the Explorer, click on the “Open Folder” button and enter this path.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="./img/positron-open-folder.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="./img/positron-open-folder.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the Positron Explorer view showing the Open Folder button."></a></p>

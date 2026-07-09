@@ -25,7 +25,7 @@ the company behind RStudio.
 It's really an **alternative to RStudio** --- and if you're currently using RStudio,
 it's worth considering switching to Positron for a few reasons:
 
-1. Positron will be the main focus of development for Posit moving forward.
+1. Positron, not RStudio, will be the main focus of development for Posit moving forward.
 2. In RStudio, Posit's AI coding assistant (Posit Assistant) can only be used with
    a Posit AI subscription,
    while in Positron, it can be used with a GitHub login or with an API key^[
@@ -313,12 +313,17 @@ Positron, being built on VS Code, can connect to remote systems like OSC using t
 If you've already set up VS Code to connect to OSC following [the earlier setup instructions](05-setup.qmd#setting-up-the-osc-connection-in-vs-code),
 **your SSH configuration will automatically work in Positron too**.
 
-::: {.callout-important}
-#### Haven't configured the SSH connection yet?
+::: {.callout-important collapse="true"}
+#### Haven't configured the SSH connection in VS Code?
 
-If you haven't set up the SSH connection to OSC in VS Code (or any other editor),
-you'll need to do so before you can connect from Positron.
+If you haven't set up the SSH connection to OSC in VS Code (or any other editor):
+
+You'll need to do so before you can connect from Positron.
 Follow the instructions in the [VS Code setup guide](05-setup.qmd#setting-up-the-osc-connection-in-vs-code).
+
+Or, if you don't want to set this up in VS Code at all,
+you can start at [Configure the connection](05-setup.html#configure-the-connection)
+**_and instead do this in Positron_** (it's identical!).
 :::
 
 ### Connecting to OSC from Positron
@@ -371,6 +376,12 @@ is by adding the R module to your Bash settings file (`~/.bashrc`):
 
 4. Positron should automatically start R in the console.
 
+::: callout-warning
+Adding this `module load` command to your Bash settings file is not a permanent solution,
+because the version(s) of R available on OSC and/or that you personally want to use may change.
+On the other hand, it does currently work on all three OSC clusters, since they have the same R modules.
+:::
+
 ### Installing the Posit Assistant extension at OSC
 
 The Posit Assistant does need to be separately installed at OSC:
@@ -390,8 +401,7 @@ you may have already seen it prompt you when doing the above setup on your own c
 At OSC, just like with VS Code,
 you should connect to the `/fs/scratch/PAS3454/people/<user>` folder,
 where `<user>` is your OSU username.
-
-In the Explorer, click on the "Open Folder" button and enter the path above.
+In the Explorer, click on the "Open Folder" button and enter this path.
 
 ![](/img/positron-open-folder.png){fig-align="center" width="50%" .lightbox fig-alt="Screenshot of the Positron Explorer view showing the Open Folder button."}
 
