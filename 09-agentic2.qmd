@@ -24,3 +24,9 @@ bibliography: refs.bib # You can add reference to this files if you have and cit
 <hr style="height:1pt; visibility:hidden;" />
 
 ## Introduction
+
+- For own experimentation, please keep it within reasonable bounds:
+  don't ask it to build apps or do other large, complex tasks.
+  If you let Claude spin for a long time, it will use up a lot of money!
+  If you're unsure, ask the instructors first.
+  

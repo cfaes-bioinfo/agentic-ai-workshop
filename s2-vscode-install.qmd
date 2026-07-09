@@ -26,6 +26,14 @@ This Microsoft program is freely available for anyone and works on Windows, Mac,
 This brief page will help you to install VS Code on whatever laptop you plan to bring to the workshop.
 There are separate instructions for OSU-managed computers and personal computers below.
 
+::: {.callout-note}
+#### What about VS Code in the browser via OSC OnDemand?
+In the pre-workshop learning session, we used VS Code in our browser via OSC OnDemand.
+However, for the workshop itself, we will use VS Code installed on your own laptop.
+There are several reasons for this, but the main one is that
+we can't use the browser version for the agentic AI tools.
+:::
+
 ## Installation on an OSU-managed computer
 
 If you are bringing an OSU computer, you may not have the required

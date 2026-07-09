@@ -103,17 +103,6 @@ providing suggestions as you type your text and code.
    # [...output truncated...]
    ```
 
-   ::: {.callout-tip appearance="simple"}
-   We're trying to mimic a situation where you have a self-contained research project dir,
-   because:
-
-   - Our genAI tools won't see files outside of your VS Code-opened dir!
-   - Having a single dir (with subdirs) with all your files,
-     rather than files scattered around the file system [☠️]{style="font-size: 1.2em;"},
-     or files from different projects mixed together [☠️]{style="font-size: 1.2em;"},
-     is also good practice for reproducible research.
-   :::
-
 4. Create a new dir `S07` (as in: session 7) within your `/fs/scratch/PAS3454/people/<user>` dir:
 
    ```bash
