@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -42,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-4e5466e430b1db38349d513585fd1d59.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-18fe6355df9e00e9561dd53ce8dc48ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1053746f56c9687f95043b1511700dc7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -217,7 +217,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#claude.md" id="toc-claude.md" class="nav-link" data-scroll-target="#claude.md"><span class="header-section-number">1.1</span> CLAUDE.md</a></li>
+  <li><a href="#creating-claude.md-file" id="toc-creating-claude.md-file" class="nav-link" data-scroll-target="#creating-claude.md-file"><span class="header-section-number">1.2</span> Creating <code>CLAUDE.md</code> file</a></li>
+  </ul></li>
+  <li><a href="#guardrails" id="toc-guardrails" class="nav-link" data-scroll-target="#guardrails"><span class="header-section-number">2</span> Guardrails</a>
+  <ul class="collapse">
+  <li><a href="#built-in-security-guardrails" id="toc-built-in-security-guardrails" class="nav-link" data-scroll-target="#built-in-security-guardrails"><span class="header-section-number">2.1</span> Built-in Security Guardrails</a></li>
+  <li><a href="#user-configurable-guardrails" id="toc-user-configurable-guardrails" class="nav-link" data-scroll-target="#user-configurable-guardrails"><span class="header-section-number">2.2</span> User-configurable Guardrails</a></li>
+  </ul></li>
+  <li><a href="#agent-skill---claude-code-skill" id="toc-agent-skill---claude-code-skill" class="nav-link" data-scroll-target="#agent-skill---claude-code-skill"><span class="header-section-number">3</span> Agent skill - Claude Code Skill</a>
+  <ul class="collapse">
+  <li><a href="#the-skill.md-file" id="toc-the-skill.md-file" class="nav-link" data-scroll-target="#the-skill.md-file"><span class="header-section-number">3.1</span> <code>The skill.md File</code></a></li>
+  </ul></li>
+  <li><a href="#skills-contain" id="toc-skills-contain" class="nav-link" data-scroll-target="#skills-contain"><span class="header-section-number">4</span> Skills contain:</a></li>
+  <li><a href="#use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database" id="toc-use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database" class="nav-link" data-scroll-target="#use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database"><span class="header-section-number">5</span> Use of Retrieval-Augmented generation to enrich context- provide published papers, manuals/documentation, database</a></li>
   </ul>
 </nav>
     </div>
@@ -236,7 +251,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author">Menuka Bhandari <a href="mailto:bhandari.72@osu.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/TBA" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    <p class="author">Menuka Bhandari <a href="mailto:bhandari.72@osu.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0009-0004-0630-0837" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -273,22 +288,183 @@ ul.task-list li input[type="checkbox"] {
 
 <hr>
 <hr style="height:1pt; visibility:hidden;">
-<div class="callout callout-style-simple callout-caution">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong><em>This page is still subject to change</em></strong></p>
-</div>
-</div>
-</div>
 <hr style="height:1pt; visibility:hidden;">
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<<<<<<< HEAD
 <ul>
 <li>For own experimentation, please keep it within reasonable bounds: don’t ask it to build apps or do other large, complex tasks. If you let Claude spin for a long time, it will use up a lot of money! If you’re unsure, ask the instructors first.</li>
 </ul>
+=======
+<p>Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools. However, without proper context, you have to correct the agent and rewrite the code it generates. Unlike prompting Claude at the beginning of every conversation, <code>CLAUDE.md</code> provides persistent project specific memory to your agent. Therefore, you do not have to re-explain your project everytime. <code>CLAUDE.md</code> is simply a Markdown (<code>.md</code>) file, making it easy to create, edit, and version-control alongside your code. Claude automatically consults this file whenever it works in your project, allowing it to make more informed decisions, follow your preferred workflows, and use project-specific conventions without being reminded each time. This makes <code>CLAUDE.md</code> one of the simplest and most effective ways to customize Claude’s behavior for a research project.</p>
+<section id="claude.md" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="claude.md"><span class="header-section-number">1.1</span> CLAUDE.md</h3>
+<p><code>CLAUDE.md</code> is a project-specific instruction file that gives Claude persistent context about your research project. Think of it as a project guide that Claude automatically reads at the beginning of every conversation, so you don’t have to repeatedly explain your project, coding practices, or analysis workflow.</p>
+<p>For bioinformatics, a well-written <code>CLAUDE.md</code> helps Claude understand your project, analysis pipeline, directory structure, coding standards, software environment, and preferred workflows. This allows Claude to provide more accurate, consistent, and project-aware assistance throughout your analysis.</p>
+<p>You can place a <code>CLAUDE.md</code> file:</p>
+<ul>
+<li>In the project root to share with collaborators (typically stored)</li>
+<li>In a parent directory for multiple related projects</li>
+<li>In your home directory to apply default instructions across all projects</li>
+</ul>
+<p>There is no required format. The file should be concise, easy to read, and written for both humans and Claude.</p>
+<p>Typical information to include:</p>
+<ul>
+<li><strong>Project overview</strong> – research objectives and biological questions</li>
+<li><strong>Project description</strong> – datasets, organisms, sequencing technology, or experimental design</li>
+<li><strong>Key directories</strong> – locations of raw data, processed data, scripts, results, and reference genomes</li>
+<li><strong>Coding and analysis standards</strong> – preferred programming languages, naming conventions, documentation style, and reproducibility practices</li>
+<li><strong>Common commands</strong> – frequently used Bash, Conda, Docker, Nextflow, Snakemake, or Git commands</li>
+<li><strong>Software environment</strong> – package managers, environments, and software versions</li>
+<li><strong>Important notes</strong> – project-specific assumptions, quality-control requirements, or common pitfalls</li>
+</ul>
+<p>A good <code>CLAUDE.m</code>d enables Claude to act like a team member who already understands your project’s structure and conventions, allowing you to focus on solving biological problems instead of repeatedly providing background information.</p>
+</section>
+<section id="creating-claude.md-file" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="creating-claude.md-file"><span class="header-section-number">1.2</span> Creating <code>CLAUDE.md</code> file</h3>
+<p>You can create a CLAUDE.md file in two ways:</p>
+<ul>
+<li><strong>Create it manually by adding a <code>CLAUDE.md</code> file to your project</strong>.</li>
+<li><strong>Generate it automatically using the <code>/init</code> command in Claude Code</strong> (for example, within the VS Code extension or terminal interface). The generated file provides a useful first draft rather than a complete project specification.</li>
+</ul>
+<p>When you run <code>/init</code>, Claude analyzes your project to generate an initial <code>CLAUDE.md</code>. It examines information such as:</p>
+<ul>
+<li>Project structure</li>
+<li>Package and dependency files</li>
+<li>Existing documentation</li>
+<li>Configuration files</li>
+<li>Source code organization</li>
+<li>Common development patterns</li>
+</ul>
+<p>Claude then asks where you would like to save the <code>CLAUDE.md</code> file.</p>
+<p>Tip: If your project already contains a <code>CLAUDE.md</code> file, running <code>/init</code> again does not overwrite it blindly. Instead, Claude reviews the existing file and suggests improvements or updates based on your current project.</p>
+<p>After Running <code>/init</code></p>
+<p>The generated file is a starting point—not a finished product. Take a few minutes to:</p>
+<ul>
+<li>Review the generated content for accuracy.</li>
+<li>Remove instructions that are not relevant to your project.</li>
+<li>Add project-specific workflows, conventions, and best practices that Claude cannot infer automatically.</li>
+</ul>
+<p><strong>What Should a CLAUDE.md Include</strong>?</p>
+<p>A good <code>CLAUDE.md</code> typically covers three key areas:</p>
+<ul>
+<li>Give Claude a map
+<ul>
+<li>Explain your project’s architecture, directory structure, naming conventions, and important files.</li>
+</ul></li>
+<li>Connect Claude to your tools
+<ul>
+<li>Document common commands for building, testing, linting, running scripts, and using project-specific tools.</li>
+</ul></li>
+<li>Define standard workflows
+<ul>
+<li>Describe how your team develops code, reviews changes, writes tests, follows coding standards, and handles common tasks.</li>
+</ul></li>
+</ul>
+<p>As your project evolves, update your <code>CLAUDE.md</code> to reflect new workflows, software, directory structures, or analysis conventions. Keeping it current helps Claude continue to provide accurate, project-specific assistance.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Best Practice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Treat your <code>CLAUDE.md</code> as living documentation. Start with a simple file generated by <code>/init</code>, then refine it over time as your project evolves. The best <code>CLAUDE.md</code> files capture the conventions and workflows that you find yourself explaining to Claude repeatedly.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="guardrails" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="guardrails"><span class="header-section-number">2</span> Guardrails</h2>
+<p>AI agents such as Claude Code can read files, modify code, execute shell commands, install software, and automate many aspects of a bioinformatics workflow. These capabilities make them powerful collaborators, but they also introduce risk if they are not properly constrained.</p>
+<p><strong>Guardrails are the rules, permissions, and safety mechanisms that control what Claude is allowed to do and how it should behave. Their purpose is to prevent accidental, unsafe, or unwanted actions while still allowing Claude to be productive</strong>.</p>
+<p>Think of guardrails like the safety rails on a mountain road. They do not stop you from driving—they help prevent you from accidentally going over the edge.</p>
+<p><strong>Why Guardrails Matter in Bioinformatics</strong></p>
+<p>Imagine a new member joins your laboratory. They may unintentionally:</p>
+<ul>
+<li>Overwrite your raw files</li>
+<li>Delete intermediate analysis results</li>
+<li>Modify reference genomes or annotation databases</li>
+<li>Execute commands in the wrong directory</li>
+<li>Ignore the laboratory’s coding standards</li>
+<li>Commit API keys or passwords to GitHub</li>
+</ul>
+<p><strong>Guardrails provide an additional layer of protection that helps catch these mistakes before they happen</strong>.</p>
+<section id="built-in-security-guardrails" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="built-in-security-guardrails"><span class="header-section-number">2.1</span> Built-in Security Guardrails</h3>
+<p>Claude Code already includes several security features</p>
+<ol type="1">
+<li><p>Permission-based architecture By default, Claude Code is read-only. Whenever Claude wants to edit files, run tests, execute commands, it ask for your permission</p></li>
+<li><p>Limited write access Claude can only write inside the directory where it was started (and its subdirectories). If Claude starts inside <code>project/</code>, it cannot accidentally modify files outside that project without additional permission.</p></li>
+<li><p>Prompt injection protection Claude includes built-in protections that help detect many prompt injection attempts and may request additional approval before performing potentially risky actions. These protections reduce but do not eliminate the risk, so users should still review requested actions.</p></li>
+</ol>
+</section>
+<section id="user-configurable-guardrails" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="user-configurable-guardrails"><span class="header-section-number">2.2</span> User-configurable Guardrails</h3>
+<ol type="1">
+<li>Permission Permissions determine which files &amp; commands Claude is allowed to access. Permissions are configured in <code>settings.json</code> file. This prevents Claude from accidentally exposing confidential information b y denying access to the sensitive files. For examples:</li>
+</ol>
+<ul>
+<li>Denying access to <code>.env</code><br>
+</li>
+<li>Blocking <code>secrets/</code><br>
+</li>
+<li>Preventing access to <strong>SSH keys</strong></li>
+</ul>
+<ol start="2" type="1">
+<li>Hooks</li>
+</ol>
+<p><strong>Hooks</strong> are small programs or scripts that run automatically before or after Claude uses a tool. Unlike instructions in CLAUDE.md, hooks are always executed whenever the specified event occurs. This makes them ideal for enforcing mandatory safety rules. Because hooks execute automatically, they act as hard guardrails rather than recommendations.</p>
+<ol start="3" type="1">
+<li>Project Guardrails (<code>CLAUDE.md</code>) Where hooks and permissions define what Claude can do, CLAUDE.md defines how Claude should work. A good <code>CLAUDE.md</code> establishes project conventions such as:</li>
+</ol>
+<ul>
+<li>Preferred programming languages</li>
+<li>Coding style</li>
+<li>Software versions</li>
+<li>Directory structure</li>
+<li>Workflow order</li>
+</ul>
+<p>These are not security restrictions but behavioral instructions that help Claude work consistently across the project.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src=".\img/guardrails.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption><strong>Figure 1. Three user-configurable guardrails in Claude Code: permissions, hooks, and project instructions (CLAUDE.md)</strong></figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Best Practice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Guardrails <strong>complement but not replace human review</strong>. Always review Claude’s proposed code, analyses, and file changes, especially when working with <strong>sensitive datasets</strong>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="agent-skill---claude-code-skill" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="agent-skill---claude-code-skill"><span class="header-section-number">3</span> Agent skill - Claude Code Skill</h2>
+<section id="the-skill.md-file" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="the-skill.md-file"><span class="header-section-number">3.1</span> <code>The skill.md File</code></h3>
+<p>A Claude skill is a markdown file written in plain English with reusable instructions that help Claude perform specific workflows consistently. A good skill.md file is short, clear, and procedural.</p>
+</section>
+</section>
+<section id="skills-contain" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="skills-contain"><span class="header-section-number">4</span> Skills contain:</h2>
+<p><strong>Skills vs CLAUDE.md</strong> CLAUDE.md gives general project context and facts of projects. Skills are better for specific workflows because the skill content loads only when used, rather than always staying in context. Claude does not load the whole Skill every time. It only loads it when needed, so you can keep longer checklists or workflows in a Skill without crowding every chat.</p>
+<p><strong>Basic structure</strong>- where skill.md file should be located</p>
+</section>
+<section id="use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database"><span class="header-section-number">5</span> Use of Retrieval-Augmented generation to enrich context- provide published papers, manuals/documentation, database</h2>
+>>>>>>> d872e7a (update)
 
 
 </section>
@@ -701,7 +877,7 @@ ul.task-list li input[type="checkbox"] {
 <p>2026, Jelmer Poelstra, <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> &nbsp; <img src="http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" class="img-fluid" style="width:10.0%"></p>
 </div>   
     <div class="nav-footer-center">
-<p><img src="./img/CFAES-Horiz-RGBHEX.svg" class="img-fluid" style="width:40.0%"></p>
+<p><img src=".\img/CFAES-Horiz-RGBHEX.svg" class="img-fluid" style="width:40.0%"></p>
 </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
