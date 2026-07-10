@@ -29,12 +29,11 @@ format:
 | 3 | 11:00 am -- 11:30 am | Derek Ditmer, OTDI | Approved genAI Tools at OSU |
 | 4 | 11:30 am -- 12:15 pm | Jonathan | GenAI use cases and tools for research |
 |  | [*12:15 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
-| 5 | 01:00 pm -- 01:45 pm | Jelmer | OSC and VS Code setup |
-|  | [*01:45 pm -- 02:00 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
-| 6 | 02:00 pm -- 02:30 pm | Jelmer | GitHub Copilot and Claude Code setup |
-| 7 | 02:30 pm -- 03:15 pm | Jelmer | GitHub Copilot and Claude Code basics |
+| 5 | 01:00 pm -- 02:00 pm | Jelmer | OSC and VS Code setup |
+|  | [*02:00 pm -- 02:15 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
+| 6 | 02:15 pm -- 03:15 pm | Jelmer | Code completions with GitHub Copilot |
 |  | [*03:15 pm -- 03:30 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
-| 8 | 03:30 pm -- 04:00 pm | Evan Jaffe, OSC | LLM options at OSC |
+| 7 | 03:30 pm -- 04:00 pm | Evan Jaffe, OSC | LLM options at OSC |
 
 : {.striped .hover tbl-colwidths="[5, 22, 20, 53]"}
 
@@ -42,11 +41,11 @@ format:
 
 | Section | Time | Instructor | Topic & link |
 |:-:|----|---|------------|
-| 9 | 09:00 am -- 09:30 am | Hannah | Prompt engineering |
-| 10 | 09:30 am -- 10:30 am | Menuka | Advanced agentic options and skills |
+| 8 | 09:00 am -- 09:30 am | Hannah | Prompt engineering |
+| 9 | 09:30 am -- 10:30 am | Jelmer | Agentic chat with Claude Code |
 |  | [*10:30 am -- 10:45 am*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
-| 11 | 10:45 am -- 11:45 am | Jelmer | A worked example analysis with agents |
-| 12 | 11:45 am -- 12:15 pm | Hannah | Limitations and responsible use of AI |
+| 10 | 10:45 am -- 11:45 am | Menuka | Advanced agentic options and skills |
+| 11 | 11:45 am -- 12:15 pm | Hannah | Limitations and responsible use of AI |
 |  | [*12:15 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
 | 13 | 01:00 pm -- 03:30 pm | *all* | DIY with own (or other) data |
 | 14 | 03:30 pm -- 04:00 pm | *all* | Concluding remarks and looking forward |

@@ -1,7 +1,7 @@
 ---
 title: "Workshop Introduction"
 subtitle: "Using Generative and Agentic AI <br> for Omics Data Analysis" 
-date: 2026-07-01
+date: 2026-07-13
 author:
   - name: Jelmer Poelstra
     affiliation: 
@@ -56,7 +56,7 @@ bibliography: refs.bib
 
 - Name
 - Position and department
-- One thing you have used AI for (most) regularly
+- Your most satisfying or frustrating genAI experience
 - Who should win the world cup
 
 # Application form answers {background-color="silver"}
@@ -69,61 +69,61 @@ TBA
 
 ## The general idea
 
-- This workshop focuses on using AI to help with **coding your analysis**,
-  rather than on using AI to analyze your data directly.
+- This workshop focuses on using AI to help you **code your analysis**.
+
+  That is, the analysis is not done by the LLM at all!
+  Neither are we using specialized AI applications like Deep Learning and
+  "Biological" Language Models like AlphaFold, Evo2, and so on.
+
+  Rather, we are focusing on trying to improve the way that you are likely already
+  interactive with LLMs, by moving from chat-based interactions to **agentic** interactions.
+  
+  the AI helps to write code and scripts that use "standard" command-line 
+  tools to analyze your data.
+
+<br>
+
+- The example data will be omics data,
+  but the principles and tools apply to many other types of data.
+
+<br>
 
 - We will focus on **hands-on exercises** and examples,
   but will include background and key context.
+
+## The infrastructure
+
+- We will use the following infrastructure:
+  - VS Code
+  - OSC
+  - In-editor AI tools 
+
+<br>
+
+- You can also use this setup after the workshop.
+  - The flip side is that this involves some setup work, some of which was homework,
+    and some of which will be done during the workshop.
+  - This prep can be tedious and sometimes frustrating, but we think it's worth it!
 
 ## What we won't cover –- at least not in depth
 
 - Ethics and environmental impacts of AI
 - _What else?_
 
-<br>
-
-And, as implied in the previous slide:
-
-- Using AI to analyze your data directly, as in having the LLM itself analyze the data
-  similar to how you might ask it to summarize one or many text documents.
-  (We're using established command-line tools for the actual analysis.)
-
-- Extensive theory
-
 ## Day 1: Monday, July 13
 
 ::: {style="font-size: 0.85em;"}
-| Section | Time | Instructor | Topic & link |
-|:-:|----|---|------------|
-| 1 | 09:00 am -- 09:45 am | _all_ | Intro to the workshop & how the instructors use AI |
-| 2 | 09:45 am -- 10:45 am | Menuka | Intro to Generative AI and LLMs |
-|  | [*10:45 am -- 11:00 am*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
-| 3 | 11:00 am -- 11:30 am | OTDI | Approved AI Tools at OSU |
-| 4 | 11:30 am -- 12:15 pm | Jonathan | GenAI use cases and tools for research |
-|  | [*12:15 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
-| 5 | 01:00 pm -- 02:00 pm | Jelmer | Our coding and genAI toolkit: intro and setup |
-| 6 | 02:00 pm -- 02:30 pm | OSC | LLM options at OSC |
-|  | [*02:30 pm -- 02:45 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
-| 7 | 02:45 pm -- 04:00 pm | Jelmer | Using Claude Code and GitHub Copilot |
 
-: {.striped .hover tbl-colwidths="[5, 25, 15, 55]"}
+TBA
+
 :::
 
 ## Day 2: Tuesday, July 14
 
 ::: {style="font-size: 0.85em;"}
-| Section | Time | Instructor | Topic & link |
-|:-:|----|---|------------|
-| 8 | 09:00 am -- 09:30 am | Hannah | Prompt engineering |
-| 9 | 09:30 am -- 10:30 am | Menuka | Advanced agentic options and skills |
-|  | [*10:30 am -- 10:45 am*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
-| 10 | 10:45 am -- 11:45 am | Jelmer | A worked example analysis with agents |
-| 11 | 11:45 am -- 12:15 pm | Hannah | Limitations and responsible use of AI |
-|  | [*12:15 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
-| 12 | 01:00 pm -- 03:30 pm | *all* | DIY with own (or other) data |
-| 13 | 03:30 pm -- 04:00 pm | *all* | Concluding remarks and looking forward |
 
-: {.striped .hover tbl-colwidths="[5, 25, 15, 55]"}
+TBA
+
 :::
 
 ## Data sets
@@ -138,15 +138,6 @@ And, as implied in the previous slide:
 
 - In **hands-on** sections of the workshop, you are expected to follow along
   with the instructors on your laptop and/or try things yourself
-
-<hr style="height:1pt; visibility:hidden;" />
-
-. . .
-
-- We'll use a **setup** (with VS Code and OSC, etc.) you can also use after the workshop.
-  - The flip side is that this involves some setup work, some of which was homework,
-    and some of which will be done during the workshop.
-  - This prep can be tedious and sometimes frustrating, but we think it's worth it!
 
 <hr style="height:1pt; visibility:hidden;" />
 

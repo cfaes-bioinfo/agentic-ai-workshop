@@ -14,7 +14,7 @@
   <meta name="author" content="Menuka Bhandari">
   <meta name="author" content="Hannah Toth">
   <meta name="author" content="Jonathan Jacobs">
-  <meta name="dcterms.date" content="2026-07-01">
+  <meta name="dcterms.date" content="2026-07-13">
   <title>Agentic AI Workshop – Workshop Introduction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -184,7 +184,7 @@ Jonathan Jacobs
     </div>
 </div>
 
-  <p class="date">2026-07-01</p>
+  <p class="date">2026-07-13</p>
 </section><section id="TOC">
 <nav role="doc-toc"> 
 <h2 id="toc-title">Overview</h2>
@@ -213,7 +213,7 @@ Jonathan Jacobs
 <ul>
 <li>Name</li>
 <li>Position and department</li>
-<li>One thing you have used AI for (most) regularly</li>
+<li>Your most satisfying or frustrating genAI experience</li>
 <li>Who should win the world cup</li>
 </ul>
 </section></section>
@@ -234,8 +234,37 @@ Jonathan Jacobs
 <section id="the-general-idea" class="slide level2">
 <h2>The general idea</h2>
 <ul>
-<li><p>This workshop focuses on using AI to help with <strong>coding your analysis</strong>, rather than on using AI to analyze your data directly.</p></li>
-<li><p>We will focus on <strong>hands-on exercises</strong> and examples, but will include background and key context.</p></li>
+<li><p>This workshop focuses on using AI to help you <strong>code your analysis</strong>.</p>
+<p>That is, the analysis is not done by the LLM at all! Neither are we using specialized AI applications like Deep Learning and “Biological” Language Models like AlphaFold, Evo2, and so on.</p>
+<p>Rather, we are focusing on trying to improve the way that you are likely already interactive with LLMs, by moving from chat-based interactions to <strong>agentic</strong> interactions.</p>
+<p>the AI helps to write code and scripts that use “standard” command-line tools to analyze your data.</p></li>
+</ul>
+<p><br></p>
+<ul>
+<li>The example data will be omics data, but the principles and tools apply to many other types of data.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>We will focus on <strong>hands-on exercises</strong> and examples, but will include background and key context.</li>
+</ul>
+</section>
+<section id="the-infrastructure" class="slide level2">
+<h2>The infrastructure</h2>
+<ul>
+<li>We will use the following infrastructure:
+<ul>
+<li>VS Code</li>
+<li>OSC</li>
+<li>In-editor AI tools</li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li>You can also use this setup after the workshop.
+<ul>
+<li>The flip side is that this involves some setup work, some of which was homework, and some of which will be done during the workshop.</li>
+<li>This prep can be tedious and sometimes frustrating, but we think it’s worth it!</li>
+</ul></li>
 </ul>
 </section>
 <section id="what-we-wont-cover---at-least-not-in-depth" class="slide level2">
@@ -244,165 +273,17 @@ Jonathan Jacobs
 <li>Ethics and environmental impacts of AI</li>
 <li><em>What else?</em></li>
 </ul>
-<p><br></p>
-<p>And, as implied in the previous slide:</p>
-<ul>
-<li><p>Using AI to analyze your data directly, as in having the LLM itself analyze the data similar to how you might ask it to summarize one or many text documents. (We’re using established command-line tools for the actual analysis.)</p></li>
-<li><p>Extensive theory</p></li>
-</ul>
 </section>
 <section id="day-1-monday-july-13" class="slide level2">
 <h2>Day 1: Monday, July 13</h2>
 <div style="font-size: 0.85em;">
-<table class="table-striped table-hover caption-top">
-<colgroup>
-<col style="width: 5%">
-<col style="width: 25%">
-<col style="width: 15%">
-<col style="width: 55%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Section</th>
-<th>Time</th>
-<th>Instructor</th>
-<th>Topic &amp; link</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td>09:00 am – 09:45 am</td>
-<td><em>all</em></td>
-<td>Intro to the workshop &amp; how the instructors use AI</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td>09:45 am – 10:45 am</td>
-<td>Menuka</td>
-<td>Intro to Generative AI and LLMs</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td><span style="color:steelblue"><em>10:45 am – 11:00 am</em></span></td>
-<td></td>
-<td>☕️ <span style="color:steelblue"><em>Break</em></span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">3</td>
-<td>11:00 am – 11:30 am</td>
-<td>OTDI</td>
-<td>Approved AI Tools at OSU</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">4</td>
-<td>11:30 am – 12:15 pm</td>
-<td>Jonathan</td>
-<td>GenAI use cases and tools for research</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td><span style="color:steelblue"><em>12:15 pm – 01:00 pm</em></span></td>
-<td></td>
-<td>🍽 <span style="color:steelblue"><em>Lunch</em></span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td>01:00 pm – 02:00 pm</td>
-<td>Jelmer</td>
-<td>Our coding and genAI toolkit: intro and setup</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td>02:00 pm – 02:30 pm</td>
-<td>OSC</td>
-<td>LLM options at OSC</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td><span style="color:steelblue"><em>02:30 pm – 02:45 pm</em></span></td>
-<td></td>
-<td>☕️ <span style="color:steelblue"><em>Break</em></span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">7</td>
-<td>02:45 pm – 04:00 pm</td>
-<td>Jelmer</td>
-<td>Using Claude Code and GitHub Copilot</td>
-</tr>
-</tbody>
-</table>
+<p>TBA</p>
 </div>
 </section>
 <section id="day-2-tuesday-july-14" class="slide level2">
 <h2>Day 2: Tuesday, July 14</h2>
 <div style="font-size: 0.85em;">
-<table class="table-striped table-hover caption-top">
-<colgroup>
-<col style="width: 5%">
-<col style="width: 25%">
-<col style="width: 15%">
-<col style="width: 55%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Section</th>
-<th>Time</th>
-<th>Instructor</th>
-<th>Topic &amp; link</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">8</td>
-<td>09:00 am – 09:30 am</td>
-<td>Hannah</td>
-<td>Prompt engineering</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">9</td>
-<td>09:30 am – 10:30 am</td>
-<td>Menuka</td>
-<td>Advanced agentic options and skills</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"></td>
-<td><span style="color:steelblue"><em>10:30 am – 10:45 am</em></span></td>
-<td></td>
-<td>☕️ <span style="color:steelblue"><em>Break</em></span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">10</td>
-<td>10:45 am – 11:45 am</td>
-<td>Jelmer</td>
-<td>A worked example analysis with agents</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">11</td>
-<td>11:45 am – 12:15 pm</td>
-<td>Hannah</td>
-<td>Limitations and responsible use of AI</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"></td>
-<td><span style="color:steelblue"><em>12:15 pm – 01:00 pm</em></span></td>
-<td></td>
-<td>🍽 <span style="color:steelblue"><em>Lunch</em></span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">12</td>
-<td>01:00 pm – 03:30 pm</td>
-<td><em>all</em></td>
-<td>DIY with own (or other) data</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">13</td>
-<td>03:30 pm – 04:00 pm</td>
-<td><em>all</em></td>
-<td>Concluding remarks and looking forward</td>
-</tr>
-</tbody>
-</table>
+<p>TBA</p>
 </div>
 </section>
 <section id="data-sets" class="slide level2">
@@ -423,16 +304,6 @@ Jonathan Jacobs
 <li>In <strong>hands-on</strong> sections of the workshop, you are expected to follow along with the instructors on your laptop and/or try things yourself</li>
 </ul>
 <hr style="height:1pt; visibility:hidden;">
-<div class="fragment">
-<ul>
-<li>We’ll use a <strong>setup</strong> (with VS Code and OSC, etc.) you can also use after the workshop.
-<ul>
-<li>The flip side is that this involves some setup work, some of which was homework, and some of which will be done during the workshop.</li>
-<li>This prep can be tedious and sometimes frustrating, but we think it’s worth it!</li>
-</ul></li>
-</ul>
-<hr style="height:1pt; visibility:hidden;">
-</div>
 <div class="fragment">
 <ul>
 <li>Hands-on <strong>examples</strong> will involve running command-line tools at OSC to process and analyze an RNA-Seq dataset, and getting AI tools to help with this.
