@@ -166,7 +166,7 @@ something (running a command), it will by default ask for permission to do so:
 
 Click `Allow` and it will run the command and return the answer:
 
-![TBA - Replace with subsampled FASTQ files](/img/copilot-prompt1-answer.png){fig-align="center" width="70%" fig-alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"}
+![](/img/copilot-readnr-answer.png){fig-align="center" width="70%" fig-alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"}
 
 #### What did we just witness?
 This example shows how in-editor AI like GitHub Copilot can perform actions

@@ -156,6 +156,10 @@ And, as implied in the previous slide:
   analyze an RNA-Seq dataset, and getting AI tools to help with this.
   - This is why we expect basic knowledge of OSC and the Unix Shell
 
+- You can ask us for help with uploading data to OSC if you need it.
+  Even for some of this afternoon's exercises, if you prefer, you can work with your own data.
+  So you could e.g. check in about this during lunch today.
+
 ## Practical information
 
 - Coffee, snacks, and lunch will be provided during breaks

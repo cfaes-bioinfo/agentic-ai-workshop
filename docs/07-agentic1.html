@@ -60,7 +60,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -271,20 +290,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#code-completions-with-github-copilot" id="toc-code-completions-with-github-copilot" class="nav-link" data-scroll-target="#code-completions-with-github-copilot"><span class="header-section-number">2</span> Code completions with GitHub Copilot</a>
+  <li><a href="#getting-some-data" id="toc-getting-some-data" class="nav-link" data-scroll-target="#getting-some-data"><span class="header-section-number">2</span> Getting some data</a></li>
+  <li><a href="#code-completions-with-github-copilot" id="toc-code-completions-with-github-copilot" class="nav-link" data-scroll-target="#code-completions-with-github-copilot"><span class="header-section-number">3</span> Code completions with GitHub Copilot</a>
   <ul class="collapse">
-  <li><a href="#ghost-text-suggestions" id="toc-ghost-text-suggestions" class="nav-link" data-scroll-target="#ghost-text-suggestions"><span class="header-section-number">2.1</span> Ghost text suggestions</a></li>
-  <li><a href="#next-edit-suggestions" id="toc-next-edit-suggestions" class="nav-link" data-scroll-target="#next-edit-suggestions"><span class="header-section-number">2.2</span> Next edit suggestions</a></li>
-  <li><a href="#related-inline-chat" id="toc-related-inline-chat" class="nav-link" data-scroll-target="#related-inline-chat"><span class="header-section-number">2.3</span> Related: Inline chat</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice"><span class="header-section-number">2.4</span> Practice</a></li>
+  <li><a href="#ghost-text-suggestions" id="toc-ghost-text-suggestions" class="nav-link" data-scroll-target="#ghost-text-suggestions"><span class="header-section-number">3.1</span> Ghost text suggestions</a></li>
+  <li><a href="#next-edit-suggestions" id="toc-next-edit-suggestions" class="nav-link" data-scroll-target="#next-edit-suggestions"><span class="header-section-number">3.2</span> Next edit suggestions</a></li>
+  <li><a href="#related-inline-chat" id="toc-related-inline-chat" class="nav-link" data-scroll-target="#related-inline-chat"><span class="header-section-number">3.3</span> Related: Inline chat</a></li>
+  <li><a href="#your-turn-explore-the-iqbal2025-data" id="toc-your-turn-explore-the-iqbal2025-data" class="nav-link" data-scroll-target="#your-turn-explore-the-iqbal2025-data"><span class="header-section-number">3.4</span> Your turn: Explore the <span class="citation" data-cites="iqbal2025">Iqbal et al. (2025)</span> data</a></li>
   </ul></li>
-  <li><a href="#chat-with-claude-code" id="toc-chat-with-claude-code" class="nav-link" data-scroll-target="#chat-with-claude-code"><span class="header-section-number">3</span> Chat with Claude Code</a>
+  <li><a href="#chat-with-claude-code" id="toc-chat-with-claude-code" class="nav-link" data-scroll-target="#chat-with-claude-code"><span class="header-section-number">4</span> Chat with Claude Code</a>
   <ul class="collapse">
-  <li><a href="#a-few-prompts-to-get-started" id="toc-a-few-prompts-to-get-started" class="nav-link" data-scroll-target="#a-few-prompts-to-get-started"><span class="header-section-number">3.1</span> A few prompts to get started</a></li>
-  <li><a href="#main-claude-code-settings-and-features" id="toc-main-claude-code-settings-and-features" class="nav-link" data-scroll-target="#main-claude-code-settings-and-features"><span class="header-section-number">3.2</span> Main Claude Code settings and features</a></li>
-  <li><a href="#command-menu" id="toc-command-menu" class="nav-link" data-scroll-target="#command-menu"><span class="header-section-number">3.3</span> Command menu</a></li>
-  <li><a href="#additional-prompts" id="toc-additional-prompts" class="nav-link" data-scroll-target="#additional-prompts"><span class="header-section-number">3.4</span> Additional prompts</a></li>
-  <li><a href="#miscellaneous-tips" id="toc-miscellaneous-tips" class="nav-link" data-scroll-target="#miscellaneous-tips"><span class="header-section-number">3.5</span> Miscellaneous tips</a></li>
+  <li><a href="#open-the-claude-code-window" id="toc-open-the-claude-code-window" class="nav-link" data-scroll-target="#open-the-claude-code-window"><span class="header-section-number">4.1</span> Open the Claude Code window</a></li>
+  <li><a href="#a-few-prompts-to-get-started" id="toc-a-few-prompts-to-get-started" class="nav-link" data-scroll-target="#a-few-prompts-to-get-started"><span class="header-section-number">4.2</span> A few prompts to get started</a></li>
+  <li><a href="#adding-context" id="toc-adding-context" class="nav-link" data-scroll-target="#adding-context"><span class="header-section-number">4.3</span> Adding context</a></li>
+  <li><a href="#model-selection-and-parameters" id="toc-model-selection-and-parameters" class="nav-link" data-scroll-target="#model-selection-and-parameters"><span class="header-section-number">4.4</span> Model selection and parameters</a></li>
+  <li><a href="#other-important-options" id="toc-other-important-options" class="nav-link" data-scroll-target="#other-important-options"><span class="header-section-number">4.5</span> Other important options</a></li>
+  </ul></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><span class="header-section-number">5</span> Your turn</a>
+  <ul class="collapse">
+  <li><a href="#explore-planning-mode-and-modelseffort" id="toc-explore-planning-mode-and-modelseffort" class="nav-link" data-scroll-target="#explore-planning-mode-and-modelseffort"><span class="header-section-number">5.1</span> Explore planning mode and models/effort</a></li>
+  <li><a href="#other-exercise-ideas" id="toc-other-exercise-ideas" class="nav-link" data-scroll-target="#other-exercise-ideas"><span class="header-section-number">5.2</span> Other exercise ideas</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -328,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 9, 2026</p>
+      <p class="date-modified">July 10, 2026</p>
     </div>
   </div>
     
@@ -357,13 +382,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this session, we’ll start using the AI tools Claude Code and GitHub Copilot, while connected to OSC in VS Code.</p>
 <p>These tools are quite similar. But we’ll <strong>focus on Claude Code</strong> because the workshop has usage credits for this tool, and we’re using it in a way that has approval for use with institutional data. Therefore, you can use it also with your own data tomorrow afternoon, even if that’s sensitive data that cannot be shared publicly.</p>
 <p>But we’ll <strong>start with GitHub Copilot</strong>, which provides a nice feature that Claude Code does not have: it can generate code <em>directly</em> in your VS Code editor, providing suggestions as you type your text and code.</p>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-setting-up" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-setting-up"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Setting up</h4>
+</section>
+<section id="getting-some-data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="getting-some-data"><span class="header-section-number">2</span> Getting some data</h2>
+<p>Let’s navigate to a suitable dir and each get our own copy of a high-throughput sequencing dataset to analyze with the help of our AI tools.</p>
 <ol type="1">
 <li><p>You should still have an active session in VS Code connected to OSC. If not, start a new session.</p>
 <details>
 <summary>
-<p>Instructions to start a new session</p>
+<p>Click here for instructions to start a new VS Code session at OSC</p>
 </summary>
 <ol type="1">
 <li><p>Open VS Code, or if you already have a window open that’s not connected to OSC, open a new VS Code window with <code>File</code> &gt; <code>New Window</code>.</p></li>
@@ -375,16 +402,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>If you don’t see the <code>PAS3454</code> OSC folder in the <code>Recent</code> section after Step 1, simply start a new session, for example like so:</p>
-<ol start="2" type="1">
+<ol start="3" type="1">
 <li>Click the <code>Connect to...</code> button in the “Welcome” document (also visible in the screenshot above), and select the <code>osc-cardinal-compute</code> connection.</li>
 </ol>
 </details></li>
-<li><p>Once connected to OSC, click <code>File</code> &gt; <code>Open Folder...</code>, and select the folder <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>.</p></li>
-<li><p>Open a terminal and make sure you are in dir <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>:</p>
+<li><p>Once connected to OSC, click <code>File</code> &gt; <code>Open Folder...</code>, and to open you personal folder <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>.</p></li>
+<li><p>Open a terminal and check that are indeed in dir <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>/fs/scratch/PAS3454/people/jane</code></pre>
 <p>If not, redo step 2! The terminal will automatically start in the folder you opened in VS Code.</p></li>
-<li><p>Copy a shared data dir to your own dir:</p>
+<li><p>Copy a shared data dir to your personal dir:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After this, the data will be in `/fs/scratch/PAS3454/people/&lt;user&gt;/iqbal`</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-rv</span> /fs/scratch/PAS3454/data/iqbal .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>'/fs/scratch/PAS3454/data/iqbal' -&gt; './iqbal'
@@ -403,7 +430,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Run the <code>tree</code> command to understand the current structure of your dirs and files:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tree</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code> .
- ├── S9
+ ├── S07
  ├── iqbal
  │   ├── README.md
  │   ├── fastq
@@ -414,20 +441,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  │   │   ├── [...output truncated...] 
  │   ├── meta.tsv
  │   └── ref
- │       ├── GCA_000004655.2_ASM465v1_genomic.fna
- │       └── GCA_000004655.2_ASM465v1_genomic.gff</code></pre></li>
+ │       ├── GCA_000004655.2.fna
+ │       └── GCA_000004655.2.gtf</code></pre></li>
 </ol>
+<section id="what-do-we-have-in-the-iqbal-dir" class="level4">
+<h4 class="anchored" data-anchor-id="what-do-we-have-in-the-iqbal-dir">What do we have in the <code>iqbal</code> dir?</h4>
+<p>This is RNA-Seq data from <span class="citation" data-cites="iqbal2025">Iqbal et al. (<a href="#ref-iqbal2025" role="doc-biblioref">2025</a>)</span>, with:</p>
+<ul>
+<li>The raw (paired-end Illumina) reads in the dir <code>fastq</code> — though subsampled by us to keep the file sizes and analysis times short for use during the workshop</li>
+<li>The sample metadata (e.g., rice variety and inoculation treatment information) in the file <code>meta.tsv</code>.</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000004655.2/">Rice reference genome</a> files in the <code>ref</code> dir.</li>
+</ul>
+<details>
+<summary>
+<i class="fa-solid fa-comments" aria-label="comments"></i> What do the <code>_1</code> and <code>_2</code> files in the <code>fastq</code> dir represent? <em>(Click to see the answer)</em>
+</summary>
+<p>There are two files for each sample, e.g.&nbsp;for sample <code>SRR31869590</code> there are files <code>SRR31869590_1.fastq.gz</code> and <code>SRR31869590_2.fastq.gz</code>.</p>
+<p>The files with <code>_1</code> contain the forward reads and the files with <code>_2</code> contain the reverse reads from a paired-end sequencing library.</p>
+<p>Ask AI to explain this to you if you don’t know what this means.</p>
+</details>
+<details>
+<summary>
+<i class="fa-solid fa-comments" aria-label="comments"></i> What do the <code>.fna</code> and <code>gtf</code> file in the <code>ref</code> dir represent? <em>(Click to see the answer)</em>
+</summary>
+<ul>
+<li>The <code>.fna</code> file is a FASTA file with the entire genome sequence.</li>
+<li>The <code>.gtf</code> file a GTF file with the genome annotation (a large table with the genomic coordinates and name of each gene, and so on).</li>
+</ul>
+</details>
 </section>
 </section>
-<section id="code-completions-with-github-copilot" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="code-completions-with-github-copilot"><span class="header-section-number">2</span> Code completions with GitHub Copilot</h2>
+<section id="code-completions-with-github-copilot" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="code-completions-with-github-copilot"><span class="header-section-number">3</span> Code completions with GitHub Copilot</h2>
 <p>“<a href="https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions">Code completions</a>”, also known as “code suggestions” or “inline suggestions”, are a feature of GitHub Copilot where you get suggestions for additional or modified code —or other text— as you type in your VS Code editor. There are two types of code completions, and we’ll go over these one by one.</p>
-<section id="ghost-text-suggestions" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="ghost-text-suggestions"><span class="header-section-number">2.1</span> Ghost text suggestions</h3>
+<section id="ghost-text-suggestions" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="ghost-text-suggestions"><span class="header-section-number">3.1</span> Ghost text suggestions</h3>
 <p>Ghost text suggestions are the most common type of code completions. As you type, GitHub Copilot will provide suggestions in a light gray font, which you can accept by pressing the <kbd>Tab</kbd> key. We may think of ghost text suggestions as in turn consisting of two types of suggestions:</p>
-<section id="suggestions-that-try-to-complete-a-line-you-are-typing" class="level4">
-<h4 class="anchored" data-anchor-id="suggestions-that-try-to-complete-a-line-you-are-typing">Suggestions that try to complete a line you are typing</h4>
-<p>Similarly, they may suggest a next line based on the previous one. For example, if you type <code>#!</code> as the first line of a shell script, GitHub Copilot is likely to suggest the full shebang line <code>#!/bin/bash</code> for you:</p>
+<section id="completion-suggestions" class="level4">
+<h4 class="anchored" data-anchor-id="completion-suggestions">Completion suggestions</h4>
+<p>These suggestions try to complete a line you are typing, or suggest a next line based on the previous one. For example, if you type <code>#!</code> as the first line of a shell script, GitHub Copilot is likely to suggest the full shebang line <code>#!/bin/bash</code> for you:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -500,15 +552,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>For all code completions, pressing <kbd>Tab</kbd> will accept the suggestion, while <kbd>Esc</kbd> will explcitly dismiss it. You can also implicitly dismiss a suggestion by continuing to type.</p>
+<p>For all code completions, pressing <kbd>Tab</kbd> will accept the suggestion, while <kbd>Esc</kbd> will explicitly dismiss it. You can also implicitly dismiss a suggestion by continuing to type.</p>
 </div>
 </div>
 </div>
 </section>
 <hr style="height:1pt; visibility:hidden;">
 </section>
-<section id="next-edit-suggestions" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="next-edit-suggestions"><span class="header-section-number">2.2</span> Next edit suggestions</h3>
+<section id="next-edit-suggestions" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="next-edit-suggestions"><span class="header-section-number">3.2</span> Next edit suggestions</h3>
 <p><a href="https://code.visualstudio.com/docs/editing/ai-powered-suggestions#_next-edit-suggestions">“Next edit” suggestions</a> will suggest a modification to code or other text you have already written. A number of scenarios can trigger next edit suggestions, such as:</p>
 <ul>
 <li>Syntax, spelling, or style errors in your code (e.g., a missing closing bracket or quote)</li>
@@ -533,21 +585,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you change the first instance of <code>people</code> to <code>data</code>, Copilot will suggest to change the other instances as well:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/copilot-nextedit-pattern1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of Copilot next edit suggestion for recurring pattern"></p>
+<p><img src="./img/copilot-nextedit-pattern1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%" alt="Screenshot of Copilot next edit suggestion for recurring pattern"></p>
 </figure>
 </div>
 <p>You’ll press <kbd>Tab</kbd> to accept a suggestion, and <kbd>Tab</kbd> to move on to the next suggestion, and <kbd>Tab</kbd> again to accept that one, and so on:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/copilot-nextedit-pattern2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of Copilot next edit suggestion for recurring pattern"></p>
+<p><img src="./img/copilot-nextedit-pattern2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%" alt="Screenshot of Copilot next edit suggestion for recurring pattern"></p>
 </figure>
 </div>
 <p>These types of suggestions are sometimes off-target (e.g., maybe you don’t want to change the other instances of <code>people</code> to <code>data</code>!), but in my experience, they are often quite useful and not just a time-saver, but also a way to avoid mistakes (e.g., forgetting to change one of the instances).</p>
 </section>
-<section id="related-inline-chat" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="related-inline-chat"><span class="header-section-number">2.3</span> Related: Inline chat</h3>
+<section id="related-inline-chat" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="related-inline-chat"><span class="header-section-number">3.3</span> Related: Inline chat</h3>
 <p>While technically (and importantly, for billing) part of the GitHub Copilot Chat features, a final inline Copilot feature is “<strong>inline chat</strong>”.</p>
-<p>It can be used more broadly, but here, we’ll just show a feature that dovetails best with code completions: selecting a piece of code and ask Copilot to modify (or explain) it.</p>
+<p>It can be used more broadly, but here, we’ll just show a feature that dovetails best with code completions: selecting a piece of code and asking Copilot to modify (or explain) it.</p>
 <section id="modify-code" class="level4">
 <h4 class="anchored" data-anchor-id="modify-code">Modify code</h4>
 <ol type="1">
@@ -589,49 +641,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Until recently, the inline chat feature would by default start by having you choose whether you want to modify or explain code. The explain option is still available, but now you have to explicitly ask for it with a so-called “slash command” (we’ll talk more about slash commands in the Claude section) — type <code>/explain</code> and press <kbd>Enter</kbd>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/copilot-inline-chat-explain1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Screenshot of Copilot inline chat feature, showing a code snippet and the 'Chat about this code' option in the context menu"></p>
+<p><img src="./img/copilot-inline-chat-explain1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Screenshot of Copilot inline chat feature, showing a code snippet and the 'Chat about this code' option in the context menu"></p>
 </figure>
 </div>
 <p>You should get a response similar to the following:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/copilot-inline-chat-explain2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Screenshot of Copilot inline chat feature, showing a code snippet and the 'Chat about this code' option in the context menu"></p>
+<p><img src="./img/copilot-inline-chat-explain2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Screenshot of Copilot inline chat feature, showing a code snippet and the 'Chat about this code' option in the context menu"></p>
 </figure>
 </div>
 <hr>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>As mentioned above, inline chat is technically part of the Copilot chat rather than code completions features — including for credit usage purposes. In Copilot Student and Copilot Pro (for teacher) plans, unlimited code completions are included (!), but this is not true for chat features.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>If you use code completion features within your code and documentation files, you are not exposing any internal data you may have elsewhere in the dir hierarchy that you have open in VS Code.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>How to check your Copilot usage stats
+<span class="screen-reader-only">Warning</span>Inline chat is billed as a chat and not as a code completion feature
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As mentioned above, inline chat is technically part of the Copilot chat rather than code completions features — including for credit usage purposes. In Copilot Student and Copilot Pro (for teacher) plans, unlimited code completions are included (!), but this is not true for chat features.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Code completion can be used safely with internal data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you use code completion features within your code and documentation files, you are not exposing any internal data you may have elsewhere in the dir hierarchy that you have open in VS Code.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>How to check your Copilot credit usage <em>(Click to expand)</em>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You can see what Copilot plan you have and what your usage stats for the current calendar month are by clicking the GitHub Copilot icon in the bottom right of your VS Code window:</p>
+<p>You can see what Copilot plan you have and what your credit usage is for the current calendar month by clicking the GitHub Copilot icon in the bottom right of your VS Code window:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./img/vscode-copilot-icon.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%" alt="Screenshot of the GitHub Copilot icon in the bottom right of the VS Code window"></p>
@@ -643,11 +701,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="./img/copilot-usage.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Screenshot of Copilot usage stats"></p>
 </figure>
 </div>
-<p>Credit usage for individual chat requests can be seen in the chat window itself, such as in the example chat in the previous session:</p>
+<p>Credit usage for individual chat requests can be seen in the chat window itself, <em>when you hover with your mouse over the chat in question</em>, such as in the example chat in the previous session:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/copilot-prompt1-answer.png" class="img-fluid figure-img" style="width:70.0%" alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"></p>
-<figcaption>TBA - Replace with subsampled FASTQ files</figcaption>
+<p><img src="./img/copilot-readnr-answer.png" class="img-fluid figure-img" style="width:70.0%" alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"></p>
+<figcaption>This request used 1.1 credits: see the bottom-right of this screenshot.</figcaption>
 </figure>
 </div>
 <p>See also the VS Code / GitHub Copilot docs on <a href="https://code.visualstudio.com/docs/agents/guides/optimize-usage">optimizing credit usage</a>.</p>
@@ -656,22 +714,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="practice" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="practice"><span class="header-section-number">2.4</span> Practice</h3>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-explore-the-iqbal-et-al.-data-with-help-from-copilot" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-explore-the-iqbal-et-al.-data-with-help-from-copilot"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Explore the Iqbal et al.&nbsp;data with help from Copilot</h4>
+<section id="your-turn-explore-the-iqbal2025-data" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="your-turn-explore-the-iqbal2025-data"><span class="header-section-number">3.4</span> Your turn: Explore the <span class="citation" data-cites="iqbal2025">Iqbal et al. (<a href="#ref-iqbal2025" role="doc-biblioref">2025</a>)</span> data</h3>
+<p>In your <code>copilot.sh</code> file, play around with asking questions via comments and see what Copilot suggests.</p>
+<p><strong><em>Feel free to go off in a direction that you like</em></strong>, but I’d suggest using this exercise to explore the <span class="citation" data-cites="iqbal2025">Iqbal et al. (<a href="#ref-iqbal2025" role="doc-biblioref">2025</a>)</span> data files a bit. For example:</p>
 <ul>
-<li><p>Ask questions about the reference GTF and FASTA files – details TBA</p></li>
-<li><p>Ask questions about the FASTQ files – details TBA</p></li>
-<li><p>Suggest to use code completion features using requests via comments</p></li>
-<li><p>If you are not working with HTS data, and don’t think this is terribly interesting or helpful for you, but have some own data available, then you should feel free to ask questions about that data instead.</p></li>
-<li><p>Idea: add a <code>README.md</code> file and populate it?</p></li>
+<li><p>Count the number of entries in the FASTA files (this will tell you how many “pieces” —chromosomes + scaffolds/contigs— the reference genome consists of)</p></li>
+<li><p>Count the number of genes in the GTF file</p></li>
+<li><p>Compute a count table of all feature types (genes, exons, etc.) from the GTF file</p></li>
+<li><p>Count the number of genes on the <code>+</code> vs.&nbsp;the <code>-</code> strand from the GTF file</p></li>
+<li><p>Compute the average gene length from the GTF file</p></li>
+<li><p>Compute the average number of exons per gene from the GTF file</p></li>
 </ul>
+<p>And other questions you can think of! The examples above focus on the (FASTA and) GTF file, but you can also explore the FASTQ files and the metadata file.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Understand and verify as best you can
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For every command you try, carefully check the code and output and see, to the best of your ability, if it makes sense. You can also use the inline chat option to ask Copilot to explain the code it suggested.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Other potential avenues to explore
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>After it gives you a command, and you move on to the next line, just type a comment symbol (<code>#</code>), and wait, it will often suggest a command that builds on the previous one. See where that leads you and if it makes any sense!</p></li>
+<li><p>If you’re a more advanced user and have some inspiration, you can also think of something you want to do, slowly start typing out the command yourself, and see if/how Copilot wants to complete it.</p></li>
+</ul>
+</div>
+</div>
 </section>
 </section>
-</section>
-<section id="chat-with-claude-code" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="chat-with-claude-code"><span class="header-section-number">3</span> Chat with Claude Code</h2>
+<section id="chat-with-claude-code" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="chat-with-claude-code"><span class="header-section-number">4</span> Chat with Claude Code</h2>
+<section id="open-the-claude-code-window" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="open-the-claude-code-window"><span class="header-section-number">4.1</span> Open the Claude Code window</h3>
 <p>Now, we’ll <strong>switch gears in two ways</strong>: from GitHub Copilot to Claude Code, and from code completion to chat<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <p>In the right-hand side bar, if needed, click “CLAUDE CODE” to switch to the Claude Code tab. As we saw in a previous session, that looks something like this:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -680,37 +770,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>The look of the Claude Code window when you first open it. <br>The text in the center is a random tip that pops up: yours is likely different.</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Other minor things you may notice right away <em>(Click to expand)</em>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<p>Let’s take a closer look at the <strong>prompt box</strong>, as most of the features we’ll discuss next are accessed from there, such as:</p>
 <ul>
-<li><p>There might be text just above the prompt box saying: <em><strong>“Prefer the Terminal experience? Switch back in Settings.”</strong></em> This refers to the fact that you can also also use Claude Code in the terminal (the Claude Code CLI), but we will not do that here and don’t really recommend switching.</p></li>
-<li><p>The ghost text in the prompt box says “<strong><em>⌘ [or Ctrl] to focus or unfocus Claude</em></strong>”, which refers to switching your active cursor back and forth between the prompt box and the VS Code editor. At least for me, this doesn’t work and that seems to be a known issue.</p></li>
+<li>Adding context with the <code>+</code> button.</li>
+<li>The <code>/</code> button to open the command menu.</li>
+<li><code>Manual</code> is an indicator of the currently selected permission mode, which can be changed by clicking on it.</li>
 </ul>
-</div>
-</div>
-</div>
-<section id="a-few-prompts-to-get-started" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="a-few-prompts-to-get-started"><span class="header-section-number">3.1</span> A few prompts to get started</h3>
-<blockquote class="blockquote">
-<p>Write a very simple script to run FastQC on a FASTQ file</p>
-</blockquote>
-<ul>
-<li>Then, have it troubleshoot the (likely) <code>module</code> problem.</li>
-</ul>
-</section>
-<section id="main-claude-code-settings-and-features" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="main-claude-code-settings-and-features"><span class="header-section-number">3.2</span> Main Claude Code settings and features</h3>
-<p>Now, we’ll go over the features and settings in the Claude Code window, starting with those in the prompt box:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -721,59 +786,265 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>The Claude Code prompt box.</figcaption>
 </figure>
 </div>
-<section id="contect-with-the-button-or-symbol" class="level4">
-<h4 class="anchored" data-anchor-id="contect-with-the-button-or-symbol">Contect with the <code>+</code> button or <code>@</code> symbol</h4>
-<p>The <code>+</code> icon lets you add chat <strong>context in the form of files</strong>. While it allows you to upload files, as is common for in-browser chats, with this kind of usage, you should typically have the relevant files already in your workspace. The <strong><em>Add context</em></strong> button lets you add files from your workspace as context for the chat.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./img/claude-context-add1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="./img/claude-context-add1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
-</figure>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>It will really just insert an <code>@</code> symbol in the prompt box, which triggers autocomplete to show a list of files in your workspace. As such, the fastest way to add context is rather to <strong>type</strong> <code>@</code> and then select the file or type the first few letters of the file name (it will also find files in subfolders).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./img/claude-context-add2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="./img/claude-context-add2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
-</figure>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Other minor things you may notice right away <em>(Click to expand)</em>
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>There might be text just above the prompt box saying: <em><strong>“Prefer the Terminal experience? Switch back in Settings.”</strong></em> This refers to the fact that you can also also use Claude Code in the terminal (the Claude Code CLI), but we will not do that here and don’t really recommend switching.</p></li>
+<li><p>The ghost text in the prompt box says “<strong><em>⌘ [or Ctrl] to focus or unfocus Claude</em></strong>”, which refers to switching your active cursor back and forth between the prompt box and the VS Code editor. At least for me, this doesn’t work and that seems to be a known issue.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="a-few-prompts-to-get-started" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="a-few-prompts-to-get-started"><span class="header-section-number">4.2</span> A few prompts to get started</h3>
+<blockquote class="blockquote">
+<p><strong>Write a very simple script to run FastQC on a FASTQ file</strong></p>
+</blockquote>
+<ul>
+<li>DETAILS TBA – Then, have it troubleshoot the (likely) <code>module</code> problem.</li>
+</ul>
+</section>
+<section id="adding-context" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="adding-context"><span class="header-section-number">4.3</span> Adding context</h3>
+<p>Files are one of the main pieces of “<strong>context</strong>” that Claude Code uses to answer your questions. A key advantage of using AI in your editor is that relevant files are readily available, and don’t need to be uploaded or copied-and-pasted from your computer to a web interface.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Workspaces
+<span class="screen-reader-only">Tip</span>The open folder is your “workspace”
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>When working with Claude Code in VS Code, you should always open a folder with the VS Code Open Folder functionality, and have the relevant files in that folder or subfolders. We’ll refer to that folder as your “<strong>workspace</strong>” in the rest of this document<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. Typically, this will be a research project folder. It is good pratice to keep all files related to a project in one folder/workspace for many reasons, including for reproducibility and for effectively using in-editor AI like Claude Code.</p>
+<p>When working with Claude Code in VS Code, <strong>you should always open a folder</strong> with the VS Code “Open Folder” functionality, and have the relevant files in that folder or subfolders. We’ll refer to that folder as your “<strong>workspace</strong>” in the rest of this document<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>Typically, your workspace should be a folder for a specific research project. It is good pratice to keep all files related to a project in one folder/workspace for many reasons, including for reproducibility and for effectively using in-editor AI like Claude Code.</p>
 </div>
 </div>
-<p>However, keep in mind that in general, the easiest way to add context is by simply having the relevant file open in the editor. Specifically, whichever file is in focus in the editor will automatically be added as context for the chat.</p>
+<p>To start with, <strong>your entire workspace</strong> is what we may call the “implicit context” for the chat. When it considers that useful for a given prompt, Claude will often search your workspace for similar or relevant files. However, it is often better to explicitly add context to the chat, which you can do in a number of ways, as we will discuss below.</p>
+<section id="open-files" class="level4">
+<h4 class="anchored" data-anchor-id="open-files">Open files</h4>
+<p>The easiest way to add context is to simply have the relevant file open in the editor: Claude will automatically add it. (When you have multiple tabs open, Claude will automatically add the file that is “active”, i.e., the one that is currently showing.)</p>
+<p>With our <code>fastqc.sh</code> script still open, you can see in the prompt box that Claude has added this file as context:</p>
+<p>[Screenshot]</p>
+<p>If you want to remove the active file from the context, click on its name below the prompt box, and it will be grayed out and removed from the context:</p>
+<p>[Screenshot]</p>
+<p>Additional considerations:</p>
 <ul>
-<li>[Screenshot + screenshot to turn off automatic context for the file in focus + line selection]</li>
+<li><p>If you <strong>select one or more lines of code in the editor</strong>, Claude will automatically add that selection as context. You could for example ask, within a much longer script, “<em>these lines of code don’t seem to be working, can you help me fix them?</em>”</p></li>
+<li><p>If you want to <strong>add multiple files as context</strong>, you might initially find yourself frustrated, as Claude will just switch the context to the active file. A good solution is the <kbd>Option/Alt</kbd> + <kbd>K</kbd> shortcut, which adds the currently selected file (or text) to the prompt box and keeps it there, even if you switch active files or add other files as context.</p></li>
 </ul>
-<p>Finally, <strong>your entire workspace</strong> is what we may call the “implicit context” for the chat. When it considers that useful for a given prompt, Claude will often search your workspace for similar or relevant files.</p>
+</section>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-add-context-to-the-chat" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-add-context-to-the-chat"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Add context to the chat</h4>
+<ul>
+<li>Details TBA</li>
+<li>Practice with adding multiple files, e.g.&nbsp;a script AND a Slurm file</li>
+</ul>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>The <code>@</code> symbol for adding context
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You’ll notice that added files are preceded by an <code>@</code> symbol in the prompt box. That leads us to another way of adding context: by typing <code>@</code> in the prompt box, followed by part of the file name (for more, see below).</p>
+</div>
+</div>
+</section>
+<section id="other-files" class="level4">
+<h4 class="anchored" data-anchor-id="other-files">Other files</h4>
+<p>While I find that this is rarely needed, you can add files that are not open in the editor as context by clicking the <code>+</code> icon below the prompt box.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/claude-context-add1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="What you’ll see when you click the + button in the Claude Code prompt box."><img src="./img/claude-context-add1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
+</figure>
+</div>
+<figcaption>What you’ll see when you click the <code>+</code> button in the Claude Code prompt box.</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>This also allows you to upload files from your local computer with the <code>Upload from computer</code> button<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p></li>
+<li><p>The <code>Add context</code> button lets you add any file from your workspace as context for the chat. You can sort of browse through files in the pop-up window:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/claude-context-add2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="./img/claude-context-add2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
+</figure>
+</div>
+<p>Again, you’ll notice that added files are preceded by an <code>@</code> symbol — and a quicker way to add files, then, is to simply type <code>@</code> followed by part of the file name in the prompt box. It will also find files in subfolders, so you can type <code>@fastqc</code> to find the <code>fastqc.sh</code> script in the <code>S07</code> folder, for example.</p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Need to add a file as context but it is not in your workspace?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you want to add a file as context that is not in your workspace, you can’t select it from the <code>Add context</code> pop-up window<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. Instead, the easiest way is again to simply open the file in the editor (e.g., <code>File</code> &gt; <code>Open File...</code> and then you can enter any path).</p>
+</div>
+</div>
+</section>
+<section id="permission-modes" class="level4">
+<h4 class="anchored" data-anchor-id="permission-modes">Permission modes</h4>
+<p>On the right-hand side of the prompt box is the <strong>Permission Modes</strong> indicator. This sets the permission type Claude has to perform <strong>actions like editing files and running commands</strong>, and can be toggled between:</p>
+<ul>
+<li><p><strong>Manual</strong>: Claude asks permission for each action.</p></li>
+<li><p><strong>Edit automatically</strong>: Claude makes edits to files and runs basic commands without asking for permission.</p></li>
+<li><p><strong>Plan mode</strong>: Claude writes a plan that is then opened as a rendered Markdown document, and which you can approve or modify.</p></li>
+<li><p><strong>Auto mode</strong>: Claude determines on its own whether to ask for permission or not for specific actions, or to write a plan. In this mode, it is also more likely to ask you for clarifying questions.</p>
+<p>If you switch to Auto Mode, you should see something like the following:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/claude-automode-message.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"></p>
+</figure>
+</div></li>
+</ul>
+</section>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-try-out-the-permission-modes" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-try-out-the-permission-modes"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Try out the permission modes</h4>
+<p>TBA</p>
 </section>
 </section>
-<section id="command-menu" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="command-menu"><span class="header-section-number">3.3</span> Command menu</h3>
-<p>The command menu is opened by clicking the <code>/</code>-in-a-box icon to the right of the <code>+</code>. It has lots of functionality, including:</p>
+<section id="model-selection-and-parameters" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="model-selection-and-parameters"><span class="header-section-number">4.4</span> Model selection and parameters</h3>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>From the Claude Code window’s <strong>command menu</strong> (opened by clicking the icon in the Claude Code prompt box shown on the left), you can control which LLM model is used and how it behaves:</p>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/claude-command-icon.png" class="img-fluid figure-img" style="width:35.0%" alt="Screenshot of the Claude Code interface, showing the command menu icon"></p>
+<figcaption>Command menu icon</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <ul>
-<li><p>Clear conversation</p></li>
-<li><p>Rewind</p></li>
-<li><p>LLM model selection and parameters:</p>
+<li><p><strong><code>Switch model...</code></strong> — Lets you pick which Claude model to use. The main trade-off is between speed/cost and capability:</p>
 <ul>
-<li><code>Switch model...</code></li>
-<li>Effort</li>
-<li>Thinking toggle</li>
-<li>“Switch model when a message is flagged”</li>
-</ul></li>
-<li><p>Account &amp; usage</p></li>
-<li><p><code>/</code> also for adding context, and:</p>
+<li><strong><em>Opus</em></strong> is likely to be the default model, and is the most capable model, but slower and more expensive. Best reserved for complex multi-step reasoning or tricky debugging.</li>
+<li><strong><em>Sonnet</em></strong> is fast, capable, and much cheaper. Should be sufficient for most coding tasks like writing shell scripts and pipelines.</li>
+<li><strong><em>Haiku</em></strong> is the fastest and cheapest, but less capable. Fine for simple questions or quick edits.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/claude-model-sel.png" class="img-fluid figure-img" style="width:50.0%" alt="Screenshot of the Claude Code interface, showing the model selection options"></p>
+<figcaption>With our LiteLLM setup, these are the only models you should be seeing.</figcaption>
+</figure>
+</div>
+<div style="color: darkblue;">
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Switch to Sonnet</strong> for our workshop tasks — it will be faster, cheaper, and plenty capable for writing bioinformatics scripts. You can always switch back for individual tasks if you find Sonnet is struggling with a problem.</p>
+</div></li>
+<li><p><strong>Effort</strong> — Controls how much effort the model puts in before responding: “Low” / “Medium” / “High” / “Max”. Higher effort means more thorough reasoning but slower responses. For straightforward tasks like “write a Slurm header” or “add a comment”, Low or Medium effort is fine. For debugging a failing pipeline or designing a workflow, High or Max effort helps.</p>
+<div style="color: darkblue;">
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Switch to Medium</strong> effort for now.</p>
+</div></li>
+<li><p><strong>Thinking toggle</strong> — When enabled, Claude performs explicit step-by-step reasoning before responding, which improves quality on complex tasks (at the cost of more tokens and time). The thinking is shown in a collapsible block above the response, which can be useful for understanding <em>why</em> it made certain choices. Essentially, the <strong>Effort</strong> setting controls how much thinking it does when this is enabled.</p></li>
+<li><p><strong>“Switch model when a message is flagged”</strong> — If Claude refuses a request or flags it as potentially problematic (which can happen with bioinformatics commands that look like they could be destructive), this setting can automatically retry with a different model.</p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Token usage <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Token usage is a key factor in the cost of using LLMs like Claude. Every response uses tokens across three parts of a request:</p>
 <ul>
-<li>Switching models</li>
-<li>Setting effort, and toggling “Thinking”</li>
-</ul></li>
+<li><strong>Thinking</strong>: The (optional) step-by-step reasoning Claude does before responding, shown in the collapsible “thinking” block when the Thinking toggle is on.</li>
+<li><strong>Tool calling</strong>: Claude spends tokens each time it reads a file, searches your workspace, or runs a command, since the results of those actions are fed back into the conversation.</li>
+<li><strong>Text</strong>: The visible response itself, as well as all the text of your prompt and any files/context you’ve added.</li>
+</ul>
+<p>Because tool calls and thinking can consume far more tokens than the visible chat text, a short-looking question that requires searching many files or a lot of reasoning can still be relatively expensive. This is part of why model choice and effort level (discussed above) matter for cost and speed, not just response quality.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Tracking $ usage (when using an API key) <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>With an OSU LiteLLM API key, usage can be tracked on the <a href="https://litellm.cloud.osu.edu">LiteLLM dashboard</a>. Though at the moment, you are using the API key provided by us, so you can’t see this.</p>
+<p>This dashboard will show a dollar-wise daily usage bar chart (“Usage” page), and a table of all requests that includes the exact amount spent on each request (“Logs” page).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/litellm-usage.png" class="img-fluid figure-img" style="width:95.0%" alt="Screenshot of the LiteLLM dashboard, showing the 'Usage' page with a bar chart of daily usage and a table of requests with cost per request"></p>
+<figcaption>Usage page example</figcaption>
+</figure>
+</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/litellm-logs.png" class="img-fluid figure-img" style="width:95.0%" alt="Screenshot of the LiteLLM dashboard, showing the 'Logs' page with a table of requests and cost per request"></p>
+<figcaption>Logs page example</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="other-important-options" class="level3" data-number="4.5">
+<h3 data-number="4.5" class="anchored" data-anchor-id="other-important-options"><span class="header-section-number">4.5</span> Other important options</h3>
+<p>In the command menu:</p>
+<ul>
+<li><p><strong>Clear conversation:</strong> Wipes the current chat history and starts fresh, but keeps the same chat “slot” (as opposed to starting a genuinely new chat, see below). Useful when a conversation has gotten long or gone down an unproductive path, and you want Claude to stop being influenced by it, without leaving behind a separate chat you’d need to find again later.</p></li>
+<li><p><strong>Rewind:</strong> Lets you step back to an earlier point in the conversation (and optionally, to the state of your files at that point). This is handy if Claude made a series of edits that turned out to be a dead end: rather than asking it to undo things (which is not always reliable), you can rewind the conversation <em>and</em> the code to before that point.</p></li>
+</ul>
+<p>Icons at the top of the Claude Code window:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/claude-top-buttons.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Screenshot of the Claude Code interface, showing the top buttons for chat history, new chat, and opening a new Claude Code window"></p>
+</figure>
+</div>
+<ul>
+<li><p><strong>Chat icon with <code>+</code></strong> (far right): Starts a brand new chat, with an empty context — unlike <code>Clear conversation</code>, your old chat is preserved and can be revisited via the clock icon.</p></li>
+<li><p><strong>Clock icon</strong> (left of new chat icon): Shows a list of your previous chats, so you can reopen and continue an earlier conversation.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>When to start a new chat
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Previous messages in a chat are kept as context for follow-up questions, which is often useful (e.g., Claude remembers what script you were just working on). But this context also costs tokens and time to process, and irrelevant earlier context can occasionally distract the model.</p>
+<p>As a rule of thumb, start a new chat when you’re moving on to a clearly separate task or piece of your project (e.g., you finished the QC step and are moving on to alignment), and keep the same chat when you’re iterating on the same problem.</p>
+</div>
+</div></li>
+<li><p><strong>Claude icon</strong> (left, in the editor): Opens an entirely new Claude Code window (a separate pane), which is useful if you want to have multiple chats open side by side at the same time — for example, to run a long task in one window while asking a quick question in another.</p></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -781,51 +1052,87 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Usage tracking when using an API key
+<span class="screen-reader-only">Note</span>Miscellaneous tips
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><em>TBA - Show LiteLLM website</em></p>
-</div>
-</div>
-<section id="permission-modes" class="level4">
-<h4 class="anchored" data-anchor-id="permission-modes">Permission modes</h4>
-<p>On the right-hand side of the prompt box is the <strong>Permission Modes</strong> indicator. This is essentially to set the permission type Claude has to perform actions like editing files and running commands, and can be toggled between:</p>
 <ul>
-<li><strong>Manual</strong>: Claude asks permission for each action.</li>
-<li><strong>Edit automatically</strong>: Claude makes edits to files and runs basic commands without asking for permission.</li>
-<li><strong>Plan mode</strong>: Claude writes a plan that is then opened as a rendered Markdown document, and which you can approve or (ask to) modify.</li>
-<li><strong>Auto mode</strong> (not always visible): Claude determines on its own whether to ask for permission or not for specific actions, or to write a plan. In this mode, it is also more likely to ask you for clarifying questions.</li>
+<li><p>You can <strong>interrupt</strong> Claude while it is working (e.g., mid-response, or while running a command) by pressing <kbd>Esc</kbd> or clicking the stop button — useful if you notice it’s headed in the wrong direction, or a command is taking much longer than expected.</p></li>
+<li><p>Keep an eye on the running <strong>cost/token indicator</strong> in the interface, especially when using Opus or a high effort setting for a task that turns out to be simple.</p></li>
+<li><p>For more advanced users: <strong>Version control</strong> (Git) pairs well with agentic coding. Commit before letting Claude make a batch of changes, so you can easily review or revert if things go sideways. If you’re not using Git, you may in some cases want to make a <strong>backup copy</strong> of your file or even workspace before letting Claude make edits.</p></li>
 </ul>
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Switch to Auto Mode, and you should see something like the following:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./img/claude-automode-message.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"></p>
-</figure>
+</div>
 </div>
 </section>
-<section id="icons-at-the-top" class="level4">
-<h4 class="anchored" data-anchor-id="icons-at-the-top">Icons at the top</h4>
+</section>
+<section id="your-turn" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="your-turn"><span class="header-section-number">5</span> Your turn</h2>
+<section id="explore-planning-mode-and-modelseffort" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="explore-planning-mode-and-modelseffort"><span class="header-section-number">5.1</span> Explore planning mode and models/effort</h3>
+<p>In this exercise, you’ll ask Claude to plan a quality control workflow for the RNA-seq data, first quickly and then more carefully, so you can compare how model choice and effort level affect the depth and quality of the plan.</p>
+<p>Ask Claude to plan a QC workflow for the FASTQ files in the <code>iqbal/fastq</code> dir. Here is a suggested prompt, but you can modify it if you like!</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Write a plan to perform QC and read preprocessing steps for the FASTQ files</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>in <span class="in">`iqbal/fastq`</span>. At a minimum, the workflow should assess read quality,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>and trim low-quality bases and adapter sequences.</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>We will run this on OSC using Slurm with project PAS3454.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Round 1 — fast:</strong></p>
+<ol type="1">
+<li>Switch to <strong>Haiku</strong> (or Sonnet) with <strong>Low</strong> effort, and make sure <strong>Plan mode</strong> is active.</li>
+<li>Send the prompt above.</li>
+<li>Read the plan Claude produces. Note things like: How many steps does it propose? Does it name specific tools? Does it mention anything about Slurm job parameters? Does it flag any uncertainties or ask clarifying questions?</li>
+</ol>
+<p><strong>Round 2 — exhaustive:</strong></p>
+<ol start="4" type="1">
+<li>Start a new chat (so Round 1’s plan doesn’t influence this response).</li>
+<li>Switch to <strong>Opus</strong> with <strong>High</strong> or <strong>Max</strong> effort, keeping <strong>Plan mode</strong> active.</li>
+<li>Send the same prompt.</li>
+<li>Read the plan again with the same questions in mind.</li>
+</ol>
+<p><strong>Discuss:</strong></p>
 <ul>
-<li><p>Clock icon: see previous chats</p></li>
-<li><p>Chat icon with <code>+</code>: start new chat</p></li>
-<li><p>Claude icon will open a whole new Claude Code window, which is useful if you want to have multiple chats open at the same time.</p></li>
+<li>What differences do you notice between the two plans?</li>
+<li>Which plan would you feel more comfortable handing to a collaborator, or acting on yourself?</li>
+<li>For a task like writing a QC pipeline you’ve done before, which setting seems “good enough”?</li>
 </ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Bonus: Aligning the reads <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The QC planning task above is fairly open-ended, where both a weak and a strong model can produce a reasonable plan. You could try the same execise with an alignment planning task, where there is a more defensible “correct” choice that stronger models are more likely to reach:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Write a plan for aligning trimmed FASTQ files to the rice reference genome</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>in <span class="in">`iqbal/ref`</span>. We have both the genome FASTA and a GTF annotation file.</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>Which aligner would you recommend, and why? We will run this on OSC using Slurm.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details>
+<summary>
+Click to expand for a discussion of the expected results
+</summary>
+A weaker model/effort setting may neutrally list <code>STAR</code> and <code>HISAT2</code> as options and leave the choice to you. A stronger setting is more likely to recommend <strong><code>STAR</code></strong> and explain why: it is generally preferred for RNA-seq when a high-quality genome and annotation are available, and produces output that integrates cleanly with downstream count tools like <code>featureCounts</code> or <code>DESeq2</code>.
+</details>
+</div>
+</div>
+</div>
 </section>
-</section>
-<section id="additional-prompts" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="additional-prompts"><span class="header-section-number">3.4</span> Additional prompts</h3>
+<section id="other-exercise-ideas" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="other-exercise-ideas"><span class="header-section-number">5.2</span> Other exercise ideas</h3>
+<ul>
+<li><p>Additional FastQC script prompts:</p>
 <blockquote class="blockquote">
 <p>Add functional bells and whistles to the script</p>
 </blockquote>
 <blockquote class="blockquote">
 <p>Also report the time it took to run the script</p>
-</blockquote>
-</section>
-<section id="miscellaneous-tips" class="level3" data-number="3.5">
-<h3 data-number="3.5" class="anchored" data-anchor-id="miscellaneous-tips"><span class="header-section-number">3.5</span> Miscellaneous tips</h3>
-<ul>
-<li><kbd>Option/Alt</kbd> + <kbd>K</kbd> to persistently send a text selection to the prompt box</li>
+</blockquote></li>
+<li><p>Idea: add a <code>README.md</code> file and populate it?</p></li>
+<li><p>R example?</p></li>
+<li><p>Troubleshoot example?</p></li>
 </ul>
 <!---
 
@@ -836,47 +1143,39 @@ sbatch run_fastqc.sh iqbal/fastq/SRR31869590_1.fastq.gz results/fastqc/
 Submitted batch job 12241998
 ```
 
-
 - Check:
   - Equivalent of "Steer with message?" https://code.visualstudio.com/docs/chat/chat-overview#_send-messages-while-a-request-is-running
-  - Equivalent of checkpoints and undo by modifying the prompt and re-running? https://code.visualstudio.com/docs/chat/chat-checkpoints
-  - Equivalent of using entire 'codebase' (dir) as context as in `#codebase` https://code.visualstudio.com/docs/chat/copilot-chat-context
-  - In-document diffs like with Copilot
-  - BYOK WITH OLLAMA OR CLAUDE? https://code.visualstudio.com/docs/agents/concepts/language-models#_bring-your-own-language-model-key
   - https://code.visualstudio.com/docs/agents/reference/workspace-context#_improve-agent-search-with-exclusion-settings
+  - BYOK WITH OLLAMA OR CLAUDE? https://code.visualstudio.com/docs/agents/concepts/language-models#_bring-your-own-language-model-key
   
-## TBA
-
-- Mention that the whole chat is loaded every time, so start new chats for new tasks
-  to avoid unnecessary token usage and confusion/hallucinations.
-- Mention: CLAUDE.md also works with GitHub Copilot
-  (https://code.visualstudio.com/docs/agent-customization/custom-instructions#_always-on-instructions)
-
-- Useful context image, something similar for Claude?
-  https://code.visualstudio.com/docs/agents/concepts/context#_how-vs-code-assembles-context
-
-- Include an R example
-- Documentation (Markdown) file examples
-- Prompt to "Find the largest file?""
-
 ## Other
 
 > - If you're using the Ask agent, the active file is automatically included as context.
   - When using Agent, it decides autonomously if the active file needs to be added based on your prompt.
 
+
+- `editor.action.inlineSuggest.trigger` => keyboard shortcut to trigger inline suggestions
+
 ---->
 
 
+
 </section>
 </section>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-iqbal2025" class="csl-entry" role="listitem">
+Iqbal, O., X. Yang, Z. Wang, et al. 2025. <span>“Comparative Transcriptome and Genome Analysis Between Susceptible Zhefang Rice Variety Diantun 502 and Its Resistance Variety Diantun 506 Upon <span class="nocase">Magnaporthe oryzae</span> Infection.”</span> <em>BMC Plant Biology</em> 25 (1): 341. <a href="https://doi.org/10.1186/s12870-025-06357-5">https://doi.org/10.1186/s12870-025-06357-5</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p> But should be familiar to those of you using version control!<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p> Even though Copilot also has chat functionality, we’ll focus on Claude Code here for that.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p> You may also run into the word “<em>codebase</em>” in documentation and tutorials, which refers to the same thing in this context<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p> You may also run into the word “<em>codebase</em>” in documentation and tutorials, which refers to the same thing in this context.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p> Interestingly, when you’re not connected to OSC, this button allows you to select files from outside of your workspace, but when connected to OSC, it (only) allows you to upload files from your local computer.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p> If you were working entirely on a local computer, you could use the <code>Upload from computer</code> button to upload it, but when at OSC, this also connects to your local computer and not to files at OSC outside of your workspace.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
