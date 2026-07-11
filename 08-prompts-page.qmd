@@ -1,0 +1,10 @@
+title: "Prompt engineering"
+subtitle: "Day 2 - 9:00 AM - 9:30 AM"
+date: 2026-07-14
+date-modified: today
+author:
+  - name: Hannah Toth
+    email: toth.302@osu.edu
+    affiliation: 
+      - name: Department of Plant Pathology, Ohio State University
+        url: https://plantpath.osu.edu
