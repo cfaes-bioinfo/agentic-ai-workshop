@@ -32,18 +32,22 @@ However, you may find yourself repeatedly telling Claude the same things:
 - Use the `OSC module` system rather than installing software directly
 - Submit computationally intensive jobs through `Slurm`
 - Write output files to `results/`
-- Run a particular validation procedure after modifying a pipeline
+- Run a validation procedure after modifying a pipeline
 
 Claude Code provides several ways to make this information reusable. These features work when Claude Code is used through the `VS Code extension`; you do not need to operate Claude primarily from the terminal.
 
-**Option	Use it for	Example**
-CLAUDE.md	Information that should apply throughout the project	Project structure, environment details, coding conventions, and safety rules
-Skills	A repeatable procedure or checklist	Reviewing a Slurm script or validating a sequencing workflow
-Subagents	Delegating a focused task to a specialist with separate context	Asking a code-review **agent to inspect a pipeline without modifying it**
+**Option	Use it for	Example** \
 
-## Provide persistent context using CLAUDE.md
+| Feature | Use it for | Example |
+|----------|------------|---------|
+| **CLAUDE.md** | Information that should apply throughout the project | Project structure, software environment, coding conventions, and safety rules |
+| **Skills** | A reusable procedure or checklist for a specific task | Reviewing a Slurm script or validating a sequencing workflow |
+| **Subagents** | Delegating a focused task to a specialist with separate context | Asking a code-review agent to inspect a pipeline **without modifying it** |
 
-`CLAUDE.md` provides persistent project specific memory to your agent unlike prompting Claude at the beginning of every conversation. Therefore, you do not have to re-explain your project everytime. `CLAUDE.md` is simply a Markdown (`.md`) file, making it easy to create, edit, and version-control alongside your code. Claude automatically consults this file whenever it works in your project, allowing it to make more informed decisions, follow your preferred workflows, and use project-specific conventions without being reminded each time. This makes `CLAUDE.md` one of the simplest and most effective ways to customize Claude's behavior for a research project. **In bioinformatics, a well-written `CLAUDE.md` helps Claude understand your project, analysis pipeline, directory structure, coding standards, software environment, and preferred workflows**. There is no required format for `CLAUDE.md`. However, this file should be concise, easy to read, and written for both humans and Claude.
+
+## CLAUDE.md
+
+`CLAUDE.md` provides persistent project specific memory to your agent unlike prompting Claude at the beginning of every conversation. Therefore, you do not have to re-explain your project everytime. `CLAUDE.md` is a Markdown (`.md`) file, making it easy to create, edit, and version-control alongside your code. Claude automatically consults this file whenever it works in your project, allowing it to make more informed decisions, follow your preferred workflows, and use project-specific conventions. This makes `CLAUDE.md` one of the simplest and most effective ways to customize Claude's behavior for a research project. **In bioinformatics, a well-written `CLAUDE.md` helps Claude understand your project, analysis pipeline, directory structure, coding standards, software environment, and preferred workflows**. There is no required format for `CLAUDE.md`. However, this file should be concise, easy to read, and written for both humans and Claude.
 
 **Where should `CLAUDE.md` live?**
 
@@ -78,7 +82,7 @@ A good `CLAUDE.md` acts like a team member who already understands your project'
 You can create a CLAUDE.md file in two ways:
 
 - **Create it manually by adding a `CLAUDE.md` file to your project**.
-- **Generate it automatically using the `/init` command in Claude Code** (for example, within the VS Code extension or terminal interface). The generated file provides a useful first draft rather than a complete project specification.
+- **Generate it automatically using the `/init` command in Claude Code**. 
 
 When you run `/init`, Claude analyzes your project to generate an initial `CLAUDE.md`. It examines information such as:
 
@@ -89,9 +93,10 @@ When you run `/init`, Claude analyzes your project to generate an initial `CLAUD
 - Source code organization
 - Common development patterns
 
-Claude then asks where you would like to save the `CLAUDE.md` file.
-
+Example of `CLAUDE.md` file genearted using `/init` command is provided below:
 ![](/img/claudemd_file_example.png){fig-align="center" width="100%"}
+
+Claude then asks where you would like to save the `CLAUDE.md` file.
 
 ::: {.callout-note collapse="true"}
 #### Running `/init` again _(Click to expand)_
@@ -121,13 +126,11 @@ A good `CLAUDE.md` typically covers three key areas:
   - Document common commands for building, testing, linting, running scripts, and using project-specific tools.
 - Define standard workflows
   - Describe how your team develops code, reviews changes, writes tests, follows coding standards, and handles common tasks.
-  
-As your project evolves, update your `CLAUDE.md` to reflect new workflows, software, directory structures, or analysis conventions. Keeping it current helps Claude continue to provide accurate, project-specific assistance.
 
 ::: {.callout-tip}
 ## Best Practice
 
-Treat your `CLAUDE.md` as living documentation. Start with a simple file generated by `/init`, then refine it over time as your project evolves. The best `CLAUDE.md` files capture the conventions and workflows that you find yourself explaining to Claude repeatedly.
+Treat your `CLAUDE.md` as living documentation. Start with a simple file generated by `/init`, then refine it over time as your project evolves. The best `CLAUDE.md` files capture the conventions and workflows that you find yourself explaining to Claude repeatedly. As your project evolves, update your `CLAUDE.md` to reflect new workflows, software, directory structures, or analysis conventions. Keeping it current helps Claude continue to provide accurate, project-specific assistance.
 :::
 
 ## Guardrails
@@ -217,7 +220,6 @@ rnaseq-project/
 ├── results/
 └── README.md
 ```
-The folder name becomes the command used to invoke the skill. For example, the skill can be run from the Claude Code chat panel using `/review-slurm-script`
 
 SKILL.md consists of two parts:
 
@@ -225,24 +227,13 @@ SKILL.md consists of two parts:
 2. **The skill instructions**
 The YAML front matter provides the skill name and a short description. Claude uses the description to understand when the skill is relevant.
 
-The rest of the file should contain the procedure Claude should follow
+The rest of the file should contain the procedure Claude should follow. Example of `SKILL.md` file is provide below:
 
+![](/img/script_file_example.png){fig-align="center" width="100%"}
 
-name: Review Slurm script description: Review a Slurm submission script for correctness, resource requests, file paths, logging, and safe use on OSC. 
-
-
+The folder name becomes the command used to invoke the skill. **For example, the skill can be run from the Claude Code chat panel using `/review-slurm-script`**. Claude will then ask which Slurm script you want to review. You can provide the script path, such as:`scripts/fastqc.sh`. If the folder contains several scripts, Claude may ask you to choose a specific one. After you select a file, the skill reviews it for issues such as missing Slurm settings, unreasonable resource requests, incorrect paths, missing log files, or unsafe commands. Claude will usually separate confirmed problems from optional improvements and may then ask whether you want it to apply the suggested changes or review another script. Review the proposed changes before approving them. If you choose to apply the fixes, Claude updates the script based on the skill instructions.
 Review the Slurm script provided in the current context. 
-Check the following: 
-1. Confirm that the shebang is present. 
-2. Review requested CPUs, memory, and wall time. 
-3. Check the partition and account settings. 
-4. Confirm that required software modules are loaded. 
-5. Check input and output paths. 
-6. Confirm that standard output and errors are written to log files. 
-7. Look for unsafe or destructive commands. 
-8. Identify variables that should be quoted.
-9. Do not edit the script unless explicitly asked. 
-10. Separate confirmed errors from optional improvements.
+
 
 After creating the skill, a participant could open a Slurm script in VS Code and enter:
 

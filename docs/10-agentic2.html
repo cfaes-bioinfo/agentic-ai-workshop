@@ -231,7 +231,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#provide-persistent-context-using-claude.md" id="toc-provide-persistent-context-using-claude.md" class="nav-link" data-scroll-target="#provide-persistent-context-using-claude.md"><span class="header-section-number">2</span> Provide persistent context using CLAUDE.md</a>
+  <li><a href="#claude.md" id="toc-claude.md" class="nav-link" data-scroll-target="#claude.md"><span class="header-section-number">2</span> CLAUDE.md</a>
   <ul class="collapse">
   <li><a href="#creating-claude.md-file" id="toc-creating-claude.md-file" class="nav-link" data-scroll-target="#creating-claude.md-file"><span class="header-section-number">2.1</span> Creating <code>CLAUDE.md</code> file</a></li>
   </ul></li>
@@ -326,14 +326,46 @@ ul.task-list li input[type="checkbox"] {
 <li>Use the <code>OSC module</code> system rather than installing software directly</li>
 <li>Submit computationally intensive jobs through <code>Slurm</code></li>
 <li>Write output files to <code>results/</code></li>
-<li>Run a particular validation procedure after modifying a pipeline</li>
+<li>Run a validation procedure after modifying a pipeline</li>
 </ul>
 <p>Claude Code provides several ways to make this information reusable. These features work when Claude Code is used through the <code>VS Code extension</code>; you do not need to operate Claude primarily from the terminal.</p>
-<p><strong>Option Use it for Example</strong> CLAUDE.md Information that should apply throughout the project Project structure, environment details, coding conventions, and safety rules Skills A repeatable procedure or checklist Reviewing a Slurm script or validating a sequencing workflow Subagents Delegating a focused task to a specialist with separate context Asking a code-review <strong>agent to inspect a pipeline without modifying it</strong></p>
+<p><strong>Option Use it for Example</strong><br>
+</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 38%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Use it for</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>CLAUDE.md</strong></td>
+<td>Information that should apply throughout the project</td>
+<td>Project structure, software environment, coding conventions, and safety rules</td>
+</tr>
+<tr class="even">
+<td><strong>Skills</strong></td>
+<td>A reusable procedure or checklist for a specific task</td>
+<td>Reviewing a Slurm script or validating a sequencing workflow</td>
+</tr>
+<tr class="odd">
+<td><strong>Subagents</strong></td>
+<td>Delegating a focused task to a specialist with separate context</td>
+<td>Asking a code-review agent to inspect a pipeline <strong>without modifying it</strong></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="provide-persistent-context-using-claude.md" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="provide-persistent-context-using-claude.md"><span class="header-section-number">2</span> Provide persistent context using CLAUDE.md</h2>
-<p><code>CLAUDE.md</code> provides persistent project specific memory to your agent unlike prompting Claude at the beginning of every conversation. Therefore, you do not have to re-explain your project everytime. <code>CLAUDE.md</code> is simply a Markdown (<code>.md</code>) file, making it easy to create, edit, and version-control alongside your code. Claude automatically consults this file whenever it works in your project, allowing it to make more informed decisions, follow your preferred workflows, and use project-specific conventions without being reminded each time. This makes <code>CLAUDE.md</code> one of the simplest and most effective ways to customize Claude’s behavior for a research project. <strong>In bioinformatics, a well-written <code>CLAUDE.md</code> helps Claude understand your project, analysis pipeline, directory structure, coding standards, software environment, and preferred workflows</strong>. There is no required format for <code>CLAUDE.md</code>. However, this file should be concise, easy to read, and written for both humans and Claude.</p>
+<section id="claude.md" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="claude.md"><span class="header-section-number">2</span> CLAUDE.md</h2>
+<p><code>CLAUDE.md</code> provides persistent project specific memory to your agent unlike prompting Claude at the beginning of every conversation. Therefore, you do not have to re-explain your project everytime. <code>CLAUDE.md</code> is a Markdown (<code>.md</code>) file, making it easy to create, edit, and version-control alongside your code. Claude automatically consults this file whenever it works in your project, allowing it to make more informed decisions, follow your preferred workflows, and use project-specific conventions. This makes <code>CLAUDE.md</code> one of the simplest and most effective ways to customize Claude’s behavior for a research project. <strong>In bioinformatics, a well-written <code>CLAUDE.md</code> helps Claude understand your project, analysis pipeline, directory structure, coding standards, software environment, and preferred workflows</strong>. There is no required format for <code>CLAUDE.md</code>. However, this file should be concise, easy to read, and written for both humans and Claude.</p>
 <p><strong>Where should <code>CLAUDE.md</code> live?</strong></p>
 <ul>
 <li><strong>Most projects place it in the repository root so everyone working on the project shares the same instructions.</strong></li>
@@ -363,7 +395,7 @@ ul.task-list li input[type="checkbox"] {
 <p>You can create a CLAUDE.md file in two ways:</p>
 <ul>
 <li><strong>Create it manually by adding a <code>CLAUDE.md</code> file to your project</strong>.</li>
-<li><strong>Generate it automatically using the <code>/init</code> command in Claude Code</strong> (for example, within the VS Code extension or terminal interface). The generated file provides a useful first draft rather than a complete project specification.</li>
+<li><strong>Generate it automatically using the <code>/init</code> command in Claude Code</strong>.</li>
 </ul>
 <p>When you run <code>/init</code>, Claude analyzes your project to generate an initial <code>CLAUDE.md</code>. It examines information such as:</p>
 <ul>
@@ -374,12 +406,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Source code organization</li>
 <li>Common development patterns</li>
 </ul>
+<p>Example of <code>CLAUDE.md</code> file genearted using <code>/init</code> command is provided below: <img src=".\img/claudemd_file_example.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></p>
 <p>Claude then asks where you would like to save the <code>CLAUDE.md</code> file.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src=".\img/claudemd_file_example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
-</figure>
-</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -425,7 +453,6 @@ ul.task-list li input[type="checkbox"] {
 <li>Describe how your team develops code, reviews changes, writes tests, follows coding standards, and handles common tasks.</li>
 </ul></li>
 </ul>
-<p>As your project evolves, update your <code>CLAUDE.md</code> to reflect new workflows, software, directory structures, or analysis conventions. Keeping it current helps Claude continue to provide accurate, project-specific assistance.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -436,7 +463,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Treat your <code>CLAUDE.md</code> as living documentation. Start with a simple file generated by <code>/init</code>, then refine it over time as your project evolves. The best <code>CLAUDE.md</code> files capture the conventions and workflows that you find yourself explaining to Claude repeatedly.</p>
+<p>Treat your <code>CLAUDE.md</code> as living documentation. Start with a simple file generated by <code>/init</code>, then refine it over time as your project evolves. The best <code>CLAUDE.md</code> files capture the conventions and workflows that you find yourself explaining to Claude repeatedly. As your project evolves, update your <code>CLAUDE.md</code> to reflect new workflows, software, directory structures, or analysis conventions. Keeping it current helps Claude continue to provide accurate, project-specific assistance.</p>
 </div>
 </div>
 </section>
@@ -530,15 +557,18 @@ ul.task-list li input[type="checkbox"] {
 ├── scripts/
 ├── results/
 └── README.md</code></pre>
-<p>The folder name becomes the command used to invoke the skill. For example, the skill can be run from the Claude Code chat panel using <code>/review-slurm-script</code></p>
 <p>SKILL.md consists of two parts:</p>
 <ol type="1">
 <li><strong>YAML font matter</strong></li>
 <li><strong>The skill instructions</strong> The YAML front matter provides the skill name and a short description. Claude uses the description to understand when the skill is relevant.</li>
 </ol>
-<p>The rest of the file should contain the procedure Claude should follow</p>
-<p>name: Review Slurm script description: Review a Slurm submission script for correctness, resource requests, file paths, logging, and safe use on OSC.</p>
-<p>Review the Slurm script provided in the current context. Check the following: 1. Confirm that the shebang is present. 2. Review requested CPUs, memory, and wall time. 3. Check the partition and account settings. 4. Confirm that required software modules are loaded. 5. Check input and output paths. 6. Confirm that standard output and errors are written to log files. 7. Look for unsafe or destructive commands. 8. Identify variables that should be quoted. 9. Do not edit the script unless explicitly asked. 10. Separate confirmed errors from optional improvements.</p>
+<p>The rest of the file should contain the procedure Claude should follow. Example of <code>SKILL.md</code> file is provide below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src=".\img/script_file_example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+<p>The folder name becomes the command used to invoke the skill. <strong>For example, the skill can be run from the Claude Code chat panel using <code>/review-slurm-script</code></strong>. Claude will then ask which Slurm script you want to review. You can provide the script path, such as:<code>scripts/fastqc.sh</code>. If the folder contains several scripts, Claude may ask you to choose a specific one. After you select a file, the skill reviews it for issues such as missing Slurm settings, unreasonable resource requests, incorrect paths, missing log files, or unsafe commands. Claude will usually separate confirmed problems from optional improvements and may then ask whether you want it to apply the suggested changes or review another script. Review the proposed changes before approving them. If you choose to apply the fixes, Claude updates the script based on the skill instructions. Review the Slurm script provided in the current context. Check the following: 1. Confirm that the shebang is present. 2. Review requested CPUs, memory, and wall time. 3. Check the partition and account settings. 4. Confirm that required software modules are loaded. 5. Check input and output paths. 6. Confirm that standard output and errors are written to log files. 7. Look for unsafe or destructive commands. 8. Identify variables that should be quoted. 9. Do not edit the script unless explicitly asked. 10. Separate confirmed errors from optional improvements.</p>
 <p>After creating the skill, a participant could open a Slurm script in VS Code and enter:</p>
 <p>/review-slurm-script</p>
 <p>They could also provide additional instructions:</p>
