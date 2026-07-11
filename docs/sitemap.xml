@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/intro_to_genAI_and_LLM.html</loc>
-    <lastmod>2026-07-09T13:53:47.786Z</lastmod>
+    <lastmod>2026-07-11T02:49:44.430Z</lastmod>
   </url>
   <url>
     <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/p5-homework.html</loc>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/09-agentic2.html</loc>
-    <lastmod>2026-07-09T13:53:47.762Z</lastmod>
+    <lastmod>2026-07-11T12:50:20.187Z</lastmod>
   </url>
   <url>
     <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/13-diy.html</loc>
@@ -87,5 +87,9 @@
   <url>
     <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/o3-positron-install.html</loc>
     <lastmod>2026-07-09T22:03:35.508Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/10-agentic2.html</loc>
+    <lastmod>2026-07-11T12:50:20.187Z</lastmod>
   </url>
 </urlset>
