@@ -41,8 +41,8 @@ format:
 
 | Section | Time | Instructor | Topic & link |
 |:-:|----|---|------------|
-| 8 | 09:00 am -- 09:30 am | Hannah | Prompt engineering |
-| 9 | 09:30 am -- 10:30 am | Jelmer | [Agentic chat with Claude Code](./09-claude.qmd) |
+| 8 | 09:00 am -- 10:00 am | Jelmer | [Agentic chat with Claude Code](./08-claude.qmd) |
+| 9 | 10:00 am -- 10:30 am | Hannah | Prompt engineering |
 |  | [*10:30 am -- 10:45 am*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
 | 10 | 10:45 am -- 11:45 am | Menuka | Advanced agentic options and skills |
 | 11 | 11:45 am -- 12:15 pm | Hannah | Limitations and responsible use of AI |

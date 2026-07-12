@@ -1,43 +1,92 @@
-h1, h2 {
-  text-align: center;
+h1,
+h2 {
+    text-align: center;
+}
+
+h2 {
+    position: relative;
+    padding-bottom: 0.3em;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0.45em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20%;
+    height: 2px;
+    background-color: #555555;
 }
 
 p.caption {
-  text-align: center !important;
-  color: #bebfc2 !important;
-  font-size: 0.85em !important; 
-  font-style: italic !important;
+    text-align: center !important;
+    color: #bebfc2 !important;
+    font-size: 0.85em !important;
+    font-style: italic !important;
 }
 
 .legend2 {
-  text-align: center !important;
-  color: #bebfc2 !important;
-  font-size: 0.85em !important; 
-  font-style: italic !important;
-  margin-top: -30px;
+    text-align: center !important;
+    color: #bebfc2 !important;
+    font-size: 0.85em !important;
+    font-style: italic !important;
+    margin-top: -30px;
 }
 
-details > summary {
-  padding: 10px 10px;
-  background-color: #f1f6f1;
-  border: none;
-  border-radius: 25px;
-  /*box-shadow: 3px 3px 4px black;*/
+details>summary {
+    padding: 10px 10px;
+    background-color: #f1f6f1;
+    border: none;
+    border-radius: 25px;
+    /*box-shadow: 3px 3px 4px black;*/
 }
 
 details {
-  border-radius: 25px;
-  background-color: #f1f6f1;
-  padding: 5px 5px;
-  margin-left: 5px;
-  border-left-width: 0px;
-  border-left-style: solid;
-  border-left-color: #DCCFDE;
-  border-radius: 5px;
+    border-radius: 25px;
+    background-color: #f1f6f1;
+    padding: 5px 5px;
+    margin-left: 5px;
+    border-left-width: 0px;
+    border-left-style: solid;
+    border-left-color: #DCCFDE;
+    border-radius: 5px;
 }
 
 .quarto-float {
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* --------------------------------------------------------------------------/*
+/* Callouts */
+.callout-warning {
+    border: 2.5px solid #e89b2a !important;
+    border-left: 5px solid #e89b2a !important;
+    border-radius: 12px !important;
+}
+
+.callout-tip {
+    border: 2.5px solid #28a745 !important;
+    border-left: 5px solid #28a745 !important;
+    border-radius: 12px !important;
+}
+
+.callout-note {
+    border: 2.5px solid #0d6efd !important;
+    border-left: 5px solid #0d6efd !important;
+    border-radius: 12px !important;
+}
+
+.callout-important {
+    border: 2.5px solid #d63384 !important;
+    border-left: 5px solid #d63384 !important;
+    border-radius: 12px !important;
+}
+
+.callout-caution {
+    border: 2.5px solid #fd7e14 !important;
+    border-left: 5px solid #fd7e14 !important;
+    border-radius: 12px !important;
 }
