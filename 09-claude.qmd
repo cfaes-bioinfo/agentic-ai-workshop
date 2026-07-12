@@ -1,6 +1,6 @@
 ---
-title: "Agentic chat with Claude Code"
-subtitle: "Exploring different functionality, settings, and workflows"
+title: "9: Agentic chat with Claude Code"
+subtitle: "Getting started with this extremely powerful tool"
 date: 2026-07-03
 date-modified: today
 author:
@@ -30,12 +30,12 @@ In the session on [GitHub Copilot](06-copilot.qmd),
 we discussed the pros and cons of these two tools.
 
 Unlike with GitHub Copilot, we will not use a personal account to access Claude Code.
-Instead, we will use an access key that the workshop instructors have obtained
+Instead, we'll use an access key that the workshop instructors have obtained
 using OSU OTDI's [Generative AI Service](https://it.osu.edu/generative-ai-service).
-Moving forward, we will refer to this type of access key as the "**OSU LiteLLM API key**"^[
+Moving forward, we will refer to this type of access key as an "**OSU LiteLLM API key**"^[
 It runs via the LiteLLM service, and these kind of keys in general are called "API keys".].
 
-A large advantage of this approach is that it allows us to use Claude Code in a way
+A key advantage of this approach is that it allows us to use Claude Code in a way
 that is **approved for use with restricted institutional data (S2-S4)**.
 So, you can use it also with your own data this afternoon,
 regardless of whether it is public or private data.
@@ -65,7 +65,7 @@ you are **not** using it in an approved way.
 :::
 
 Like with GitHub Copilot, the Anthropic product Claude Code comes in various forms,
-but we will use it using a VS Code extension --- which we'll set up now.
+but we will use it within a VS Code extension --- which we'll set up now.
 
 ## Setting up Claude Code
 
@@ -84,12 +84,12 @@ but we will use it using a VS Code extension --- which we'll set up now.
    ```
 
    ::: {.callout-note collapse="true"}
-   #### What does this file contain? _(Click to expand)_
+   #### What does the settings file contain? _(Click to expand)_
 
    We can't share this file on the website in full,
    because it contains an API key that cannot be exposed publicly.
-   But for your reference, the contents of this file
-   minus the API key (here replaced by `REPLACE_WITH_API_KEY`) are as follows:
+   But for your reference, the contents of this JSON settings file
+   minus the API key (here replaced by `REPLACE_WITH_API_KEY`) is as follows:
    
    ```json
    {
@@ -141,26 +141,17 @@ but we will use it using a VS Code extension --- which we'll set up now.
 
 All done!
 
-::: exercise
-#### {{< fa user-edit >}} Exercise: Test that Claude Code works
-
-In the prompt box at the bottom,
-go ahead and ask it a quick, simple question to test that it works.
-
-No inspiration? Ask a classic stumbling-block question for AIs, such as
-_"How many b's are in the word blueberry?"_
-:::
-
 ## Getting started
 
 ### The prompt box
 
 Let's start by taking a closer look at the **prompt box**,
-as most of the features we'll discuss next are accessed from there, such as:
+as most of the features we'll discuss next are accessed from there --- for example:
 
-- Adding context with the `+` button.
-- The `/` button to open the command menu.
-- `Manual` is an indicator of the currently selected permission mode,
+- Adding file context with the `+` button.
+- The `/` button to open the Command Menu.
+- `Manual` is an indicator of the currently selected "permission mode"
+  (the level of permissions Claude is granted for agentic actions),
   which can be changed by clicking on it.
 
 ![The Claude Code prompt box.](/img/claude-prompt-box.png){fig-align="center" width="65%" .lightbox fig-alt="Screenshot of the Claude Code prompt box"}
@@ -179,20 +170,35 @@ as most of the features we'll discuss next are accessed from there, such as:
   At least for me, this doesn't work and that seems to be a known issue.
 :::
 
-### A few prompts to get started
+### A first prompt
 
-> **Write a very simple script to run FastQC on a FASTQ file**
+> _Write a very simple script to run FastQC on a FASTQ file_
 
-- DETAILS TBA -- Then, have it troubleshoot the (likely) `module` problem.
+- _Considerations TBA._
+  - _Where does the file go?_
+  - _Does it know about Slurm and module?_
 
-## Adding context
+::: callout-important
+#### These prompts aren't very good
+
+Our initials prompts to Claude Code in much of this session will be:
+
+- Quite **simple**, so we can focus on the mechanics of using the tool.
+  We invite you to try more complex prompts this afternoon!
+
+- **Not (necessarily) well-designed**, so we can get a better feel for Claude behavior
+  in different contexts, and illustrate improvement later on.
+  _TBA - mention prompt engineering session_  
+:::
+
+## Adding file context
 
 Files are one of the main pieces of "**context**" that Claude Code uses to answer your questions.
 A key advantage of using AI in your editor is that relevant files are readily available,
 and don't need to be uploaded or copied-and-pasted from your computer to a web interface.
 
-::: callout-tip
-#### The open folder is your "workspace"
+### Your open folder is your "workspace"
+
 When working with Claude Code in VS Code, **you should always open a folder**
 with the VS Code "Open Folder" functionality,
 and have the relevant files in that folder or subfolders.
@@ -201,33 +207,36 @@ You may also run into the word "_codebase_" in documentation and tutorials,
 which refers to the same thing in this context.].
 
 Typically, your workspace should be a folder for a specific research project.
-It is good pratice to keep all files related to a project in one folder/workspace
-for many reasons, including for reproducibility and for effectively using
-in-editor AI like Claude Code.
-:::
+**It is good practice to keep all files related to a project in one folder/workspace**.
+There are a number of reasons for this,
+including to benefit reproducibility and to effectively use in-editor AI like Claude Code.
 
+::: {.callout-tip appearance="simple"}
 To start with, **your entire workspace** is what we may call the "implicit context" for the chat.
 When it considers that useful for a given prompt,
 Claude will often search your workspace for similar or relevant files.
 However, it is often better to explicitly add context to the chat,
 which you can do in a number of ways, as we will discuss below.
+:::
 
-### Files that are open in the editor
+### Adding files that are open in the editor
 
-The easiest way to add context is to simply have the relevant file open in the editor:
+The easiest way to add file context is **simply having the relevant file open in the editor**:
 Claude will automatically add it.
-(When you have multiple tabs open, Claude will automatically add the file that is "active",
-i.e., the one that is currently showing.)
+(When you have multiple tabs open, Claude will add the file that is "active",
+i.e., the one whose content is currently showing^[
+Or, if you have side-by-side editor panes, the one where the cursor is currently located.])
 
 With our `fastqc.sh` script still open,
 you can see in the prompt box that Claude has added this file as context:
   
-[Screenshot]
+_[SCREENSHOT TBA]_
 
-If you want to remove the active file from the context, click on its name below the
-prompt box, and it will be grayed out and removed from the context:
+If you want to **remove the active file from the context**,
+click on its name below the prompt box,
+and it will be grayed out and removed from the context:
 
-[Screenshot]
+_[SCREENSHOT TBA]_
 
 Additional considerations:
 
@@ -237,26 +246,35 @@ Additional considerations:
   "_these lines of code don't seem to be working, can you help me fix them?_"
 
 - If you want to **add multiple files as context**,
-  you might initially find yourself frustrated, as Claude will just switch the context to the active file.
-  A good solution is the <kbd>Option/Alt</kbd> + <kbd>K</kbd> shortcut,
+  you can use the <kbd>Option/Alt</kbd> + <kbd>K</kbd> shortcut,
   which adds the currently selected file (or text) to the prompt box and keeps it there,
   even if you switch active files or add other files as context.
+
+- Files can also be added by typing `@` in the prompt box,
+  followed by part of the file name.
+  This will bring up a list of files in your workspace that match,
+  or even a full list of files if you just type `@` and pause:
+
+  ![](/img/claude-context-add2.png){fig-align="center" width="50%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"}
+
+  If you have lots of files in your workspace,
+  typing part of the name is often easier than scrolling.
+  These partial names will also match files in subfolders,
+  so you can type `@fastqc` to find the `fastqc.sh` script in the `S09` folder, for example.
 
 ::: exercise
 #### {{< fa user-edit >}} Exercise: Add context to the chat
 
-- Details TBA
-- Practice with adding multiple files, e.g. a script AND a Slurm file
-
-::: {.callout-tip appearance="simple"}
-### The `@` symbol for adding context
-You'll notice that added files are preceded by an `@` symbol in the prompt box.
-That leads us to another way of adding context: by typing `@` in the prompt box,
-followed by part of the file name (for more, see below).
-:::
+1. Run the script `fastqc.sh` in the terminal.
+2. Wait for a Slurm file to appear, and look at it.
+3. Add both the `fastqc.sh` script and the Slurm file as context to the chat,
+   and ask a relevant follow-up question.
+   If you got an error when running the script, you could ask to troubleshoot the error.
+   If it ran successfully, you could ask to improve the script or what will end up in the Slurm file.
 :::
 
-### Other files
+::: {.callout-note collapse="true"}
+### Uploading files via the `+` button _(Click to expand)_
 
 While I find that this is rarely needed,
 you can add files that are not open in the editor as context by clicking the
@@ -269,54 +287,15 @@ you can add files that are not open in the editor as context by clicking the
   Interestingly, when you're not connected to OSC,
   this button allows you to select files from outside of your workspace,
   but when connected to OSC, it (only) allows you to upload files from your local computer.]. 
+- The `Add context` button is equivalent to typing `@` in the prompt box.
 
-- The `Add context` button lets you add any file from your workspace as context for the chat.
-  You can sort of browse through files in the pop-up window:
-
-  ![](/img/claude-context-add2.png){fig-align="center" width="50%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"}
-
-  Again, you'll notice that added files are preceded by an `@` symbol ---
-  and a quicker way to add files, then,
-  is to simply type `@` followed by part of the file name in the prompt box.
-  It will also find files in subfolders,
-  so you can type `@fastqc` to find the `fastqc.sh` script in the `S07` folder, for example.
-
-::: callout-warning
-#### Need to add a file as context but it is not in your workspace?
+**Need to add a file as context but it is not in your workspace?**\
 If you want to add a file as context that is not in your workspace,
 you can't select it from the `Add context` pop-up window^[
 If you were working entirely on a local computer, you could use the `Upload from computer` button to upload it,
 but when at OSC, this also connects to your local computer and not to files at OSC outside of your workspace.].
 Instead, the easiest way is again to simply open the file in the editor
-(e.g., `File` > `Open File...` and then you can enter any path).
-:::
-
-### Permission modes
-
-On the right-hand side of the prompt box is the **Permission Modes** indicator.
-This sets the permission type Claude has to perform
-**actions like editing files and running commands**, and can be toggled between:
-
-- **Manual**:
-  Claude asks permission for each action.
-- **Edit automatically**:
-  Claude makes edits to files and runs basic commands without asking for permission.
-- **Plan mode**:
-  Claude writes a plan that is then opened as a rendered Markdown document,
-  and which you can approve or modify.
-- **Auto mode**:
-  Claude determines on its own whether to ask for permission or not for specific actions,
-  or to write a plan.
-  In this mode, it is also more likely to ask you for clarifying questions.
-
-  If you switch to Auto Mode, you should see something like the following:
-
-  ![](/img/claude-automode-message.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"}
-
-::: exercise
-#### {{< fa user-edit >}} Exercise: Try out the permission modes
-
-TBA
+(e.g., `File` > `Open File...`, and then you can enter any path).
 
 :::
 
@@ -332,10 +311,11 @@ you can control which LLM model is used and how it behaves:
 ::: {.column width="30%"}
 ![Command menu icon](/img/claude-command-icon.png){fig-align="center" width="35%" fig-alt="Screenshot of the Claude Code interface, showing the command menu icon"}
 :::
-
 :::
 
-- **`Switch model...`** —
+![](/img/claude-command-menu-options.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the command menu options"}
+
+- **`Switch model...`**:
   Lets you pick which Claude model to use.
   The main trade-off is between speed/cost and capability:
   - **_Opus_** is likely to be the default model, and is the most capable model,
@@ -346,15 +326,20 @@ you can control which LLM model is used and how it behaves:
   - **_Haiku_** is the fastest and cheapest, but less capable.
     Fine for simple questions or quick edits.
 
-  ![With our LiteLLM setup, these are the only models you should be seeing.](/img/claude-model-sel.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the model selection options"}
+  ![With our LiteLLM setup, these are the only models you should be seeing.](/img/claude-model-sel.png){fig-align="center" width="60%" fig-alt="Screenshot of the Claude Code interface, showing the model selection options"}
   
   ::: {style="color: darkblue;"}
-  {{< fa user-edit >}} **Switch to Sonnet** for our workshop tasks ---
+  {{< fa user-edit >}} **Switch to Sonnet** as the default for workshop tasks ---
   it will be faster, cheaper, and plenty capable for writing bioinformatics scripts.
   You can always switch back for individual tasks if you find Sonnet is struggling with a problem.
   :::
 
-- **Effort** —
+  ::: {.callout-tip appearance="simple"}
+  Another way to think about model usage and switching:
+  Use Opus to plan and Sonnet to execute the plan.
+  :::
+
+- **Effort**:
   Controls how much effort the model puts in before responding:
   "Low" / "Medium" / "High" / "Max".
   Higher effort means more thorough reasoning but slower responses.
@@ -367,123 +352,39 @@ you can control which LLM model is used and how it behaves:
   {{< fa user-edit >}} **Switch to Medium** effort for now.
   :::
 
-- **Thinking toggle** —
+- **Thinking toggle**:
   When enabled, Claude performs explicit step-by-step reasoning before responding,
   which improves quality on complex tasks (at the cost of more tokens and time).
   The thinking is shown in a collapsible block above the response,
   which can be useful for understanding _why_ it made certain choices.
-  Essentially, the **Effort** setting controls how much thinking it does when this is enabled.
 
-- **"Switch model when a message is flagged"** —
-  If Claude refuses a request or flags it as potentially problematic
-  (which can happen with bioinformatics commands that look like they could be destructive),
-  this setting can automatically retry with a different model.
+- ("_Switch model when a message is flagged_":
+  If Claude refuses a request or flags it as potentially problematic,
+  this setting can automatically retry with a different model.)
 
-::: {.callout-warning collapse="true"}
-### Token usage _(Click to expand)_
+## Permission modes
 
-Token usage is a key factor in the cost of using LLMs like Claude.
-Every response uses tokens across three parts of a request:
+On the right-hand side of the prompt box is the **Permission Modes** indicator.
+This sets the permission level that Claude has to perform
+**actions like editing files and running commands**, and can be toggled between:
 
-- **Thinking**: The (optional) step-by-step reasoning Claude does before responding,
-  shown in the collapsible "thinking" block when the Thinking toggle is on.
-- **Tool calling**: Claude spends tokens each time it reads a file, searches your workspace,
-  or runs a command, since the results of those actions are fed back into the conversation.
-- **Text**: The visible response itself, as well as all the text of your prompt
-  and any files/context you've added.
+- **Manual**:
+  Claude asks permission for each action.
+- **Edit automatically**:
+  Claude makes edits to files and runs basic commands without asking for permission.
+- **Plan mode**:
+  Claude writes a plan that is then opened as a rendered Markdown document,
+  and which you can approve or modify.
+- **Auto mode**:
+  Claude determines on its own whether to ask for permission or not for specific actions,
+  or to write a plan.
+  In this mode, it is also more likely to ask you for clarifying questions.
+  If you switch to Auto Mode, you should see something like the following:
 
-Because tool calls and thinking can consume far more tokens than the visible chat text,
-a short-looking question that requires searching many files or a lot of reasoning
-can still be relatively expensive. This is part of why model choice and effort level
-(discussed above) matter for cost and speed, not just response quality.
-:::
+  ![](/img/claude-automode-message.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"}
 
-::: {.callout-note collapse="true"}
-#### Tracking $ usage (when using an API key) _(Click to expand)_
-
-With an OSU LiteLLM API key, usage can be tracked on the
-[LiteLLM dashboard](https://litellm.cloud.osu.edu).
-Though at the moment, you are using the API key provided by us, so you can't see this.
-
-This dashboard will show a dollar-wise daily usage bar chart ("Usage" page),
-and a table of all requests that includes the exact amount spent on each request
-("Logs" page).
-
-![Usage page example](/img/litellm-usage.png){fig-align="center" width="95%" fig-alt="Screenshot of the LiteLLM dashboard, showing the 'Usage' page with a bar chart of daily usage and a table of requests with cost per request"}
-
-----
-
-![Logs page example](/img/litellm-logs.png){fig-align="center" width="95%" fig-alt="Screenshot of the LiteLLM dashboard, showing the 'Logs' page with a table of requests and cost per request"}
-
-:::
-
-## Other important options
-
-In the command menu:
-
-- **Clear conversation:**
-  Wipes the current chat history and starts fresh, but keeps the same chat "slot"
-  (as opposed to starting a genuinely new chat, see below).
-  Useful when a conversation has gotten long or gone down an unproductive path,
-  and you want Claude to stop being influenced by it,
-  without leaving behind a separate chat you'd need to find again later.
-
-- **Rewind:**
-  Lets you step back to an earlier point in the conversation
-  (and optionally, to the state of your files at that point).
-  This is handy if Claude made a series of edits that turned out to be a dead end:
-  rather than asking it to undo things (which is not always reliable),
-  you can rewind the conversation _and_ the code to before that point.
-
-Icons at the top of the Claude Code window:
-
-![](/img/claude-top-buttons.png){fig-align="center" width="75%" fig-alt="Screenshot of the Claude Code interface, showing the top buttons for chat history, new chat, and opening a new Claude Code window"}
-
-- **Chat icon with `+`** (far right): Starts a brand new chat, with an empty context ---
-  unlike `Clear conversation`, your old chat is preserved and can be revisited via the clock icon.
-
-- **Clock icon** (left of new chat icon):
-  Shows a list of your previous chats,
-  so you can reopen and continue an earlier conversation.
-
-  ::: {.callout-tip}
-  #### When to start a new chat
-  Previous messages in a chat are kept as context for follow-up questions,
-  which is often useful (e.g., Claude remembers what script you were just working on).
-  But this context also costs tokens and time to process,
-  and irrelevant earlier context can occasionally distract the model.
-
-  As a rule of thumb, start a new chat when you're moving on to a clearly separate task
-  or piece of your project (e.g., you finished the QC step and are moving on to alignment),
-  and keep the same chat when you're iterating on the same problem.
-  :::
-
-- **Claude icon** (left, in the editor):
-  Opens an entirely new Claude Code window (a separate pane),
-  which is useful if you want to have multiple chats open side by side at the same time ---
-  for example, to run a long task in one window while asking a quick question in another.
-
-::: callout-note
-### Miscellaneous tips
-
-- You can **interrupt** Claude while it is working (e.g., mid-response, or while running a command)
-  by pressing <kbd>Esc</kbd> or clicking the stop button --- useful if you notice it's headed
-  in the wrong direction, or a command is taking much longer than expected.
-
-- Keep an eye on the running **cost/token indicator** in the interface,
-  especially when using Opus or a high effort setting for a task
-  that turns out to be simple.
-
-- For more advanced users: **Version control** (Git) pairs well with agentic coding.
-  Commit before letting Claude make a batch of changes,
-  so you can easily review or revert if things go sideways.
-  If you're not using Git, you may in some cases want to make a **backup copy** of your
-  file or even workspace before letting Claude make edits.
-:::
-
-## Your turn
-
-### Explore planning mode and models/effort
+::: exercise
+#### {{< fa user-edit >}} Exercise: Explore planning mode and models/effort
 
 In this exercise, you'll ask Claude to plan a quality control workflow for the RNA-seq data,
 first quickly and then more carefully,
@@ -530,25 +431,290 @@ For each prompt, do the following:
 - How would you verify that the plan is reasonable and complete?
 - How does it compare to what @iqbal2025 actually did in their workflow?
 - Does the "lazy" setting seem good enough here?
+:::
 
-### A troubleshooting example
+## Stopping or steering Claude mid-response
 
+Sometimes, you realize you made a mistake in your prompt,
+or that Claude is going down the wrong path.
+If you want to take action while it is still in the process of responding,
+you can do so in a few ways:
+
+- **Steer with a message**: You can simply type a new message in the prompt box
+  while it is responding, and it will (soon) read your message and take it into
+  account before continuing.
+
+  ![The message "actually load R 4.4.0 instead" was added while Claude was responding.](/img/claude-interrupt1.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
+
+- **Pause it mid-response**: You can press <kbd>Esc</kbd> or click the Stop button
+  in the top right of the response box.
+  This will stop Claude in its tracks (sometimes with a delay),
+  and you can then send a new message to steer it in a different direction ---
+  you don't need to repeat your original prompt.
+
+  ![](/img/claude-interrupt4.png){fig-align="center" width="60%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
+
+- **Completely stop and rewind**
+  Pressing <kbd>Esc</kbd> + <kbd>Esc</kbd> in quick succession will stop Claude
+  and rewind the conversation to the point before it started responding.
+
+  ![After pressing Esc + Esc, you can choose a point in the conversation to go back to. In this case, the conversation only consists of a single message.](/img/claude-interrupt2.png){fig-align="center" width="65%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
+
+  ![After selecting that message, it asks you to confirm the rewind, which in this cases involves removing the generated code in an R script.](/img/claude-interrupt3.png){fig-align="center" width="65%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
+
+::: {.callout-tip appearance="simple"}
+**You can also access the rewind option through the Command Menu.**
+:::
+
+::: exercise
+#### {{< fa user-edit >}} Exercise: Try it yourself
+
+The prompt below is what I used for the screenshots above,
+but you can modify it or use a different prompt if you like:
+
+> Write an R script to visualize the data in `iqbal/meta.tsv`, which should produce PNG files. Run the R script. Load the R module with "module load gcc/12.3.0 R.4.5.0"
+:::
+
+## The context window and token usage
+
+### The context window
+
+The so-called **context window** is a key concept in using LLMs like Claude Code.
+The context window is the amount of text that the model can "see" at once,
+and it is measured in **tokens** (roughly 3/4 of a word).
+The context window includes:
+
+- Input tokens:
+  - The **user's prompt(s)** across the entire conversation
+  - Any **files** added to the conversation
+  - **Always-loaded context** such as system instructions and "skills"
+    (you'll learn more about skills in the next session)
+
+- Output tokens:
+  - The **model's responses** across the entire conversation
+  - The model's **"thinking"** (if enabled)
+
+- Input and output tokens:
+  - The model's **tool use**:
+    Claude spends tokens each time it reads a file, searches your workspace,
+    or runs a command, since the results of those actions are fed back into the conversation.
+
+![From the [Claude docs](https://platform.claude.com/docs/en/build-with-claude/context-windows)](/img/claude-context-window.svg){fig-align="center" width="100%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing a new Claude Code window opened in the editor pane"}
+
+Different models have different context window sizes,
+with many current models having a **1 million token** context window size.
+
+### What happens when the context window fills up?
+
+- When the context window fills up, the model will start to "forget" earlier parts of the conversation.
+
+- More generally, performance degrades as the context window fills up, 
+  and hallucinations and other errors become more likely.
+
+- Larger context windows will also slow down responses and increase costs.
+
+For these reasons, it is important to **monitor and manage context usage**.
+
+::: callout-note
+#### "Lost in the Middle" problem
+A related problem that can be useful to be aware of is that the model is most
+likely to "lose track" of the middle of a long conversation,
+when the context window is large but not yet full.
+:::
+
+### Monitoring context usage
+
+So-called [slash-commands or simply commands](https://code.claude.com/docs/en/commands)
+are shortcuts that can be used in the prompt box to perform various actions.
+The `/context` command shows a visualization of the context token usage in the current conversation:
+
+![_What is "autocompact buffer"? We'll talk about compaction in a little bit._](/img/claude-context-viz.png){fig-align="center" width="65%" fig-alt="Screenshot of the Claude Code interface, showing the 'Context' command and a visualization of context token usage"}
+
+{{< fa user-edit >}} **Try it out**: Type `/context` in the prompt box and hit
+Enter to see the context usage for your current conversation.
+
+### Token usage
+
+Above, we talked about token usage in the context of the context window.
+But token usage is also important for another reason: **cost**.
+Therefore, the following content about "context engineering" (managing context)
+is as relevant for cost as it is for performance.
+
+One important aspect of token usage is that **output tokens are more expensive than input tokens**.
+For example, for our current default Opus model, the text in the screenshot below
+indicates that 1 M input tokens cost $5, while 1 M output tokens cost $25. 
+
+![With our LiteLLM setup, these are the only models you should be seeing.](/img/claude-model-sel.png){fig-align="center" width="60%" fig-alt="Screenshot of the Claude Code interface, showing the model selection options"}
+
+Because tool calls and thinking can consume far more tokens than the visible chat text,
+a short-looking question that requires searching many files or a lot of reasoning
+can still be relatively expensive. This is part of why model choice and effort level
+(discussed above) matter for cost and speed, not just response quality.
+
+::: {.callout-note collapse="true"}
+#### Tracking dollar usage when using an API key _(Click to expand)_
+
+If you had a personal Anthropic account, usage tracking in dollars would be available
+right in the Claude Code interface with a slash-command.
+But with our OSU LiteLLM API key, this is not available.
+
+With an OSU LiteLLM API key, usage can be tracked on the
+[LiteLLM dashboard](https://litellm.cloud.osu.edu).
+At the moment, you are using the API key provided by us, so you can't access this ---
+but you will be able to do so if you get your own OSU LiteLLM API key.
+
+This dashboard e.g. shows a dollar-wise daily usage bar chart ("Usage" page),
+and a table of all requests that includes the exact amount spent on each request
+("Logs" page).
+
+![Usage page example](/img/litellm-usage.png){fig-align="center" width="95%" fig-alt="Screenshot of the LiteLLM dashboard, showing the 'Usage' page with a bar chart of daily usage and a table of requests with cost per request"}
+
+----
+
+![Logs page example](/img/litellm-logs.png){fig-align="center" width="95%" fig-alt="Screenshot of the LiteLLM dashboard, showing the 'Logs' page with a table of requests and cost per request"}
+:::
+
+::: callout-tip
+#### Agentic AI is cool, but you don't always need it
+
+To reduce usage costs, you can consider switching to AI tools in your browser
+when you don't need agentic capabilities like file editing and command execution.
+For example, questions about general bioinformatics concepts and software usage and options
+can be answered by a browser-based LLM like Google Gemini via an OSU login
+
+On the other hand, going back-and-forth depending on the context does mean that
+you don't have all relevant chat history in one place.
+:::
+
+### Context engineering
+
+"Context engineering" is the practice of managing the context window to improve
+performance and reduce costs.
+
+#### Quick tips
+
+Here, we will focus on strategies related to managing the actual chat conversation,
+but a couple other strategies are worth mentioning briefly:
+
+- Don't load unnecessary files as context.
+
+- Explicit is better than implicit:
+  For example, if you know which files are relevant to your question,
+  explicitly add them as context rather than letting Claude search the entire workspace.
+
+- _(We haven't covered these yet, but you should similarly be mindful of context_
+  _that's always loaded, such as `CLAUDE.md` files, skills, and MCPs.)_
+
+::: callout-tip
+#### Being explicit is a key general tip
+Not only does being explicit prevent Claude from making assumptions that may be wrong,
+it also prevents it from going around figuring things out for itself ---
+which, while sometimes impressive to witness, is _slow and expensive_!
+:::
+
+#### Don't let your conversation get too long
+
+First of all, to be clear:
+Claude and any other LLM will
+**have no memory whatsoever of your previous conversations**
+when you start a new chat.
+
+Therefore, you may often be inclined to keep the same chat going for a long time,
+so that Claude can "remember" what you were working on.
+But as we've discussed, lots of context is costly and can eventually degrade performance.
+
+::: {.callout-caution appearance="simple"}
+Side note: **_Don't continue the same chat for clearly unrelated tasks_**,
+even when the conversation is not long at all.
+Claude can get completely confused if you switch topics mid-conversation.
+:::
+
+Starting a new chat is therefore often a good idea,
+and you can do so by clicking the **Chat icon with `+`** in the top right of
+the Claude Code window.
+
+Here are two ways to have useful conversations despite length limitations:
+
+- Break your work into smaller tasks and have separate chats for each task.
+- Load "external memory" via files that summarize your project and its current state
+  ([session 10](./10-agentic2.qmd).
+
+::: {.callout-note collapse="true"}
+#### Related options _(Click to expand)_
+
+- The **Clock icon** (left of new chat icon) shows a list of your previous chats,
+  so you can reopen and continue an earlier conversation.
+
+- **Clear conversation:** (`/clear`)
+  Wipes the current chat history and starts fresh, but keeps the same chat "slot"
+  (as opposed to starting a genuinely new chat, see below).
+  Useful when a conversation has gotten long or gone down an unproductive path,
+  and you want Claude to stop being influenced by it,
+  without leaving behind a separate chat you'd need to find again later.
+  This can also be invoked by typing `/clear` in the prompt box.
+
+- `/compact` — Summarize ("compact") the conversation so far into a shorter version
+  to reduce token usage and speed up responses
+  (this is related to the "autocompact buffer" in the context visualization).
+
+- **Claude icon** (left, in the editor):
+  Opens an entirely new Claude Code window (a separate pane),
+  which is useful if you want to have multiple chats open side by side at the same time ---
+  for example, to run a long task in one window while asking a quick question in another.
+
+![Screenshot of the top of the Claude window, with the Claude icon (left) to open a completely new window, the clock icon (right) to see previous chats, and the new chat icon (far right) to start a new chat.](/img/claude-top-buttons.png){fig-align="center" width="75%" fig-alt="Screenshot of the Claude Code interface, showing the top buttons for chat history, new chat, and opening a new Claude Code window"}
+:::
+
+## Additional exercises
+
+::: exercise
+#### {{< fa user-edit >}} Run the code from one of the plans you generated above
+:::
+
+::: exercise
+#### {{< fa user-edit >}} A troubleshooting example
 _TBA -- likely provide a script that produces errors, and ask Claude to troubleshoot it._
+:::
 
-### Other exercise ideas - TBA
+::: exercise
+#### {{< fa user-edit >}} Improve a script
 
-- Additional (FastQC) script prompts:
+> Add functional bells and whistles to the fastqc.sh script. Also report the time it took to run the script
+:::
 
-  > Add functional bells and whistles to the script
+::: exercise
+#### {{< fa user-edit >}} Trick questions
 
-  > Also report the time it took to run the script
+Ask a classic stumbling-block question for AIs, such as
+_"How many b's are in the word blueberry?"_
 
-- Add a `README.md` file for the `iqbal` data and populate it?
-  And/or for your own analysis?
-
-- R example?
+Have you heard of any other classic questions that AIs struggle with? Try one out!
+:::
 
 <!---
+
+- What to use Claude for:
+  - Troubleshooting code that doesn't work
+  - Proof-reading code that works (and manuscripts, etc.)
+  - Works very well with Git and GitHub
+  - Doing stuff that you never get to:
+    - Turn a series of scripts into a proper workflow
+    - Organize a disorganized project folder, create documentation,
+      and put it under version control
+    - Turning a script into a nice notebook/Quarto doc,
+      a Quarto doc into a dashboard or Shiny app, etc.
+    - Turning a set of R scripts into an R package
+  - Looking for inspiration for non-coding tasks?
+    <https://claudeblattman.com>
+  - Build a (Quarto) website
+    - Personal website
+    - Lab website
+
+- Some of my use cases:
+  - Making websites
+  - Formal (Nextflow) workflows
+  - Maintaining a set of scripts to be used across projects
+  - Troubleshooting complex errors
 
 ```bash
 sbatch run_fastqc.sh iqbal/fastq/SRR31869590_1.fastq.gz results/fastqc/
@@ -556,17 +722,5 @@ sbatch run_fastqc.sh iqbal/fastq/SRR31869590_1.fastq.gz results/fastqc/
 ```bash-out
 Submitted batch job 12241998
 ```
-
-- Check:
-  - Equivalent of "Steer with message?" https://code.visualstudio.com/docs/chat/chat-overview#_send-messages-while-a-request-is-running
-  - https://code.visualstudio.com/docs/agents/reference/workspace-context#_improve-agent-search-with-exclusion-settings
-  - BYOK WITH OLLAMA OR CLAUDE? https://code.visualstudio.com/docs/agents/concepts/language-models#_bring-your-own-language-model-key
   
-## Other
-
-> - If you're using the Ask agent, the active file is automatically included as context.
-  - When using Agent, it decides autonomously if the active file needs to be added based on your prompt.
-
-- `editor.action.inlineSuggest.trigger` => keyboard shortcut to trigger inline suggestions
-
 ---->

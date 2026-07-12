@@ -108,7 +108,7 @@ While good prompting begins with our three building blocks, the language we use 
 - **Specificity**: Be specific when you describe what you want from the AI model. The more specific you are, the more likely the reponse will be relevant to what you need.
   + *Example*: "Write a **python** script..."
 
-- **Detailed**: This one is tricky. You want to provide enough details to the AI model to understand the scope of the task, but no so many details that it becomes overwhelmed and confused. More on this in the next slide.
+- **Detail**: This one is tricky. You want to provide enough details to the AI model to understand the scope of the task, but no so many details that it becomes overwhelmed and confused. More on this in the next slide.
 
 ## To get the most out of your prompts...
 ::: {.incremental}

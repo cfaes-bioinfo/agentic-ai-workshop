@@ -223,11 +223,10 @@ rnaseq-project/
 
 SKILL.md consists of two parts:
 
-1. **YAML font matter**
-2. **The skill instructions**
-The YAML front matter provides the skill name and a short description. Claude uses the description to understand when the skill is relevant.
+1. **YAML font matter**: The YAML front matter provides the skill name and a short description. Claude uses the description to understand when the skill is relevant.
+2. **The skill instructions**: The rest of the file should contain the procedure Claude should follow. 
 
-The rest of the file should contain the procedure Claude should follow. Example of `SKILL.md` file is provide below:
+Example of `SKILL.md` file is provided below:
 
 ![](/img/script_file_example.png){fig-align="center" width="100%"}
 
@@ -235,23 +234,10 @@ The folder name becomes the command used to invoke the skill. **For example, the
 Review the Slurm script provided in the current context. 
 
 
-After creating the skill, a participant could open a Slurm script in VS Code and enter:
-
-/review-slurm-script
-
-They could also provide additional instructions:
-
-/review-slurm-script
-
-Pay particular attention to whether the requested memory is reasonable
-for running FastQC on eight FASTQ files.
-
 Claude Code may also select a skill automatically when the request closely matches the skill description. The complete instructions are loaded only when the skill is used, making skills more suitable than CLAUDE.md for detailed procedures.
 
 
 ### Test the skill
-
-
 
 **Another skill example: troubleshoot a failed job**
 
@@ -284,6 +270,60 @@ Explain why the job failed, but do not modify or rerun anything.
 
 This combines the context-attachment techniques discussed earlier with a reusable advanced workflow.
 
+::: {.callout-note collapse="true"}
+#### **Skills vs CLAUDE.md** _(Click to expand)_
+CLAUDE.md gives general project context and facts of projects. Skills are better for specific workflows. Claude does not load the whole Skill every time. It only loads it when needed, so you can keep longer checklists or workflows in a Skill without crowding every chat. Use `CLAUDE.md` for information Claude should always know. Use Skills for instructions Claude needs only when performing a particular task.
+:::
+
+
+## Use of Retrieval-Augmented generation to enrich context- provide published papers, manuals/documentation, database
+
+**Retrieval-Augmented Generation (RAG)** is an AI approach that improves a large language model by allowing it to retrieve information from external sources before generating a response. Instead of relying only on what the LLM already knows, Claude first retrieves relevant information from an external source, then uses that information to generate its answer. The model uses this context to produce more accurate, up-to-date, and evidence-based answers. RAG is useful in scientific research because knowledge changes rapidly and many important resources, such as project documentation or institutional protocols, are not part of a language model's training data.
+
+It has two steps: \
+
+1. **Retrieval steps** - the system searches a knowledge store (for example, a vector database built from your local corpus) for the most relevant passages to a user query. But Claude does not do this. There is a tool called **Model Context Protocol (MCP)** for the Claude to communicate with the external tool. MCP can be thought as a USB-C port for AI applications. Just as USB-C provides a standardized way to connect electronic devices, MCP provides a standardized way to connect AI applications to external systems.
+
+2. **Generation steps** - those retrieved passages are passed to the LLM as context, allowing it to generate grounded and evidence-based responses.
+
+#### Basic Rag pipeline
+
+- Chunk the text by section
+- Generate embeddings for each chunk
+- Create a vector store and add each embedding to it
+- Generate an embedding for the user’s question
+- Search the store to find the most relevant chunks
+- Sent the user_query + relevant chunk to LLM for the final Output
+
+
+#### From anthropic video
+
+Suppose you have a very long bioinformatics document and you want to extract specific information from it. 
+
+Option: 1, One way to do so is to include the content in the prompt: However it has its own limitations
+1. Large prompts cost more to process
+2. Large prompts takes longer to process 
+3. Claude will get less effective
+
+It might work or it might not work
+
+Option - 2: RAG : You can break the document into chunks and put it as a prompt.This focus in answering question in small snippet. 
+
+Advantages
+1. Claude can focus on mostly relevent content
+2. Smaller prompt cost less
+
+Disadvantages
+1. Requires pre-processing to find relevant chunk
+2. The chunk might not have relevant information
+3. What is the best way to extract the chunk
+
+- Requires pre-processing step
+- Searching mechanism to find relevant chunk
+
+### Create custom RAG workflow
+
+Claude Code itself is not the vector database or retrieval engine. Instead, you build a small local retrieval tool and connect it to Claude Code through MCP. Claude Code supports local MCP servers that run as processes on your computer, which makes them suitable for custom scripts that search local documents
 
 
 
@@ -291,12 +331,3 @@ This combines the context-attachment techniques discussed earlier with a reusabl
 
 
 
-
-**Skills vs CLAUDE.md**
-CLAUDE.md gives general project context and facts of projects. Skills are better for specific workflows because the skill content loads only when used, rather than always staying in context.
-Claude does not load the whole Skill every time. It only loads it when needed, so you can keep longer checklists or workflows in a Skill without crowding every chat.
-
-**Basic structure**- where skill.md file should be located
-
-
-## Use of Retrieval-Augmented generation to enrich context- provide published papers, manuals/documentation, database 

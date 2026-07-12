@@ -233,12 +233,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#why-is-prompt-engineering-so-important" id="toc-why-is-prompt-engineering-so-important" class="nav-link" data-scroll-target="#why-is-prompt-engineering-so-important"><span class="header-section-number">2</span> Why is prompt engineering so important?</a></li>
   <li><a href="#anatomy-of-a-well-crafted-prompt" id="toc-anatomy-of-a-well-crafted-prompt" class="nav-link" data-scroll-target="#anatomy-of-a-well-crafted-prompt"><span class="header-section-number">3</span> Anatomy of a well-crafted prompt</a></li>
   <li><a href="#language-in-prompting" id="toc-language-in-prompting" class="nav-link" data-scroll-target="#language-in-prompting"><span class="header-section-number">4</span> Language in prompting</a></li>
-  <li><a href="#to-get-the-most-out-of-your-prompts" id="toc-to-get-the-most-out-of-your-prompts" class="nav-link" data-scroll-target="#to-get-the-most-out-of-your-prompts"><span class="header-section-number">5</span> To get the most out of your prompts…</a></li>
-  <li><a href="#to-get-the-most-out-of-your-prompts-cont" id="toc-to-get-the-most-out-of-your-prompts-cont" class="nav-link" data-scroll-target="#to-get-the-most-out-of-your-prompts-cont"><span class="header-section-number">6</span> To get the most out of your prompts… (cont)</a></li>
-  <li><a href="#optional-but-useful-pieces-for-prompting" id="toc-optional-but-useful-pieces-for-prompting" class="nav-link" data-scroll-target="#optional-but-useful-pieces-for-prompting"><span class="header-section-number">7</span> Optional, but useful pieces for prompting</a></li>
-  <li><a href="#lets-practice-prompt-engineering" id="toc-lets-practice-prompt-engineering" class="nav-link" data-scroll-target="#lets-practice-prompt-engineering"><span class="header-section-number">8</span> Let’s practice prompt engineering</a></li>
+  <li><a href="#optional-but-useful-pieces-for-prompting" id="toc-optional-but-useful-pieces-for-prompting" class="nav-link" data-scroll-target="#optional-but-useful-pieces-for-prompting"><span class="header-section-number">5</span> Optional, but useful pieces for prompting</a></li>
+  <li><a href="#optional-but-useful-pieces-for-prompting-cont." id="toc-optional-but-useful-pieces-for-prompting-cont." class="nav-link" data-scroll-target="#optional-but-useful-pieces-for-prompting-cont."><span class="header-section-number">6</span> Optional, but useful pieces for prompting (cont.)</a></li>
+  <li><a href="#lets-practice-prompt-engineering" id="toc-lets-practice-prompt-engineering" class="nav-link" data-scroll-target="#lets-practice-prompt-engineering"><span class="header-section-number">7</span> Let’s practice prompt engineering</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="08-prompts-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="08-prompts.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -358,7 +357,7 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li><strong>Output Format</strong>: What format do you want the AI model to respond and/or produce?
 <ul class="incremental">
-<li><em>Example</em>: “Write a script that counts all A, T, C, and G characters in a FASTA file. The script should be written in Python 3 and use the Biopython library. The file may contain Ns, which should be ignored. <strong>The resulting counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count></count></count></count></count></strong>”</li>
+<li><em>Example</em>: “Write a script that counts all A, T, C, and G characters in a FASTA file. The script should be written in Python 3 and use the Biopython library. The file may contain Ns, which should be ignored. <strong>The resulting counts should be printed to standard output in the following format: A: <count> T: <count> C: <count> G: <count></count></count></count></count></strong>”</li>
 </ul></li>
 </ul>
 </div>
@@ -368,57 +367,29 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="4" class="anchored" data-anchor-id="language-in-prompting"><span class="header-section-number">4</span> Language in prompting</h2>
 <p>While good prompting begins with our three building blocks, the language we use in prompting has a significant impact on the quality of the response we receive.</p>
 <ul>
-<li><strong>Direct</strong>: Just as we do for writing, we should be direct and concise in our prompting. Avoid using vague language or unclear instructions.
+<li><p><strong>Direct</strong></p></li>
+<li><p><strong>Specificity</strong></p></li>
+<li><p><strong>Details</strong></p></li>
+</ul>
+</section>
+<section id="optional-but-useful-pieces-for-prompting" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="optional-but-useful-pieces-for-prompting"><span class="header-section-number">5</span> Optional, but useful pieces for prompting</h2>
 <ul>
-<li><em>Example of what <strong>not</strong> to do</em>: “Write a script that counts ATGC in a file.”</li>
-</ul></li>
-<li><strong>Specificity</strong>: Be specific when you describe what you want from the AI model. The more specific you are, the more likely the reponse will be relevant to what you need.
+<li><strong>Role/Persona</strong>: When your AI model responds, do you want it to take on the role of a particular type of person? Do you want your AI model to act as a molecular biologist? a bioinformatician? a student? a peer?
 <ul>
-<li><em>Example</em>: “Write a <strong>python</strong> script…”</li>
-</ul></li>
-<li><strong>Detailed</strong>: This one is tricky. You want to provide enough details to the AI model to understand the scope of the task, but no so many details that it becomes overwhelmed and confused. More on this in the next slide.</li>
-</ul>
-</section>
-<section id="to-get-the-most-out-of-your-prompts" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="to-get-the-most-out-of-your-prompts"><span class="header-section-number">5</span> To get the most out of your prompts…</h2>
-<div class="incremental">
-<ul class="incremental">
-<li><strong>More is not <em>always</em> better</strong>: Too much information, details, or directions can overwhelm the AI model and can create problematic responses. If you have multiple directions, break them up into <strong>multiple prompts</strong>. Avoid giving the AI model too many details that are <strong>irrelevant</strong> to the task.
-<ul class="incremental">
-<li><em>Example</em>: “…counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count>.” <strong>NEW PROMPT: “This script worked. Now, can you modify it to count the number of &gt; characters as well? Do not edit the existing code, only add the necessary modifications</strong>”</count></count></count></count></li>
-<li><em>Example of what <strong>not</strong> to do</em>: “Write me a script that counts all A, T, C, and G characters in a FASTA file. This FASTA file is a bacterial genome that is 5 Mb in size and belongs to the genus <em>Pseudomonas</em>. It was isolated from a tomato plant in New York.”</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="to-get-the-most-out-of-your-prompts-cont" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="to-get-the-most-out-of-your-prompts-cont"><span class="header-section-number">6</span> To get the most out of your prompts… (cont)</h2>
-<div class="incremental">
-<ul class="incremental">
-<li><strong>Examples</strong>: Providing examples of your <strong>output</strong>, <strong>problem</strong>, or <strong>both</strong> can significantly improve the quality of the response you recieve.
-<ul class="incremental">
-<li><em>Example</em>: “…counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count>. <strong>For example, if the input file contains the following sequence: ATCGATCGNNNATCG, the output should be: A: 3 T: 3 C: 3 G: 3</strong>”</count></count></count></count></li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="optional-but-useful-pieces-for-prompting" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="optional-but-useful-pieces-for-prompting"><span class="header-section-number">7</span> Optional, but useful pieces for prompting</h2>
-<div class="incremental">
-<ul class="incremental">
-<li><strong>Role/Persona</strong>: Do you want the AI model to take on the role of a particular type of person? Do you want your AI model to act as a molecular biologist? a bioinformatician? a student? a peer?
-<ul class="incremental">
 <li><em>Example</em>: “<strong>You are a bioinformatician with 10 years of experience in fungal, whole-genome analysis.</strong> Write a script that counts all A, T, C, and G characters…”</li>
 </ul></li>
-<li><strong>Audience</strong>: The AI model is creating a response <strong>for you</strong>. Do you want the response to be tailored to your level of expertise? Or to an expertise level that is higher or lower than your own?
-<ul class="incremental">
+<li><strong>Audience</strong>: You are the one receiving the response from the AI model. Do you want the response to be tailored to your level of expertise? Do you want it to be written in a way that is accessible to a general audience? Or do you want it to be written in a way that is accessible to a specific audience, such as a group of students or colleagues?
+<ul>
 <li><em>Example</em>: “<strong>I am a graduate student with very little experience in bioinformatics.</strong> Write a script that counts all A, T, C, and G characters…”</li>
 </ul></li>
 </ul>
-</div>
 </section>
-<section id="lets-practice-prompt-engineering" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="lets-practice-prompt-engineering"><span class="header-section-number">8</span> Let’s practice prompt engineering</h2>
+<section id="optional-but-useful-pieces-for-prompting-cont." class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="optional-but-useful-pieces-for-prompting-cont."><span class="header-section-number">6</span> Optional, but useful pieces for prompting (cont.)</h2>
+</section>
+<section id="lets-practice-prompt-engineering" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="lets-practice-prompt-engineering"><span class="header-section-number">7</span> Let’s practice prompt engineering</h2>
 <p>Boot up your favorite AI model and let’s get started.</p>
 
 

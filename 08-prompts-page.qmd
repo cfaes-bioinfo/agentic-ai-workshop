@@ -11,7 +11,7 @@ author:
         url: https://plantpath.osu.edu
 ---
 
-## Blueprint of a prompt
+## Prompting quick review
 
 ### The three components
 1. **Task**: What are you asking the AI model to do?
@@ -27,7 +27,11 @@ author:
 - Include examples
 - Role/Persona
 - Consider the audience
-### Let's start with something basic
+
+## Let's start prompting!
+I have pre-made the prompts below for you to use. However, please feel free to modify them or create your own prompts. The goal of this exercise is to observe how prompting can affect the response you recieve from an AI model.
+
+### Begin with a simple prompt
 ``` markdown
 
 ```
