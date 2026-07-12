@@ -36,8 +36,27 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-3f79a4ecd9339f381f9539982b0e983a.css">
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-e6aa1254394dcca702cccdf99f11d494.css">
   <link rel="stylesheet" href="slides.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -190,10 +209,10 @@ Jonathan Jacobs
 <h2 id="toc-title">Overview</h2>
 <ul>
 <li><a href="#/instructor-introductions" id="/toc-instructor-introductions">Instructor introductions</a></li>
-<li><a href="#/brief-participant-introductions" id="/toc-brief-participant-introductions">Brief participant introductions</a></li>
 <li><a href="#/application-form-answers" id="/toc-application-form-answers">Application form answers</a></li>
-<li><a href="#/overview-of-the-workshops-topics-and-schedule" id="/toc-overview-of-the-workshops-topics-and-schedule">Overview of the workshop’s topics and schedule</a></li>
-<li><a href="#/practicalities" id="/toc-practicalities">Practicalities</a></li>
+<li><a href="#/what-is-the-workshop-about" id="/toc-what-is-the-workshop-about">What is the workshop about?</a></li>
+<li><a href="#/the-schedule" id="/toc-the-schedule">The schedule</a></li>
+<li><a href="#/how-to-ask-questions-and-contribute" id="/toc-how-to-ask-questions-and-contribute">How to ask questions and contribute</a></li>
 <li><a href="#/questions" id="/toc-questions">Questions?</a></li>
 </ul>
 </nav>
@@ -204,172 +223,392 @@ Jonathan Jacobs
 </section>
 
 <section>
-<section id="brief-participant-introductions" class="title-slide slide level1 center" data-background-color="silver">
-<h1>Brief participant introductions</h1>
-
-</section>
-<section id="brief-participant-introductions-1" class="slide level2">
-<h2>Brief participant introductions</h2>
-<ul>
-<li>Name</li>
-<li>Position and department</li>
-<li>Your most satisfying or frustrating genAI experience</li>
-<li>Who should win the world cup</li>
-</ul>
-</section></section>
-<section>
 <section id="application-form-answers" class="title-slide slide level1 center" data-background-color="silver">
 <h1>Application form answers</h1>
 
 </section>
 <section id="application-form-answers-1" class="slide level2">
 <h2>Application form answers</h2>
-<p>TBA</p>
+<p>TBA!</p>
 </section></section>
 <section>
-<section id="overview-of-the-workshops-topics-and-schedule" class="title-slide slide level1 center" data-background-color="silver">
-<h1>Overview of the workshop’s topics and schedule</h1>
+<section id="what-is-the-workshop-about" class="title-slide slide level1 center" data-background-color="silver">
+<h1>What is the workshop about?</h1>
 
 </section>
 <section id="the-general-idea" class="slide level2">
 <h2>The general idea</h2>
 <ul>
-<li><p>This workshop focuses on using AI to help you <strong>code your analysis</strong>.</p>
-<p>That is, the analysis is not done by the LLM at all! Neither are we using specialized AI applications like Deep Learning and “Biological” Language Models like AlphaFold, Evo2, and so on.</p>
-<p>Rather, we are focusing on trying to improve the way that you are likely already interactive with LLMs, by moving from chat-based interactions to <strong>agentic</strong> interactions.</p>
-<p>the AI helps to write code and scripts that use “standard” command-line tools to analyze your data.</p></li>
+<li>Focus on <strong>general-purpose AI</strong> in the form of LLMs <strong>to help you write code</strong> —<br>
+code then used to do the data analysis</li>
 </ul>
-<p><br></p>
+<hr style="height:1pt; visibility:hidden;">
+<div class="fragment">
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>We are <strong>not</strong>:</strong></p>
+</div>
+<div class="callout-content">
 <ul>
-<li>The example data will be omics data, but the principles and tools apply to many other types of data.</li>
-</ul>
-<p><br></p>
+<li class="fragment">Asking the LLMs to do the analysis for us:
 <ul>
-<li>We will focus on <strong>hands-on exercises</strong> and examples, but will include background and key context.</li>
+<li class="fragment">not directly, e.g.&nbsp;“summarize these 15 books”</li>
+<li class="fragment">nor indirectly, e.g.&nbsp;by making it run everything for us</li>
+</ul></li>
+<li class="fragment">Using specialized AI applications like AlphaFold, Evo2, and so on</li>
 </ul>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="x" class="slide level2">
-<h2>X</h2>
-<p>From:</p>
+<section id="the-general-idea-cont." class="slide level2">
+<h2>The general idea (cont.)</h2>
 <ul>
-<li>web-based chat ~ “email conversation with a smart person”</li>
-</ul>
-<p>To:</p>
+<li><p>Rather, focus on improving how you interact with LLMs:</p>
 <ul>
-<li>In-editor agentic AI ~ “having them sit next to you, coding while you talk”</li>
-</ul>
-</section>
-<section id="we-are-not-experts" class="slide level2">
-<h2>We are not experts</h2>
-<ul>
-<li>Filling a gap: Most AI education is made for software developers.</li>
-</ul>
-</section>
-<section id="the-infrastructure" class="slide level2">
-<h2>The infrastructure</h2>
-<ul>
-<li>We will use the following infrastructure:
-<ul>
-<li>VS Code</li>
-<li>OSC</li>
-<li>In-editor AI tools</li>
+<li>From web-based chat ~ “<em>email conversation with a smart person</em>”</li>
+<li>To in-editor, agentic chat ~ “<em>having them sit next to you, coding while you talk</em>”</li>
 </ul></li>
 </ul>
-<p><br></p>
+<hr style="height:1pt; visibility:hidden;">
+<div class="fragment">
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>This is very general, so:<br>
+while example data is omics data, principles and tooling apply to any data type</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<hr style="height:1pt; visibility:hidden;">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>We are not AI experts</strong></p>
+</div>
+<div class="callout-content">
 <ul>
-<li>You can also use this setup after the workshop.
+<li>Just practitioners that are –hopefully!– a few steps ahead of you</li>
+<li>A lot of AI-for-code content is aimed at (aspiring) software developers</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-general-approach" class="slide level2">
+<h2>The general approach</h2>
 <ul>
-<li>The flip side is that this involves some setup work, some of which was homework, and some of which will be done during the workshop.</li>
-<li>This prep can be tedious and sometimes frustrating, but we think it’s worth it!</li>
-</ul></li>
+<li>Keep it practical</li>
+<li>Several hands-on sessions: follow along with us, and try things yourself</li>
 </ul>
 </section>
-<section id="what-we-wont-cover---at-least-not-in-depth" class="slide level2">
-<h2>What we won’t cover –- at least not in depth</h2>
+<section id="infrastructure" class="slide level2">
+<h2>Infrastructure</h2>
 <ul>
-<li>Ethics and environmental impacts of AI</li>
-<li><em>What else?</em></li>
+<li>Core infrastructure during the workshop:
+<ul>
+<li>Own installation of VS Code (<em>you should have this installed</em>)</li>
+<li>The Ohio Supercomputer (OSC)</li>
+<li>In-editor AI tools (GitHub Copilot &amp; Claude Code)</li>
+</ul></li>
 </ul>
+<div class="fragment">
+<hr style="height:1pt; visibility:hidden;">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Setup/configuration</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>We will spend significant time on setup steps <span style="font-size: 1.4em; font-style: normal">☹️</span></li>
+<li>This is one-time setup that you can continue to use after the workshop <span style="font-size: 1.4em; font-style: normal">😃</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="examples-and-data" class="slide level2">
+<h2>Examples and data</h2>
+<ul>
+<li>Examples will mainly:
+<ul>
+<li>Use an RNA-Seq dataset of rice infected with a fungus from <span class="citation" data-cites="iqbal2025">Iqbal et al. (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></li>
+<li>Involve working on shell scripts to run command-line tools</li>
+</ul></li>
+</ul>
+<hr style="height:1pt; visibility:hidden;">
+<div class="fragment">
+<ul>
+<li>Your freedom:
+<ul>
+<li>Tomorrow afternoon for DIY with any dataset you like</li>
+<li>More of an R person? We have a <a href="./o3-positron-install.html">Positron setup page</a>!</li>
+<li>Feeling on top of things? Free to try example prompts in other sessions with other data or intentions</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>You don’t need to have your own dataset:<br>
+can also continue working on the example dataset</p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="the-schedule" class="title-slide slide level1 center" data-background-color="silver">
+<h1>The schedule</h1>
+
 </section>
 <section id="day-1-monday-july-13" class="slide level2">
 <h2>Day 1: Monday, July 13</h2>
 <div style="font-size: 0.85em;">
-<p>TBA</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Section</th>
+<th>Time</th>
+<th>Instructor</th>
+<th>Topic &amp; link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td>09:00 am – 09:45 am</td>
+<td><em>all</em></td>
+<td><a href="./01-workshop-intro.html">Intro to the workshop</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td>09:45 am – 10:45 am</td>
+<td>Menuka</td>
+<td><a href="./02-ai-intro.html">Intro to Generative AI and LLMs</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td><span style="color:steelblue"><em>10:45 am – 11:00 am</em></span></td>
+<td></td>
+<td>☕️ <span style="color:steelblue"><em>Break</em></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td>11:00 am – 11:30 am</td>
+<td>Derek Ditmer, OTDI</td>
+<td>Approved genAI Tools at OSU</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td>11:30 am – 12:15 pm</td>
+<td>Jonathan</td>
+<td>GenAI use cases and tools for research</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td><span style="color:steelblue"><em>12:15 pm – 01:00 pm</em></span></td>
+<td></td>
+<td>🍽 <span style="color:steelblue"><em>Lunch</em></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td>01:00 pm – 02:00 pm</td>
+<td>Jelmer</td>
+<td><a href="./05-setup.html">OSC and VS Code setup</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td><span style="color:steelblue"><em>02:00 pm – 02:15 pm</em></span></td>
+<td></td>
+<td>☕️ <span style="color:steelblue"><em>Break</em></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td>02:15 pm – 03:15 pm</td>
+<td>Jelmer</td>
+<td><a href="./06-copilot.html">Code completions with GitHub Copilot</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td><span style="color:steelblue"><em>03:15 pm – 03:30 pm</em></span></td>
+<td></td>
+<td>☕️ <span style="color:steelblue"><em>Break</em></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td>03:30 pm – 04:00 pm</td>
+<td>Evan Jaffe, OSC</td>
+<td>LLM options at OSC</td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
 <section id="day-2-tuesday-july-14" class="slide level2">
 <h2>Day 2: Tuesday, July 14</h2>
 <div style="font-size: 0.85em;">
-<p>TBA</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Section</th>
+<th>Time</th>
+<th>Instructor</th>
+<th>Topic &amp; link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td>09:00 am – 10:00 am</td>
+<td>Jelmer</td>
+<td><a href="./08-claude.html">Agentic chat with Claude Code</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td>10:00 am – 10:30 am</td>
+<td>Hannah</td>
+<td>Prompt engineering</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td><span style="color:steelblue"><em>10:30 am – 10:45 am</em></span></td>
+<td></td>
+<td>☕️ <span style="color:steelblue"><em>Break</em></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td>10:45 am – 11:45 am</td>
+<td>Menuka</td>
+<td>Advanced agentic options and skills</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">11</td>
+<td>11:45 am – 12:15 pm</td>
+<td>Hannah</td>
+<td>Limitations and responsible use of AI</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"></td>
+<td><span style="color:steelblue"><em>12:15 pm – 01:00 pm</em></span></td>
+<td></td>
+<td>🍽 <span style="color:steelblue"><em>Lunch</em></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">13</td>
+<td>01:00 pm – 03:30 pm</td>
+<td><em>all</em></td>
+<td>DIY with own (or other) data</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">14</td>
+<td>03:30 pm – 04:00 pm</td>
+<td><em>all</em></td>
+<td>Concluding remarks and looking forward</td>
+</tr>
+</tbody>
+</table>
 </div>
-</section>
-<section id="data-sets" class="slide level2">
-<h2>Data sets</h2>
-<ul>
-<li><p>Main: RNA-Seq data from Iqbal et al.&nbsp;- DETAILS TBA</p></li>
-<li><p>Genomic reads from the same paper</p></li>
-</ul>
 </section></section>
 <section>
-<section id="practicalities" class="title-slide slide level1 center" data-background-color="silver">
-<h1>Practicalities</h1>
+<section id="how-to-ask-questions-and-contribute" class="title-slide slide level1 center" data-background-color="silver">
+<h1>How to ask questions and contribute</h1>
 
 </section>
-<section id="what-to-expect" class="slide level2">
-<h2>What to expect</h2>
-<ul>
-<li>In <strong>hands-on</strong> sections of the workshop, you are expected to follow along with the instructors on your laptop and/or try things yourself</li>
-</ul>
-<hr style="height:1pt; visibility:hidden;">
-<div class="fragment">
-<ul>
-<li>Hands-on <strong>examples</strong> will involve running command-line tools at OSC to process and analyze an RNA-Seq dataset, and getting AI tools to help with this.
-<ul>
-<li>This is why we expect basic knowledge of OSC and the Unix Shell</li>
-</ul></li>
-<li>You can ask us for help with uploading data to OSC if you need it. Even for some of this afternoon’s exercises, if you prefer, you can work with your own data. So you could e.g.&nbsp;check in about this during lunch today.</li>
-</ul>
-</div>
-</section>
-<section id="practical-information" class="slide level2">
-<h2>Practical information</h2>
-<ul>
-<li>Coffee, snacks, and lunch will be provided during breaks</li>
-</ul>
-<hr style="height:1pt; visibility:hidden;">
-<div class="fragment">
-<ul>
-<li>If you didn’t manage to install VS Code or set up your OSC account, do this in today’s morning or lunch break — we’ll start using these in the afternoon</li>
-</ul>
-<hr style="height:1pt; visibility:hidden;">
-</div>
-<div class="fragment">
-<ul>
-<li>If you didn’t bring a dataset, you can talk to us during the day today and we can help you find one to work with –– you’ll work with this data tomorrow</li>
-</ul>
-</div>
-</section>
-<section id="how-to-ask-questions-and-contribute" class="slide level2">
+<section id="how-to-ask-questions-and-contribute-1" class="slide level2">
 <h2>How to ask questions and contribute</h2>
 <ul>
-<li><p>Don’t hesitate to interrupt us at any time if you have a question or are stuck!</p></li>
-<li><p>We’ll also ask you questions about your experience, and <strong>we’re interested to hear your thoughts</strong> even when we’re not asking! We’d be happy to have some unplanned discussions!</p></li>
+<li>Don’t hesitate to interrupt if you have a <strong>question</strong></li>
 </ul>
 <hr style="height:1pt; visibility:hidden;">
+<div class="fragment">
 <ul>
-<li>For less urgent questions, you can:
-<ul>
-<li>Ask during an exercise or break</li>
-<li>Put a TBA sticky note on your laptop</li>
-<li>Type your question in the Zoom chat (if you’re connected)</li>
-</ul></li>
+<li>Same if you want to <strong>share your experience</strong> with the group —<br>
+you may have a different perspective, a better solution, etc.!</li>
 </ul>
+<hr style="height:1pt; visibility:hidden;">
+</div>
+<div class="fragment">
+<ul>
+<li>If you’re <strong>stuck, behind, or similar</strong>, always let us know —<br>
+use your best judgement whether to interrupt or to put up hand / use a sticky note / use the Zoom chat</li>
+</ul>
+</div>
+</section>
+<section id="final-info" class="slide level2">
+<h2>Final info</h2>
+<ul>
+<li><p>Coffee/tea, snacks, and lunch will be provided during breaks</p></li>
+<li><p>Forgetting anything?</p></li>
+</ul>
+<p><br></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Links</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Website: <a href="https://cfaes-bioinfo.github.io/agentic-ai-workshop" class="uri">https://cfaes-bioinfo.github.io/agentic-ai-workshop</a></li>
+<li><a href="https://osu.zoom.us/j/95965101793?pwd=bi2akCYEUb19TpNhGbU9EtNgfala5a.1">Zoom</a></li>
+</ul>
+</div>
+</div>
+</div>
 </section></section>
+<section>
 <section id="questions" class="title-slide slide level1 center" data-background-color="silver">
 <h1>Questions?</h1>
 
-
 </section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<!----
+
+# Brief participant introductions {background-color="silver"}
+
+## Brief participant introductions
+
+- Name
+- Position and department
+- Your most satisfying or frustrating genAI experience
+- Who should win the world cup
+
+---->
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-iqbal2025" class="csl-entry" role="listitem">
+Iqbal, O., X. Yang, Z. Wang, et al. 2025. <span>“Comparative Transcriptome and Genome Analysis Between Susceptible Zhefang Rice Variety Diantun 502 and Its Resistance Variety Diantun 506 Upon <span class="nocase">Magnaporthe oryzae</span> Infection.”</span> <em>BMC Plant Biology</em> 25 (1): 341. <a href="https://doi.org/10.1186/s12870-025-06357-5">https://doi.org/10.1186/s12870-025-06357-5</a>.
+</div>
+</div>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="img/CFAES-Horiz-RGBHEX.svg" class="slide-logo"></p>

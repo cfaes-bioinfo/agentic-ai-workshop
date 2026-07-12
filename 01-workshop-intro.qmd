@@ -50,6 +50,191 @@ bibliography: refs.bib
 
 # Instructor introductions {background-color="silver"}
 
+# Application form answers {background-color="silver"}
+
+## Application form answers
+
+TBA!
+
+# What is the workshop about? {background-color="silver"}
+
+## The general idea
+
+- Focus on **general-purpose AI** in the form of LLMs **to help you write code** --- \
+  code then used to do the data analysis
+
+<hr style="height:1pt; visibility:hidden;" />
+
+. . .
+
+::: callout-caution
+### We are **not**:
+
+::: incremental
+
+- Asking the LLMs to do the analysis for us:
+  - not directly, e.g. "summarize these 15 books"
+  - nor indirectly, e.g. by making it run everything for us
+
+- Using specialized AI applications like AlphaFold, Evo2, and so on
+:::
+:::
+
+## The general idea (cont.)
+
+- Rather, focus on improving how you interact with LLMs:
+
+  - From web-based chat ~ "_email conversation with a smart person_"
+  - To in-editor, agentic chat ~ "_having them sit next to you, coding while you talk_"
+
+<hr style="height:1pt; visibility:hidden;" />
+
+. . .
+
+::: {.callout-note appearance="simple"}
+This is very general, so:\
+while example data is omics data, principles and tooling apply to any data type
+:::
+
+. . .
+
+<hr style="height:1pt; visibility:hidden;" />
+
+::: callout-warning
+## We are not AI experts
+
+- Just practitioners that are --hopefully!-- a few steps ahead of you
+- A lot of AI-for-code content is aimed at (aspiring) software developers
+:::
+
+## The general approach
+
+- Keep it practical
+- Several hands-on sessions: follow along with us, and try things yourself
+
+## Infrastructure
+
+- Core infrastructure during the workshop:
+  - Own installation of VS Code (_you should have this installed_)
+  - The Ohio Supercomputer (OSC)
+  - In-editor AI tools (GitHub Copilot & Claude Code)
+
+. . .
+
+<hr style="height:1pt; visibility:hidden;" />
+
+::: {.callout-tip}
+#### Setup/configuration
+
+- We will spend significant time on setup steps
+  [☹️]{style="font-size: 1.4em; font-style: normal"}
+- This is one-time setup that you can continue to use after the workshop
+  [😃]{style="font-size: 1.4em; font-style: normal"}
+:::
+
+## Examples and data
+
+- Examples will mainly:
+  - Use an RNA-Seq dataset of rice infected with a fungus from @iqbal2025
+  - Involve working on shell scripts to run command-line tools
+
+<hr style="height:1pt; visibility:hidden;" />
+
+. . .
+
+- Your freedom:
+  - Tomorrow afternoon for DIY with any dataset you like
+  - More of an R person? We have a [Positron setup page](o3-positron-install.qmd)!
+  - Feeling on top of things?
+    Free to try example prompts in other sessions with other data or intentions
+
+. . .
+
+::: {.callout-note appearance="simple"}
+You don't need to have your own dataset:\
+can also continue working on the example dataset
+:::
+
+# The schedule {background-color="silver"}
+
+## Day 1: Monday, July 13
+
+::: {style="font-size: 0.85em;"}
+
+| Section | Time | Instructor | Topic & link |
+|:-:|----|---|------------|
+| 1 | 09:00 am -- 09:45 am | _all_ | [Intro to the workshop](./01-workshop-intro.qmd) |
+| 2 | 09:45 am -- 10:45 am | Menuka | [Intro to Generative AI and LLMs](./02-ai-intro.qmd) |
+|  | [*10:45 am -- 11:00 am*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
+| 3 | 11:00 am -- 11:30 am | Derek Ditmer, OTDI | Approved genAI Tools at OSU |
+| 4 | 11:30 am -- 12:15 pm | Jonathan | GenAI use cases and tools for research |
+|  | [*12:15 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
+| 5 | 01:00 pm -- 02:00 pm | Jelmer | [OSC and VS Code setup](./05-setup.qmd) |
+|  | [*02:00 pm -- 02:15 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
+| 6 | 02:15 pm -- 03:15 pm | Jelmer | [Code completions with GitHub Copilot](./06-copilot.qmd) |
+|  | [*03:15 pm -- 03:30 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
+| 7 | 03:30 pm -- 04:00 pm | Evan Jaffe, OSC | LLM options at OSC |
+
+:::
+
+## Day 2: Tuesday, July 14
+
+::: {style="font-size: 0.85em;"}
+
+| Section | Time | Instructor | Topic & link |
+|:-:|----|---|------------|
+| 8 | 09:00 am -- 10:00 am | Jelmer | [Agentic chat with Claude Code](./08-claude.qmd) |
+| 9 | 10:00 am -- 10:30 am | Hannah | Prompt engineering |
+|  | [*10:30 am -- 10:45 am*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
+| 10 | 10:45 am -- 11:45 am | Menuka | Advanced agentic options and skills |
+| 11 | 11:45 am -- 12:15 pm | Hannah | Limitations and responsible use of AI |
+|  | [*12:15 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
+| 13 | 01:00 pm -- 03:30 pm | *all* | DIY with own (or other) data |
+| 14 | 03:30 pm -- 04:00 pm | *all* | Concluding remarks and looking forward |
+
+:::
+
+# How to ask questions and contribute {background-color="silver"}
+
+## How to ask questions and contribute
+
+- Don't hesitate to interrupt if you have a **question**
+
+<hr style="height:1pt; visibility:hidden;" />
+
+. . .
+
+- Same if you want to **share your experience** with the group ---\
+  you may have a different perspective, a better solution, etc.!
+
+<hr style="height:1pt; visibility:hidden;" />
+
+. . .
+
+- If you're **stuck, behind, or similar**, always let us know ---\
+  use your best judgement whether to interrupt or to put up hand /
+  use a sticky note / use the Zoom chat
+
+## Final info
+
+- Coffee/tea, snacks, and lunch will be provided during breaks
+
+- Forgetting anything?
+
+<br>
+
+::: callout-note
+#### Links
+- Website: <https://cfaes-bioinfo.github.io/agentic-ai-workshop>
+- [Zoom](https://osu.zoom.us/j/95965101793?pwd=bi2akCYEUb19TpNhGbU9EtNgfala5a.1)
+:::
+
+# Questions? {background-color="silver"}
+
+## References
+
+<!----
+
 # Brief participant introductions {background-color="silver"}
 
 ## Brief participant introductions
@@ -59,146 +244,4 @@ bibliography: refs.bib
 - Your most satisfying or frustrating genAI experience
 - Who should win the world cup
 
-# Application form answers {background-color="silver"}
-
-## Application form answers
-
-TBA
-
-# Overview of the workshop's topics and schedule {background-color="silver"}
-
-## The general idea
-
-- This workshop focuses on using AI to help you **code your analysis**.
-
-  That is, the analysis is not done by the LLM at all!
-  Neither are we using specialized AI applications like Deep Learning and
-  "Biological" Language Models like AlphaFold, Evo2, and so on.
-
-  Rather, we are focusing on trying to improve the way that you are likely already
-  interactive with LLMs, by moving from chat-based interactions to **agentic** interactions.
-  
-  the AI helps to write code and scripts that use "standard" command-line 
-  tools to analyze your data.
-
-<br>
-
-- The example data will be omics data,
-  but the principles and tools apply to many other types of data.
-
-<br>
-
-- We will focus on **hands-on exercises** and examples,
-  but will include background and key context.
-
-## X
-
-From:
- 
-- web-based chat ~ "email conversation with a smart person"
-
-To:
-
-- In-editor agentic AI ~ "having them sit next to you, coding while you talk"
-
-## We are not experts
-
-- Filling a gap:
-  Most AI education is made for software developers.
-
-## The infrastructure
-
-- We will use the following infrastructure:
-  - VS Code
-  - OSC
-  - In-editor AI tools 
-
-<br>
-
-- You can also use this setup after the workshop.
-  - The flip side is that this involves some setup work, some of which was homework,
-    and some of which will be done during the workshop.
-  - This prep can be tedious and sometimes frustrating, but we think it's worth it!
-
-## What we won't cover –- at least not in depth
-
-- Ethics and environmental impacts of AI
-- _What else?_
-
-## Day 1: Monday, July 13
-
-::: {style="font-size: 0.85em;"}
-
-TBA
-
-:::
-
-## Day 2: Tuesday, July 14
-
-::: {style="font-size: 0.85em;"}
-
-TBA
-
-:::
-
-## Data sets
-
-- Main: RNA-Seq data from Iqbal et al. - DETAILS TBA
-
-- Genomic reads from the same paper
-
-# Practicalities {background-color="silver"}
-
-## What to expect
-
-- In **hands-on** sections of the workshop, you are expected to follow along
-  with the instructors on your laptop and/or try things yourself
-
-<hr style="height:1pt; visibility:hidden;" />
-
-. . .
-
-- Hands-on **examples** will involve running command-line tools at OSC to process and
-  analyze an RNA-Seq dataset, and getting AI tools to help with this.
-  - This is why we expect basic knowledge of OSC and the Unix Shell
-
-- You can ask us for help with uploading data to OSC if you need it.
-  Even for some of this afternoon's exercises, if you prefer, you can work with your own data.
-  So you could e.g. check in about this during lunch today.
-
-## Practical information
-
-- Coffee, snacks, and lunch will be provided during breaks
-
-<hr style="height:1pt; visibility:hidden;" />
-
-. . .
-
-- If you didn't manage to install VS Code or set up your OSC account,
-  do this in today's morning or lunch break ---
-  we'll start using these in the afternoon
-
-<hr style="height:1pt; visibility:hidden;" />
-
-. . .
-
-- If you didn't bring a dataset, you can talk to us during the day today and we
-  can help you find one to work with ––
-  you'll work with this data tomorrow
-
-## How to ask questions and contribute
-
-- Don't hesitate to interrupt us at any time if you have a question or are stuck!
-
-- We'll also ask you questions about your experience,
-  and **we're interested to hear your thoughts** even when we're not asking!
-  We'd be happy to have some unplanned discussions!
-
-<hr style="height:1pt; visibility:hidden;" />
-
-- For less urgent questions, you can:
-  - Ask during an exercise or break
-  - Put a TBA sticky note on your laptop
-  - Type your question in the Zoom chat (if you're connected)
-
-# Questions? {background-color="silver"}
+---->
