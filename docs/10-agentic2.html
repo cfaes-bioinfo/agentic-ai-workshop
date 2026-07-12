@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -43,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-4e5466e430b1db38349d513585fd1d59.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1053746f56c9687f95043b1511700dc7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-18fe6355df9e00e9561dd53ce8dc48ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -101,8 +101,14 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Day 1</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-1">    
-        <li class="dropdown-header">1: Intro to the workshop (TBA)</li>
-        <li class="dropdown-header">2: Intro to Generative AI and LLMs (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./01-workshop-intro.html">
+ <span class="dropdown-text">1: Intro to the workshop</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./02-ai-intro.html">
+ <span class="dropdown-text">2: Intro to Generative AI and LLMs</span></a>
+  </li>  
         <li class="dropdown-header">3: Approved genAI tools at OSU (TBA)</li>
         <li class="dropdown-header">4: Use cases and tools for research (TBA)</li>
         <li>
@@ -196,7 +202,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Positron installation and setup (for R)</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Further Resources (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./o2-resources.html">
+ <span class="dropdown-text">Further Resources</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -245,7 +254,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-skill.md-file" id="toc-the-skill.md-file" class="nav-link" data-scroll-target="#the-skill.md-file"><span class="header-section-number">4.1</span> <code>The SKILL.md file</code></a></li>
   <li><a href="#test-the-skill" id="toc-test-the-skill" class="nav-link" data-scroll-target="#test-the-skill"><span class="header-section-number">4.2</span> Test the skill</a></li>
   </ul></li>
-  <li><a href="#use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database" id="toc-use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database" class="nav-link" data-scroll-target="#use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database"><span class="header-section-number">5</span> Use of Retrieval-Augmented generation to enrich context- provide published papers, manuals/documentation, database</a></li>
+  <li><a href="#use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database" id="toc-use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database" class="nav-link" data-scroll-target="#use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database"><span class="header-section-number">5</span> Use of Retrieval-Augmented generation to enrich context- provide published papers, manuals/documentation, database</a>
+  <ul class="collapse">
+  <li><a href="#create-custom-rag-workflow" id="toc-create-custom-rag-workflow" class="nav-link" data-scroll-target="#create-custom-rag-workflow"><span class="header-section-number">5.1</span> Create custom RAG workflow</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -293,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 11, 2026</p>
+      <p class="date-modified">July 12, 2026</p>
     </div>
   </div>
     
@@ -406,7 +418,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Source code organization</li>
 <li>Common development patterns</li>
 </ul>
-<p>Example of <code>CLAUDE.md</code> file genearted using <code>/init</code> command is provided below: <img src=".\img/claudemd_file_example.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p>Example of <code>CLAUDE.md</code> file genearted using <code>/init</code> command is provided below: <img src="./img/claudemd_file_example.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></p>
 <p>Claude then asks where you would like to save the <code>CLAUDE.md</code> file.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -423,7 +435,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Tip: If your project already contains a <code>CLAUDE.md</code> file, running <code>/init</code> again does not overwrite it blindly. Instead, Claude reviews the existing file and suggests improvements or updates based on your current project and ask if you want to edit this file.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src=".\img/git_diff_claude.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<p><img src="./img/git_diff_claude.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 <p>What you’re seeing is a Git diff, which Claude Code is showing so you can review the changes it made.</p>
@@ -522,7 +534,7 @@ ul.task-list li input[type="checkbox"] {
 <p>These are not security restrictions but behavioral instructions that help Claude work consistently across the project.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src=".\img/guardrails.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="./img/guardrails.png" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption><strong>Figure 1. Three user-configurable guardrails in Claude Code: permissions, hooks, and project instructions (CLAUDE.md)</strong></figcaption>
 </figure>
 </div>
@@ -559,21 +571,16 @@ ul.task-list li input[type="checkbox"] {
 └── README.md</code></pre>
 <p>SKILL.md consists of two parts:</p>
 <ol type="1">
-<li><strong>YAML font matter</strong></li>
-<li><strong>The skill instructions</strong> The YAML front matter provides the skill name and a short description. Claude uses the description to understand when the skill is relevant.</li>
+<li><strong>YAML font matter</strong>: The YAML front matter provides the skill name and a short description. Claude uses the description to understand when the skill is relevant.</li>
+<li><strong>The skill instructions</strong>: The rest of the file should contain the procedure Claude should follow.</li>
 </ol>
-<p>The rest of the file should contain the procedure Claude should follow. Example of <code>SKILL.md</code> file is provide below:</p>
+<p>Example of <code>SKILL.md</code> file is provided below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src=".\img/script_file_example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<p><img src="./img/script_file_example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 <p>The folder name becomes the command used to invoke the skill. <strong>For example, the skill can be run from the Claude Code chat panel using <code>/review-slurm-script</code></strong>. Claude will then ask which Slurm script you want to review. You can provide the script path, such as:<code>scripts/fastqc.sh</code>. If the folder contains several scripts, Claude may ask you to choose a specific one. After you select a file, the skill reviews it for issues such as missing Slurm settings, unreasonable resource requests, incorrect paths, missing log files, or unsafe commands. Claude will usually separate confirmed problems from optional improvements and may then ask whether you want it to apply the suggested changes or review another script. Review the proposed changes before approving them. If you choose to apply the fixes, Claude updates the script based on the skill instructions. Review the Slurm script provided in the current context.</p>
-<p>After creating the skill, a participant could open a Slurm script in VS Code and enter:</p>
-<p>/review-slurm-script</p>
-<p>They could also provide additional instructions:</p>
-<p>/review-slurm-script</p>
-<p>Pay particular attention to whether the requested memory is reasonable for running FastQC on eight FASTQ files.</p>
 <p>Claude Code may also select a skill automatically when the request closely matches the skill description. The complete instructions are loaded only when the skill is used, making skills more suitable than CLAUDE.md for detailed procedures.</p>
 </section>
 <section id="test-the-skill" class="level3" data-number="4.2">
@@ -586,14 +593,63 @@ ul.task-list li input[type="checkbox"] {
 <p>/troubleshoot-slurm-job</p>
 <p>Review <span class="citation" data-cites="fastqc.slurm">(<a href="#ref-fastqc.slurm" role="doc-biblioref"><strong>fastqc.slurm?</strong></a>)</span>, <span class="citation" data-cites="fastqc.out">(<a href="#ref-fastqc.out" role="doc-biblioref"><strong>fastqc.out?</strong></a>)</span>, and <span class="citation" data-cites="fastqc.err">(<a href="#ref-fastqc.err" role="doc-biblioref"><strong>fastqc.err?</strong></a>)</span>. Explain why the job failed, but do not modify or rerun anything.</p>
 <p>This combines the context-attachment techniques discussed earlier with a reusable advanced workflow.</p>
-<p><strong>Skills vs CLAUDE.md</strong> CLAUDE.md gives general project context and facts of projects. Skills are better for specific workflows because the skill content loads only when used, rather than always staying in context. Claude does not load the whole Skill every time. It only loads it when needed, so you can keep longer checklists or workflows in a Skill without crowding every chat.</p>
-<p><strong>Basic structure</strong>- where skill.md file should be located</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span><strong>Skills vs CLAUDE.md</strong> <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>CLAUDE.md gives general project context and facts of projects. Skills are better for specific workflows. Claude does not load the whole Skill every time. It only loads it when needed, so you can keep longer checklists or workflows in a Skill without crowding every chat. Use <code>CLAUDE.md</code> for information Claude should always know. Use Skills for instructions Claude needs only when performing a particular task.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="use-of-retrieval-augmented-generation-to-enrich-context--provide-published-papers-manualsdocumentation-database"><span class="header-section-number">5</span> Use of Retrieval-Augmented generation to enrich context- provide published papers, manuals/documentation, database</h2>
+<p><strong>Retrieval-Augmented Generation (RAG)</strong> is an AI approach that improves a large language model by allowing it to retrieve information from external sources before generating a response. Instead of relying only on what the LLM already knows, Claude first retrieves relevant information from an external source, then uses that information to generate its answer. The model uses this context to produce more accurate, up-to-date, and evidence-based answers. RAG is useful in scientific research because knowledge changes rapidly and many important resources, such as project documentation or institutional protocols, are not part of a language model’s training data.</p>
+<p>It has two steps:<br>
+</p>
+<ol type="1">
+<li><p><strong>Retrieval steps</strong> - the system searches a knowledge store (for example, a vector database built from your local corpus) for the most relevant passages to a user query. But Claude does not do this. There is a tool called <strong>Model Context Protocol (MCP)</strong> for the Claude to communicate with the external tool. MCP can be thought as a USB-C port for AI applications. Just as USB-C provides a standardized way to connect electronic devices, MCP provides a standardized way to connect AI applications to external systems.</p></li>
+<li><p><strong>Generation steps</strong> - those retrieved passages are passed to the LLM as context, allowing it to generate grounded and evidence-based responses.</p></li>
+</ol>
+<section id="basic-rag-pipeline" class="level4">
+<h4 class="anchored" data-anchor-id="basic-rag-pipeline">Basic Rag pipeline</h4>
+<ul>
+<li>Chunk the text by section</li>
+<li>Generate embeddings for each chunk</li>
+<li>Create a vector store and add each embedding to it</li>
+<li>Generate an embedding for the user’s question</li>
+<li>Search the store to find the most relevant chunks</li>
+<li>Sent the user_query + relevant chunk to LLM for the final Output</li>
+</ul>
+</section>
+<section id="from-anthropic-video" class="level4">
+<h4 class="anchored" data-anchor-id="from-anthropic-video">From anthropic video</h4>
+<p>Suppose you have a very long bioinformatics document and you want to extract specific information from it.</p>
+<p>Option: 1, One way to do so is to include the content in the prompt: However it has its own limitations 1. Large prompts cost more to process 2. Large prompts takes longer to process 3. Claude will get less effective</p>
+<p>It might work or it might not work</p>
+<p>Option - 2: RAG : You can break the document into chunks and put it as a prompt.This focus in answering question in small snippet.</p>
+<p>Advantages 1. Claude can focus on mostly relevent content 2. Smaller prompt cost less</p>
+<p>Disadvantages 1. Requires pre-processing to find relevant chunk 2. The chunk might not have relevant information 3. What is the best way to extract the chunk</p>
+<ul>
+<li>Requires pre-processing step</li>
+<li>Searching mechanism to find relevant chunk</li>
+</ul>
+</section>
+<section id="create-custom-rag-workflow" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="create-custom-rag-workflow"><span class="header-section-number">5.1</span> Create custom RAG workflow</h3>
+<p>Claude Code itself is not the vector database or retrieval engine. Instead, you build a small local retrieval tool and connect it to Claude Code through MCP. Claude Code supports local MCP servers that run as processes on your computer, which makes them suitable for custom scripts that search local documents</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1004,7 +1060,7 @@ ul.task-list li input[type="checkbox"] {
 <p>2026, Jelmer Poelstra, <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> &nbsp; <img src="http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" class="img-fluid" style="width:10.0%"></p>
 </div>   
     <div class="nav-footer-center">
-<p><img src=".\img/CFAES-Horiz-RGBHEX.svg" class="img-fluid" style="width:40.0%"></p>
+<p><img src="./img/CFAES-Horiz-RGBHEX.svg" class="img-fluid" style="width:40.0%"></p>
 </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

@@ -13,8 +13,10 @@ website:
     left:
       - text: Day 1
         menu:
-          - text: "1: Intro to the workshop (TBA)"
-          - text: "2: Intro to Generative AI and LLMs (TBA)"
+          - text: "1: Intro to the workshop"
+            href: 01-workshop-intro.qmd
+          - text: "2: Intro to Generative AI and LLMs"
+            href: 02-ai-intro.qmd
           - text: "3: Approved genAI tools at OSU (TBA)"
           - text: "4: Use cases and tools for research (TBA)"
           - text: "5: VS Code and OSC setup"
@@ -61,8 +63,8 @@ website:
           - text: "Positron installation and setup (for R)"
             href: o3-positron-install.qmd
           - text: "---------------"
-          - text: Further Resources (TBA)
-            #href: o2-resources.qmd
+          - text: "Further Resources"
+            href: o2-resources.qmd
     tools:
       - icon: github
         aria-label: "The GitHub repo for this website"

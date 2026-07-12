@@ -159,8 +159,14 @@ div.csl-indent {
  <span class="menu-text">Day 1</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-day-1">    
-        <li class="dropdown-header">1: Intro to the workshop (TBA)</li>
-        <li class="dropdown-header">2: Intro to Generative AI and LLMs (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./01-workshop-intro.html">
+ <span class="dropdown-text">1: Intro to the workshop</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./02-ai-intro.html">
+ <span class="dropdown-text">2: Intro to Generative AI and LLMs</span></a>
+  </li>  
         <li class="dropdown-header">3: Approved genAI tools at OSU (TBA)</li>
         <li class="dropdown-header">4: Use cases and tools for research (TBA)</li>
         <li>
@@ -254,7 +260,10 @@ div.csl-indent {
  <span class="dropdown-text">Positron installation and setup (for R)</span></a>
   </li>  
         <li><hr class="dropdown-divider"></li>
-        <li class="dropdown-header">Further Resources (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./o2-resources.html">
+ <span class="dropdown-text">Further Resources</span></a>
+  </li>  
     </ul>
   </li>
 </ul>
@@ -342,7 +351,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 10, 2026</p>
+      <p class="date-modified">July 12, 2026</p>
     </div>
   </div>
     
@@ -420,12 +429,12 @@ div.csl-indent {
 '/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869601_2.fastq.gz' -&gt; './iqbal/fastq/SRR31869601_2.fastq.gz'
 '/fs/scratch/PAS3454/data/iqbal/fastq/SRR31869592_1.fastq.gz' -&gt; './iqbal/fastq/SRR31869592_1.fastq.gz'
 # [...output truncated...]</code></pre></li>
-<li><p>Create a new dir <code>S07</code> (as in: session 7) within your <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code> dir:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> S07</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Create a new dir <code>S06</code> (as in: session 6) within your <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code> dir:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> S06</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Run the <code>tree</code> command to understand the current structure of your dirs and files:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tree</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code> .
- ├── S07
+ ├── S06
  ├── iqbal
  │   ├── README.md
  │   ├── fastq
@@ -516,6 +525,11 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td>Institutional approval for use with private data</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr class="even">
+<td>Often considered the best code assist tool</td>
 <td>❌</td>
 <td>✅</td>
 </tr>
@@ -664,6 +678,11 @@ div.csl-indent {
 <figcaption>I typed <code>#!</code>, and the <code>/bin/bash</code> suggestion appeared.<br>The purple highlighting is also done by Copilot to draw attention to it.</figcaption>
 </figure>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/copilot-useful-autocomplete.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="./img/copilot-useful-autocomplete.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%" alt="Ghost text suggestions in GitHub Copilot"></a></p>
+</figure>
+</div>
 </section>
 <section id="suggestions-based-on-a-code-comment-you-have-written" class="level4">
 <h4 class="anchored" data-anchor-id="suggestions-based-on-a-code-comment-you-have-written">Suggestions based on a code comment you have written</h4>
@@ -672,7 +691,7 @@ div.csl-indent {
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./img/copilot-ghost-count-dirs.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="I typed the comment line, and the next line was –correctly– suggested by Copilot."><img src="./img/copilot-ghost-count-dirs.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Ghost text suggestions in GitHub Copilot"></a></p>
+<p><a href="./img/copilot-ghost-count-dirs.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="I typed the comment line, and the next line was –correctly– suggested by Copilot."><img src="./img/copilot-ghost-count-dirs.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Ghost text suggestions in GitHub Copilot"></a></p>
 </figure>
 </div>
 <figcaption>I typed the comment line, and the next line was –correctly– suggested by Copilot.</figcaption>
@@ -683,7 +702,7 @@ div.csl-indent {
 <section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-try-it-yourself" class="level4 exercise">
 <h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-try-it-yourself"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Try it yourself</h4>
 <ol type="1">
-<li><p>Open a new file in VS Code, and save it as <code>S07/copilot.sh</code>.</p>
+<li><p>Open a new file in VS Code, and save it as <code>S06/copilot.sh</code>.</p>
 <details>
 <summary>
 <p>Instructions to create a new file</p>
@@ -691,7 +710,7 @@ div.csl-indent {
 <p>There are a number of ways you can do this, including:</p>
 <ul>
 <li><p><code>File</code> &gt; <code>New File</code>, then <code>File</code> &gt; <code>Save As...</code></p></li>
-<li><p>Execute the command <code>touch S07/copilot.sh</code>, then hold <kbd>Ctrl/⌘</kbd> and click on the file name in the terminal to open it — the latter is a useful trick more generally.</p></li>
+<li><p>Execute the command <code>touch S06/copilot.sh</code>, then hold <kbd>Ctrl/⌘</kbd> and click on the file name in the terminal to open it — the latter is a useful trick more generally.</p></li>
 </ul>
 </details>
 <div class="callout callout-style-simple callout-note">
@@ -740,7 +759,7 @@ div.csl-indent {
 <li>Syntax, spelling, or style errors in your code (e.g., a missing closing bracket or quote)</li>
 <li>When you change one instance of a recurring pattern in your code (e.g., a variable name or a path), it will suggest to change the other instances as well.</li>
 </ul>
-<p>As a very simple example, if you type the incorrect <code>Ls -lh</code> in your <code>S07/copilot.sh</code> file, and wait a second, Copilot will suggest to change it to <code>ls -lh</code> (with a lowercase <code>l</code>):</p>
+<p>As a very simple example, if you type the incorrect <code>Ls -lh</code> in your <code>S06/copilot.sh</code> file, and wait a second, Copilot will suggest to change it to <code>ls -lh</code> (with a lowercase <code>l</code>):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./img/copilot-nextedit-syntax.png" class="img-fluid figure-img" style="width:35.0%" alt="Screenshot of Copilot next edit suggestion for syntax error"></p>
@@ -777,7 +796,7 @@ div.csl-indent {
 <section id="modify-code" class="level4">
 <h4 class="anchored" data-anchor-id="modify-code">Modify code</h4>
 <ol type="1">
-<li><p>In your <code>S07/copilot.sh</code> file, select the line that counts the number of dirs in <code>people</code>, and press <kbd>Ctrl/⌘</kbd> + <kbd>I</kbd>. The inline chat window should open as follows:</p>
+<li><p>In your <code>S06/copilot.sh</code> file, select the line that counts the number of dirs in <code>people</code>, and press <kbd>Ctrl/⌘</kbd> + <kbd>I</kbd>. The inline chat window should open as follows:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./img/copilot-inline-chat-modify2.png" class="img-fluid figure-img" style="width:38.0%" alt="Screenshot of Copilot inline chat feature, showing a code snippet and the 'Chat about this code' option in the context menu"></p>
@@ -938,7 +957,7 @@ div.csl-indent {
 <p>While we’ll be exploring the chat functionality of these types of AI tools with Claude Code, let’s end this session with one example prompt in the GitHub Copilot chat.</p>
 <p>In the Copilot prompt box (which should have ghost text “<em>Describe what to build</em>” – or something similar), enter:</p>
 <blockquote class="blockquote">
-<p><em>How many reads are in data/iqbal/SRR31869590_1.fastq?</em> [TBA - CHANGE THIS]</p>
+<p><em>Help me understand the files in the iqbal dir</em></p>
 </blockquote>
 <p>Because we’re asking Copilot for information that it can only access after actually performing an action (running a command), it will by default ask for permission to do so:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -958,6 +977,16 @@ div.csl-indent {
 <h4 class="anchored" data-anchor-id="what-did-we-just-witness">What did we just witness?</h4>
 <p>This example shows how in-editor AI like GitHub Copilot can perform actions themselves, rather than just providing information or code snippets. In technical terms, as part of this agentic behavior, it “calls a tool” (or: “performs <strong>tool calls</strong>”) that allow it to run arbitrary commands in the terminal.</p>
 <p>We’ll soon see another type of extremely useful in-editor agentic behavior, where it can <strong>read and/or edit your code</strong>. This latter type of behavior is what we’ll use most in this workshop. That’s because broadly speaking, the example above notwithstanding, <em>the goal in this workshop is not to let AI analyze the data for us,</em> <em>but rather to let it help us write code to appropriately analyze the data with</em> <em>existing non-AI programs.</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/claude-agentic-loop.svg" class="img-fluid figure-img" style="width:50.0%" alt="Diagram showing the agentic loop of an AI tool, where it can read and edit code, and call tools to run commands"></p>
+<figcaption>From the <a href="https://code.claude.com/docs/en/how-claude-code-works">Claude Code docs</a></figcaption>
+</figure>
+</div>
+<!---
+- `editor.action.inlineSuggest.trigger` => keyboard shortcut to trigger inline suggestions
+  I can't seem to get this to do much.
+--->
 
 
 

@@ -28,12 +28,25 @@ bibliography: refs.bib # You can add reference to this files if you have and cit
 
 <!-------
 
-Other application ideas:
+- _TBA: The more you do with code and plain-text formats, the more you can use these AI tools_
 
-- Turn code into a nice pipeline
+- For more advanced users: **Version control** (Git) pairs well with agentic coding.
+  Commit before letting Claude make a batch of changes,
+  so you can easily review or revert if things go sideways.
+  If you're not using Git, you may in some cases want to make a **backup copy** of your
+  file or even workspace before letting Claude make edits.
 
-- For non-coding tasks too, using SKILLS can be useful --
-  e.g. literature review, adverserial review of own manuscript
+- From https://anthropic.skilljar.com/claude-101/383392
+> The 4D Framework for AI Fluency, developed through research collaboration between Professor Rick Dakan (Ringling College of Art and Design) and Professor Joseph Feller (University College Cork), identifies four core competencies that, when combined, can help you make the most of your AI interactions:
+> Delegation: Deciding on what work should be done by humans, what work should be done by AI, and how to distribute tasks between them. Includes understanding your goals, AI capabilities, and making strategic choices about collaboration.
+> Description: Effectively communicating with AI systems. Includes clearly defining outputs, guiding AI processes, and specifying desired AI behaviors and interactions.
+> Discernment: Thoughtfully and critically evaluating AI outputs, processes, behaviors and interactions. Includes assessing quality, accuracy, appropriateness, and determining areas for improvement.
+> Diligence: Using AI responsibly and ethically. Includes making thoughtful choices about AI systems and interactions, maintaining transparency, and taking accountability for AI-assisted work.
+
+- Other AI application ideas:
+
+ - For non-coding tasks too, using SKILLS can be useful --
+   e.g. literature review, adverserial review of own manuscript
 
 ------>
 

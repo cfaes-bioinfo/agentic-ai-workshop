@@ -108,10 +108,10 @@ sequencing dataset to analyze with the help of our AI tools.
    # [...output truncated...]
    ```
 
-4. Create a new dir `S07` (as in: session 7) within your `/fs/scratch/PAS3454/people/<user>` dir:
+4. Create a new dir `S06` (as in: session 6) within your `/fs/scratch/PAS3454/people/<user>` dir:
 
    ```bash
-   mkdir S07
+   mkdir S06
    ```
 
 5. Run the `tree` command to understand the current structure of your dirs and files:
@@ -121,7 +121,7 @@ sequencing dataset to analyze with the help of our AI tools.
    ```
    ```bash-out
     .
-    ├── S07
+    ├── S06
     ├── iqbal
     │   ├── README.md
     │   ├── fastq
@@ -202,6 +202,7 @@ Here is an overview of the pros and cons of GitHub Copilot vs. Claude Code:
 | Free usage with a personal, "academic", account | ✅ [^1] | ❌ |
 | Possible to pay for use with university funds | ❌ | ✅ | 
 | Institutional approval for use with private data | ❌ | ✅ |
+| Often considered the best code assist tool | ❌ | ✅ |
 
 [^1]: Quite limited free access without educational credentials,
       but more useful as a student or especially teacher/faculty: see below.
@@ -312,6 +313,8 @@ GitHub Copilot is likely to suggest the full shebang line `#!/bin/bash` for you:
 
 ![I typed `#!`, and the `/bin/bash` suggestion appeared.<br>The purple highlighting is also done by Copilot to draw attention to it.](/img/copilot-ghost1.png){fig-align="center" width="45%" fig-alt="Ghost text suggestions in GitHub Copilot" .lightbox}
 
+![](/img/copilot-useful-autocomplete){fig-align="center" width="45%" fig-alt="Ghost text suggestions in GitHub Copilot" .lightbox}
+
 #### Suggestions based on a code comment you have written
 
 These try to generate code that implements what you described in the comment.
@@ -329,14 +332,14 @@ while not as suitable for more complex questions.
 ::: exercise
 #### {{< fa user-edit >}} Exercise: Try it yourself
 
-1. Open a new file in VS Code, and save it as `S07/copilot.sh`.
+1. Open a new file in VS Code, and save it as `S06/copilot.sh`.
 
    <details><summary>Instructions to create a new file</summary>
    There are a number of ways you can do this, including:
    
    - `File` > `New File`, then `File` > `Save As...`
 
-   - Execute the command `touch S07/copilot.sh`,
+   - Execute the command `touch S06/copilot.sh`,
      then hold <kbd>Ctrl/⌘</kbd> and click on the file name in the terminal to open it ---
      the latter is a useful trick more generally.
    </details>
@@ -387,7 +390,7 @@ A number of scenarios can trigger next edit suggestions, such as:
 - When you change one instance of a recurring pattern in your code (e.g., a variable name or a path),
   it will suggest to change the other instances as well.
 
-As a very simple example, if you type the incorrect `Ls -lh` in your `S07/copilot.sh` file,
+As a very simple example, if you type the incorrect `Ls -lh` in your `S06/copilot.sh` file,
 and wait a second, Copilot will suggest to change it to `ls -lh` (with a lowercase `l`):
 
 ![`Ls` is incorrect, and Copilot will recognize we are looking for `ls` instead.<br> As always, press <kbd>Tab</kbd> to accept the suggestion.](/img/copilot-nextedit-syntax.png){fig-align="center" width="35%" fig-alt="Screenshot of Copilot next edit suggestion for syntax error"}
@@ -432,7 +435,7 @@ best with code completions: selecting a piece of code and asking Copilot to modi
 
 #### Modify code
 
-1. In your `S07/copilot.sh` file, select the line that counts the number of dirs in `people`,
+1. In your `S06/copilot.sh` file, select the line that counts the number of dirs in `people`,
    and press <kbd>Ctrl/⌘</kbd> + <kbd>I</kbd>.
    The inline chat window should open as follows:
 
@@ -579,7 +582,7 @@ In the Copilot prompt box
 (which should have ghost text "_Describe what to build_" – or something similar),
 enter:
 
-> _How many reads are in data/iqbal/SRR31869590_1.fastq?_ [TBA - CHANGE THIS]
+> _Help me understand the files in the iqbal dir_
 
 Because we're asking Copilot for information that it can only access after
 actually performing an action (running a command),
@@ -604,3 +607,10 @@ That's because broadly speaking, the example above notwithstanding,
 _the goal in this workshop is not to let AI analyze the data for us,_
 _but rather to let it help us write code to appropriately analyze the data with_
 _existing non-AI programs._
+
+![From the [Claude Code docs](https://code.claude.com/docs/en/how-claude-code-works)](/img/claude-agentic-loop.svg){fig-align="center" width="50%" fig-alt="Diagram showing the agentic loop of an AI tool, where it can read and edit code, and call tools to run commands"}
+
+<!---
+- `editor.action.inlineSuggest.trigger` => keyboard shortcut to trigger inline suggestions
+  I can't seem to get this to do much.
+--->
