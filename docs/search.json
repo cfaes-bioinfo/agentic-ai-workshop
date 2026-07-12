@@ -906,8 +906,8 @@
     "objectID": "08-prompts.html#introduction-to-prompt-engineering",
     "href": "08-prompts.html#introduction-to-prompt-engineering",
     "title": "Prompt engineering",
-    "section": "Introduction to Prompt Engineering",
-    "text": "Introduction to Prompt Engineering\n\n\nWhat is a prompt?\n\n\nA prompt is the input text or query that you provide to an AI model to generate a response. It can be a question, statement, or instruction.\n\nWhat is prompt engineering?\n\n\nThe process of designing and optimizing prompts to provide you relevant and accurate responses for your specific needs."
+    "section": "1 Introduction to Prompt Engineering",
+    "text": "1 Introduction to Prompt Engineering\n\n\n\nWhat is a prompt?\n\n\nA prompt is the input text or query that you provide to an AI model to generate a response. It can be a question, statement, or instruction.\n\nWhat is prompt engineering?\n\n\nThe process of designing and optimizing prompts to provide you relevant and accurate responses for your specific needs."
   },
   {
     "objectID": "08-prompts.html#why-is-prompt-engineering-important",
@@ -920,8 +920,8 @@
     "objectID": "08-prompts.html#anatomy-of-a-well-crafted-prompt",
     "href": "08-prompts.html#anatomy-of-a-well-crafted-prompt",
     "title": "Prompt engineering",
-    "section": "Anatomy of a well-crafted prompt",
-    "text": "Anatomy of a well-crafted prompt\nFortunately, for us science-minded folks, there is an SOP of sorts to help us craft effective prompts. A well-crafted prompt should include, at minimum, the following components:\n\n\nTask: What are you asking the AI model to do?\n\nExample: “Write a Python script that counts all A, T, C, and G characters in a FASTA file.”\n\nContext and Constraints: What information does the AI model need to know to complete the task? Are there any constraints or limitations that the AI model should be aware of?\n\nExample: “Write a script that counts all A, T, C, and G characters in a FASTA file. The script should be written in Python 3 and use the Biopython library. The file may contain Ns, which should be ignored.”\n\nOutput Format: What format do you want the AI model to respond in?\n\nExample: “Write a script that counts all A, T, C, and G characters in a FASTA file. The script should be written in Python 3 and use the Biopython library. The file may contain Ns, which should be ignored. The resulting counts should be printed to the console in the following format: A:  T:  C:  G: ”"
+    "section": "3 Anatomy of a well-crafted prompt",
+    "text": "3 Anatomy of a well-crafted prompt\nFortunately, for us science-minded folks, there is an SOP of sorts to help us craft effective prompts. A well-crafted prompt should include, at minimum, the following components:\n\n\n\nTask: What are you asking the AI model to do?\n\nExample: “Write a script that counts all A, T, C, and G characters in a FASTA file.”\n\nContext and Constraints: What information does the AI model need to know to complete the task? Are there any constraints or limitations that the AI model should be aware of?\n\nExample: “Write a script that counts all A, T, C, and G characters in a FASTA file. The script should be written in Python 3 and use the Biopython library. The file may contain Ns, which should be ignored.”\n\nOutput Format: What format do you want the AI model to respond and/or produce?\n\nExample: “Write a script that counts all A, T, C, and G characters in a FASTA file. The script should be written in Python 3 and use the Biopython library. The file may contain Ns, which should be ignored. The resulting counts should be printed to standard output in the following format: A:  T:  C:  G: ”"
   },
   {
     "objectID": "08-prompts.html#optional-but-potentially-useful-pieces-to-include-in-your-prompt",
@@ -934,8 +934,8 @@
     "objectID": "08-prompts.html#lets-practice-prompt-engineering",
     "href": "08-prompts.html#lets-practice-prompt-engineering",
     "title": "Prompt engineering",
-    "section": "Let’s practice prompt engineering",
-    "text": "Let’s practice prompt engineering\nBoot up your favorite AI model and let’s get started."
+    "section": "7 Let’s practice prompt engineering",
+    "text": "7 Let’s practice prompt engineering\nBoot up your favorite AI model and let’s get started."
   },
   {
     "objectID": "02-ai-intro.html#overview",
@@ -1144,8 +1144,8 @@
     "objectID": "08-prompts.html#why-is-prompt-engineering-so-important",
     "href": "08-prompts.html#why-is-prompt-engineering-so-important",
     "title": "Prompt engineering",
-    "section": "Why is prompt engineering so important?",
-    "text": "Why is prompt engineering so important?\n\n\n\n\nThe only thing that stands in between you and an effective solution is the prompt you generate.\nPrompt engineering is so important that there are entire jobs, courses, and websites dedicated to it. In fact, you can purchase prompt engineering services from companies.\n\n\n\n\n\n\nPromptBase website"
+    "section": "2 Why is prompt engineering so important?",
+    "text": "2 Why is prompt engineering so important?\n\n\n\n\nThe only thing that stands in between you and an effective solution is the prompt you generate.\nPrompt engineering is so important that there are entire jobs, courses, and websites dedicated to it. In fact, you can purchase prompt engineering services from companies.\n\n\n\n\n\n\nPromptBase website"
   },
   {
     "objectID": "08-prompts.html#optional-but-potentially-useful-pieces-for-prompting",
@@ -1158,21 +1158,98 @@
     "objectID": "08-prompts.html#language-in-prompting",
     "href": "08-prompts.html#language-in-prompting",
     "title": "Prompt engineering",
-    "section": "Language in prompting",
-    "text": "Language in prompting\nWhile good prompting begins with our three building blocks, the language we use in prompting has a significant impact on the quality of the response we receive.\n\nDirect\nSpecific\nDetails"
+    "section": "4 Language in prompting",
+    "text": "4 Language in prompting\nWhile good prompting begins with our three building blocks, the language we use in prompting has a significant impact on the quality of the response we receive.\n\nDirect\nSpecificity\nDetails"
   },
   {
     "objectID": "08-prompts.html#optional-but-useful-pieces-for-prompting",
     "href": "08-prompts.html#optional-but-useful-pieces-for-prompting",
     "title": "Prompt engineering",
-    "section": "Optional, but useful pieces for prompting",
-    "text": "Optional, but useful pieces for prompting\n\nRole/Persona: When your AI model responds, do you want it to take on the role of a particular type of person? Do you want your AI model to act as a molecular biologist? a bioinformatician? a student? a peer?\n\nExample: “You are a bioinformatician with 10 years of experience in fungal, whole-genome analysis. Write a script that counts all A, T, C, and G characters…”\n\nAudience: You are the one receiving the response from the AI model. Do you want the response to be tailored to your level of expertise? Do you want it to be written in a way that is accessible to a general audience? Or do you want it to be written in a way that is accessible to a specific audience, such as a group of students or colleagues?\n\nExample: “I am a graduate student with very little experience in bioinformatics. Write a script that counts all A, T, C, and G characters…”"
+    "section": "5 Optional, but useful pieces for prompting",
+    "text": "5 Optional, but useful pieces for prompting\n\nRole/Persona: When your AI model responds, do you want it to take on the role of a particular type of person? Do you want your AI model to act as a molecular biologist? a bioinformatician? a student? a peer?\n\nExample: “You are a bioinformatician with 10 years of experience in fungal, whole-genome analysis. Write a script that counts all A, T, C, and G characters…”\n\nAudience: You are the one receiving the response from the AI model. Do you want the response to be tailored to your level of expertise? Do you want it to be written in a way that is accessible to a general audience? Or do you want it to be written in a way that is accessible to a specific audience, such as a group of students or colleagues?\n\nExample: “I am a graduate student with very little experience in bioinformatics. Write a script that counts all A, T, C, and G characters…”"
   },
   {
     "objectID": "08-prompts.html#optional-but-useful-pieces-for-prompting-cont.",
     "href": "08-prompts.html#optional-but-useful-pieces-for-prompting-cont.",
     "title": "Prompt engineering",
+    "section": "6 Optional, but useful pieces for prompting (cont.)",
+    "text": "6 Optional, but useful pieces for prompting (cont.)"
+  },
+  {
+    "objectID": "08-prompts-slides.html#introduction-to-prompt-engineering",
+    "href": "08-prompts-slides.html#introduction-to-prompt-engineering",
+    "title": "Prompt engineering",
+    "section": "1 Introduction to Prompt Engineering",
+    "text": "1 Introduction to Prompt Engineering\n\n\n\nWhat is a prompt?\n\n\nA prompt is the input text or query that you provide to an AI model to generate a response. It can be a question, statement, or instruction.\n\nWhat is prompt engineering?\n\n\nThe process of designing and optimizing prompts to provide you relevant and accurate responses for your specific needs."
+  },
+  {
+    "objectID": "08-prompts-slides.html#why-is-prompt-engineering-so-important",
+    "href": "08-prompts-slides.html#why-is-prompt-engineering-so-important",
+    "title": "Prompt engineering",
+    "section": "2 Why is prompt engineering so important?",
+    "text": "2 Why is prompt engineering so important?\n\n\n\n\nThe only thing that stands in between you and an effective solution is the prompt you generate.\nPrompt engineering is so important that there are entire jobs, courses, and websites dedicated to it. In fact, you can purchase prompt engineering services from companies.\n\n\n\n\n\n\nPromptBase website"
+  },
+  {
+    "objectID": "08-prompts-slides.html#anatomy-of-a-well-crafted-prompt",
+    "href": "08-prompts-slides.html#anatomy-of-a-well-crafted-prompt",
+    "title": "Prompt engineering",
+    "section": "3 Anatomy of a well-crafted prompt",
+    "text": "3 Anatomy of a well-crafted prompt\nFortunately, for us science-minded folks, there is an SOP of sorts to help us craft effective prompts. A well-crafted prompt should include, at minimum, the following components:\n\n\n\nTask: What are you asking the AI model to do?\n\nExample: “Write a script that counts all A, T, C, and G characters in a FASTA file.”\n\nContext and Constraints: What information does the AI model need to know to complete the task? Are there any constraints or limitations that the AI model should be aware of?\n\nExample: “Write a script that counts all A, T, C, and G characters in a FASTA file. The script should be written in Python 3 and use the Biopython library. The file may contain Ns, which should be ignored.”\n\nOutput Format: What format do you want the AI model to respond and/or produce?\n\nExample: “Write a script that counts all A, T, C, and G characters in a FASTA file. The script should be written in Python 3 and use the Biopython library. The file may contain Ns, which should be ignored. The resulting counts should be printed to the console in the following format: A:  T:  C:  G: ”"
+  },
+  {
+    "objectID": "08-prompts-slides.html#language-in-prompting",
+    "href": "08-prompts-slides.html#language-in-prompting",
+    "title": "Prompt engineering",
+    "section": "4 Language in prompting",
+    "text": "4 Language in prompting\nWhile good prompting begins with our three building blocks, the language we use in prompting has a significant impact on the quality of the response we receive.\n\nDirect: Just as we do for writing, we should be direct and concise in our prompting. Avoid using vague language or unclear instructions.\n\nExample of what not to do: “Write a script that counts ATGC in a file.”\n\nSpecificity: Be specific when you describe what you want from the AI model. The more specific you are, the more likely the reponse will be relevant to what you need.\n\nExample: “Write a python script…”\n\nDetailed: This one is tricky. You want to provide enough details to the AI model to understand the scope of the task, but no so many details that it becomes overwhelmed and confused. More on this in the next slide."
+  },
+  {
+    "objectID": "08-prompts-slides.html#optional-but-useful-pieces-for-prompting",
+    "href": "08-prompts-slides.html#optional-but-useful-pieces-for-prompting",
+    "title": "Prompt engineering",
+    "section": "7 Optional, but useful pieces for prompting",
+    "text": "7 Optional, but useful pieces for prompting\n\n\nRole/Persona: Do you want the AI model to take on the role of a particular type of person? Do you want your AI model to act as a molecular biologist? a bioinformatician? a student? a peer?\n\nExample: “You are a bioinformatician with 10 years of experience in fungal, whole-genome analysis. Write a script that counts all A, T, C, and G characters…”\n\nAudience: The AI model is creating a response for you. Do you want the response to be tailored to your level of expertise? Or to an expertise level that is higher or lower than your own?\n\nExample: “I am a graduate student with very little experience in bioinformatics. Write a script that counts all A, T, C, and G characters…”"
+  },
+  {
+    "objectID": "08-prompts-slides.html#optional-but-useful-pieces-for-prompting-cont.",
+    "href": "08-prompts-slides.html#optional-but-useful-pieces-for-prompting-cont.",
+    "title": "Prompt engineering",
     "section": "Optional, but useful pieces for prompting, cont.",
     "text": "Optional, but useful pieces for prompting, cont."
+  },
+  {
+    "objectID": "08-prompts-slides.html#lets-practice-prompt-engineering",
+    "href": "08-prompts-slides.html#lets-practice-prompt-engineering",
+    "title": "Prompt engineering",
+    "section": "8 Let’s practice prompt engineering",
+    "text": "8 Let’s practice prompt engineering\nBoot up your favorite AI model and let’s get started."
+  },
+  {
+    "objectID": "08-prompts-slides.html#to-get-the-most-out-of-your-prompts",
+    "href": "08-prompts-slides.html#to-get-the-most-out-of-your-prompts",
+    "title": "Prompt engineering",
+    "section": "5 To get the most out of your prompts…",
+    "text": "5 To get the most out of your prompts…\n\n\nMore is not always better: Too much information, details, or directions can overwhelm the AI model and can create problematic responses. If you have multiple directions, break them up into multiple prompts. Avoid giving the AI model too many details that are irrelevant to the task.\n\nExample: “…counts should be printed to the console in the following format: A:  T:  C:  G: .” NEW PROMPT: “This script worked. Now, can you modify it to count the number of &gt; characters as well? Do not edit the existing code, only add the necessary modifications”\nExample of what not to do: “Write me a script that counts all A, T, C, and G characters in a FASTA file. This FASTA file is a bacterial genome that is 5 Mb in size and belongs to the genus Pseudomonas. It was isolated from a tomato plant in New York.”"
+  },
+  {
+    "objectID": "08-prompts-slides.html#to-get-the-most-out-of-your-prompts-cont",
+    "href": "08-prompts-slides.html#to-get-the-most-out-of-your-prompts-cont",
+    "title": "Prompt engineering",
+    "section": "6 To get the most out of your prompts… (cont)",
+    "text": "6 To get the most out of your prompts… (cont)\n\n\nExamples: Providing examples of your output, problem, or both can significantly improve the quality of the response you recieve.\n\nExample: “…counts should be printed to the console in the following format: A:  T:  C:  G: . For example, if the input file contains the following sequence: ATCGATCGNNNATCG, the output should be: A: 3 T: 3 C: 3 G: 3”"
+  },
+  {
+    "objectID": "08-prompts-page.html",
+    "href": "08-prompts-page.html",
+    "title": "Prompt engineering",
+    "section": "",
+    "text": "Task: What are you asking the AI model to do?\nContext and Constraints: What information does the AI model need to know to complete the task? Are there any constraints or limitations that the AI model should be aware of?\nOutput Format: What format do you want the AI model to respond and/or produce?\n\n\n\n\nDirect\nSpecificity\nDetails"
+  },
+  {
+    "objectID": "08-prompts-page.html#the-three-components-of-building-a-prompt",
+    "href": "08-prompts-page.html#the-three-components-of-building-a-prompt",
+    "title": "Prompt engineering",
+    "section": "",
+    "text": "Task: What are you asking the AI model to do?\nContext and Constraints: What information does the AI model need to know to complete the task? Are there any constraints or limitations that the AI model should be aware of?\nOutput Format: What format do you want the AI model to respond and/or produce?\n\n\n\n\nDirect\nSpecificity\nDetails"
   }
 ]
