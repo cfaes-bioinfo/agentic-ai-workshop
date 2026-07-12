@@ -1,3 +1,4 @@
+---
 title: "Prompt engineering"
 subtitle: "Day 2 - 9:00 AM - 9:30 AM"
 date: 2026-07-14
@@ -8,3 +9,25 @@ author:
     affiliation: 
       - name: Department of Plant Pathology, Ohio State University
         url: https://plantpath.osu.edu
+---
+
+## Blueprint of a prompt
+
+### The three components
+1. **Task**: What are you asking the AI model to do?
+2. **Context and Constraints**: What information does the AI model need to know to complete the task? Are there any constraints or limitations that the AI model should be aware of?
+3. **Output Format**: What format do you want the AI model to respond and/or produce?
+
+### Language in prompting
+1. **Direct**: Direct and precise language.
+2. **Specificity**: Be specific in your details.
+3. **Detail**: Provide enough details to the AI model, but not too many that it becomes overwhelmed and confused. Remember, more is not always better.
+
+### Additional options to consider
+- Include examples
+- Role/Persona
+- Consider the audience
+### Let's start with something basic
+``` markdown
+
+```

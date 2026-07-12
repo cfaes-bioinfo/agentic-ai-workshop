@@ -93,7 +93,7 @@ Fortunately, for us science-minded folks, there is an SOP of sorts to help us cr
   + *Example*: "**Write a script that counts all A, T, C, and G characters in a FASTA file.**"
 - **Context and Constraints**: What information does the AI model need to know to complete the task? Are there any constraints or limitations that the AI model should be aware of?
   +  *Example*: "Write a script that counts all A, T, C, and G characters in a FASTA file. **The script should be written in Python 3 and use the Biopython library. The file may contain Ns, which should be ignored.**"
-- **Output Format**: What format do you want the AI model to respond in?
+- **Output Format**: What format do you want the AI model to respond and/or produce?
   + *Example*: "Write a script that counts all A, T, C, and G characters in a FASTA file. The script should be written in Python 3 and use the Biopython library. The file may contain Ns, which should be ignored. **The resulting counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count>**"
 
 </div>
@@ -102,21 +102,35 @@ Fortunately, for us science-minded folks, there is an SOP of sorts to help us cr
 ## Language in prompting
 While good prompting begins with our three building blocks, the language we use in prompting has a significant impact on the quality of the response we receive. 
 
-- **Direct**
+- **Direct**: Just as we do for writing, we should be direct and concise in our prompting. Avoid using vague language or unclear instructions.
+  + *Example of what **not** to do*: "Write a script that counts ATGC in a file."
 
-- **Specificity**
+- **Specificity**: Be specific when you describe what you want from the AI model. The more specific you are, the more likely the reponse will be relevant to what you need.
+  + *Example*: "Write a **python** script..."
 
-- **Details**
+- **Detailed**: This one is tricky. You want to provide enough details to the AI model to understand the scope of the task, but no so many details that it becomes overwhelmed and confused. More on this in the next slide.
 
+## To get the most out of your prompts...
+::: {.incremental}
+- **More is not *always* better**: Too much information, details, or directions can overwhelm the AI model and can create problematic responses. If you have multiple directions, break them up into **multiple prompts**. Avoid giving the AI model too many details that are **irrelevant** to the task.
+  + *Example*: "...counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count>." **NEW PROMPT: "This script worked. Now, can you modify it to count the number of > characters as well? Do not edit the existing code, only add the necessary modifications**"
+  + *Example of what **not** to do*: "Write me a script that counts all A, T, C, and G characters in a FASTA file. This FASTA file is a bacterial genome that is 5 Mb in size and belongs to the genus *Pseudomonas*. It was isolated from a tomato plant in New York."
+:::
+
+## To get the most out of your prompts... (cont)
+::: {.incremental}
+- **Examples**: Providing examples of your **output**,  **problem**, or **both** can significantly improve the quality of the response you recieve.
+  + *Example*: "...counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count>. **For example, if the input file contains the following sequence: ATCGATCGNNNATCG, the output should be: A: 3 T: 3 C: 3 G: 3**"
+:::
 
 ## Optional, but useful pieces for prompting
-- **Role/Persona**: When your AI model responds, do you want it to take on the role of a particular type of person? Do you want your AI model to act as a molecular biologist? a bioinformatician? a student? a peer? 
+::: {.incremental}
+- **Role/Persona**: Do you want the AI model to take on the role of a particular type of person? Do you want your AI model to act as a molecular biologist? a bioinformatician? a student? a peer? 
   + *Example*: "**You are a bioinformatician with 10 years of experience in fungal, whole-genome analysis.** Write a script that counts all A, T, C, and G characters..."
 
-- **Audience**: You are the one receiving the response from the AI model. Do you want the response to be tailored to your level of expertise? Do you want it to be written in a way that is accessible to a general audience? Or do you want it to be written in a way that is accessible to a specific audience, such as a group of students or colleagues?
+- **Audience**: The AI model is creating a response **for you**. Do you want the response to be tailored to your level of expertise? Or to an expertise level that is higher or lower than your own?
   + *Example*: "**I am a graduate student with very little experience in bioinformatics.** Write a script that counts all A, T, C, and G characters..."
-
-## Optional, but useful pieces for prompting, cont.
+:::
 
 
 ## Let's practice prompt engineering
