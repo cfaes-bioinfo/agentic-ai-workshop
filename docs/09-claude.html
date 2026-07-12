@@ -302,30 +302,25 @@ div.csl-indent {
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">3</span> Getting started</a>
   <ul class="collapse">
   <li><a href="#the-prompt-box" id="toc-the-prompt-box" class="nav-link" data-scroll-target="#the-prompt-box"><span class="header-section-number">3.1</span> The prompt box</a></li>
-  <li><a href="#a-few-prompts-to-get-a-feel-for-claude-code" id="toc-a-few-prompts-to-get-a-feel-for-claude-code" class="nav-link" data-scroll-target="#a-few-prompts-to-get-a-feel-for-claude-code"><span class="header-section-number">3.2</span> A few prompts to get a feel for Claude Code</a></li>
-  <li><a href="#stopping-or-steering-claude-mid-response" id="toc-stopping-or-steering-claude-mid-response" class="nav-link" data-scroll-target="#stopping-or-steering-claude-mid-response"><span class="header-section-number">3.3</span> Stopping or steering Claude mid-response</a></li>
+  <li><a href="#a-first-prompt" id="toc-a-first-prompt" class="nav-link" data-scroll-target="#a-first-prompt"><span class="header-section-number">3.2</span> A first prompt</a></li>
   </ul></li>
   <li><a href="#adding-file-context" id="toc-adding-file-context" class="nav-link" data-scroll-target="#adding-file-context"><span class="header-section-number">4</span> Adding file context</a>
   <ul class="collapse">
   <li><a href="#your-open-folder-is-your-workspace" id="toc-your-open-folder-is-your-workspace" class="nav-link" data-scroll-target="#your-open-folder-is-your-workspace"><span class="header-section-number">4.1</span> Your open folder is your “workspace”</a></li>
   <li><a href="#adding-files-that-are-open-in-the-editor" id="toc-adding-files-that-are-open-in-the-editor" class="nav-link" data-scroll-target="#adding-files-that-are-open-in-the-editor"><span class="header-section-number">4.2</span> Adding files that are open in the editor</a></li>
   </ul></li>
-  <li><a href="#permission-modes" id="toc-permission-modes" class="nav-link" data-scroll-target="#permission-modes"><span class="header-section-number">5</span> Permission modes</a></li>
-  <li><a href="#model-selection-and-parameters" id="toc-model-selection-and-parameters" class="nav-link" data-scroll-target="#model-selection-and-parameters"><span class="header-section-number">6</span> Model selection and parameters</a></li>
-  <li><a href="#the-context-window-and-token-usage" id="toc-the-context-window-and-token-usage" class="nav-link" data-scroll-target="#the-context-window-and-token-usage"><span class="header-section-number">7</span> The context window and token usage</a>
+  <li><a href="#model-selection-and-parameters" id="toc-model-selection-and-parameters" class="nav-link" data-scroll-target="#model-selection-and-parameters"><span class="header-section-number">5</span> Model selection and parameters</a></li>
+  <li><a href="#permission-modes" id="toc-permission-modes" class="nav-link" data-scroll-target="#permission-modes"><span class="header-section-number">6</span> Permission modes</a></li>
+  <li><a href="#stopping-or-steering-claude-mid-response" id="toc-stopping-or-steering-claude-mid-response" class="nav-link" data-scroll-target="#stopping-or-steering-claude-mid-response"><span class="header-section-number">7</span> Stopping or steering Claude mid-response</a></li>
+  <li><a href="#the-context-window-and-token-usage" id="toc-the-context-window-and-token-usage" class="nav-link" data-scroll-target="#the-context-window-and-token-usage"><span class="header-section-number">8</span> The context window and token usage</a>
   <ul class="collapse">
-  <li><a href="#the-context-window" id="toc-the-context-window" class="nav-link" data-scroll-target="#the-context-window"><span class="header-section-number">7.1</span> The context window</a></li>
-  <li><a href="#what-happens-when-the-context-window-fills-up" id="toc-what-happens-when-the-context-window-fills-up" class="nav-link" data-scroll-target="#what-happens-when-the-context-window-fills-up"><span class="header-section-number">7.2</span> What happens when the context window fills up?</a></li>
-  <li><a href="#monitoring-context-usage" id="toc-monitoring-context-usage" class="nav-link" data-scroll-target="#monitoring-context-usage"><span class="header-section-number">7.3</span> Monitoring context usage</a></li>
-  <li><a href="#token-usage" id="toc-token-usage" class="nav-link" data-scroll-target="#token-usage"><span class="header-section-number">7.4</span> Token usage</a></li>
-  <li><a href="#context-engineering" id="toc-context-engineering" class="nav-link" data-scroll-target="#context-engineering"><span class="header-section-number">7.5</span> Context engineering</a></li>
+  <li><a href="#the-context-window" id="toc-the-context-window" class="nav-link" data-scroll-target="#the-context-window"><span class="header-section-number">8.1</span> The context window</a></li>
+  <li><a href="#what-happens-when-the-context-window-fills-up" id="toc-what-happens-when-the-context-window-fills-up" class="nav-link" data-scroll-target="#what-happens-when-the-context-window-fills-up"><span class="header-section-number">8.2</span> What happens when the context window fills up?</a></li>
+  <li><a href="#monitoring-context-usage" id="toc-monitoring-context-usage" class="nav-link" data-scroll-target="#monitoring-context-usage"><span class="header-section-number">8.3</span> Monitoring context usage</a></li>
+  <li><a href="#token-usage" id="toc-token-usage" class="nav-link" data-scroll-target="#token-usage"><span class="header-section-number">8.4</span> Token usage</a></li>
+  <li><a href="#context-engineering" id="toc-context-engineering" class="nav-link" data-scroll-target="#context-engineering"><span class="header-section-number">8.5</span> Context engineering</a></li>
   </ul></li>
-  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn"><span class="header-section-number">8</span> Your turn</a>
-  <ul class="collapse">
-  <li><a href="#explore-planning-mode-and-modelseffort" id="toc-explore-planning-mode-and-modelseffort" class="nav-link" data-scroll-target="#explore-planning-mode-and-modelseffort"><span class="header-section-number">8.1</span> Explore planning mode and models/effort</a></li>
-  <li><a href="#a-troubleshooting-example" id="toc-a-troubleshooting-example" class="nav-link" data-scroll-target="#a-troubleshooting-example"><span class="header-section-number">8.2</span> A troubleshooting example</a></li>
-  <li><a href="#other-exercise-ideas---tba" id="toc-other-exercise-ideas---tba" class="nav-link" data-scroll-target="#other-exercise-ideas---tba"><span class="header-section-number">8.3</span> Other exercise ideas - TBA</a></li>
-  </ul></li>
+  <li><a href="#additional-exercises" id="toc-additional-exercises" class="nav-link" data-scroll-target="#additional-exercises"><span class="header-section-number">9</span> Additional exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -335,7 +330,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">9: Agentic chat with Claude Code</h1>
-<p class="subtitle lead">Getting started with this extremely powerful tool!</p>
+<p class="subtitle lead">Getting started with this extremely powerful tool</p>
 </div>
 
 
@@ -537,11 +532,6 @@ div.csl-indent {
 </div></li>
 </ol>
 <p>All done!</p>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-test-that-claude-code-works" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-test-that-claude-code-works"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Test that Claude Code works</h4>
-<p>In the prompt box at the bottom, go ahead and ask it a quick, simple question to test that it works.</p>
-<p>No inspiration? Ask a classic stumbling-block question for AIs, such as <em>“How many b’s are in the word blueberry?”</em></p>
-</section>
 </section>
 <section id="getting-started" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">3</span> Getting started</h2>
@@ -583,67 +573,34 @@ div.csl-indent {
 </div>
 </div>
 </section>
-<section id="a-few-prompts-to-get-a-feel-for-claude-code" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="a-few-prompts-to-get-a-feel-for-claude-code"><span class="header-section-number">3.2</span> A few prompts to get a feel for Claude Code</h3>
+<section id="a-first-prompt" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="a-first-prompt"><span class="header-section-number">3.2</span> A first prompt</h3>
 <blockquote class="blockquote">
-<p><strong>Write a very simple script to run FastQC on a FASTQ file</strong></p>
+<p><em>Write a very simple script to run FastQC on a FASTQ file</em></p>
 </blockquote>
 <ul>
-<li>TBA – <code>S09</code> folder</li>
-<li>DETAILS TBA – Then, have it troubleshoot the (likely) <code>module</code> problem.</li>
-</ul>
-</section>
-<section id="stopping-or-steering-claude-mid-response" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="stopping-or-steering-claude-mid-response"><span class="header-section-number">3.3</span> Stopping or steering Claude mid-response</h3>
-<p>Sometimes, you realize you made a mistake in your prompt, or that Claude is going down the wrong path. If you want to take action while it is still in the process of responding, you can do so in a few ways:</p>
+<li><em>Considerations TBA.</em>
 <ul>
-<li><p><strong>Steer with a message</strong>: You can simply type a new message in the prompt box while it is responding, and it will (soon) read your message and take it into account before continuing.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./img/claude-interrupt1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="The message “actually load R 4.4.0 instead” was added while Claude was responding."><img src="./img/claude-interrupt1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"></a></p>
-</figure>
-</div>
-<figcaption>The message “actually load R 4.4.0 instead” was added while Claude was responding.</figcaption>
-</figure>
-</div></li>
-<li><p><strong>Pause it mid-response</strong>: You can press <kbd>Esc</kbd> or click the Stop button in the top right of the response box. This will stop Claude in its tracks (sometimes with a delay), and you can then send a new message to steer it in a different direction — you don’t need to repeat your original prompt.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./img/claude-interrupt4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="./img/claude-interrupt4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"></a></p>
-</figure>
-</div></li>
-<li><p><strong>Completely stop and rewind</strong> Pressing <kbd>Esc</kbd> + <kbd>Esc</kbd> in quick succession will stop Claude and rewind the conversation to the point before it started responding.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./img/claude-interrupt2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="After pressing Esc + Esc, you can choose a point in the conversation to go back to. In this case, the conversation only consists of a single message."><img src="./img/claude-interrupt2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%" alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"></a></p>
-</figure>
-</div>
-<figcaption>After pressing Esc + Esc, you can choose a point in the conversation to go back to. In this case, the conversation only consists of a single message.</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="./img/claude-interrupt3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="After selecting that message, it asks you to confirm the rewind, which in this cases involves removing the generated code in an R script."><img src="./img/claude-interrupt3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%" alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"></a></p>
-</figure>
-</div>
-<figcaption>After selecting that message, it asks you to confirm the rewind, which in this cases involves removing the generated code in an R script.</figcaption>
-</figure>
-</div></li>
+<li><em>Where does the file go?</em></li>
+<li><em>Does it know about Slurm and module?</em></li>
+</ul></li>
 </ul>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p><strong>You can also access the rewind option through the Command Menu.</strong></p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>These prompts aren’t very good
 </div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Our initials prompts to Claude Code in much of this session will be:</p>
+<ul>
+<li><p>Quite <strong>simple</strong>, so we can focus on the mechanics of using the tool. We invite you to try more complex prompts this afternoon!</p></li>
+<li><p><strong>Not (necessarily) well-designed</strong>, so we can get a better feel for Claude behavior in different contexts, and illustrate improvement later on. <em>TBA - mention prompt engineering session</em><br>
+</p></li>
+</ul>
 </div>
 </div>
 </section>
@@ -680,20 +637,21 @@ div.csl-indent {
 <li><p>Files can also be added by typing <code>@</code> in the prompt box, followed by part of the file name. This will bring up a list of files in your workspace that match, or even a full list of files if you just type <code>@</code> and pause:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./img/claude-context-add2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="./img/claude-context-add2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
+<p><a href="./img/claude-context-add2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="./img/claude-context-add2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
 </figure>
 </div>
 <p>If you have lots of files in your workspace, typing part of the name is often easier than scrolling. These partial names will also match files in subfolders, so you can type <code>@fastqc</code> to find the <code>fastqc.sh</code> script in the <code>S09</code> folder, for example.</p></li>
 </ul>
 <section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-add-context-to-the-chat" class="level4 exercise">
 <h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-add-context-to-the-chat"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Add context to the chat</h4>
-<ul>
-<li>Details TBA</li>
-<li>Practice with adding multiple files, e.g.&nbsp;a script AND a Slurm file</li>
-</ul>
+<ol type="1">
+<li>Run the script <code>fastqc.sh</code> in the terminal.</li>
+<li>Wait for a Slurm file to appear, and look at it.</li>
+<li>Add both the <code>fastqc.sh</code> script and the Slurm file as context to the chat, and ask a relevant follow-up question. If you got an error when running the script, you could ask to troubleshoot the error. If it ran successfully, you could ask to improve the script or what will end up in the Slurm file.</li>
+</ol>
 </section>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -702,14 +660,14 @@ div.csl-indent {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>While I find that this is rarely needed, you can add files that are not open in the editor as context by clicking the <code>+</code> icon below the prompt box.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./img/claude-context-add1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="What you’ll see when you click the + button in the Claude Code prompt box."><img src="./img/claude-context-add1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
+<p><a href="./img/claude-context-add1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="What you’ll see when you click the + button in the Claude Code prompt box."><img src="./img/claude-context-add1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%" alt="Screenshot of the Claude Code prompt box, showing the 'Add context' button and the file selection window"></a></p>
 </figure>
 </div>
 <figcaption>What you’ll see when you click the <code>+</code> button in the Claude Code prompt box.</figcaption>
@@ -726,27 +684,8 @@ If you want to add a file as context that is not in your workspace, you can’t 
 </div>
 </section>
 </section>
-<section id="permission-modes" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="permission-modes"><span class="header-section-number">5</span> Permission modes</h2>
-<p>On the right-hand side of the prompt box is the <strong>Permission Modes</strong> indicator. This sets the permission level that Claude has to perform <strong>actions like editing files and running commands</strong>, and can be toggled between:</p>
-<ul>
-<li><p><strong>Manual</strong>: Claude asks permission for each action.</p></li>
-<li><p><strong>Edit automatically</strong>: Claude makes edits to files and runs basic commands without asking for permission.</p></li>
-<li><p><strong>Plan mode</strong>: Claude writes a plan that is then opened as a rendered Markdown document, and which you can approve or modify.</p></li>
-<li><p><strong>Auto mode</strong>: Claude determines on its own whether to ask for permission or not for specific actions, or to write a plan. In this mode, it is also more likely to ask you for clarifying questions. If you switch to Auto Mode, you should see something like the following:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./img/claude-automode-message.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"></p>
-</figure>
-</div></li>
-</ul>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-try-out-the-permission-modes" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-try-out-the-permission-modes"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Try out the permission modes</h4>
-<p>TBA</p>
-</section>
-</section>
-<section id="model-selection-and-parameters" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="model-selection-and-parameters"><span class="header-section-number">6</span> Model selection and parameters</h2>
+<section id="model-selection-and-parameters" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="model-selection-and-parameters"><span class="header-section-number">5</span> Model selection and parameters</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
 <p>From the Claude Code window’s <strong>command menu</strong> (opened by clicking the icon in the Claude Code prompt box shown on the left), you can control which LLM model is used and how it behaves:</p>
@@ -795,13 +734,123 @@ If you want to add a file as context that is not in your workspace, you can’t 
 <p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Switch to Medium</strong> effort for now.</p>
 </div></li>
 <li><p><strong>Thinking toggle</strong>: When enabled, Claude performs explicit step-by-step reasoning before responding, which improves quality on complex tasks (at the cost of more tokens and time). The thinking is shown in a collapsible block above the response, which can be useful for understanding <em>why</em> it made certain choices.</p></li>
-<li><p><strong>“<em>Switch model when a message is flagged</em>”</strong>: If Claude refuses a request or flags it as potentially problematic, this setting can automatically retry with a different model.</p></li>
+<li><p>(“<em>Switch model when a message is flagged</em>”: If Claude refuses a request or flags it as potentially problematic, this setting can automatically retry with a different model.)</p></li>
 </ul>
 </section>
-<section id="the-context-window-and-token-usage" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="the-context-window-and-token-usage"><span class="header-section-number">7</span> The context window and token usage</h2>
-<section id="the-context-window" class="level3" data-number="7.1">
-<h3 data-number="7.1" class="anchored" data-anchor-id="the-context-window"><span class="header-section-number">7.1</span> The context window</h3>
+<section id="permission-modes" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="permission-modes"><span class="header-section-number">6</span> Permission modes</h2>
+<p>On the right-hand side of the prompt box is the <strong>Permission Modes</strong> indicator. This sets the permission level that Claude has to perform <strong>actions like editing files and running commands</strong>, and can be toggled between:</p>
+<ul>
+<li><p><strong>Manual</strong>: Claude asks permission for each action.</p></li>
+<li><p><strong>Edit automatically</strong>: Claude makes edits to files and runs basic commands without asking for permission.</p></li>
+<li><p><strong>Plan mode</strong>: Claude writes a plan that is then opened as a rendered Markdown document, and which you can approve or modify.</p></li>
+<li><p><strong>Auto mode</strong>: Claude determines on its own whether to ask for permission or not for specific actions, or to write a plan. In this mode, it is also more likely to ask you for clarifying questions. If you switch to Auto Mode, you should see something like the following:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/claude-automode-message.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"></p>
+</figure>
+</div></li>
+</ul>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-explore-planning-mode-and-modelseffort" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-explore-planning-mode-and-modelseffort"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Explore planning mode and models/effort</h4>
+<p>In this exercise, you’ll ask Claude to plan a quality control workflow for the RNA-seq data, first quickly and then more carefully, so you can compare how model choice and effort level affect the depth and quality of the plan.</p>
+<p>Ask Claude to plan a QC workflow for the FASTQ files in the <code>iqbal/fastq</code> dir. Here is two suggested prompts, but you can modify them or use other prompts if you like:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Write a plan to perform QC and read preprocessing steps for the FASTQ files</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>in <span class="in">`iqbal/fastq`</span>. At a minimum, the workflow should assess read quality,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>and trim low-quality bases and adapter sequences.</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>We will run this on OSC using Slurm with project PAS3454.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Write a plan for aligning trimmed FASTQ files to the rice reference genome</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>in <span class="in">`iqbal/ref`</span>, and then counting the aligned reads to produce a gene count table.</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>We have both the genome FASTA and a GTF annotation file.</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Which aligning and counting tool combination would you recommend, and why?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For each prompt, do the following:</p>
+<p><strong>Round 1 — fast:</strong></p>
+<ol type="1">
+<li>Switch to <strong>Haiku</strong> (or Sonnet) with <strong>Low</strong> effort, and make sure <strong>Plan mode</strong> is active.</li>
+<li>Send the prompt above.</li>
+<li>Read the plan Claude produces. Note things like: How many steps does it propose? Does it name specific tools? Does it mention anything about Slurm job parameters? Does it flag any uncertainties or ask clarifying questions?</li>
+</ol>
+<p><strong>Round 2 — exhaustive:</strong></p>
+<ol start="4" type="1">
+<li>Start a new chat (so Round 1’s plan doesn’t influence this response).</li>
+<li>Switch to <strong>Opus</strong> with <strong>High</strong> or <strong>Max</strong> effort, keeping <strong>Plan mode</strong> active.</li>
+<li>Send the same prompt.</li>
+<li>Read the plan again with the same questions in mind.</li>
+</ol>
+<p><strong>Discuss:</strong></p>
+<ul>
+<li>What differences do you notice between the two plans?</li>
+<li>How would you verify that the plan is reasonable and complete?</li>
+<li>How does it compare to what <span class="citation" data-cites="iqbal2025">Iqbal et al. (<a href="#ref-iqbal2025" role="doc-biblioref">2025</a>)</span> actually did in their workflow?</li>
+<li>Does the “lazy” setting seem good enough here?</li>
+</ul>
+</section>
+</section>
+<section id="stopping-or-steering-claude-mid-response" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="stopping-or-steering-claude-mid-response"><span class="header-section-number">7</span> Stopping or steering Claude mid-response</h2>
+<p>Sometimes, you realize you made a mistake in your prompt, or that Claude is going down the wrong path. If you want to take action while it is still in the process of responding, you can do so in a few ways:</p>
+<ul>
+<li><p><strong>Steer with a message</strong>: You can simply type a new message in the prompt box while it is responding, and it will (soon) read your message and take it into account before continuing.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/claude-interrupt1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="The message “actually load R 4.4.0 instead” was added while Claude was responding."><img src="./img/claude-interrupt1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"></a></p>
+</figure>
+</div>
+<figcaption>The message “actually load R 4.4.0 instead” was added while Claude was responding.</figcaption>
+</figure>
+</div></li>
+<li><p><strong>Pause it mid-response</strong>: You can press <kbd>Esc</kbd> or click the Stop button in the top right of the response box. This will stop Claude in its tracks (sometimes with a delay), and you can then send a new message to steer it in a different direction — you don’t need to repeat your original prompt.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/claude-interrupt4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="./img/claude-interrupt4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"></a></p>
+</figure>
+</div></li>
+<li><p><strong>Completely stop and rewind</strong> Pressing <kbd>Esc</kbd> + <kbd>Esc</kbd> in quick succession will stop Claude and rewind the conversation to the point before it started responding.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/claude-interrupt2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="After pressing Esc + Esc, you can choose a point in the conversation to go back to. In this case, the conversation only consists of a single message."><img src="./img/claude-interrupt2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%" alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"></a></p>
+</figure>
+</div>
+<figcaption>After pressing Esc + Esc, you can choose a point in the conversation to go back to. In this case, the conversation only consists of a single message.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="./img/claude-interrupt3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="After selecting that message, it asks you to confirm the rewind, which in this cases involves removing the generated code in an R script."><img src="./img/claude-interrupt3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%" alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"></a></p>
+</figure>
+</div>
+<figcaption>After selecting that message, it asks you to confirm the rewind, which in this cases involves removing the generated code in an R script.</figcaption>
+</figure>
+</div></li>
+</ul>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>You can also access the rewind option through the Command Menu.</strong></p>
+</div>
+</div>
+</div>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-try-it-yourself" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-try-it-yourself"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Try it yourself</h4>
+<p>The prompt below is what I used for the screenshots above, but you can modify it or use a different prompt if you like:</p>
+<blockquote class="blockquote">
+<p>Write an R script to visualize the data in <code>iqbal/meta.tsv</code>, which should produce PNG files. Run the R script. Load the R module with “module load gcc/12.3.0 R.4.5.0”</p>
+</blockquote>
+</section>
+</section>
+<section id="the-context-window-and-token-usage" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="the-context-window-and-token-usage"><span class="header-section-number">8</span> The context window and token usage</h2>
+<section id="the-context-window" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="the-context-window"><span class="header-section-number">8.1</span> The context window</h3>
 <p>The so-called <strong>context window</strong> is a key concept in using LLMs like Claude Code. The context window is the amount of text that the model can “see” at once, and it is measured in <strong>tokens</strong> (roughly 3/4 of a word). The context window includes:</p>
 <ul>
 <li>Input tokens:
@@ -832,8 +881,8 @@ If you want to add a file as context that is not in your workspace, you can’t 
 </div>
 <p>Different models have different context window sizes, with many current models having a <strong>1 million token</strong> context window size.</p>
 </section>
-<section id="what-happens-when-the-context-window-fills-up" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="what-happens-when-the-context-window-fills-up"><span class="header-section-number">7.2</span> What happens when the context window fills up?</h3>
+<section id="what-happens-when-the-context-window-fills-up" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="what-happens-when-the-context-window-fills-up"><span class="header-section-number">8.2</span> What happens when the context window fills up?</h3>
 <ul>
 <li><p>When the context window fills up, the model will start to “forget” earlier parts of the conversation.</p></li>
 <li><p>More generally, performance degrades as the context window fills up, and hallucinations and other errors become more likely.</p></li>
@@ -854,8 +903,8 @@ If you want to add a file as context that is not in your workspace, you can’t 
 </div>
 </div>
 </section>
-<section id="monitoring-context-usage" class="level3" data-number="7.3">
-<h3 data-number="7.3" class="anchored" data-anchor-id="monitoring-context-usage"><span class="header-section-number">7.3</span> Monitoring context usage</h3>
+<section id="monitoring-context-usage" class="level3" data-number="8.3">
+<h3 data-number="8.3" class="anchored" data-anchor-id="monitoring-context-usage"><span class="header-section-number">8.3</span> Monitoring context usage</h3>
 <p>So-called <a href="https://code.claude.com/docs/en/commands">slash-commands or simply commands</a> are shortcuts that can be used in the prompt box to perform various actions. The <code>/context</code> command shows a visualization of the context token usage in the current conversation:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -865,8 +914,8 @@ If you want to add a file as context that is not in your workspace, you can’t 
 </div>
 <p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Try it out</strong>: Type <code>/context</code> in the prompt box and hit Enter to see the context usage for your current conversation.</p>
 </section>
-<section id="token-usage" class="level3" data-number="7.4">
-<h3 data-number="7.4" class="anchored" data-anchor-id="token-usage"><span class="header-section-number">7.4</span> Token usage</h3>
+<section id="token-usage" class="level3" data-number="8.4">
+<h3 data-number="8.4" class="anchored" data-anchor-id="token-usage"><span class="header-section-number">8.4</span> Token usage</h3>
 <p>Above, we talked about token usage in the context of the context window. But token usage is also important for another reason: <strong>cost</strong>. Therefore, the following content about “context engineering” (managing context) is as relevant for cost as it is for performance.</p>
 <p>One important aspect of token usage is that <strong>output tokens are more expensive than input tokens</strong>. For example, for our current default Opus model, the text in the screenshot below indicates that 1 M input tokens cost $5, while 1 M output tokens cost $25.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -877,7 +926,7 @@ If you want to add a file as context that is not in your workspace, you can’t 
 </div>
 <p>Because tool calls and thinking can consume far more tokens than the visible chat text, a short-looking question that requires searching many files or a lot of reasoning can still be relatively expensive. This is part of why model choice and effort level (discussed above) matter for cost and speed, not just response quality.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -886,7 +935,7 @@ If you want to add a file as context that is not in your workspace, you can’t 
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If you had a personal Anthropic account, usage tracking in dollars would be available right in the Claude Code interface with a slash-command. But with our OSU LiteLLM API key, this is not available.</p>
 <p>With an OSU LiteLLM API key, usage can be tracked on the <a href="https://litellm.cloud.osu.edu">LiteLLM dashboard</a>. At the moment, you are using the API key provided by us, so you can’t access this — but you will be able to do so if you get your own OSU LiteLLM API key.</p>
@@ -922,8 +971,8 @@ If you want to add a file as context that is not in your workspace, you can’t 
 </div>
 </div>
 </section>
-<section id="context-engineering" class="level3" data-number="7.5">
-<h3 data-number="7.5" class="anchored" data-anchor-id="context-engineering"><span class="header-section-number">7.5</span> Context engineering</h3>
+<section id="context-engineering" class="level3" data-number="8.5">
+<h3 data-number="8.5" class="anchored" data-anchor-id="context-engineering"><span class="header-section-number">8.5</span> Context engineering</h3>
 <p>“Context engineering” is the practice of managing the context window to improve performance and reduce costs.</p>
 <section id="quick-tips" class="level4">
 <h4 class="anchored" data-anchor-id="quick-tips">Quick tips</h4>
@@ -968,14 +1017,16 @@ If you want to add a file as context that is not in your workspace, you can’t 
 <li>Load “external memory” via files that summarize your project and its current state (<a href="./10-agentic2.html">session 10</a>.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Related options
+<span class="screen-reader-only">Note</span>Related options <em>(Click to expand)</em>
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>The <strong>Clock icon</strong> (left of new chat icon) shows a list of your previous chats, so you can reopen and continue an earlier conversation.</p></li>
@@ -991,65 +1042,30 @@ If you want to add a file as context that is not in your workspace, you can’t 
 </div>
 </div>
 </div>
+</div>
 </section>
 </section>
 </section>
-<section id="your-turn" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="your-turn"><span class="header-section-number">8</span> Your turn</h2>
-<section id="explore-planning-mode-and-modelseffort" class="level3" data-number="8.1">
-<h3 data-number="8.1" class="anchored" data-anchor-id="explore-planning-mode-and-modelseffort"><span class="header-section-number">8.1</span> Explore planning mode and models/effort</h3>
-<p>In this exercise, you’ll ask Claude to plan a quality control workflow for the RNA-seq data, first quickly and then more carefully, so you can compare how model choice and effort level affect the depth and quality of the plan.</p>
-<p>Ask Claude to plan a QC workflow for the FASTQ files in the <code>iqbal/fastq</code> dir. Here is two suggested prompts, but you can modify them or use other prompts if you like:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Write a plan to perform QC and read preprocessing steps for the FASTQ files</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>in <span class="in">`iqbal/fastq`</span>. At a minimum, the workflow should assess read quality,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>and trim low-quality bases and adapter sequences.</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>We will run this on OSC using Slurm with project PAS3454.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Write a plan for aligning trimmed FASTQ files to the rice reference genome</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>in <span class="in">`iqbal/ref`</span>, and then counting the aligned reads to produce a gene count table.</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>We have both the genome FASTA and a GTF annotation file.</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Which aligning and counting tool combination would you recommend, and why?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>For each prompt, do the following:</p>
-<p><strong>Round 1 — fast:</strong></p>
-<ol type="1">
-<li>Switch to <strong>Haiku</strong> (or Sonnet) with <strong>Low</strong> effort, and make sure <strong>Plan mode</strong> is active.</li>
-<li>Send the prompt above.</li>
-<li>Read the plan Claude produces. Note things like: How many steps does it propose? Does it name specific tools? Does it mention anything about Slurm job parameters? Does it flag any uncertainties or ask clarifying questions?</li>
-</ol>
-<p><strong>Round 2 — exhaustive:</strong></p>
-<ol start="4" type="1">
-<li>Start a new chat (so Round 1’s plan doesn’t influence this response).</li>
-<li>Switch to <strong>Opus</strong> with <strong>High</strong> or <strong>Max</strong> effort, keeping <strong>Plan mode</strong> active.</li>
-<li>Send the same prompt.</li>
-<li>Read the plan again with the same questions in mind.</li>
-</ol>
-<p><strong>Discuss:</strong></p>
-<ul>
-<li>What differences do you notice between the two plans?</li>
-<li>How would you verify that the plan is reasonable and complete?</li>
-<li>How does it compare to what <span class="citation" data-cites="iqbal2025">Iqbal et al. (<a href="#ref-iqbal2025" role="doc-biblioref">2025</a>)</span> actually did in their workflow?</li>
-<li>Does the “lazy” setting seem good enough here?</li>
-</ul>
+<section id="additional-exercises" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="additional-exercises"><span class="header-section-number">9</span> Additional exercises</h2>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-run-the-code-from-one-of-the-plans-you-generated-above" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-run-the-code-from-one-of-the-plans-you-generated-above"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Run the code from one of the plans you generated above</h4>
 </section>
-<section id="a-troubleshooting-example" class="level3" data-number="8.2">
-<h3 data-number="8.2" class="anchored" data-anchor-id="a-troubleshooting-example"><span class="header-section-number">8.2</span> A troubleshooting example</h3>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-a-troubleshooting-example" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-a-troubleshooting-example"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> A troubleshooting example</h4>
 <p><em>TBA – likely provide a script that produces errors, and ask Claude to troubleshoot it.</em></p>
 </section>
-<section id="other-exercise-ideas---tba" class="level3" data-number="8.3">
-<h3 data-number="8.3" class="anchored" data-anchor-id="other-exercise-ideas---tba"><span class="header-section-number">8.3</span> Other exercise ideas - TBA</h3>
-<ul>
-<li><p>Additional (FastQC) script prompts:</p>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-improve-a-script" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-improve-a-script"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Improve a script</h4>
 <blockquote class="blockquote">
-<p>Add functional bells and whistles to the script</p>
+<p>Add functional bells and whistles to the fastqc.sh script. Also report the time it took to run the script</p>
 </blockquote>
-<blockquote class="blockquote">
-<p>Also report the time it took to run the script</p>
-</blockquote></li>
-<li><p>Add a <code>README.md</code> file for the <code>iqbal</code> data and populate it? And/or for your own analysis?</p></li>
-<li><p>R example?</p></li>
-</ul>
-<blockquote class="blockquote">
-<p>Write an R script to visualize the data in iqbal/meta.tsv, which should produce PNG files. Run the R script. Load the R module with “module load gcc/12.3.0 R.4.5.0”</p>
-</blockquote>
+</section>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-trick-questions" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-trick-questions"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Trick questions</h4>
+<p>Ask a classic stumbling-block question for AIs, such as <em>“How many b’s are in the word blueberry?”</em></p>
+<p>Have you heard of any other classic questions that AIs struggle with? Try one out!</p>
+</section>
 <!---
 
 - What to use Claude for:
@@ -1069,7 +1085,6 @@ If you want to add a file as context that is not in your workspace, you can’t 
     - Personal website
     - Lab website
 
-
 - Some of my use cases:
   - Making websites
   - Formal (Nextflow) workflows
@@ -1082,15 +1097,11 @@ sbatch run_fastqc.sh iqbal/fastq/SRR31869590_1.fastq.gz results/fastqc/
 ```bash-out
 Submitted batch job 12241998
 ```
-
-- Check:
-  - BYOK WITH OLLAMA OR CLAUDE? https://code.visualstudio.com/docs/agents/concepts/language-models#_bring-your-own-language-model-key
   
 ---->
 
 
 
-</section>
 </section>
 
 

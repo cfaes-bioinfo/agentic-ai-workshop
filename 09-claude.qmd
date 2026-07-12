@@ -1,6 +1,6 @@
 ---
 title: "9: Agentic chat with Claude Code"
-subtitle: "Getting started with this extremely powerful tool!"
+subtitle: "Getting started with this extremely powerful tool"
 date: 2026-07-03
 date-modified: today
 author:
@@ -141,16 +141,6 @@ but we will use it within a VS Code extension --- which we'll set up now.
 
 All done!
 
-::: exercise
-#### {{< fa user-edit >}} Exercise: Test that Claude Code works
-
-In the prompt box at the bottom,
-go ahead and ask it a quick, simple question to test that it works.
-
-No inspiration? Ask a classic stumbling-block question for AIs, such as
-_"How many b's are in the word blueberry?"_
-:::
-
 ## Getting started
 
 ### The prompt box
@@ -180,44 +170,25 @@ as most of the features we'll discuss next are accessed from there --- for examp
   At least for me, this doesn't work and that seems to be a known issue.
 :::
 
-### A few prompts to get a feel for Claude Code
+### A first prompt
 
-> **Write a very simple script to run FastQC on a FASTQ file**
+> _Write a very simple script to run FastQC on a FASTQ file_
 
-- TBA -- `S09` folder
-- DETAILS TBA -- Then, have it troubleshoot the (likely) `module` problem.
+- _Considerations TBA._
+  - _Where does the file go?_
+  - _Does it know about Slurm and module?_
 
-### Stopping or steering Claude mid-response
+::: callout-important
+#### These prompts aren't very good
 
-Sometimes, you realize you made a mistake in your prompt,
-or that Claude is going down the wrong path.
-If you want to take action while it is still in the process of responding,
-you can do so in a few ways:
+Our initials prompts to Claude Code in much of this session will be:
 
-- **Steer with a message**: You can simply type a new message in the prompt box
-  while it is responding, and it will (soon) read your message and take it into
-  account before continuing.
+- Quite **simple**, so we can focus on the mechanics of using the tool.
+  We invite you to try more complex prompts this afternoon!
 
-  ![The message "actually load R 4.4.0 instead" was added while Claude was responding.](/img/claude-interrupt1.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
-
-- **Pause it mid-response**: You can press <kbd>Esc</kbd> or click the Stop button
-  in the top right of the response box.
-  This will stop Claude in its tracks (sometimes with a delay),
-  and you can then send a new message to steer it in a different direction ---
-  you don't need to repeat your original prompt.
-
-  ![](/img/claude-interrupt4.png){fig-align="center" width="60%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
-
-- **Completely stop and rewind**
-  Pressing <kbd>Esc</kbd> + <kbd>Esc</kbd> in quick succession will stop Claude
-  and rewind the conversation to the point before it started responding.
-
-  ![After pressing Esc + Esc, you can choose a point in the conversation to go back to. In this case, the conversation only consists of a single message.](/img/claude-interrupt2.png){fig-align="center" width="65%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
-
-  ![After selecting that message, it asks you to confirm the rewind, which in this cases involves removing the generated code in an R script.](/img/claude-interrupt3.png){fig-align="center" width="65%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
-
-::: {.callout-tip appearance="simple"}
-**You can also access the rewind option through the Command Menu.**
+- **Not (necessarily) well-designed**, so we can get a better feel for Claude behavior
+  in different contexts, and illustrate improvement later on.
+  _TBA - mention prompt engineering session_  
 :::
 
 ## Adding file context
@@ -294,9 +265,12 @@ Additional considerations:
 ::: exercise
 #### {{< fa user-edit >}} Exercise: Add context to the chat
 
-- Details TBA
-- Practice with adding multiple files, e.g. a script AND a Slurm file
-
+1. Run the script `fastqc.sh` in the terminal.
+2. Wait for a Slurm file to appear, and look at it.
+3. Add both the `fastqc.sh` script and the Slurm file as context to the chat,
+   and ask a relevant follow-up question.
+   If you got an error when running the script, you could ask to troubleshoot the error.
+   If it ran successfully, you could ask to improve the script or what will end up in the Slurm file.
 :::
 
 ::: {.callout-note collapse="true"}
@@ -325,34 +299,6 @@ Instead, the easiest way is again to simply open the file in the editor
 
 :::
 
-## Permission modes
-
-On the right-hand side of the prompt box is the **Permission Modes** indicator.
-This sets the permission level that Claude has to perform
-**actions like editing files and running commands**, and can be toggled between:
-
-- **Manual**:
-  Claude asks permission for each action.
-- **Edit automatically**:
-  Claude makes edits to files and runs basic commands without asking for permission.
-- **Plan mode**:
-  Claude writes a plan that is then opened as a rendered Markdown document,
-  and which you can approve or modify.
-- **Auto mode**:
-  Claude determines on its own whether to ask for permission or not for specific actions,
-  or to write a plan.
-  In this mode, it is also more likely to ask you for clarifying questions.
-  If you switch to Auto Mode, you should see something like the following:
-
-  ![](/img/claude-automode-message.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"}
-
-::: exercise
-#### {{< fa user-edit >}} Exercise: Try out the permission modes
-
-TBA
-
-:::
-
 ## Model selection and parameters
 
 ::: {.columns}
@@ -365,7 +311,6 @@ you can control which LLM model is used and how it behaves:
 ::: {.column width="30%"}
 ![Command menu icon](/img/claude-command-icon.png){fig-align="center" width="35%" fig-alt="Screenshot of the Claude Code interface, showing the command menu icon"}
 :::
-
 :::
 
 ![](/img/claude-command-menu-options.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the command menu options"}
@@ -413,9 +358,122 @@ you can control which LLM model is used and how it behaves:
   The thinking is shown in a collapsible block above the response,
   which can be useful for understanding _why_ it made certain choices.
 
-- **"_Switch model when a message is flagged_"**:
+- ("_Switch model when a message is flagged_":
   If Claude refuses a request or flags it as potentially problematic,
-  this setting can automatically retry with a different model.
+  this setting can automatically retry with a different model.)
+
+## Permission modes
+
+On the right-hand side of the prompt box is the **Permission Modes** indicator.
+This sets the permission level that Claude has to perform
+**actions like editing files and running commands**, and can be toggled between:
+
+- **Manual**:
+  Claude asks permission for each action.
+- **Edit automatically**:
+  Claude makes edits to files and runs basic commands without asking for permission.
+- **Plan mode**:
+  Claude writes a plan that is then opened as a rendered Markdown document,
+  and which you can approve or modify.
+- **Auto mode**:
+  Claude determines on its own whether to ask for permission or not for specific actions,
+  or to write a plan.
+  In this mode, it is also more likely to ask you for clarifying questions.
+  If you switch to Auto Mode, you should see something like the following:
+
+  ![](/img/claude-automode-message.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"}
+
+::: exercise
+#### {{< fa user-edit >}} Exercise: Explore planning mode and models/effort
+
+In this exercise, you'll ask Claude to plan a quality control workflow for the RNA-seq data,
+first quickly and then more carefully,
+so you can compare how model choice and effort level affect the depth and quality of the plan.
+
+Ask Claude to plan a QC workflow for the FASTQ files in the `iqbal/fastq` dir.
+Here is two suggested prompts, but you can modify them or use other prompts if you like:
+
+```markdown
+Write a plan to perform QC and read preprocessing steps for the FASTQ files
+in `iqbal/fastq`. At a minimum, the workflow should assess read quality,
+and trim low-quality bases and adapter sequences.
+We will run this on OSC using Slurm with project PAS3454.
+```
+
+```markdown
+Write a plan for aligning trimmed FASTQ files to the rice reference genome
+in `iqbal/ref`, and then counting the aligned reads to produce a gene count table.
+We have both the genome FASTA and a GTF annotation file.
+Which aligning and counting tool combination would you recommend, and why?
+```
+
+For each prompt, do the following:
+
+**Round 1 — fast:**
+
+1. Switch to **Haiku** (or Sonnet) with **Low** effort, and make sure **Plan mode** is active.
+2. Send the prompt above.
+3. Read the plan Claude produces. Note things like:
+   How many steps does it propose? Does it name specific tools?
+   Does it mention anything about Slurm job parameters?
+   Does it flag any uncertainties or ask clarifying questions?
+
+**Round 2 — exhaustive:**
+
+4. Start a new chat (so Round 1's plan doesn't influence this response).
+5. Switch to **Opus** with **High** or **Max** effort, keeping **Plan mode** active.
+6. Send the same prompt.
+7. Read the plan again with the same questions in mind.
+
+**Discuss:**
+
+- What differences do you notice between the two plans?
+- How would you verify that the plan is reasonable and complete?
+- How does it compare to what @iqbal2025 actually did in their workflow?
+- Does the "lazy" setting seem good enough here?
+:::
+
+## Stopping or steering Claude mid-response
+
+Sometimes, you realize you made a mistake in your prompt,
+or that Claude is going down the wrong path.
+If you want to take action while it is still in the process of responding,
+you can do so in a few ways:
+
+- **Steer with a message**: You can simply type a new message in the prompt box
+  while it is responding, and it will (soon) read your message and take it into
+  account before continuing.
+
+  ![The message "actually load R 4.4.0 instead" was added while Claude was responding.](/img/claude-interrupt1.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
+
+- **Pause it mid-response**: You can press <kbd>Esc</kbd> or click the Stop button
+  in the top right of the response box.
+  This will stop Claude in its tracks (sometimes with a delay),
+  and you can then send a new message to steer it in a different direction ---
+  you don't need to repeat your original prompt.
+
+  ![](/img/claude-interrupt4.png){fig-align="center" width="60%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
+
+- **Completely stop and rewind**
+  Pressing <kbd>Esc</kbd> + <kbd>Esc</kbd> in quick succession will stop Claude
+  and rewind the conversation to the point before it started responding.
+
+  ![After pressing Esc + Esc, you can choose a point in the conversation to go back to. In this case, the conversation only consists of a single message.](/img/claude-interrupt2.png){fig-align="center" width="65%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
+
+  ![After selecting that message, it asks you to confirm the rewind, which in this cases involves removing the generated code in an R script.](/img/claude-interrupt3.png){fig-align="center" width="65%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
+
+::: {.callout-tip appearance="simple"}
+**You can also access the rewind option through the Command Menu.**
+:::
+
+::: exercise
+#### {{< fa user-edit >}} Exercise: Try it yourself
+
+The prompt below is what I used for the screenshots above,
+but you can modify it or use a different prompt if you like:
+
+> Write an R script to visualize the data in `iqbal/meta.tsv`, which should produce PNG files. Run the R script. Load the R module with "module load gcc/12.3.0 R.4.5.0"
+:::
 
 ## The context window and token usage
 
@@ -554,8 +612,6 @@ it also prevents it from going around figuring things out for itself ---
 which, while sometimes impressive to witness, is _slow and expensive_!
 :::
 
-
-
 #### Don't let your conversation get too long
 
 First of all, to be clear:
@@ -583,8 +639,9 @@ Here are two ways to have useful conversations despite length limitations:
 - Load "external memory" via files that summarize your project and its current state
   ([session 10](./10-agentic2.qmd).
 
-::: callout-note
-#### Related options
+::: {.callout-note collapse="true"}
+#### Related options _(Click to expand)_
+
 - The **Clock icon** (left of new chat icon) shows a list of your previous chats,
   so you can reopen and continue an earlier conversation.
 
@@ -608,74 +665,31 @@ Here are two ways to have useful conversations despite length limitations:
 ![Screenshot of the top of the Claude window, with the Claude icon (left) to open a completely new window, the clock icon (right) to see previous chats, and the new chat icon (far right) to start a new chat.](/img/claude-top-buttons.png){fig-align="center" width="75%" fig-alt="Screenshot of the Claude Code interface, showing the top buttons for chat history, new chat, and opening a new Claude Code window"}
 :::
 
-## Your turn
+## Additional exercises
 
-### Explore planning mode and models/effort
+::: exercise
+#### {{< fa user-edit >}} Run the code from one of the plans you generated above
+:::
 
-In this exercise, you'll ask Claude to plan a quality control workflow for the RNA-seq data,
-first quickly and then more carefully,
-so you can compare how model choice and effort level affect the depth and quality of the plan.
-
-Ask Claude to plan a QC workflow for the FASTQ files in the `iqbal/fastq` dir.
-Here is two suggested prompts, but you can modify them or use other prompts if you like:
-
-```markdown
-Write a plan to perform QC and read preprocessing steps for the FASTQ files
-in `iqbal/fastq`. At a minimum, the workflow should assess read quality,
-and trim low-quality bases and adapter sequences.
-We will run this on OSC using Slurm with project PAS3454.
-```
-
-```markdown
-Write a plan for aligning trimmed FASTQ files to the rice reference genome
-in `iqbal/ref`, and then counting the aligned reads to produce a gene count table.
-We have both the genome FASTA and a GTF annotation file.
-Which aligning and counting tool combination would you recommend, and why?
-```
-
-For each prompt, do the following:
-
-**Round 1 — fast:**
-
-1. Switch to **Haiku** (or Sonnet) with **Low** effort, and make sure **Plan mode** is active.
-2. Send the prompt above.
-3. Read the plan Claude produces. Note things like:
-   How many steps does it propose? Does it name specific tools?
-   Does it mention anything about Slurm job parameters?
-   Does it flag any uncertainties or ask clarifying questions?
-
-**Round 2 — exhaustive:**
-
-4. Start a new chat (so Round 1's plan doesn't influence this response).
-5. Switch to **Opus** with **High** or **Max** effort, keeping **Plan mode** active.
-6. Send the same prompt.
-7. Read the plan again with the same questions in mind.
-
-**Discuss:**
-
-- What differences do you notice between the two plans?
-- How would you verify that the plan is reasonable and complete?
-- How does it compare to what @iqbal2025 actually did in their workflow?
-- Does the "lazy" setting seem good enough here?
-
-### A troubleshooting example
-
+::: exercise
+#### {{< fa user-edit >}} A troubleshooting example
 _TBA -- likely provide a script that produces errors, and ask Claude to troubleshoot it._
+:::
 
-### Other exercise ideas - TBA
+::: exercise
+#### {{< fa user-edit >}} Improve a script
 
-- Additional (FastQC) script prompts:
+> Add functional bells and whistles to the fastqc.sh script. Also report the time it took to run the script
+:::
 
-  > Add functional bells and whistles to the script
+::: exercise
+#### {{< fa user-edit >}} Trick questions
 
-  > Also report the time it took to run the script
+Ask a classic stumbling-block question for AIs, such as
+_"How many b's are in the word blueberry?"_
 
-- Add a `README.md` file for the `iqbal` data and populate it?
-  And/or for your own analysis?
-
-- R example?
-
-> Write an R script to visualize the data in iqbal/meta.tsv, which should produce PNG files. Run the R script. Load the R module with "module load gcc/12.3.0 R.4.5.0"
+Have you heard of any other classic questions that AIs struggle with? Try one out!
+:::
 
 <!---
 
@@ -696,7 +710,6 @@ _TBA -- likely provide a script that produces errors, and ask Claude to troubles
     - Personal website
     - Lab website
 
-
 - Some of my use cases:
   - Making websites
   - Formal (Nextflow) workflows
@@ -709,8 +722,5 @@ sbatch run_fastqc.sh iqbal/fastq/SRR31869590_1.fastq.gz results/fastqc/
 ```bash-out
 Submitted batch job 12241998
 ```
-
-- Check:
-  - BYOK WITH OLLAMA OR CLAUDE? https://code.visualstudio.com/docs/agents/concepts/language-models#_bring-your-own-language-model-key
   
 ---->

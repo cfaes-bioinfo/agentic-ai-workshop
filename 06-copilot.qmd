@@ -582,7 +582,7 @@ In the Copilot prompt box
 (which should have ghost text "_Describe what to build_" – or something similar),
 enter:
 
-> _Help me understand the files in the iqbal dir_
+> _Help me understand the files in the iqbal dir. Put this information in the currently empty README.md file_
 
 Because we're asking Copilot for information that it can only access after
 actually performing an action (running a command),
