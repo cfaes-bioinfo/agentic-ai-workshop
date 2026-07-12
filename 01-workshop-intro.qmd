@@ -104,17 +104,15 @@ while example data is omics data, principles and tooling apply to any data type
 ## We are not AI experts
 
 - Just practitioners that are --hopefully!-- a few steps ahead of you
-- A lot of AI-for-code content is aimed at (aspiring) software developers
+- _(A lot of AI-for-code content is aimed at (aspiring) software developers.)_
 :::
-
-## The general approach
-
-- Keep it practical
-- Several hands-on sessions: follow along with us, and try things yourself
 
 ## Infrastructure
 
-- Core infrastructure during the workshop:
+- Highly practical, many hands-on sessions:
+  follow along with us, and try things yourself
+
+- Core infrastructure during hands-on work:
   - Own installation of VS Code (_you should have this installed_)
   - The Ohio Supercomputer (OSC)
   - In-editor AI tools (GitHub Copilot & Claude Code)
@@ -144,9 +142,9 @@ while example data is omics data, principles and tooling apply to any data type
 
 - Your freedom:
   - Tomorrow afternoon for DIY with any dataset you like
-  - More of an R person? We have a [Positron setup page](o3-positron-install.qmd)!
   - Feeling on top of things?
-    Free to try example prompts in other sessions with other data or intentions
+    Free to try example prompts with other data or intentions in other sessions, too
+  - More of an R person? We have a [Positron setup page](o3-positron-install.qmd)!
 
 . . .
 
@@ -214,6 +212,26 @@ can also continue working on the example dataset
 - If you're **stuck, behind, or similar**, always let us know ---\
   use your best judgement whether to interrupt or to put up hand /
   use a sticky note / use the Zoom chat
+
+## Sticky notes
+
+We have sticky notes in 10 colors:
+
+- Use [**dark olive-green**]{style="color: darkolivegreen;"} to say "_I need a break within the next 30 seconds._"
+
+. . .
+
+- Use [**medium sea-green**]{style="color: mediumseagreen;"} to say "_I am watching the world cup, but please carry on._"
+
+. . .
+
+- Use [**cornflower blue**]{style="color: cornflowerblue;"} to say "_I already asked ChatGPT and it disagreed with you_."
+
+## Sticky notes (take 2)
+
+- Use [**blue**]{style="color: blue;"} to say: "_Slow down / I am falling behind_"
+
+- Use [**red**]{style="color: red;"} to say "_I have a (non-urgent) issue_"
 
 ## Final info
 

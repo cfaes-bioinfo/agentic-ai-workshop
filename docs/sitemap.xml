@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/08-prompts-slides.html</loc>
-    <lastmod>2026-07-12T17:10:27.174Z</lastmod>
+    <lastmod>2026-07-12T22:50:14.594Z</lastmod>
   </url>
   <url>
     <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/10-agentic2.html</loc>
-    <lastmod>2026-07-12T02:05:30.680Z</lastmod>
+    <lastmod>2026-07-12T22:50:14.596Z</lastmod>
   </url>
   <url>
     <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/p3-cl-software.html</loc>
@@ -21,56 +21,60 @@
     <lastmod>2026-07-08T18:19:37.234Z</lastmod>
   </url>
   <url>
-    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/01-workshop-intro.html</loc>
-    <lastmod>2026-07-12T15:32:37.787Z</lastmod>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/08-prompts.html</loc>
+    <lastmod>2026-07-12T22:50:14.594Z</lastmod>
   </url>
   <url>
-    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/08-claude.html</loc>
-    <lastmod>2026-07-12T12:58:43.049Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/s3-github-account.html</loc>
-    <lastmod>2026-07-09T21:21:14.733Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/02-ai-intro.html</loc>
-    <lastmod>2026-07-11T17:18:47.569Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/o2-resources.html</loc>
-    <lastmod>2026-07-12T01:05:58.701Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/p4-shell-scripts.html</loc>
-    <lastmod>2026-07-08T17:57:39.364Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/08-prompts-page.html</loc>
-    <lastmod>2026-07-12T01:06:09.519Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/05-setup.html</loc>
-    <lastmod>2026-07-09T19:44:52.474Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/s1-osc-account.html</loc>
-    <lastmod>2026-07-11T13:50:54.399Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/p2-shell-intro.html</loc>
-    <lastmod>2026-07-11T13:50:54.398Z</lastmod>
-  </url>
-  <url>
-    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/s2-vscode-install.html</loc>
-    <lastmod>2026-07-09T01:25:56.882Z</lastmod>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/06-copilot.html</loc>
+    <lastmod>2026-07-12T20:53:55.117Z</lastmod>
   </url>
   <url>
     <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/index.html</loc>
     <lastmod>2026-07-12T14:18:08.056Z</lastmod>
   </url>
   <url>
-    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/06-copilot.html</loc>
-    <lastmod>2026-07-12T12:44:47.717Z</lastmod>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/s2-vscode-install.html</loc>
+    <lastmod>2026-07-09T01:25:56.882Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/p2-shell-intro.html</loc>
+    <lastmod>2026-07-08T21:38:09.010Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/s1-osc-account.html</loc>
+    <lastmod>2026-07-06T17:54:54.884Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/05-setup.html</loc>
+    <lastmod>2026-07-12T20:04:31.649Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/08-prompts-page.html</loc>
+    <lastmod>2026-07-12T22:50:14.593Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/p4-shell-scripts.html</loc>
+    <lastmod>2026-07-08T17:57:39.364Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/o2-resources.html</loc>
+    <lastmod>2026-07-12T01:05:58.701Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/02-ai-intro.html</loc>
+    <lastmod>2026-07-11T17:18:47.569Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/s3-github-account.html</loc>
+    <lastmod>2026-07-09T21:21:14.733Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/08-claude.html</loc>
+    <lastmod>2026-07-12T22:47:55.586Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/01-workshop-intro.html</loc>
+    <lastmod>2026-07-12T21:19:42.185Z</lastmod>
   </url>
   <url>
     <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/13-diy.html</loc>
@@ -90,6 +94,6 @@
   </url>
   <url>
     <loc>https://cfaes-bioinfo.github.io/agentic-ai-workshop/o3-positron-install.html</loc>
-    <lastmod>2026-07-11T13:50:54.398Z</lastmod>
+    <lastmod>2026-07-09T22:03:35.508Z</lastmod>
   </url>
 </urlset>

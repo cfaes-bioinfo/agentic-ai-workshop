@@ -1,5 +1,5 @@
 ---
-title: "9: Agentic chat with Claude Code"
+title: "8: Agentic chat with Claude Code"
 subtitle: "Getting started with this extremely powerful tool"
 date: 2026-07-03
 date-modified: today
@@ -10,7 +10,7 @@ author:
     affiliation: 
       - name: CFAES Bioinformatics Core, Ohio State University
         url: https://mcic.osu.edu/bioinformatics
-bibliography: refs.bib # You can add reference to this files if you have and cite any
+bibliography: refs.bib
 ---
 
 ---------
@@ -25,6 +25,8 @@ bibliography: refs.bib # You can add reference to this files if you have and cit
 
 ## Introduction
 
+### About Claude Code
+
 Claude Code is the second of the two main AI tools we will use in this workshop.
 In the session on [GitHub Copilot](06-copilot.qmd),
 we discussed the pros and cons of these two tools.
@@ -33,7 +35,7 @@ Unlike with GitHub Copilot, we will not use a personal account to access Claude 
 Instead, we'll use an access key that the workshop instructors have obtained
 using OSU OTDI's [Generative AI Service](https://it.osu.edu/generative-ai-service).
 Moving forward, we will refer to this type of access key as an "**OSU LiteLLM API key**"^[
-It runs via the LiteLLM service, and these kind of keys in general are called "API keys".].
+It runs via the LiteLLM service, and these kinds of keys in general are called "API keys".].
 
 A key advantage of this approach is that it allows us to use Claude Code in a way
 that is **approved for use with restricted institutional data (S2-S4)**.
@@ -43,7 +45,7 @@ regardless of whether it is public or private data.
 ::: {.callout-tip collapse="true"}
 ### Getting your own institutional API key with $100 of credits for free! _(Click to expand)_
 
-OSU currently has a initiative where anyone at OSU can get $100 worth of AI credits
+OSU currently has an initiative where anyone at OSU can get $100 worth of AI credits
 via their own OSU LiteLLM API key. 🥳
 
 This API key is **_valid until the end of September_** and can be used in the same
@@ -67,12 +69,54 @@ you are **not** using it in an approved way.
 Like with GitHub Copilot, the Anthropic product Claude Code comes in various forms,
 but we will use it within a VS Code extension --- which we'll set up now.
 
+### Before we start
+
+1. Open VS Code, or if you already have a window open that's not connected to OSC,
+   open a new VS Code window with `File` > `New Window`.
+
+2. In the `Recent` section in the VS Code "Welcome" document,
+   you should see the OSC folder with your OSC username for the `osc-cardinal-compute` ---
+   click on that line to open that folder and in the process connect to OSC!
+
+   ![A screenshot showing an entry in the "Recent" section of the VS Code Welcome document.<br>The one you're looking for should have your username.](/img/vscode-recents.png){fig-align="center" width="40%" fig-alt="Screenshot of the VS Code Welcome document, showing the 'Recents' section with the 'Open Folder...' button highlighted"}
+
+   <details><summary>What if you don't see the folder in the `Recent` section?</summary>
+   
+   - Start a new session by clicking the `Connect to...` button in the
+     "Welcome" document, and selecting the `osc-cardinal-compute` connection.
+   
+   - Once connected, click `File` > `Open Folder`
+     (or `Open...` with a folder icon in the Welcome document) and select you dir
+     `/fs/scratch/PAS3454/people/<user>`.
+   
+   </details>
+
+3. Open a terminal and check that you are indeed in dir `/fs/scratch/PAS3454/people/<user>`:
+   
+   ```bash
+   pwd
+   ```
+   ```bash-out
+   # Make sure it's not your home dir, which starts with /users/, instead
+   /fs/scratch/PAS3454/people/jane
+   ```
+
+4. Create a dir `S08` (as in: session 08), navigate into it, and create subdirs
+   `scripts` and `results`:
+   
+   ```bash
+   mkdir S08
+   cd S08
+
+   mkdir scripts results
+   ```
+
 ## Setting up Claude Code
 
 1. In the **Extensions** view, search for "claude" and install the extension
    "[Claude Code for VS Code](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)":
 
-![](/img/vscode-claude-install.png){fig-align="center" width="50%" fig-alt="Screenshot of the VS Code Extensions sidebar, showing the Claude Code extension highlighted"}
+   ![](/img/vscode-claude-install.png){fig-align="center" width="50%" fig-alt="Screenshot of the VS Code Extensions sidebar, showing the Claude Code extension highlighted"}
 
 2. To authenticate to Claude Code, we will use a settings file where we tell Claude
    about our API key and settings associated with it.
@@ -106,7 +150,7 @@ but we will use it within a VS Code extension --- which we'll set up now.
    ```
    :::
 
-3. A second tab should now be available in the side bar with Copilot,
+3. A second tab should now be available next to the Copilot tab in the side bar,
    named "CLAUDE" --- click on that
    (_if you don't see it, you may have to widen the side bar!_):
 
@@ -123,7 +167,7 @@ but we will use it within a VS Code extension --- which we'll set up now.
    but this one will be opened within the editor pane rather than in the sidebar.
    :::
 
-4. You should for some moments see the following messages in the Claude Code window,
+4. You should briefly see the following messages in the Claude Code window,
    indicating that you are not authenticated yet:
    
    ![](/img/claude-login.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the first window after logging in, with a message indicating that you are not authenticated yet"}
@@ -161,7 +205,7 @@ as most of the features we'll discuss next are accessed from there --- for examp
 
 - There might be text just above the prompt box saying:
   _**"Prefer the Terminal experience? Switch back in Settings."**_
-  This refers to the fact that you can also also use Claude Code in the terminal
+  This refers to the fact that you can also use Claude Code in the terminal
   (the Claude Code CLI), but we will not do that here and don't really recommend switching.
 
 - The ghost text in the prompt box says "**_⌘ [or Ctrl] to focus or unfocus Claude_**",
@@ -172,23 +216,75 @@ as most of the features we'll discuss next are accessed from there --- for examp
 
 ### A first prompt
 
-> _Write a very simple script to run FastQC on a FASTQ file_
+Type or copy the following prompt into the prompt box and hit <kbd>Enter</kbd>:
 
-- _Considerations TBA._
-  - _Where does the file go?_
-  - _Does it know about Slurm and module?_
+> _Write a very simple script, S08/scripts/fastqc.sh, to run FastQC on a FASTQ file_
+
+Here's what I got:
+
+![1: Claude asks for permission to write the code it came up with to the file.](/img/claude-fastqc1.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing a response to a prompt asking to write a simple script to run FastQC on a FASTQ file"}
+
+<hr style="height:1pt; visibility:hidden;" />
+
+![2: Claude shows the generated script. (This is the diff format before giving permission.)](/img/claude-fastqc2.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing a response to a prompt asking to write a simple script to run FastQC on a FASTQ file"}
+
+<hr style="height:1pt; visibility:hidden;" />
+
+![3: Claude asks permission again, to make the script executable.](/img/claude-fastqc3.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing a response to a prompt asking to write a simple script to run FastQC on a FASTQ file"}
+
+<hr style="height:1pt; visibility:hidden;" />
+
+![4: Claude's final outputs.](/img/claude-fastqc4.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing a response to a prompt asking to write a simple script to run FastQC on a FASTQ file"}
+
+<details><summary>Click for the contents of the script I got.</summary>
+
+```bash
+#!/bin/bash
+#SBATCH --account=PAS3454
+#SBATCH --time=30:00
+#SBATCH --output=slurm-fastqc-%j.out
+
+# Parse command-line argument
+fastq_file=$1
+
+# Run FastQC
+module load fastqc
+fastqc --outdir results/fastqc "$fastq_file"
+```
+
+</details>
+
+We'll try running the script later -- for now, let's reflect on the outputs.
+
+::: exercise
+#### {{< fa comments >}} Discuss the results
+
+- Does this look reasonable? Are there any obvious mistakes?
+
+- How did it know it had to create a Slurm header, and add a `module load` command?
+
+- Did you get something similar? If there are differences, are they significant?
+  Would the differences make or break the script, do you think?
+
+- Did you also get asked for permissions? Why do you think this is?
+
+- Any questions about the script?
+  Do you understand the "usage" line that Claude outputs in the chat?
+
+- Any questions about Claude's behavior?
+:::
 
 ::: callout-important
 #### These prompts aren't very good
 
-Our initials prompts to Claude Code in much of this session will be:
+Our initial prompts to Claude Code in much of this session will be:
 
 - Quite **simple**, so we can focus on the mechanics of using the tool.
   We invite you to try more complex prompts this afternoon!
 
 - **Not (necessarily) well-designed**, so we can get a better feel for Claude behavior
   in different contexts, and illustrate improvement later on.
-  _TBA - mention prompt engineering session_  
+  [The next session](./08-prompts-slides.qmd-p) will explicitly cover prompt engineering.
 :::
 
 ## Adding file context
@@ -230,13 +326,13 @@ Or, if you have side-by-side editor panes, the one where the cursor is currently
 With our `fastqc.sh` script still open,
 you can see in the prompt box that Claude has added this file as context:
   
-_[SCREENSHOT TBA]_
+![](/img/claude-automatic-file-context.png){fig-align="center" width="65%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing that the fastqc.sh script has been automatically added as context"}
 
 If you want to **remove the active file from the context**,
 click on its name below the prompt box,
 and it will be grayed out and removed from the context:
 
-_[SCREENSHOT TBA]_
+![](/img/claude-remove-file-context.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing that the fastqc.sh script has been removed from the context"}
 
 Additional considerations:
 
@@ -244,6 +340,8 @@ Additional considerations:
   Claude will automatically add that selection as context.
   You could for example ask, within a much longer script,
   "_these lines of code don't seem to be working, can you help me fix them?_"
+
+  ![](/img/claude-select-lines.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing that a selection of lines in the fastqc.sh script has been added as context"}
 
 - If you want to **add multiple files as context**,
   you can use the <kbd>Option/Alt</kbd> + <kbd>K</kbd> shortcut,
@@ -260,21 +358,87 @@ Additional considerations:
   If you have lots of files in your workspace,
   typing part of the name is often easier than scrolling.
   These partial names will also match files in subfolders,
-  so you can type `@fastqc` to find the `fastqc.sh` script in the `S09` folder, for example.
+  so you can type `@fastqc` to find the `fastqc.sh` script regardless of what
+  subfolder it's in, for example.
 
 ::: exercise
 #### {{< fa user-edit >}} Exercise: Add context to the chat
 
-1. Run the script `fastqc.sh` in the terminal.
-2. Wait for a Slurm file to appear, and look at it.
+1. Run the script `fastqc.sh` in the terminal in the way that Claude suggested you to run it,
+   with an actual FASTQ file from the @iqbal2025 dataset as input.
+
+   <details><summary>Click for a hint</summary>
+   ```bash
+   sbatch scripts/fastqc.sh <fastq-file>
+   ```
+   
+   From your current working dir, the FASTQ files are at: `../iqbal/fastq`.
+
+   </details>
+
+2. Wait for a Slurm file to appear in your working directory,
+   and look at its contents to see how the job ran.
+   Did it succeed?
+
 3. Add both the `fastqc.sh` script and the Slurm file as context to the chat,
    and ask a relevant follow-up question.
    If you got an error when running the script, you could ask to troubleshoot the error.
    If it ran successfully, you could ask to improve the script or what will end up in the Slurm file.
+
+   <details><summary>Click for some hints</summary>
+   
+   To open both files as context, one way is to:
+
+   1. Open the first of the two files in the editor, put your cursor in that file
+     (not in the prompt box), and press <kbd>Option/Alt</kbd> + <kbd>K</kbd> to
+     "persistently" add it as context.
+   2. Then switch to the other file and it will be added.
+
+   My Slurm file, after running the script shown above, started with this error:
+
+   ```bash-out
+   Lmod has detected the following error: These module(s) or extension(s) exist
+   but cannot be loaded as requested: "fastqc"
+   ```
+
+   So, we could ask Claude to help us fix this error, for example by asking:
+
+   > _Troubleshoot the error in the Slurm file and fix the `fastqc.sh` script accordingly._
+
+   ![](/img/claude-select-two-files.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing that both the fastqc.sh script and the Slurm file have been added as context"}
+   </details>
+
+4. See what fix it gives and try running the script again!
+   If needed and if there's time, you can iterate on this process to get a working script.
+
+   <details><summary>See what response I got.</summary>
+
+   ![](/img/claude-fastqc-fix.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing a response to a prompt asking to troubleshoot an error in the Slurm file and fix the fastqc.sh script accordingly"}
+
+   The script now contains a modified `module load` command:
+
+   ```bash
+   module load fastqc/0.12.1
+   ```
+
+   After rerunning it, unfortunately I got a different error:
+
+   ```bash-out
+   Specified output directory 'results/fastqc' does not exist
+   ```
+
+   This one was likely (especially) self-inflicted, since we said "very simple script" in the prompt,
+   so Claude didn't include code to create the output dir, which is fairly common practice.
+   And most programs would make the output dir if it doesn't exist, but FastQC doesn't.
+
+   </details>
+
 :::
 
+<hr style="height:1pt; visibility:hidden;" />
+
 ::: {.callout-note collapse="true"}
-### Uploading files via the `+` button _(Click to expand)_
+### Another option: Uploading files via the `+` button _(Click to expand)_
 
 While I find that this is rarely needed,
 you can add files that are not open in the editor as context by clicking the
@@ -364,17 +528,14 @@ you can control which LLM model is used and how it behaves:
 
 ## Permission modes
 
-On the right-hand side of the prompt box is the **Permission Modes** indicator.
-This sets the permission level that Claude has to perform
-**actions like editing files and running commands**, and can be toggled between:
+On the right-hand side of the prompt box is the **Mode** indicator.
+Most of the options that can be toggled between are permission levels that Claude
+has to perform **actions like editing files and running commands**, namely:
 
 - **Manual**:
   Claude asks permission for each action.
 - **Edit automatically**:
   Claude makes edits to files and runs basic commands without asking for permission.
-- **Plan mode**:
-  Claude writes a plan that is then opened as a rendered Markdown document,
-  and which you can approve or modify.
 - **Auto mode**:
   Claude determines on its own whether to ask for permission or not for specific actions,
   or to write a plan.
@@ -382,6 +543,12 @@ This sets the permission level that Claude has to perform
   If you switch to Auto Mode, you should see something like the following:
 
   ![](/img/claude-automode-message.png){fig-align="center" width="50%" fig-alt="Screenshot of the Claude Code interface, showing the 'Auto Mode' message"}
+
+The other mode is a little different:
+
+ - **Plan mode**:
+  Claude writes a plan that is then opened as a rendered Markdown document,
+  and which you can approve or modify.
 
 ::: exercise
 #### {{< fa user-edit >}} Exercise: Explore planning mode and models/effort
@@ -391,7 +558,7 @@ first quickly and then more carefully,
 so you can compare how model choice and effort level affect the depth and quality of the plan.
 
 Ask Claude to plan a QC workflow for the FASTQ files in the `iqbal/fastq` dir.
-Here is two suggested prompts, but you can modify them or use other prompts if you like:
+Here are two suggested prompts, but you can modify them or use other prompts if you like:
 
 ```markdown
 Write a plan to perform QC and read preprocessing steps for the FASTQ files
@@ -460,7 +627,7 @@ you can do so in a few ways:
 
   ![After pressing Esc + Esc, you can choose a point in the conversation to go back to. In this case, the conversation only consists of a single message.](/img/claude-interrupt2.png){fig-align="center" width="65%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
 
-  ![After selecting that message, it asks you to confirm the rewind, which in this cases involves removing the generated code in an R script.](/img/claude-interrupt3.png){fig-align="center" width="65%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
+  ![After selecting that message, it asks you to confirm the rewind, which in this case involves removing the generated code in an R script.](/img/claude-interrupt3.png){fig-align="center" width="65%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
 
 ::: {.callout-tip appearance="simple"}
 **You can also access the rewind option through the Command Menu.**
@@ -469,6 +636,7 @@ you can do so in a few ways:
 ::: exercise
 #### {{< fa user-edit >}} Exercise: Try it yourself
 
+Try steering and/or stopping Claude mid-response.
 The prompt below is what I used for the screenshots above,
 but you can modify it or use a different prompt if you like:
 
@@ -506,7 +674,8 @@ with many current models having a **1 million token** context window size.
 
 ### What happens when the context window fills up?
 
-- When the context window fills up, the model will start to "forget" earlier parts of the conversation.
+- When the context window fills up, earlier parts of the conversation will be
+  automatically summarized (compacted), which can lose important details.
 
 - More generally, performance degrades as the context window fills up, 
   and hallucinations and other errors become more likely.
@@ -580,7 +749,7 @@ and a table of all requests that includes the exact amount spent on each request
 To reduce usage costs, you can consider switching to AI tools in your browser
 when you don't need agentic capabilities like file editing and command execution.
 For example, questions about general bioinformatics concepts and software usage and options
-can be answered by a browser-based LLM like Google Gemini via an OSU login
+can be answered by a browser-based LLM like Google Gemini, which is available via an OSU login.
 
 On the other hand, going back-and-forth depending on the context does mean that
 you don't have all relevant chat history in one place.
@@ -637,7 +806,7 @@ Here are two ways to have useful conversations despite length limitations:
 
 - Break your work into smaller tasks and have separate chats for each task.
 - Load "external memory" via files that summarize your project and its current state
-  ([session 10](./10-agentic2.qmd).
+  ([session 10](./10-agentic2.qmd)).
 
 ::: {.callout-note collapse="true"}
 #### Related options _(Click to expand)_
@@ -665,21 +834,21 @@ Here are two ways to have useful conversations despite length limitations:
 ![Screenshot of the top of the Claude window, with the Claude icon (left) to open a completely new window, the clock icon (right) to see previous chats, and the new chat icon (far right) to start a new chat.](/img/claude-top-buttons.png){fig-align="center" width="75%" fig-alt="Screenshot of the Claude Code interface, showing the top buttons for chat history, new chat, and opening a new Claude Code window"}
 :::
 
-## Additional exercises
+## Bonus exercises
 
 ::: exercise
 #### {{< fa user-edit >}} Run the code from one of the plans you generated above
 :::
 
 ::: exercise
-#### {{< fa user-edit >}} A troubleshooting example
-_TBA -- likely provide a script that produces errors, and ask Claude to troubleshoot it._
-:::
-
-::: exercise
 #### {{< fa user-edit >}} Improve a script
 
+For example:
+
 > Add functional bells and whistles to the fastqc.sh script. Also report the time it took to run the script
+
+{{< fa comments >}} Do the edits make sense? Do you understand them?
+Are you missing anything that you think should be there?
 :::
 
 ::: exercise
@@ -691,36 +860,67 @@ _"How many b's are in the word blueberry?"_
 Have you heard of any other classic questions that AIs struggle with? Try one out!
 :::
 
-<!---
+## Ideas for using Claude Code
 
-- What to use Claude for:
-  - Troubleshooting code that doesn't work
-  - Proof-reading code that works (and manuscripts, etc.)
-  - Works very well with Git and GitHub
-  - Doing stuff that you never get to:
-    - Turn a series of scripts into a proper workflow
-    - Organize a disorganized project folder, create documentation,
-      and put it under version control
-    - Turning a script into a nice notebook/Quarto doc,
-      a Quarto doc into a dashboard or Shiny app, etc.
-    - Turning a set of R scripts into an R package
-  - Looking for inspiration for non-coding tasks?
-    <https://claudeblattman.com>
-  - Build a (Quarto) website
-    - Personal website
-    - Lab website
+Our above practice prompts were very basic, covering:
+
+- Writing simple scripts
+- Troubleshooting simple errors
+- Writing documentation files
+
+You can do much more advanced and ambitious things with Claude Code.
+Here are some ideas to stay in the realm of the fairly mundane, but quite useful!
+
+- **Troubleshooting complex errors:**
+  e.g., it can be stunningly good at following
+  complex paper trails of errors in a complicated workflow or set of scripts.
+
+- **Doing things that are (well) beyond your ability _and/yet_ easy to verify**:\
+  - A really complicated installation.
+  - Tedious, repetitive tasks that you don't have the skill to automate yourself.
+
+- **Writing entire pipelines**, including in formal workflow languages like Nextflow
+
+- **Proof-reading code (and other documents) that does work.**\
+  If you have a complicated set of scripts, it's very easy to get lost and not
+  notice things like inconsistent variable names or other small errors.
+  These AI tools are often quite meticulous in this sense.
+
+- **Doing "optional next step" stuff you never get to:**
+  - Organize a disorganized project folder, create documentation,
+    and put it under version control
+  - Turn a script into a nice notebook/Quarto doc, dashboard, or Shiny app
+  - Turning a set of R scripts into an R package
+    
+- **Build a (Quarto) website**
+  - Personal website
+  - Lab website
+
+<!----
 
 - Some of my use cases:
-  - Making websites
+  - Nightmarish installations at OSC of R packages with complex dependencies
+  - Some aspects of making websites like this one, especially CSS styling,
+    proofreading, and autocompleting
   - Formal (Nextflow) workflows
   - Maintaining a set of scripts to be used across projects
   - Troubleshooting complex errors
 
-```bash
-sbatch run_fastqc.sh iqbal/fastq/SRR31869590_1.fastq.gz results/fastqc/
-```
-```bash-out
-Submitted batch job 12241998
-```
-  
+- **Tedious and repetive things**\
+  This is what the OTDI video on identifying AI use cases emphasized:
+  use it for "dull, dense, and/or draft-heavy" tasks.
+  In research, we don't have those so much, but here's one example I have:
+  I try to maintain a set of scripts with uniform behavior that I use across projects,
+  but I occasionally update their basic template.
+  Applying the updates to all scripts is tedious and time-consuming,
+  but Claude can do it very quickly.
+
+- Looking for inspiration for **non-coding tasks?**
+  [Here's one starting point.](https://claudeblattman.com)
+
+ ::: exercise
+#### {{< fa user-edit >}} A troubleshooting example
+_likely provide a script that produces errors, and ask Claude to troubleshoot it._
+ :::
+
 ---->

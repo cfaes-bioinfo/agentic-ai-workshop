@@ -308,7 +308,10 @@ div.csl-indent {
   <li><a href="#related-inline-chat" id="toc-related-inline-chat" class="nav-link" data-scroll-target="#related-inline-chat"><span class="header-section-number">5.3</span> Related: Inline chat</a></li>
   <li><a href="#your-turn-explore-the-iqbal2025-data" id="toc-your-turn-explore-the-iqbal2025-data" class="nav-link" data-scroll-target="#your-turn-explore-the-iqbal2025-data"><span class="header-section-number">5.4</span> Your turn: Explore the <span class="citation" data-cites="iqbal2025">Iqbal et al. (2025)</span> data</a></li>
   </ul></li>
-  <li><a href="#one-example-chat-prompt" id="toc-one-example-chat-prompt" class="nav-link" data-scroll-target="#one-example-chat-prompt"><span class="header-section-number">6</span> One example chat prompt</a></li>
+  <li><a href="#an-example-chat-prompt" id="toc-an-example-chat-prompt" class="nav-link" data-scroll-target="#an-example-chat-prompt"><span class="header-section-number">6</span> An example chat prompt</a>
+  <ul class="collapse">
+  <li><a href="#writing-contents-of-a-readme.md-file" id="toc-writing-contents-of-a-readme.md-file" class="nav-link" data-scroll-target="#writing-contents-of-a-readme.md-file"><span class="header-section-number">6.1</span> Writing contents of a <code>README.md</code> file</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -318,7 +321,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">6: Code completions with GitHub Copilot</h1>
-<p class="subtitle lead">Setting up and using our first agentic AI tool</p>
+<p class="subtitle lead">Setting up and using our first agentic AI tool!</p>
 </div>
 
 
@@ -378,50 +381,47 @@ div.csl-indent {
 <p>We’ll start working with these agentic AI tools in this and a following session. Specifically, we will:</p>
 <ul>
 <li><p>Use so-called <strong>“code completions” in GitHub Copilot</strong> (<em>this session</em>), where you get AI suggestions within the VS Code editor as you type. This is a feature that Claude Code does not have.</p></li>
-<li><p>Use the more powerful functionality of <strong>(agentic) chat in Claude Code</strong> (<em>next section</em>). While GitHub Copilot can also do this, we’ll use Claude Code for reasons we’ll go into later.</p></li>
+<li><p>Use the more powerful functionality of <strong>(agentic) chat in Claude Code</strong> (<em>next section</em>). While GitHub Copilot can also do this, we’ll use Claude Code for this, for reasons we’ll explain in a bit.</p></li>
 </ul>
-<p>As for this session specifically, we’ll:</p>
+<p>As for <strong>this session</strong> specifically, we’ll:</p>
 <ol type="1">
 <li>Copy and briefly explore a small RNA-Seq dataset to analyze with the help of our AI tools.</li>
-<li>Set up GitHub Copilot in VS Code</li>
-<li>And most of all, start using the code completion features in GitHub Copilot</li>
+<li>Set up GitHub Copilot in VS Code.</li>
+<li>And most of all, start using the code completion features in GitHub Copilot.</li>
 </ol>
 </section>
 <section id="an-rna-seq-dataset-to-practice-with" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="an-rna-seq-dataset-to-practice-with"><span class="header-section-number">2</span> An RNA-Seq dataset to practice with</h2>
 <p>Let’s navigate to a suitable dir and each get our own copy of a high-throughput sequencing dataset to analyze with the help of our AI tools.</p>
 <ol type="1">
-<li><p>You should still have an active session in VS Code connected to OSC. If not, start a new session.</p>
+<li><p>You should still have an active session in VS Code connected to OSC at dir <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code> (where <code>&lt;user&gt;</code> is your personal username).</p>
 <details>
 <summary>
-<p>Click here for instructions to start a new VS Code session at OSC</p>
+<p><em>If not, click here for instructions to do so.</em></p>
 </summary>
-<ol type="1">
+<ul>
 <li><p>Open VS Code, or if you already have a window open that’s not connected to OSC, open a new VS Code window with <code>File</code> &gt; <code>New Window</code>.</p></li>
-<li><p>In the <code>Recent</code> section in the VS Code “Welcome” document, you should see the <code>PAS3454</code> OSC folder with the <code>osc-cardinal-compute</code> connection — click on that line to open that folder and in the process connect to OSC!</p></li>
-</ol>
+<li><p>In the <code>Recent</code> section in the VS Code “Welcome” document, you should see the OSC folder with your OSC username for the <code>osc-cardinal-compute</code> — click on that line to open that folder and in the process connect to OSC!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./img/vscode-recents.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Screenshot of the VS Code Welcome document, showing the 'Recents' section with the 'Open Folder...' button highlighted"></p>
 </figure>
-</div>
-<p>If you don’t see the <code>PAS3454</code> OSC folder in the <code>Recent</code> section after Step 1, simply start a new session, for example like so:</p>
-<ol start="3" type="1">
-<li>Click the <code>Connect to...</code> button in the “Welcome” document (also visible in the screenshot above), and select the <code>osc-cardinal-compute</code> connection.</li>
-</ol>
+</div></li>
+</ul>
+<p>If you don’t see this folder in the <code>Recent</code> section after Step 1, simply start a new session, for example by clicking the <code>Connect to...</code> button in the “Welcome” document (also visible in the screenshot above), and select the <code>osc-cardinal-compute</code> connection. Once connected, click <code>File</code> &gt; <code>Open Folder</code> (or <code>Open...</code> with a folder icon in the Welcome document) and select you dir <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>.</p>
 </details></li>
-<li><p>Once connected to OSC, click <code>File</code> &gt; <code>Open Folder...</code>, and to open you personal folder <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>.</p></li>
-<li><p>Open a terminal and check that are indeed in dir <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>:</p>
+<li><p>Open a terminal and check that you are indeed in dir <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<pre class="bash-out"><code>/fs/scratch/PAS3454/people/jane</code></pre>
-<p>If not, redo step 2! The terminal will automatically start in the folder you opened in VS Code.</p></li>
-<li><p>Copy a shared data dir to your personal dir:</p>
+<pre class="bash-out"><code># Make sure it's not your home dir, which starts with /users/, instead
+/fs/scratch/PAS3454/people/jane</code></pre>
+<p><em>(If you’re elsewhere, use the Open Folder functionality to try again.)</em></p></li>
+<li><p>Copy a shared data dir with the <span class="citation" data-cites="iqbal2025">Iqbal et al. (<a href="#ref-iqbal2025" role="doc-biblioref">2025</a>)</span> files to your personal dir:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># After this, the data will be in `/fs/scratch/PAS3454/people/&lt;user&gt;/iqbal`</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-rv</span> /fs/scratch/PAS3454/data/iqbal .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="bash-out"><code>'/fs/scratch/PAS3454/data/iqbal' -&gt; './iqbal'
 '/fs/scratch/PAS3454/data/iqbal/ref' -&gt; './iqbal/ref'
-'/fs/scratch/PAS3454/data/iqbal/ref/GCA_000004655.2_ASM465v1_genomic.fna' -&gt; './iqbal/ref/GCA_000004655.2_ASM465v1_genomic.fna'
-'/fs/scratch/PAS3454/data/iqbal/ref/GCA_000004655.2_ASM465v1_genomic.gff' -&gt; './iqbal/ref/GCA_000004655.2_ASM465v1_genomic.gff'
+'/fs/scratch/PAS3454/data/iqbal/ref/GCA_000004655.2.fna' -&gt; './iqbal/ref/GCA_000004655.2.fna'
+'/fs/scratch/PAS3454/data/iqbal/ref/GCA_000004655.2.gtf' -&gt; './iqbal/ref/GCA_000004655.2.gtf'
 '/fs/scratch/PAS3454/data/iqbal/meta.tsv' -&gt; './iqbal/meta.tsv'
 '/fs/scratch/PAS3454/data/iqbal/README.md' -&gt; './iqbal/README.md'
 '/fs/scratch/PAS3454/data/iqbal/fastq' -&gt; './iqbal/fastq'
@@ -448,11 +448,11 @@ div.csl-indent {
  │       ├── GCA_000004655.2.fna
  │       └── GCA_000004655.2.gtf</code></pre></li>
 </ol>
-<section id="what-do-we-have-in-the-iqbal-dir" class="level4">
-<h4 class="anchored" data-anchor-id="what-do-we-have-in-the-iqbal-dir">What do we have in the <code>iqbal</code> dir?</h4>
-<p>This is RNA-Seq data from <span class="citation" data-cites="iqbal2025">Iqbal et al. (<a href="#ref-iqbal2025" role="doc-biblioref">2025</a>)</span>, with:</p>
+<section id="what-is-in-the-iqbal-dir" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-in-the-iqbal-dir">What is in the <code>iqbal</code> dir?</h4>
+<p>This is RNA-Seq data from the paper <span class="citation" data-cites="iqbal2025">Iqbal et al. (<a href="#ref-iqbal2025" role="doc-biblioref">2025</a>)</span>, in which two different rice lines were inoculated with a pathogenic fungus and sequenced the transcriptomes of the plants to see how they responded. We have the following files:</p>
 <ul>
-<li>The raw (paired-end Illumina) reads in the dir <code>fastq</code> — though subsampled by us to keep the file sizes and analysis times short for use during the workshop</li>
+<li>The raw (paired-end Illumina) reads in the dir <code>fastq</code> — though note that these were subsampled by us to keep file sizes and analysis times short for use during the workshop.</li>
 <li>The sample metadata (e.g., rice variety and inoculation treatment information) in the file <code>meta.tsv</code>.</li>
 <li><a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000004655.2/">Rice reference genome</a> files in the <code>ref</code> dir.</li>
 </ul>
@@ -466,7 +466,7 @@ div.csl-indent {
 </details>
 <details>
 <summary>
-<i class="fa-solid fa-comments" aria-label="comments"></i> What do the <code>.fna</code> and <code>gtf</code> file in the <code>ref</code> dir represent? <em>(Click to see the answer)</em>
+<i class="fa-solid fa-comments" aria-label="comments"></i> What do the <code>.fna</code> and <code>.gtf</code> file in the <code>ref</code> dir represent? <em>(Click to see the answer)</em>
 </summary>
 <ul>
 <li>The <code>.fna</code> file is a FASTA file with the entire genome sequence.</li>
@@ -478,7 +478,7 @@ div.csl-indent {
 <section id="about-github-copilot" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="about-github-copilot"><span class="header-section-number">3</span> About GitHub Copilot</h2>
 <p>As mentioned, GitHub Copilot is an generative and agentic AI tool that can help you write code and is the first of two similar tools we will use in this workshop, the other being Claude Code.</p>
-<p>GitHub Copilot is <strong>not</strong> the same as the “general” Microsoft Copilot. And while GitHub Copilot <em>is</em> a Microsoft product, hence the similar name, you cannot –currently– use it institutionally at OSU. Instead, access runs through a <strong>personal GitHub account</strong>. It’s easy and free to create a GitHub account, and you may already have one from previous usage or because you followed <a href="./s3-github-account.html">this optional pre-workshop setup step</a>.</p>
+<p>GitHub Copilot is <strong>not</strong> the same as the “general” Microsoft Copilot. And while GitHub Copilot <em>is</em> a Microsoft product, hence the similar name, you cannot currently use it institutionally at OSU. Instead, access runs through a <strong>personal GitHub account</strong>. It’s easy and free to create a GitHub account, and you may already have one from previous usage or because you followed <a href="./s3-github-account.html">this optional pre-workshop setup step</a>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -492,7 +492,7 @@ div.csl-indent {
 <p>Keep in mind that GitHub is a much more general platform than just GitHub Copilot, widely used for sharing and collaborating on code. Nevertheless, with your GitHub account, you are nowadays also automatically enrolled in the GitHub Copilot free plan.</p>
 </div>
 </div>
-<p>While there’s also a stand-alone app and web-based interface for it, <strong>we will use GitHub Copilot within VS Code</strong>.</p>
+<p>While there’s also a stand-alone app, a stand-alone CLI, and a web-based interface for it, <strong>we will use the GitHub Copilot panel within VS Code</strong>.</p>
 <p>We also mentioned that in this workshop, we’ll use GitHub Copilot for code completions and Claude Code for agentic chat. Here is an overview of the pros and cons of GitHub Copilot vs.&nbsp;Claude Code:</p>
 <table class="caption-top table">
 <thead>
@@ -529,7 +529,7 @@ div.csl-indent {
 <td>✅</td>
 </tr>
 <tr class="even">
-<td>Often considered the best code assist tool</td>
+<td><em>Often considered the best code assist tool</em></td>
 <td>❌</td>
 <td>✅</td>
 </tr>
@@ -553,7 +553,7 @@ div.csl-indent {
 </section>
 <section id="setting-up-github-copilot" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="setting-up-github-copilot"><span class="header-section-number">4</span> Setting up GitHub Copilot</h2>
-<p>GitHub Copilot is available in VS Code as a pre-installed plugin. Therefore, not much setup is needed: the steps below only serve to log in to your GitHub account or create one along the way.</p>
+<p>GitHub Copilot is available in VS Code as a pre-installed extension. Therefore, not much setup is needed: the steps below only serve to log in to your GitHub account or create one along the way.</p>
 <ol type="1">
 <li><p>Towards the right side of the top VS Code bar, click the <strong>Sign In</strong> button to log into GitHub:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -602,7 +602,7 @@ div.csl-indent {
 <div class="callout-body-container callout-body">
 <ul>
 <li><p>For those <strong>without</strong> a GitHub account, you can create one on the fly, either with the “Create an account” button on the bottom, or semi-automatically via an existing Google login by clicking the “Continue with Google” button.</p></li>
-<li><p>For those <strong>with</strong> a GitHub account, you can log in with your existing credentials. Don’t use Continue with Google unless you know your GitHub account is already linked to your Google account, or account confusion may arise.</p></li>
+<li><p>For those <strong>with</strong> a GitHub account, you can log in with your existing credentials. Don’t use “Continue with Google” unless you know your GitHub account is already linked to your Google account, or account confusion may arise.</p></li>
 </ul>
 </div>
 </div>
@@ -678,15 +678,31 @@ div.csl-indent {
 <figcaption>I typed <code>#!</code>, and the <code>/bin/bash</code> suggestion appeared.<br>The purple highlighting is also done by Copilot to draw attention to it.</figcaption>
 </figure>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A different kind of example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here’s a quite different kind of example, which goes to show that Copilot can be useful for many kinds of text. (This is especially illustrative if you know some (Quarto) Markdown.)</p>
+<p>In a Quarto Markdown document that is part of the source code of this very website, I typed <code>[](/img/claude-interrupt1.png){}</code>, and Copilot suggested the part in gray:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="./img/copilot-useful-autocomplete.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="./img/copilot-useful-autocomplete.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%" alt="Ghost text suggestions in GitHub Copilot"></a></p>
+<p><a href="./img/copilot-useful-autocomplete.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="./img/copilot-useful-autocomplete.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%" alt="Ghost text suggestions in GitHub Copilot"></a></p>
 </figure>
+</div>
+<p>That is, it suggested lots of boilerplate code typically added to format a figure, and even added fairly reasonable alt text for the figure, based on the file name.</p>
+</div>
 </div>
 </section>
 <section id="suggestions-based-on-a-code-comment-you-have-written" class="level4">
 <h4 class="anchored" data-anchor-id="suggestions-based-on-a-code-comment-you-have-written">Suggestions based on a code comment you have written</h4>
-<p>These try to generate code that implements what you described in the comment. For example, if you write a comment <code># Count the number of dirs in `people`</code> in a shell script, press <kbd>Enter</kbd>, and wait a second, Copilot should suggest something like this:</p>
+<p>These suggestions generate code that tries to implement what you described in the comment.</p>
+<p>For example, if you write a comment <code># Count the number of dirs in `people`</code> in a shell script, press <kbd>Enter</kbd>, and wait a second, Copilot should suggest something like this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -719,7 +735,7 @@ div.csl-indent {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>You should immediately see the following, which is also a ghost text suggestion, in your new file. For now, ignore that — when you start to type it will disappear.</p>
+<p>Likely, you will immediately see the following, which is also a ghost text suggestion, in your new file. For now, ignore that — when you start to type it will disappear.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/copilot-new-script.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="Screenshot of Copilot ghost text when you open a new shell file"></p>
@@ -754,9 +770,9 @@ div.csl-indent {
 </section>
 <section id="next-edit-suggestions" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="next-edit-suggestions"><span class="header-section-number">5.2</span> Next edit suggestions</h3>
-<p><a href="https://code.visualstudio.com/docs/editing/ai-powered-suggestions#_next-edit-suggestions">“Next edit” suggestions</a> will suggest a modification to code or other text you have already written. A number of scenarios can trigger next edit suggestions, such as:</p>
+<p><a href="https://code.visualstudio.com/docs/editing/ai-powered-suggestions#_next-edit-suggestions">“Next edit” suggestions</a> will suggest a modification to code or other text <strong>you have already written</strong>. A number of scenarios can trigger next edit suggestions, such as:</p>
 <ul>
-<li>Syntax, spelling, or style errors in your code (e.g., a missing closing bracket or quote)</li>
+<li>Syntax, spelling, or style errors in your code (e.g., a missing closing bracket or quote).</li>
 <li>When you change one instance of a recurring pattern in your code (e.g., a variable name or a path), it will suggest to change the other instances as well.</li>
 </ul>
 <p>As a very simple example, if you type the incorrect <code>Ls -lh</code> in your <code>S06/copilot.sh</code> file, and wait a second, Copilot will suggest to change it to <code>ls -lh</code> (with a lowercase <code>l</code>):</p>
@@ -787,7 +803,7 @@ div.csl-indent {
 <p><img src="./img/copilot-nextedit-pattern2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%" alt="Screenshot of Copilot next edit suggestion for recurring pattern"></p>
 </figure>
 </div>
-<p>These types of suggestions are sometimes off-target (e.g., maybe you don’t want to change the other instances of <code>people</code> to <code>data</code>!), but in my experience, they are often quite useful and not just a time-saver, but also a way to avoid mistakes (e.g., forgetting to change one of the instances).</p>
+<p>These types of suggestions are sometimes off-target — e.g., maybe you don’t, in fact, want to change the other instances of <code>people</code> to <code>data</code>! But in my experience, they are often quite useful and not just a time-saver, but also a way to avoid mistakes (e.g., forgetting to change one of the instances).</p>
 </section>
 <section id="related-inline-chat" class="level3" data-number="5.3">
 <h3 data-number="5.3" class="anchored" data-anchor-id="related-inline-chat"><span class="header-section-number">5.3</span> Related: Inline chat</h3>
@@ -831,7 +847,7 @@ div.csl-indent {
 </section>
 <section id="explain-code" class="level4">
 <h4 class="anchored" data-anchor-id="explain-code">Explain code</h4>
-<p>Until recently, the inline chat feature would by default start by having you choose whether you want to modify or explain code. The explain option is still available, but now you have to explicitly ask for it with a so-called “slash command” (we’ll talk more about slash commands in the Claude section) — type <code>/explain</code> and press <kbd>Enter</kbd>:</p>
+<p>Until recently, the inline chat feature would first have you choose whether you want to <em>modify</em> or <em>explain</em> code. The explain option is still available, but now you have to explicitly ask for it with a so-called “slash command” (we’ll talk more about slash commands in the Claude section) — type <code>/explain</code> and press <kbd>Enter</kbd>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./img/copilot-inline-chat-explain1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%" alt="Screenshot of Copilot inline chat feature, showing a code snippet and the 'Chat about this code' option in the context menu"></p>
@@ -867,11 +883,11 @@ div.csl-indent {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you use code completion features within your code and documentation files, you are not exposing any internal data you may have elsewhere in the dir hierarchy that you have open in VS Code.</p>
+<p>If you use code completion features <em>only</em> within your code and documentation files (which you should do anyway), you are not exposing any internal data you may have elsewhere in the dir hierarchy that you have open in VS Code.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -880,7 +896,7 @@ div.csl-indent {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You can see what Copilot plan you have and what your credit usage is for the current calendar month by clicking the GitHub Copilot icon in the bottom right of your VS Code window:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -912,7 +928,7 @@ div.csl-indent {
 <p>In your <code>copilot.sh</code> file, play around with asking questions via comments and see what Copilot suggests.</p>
 <p><strong><em>Feel free to go off in a direction that you like</em></strong>, but I’d suggest using this exercise to explore the <span class="citation" data-cites="iqbal2025">Iqbal et al. (<a href="#ref-iqbal2025" role="doc-biblioref">2025</a>)</span> data files a bit. For example:</p>
 <ul>
-<li><p>Count the number of reads in <code>data/iqbal/SRR31869590_1.fastq</code> (or any other fastq file in the <code>fastq</code> dir)</p></li>
+<li><p>Count the number of reads in <code>iqbal/fastq/SRR31869590_1.fastq.gz</code> (or any other fastq file in the <code>fastq</code> dir)</p></li>
 <li><p>Count the number of entries in the FASTA files (this will tell you how many “pieces” —chromosomes + scaffolds/contigs— the reference genome consists of)</p></li>
 <li><p>Count the number of genes in the GTF file</p></li>
 <li><p>Compute a count table of all feature types (genes, exons, etc.) from the GTF file</p></li>
@@ -952,35 +968,123 @@ div.csl-indent {
 </div>
 </div>
 </section>
-<section id="one-example-chat-prompt" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="one-example-chat-prompt"><span class="header-section-number">6</span> One example chat prompt</h2>
-<p>While we’ll be exploring the chat functionality of these types of AI tools with Claude Code, let’s end this session with one example prompt in the GitHub Copilot chat.</p>
-<p>In the Copilot prompt box (which should have ghost text “<em>Describe what to build</em>” – or something similar), enter:</p>
+<section id="an-example-chat-prompt" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="an-example-chat-prompt"><span class="header-section-number">6</span> An example chat prompt</h2>
+<p>We’ll really start exploring the chat functionality of these types of AI tools with our next tool, Claude Code, But let’s end this session with one example prompt in the GitHub Copilot chat.</p>
+<section id="writing-contents-of-a-readme.md-file" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="writing-contents-of-a-readme.md-file"><span class="header-section-number">6.1</span> Writing contents of a <code>README.md</code> file</h3>
+<p>A <code>README.md</code> file is a Markdown file that is often used to provide a summary of the contents of a directory or project. Start by opening the <code>README.md</code> file in the <code>iqbal</code> dir (for example, find it in the Explorer in the side bar, and click on it.) It is empty! <span style="font-size: 1.2em">😳</span></p>
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> In the Copilot prompt box (which has ghost text “<em>Describe what to build</em>” – or something similar), enter:</p>
 <blockquote class="blockquote">
 <p><em>Help me understand the files in the iqbal dir. Put this information in the currently empty README.md file</em></p>
 </blockquote>
-<p>Because we’re asking Copilot for information that it can only access after actually performing an action (running a command), it will by default ask for permission to do so:</p>
+<p>Here’s the response that I got:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/copilot-readme-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the GitHub Copilot prompt asking for permission to run a command"></p>
+</figure>
+</div>
+<p>And the file <code>README.md</code> is now filled with a summary of the files in the <code>iqbal</code> dir, with the changes that are suggested but waiting for approval highlighted in green — click <code>Keep</code> to accept the changes:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./img/copilot-readme-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" alt="Screenshot of the GitHub Copilot prompt asking for permission to run a command"></p>
+</figure>
+</div>
+<details>
+<summary>
+<em>Click to see the full text of the <code>README.md</code> Copilot suggested for me</em>
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## iqbal dataset overview</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>This directory contains RNA-seq input data and reference files for downstream analysis.</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## Directory contents</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`fastq/`</span>: gzipped paired-end FASTQ files (<span class="in">`*_1.fastq.gz`</span> and <span class="in">`*_2.fastq.gz`</span>) for each sample.</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`meta.tsv`</span>: sample metadata table linking SRA run IDs to line, time, and treatment.</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`ref/`</span>: reference genome and gene annotation used for alignment/quantification.</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## File details</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">### `meta.tsv`</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>Columns:</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`sample`</span>: SRA run accession (matches FASTQ filename prefix).</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`line`</span>: biological line (<span class="in">`D502`</span> or <span class="in">`D506`</span>).</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`time`</span>: timepoint (<span class="in">`0`</span>, <span class="in">`24`</span>, or <span class="in">`48`</span>).</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`treatment`</span>: condition (<span class="in">`mock`</span> or <span class="in">`treatment`</span>).</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>Design summary from metadata:</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Total samples: 18</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lines: 2 (<span class="in">`D502`</span>, <span class="in">`D506`</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Timepoints: 3 (<span class="in">`0`</span>, <span class="in">`24`</span>, <span class="in">`48`</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Replicates: 3 per line/timepoint combination</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Condition mapping:</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`0`</span> hours -&gt; <span class="in">`mock`</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`24`</span> and <span class="in">`48`</span> hours -&gt; <span class="in">`treatment`</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="fu">### `fastq/`</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Contains 36 files total (18 samples x 2 mates), consistent with paired-end sequencing.</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Filename convention:</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`SRR..._1.fastq.gz`</span>: read 1</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span><span class="in">`SRR..._2.fastq.gz`</span>: read 2</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### `ref/`</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`GCA_000004655.2.fna`</span>: reference genome FASTA.</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="in">`GCA_000004655.2.gtf`</span>: gene annotation in GTF format.</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quick usage notes</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Use the <span class="in">`sample`</span> column in <span class="in">`meta.tsv`</span> to join metadata to FASTQ pairs by filename prefix.</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Keep reference files and metadata versioned together with analysis outputs for reproducibility.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div style="color: darkblue;">
+<p><i class="fa-solid fa-comments" aria-label="comments"></i> Did you get something similar? Does this look reasonable? Do any questions come to mind about these files, or about Copilot’s response?</p>
+</div>
+<hr style="height:1pt; visibility:hidden;">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Another prompt example, one that makes Copilot run a shell command <em>(Click to expand)</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Ask GitHub Copilot the following question:</p>
+<blockquote class="blockquote">
+<p><em>How many reads are in the fastq file iqbal/fastq/SRR31869590_1.fastq.gz?</em></p>
+</blockquote>
+<p>In this case, Copilot wants to run an arbitrary shell command to get the answer, and it should ask you for permission to do so:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./img/copilot-asks-permission.png" class="img-fluid figure-img" style="width:70.0%" alt="Screenshot of the GitHub Copilot prompt asking for permission to run a command"></p>
-<figcaption>TBA - REPLACE EXAMPLE</figcaption>
+<figcaption>(Note: the path is incorrect in this screenshot.)</figcaption>
 </figure>
 </div>
 <p>Click <code>Allow</code> and it will run the command and return the answer:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/copilot-readnr-answer.png" class="img-fluid figure-img" style="width:70.0%" alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"></p>
-<figcaption>TBA - REPLACE EXAMPLE</figcaption>
+<p><img src="./img/copilot-readnr-answer.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"></p>
 </figure>
+</div>
+<p>This looks correct! And it turns out we can get Copilot to run shell commands.</p>
+</div>
+</div>
 </div>
 <section id="what-did-we-just-witness" class="level4">
 <h4 class="anchored" data-anchor-id="what-did-we-just-witness">What did we just witness?</h4>
-<p>This example shows how in-editor AI like GitHub Copilot can perform actions themselves, rather than just providing information or code snippets. In technical terms, as part of this agentic behavior, it “calls a tool” (or: “performs <strong>tool calls</strong>”) that allow it to run arbitrary commands in the terminal.</p>
-<p>We’ll soon see another type of extremely useful in-editor agentic behavior, where it can <strong>read and/or edit your code</strong>. This latter type of behavior is what we’ll use most in this workshop. That’s because broadly speaking, the example above notwithstanding, <em>the goal in this workshop is not to let AI analyze the data for us,</em> <em>but rather to let it help us write code to appropriately analyze the data with</em> <em>existing non-AI programs.</em></p>
+<p>This example shows how in-editor AI like GitHub Copilot can perform actions themselves, rather than just providing information or code snippets. It examined the file structure, read at least one of the files, and wrote the requested information into the <code>README.md</code> file.</p>
+<p>In technical terms, as part of this <strong>agentic behavior</strong>, it performed several “<em>tool calls</em>” to fulfill the request.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/claude-agentic-loop.svg" class="img-fluid figure-img" style="width:50.0%" alt="Diagram showing the agentic loop of an AI tool, where it can read and edit code, and call tools to run commands"></p>
-<figcaption>From the <a href="https://code.claude.com/docs/en/how-claude-code-works">Claude Code docs</a></figcaption>
+<p><img src="./img/claude-agentic-loop.svg" class="img-fluid figure-img" style="width:95.0%" alt="Diagram showing the agentic loop of an AI tool, where it can read and edit code, and call tools to run commands"></p>
+<figcaption>The “agentic loop”. While this image is from the <a href="https://code.claude.com/docs/en/how-claude-code-works">Claude Code docs</a>, GitHub Copilot works very similarly.</figcaption>
 </figure>
 </div>
 <!---
@@ -990,6 +1094,7 @@ div.csl-indent {
 
 
 
+</section>
 </section>
 </section>
 

@@ -293,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#connecting-vs-code-to-osc" id="toc-connecting-vs-code-to-osc" class="nav-link" data-scroll-target="#connecting-vs-code-to-osc"><span class="header-section-number">4</span> Connecting VS Code to OSC</a>
   <ul class="collapse">
   <li><a href="#connect-to-osc" id="toc-connect-to-osc" class="nav-link" data-scroll-target="#connect-to-osc"><span class="header-section-number">4.1</span> Connect to OSC</a></li>
-  <li><a href="#open-a-folder-on-osc" id="toc-open-a-folder-on-osc" class="nav-link" data-scroll-target="#open-a-folder-on-osc"><span class="header-section-number">4.2</span> Open a folder on OSC</a></li>
+  <li><a href="#create-a-personal-folder-on-osc-and-open-it" id="toc-create-a-personal-folder-on-osc-and-open-it" class="nav-link" data-scroll-target="#create-a-personal-folder-on-osc-and-open-it"><span class="header-section-number">4.2</span> Create a personal folder on OSC and open it</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -304,6 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">5: VS Code and OSC setup</h1>
+<p class="subtitle lead">Exploring VS Code and configuring its connection to OSC</p>
 </div>
 
 
@@ -351,13 +352,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr style="height:1pt; visibility:hidden;">
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>In the rest of this workshop, we’ll primarily use the following set of tools to run code, access data, and make use of agentic AI tools:</p>
+<p>In the rest of this workshop, we’ll primarily work with the following set of tools to run code, access data, and use agentic AI:</p>
 <ol type="1">
 <li><p>A code editor, <strong>VS Code</strong></p></li>
-<li><p>A shared computing environment, <strong>OSC</strong> (the Ohio Supercomputer Center)</p></li>
+<li><p>A shared computing environment, <a href="./p1-osc-intro.html"><strong>OSC</strong></a> (the Ohio Supercomputer Center)</p></li>
 <li><p>Generative and Agentic AI tools <em>integrated in our code editor</em>, <strong>GitHub Copilot</strong> and <strong>Claude Code</strong></p></li>
 </ol>
-<p>In this session, we will go through the necessary steps to get the first two components configured in such a way that we can next proceed to using the AI tools.</p>
+<p>In this session, we will go through the necessary steps to get the connection between the first two components, VS Code and OSC, configured — in such a way that it works well for using the AI tools.</p>
 <p>This same setup is what I use in my own work, and you can continue using it after the workshop. Getting this configured on your own computer is definitely a process, but it is well worth it in my opinion.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -390,9 +391,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>It’s a great editor all around, and when working at OSC in particular —at least if you need to run command-line programs, and not just, say, R— it’s by far the most convenient and user-friendly way, in my opinion.</p>
+<p>It’s a great editor all around, and when working at OSC in particular (at least if you need to run command-line programs, and not just, say, R), it’s by far the most convenient and user-friendly way, in my opinion.</p>
 <hr>
-<p>You can also use VS Code at OSC in a web browser via OSC OnDemand, like we did in the pre-workshop session. That’s nice because it requires no installation or other setup. But in the long run, connecting your own VS Code installation to OSC is preferable. In the context of this workshop, <strong>the primary reason we use our own VS Code installation is that because it allows us to use</strong> <strong>the in-editor AI tools when connecting our own VS Code installation to OSC</strong> (this is not possible with the OnDemand version).</p>
+<p>You can also use VS Code at OSC in a web browser via OSC OnDemand, like we did in the pre-workshop session. That’s nice because it requires no installation or other setup. But in the long run, connecting your own VS Code installation to OSC is preferable. In the context of this workshop, <strong>the primary reason we use our own VS Code installation is that it lets us use</strong> <strong>the in-editor AI tools when connected to OSC</strong> (this is not possible with the OnDemand version).</p>
 </div>
 </div>
 <p>You should have already installed VS Code (full name: Visual Studio Code) on your laptop. Go ahead and open it.</p>
@@ -417,7 +418,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <ul>
 <li><p>The main part of the VS Code window is the <strong>Editor Pane</strong> (<code>C</code> above), where you can open and edit text files.</p></li>
-<li><p>The panel at the bottom (<code>D</code> above) contains a <strong>terminal</strong>, but isn’t open by default.<br> <i class="fa-solid fa-user-edit" aria-label="user-edit"></i> In the top menu, click <code>Terminal</code> &gt; <code>New Terminal</code> to open it.</p></li>
+<li><p>The panel at the bottom (<code>D</code> above) contains a <strong>terminal</strong>, but isn’t open by default.</p>
+<div style="color: darkblue;">
+<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> In the top menu, click <code>Terminal</code> &gt; <code>New Terminal</code> to open it.</p>
+</div></li>
 <li><p>By default, the <strong>Primary Side Bar</strong> (<code>B</code> above) shows a file explorer, where you can see your files and create new ones, and so on.</p></li>
 <li><p>The <strong>Activity Bar</strong> (narrow side bar, <code>A</code> above) on the far left has:</p>
 <ul>
@@ -440,8 +444,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="setting-up-the-osc-connection-in-vs-code" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="setting-up-the-osc-connection-in-vs-code"><span class="header-section-number">3</span> Setting up the OSC connection in VS Code</h2>
-<p>Now, we’ll do some <strong>one-time configuration</strong> to enable connecting VS Code to OSC via so-called “SSH tunneling”. This process moves a VS Code window <em>entirely</em> to OSC: the terminal, the file system, the code editor, and so on<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-<p>While it’s most straightforward to set up a connection to an OSC <strong>login node</strong>, we will additionally configure a connection to a <strong>compute node</strong>, which is considerably more complicated. However, this avoids clogging up OSC’s login nodes, and e.g.&nbsp;gives you more flexibility to test-run code in the terminal<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>Now, we’ll perform some <strong>one-time configuration</strong> steps to enable connecting VS Code to OSC via so-called “SSH tunneling”. This connects VS Code to OSC in such a way that not just the terminal but also the rest of the program operates on OSC’s file system<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<p>While it’s fairly straightforward to set up a connection to an OSC <strong>login node</strong>, we will additionally configure a connection to a <strong>compute node</strong>, which is considerably more complicated.</p>
+<p>However, this avoids clogging up OSC’s login nodes<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, and e.g.&nbsp;gives you more flexibility to test-run code in the terminal. (Additionally, we will use a setup that will also work for the R IDE Positron, which is a nice bonus.)</p>
 <p>Once configured, this is a very convenient and powerful way to access OSC.</p>
 <section id="install-the-remote-development-extension" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="install-the-remote-development-extension"><span class="header-section-number">3.1</span> Install the Remote Development extension</h3>
@@ -561,7 +566,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container">
 <p>These instructions are for Windows, click “Mac” above to see the Mac instructions.</p>
-<p>They also assume you are using PowerShell, which is the default Windows shell in VS Code. If you are using a Unix shell via Git Bash or another mechanism, you should use the Mac instructions instead.</p>
+<p>(They also assume you are using PowerShell, which is the default Windows shell in VS Code. If you have previously installed Git Bash or are using WSL, you will be using a Unix shell and should use the Mac instructions instead. If you’re not sure, you’re very likely using PowerShell — and you should be able to see the word “PowerShell” in the top right of the terminal.)</p>
 </div>
 </div>
 </div>
@@ -601,7 +606,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>In the SSH configuration file, we defined two remote “hosts” that we can connect to:</p>
+<p>In the SSH configuration file, we defined two remote “hosts” at OSC that we can connect to:</p>
 <ul>
 <li><p><code>osc-cardinal-login</code>, which will connect to a <strong>login node</strong> of OSC’s Cardinal cluster. However, because the VS Code program will actually run on the login node when you connect it with SSH-tunneling, the below connection to a compute node is preferred.</p></li>
 <li><p><code>osc-cardinal-compute</code> will connect to a <strong>compute node</strong> of OSC’s Cardinal cluster. We can’t connect directly to a compute node but have to request a compute job, which is why that connection is more complicated. This connection will last for 5 hours (300 minutes), as it requests a compute job of that duration.</p></li>
@@ -637,17 +642,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To configure connections to other OSC clusters (currently, Pitzer and Ascend), you can add additional entries to this SSH configuration file, simply replacing <code>cardinal</code> by the name of the other cluster.</p>
+<p>To configure connections to other OSC clusters (currently, Pitzer and Ascend), you can add additional SSH configuration and proxy script files, in which you replace <code>cardinal</code> by the name of the other cluster, <code>pitzer</code> or <code>ascend</code>.</p>
 </div>
 </div>
 </section>
 <section id="configuration-so-you-wont-have-to-enter-your-osc-password" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="configuration-so-you-wont-have-to-enter-your-osc-password"><span class="header-section-number">3.3</span> Configuration so you won’t have to enter your OSC password</h3>
-<p>The following steps will prevent OSC from prompting you for your OSC password every time you connect to OSC via SSH — it will use an SSH key pair for authentication instead. This is convenient when it comes to login node connections, and simply necessary for the compute node connection we configured.</p>
+<p>The following steps will prevent OSC from prompting you for your OSC password every time you connect to OSC via SSH — it will use an SSH key pair for authentication instead<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. (This is <strong>convenient</strong> when it comes to login node connections, and <strong>necessary</strong> for the compute node connection we configured.)</p>
 <ol start="10" type="1">
-<li><p>In the terminal you should have open in VS Code (<em>regardless of whether you’re using Windows or Mac</em>), execute the following command to generate a SSH key-pair:</p>
+<li><p>In the terminal you should have open in VS Code (<em>regardless of whether you’re using Windows or Mac</em>), execute the following command to generate a SSH key pair:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>You will be asked several questions, and in each case, <strong>simply press <kbd>Enter</kbd> to accept the default answer</strong> — do this until you see some curious-looking artful output, and get your command prompt back.</p></li>
+<li><p>You will be asked several questions, and in each case, <strong>simply press <kbd>Enter</kbd> to accept the default answer</strong> — do this until you see some ASCII-art-style output, and get your command prompt back.</p></li>
 <li><p>Execute the following command to transfer the public key to OSC’s Cardinal cluster, <strong>replacing <code>&lt;user&gt;</code> with your OSC username</strong>:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Mac</a></li></ul>
@@ -674,7 +679,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div></li>
 <li><p>You should be prompted for your password: enter it.</p></li>
 </ol>
-<p>Congratulations on making it this far! Let’s now test the connection.</p>
+<p>Congratulations on making it this far! 🥳 Now, let’s test the configured connection.</p>
 </section>
 </section>
 <section id="connecting-vs-code-to-osc" class="level2" data-number="4">
@@ -716,50 +721,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div></li>
 </ol>
 </section>
-<section id="open-a-folder-on-osc" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="open-a-folder-on-osc"><span class="header-section-number">4.2</span> Open a folder on OSC</h3>
-<p>VS Code takes a specific <strong>folder as a starting point in all parts of the program</strong>: in its file explorer, in the terminal, when saving files, and so on. By default, this folder is your Home directory. But in this workshop, we’ll only work in a folder specific to the workshop, so let’s open that one now.</p>
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Click <code>Open...</code> with a folder icon in the Welcome document (or: <code>File</code> &gt; <code>Open Folder</code>) and then enter and select <code>/fs/scratch/PAS3454</code>.</p>
+<section id="create-a-personal-folder-on-osc-and-open-it" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="create-a-personal-folder-on-osc-and-open-it"><span class="header-section-number">4.2</span> Create a personal folder on OSC and open it</h3>
+<p>VS Code takes a specific <strong>folder as a starting point in all parts of the program</strong>: in its file explorer, in the terminal, when saving files, and so on. By default, this folder is your Home directory. But in this workshop, you’ll work in a personal folder specific to the workshop, so let’s create (if needed) and open that one now.</p>
+<section id="create-the-folder" class="level4">
+<h4 class="anchored" data-anchor-id="create-the-folder">Create the folder</h4>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>This is only necessary if you didn’t do the pre-workshop learning.</em> <em>Otherwise, you should already have this folder.</em></p>
+</div>
+</div>
+</div>
+<ol type="1">
+<li><p>Open a terminal in VS Code (<code>Terminal</code> &gt; <code>New Terminal</code>).</p></li>
+<li><p>To create a dir (folder) with your username, execute the following command:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> /fs/scratch/PAS3454/people/<span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>(<code>$USER</code> is an environment variable that contains your username, so this exact command works for everyone.)</p></li>
+</ol>
+</section>
+<section id="open-the-folder" class="level4">
+<h4 class="anchored" data-anchor-id="open-the-folder">Open the folder</h4>
+<ol type="1">
+<li>Click <code>Open...</code> with a folder icon in the Welcome document (or: <code>File</code> &gt; <code>Open Folder</code>)</li>
+<li>Type (or select) the path to your folder (<code>/fs/scratch/PAS3454/PAS3454/people/&lt;user&gt;</code>).</li>
+</ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./img/vscode-welcome.png" class="img-fluid figure-img" style="width:45.0%" alt="Screenshot of the VS Code Welcome document, showing the 'Open Folder...' button highlighted"></p>
 <figcaption>Screenshot of part of the “Welcome” document. <br>The <code>Open...</code> button allows you to open a folder (dir) anywhere on OSC.</figcaption>
 </figure>
 </div>
-<p>This will cause the program to reload, and the “trust popup” will appear again<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. In the File Explorer, you should now see folders <code>data</code>, <code>people</code>, and <code>share</code>:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./img/vscode-explorer.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%" alt="Screenshot of the VS Code file explorer, showing the 'people', 'data', and 'share' folders in the /fs/scratch/PAS3454 folder"></p>
-</figure>
-</div>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-create-your-own-folder-on-osc" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-create-your-own-folder-on-osc"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Create your own folder on OSC</h4>
-<p><strong><em>This is only necessary if you didn’t do the pre-workshop learning,</em></strong> <strong><em>in which you created this folder.</em></strong></p>
-<p>Create a dir <code>/fs/scratch/PAS3454/people/&lt;user&gt;</code>, where <code>&lt;user&gt;</code> should be your exact OSC username.</p>
-<details>
-<summary>
-Click to see some hints
-</summary>
-<p>You can create this dir in several ways, but here is the most bulletproof one:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># `$USER` is an environment variable that contains your username,</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># so this exact command will work for everyone:</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> /fs/scratch/PAS3454/people/<span class="va">$USER</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Alternatively, assuming you are in <code>/fs/scratch/PAS3454</code> and your username is <code>jane</code>, a simpler command would be:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> people/jane</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Other alternatives include using the VS Code file explorer (there’s a “New Folder” button) or the <a href="https://ondemand.osc.edu/">OSC OnDemand</a> file browser.</p>
-</details>
-</section>
+<p>This will cause the program to reload, and the “trust popup” will appear again<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>From now on: Connecting directly to a specific folder at OSC
+<span class="screen-reader-only">Tip</span>From now on: Connecting directly to this folder at OSC
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The above two-step procedure (connect to OSC, then open a folder) can be done in one even simpler step, after you’ve connected to that folder at least once:</p>
 <p>Once you re-open VS Code (or open a new window with <code>File</code> &gt; <code>New Window</code>), the <code>Recent</code> section in the VS Code “Welcome” document will now show the folder(s) you previously opened:</p>
@@ -810,6 +817,7 @@ Click to see some hints
 
 </section>
 </section>
+</section>
 
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
@@ -817,9 +825,10 @@ Click to see some hints
 <ol>
 <li id="fn1"><p> The RStudio program is another good example of an IDE — and like RStudio is an IDE for R, VS Code will be our IDE for shell (and other) code.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p> In case you’re familiar with the <code>ssh</code> command, this is similar to connecting your terminal to OSC with <code>ssh &lt;username&gt;@cardinal.osc.edu</code>. But instead of connecting just your terminal, this approach allows you to run the entire VS Code environment on OSC, which has many benefits.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p> Additionally, we will use a set up that will also work for the R IDE Positron, which is a nice bonus.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p> The VS Code program will actually install itself and run on whichever host you connect it to, so if you connect to a login node, the program will run on that login node.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p> If you have an OSU-managed computer this will be you <code>name.#</code>. If you have you own computer, you likely picked your username yourself.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p> for this folder, it won’t appear again in the future, once you’ve trusted it.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p> It’s OK if you don’t understand what this is.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p> for this folder, it won’t appear again in the future, once you’ve trusted it.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
