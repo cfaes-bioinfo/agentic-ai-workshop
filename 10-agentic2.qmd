@@ -24,15 +24,23 @@ bibliography: refs.bib # You can add reference to this files if you have and cit
 
 ## Introduction
 
-We have learned that Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools. However, without proper context, you have to correct the agent and rewrite the code it generates. Also, we learnt to provide context manually to Claude by opening files, selecting code, and using `@` references. This works well for individual conversations.
+We have learned that Claude Code is an agentic coding tool that reads your codebase, edits 
+files, runs commands, and integrates with your development tools. However, without proper 
+context, you have to correct the agent and rewrite the code it generates. Also, we learnt to 
+provide context manually to Claude by opening files, selecting code, and using `@` references. 
+This works well for individual conversations.
 
 However, you may find yourself repeatedly telling Claude the same things:
 
-- Never modify files in `data/raw/`
+- Never modify files in `data/raw/` folder
 - Use the `OSC module` system rather than installing software directly
 - Submit computationally intensive jobs through `Slurm`
 - Write output files to `results/`
 - Run a validation procedure after modifying a pipeline
+
+You may also repeat the same multi-step procedures, such as reviewing a Slurm script, validating
+a sequencing workflow, or checking whether a pipeline follows project standards. In other cases,
+you may want Claude to delegate a focused task to a specialist, such as a code-review agent that inspects a pipeline without modifying it.
 
 Claude Code provides several ways to make this information reusable. These features work when Claude Code is used through the `VS Code extension`; you do not need to operate Claude primarily from the terminal.
 
@@ -47,7 +55,17 @@ Claude Code provides several ways to make this information reusable. These featu
 
 ## CLAUDE.md
 
-`CLAUDE.md` provides persistent project specific memory to your agent unlike prompting Claude at the beginning of every conversation. Therefore, you do not have to re-explain your project everytime. `CLAUDE.md` is a Markdown (`.md`) file, making it easy to create, edit, and version-control alongside your code. Claude automatically consults this file whenever it works in your project, allowing it to make more informed decisions, follow your preferred workflows, and use project-specific conventions. This makes `CLAUDE.md` one of the simplest and most effective ways to customize Claude's behavior for a research project. **In bioinformatics, a well-written `CLAUDE.md` helps Claude understand your project, analysis pipeline, directory structure, coding standards, software environment, and preferred workflows**. There is no required format for `CLAUDE.md`. However, this file should be concise, easy to read, and written for both humans and Claude.
+`CLAUDE.md` provides persistent project specific memory to your agent unlike prompting Claude at
+the beginning of every conversation. Therefore, you do not have to re-explain your project every
+time. `CLAUDE.md` is a Markdown (`.md`) file, making it easy to create, edit, and 
+version-control alongside your code. Claude automatically consults this file whenever it works 
+in your project, allowing it to make more informed decisions, follow your preferred workflows, 
+and use project-specific conventions. This makes `CLAUDE.md` one of the simplest and most 
+effective ways to customize Claude's behavior for a research project. **In bioinformatics, a 
+well-written `CLAUDE.md` helps Claude understand your project, analysis pipeline, directory 
+structure, coding standards, software environment, and preferred workflows**. There is no 
+required format for `CLAUDE.md`. However, this file should be concise, easy to read, and written
+for both humans and Claude.
 
 **Where should `CLAUDE.md` live?**
 
@@ -65,7 +83,7 @@ You can also place a `CLAUDE.md`: \
 - In a parent directory for multiple related projects \
 - In your home directory to apply default instructions across all projects
 
-Typical information to include:
+Typical information to include `CLAUDE.md` file:
 
 - **Project overview** – research objectives and biological questions
 - **Project description** – datasets, organisms, sequencing technology, or experimental design
@@ -76,7 +94,9 @@ Typical information to include:
 - **Important notes** – project-specific assumptions, quality-control requirements, or common pitfalls
 
 
-A good `CLAUDE.md` acts like a team member who already understands your project's structure and conventions, allowing you to focus on solving biological problems instead of repeatedly providing background information.
+A good `CLAUDE.md` acts like a team member who already understands your project's structure and 
+conventions, allowing you to focus on solving biological problems instead of repeatedly 
+providing background information.
 
 ### Creating `CLAUDE.md` file 
 You can create a CLAUDE.md file in two ways:
@@ -93,7 +113,7 @@ When you run `/init`, Claude analyzes your project to generate an initial `CLAUD
 - Source code organization
 - Common development patterns
 
-Example of `CLAUDE.md` file genearted using `/init` command is provided below:
+Example of `CLAUDE.md` file generated using `/init` command is provided below:
 ![](/img/claudemd_file_example.png){fig-align="center" width="100%"}
 
 Claude then asks where you would like to save the `CLAUDE.md` file.
@@ -130,7 +150,148 @@ A good `CLAUDE.md` typically covers three key areas:
 ::: {.callout-tip}
 ## Best Practice
 
-Treat your `CLAUDE.md` as living documentation. Start with a simple file generated by `/init`, then refine it over time as your project evolves. The best `CLAUDE.md` files capture the conventions and workflows that you find yourself explaining to Claude repeatedly. As your project evolves, update your `CLAUDE.md` to reflect new workflows, software, directory structures, or analysis conventions. Keeping it current helps Claude continue to provide accurate, project-specific assistance.
+Treat your `CLAUDE.md` as living documentation. Start with a simple file generated by `/init`, 
+then refine it over time as your project evolves. The best `CLAUDE.md` files capture the 
+conventions and workflows that you find yourself explaining to Claude repeatedly. As your 
+project evolves, update your `CLAUDE.md` to reflect new workflows, software, directory 
+structures, or analysis conventions. Keeping it current helps Claude continue to provide 
+accurate, project-specific assistance.
+:::
+
+::: exercise
+#### {{< fa user-edit >}} Exercise: Create `CLAUDE.md` file
+
+1. Run the `/init` command to generate a `CLAUDE.md` file.
+2. Review the generated file.
+3. Edit it by adding at least three project-specific instructions, for example:
+- Raw FASTQ files are stored in `data/raw/`.
+- Write analysis outputs to `results/`.
+- Do not modify `data/raw/`
+5. Ask Claude:Based on my `CLAUDE.md`, where should I save the `FastQC` output and what should I avoid modifying? Review the response and verify that it follows the project instructions.
+:::
+
+
+## Agent skill in Claude Code
+
+### `The SKILL.md file`
+A Claude `SKILL.md` file is a markdown file written in plain English with reusable instructions 
+that help Claude perform specific workflows consistently. Skills are useful when you find 
+yourself repeatedly pasting the same checklist, procedure, or review criteria into the chat. A 
+good `SKILL.md` file is short and easy to follow, focused in one task and specific about Claude 
+what to do and what not to do. 
+
+**A project-specific skill is stored inside the project’s .claude/skills/ directory:**
+
+```text
+rnaseq-project/
+├── .claude/
+│   └── skills/
+│       └── review-slurm-script/
+│           └── SKILL.md
+├── CLAUDE.md
+├── data/
+├── scripts/
+├── results/
+└── README.md
+```
+
+SKILL.md consists of two parts:
+
+1. **YAML front matter**: The YAML front matter provides the skill name and a short description. Claude uses the description to understand when the skill is relevant.
+2. **The skill instructions**: The rest of the file should contain the procedure Claude should follow. 
+
+Example of `SKILL.md` file is provided below:
+
+![](/img/script_file_example.png){fig-align="center" width="100%"}
+
+The folder name becomes the command used to invoke the skill. **For example, the skill can be 
+run from the Claude Code chat panel using `/review-slurm-script`**. Claude will then ask which 
+Slurm script you want to review. You can provide the script path, such as:`scripts/fastqc.sh`. 
+After you select a file, the skill reviews it for issues such as missing Slurm settings, 
+unreasonable resource requests, incorrect paths, missing log files, or unsafe commands. Claude 
+will usually separate confirmed problems from optional improvements and may then ask whether you
+want it to apply the suggested changes or review another script. Review the proposed changes 
+before approving them. If you choose to apply the fixes, Claude updates the script based on the 
+skill instructions.
+
+Claude does not always need you to specify which skill to use. If a request closely matches a 
+skill’s description, Claude may select and use that skill automatically. For example, suppose 
+you have a skill called `/review-slurm-script` that checks Slurm scripts for common errors. If 
+you open a Slurm file and ask:Can you check this Slurm script for mistakes? Claude may recognize
+that the request matches the skill and use it automatically.
+
+
+::: exercise
+#### {{< fa user-edit >}} Exercise: Test the skill
+In this exercise, you will use a skill to investigate a failed Slurm job
+
+1. Create the following skill
+```text
+.claude/
+└── skills/
+    └── troubleshoot-slurm-job/
+        └── SKILL.md
+```
+
+2. Add the name and the description in the SKILL.md file in the YAML front matter.
+
+---
+name: troubleshoot-slurm-job
+description: Investigate a failed Slurm or bioinformatics job using its submission script, standard output log, and error log.
+---
+
+3. Add the following skill instructions
+- Read the submission script.
+- Read the standard output.
+- Check software modules, file paths, resource requests, and command syntax.
+- Determine whether the problem originates from: Slurm configuration, input data, bioinformatics program.
+- Report the most likely cause and its solution.
+4. Run the `/troubleshoot-slurm-job` skill from the Claude Code chat panel by providing the relevant files `@fastqc.sh` `@fastqc.out`.
+
+5. Review the Claude's response to identify if it identifies the error and the solution to it.
+
+:::
+
+
+::: {.callout-note collapse="true"}
+#### **Skills vs CLAUDE.md** _(Click to expand)_
+CLAUDE.md gives general project context and facts of projects. Skills are better for specific workflows. Claude does not load the whole Skill every time. It only loads it when needed, so you can keep longer checklists or workflows in a Skill without crowding every chat. Use `CLAUDE.md` for information Claude should always know. Use Skills for instructions Claude needs only when performing a particular task.
+:::
+
+## Subagents
+
+A subagent is a specialized Claude assistant designed for a focused responsibility, such as 
+reviewing code, searching scientific literature, checking data quality, or debugging a 
+bioinformatics workflow.A subagent works in its own context window and returns its findings to 
+the main Claude conversation. This is useful for tasks that require extensive investigation or 
+produce large amounts of output, because the detailed work stays within the subagent instead of 
+filling the main conversation.
+
+Project-specific subagents are stored in the `.claude/agents/` directory whereas personal sub 
+agents are stored in `~/.claude/agents/`. Claude may select a subagent automatically when a 
+request matches its description, or the user can ask Claude to delegate the task explicitly.
+
+A subagent is defined in a Markdown file that consists of two parts:
+
+1. **YAML frontmatter** – configures the subagent (for example, its name, description, model, and tools).
+2. **System prompt** – follows the YAML frontmatter and provides the detailed instructions that define the subagent's role, workflow, and expected output.
+
+You can create a subagent manually or ask Claude Code to generate one for you.
+
+If Claude Code cannot find a newly created user-level subagent, restart Claude Code. This 
+is only necessary when the ~/.claude/agents/ directory did not exist when the session started.
+
+::: exercise
+{{< fa user-edit >}} Exercise: Create and Test a Subagent
+
+In this exercise, you will create a read-only subagent that reviews a Slurm job script and suggests improvements.
+
+1. Create the subagent file `slurm_reviwer.md`.
+2. Add the YAML frontmatter.
+3. Add the system prompt below YAML frontmatter.
+4. Ask Claude to use the subagent to review th Slurm script. Use the slurm-reviewer subagent to review @fastqc.sh. Do not modify or run the script. or you may explicitely select using `@"slurm-reviewer (agent)"` review `@fastqc.sh` and suggest improvements.
+5. Review Claude’s response and check whether the subagent identifies problems with the Slurm script.
+
 :::
 
 ## Guardrails
@@ -156,32 +317,35 @@ Imagine a new member joins your laboratory. They may unintentionally:
 
 
 ### Built-in Security Guardrails
-Claude Code already includes several security features
 
-1. Permission-based architecture
+Claude Code includes several security features:
+
+1. **Permission-based architecture** :
 By default, Claude Code is read-only. Whenever Claude wants to edit files, run tests, execute commands, it ask for your permission
 
-2. Limited write access
-Claude can only write inside the directory where it was started (and its subdirectories). If Claude starts inside `project/`, it cannot accidentally modify files outside that project without additional permission.
+2. **Limited write access** :
+Claude can only write inside the directory where it was started (and its subdirectories). If 
+Claude starts inside `project/`, it cannot accidentally modify files outside that project 
+without additional permission.
 
-3. Prompt injection protection
-Claude includes built-in protections that help detect many prompt injection attempts and may request additional approval before performing potentially risky actions. These protections reduce but do not eliminate the risk, so users should still review requested actions.
+3. **Prompt injection protection** :
+Claude includes built-in protections that help detect many prompt injection attempts and may 
+request additional approval before performing potentially risky actions. These protections 
+reduce but do not eliminate the risk, so users should still review requested actions.
 
 
 ### User-configurable Guardrails
 
-1. Permission
-Permissions determine which files & commands Claude is allowed to access. Permissions are configured in `settings.json` file. This prevents Claude from accidentally exposing confidential information b y denying access to the sensitive files. For examples: 
+1. **Permission**: 
+Permissions determine which files & commands Claude is allowed to access. Permissions are configured in `settings.json` file. This prevents Claude from accidentally exposing confidential information by denying access to the sensitive files. For examples: 
 - Denying access to `.env` \
 - Blocking `secrets/` \
 - Preventing access to **SSH keys**
+use `/fs/ess/PAS0471/menuka/WGS_Menuka/.claude/settings.json` as an example.
 
+2. **Hooks** : **Hooks** are small programs or scripts that run automatically before or after Claude uses a tool. Unlike instructions in CLAUDE.md, hooks are always executed whenever the specified event occurs. This makes them ideal for enforcing mandatory safety rules. Because hooks execute automatically, they act as hard guardrails rather than recommendations.
 
-2. Hooks
-
-**Hooks** are small programs or scripts that run automatically before or after Claude uses a tool. Unlike instructions in CLAUDE.md, hooks are always executed whenever the specified event occurs. This makes them ideal for enforcing mandatory safety rules. Because hooks execute automatically, they act as hard guardrails rather than recommendations.
-
-3. Project Guardrails (`CLAUDE.md`)
+3. **Project Guardrails (`CLAUDE.md`)** :
 Where hooks and permissions define what Claude can do, CLAUDE.md defines how Claude should work.
 A good `CLAUDE.md` establishes project conventions such as:
 
@@ -193,141 +357,12 @@ A good `CLAUDE.md` establishes project conventions such as:
 
 These are not security restrictions but behavioral instructions that help Claude work consistently across the project.
 
-![**Figure 1. Three user-configurable guardrails in Claude Code: permissions, hooks, and project instructions (CLAUDE.md)**](/img/guardrails.png){fig-align="center" width="100%"}
+![**Figure 1. Three user-configurable guardrails in Claude Code: permissions, hooks, and project instructions (CLAUDE.md)**](/img/guardrails.png){fig-align="center" width="50%"}
 
 ::: {.callout-tip}
 ## Best Practice
 
 Guardrails **complement but not replace human review**. Always review Claude's proposed code, analyses, and file changes, especially when working with **sensitive datasets**.
 :::
-
-## Agent skill in Claude Code
-
-### `The SKILL.md file`
-A Claude `SKILL.md` file is a markdown file written in plain English with reusable instructions that help Claude perform specific workflows consistently. Skills are useful when you find yourself repeatedly pasting the same checklist, procedure, or review criteria into the chat. A good `SKILL.md` file is short and easy to follow, focused in one task and specific about Claude what to do and what not to do. 
-
-**A project-specific skill is stored inside the project’s .claude/skills/ directory:**
-
-```text
-rnaseq-project/
-├── .claude/
-│   └── skills/
-│       └── review-slurm-script/
-│           └── SKILL.md
-├── CLAUDE.md
-├── data/
-├── scripts/
-├── results/
-└── README.md
-```
-
-SKILL.md consists of two parts:
-
-1. **YAML font matter**: The YAML front matter provides the skill name and a short description. Claude uses the description to understand when the skill is relevant.
-2. **The skill instructions**: The rest of the file should contain the procedure Claude should follow. 
-
-Example of `SKILL.md` file is provided below:
-
-![](/img/script_file_example.png){fig-align="center" width="100%"}
-
-The folder name becomes the command used to invoke the skill. **For example, the skill can be run from the Claude Code chat panel using `/review-slurm-script`**. Claude will then ask which Slurm script you want to review. You can provide the script path, such as:`scripts/fastqc.sh`. If the folder contains several scripts, Claude may ask you to choose a specific one. After you select a file, the skill reviews it for issues such as missing Slurm settings, unreasonable resource requests, incorrect paths, missing log files, or unsafe commands. Claude will usually separate confirmed problems from optional improvements and may then ask whether you want it to apply the suggested changes or review another script. Review the proposed changes before approving them. If you choose to apply the fixes, Claude updates the script based on the skill instructions.
-Review the Slurm script provided in the current context. 
-
-
-Claude Code may also select a skill automatically when the request closely matches the skill description. The complete instructions are loaded only when the skill is used, making skills more suitable than CLAUDE.md for detailed procedures.
-
-
-### Test the skill
-
-**Another skill example: troubleshoot a failed job**
-
-A useful second example would connect directly to the troubleshooting material later in this lesson.
-
-.claude/
-└── skills/
-    └── troubleshoot-slurm-job/
-        └── SKILL.md
----
-name: Troubleshoot Slurm job
-description: Investigate a failed Slurm or bioinformatics job using its script, output log, and error log.
----
-
-Investigate the failed job systematically. 
-1. Read the submission script. 
-2. Read the standard output and error logs. 
-3. Identify the earliest meaningful error rather than focusing only on later errors. 
-4. Check modules, file paths, permissions, resources, and command syntax. 
-5. Determine whether the problem originates from: - the Slurm configuration, - the computing environment, - the input data, - the script, or - the bioinformatics program. 
-6. Do not rerun the job or modify files without permission. 
-7. Report: - the most likely cause, - the evidence, - the recommended correction, and - any uncertainty.
-
-The participant could then add the job script and log files with @ references:
-
-/troubleshoot-slurm-job
-
-Review @fastqc.slurm, @fastqc.out, and @fastqc.err.
-Explain why the job failed, but do not modify or rerun anything.
-
-This combines the context-attachment techniques discussed earlier with a reusable advanced workflow.
-
-::: {.callout-note collapse="true"}
-#### **Skills vs CLAUDE.md** _(Click to expand)_
-CLAUDE.md gives general project context and facts of projects. Skills are better for specific workflows. Claude does not load the whole Skill every time. It only loads it when needed, so you can keep longer checklists or workflows in a Skill without crowding every chat. Use `CLAUDE.md` for information Claude should always know. Use Skills for instructions Claude needs only when performing a particular task.
-:::
-
-
-## Use of Retrieval-Augmented generation to enrich context- provide published papers, manuals/documentation, database
-
-**Retrieval-Augmented Generation (RAG)** is an AI approach that improves a large language model by allowing it to retrieve information from external sources before generating a response. Instead of relying only on what the LLM already knows, Claude first retrieves relevant information from an external source, then uses that information to generate its answer. The model uses this context to produce more accurate, up-to-date, and evidence-based answers. RAG is useful in scientific research because knowledge changes rapidly and many important resources, such as project documentation or institutional protocols, are not part of a language model's training data.
-
-It has two steps: \
-
-1. **Retrieval steps** - the system searches a knowledge store (for example, a vector database built from your local corpus) for the most relevant passages to a user query. But Claude does not do this. There is a tool called **Model Context Protocol (MCP)** for the Claude to communicate with the external tool. MCP can be thought as a USB-C port for AI applications. Just as USB-C provides a standardized way to connect electronic devices, MCP provides a standardized way to connect AI applications to external systems.
-
-2. **Generation steps** - those retrieved passages are passed to the LLM as context, allowing it to generate grounded and evidence-based responses.
-
-#### Basic Rag pipeline
-
-- Chunk the text by section
-- Generate embeddings for each chunk
-- Create a vector store and add each embedding to it
-- Generate an embedding for the user’s question
-- Search the store to find the most relevant chunks
-- Sent the user_query + relevant chunk to LLM for the final Output
-
-
-#### From anthropic video
-
-Suppose you have a very long bioinformatics document and you want to extract specific information from it. 
-
-Option: 1, One way to do so is to include the content in the prompt: However it has its own limitations
-1. Large prompts cost more to process
-2. Large prompts takes longer to process 
-3. Claude will get less effective
-
-It might work or it might not work
-
-Option - 2: RAG : You can break the document into chunks and put it as a prompt.This focus in answering question in small snippet. 
-
-Advantages
-1. Claude can focus on mostly relevent content
-2. Smaller prompt cost less
-
-Disadvantages
-1. Requires pre-processing to find relevant chunk
-2. The chunk might not have relevant information
-3. What is the best way to extract the chunk
-
-- Requires pre-processing step
-- Searching mechanism to find relevant chunk
-
-### Create custom RAG workflow
-
-Claude Code itself is not the vector database or retrieval engine. Instead, you build a small local retrieval tool and connect it to Claude Code through MCP. Claude Code supports local MCP servers that run as processes on your computer, which makes them suitable for custom scripts that search local documents
-
-
-
-
-
 
 
