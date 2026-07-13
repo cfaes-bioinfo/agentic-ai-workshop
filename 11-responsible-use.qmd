@@ -1,0 +1,157 @@
+---
+title: "Limitations and responsible use of AI"
+subtitle: "Day 2 - 11:45 AM - 12:15 PM"
+date: 2026-07-14
+date-modified: today
+author:
+  - name: Hannah Toth
+    email: toth.302@osu.edu
+    affiliation: 
+      - name: Department of Plant Pathology, Ohio State University
+        url: https://plantpath.osu.edu
+title-slide-attributes:
+  data-background-color: "silver"
+format:
+  revealjs:
+    theme: [default, theme_mod.scss]
+    css: ../slides.css
+    smaller: true
+    scrollable: false
+    progress: true
+    incremental: false
+    slide-number: true
+    slide-level: 2
+    highlight-style: pygments
+    embed-resources: false # Can't be used with chalkboard
+    chalkboard:
+      theme: whiteboard
+    toc: true
+    toc-depth: 1
+    toc-title: TBD
+    footer: "[~ Gen and agentic AI workshop ~](https://cfaes-bioinfo.github.io/agentic-ai-workshop/)"
+    logo: ../img/CFAES-Horiz-RGBHEX.svg
+    menu:
+      width: wide
+      numbers: true
+editor_options: 
+  chunk_output_type: console
+bibliography: refs.bib # You can add reference to this files if you have and cite any
+---
+
+
+
+
+## Responsible use and limitations of AI
+
+*With great power, comes great responsibility!*
+
+::: {.incremental}
+- What do you think 'responsible use' entails?
+- What do you think are some limitations of AI?
+:::
+
+:::: {.fragment}
+They actually go hand in hand with each other. **Understanding the limits of AI will allow you to responsibly use it.**
+::::
+
+## First, let's review some content and reflect
+:::: {.columns}
+::: {.column width="60%"}
+If you remember from yesterday morning, LMs are trained to **predict** the next token or sequence of token, based on its **training data**.
+
+Throughout this presentation, I will be using the terms comfortability and limitation zone. Comfortability zone is just like your own comfort zone! As you get near the edge of your comfort zone, you become less certain and for AI, it transitions into the limitation zone. AI models work the same way.
+:::
+
+::: {.column width="40%"}
+![](/img/limitations-comfort-zone.png)
+:::
+::::
+
+## Search engine? More like autocomplete
+AI models are trained to *predict the next token*, known as **next token prediction**. They are trained on a vast, but concrete datasets.
+
+:::: {.fragment}
+**What sorts of tasks or knowledge would you say would be within AI's comfortability zone?**
+::::
+
+*Examples*:
+
+::: {.incremental}
+- Knowledge contained within their training data
+- Language refining, reformatting
+- Code development for well-known coding languages
+:::
+
+## Next token prediction risks
+Hallucination/frabication occur in AI models when it generates *confident*, *well-structured* responses that are actually **false**, **misleading**, or **entirely made up**. Fabrication is **frequent** in (but not limited to)...
+
+::: {.incremental}
+- Niche or rare information
+- Novel tasks or information
+- Obsecure task requests
+:::
+
+:::: {.fragment}
+How can you *protect* yourself?
+::::
+
+::: {.incremental}
+- You are the one interacting with the AI model, you are **responsible** for what you do with the response. The best thing you can do is **VERIFY** the information AI is providing you.
+- Consider AI outputs as drafts that **must** be reviewed.
+- If you ask for sources, ensure they are **real**. A link that works, *does not* mean the information on that site is relevant to what you asked.
+- **AI models DO NOT know if they are providing you with fabricated/hallucinated information**.
+:::
+
+## Next token prediction risks (cont)
+:::: {.columns}
+::: {.column width="60%"}
+From the two prompts, which do you think AI would be able to answer 'the best'? Where would these two prompts fall on the comfortability/limitation circle?
+
+- Summarize the second chapter of How to Kill a Mockingbird. Provide me key details I would need to know for a pop quiz.
+- Provide the citations to the three most recent publications Jonathan Jacobs has contributed to
+:::
+
+::: {.column width="40%"}
+![](/img/limitations-comfort-zone.png)
+:::
+::::
+
+## Knowledge gaps in AI models
+AI models are trained on datasets much larger than any human could comprehend. However, these datasets are **finite**, and training has a *start* and an *end* date.
+
+::: {.incremental}
+- What sort of knowledge do you think is in AI's comfort zone?
+- What sort of knowledge do you think is towards the edge of AI's comfort zone?
+:::
+
+## What is *working memory*?
+The working memory is basically what your AI model is paying attention *right now*. Let's go over what happens when AI is developing a response to your newest prompt.
+
+::: {.incremental}
+- Previous prompts + responses + input data = **context window**
+- AI looks at context window to create new response
+:::
+
+:::: {.fragment}
+So, **why** does working memory **matter**?
+
+Similar to human memory, old prompts, responses and data is 'forgotten' or removed from the context window when conversations get lengthy.
+
+- AI will **not** inform you when the context window begins to omit previous material.
+- Working memory is not a spectrum. Previous content is either apart of the content window or its not.
+
+::::
+
+
+## Additional grey areas of AI
+- **Sycophany**: The phenomenon where AI tells you what you want to hear. The actual definition of confirmation bias. Be aware of this!
+- **Verbosity**: AI models are trained to give long, thorough responses by default. You may be able to recieve the same answer with less information.
+- **Confidence**: Confidence is challenging to train, and remember, AI models **cannot** differentiate what it fabricates and what it fact. Take AI's confidence with a grain of salt.
+- **The *middle* area**: Research has shown content towards the beginning and end of a prompt or document will recieve higher weight/attention than content in the middle.
+
+## Financial/token responsibility
+While lots of AI companies are offering deals on AI usage, it is important to consider the prompts you are submitting.
+
+
+
+## Questions?

@@ -1,0 +1,90 @@
+---
+title: "Prompt engineering"
+subtitle: "Day 2 - 9:00 AM - 9:30 AM"
+date: 2026-07-14
+date-modified: today
+author:
+  - name: Hannah Toth
+    email: toth.302@osu.edu
+    affiliation: 
+      - name: Department of Plant Pathology, Ohio State University
+        url: https://plantpath.osu.edu
+---
+
+## Prompting quick review
+
+### The three components
+1. **Task**: What are you asking the AI model to do?
+2. **Context and Constraints**: What information does the AI model need to know to complete the task? Are there any constraints or limitations that the AI model should be aware of?
+3. **Output Format**: What format do you want the AI model to respond and/or produce?
+
+### Language in prompting
+1. **Direct**: Direct and precise language.
+2. **Specificity**: Be specific in your details.
+3. **Detail**: Provide enough details to the AI model, but not too many that it becomes overwhelmed and confused. Remember, more is not always better.
+
+### Additional considerations
+- Include examples and/or data
+- Role/Persona
+- Consider the audience
+
+## Let's start prompting!
+I have pre-made the prompts below for you to use. However, please feel free to modify them or create your own prompts. The goal of this exercise is to observe how prompting can affect the response you recieve from an AI model. Go to the very bottom of this page for additional ideas for you to practice prompt engineering.
+
+::: {.callout-important}
+  We will be submitting different versions of the same prompt over and over again throughout this exercise. Do not do this when actually using genAI. Instead, begin with a well-crafted prompt.
+:::
+
+
+### Warm-up prompt
+We're starting with something simple and non-bioinformatic based! 
+``` markdown
+Write me a short summary about wildflowers and provide a list.
+```
+What did you get out? Probably a decent answer. But AI definitely 'guessed' on what information you wanted. Let's revist our three building blocks and redesign this prompt.
+
+1. **Task** - We want AI to write us a summary about wildflowers and to provide a list of wildflower names.
+2. **Context/Constraits** - For this exercise, let's give the following constraints:
+  - 300 words or less
+  - include the ecological importantance of wildflowers
+  - describe the geographical significance of wildflowers (i.e. a wildflower in Ohio is not the same wildflower in Florida)
+  - we would like a list of wildflowers local to my area (input whatever area you would like)
+  - we want AI to use general, non-jargon language in its response
+3. **Output format** - We want our summary 1-2 paragraphs, and include a bulleted list of wildflowers local to my area at the end of the summary
+
+Try engineering a prompt based on the building blocks above. Did you recieve exactly what you asked for? Did you get something different than before?
+
+<details><summary>Click to see the prompt I created</summary>
+``` markdown
+Write me a summary about wildflowers that is 300 words or less. Explain the ecological significance of wildflowers. Describe why geographic areas define wildflowers and why this is important for consumers. Lastly, provide a list of wildflowers that I could find in Ohio. Do not use jargon. The summary should be 1-2 paragraphs, and the list of wildflowers should come at the end. 
+```
+</details>
+
+Now, let's bring in some of our other considerations. Alter your prompt to include the following:
+
+  - Audience: We would like this response to be for appropriate for 3rd and 4th graders.
+  - Role/persona: Let's ask AI to pretend it is the head naturalist at our local nature center.
+
+<details><summary>Click to see the edited prompt</summary>
+``` markdown
+Pretend you are the head naturalist at my local nature center. Write a summary about wildflowers that is 300 words or less, designed to be understood for 3rd and 4th graders. Explain the ecological significance of wildflowers. Describe why geographic areas define wildflowers and why this is important for consumers. Lastly, provide a list of wildflowers that I could find in Ohio. Do not use jargon. The summary should be 1-2 paragraphs, and the list of wildflowers should come at the end. 
+```
+</details>
+
+Did you get something different?
+Let's change our audience and persona:
+
+  - Audience: We would like this response to be for appropriate for middle-aged adults looking to start a wildflower garden.
+  - Role/persona: Let's ask AI to pretend it is a professor from our local extension office.
+
+<details><summary>Click to see the edited prompt</summary>
+``` markdown
+Pretend you are apart of my local extension office providing a quick pitch about wildflowers. Write a summary about wildflowers that is 300 words or less, designed for middle-aged adults interested in starting a wildflower garden. Explain the ecological significance of wildflowers. Describe why geographic areas define wildflowers and why this is important for consumers. Lastly, provide a list of wildflowers that I could find in Ohio. Do not use jargon. The summary should be 1-2 paragraphs, and the list of wildflowers should come at the end. 
+```
+
+### Generative code prompt
+Let's create a prompt that will generate code for us. 
+
+## Additional ideas for you practice prompt engineering
+- Summarize a methods section for a particular audience (e.g., undergraduate students, graduate students, or the general public)
+- 
