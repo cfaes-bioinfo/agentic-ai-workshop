@@ -10,7 +10,7 @@ title-slide-attributes:
 format:
   revealjs:
     theme: [default, theme_mod.scss]
-    css: ../slides.css
+    css: slides.css
     smaller: true
     scrollable: false
     progress: true
@@ -25,7 +25,7 @@ format:
     toc-depth: 1
     toc-title: TBD
     footer: "[~ Gen and agentic AI workshop ~](https://cfaes-bioinfo.github.io/agentic-ai-workshop/)"
-    logo: ../img/CFAES-Horiz-RGBHEX.svg
+    logo: img/CFAES-Horiz-RGBHEX.svg
     menu:
       width: wide
       numbers: true
