@@ -791,13 +791,6 @@
     "text": "Footnotes\n\n\n It runs via the LiteLLM service, and these kinds of keys in general are called “API keys”.↩︎\n You may also run into the word “codebase” in documentation and tutorials, which refers to the same thing in this context.↩︎\n Or, if you have side-by-side editor panes, the one where the cursor is currently located.↩︎\n Interestingly, when you’re not connected to OSC, this button allows you to select files from outside of your workspace, but when connected to OSC, it (only) allows you to upload files from your local computer.↩︎\n If you were working entirely on a local computer, you could use the Upload from computer button to upload it, but when at OSC, this also connects to your local computer and not to files at OSC outside of your workspace.↩︎"
   },
   {
-    "objectID": "01-workshop-intro.html#application-form-answers-1",
-    "href": "01-workshop-intro.html#application-form-answers-1",
-    "title": "Workshop Introduction",
-    "section": "Application form answers",
-    "text": "Application form answers\nTBA!"
-  },
-  {
     "objectID": "01-workshop-intro.html#the-general-idea",
     "href": "01-workshop-intro.html#the-general-idea",
     "title": "Workshop Introduction",
@@ -851,7 +844,7 @@
     "href": "01-workshop-intro.html#sticky-notes",
     "title": "Workshop Introduction",
     "section": "Sticky notes",
-    "text": "Sticky notes\nWe have sticky notes in 10 colors:\n\nUse dark olive-green to say “I need a break within the next 30 seconds.”\n\n\n\nUse medium sea-green to say “I am watching the world cup, but please carry on.”\n\n\n\n\nUse cornflower blue to say “I already asked ChatGPT and it disagreed with you.”"
+    "text": "Sticky notes\nWe have sticky notes in 10 colors:\n\nUse dark olive-green to say “I need a break within the next 30 seconds.”\n\n\n\nUse medium sea-green to say “I am re-watching my favorite episode of Friends, but please carry on.”\n\n\n\n\nUse cornflower blue to say “I already asked ChatGPT and it disagreed with you.”"
   },
   {
     "objectID": "01-workshop-intro.html#sticky-notes-take-2",
@@ -861,11 +854,11 @@
     "text": "Sticky notes (take 2)\n\nUse blue to say: “Slow down / I am falling behind”\nUse red to say “I have a (non-urgent) issue”"
   },
   {
-    "objectID": "01-workshop-intro.html#final-info",
-    "href": "01-workshop-intro.html#final-info",
+    "objectID": "01-workshop-intro.html#final-pieces-of-information",
+    "href": "01-workshop-intro.html#final-pieces-of-information",
     "title": "Workshop Introduction",
-    "section": "Final info",
-    "text": "Final info\n\nCoffee/tea, snacks, and lunch will be provided during breaks\nForgetting anything?\n\n\n\n\n\n\n\n\nLinks\n\n\n\nWebsite: https://cfaes-bioinfo.github.io/agentic-ai-workshop\nZoom"
+    "section": "Final pieces of information",
+    "text": "Final pieces of information\n\nCoffee/tea, snacks, and lunch will be provided during breaks\nForgetting anything?\n\n\n\n\n\n\n\n\nLinks\n\n\n\nWebsite: https://cfaes-bioinfo.github.io/agentic-ai-workshop\nZoom"
   },
   {
     "objectID": "01-workshop-intro.html#references",

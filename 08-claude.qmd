@@ -902,9 +902,9 @@ Here are some ideas to stay in the realm of the fairly mundane, but quite useful
   - Nightmarish installations at OSC of R packages with complex dependencies
   - Some aspects of making websites like this one, especially CSS styling,
     proofreading, and autocompleting
+  - Troubleshooting complex errors
   - Formal (Nextflow) workflows
   - Maintaining a set of scripts to be used across projects
-  - Troubleshooting complex errors
 
 - **Tedious and repetive things**\
   This is what the OTDI video on identifying AI use cases emphasized:

@@ -50,12 +50,6 @@ bibliography: refs.bib
 
 # Instructor introductions {background-color="silver"}
 
-# Application form answers {background-color="silver"}
-
-## Application form answers
-
-TBA!
-
 # What is the workshop about? {background-color="silver"}
 
 ## The general idea
@@ -107,6 +101,14 @@ while example data is omics data, principles and tooling apply to any data type
 - _(A lot of AI-for-code content is aimed at (aspiring) software developers.)_
 :::
 
+---
+
+![](/img/genAI_tasks.png){width="100%"}
+
+---
+
+![](/img/genAI_tools.png)
+
 ## Infrastructure
 
 - Highly practical, many hands-on sessions:
@@ -152,6 +154,10 @@ while example data is omics data, principles and tooling apply to any data type
 You don't need to have your own dataset:\
 can also continue working on the example dataset
 :::
+
+---
+
+![](/img/data_types.png)
 
 # The schedule {background-color="silver"}
 
@@ -221,7 +227,7 @@ We have sticky notes in 10 colors:
 
 . . .
 
-- Use [**medium sea-green**]{style="color: mediumseagreen;"} to say "_I am watching the world cup, but please carry on._"
+- Use [**medium sea-green**]{style="color: mediumseagreen;"} to say "_I am re-watching my favorite episode of Friends, but please carry on._"
 
 . . .
 
@@ -233,7 +239,7 @@ We have sticky notes in 10 colors:
 
 - Use [**red**]{style="color: red;"} to say "_I have a (non-urgent) issue_"
 
-## Final info
+## Final pieces of information
 
 - Coffee/tea, snacks, and lunch will be provided during breaks
 
