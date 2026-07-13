@@ -267,7 +267,7 @@ Next, we'll use functionality from this extension pack to set up the connection 
    ```powershell
    @'
    @echo off
-   ssh -o LogLevel=QUIET -o BatchMode=yes osc-cardinal-login "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc $SLURM_NODELIST 22'"
+   ssh -o LogLevel=QUIET -o BatchMode=yes osc-cardinal-login "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -lc 'nc $SLURM_NODELIST 22'"
    '@ | Out-File -Encoding ascii "$env:USERPROFILE\.ssh\osc-compute-proxy.cmd"
    ```
 
