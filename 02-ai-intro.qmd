@@ -299,7 +299,7 @@ Input : Transformers are cool
 ## Embedding
 
 - After tokenization, each token ID is converted into a numerical vector (embedding)
-- **Embeddings are continuous lists of numbers that AI model can undersatnd process text mathematically**
+- **Embeddings are continuous lists of numbers that AI model can understand process text mathematically**
 - Similar words have similar embeddings, allowing the model to capture meaning, relationships, and context
 - Embeddings capture meaning, relationships, and context, enabling the LLM to understand language
 
@@ -384,7 +384,7 @@ Model comparison based on Artificial Analysis data
 
 | Model | Provider / Type | Intelligence Index | Output Speed, tokens/s | Blended Price, USD / 1M tokens | Best Interpreted As |
 |---|---:|---:|---:|---:|---|
-| **GPT-5.5 xhigh** | OpenAI, proprietary | 55 | 88 | 4.35 | Leading model in intelligence but expensive |
+| **GPT-5.5 xhigh** | OpenAI, proprietary | 55 | 88 | 4.35 | High intelligence but expensive |
 | **Claude Opus 4.8 max** | Anthropic, proprietary | 66 | 54 | 3.85 | Frontier reasoning and writing model |
 | **Gemini 3.1 Pro Preview** | Google, proprietary | 46 | 152 | 1.74 | Strong frontier model with comparatively high speed |
 

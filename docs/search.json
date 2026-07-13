@@ -438,7 +438,7 @@
     "href": "02-ai-intro.html#embedding",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Embedding",
-    "text": "Embedding\n\nAfter tokenization, each token ID is converted into a numerical vector (embedding)\nEmbeddings are continuous lists of numbers that AI model can undersatnd process text mathematically\nSimilar words have similar embeddings, allowing the model to capture meaning, relationships, and context\nEmbeddings capture meaning, relationships, and context, enabling the LLM to understand language\n\nEmbeddings (vector embeddings): Learned numerical vectors that capture the semantic meaning and relationships between tokens"
+    "text": "Embedding\n\nAfter tokenization, each token ID is converted into a numerical vector (embedding)\nEmbeddings are continuous lists of numbers that AI model can understand process text mathematically\nSimilar words have similar embeddings, allowing the model to capture meaning, relationships, and context\nEmbeddings capture meaning, relationships, and context, enabling the LLM to understand language\n\nEmbeddings (vector embeddings): Learned numerical vectors that capture the semantic meaning and relationships between tokens"
   },
   {
     "objectID": "02-ai-intro.html#context-windows",
@@ -487,7 +487,7 @@
     "href": "02-ai-intro.html#different-models-with-different-capabilities-costs-1",
     "title": "Introduction to Generative AI and LLMs",
     "section": "Different models with different capabilities & costs",
-    "text": "Different models with different capabilities & costs\nModel comparison based on Artificial Analysis data\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nProvider / Type\nIntelligence Index\nOutput Speed, tokens/s\nBlended Price, USD / 1M tokens\nBest Interpreted As\n\n\n\n\nGPT-5.5 xhigh\nOpenAI, proprietary\n55\n88\n4.35\nLeading model in intelligence but expensive\n\n\nClaude Opus 4.8 max\nAnthropic, proprietary\n66\n54\n3.85\nFrontier reasoning and writing model\n\n\nGemini 3.1 Pro Preview\nGoogle, proprietary\n46\n152\n1.74\nStrong frontier model with comparatively high speed\n\n\n\n\nSource: Artificial Analysis – LLM API Providers Leaderboard (accessed June 7, 2026)."
+    "text": "Different models with different capabilities & costs\nModel comparison based on Artificial Analysis data\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nProvider / Type\nIntelligence Index\nOutput Speed, tokens/s\nBlended Price, USD / 1M tokens\nBest Interpreted As\n\n\n\n\nGPT-5.5 xhigh\nOpenAI, proprietary\n55\n88\n4.35\nHigh intelligence but expensive\n\n\nClaude Opus 4.8 max\nAnthropic, proprietary\n66\n54\n3.85\nFrontier reasoning and writing model\n\n\nGemini 3.1 Pro Preview\nGoogle, proprietary\n46\n152\n1.74\nStrong frontier model with comparatively high speed\n\n\n\n\nSource: Artificial Analysis – LLM API Providers Leaderboard (accessed June 7, 2026)."
   },
   {
     "objectID": "02-ai-intro.html#different-models-with-different-capabilities-costs-2",
