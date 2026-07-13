@@ -24,3 +24,19 @@ bibliography: refs.bib # You can add reference to this files if you have and cit
 <hr style="height:1pt; visibility:hidden;" />
 
 ## Introduction
+
+::: callout-warning
+
+- Don't go overboard with very big asks,
+  especially ones far removed from the omics data analysis context.
+  If you want to try that, please use your own API key.
+
+:::
+
+## Example dataset
+
+If you want to continue working with the example dataset:
+
+- Get it to help you run the Nextflow/nf-core rnaseq pipeline
+- Write a simple but reproducible pipeline
+

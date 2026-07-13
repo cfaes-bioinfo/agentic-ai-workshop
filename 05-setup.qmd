@@ -1,7 +1,6 @@
 ---
 title: "5: VS Code and OSC setup"
-#subtitle: "An introduction to, and setup of, the main tools we'll use in the workshop"
-number-sections: true
+subtitle: "Exploring VS Code and configuring its connection to OSC"
 date: 2026-07-03
 date-modified: today
 author:
@@ -11,6 +10,7 @@ author:
     affiliation: 
       - name: CFAES Bioinformatics Core, Ohio State University
         url: https://mcic.osu.edu/bioinformatics
+bibliography: refs.bib
 ---
 
 ---------
@@ -19,18 +19,19 @@ author:
 
 ## Introduction
 
-In the rest of this workshop, we'll primarily use the following set of tools to
-run code, access data, and make use of agentic AI tools:
+In the rest of this workshop, we'll primarily work with the following set of
+tools to run code, access data, and use agentic AI:
 
 1. A code editor, **VS Code**
 
-2. A shared computing environment, **OSC** (the Ohio Supercomputer Center)
+2. A shared computing environment, [**OSC**](./p1-osc-intro.qmd) (the Ohio Supercomputer Center)
 
 3. Generative and Agentic AI tools _integrated in our code editor_,
    **GitHub Copilot** and **Claude Code**
 
-In this session, we will go through the necessary steps to get the first two components
-configured in such a way that we can next proceed to using the AI tools. 
+In this session, we will go through the necessary steps to get the connection between
+the first two components, VS Code and OSC, configured ---
+in such a way that it works well for using the AI tools. 
 
 This same setup is what I use in my own work,
 and you can continue using it after the workshop.
@@ -65,7 +66,7 @@ and like RStudio is an IDE for R, VS Code will be our IDE for shell (and other) 
 ::: callout-tip
 #### Why we use VS Code --- and why our own installation
 It's a great editor all around, and when working at OSC in particular
----at least if you need to run command-line programs, and not just, say, R---
+(at least if you need to run command-line programs, and not just, say, R),
 it's by far the most convenient and user-friendly way, in my opinion.
 
 -----
@@ -75,8 +76,8 @@ like we did in the pre-workshop session.
 That's nice because it requires no installation or other setup.
 But in the long run, connecting your own VS Code installation to OSC is preferable.
 In the context of this workshop,
-**the primary reason we use our own VS Code installation is that because it allows us to use**
-**the in-editor AI tools when connecting our own VS Code installation to OSC**
+**the primary reason we use our own VS Code installation is that it lets us use**
+**the in-editor AI tools when connected to OSC**
 (this is not possible with the OnDemand version).
 :::
 
@@ -92,8 +93,11 @@ Go ahead and open it.
 - The main part of the VS Code window is the **Editor Pane** (`C` above),
   where you can open and edit text files.
 
-- The panel at the bottom (`D` above) contains a **terminal**, but isn't open by default.<br>
+- The panel at the bottom (`D` above) contains a **terminal**, but isn't open by default.
+
+  ::: {style="color: darkblue;"}
   {{< fa user-edit >}} In the top menu, click `Terminal` > `New Terminal` to open it.
+  :::
 
 - By default, the **Primary Side Bar** (`B` above) shows a file explorer,
   where you can see your files and create new ones, and so on.
@@ -119,21 +123,25 @@ Go ahead and open it.
 
 ## Setting up the OSC connection in VS Code
 
-Now, we'll do some **one-time configuration** to enable connecting VS Code to OSC via so-called "SSH tunneling".
-This process moves a VS Code window _entirely_ to OSC:
-the terminal, the file system, the code editor, and so on^[
+Now, we'll perform some **one-time configuration** steps to enable connecting VS Code to
+OSC via so-called "SSH tunneling".
+This connects VS Code to OSC in such a way that not just the terminal but also
+the rest of the program operates on OSC's file system^[
 In case you're familiar with the `ssh` command, this is similar to connecting your terminal to OSC with `ssh <username>@cardinal.osc.edu`.
 But instead of connecting just your terminal, this approach allows you to run the entire VS Code environment on OSC,
 which has many benefits.
 ].
 
-While it's most straightforward to set up a connection to an OSC **login node**,
+While it's fairly straightforward to set up a connection to an OSC **login node**,
 we will additionally configure a connection to a **compute node**,
 which is considerably more complicated.
-However, this avoids clogging up OSC's login nodes,
-and e.g. gives you more flexibility to test-run code in the terminal^[
-Additionally, we will use a set up that will also work for the R IDE Positron,
-which is a nice bonus.].
+
+However, this avoids clogging up OSC's login nodes^[
+The VS Code program will actually install itself and run on whichever host you connect it to, so if you connect to a login node, the program will run on that login node.
+],
+and e.g. gives you more flexibility to test-run code in the terminal.
+(Additionally, we will use a setup that will also work for the R IDE Positron,
+which is a nice bonus.)
 
 Once configured, this is a very convenient and powerful way to access OSC.
 
@@ -223,7 +231,7 @@ Next, we'll use functionality from this extension pack to set up the connection 
 
    :::
 
-8. Edit this SSH configuration file to replace the placeholders with your own information:
+7. Edit this SSH configuration file to replace the placeholders with your own information:
 
    - In both instances, change `User <osc-username>` to your **OSC username**,
      e.g to `User jane`.
@@ -237,7 +245,7 @@ Next, we'll use functionality from this extension pack to set up the connection 
    Then, save the changes you made to the file
    (`File` > `Save` or <kbd>Ctrl/⌘</kbd>+<kbd>S</kbd>).
 
-7. In the file above, the first connection (`osc-cardinal-login`) is to a login node.
+8. In the file above, the first connection (`osc-cardinal-login`) is to a login node.
    The second (`osc-cardinal-compute`) is to a compute node,
    and it refers to a "proxy script" we will create now.
    In the VS Code terminal that you opened earlier, copy-and-paste and then execute
@@ -249,15 +257,17 @@ Next, we'll use functionality from this extension pack to set up the connection 
    ::: {.callout-important appearance="simple"}
    These instructions are for Windows, click "Mac" above to see the Mac instructions.
 
-   They also assume you are using PowerShell, which is the default Windows shell in VS Code.
-   If you are using a Unix shell via Git Bash or another mechanism,
-   you should use the Mac instructions instead.
+   (They also assume you are using PowerShell, which is the default Windows shell in VS Code.
+   If you have previously installed Git Bash or are using WSL, you will be using a Unix shell
+   and should use the Mac instructions instead. If you're not sure, you're very
+   likely using PowerShell --- and you should be able to see the word "PowerShell"
+   in the top right of the terminal.)
    :::
 
    ```powershell
    @'
    @echo off
-   ssh -o LogLevel=QUIET -o BatchMode=yes osc-cardinal-login "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -c 'nc $SLURM_NODELIST 22'"
+   ssh -o LogLevel=QUIET -o BatchMode=yes osc-cardinal-login "/usr/bin/salloc -A PAS3454 -t 300 /bin/bash -lc 'nc $SLURM_NODELIST 22'"
    '@ | Out-File -Encoding ascii "$env:USERPROFILE\.ssh\osc-compute-proxy.cmd"
    ```
 
@@ -274,7 +284,7 @@ Next, we'll use functionality from this extension pack to set up the connection 
    ```
    :::
 
-8. Because connecting to a compute node may take a while to establish, we also
+9. Because connecting to a compute node may take a while to establish, we also
    need to increase the "connection timeout".
    Open the VS Code **Settings** (cog wheel {{< fa cog >}} => Settings) and search for `remote.SSH.connectTimeout`.
    Change the value from 15 to **300** (seconds).
@@ -284,7 +294,7 @@ Next, we'll use functionality from this extension pack to set up the connection 
 ::: {.callout-note collapse="true"}
 #### Recap and more info about what we just did _(Click to expand)_
 
-In the SSH configuration file, we defined two remote "hosts" that we can connect to:
+In the SSH configuration file, we defined two remote "hosts" at OSC that we can connect to:
 
 - `osc-cardinal-login`, which will connect to a **login node** of OSC's Cardinal cluster.
   However, because the VS Code program will actually run on the login node when
@@ -316,20 +326,21 @@ if you have access to another OSC project, you should change `PAS3454` to that p
 ::: {.callout-tip}
 #### Connecting to other OSC clusters
 To configure connections to other OSC clusters (currently, Pitzer and Ascend),
-you can add additional entries to this SSH configuration file,
-simply replacing `cardinal` by the name of the other cluster.
+you can add additional SSH configuration and proxy script files,
+in which you replace `cardinal` by the name of the other cluster, `pitzer` or `ascend`.
 :::
 
 ### Configuration so you won't have to enter your OSC password
 
 The following steps will prevent OSC from prompting you for your OSC password every
-time you connect to OSC via SSH --- it will use an SSH key pair for authentication instead.
-This is convenient when it comes to login node connections,
-and simply necessary for the compute node connection we configured.
+time you connect to OSC via SSH --- it will use an SSH key pair for authentication instead^[
+It's OK if you don't understand what this is.].
+(This is **convenient** when it comes to login node connections,
+and **necessary** for the compute node connection we configured.)
 
 10. In the terminal you should have open in VS Code
     (_regardless of whether you're using Windows or Mac_),
-    execute the following command to generate a SSH key-pair:
+    execute the following command to generate a SSH key pair:
 
     ``` {.bash}
     ssh-keygen -t rsa
@@ -337,7 +348,7 @@ and simply necessary for the compute node connection we configured.
 
 11. You will be asked several questions, and in each case,
     **simply press <kbd>Enter</kbd> to accept the default answer** ---
-    do this until you see some curious-looking artful output,
+    do this until you see some ASCII-art-style output,
     and get your command prompt back.
 
 12. Execute the following command to transfer the public key to OSC's Cardinal cluster,
@@ -363,7 +374,7 @@ and simply necessary for the compute node connection we configured.
 
 13. You should be prompted for your password: enter it.
 
-Congratulations on making it this far! Let's now test the connection.
+Congratulations on making it this far! 🥳 Now, let's test the configured connection.
 
 ## Connecting VS Code to OSC
 
@@ -381,7 +392,7 @@ connect to OSC like so:
 
    ![](/img/vscode-select-connection.png){fig-align="center" width="60%" fig-alt="Screenshot of the VS Code Command Palette, showing the 'SSH: Connect to Host' option highlighted"}
 
-3. A new VS Code window will open. 
+4. A new VS Code window will open. 
    The connection may take a little while (typically 5–30 seconds, could be longer if you're unlucky)
    to establish, because a compute job has to be requested, assigned resources, and started.
    In the bottom right, you should see something like the following while it is connecting:
@@ -397,60 +408,45 @@ connect to OSC like so:
    As a last resort, try connecting to the login node connection `osc-cardinal-login` instead. 
    :::
 
-### Open a folder on OSC
+### Create a personal folder on OSC and open it
 
 VS Code takes a specific
 **folder as a starting point in all parts of the program**:
 in its file explorer, in the terminal, when saving files, and so on.
 By default, this folder is your Home directory.
-But in this workshop, we'll only work in a folder specific to the workshop,
-so let's open that one now.
+But in this workshop, you'll work in a personal folder specific to the workshop,
+so let's create (if needed) and open that one now.
 
-{{< fa user-edit >}} Click `Open...` with a folder icon in the Welcome document
-(or: `File` > `Open Folder`) and then enter and select `/fs/scratch/PAS3454`.
+#### Create the folder
+
+::: {.callout-tip appearance="simple"}
+_This is only necessary if you didn't do the pre-workshop learning._
+_Otherwise, you should already have this folder._
+:::
+
+1. Open a terminal in VS Code (`Terminal` > `New Terminal`).
+2. To create a dir (folder) with your username, execute the following command:
+
+   ```bash
+   mkdir /fs/scratch/PAS3454/people/$USER
+   ```
+
+   (`$USER` is an environment variable that contains your username,
+    so this exact command works for everyone.)
+
+#### Open the folder
+
+1. Click `Open...` with a folder icon in the Welcome document
+   (or: `File` > `Open Folder`)
+2. Type (or select) the path to your folder (`/fs/scratch/PAS3454/PAS3454/people/<user>`).
 
 ![Screenshot of part of the "Welcome" document. <br>The `Open...` button allows you to open a folder (dir) anywhere on OSC.](/img/vscode-welcome.png){fig-align="center" width="45%" fig-alt="Screenshot of the VS Code Welcome document, showing the 'Open Folder...' button highlighted"}
 
 This will cause the program to reload, and the "trust popup" will appear again^[
 for this folder, it won't appear again in the future, once you've trusted it.].
-In the File Explorer, you should now see folders `data`, `people`, and `share`:
 
-![](/img/vscode-explorer.png){fig-align="center" width="40%" fig-alt="Screenshot of the VS Code file explorer, showing the 'people', 'data', and 'share' folders in the /fs/scratch/PAS3454 folder"}
-
-::: exercise
-#### {{< fa user-edit >}} Create your own folder on OSC
-
-**_This is only necessary if you didn't do the pre-workshop learning,_**
-**_in which you created this folder._**
-
-Create a dir `/fs/scratch/PAS3454/people/<user>`,
-where `<user>` should be your exact OSC username.
-
-<details><summary>Click to see some hints</summary>
-
-You can create this dir in several ways, but here is the most bulletproof one:
-
-```bash
-# `$USER` is an environment variable that contains your username,
-# so this exact command will work for everyone:
-mkdir /fs/scratch/PAS3454/people/$USER
-```
-   
-Alternatively, assuming you are in `/fs/scratch/PAS3454` and your username is
-`jane`, a simpler command would be:
-
-```bash
-mkdir people/jane
-```
-
-Other alternatives include using the VS Code file explorer (there's a "New Folder" button)
-or the [OSC OnDemand](https://ondemand.osc.edu/) file browser.
-
-</details>
-:::
-
-::: {.callout-tip collapse="false"}
-#### From now on: Connecting directly to a specific folder at OSC
+::: {.callout-tip collapse="true"}
+#### From now on: Connecting directly to this folder at OSC
 
 The above two-step procedure (connect to OSC, then open a folder) can be done
 in one even simpler step, after you've connected to that folder at least once:

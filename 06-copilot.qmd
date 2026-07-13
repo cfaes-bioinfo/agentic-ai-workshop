@@ -1,6 +1,6 @@
 ---
 title: "6: Code completions with GitHub Copilot"
-subtitle: "Setting up and using our first agentic AI tool"
+subtitle: "Setting up and using our first agentic AI tool!"
 date: 2026-07-03
 date-modified: today
 author:
@@ -10,7 +10,7 @@ author:
     affiliation: 
       - name: CFAES Bioinformatics Core, Ohio State University
         url: https://mcic.osu.edu/bioinformatics
-bibliography: refs.bib # You can add reference to this files if you have and cite any
+bibliography: refs.bib
 ---
 
 ---------
@@ -38,57 +38,56 @@ Specifically, we will:
 
 - Use the more powerful functionality of **(agentic) chat in Claude Code** (_next section_).
   While GitHub Copilot can also do this,
-  we'll use Claude Code for reasons we'll go into later.
+  we'll use Claude Code for this, for reasons we'll explain in a bit.
 
-As for this session specifically, we'll:
+As for **this session** specifically, we'll:
 
 1. Copy and briefly explore a small RNA-Seq dataset to analyze with the help of our AI tools.
-2. Set up GitHub Copilot in VS Code
-3. And most of all, start using the code completion features in GitHub Copilot
+2. Set up GitHub Copilot in VS Code.
+3. And most of all, start using the code completion features in GitHub Copilot.
 
 ## An RNA-Seq dataset to practice with
 
 Let's navigate to a suitable dir and each get our own copy of a high-throughput
 sequencing dataset to analyze with the help of our AI tools.
 
-1. You should still have an active session in VS Code connected to OSC.
-   If not, start a new session. 
+1. You should still have an active session in VS Code connected to OSC
+   at dir `/fs/scratch/PAS3454/people/<user>` (where `<user>` is your personal username).
 
-   <details><summary>Click here for instructions to start a new VS Code session at OSC</summary>
+   <details><summary>_If not, click here for instructions to do so._</summary>
 
-   1. Open VS Code, or if you already have a window open that's not connected to OSC,
+   - Open VS Code, or if you already have a window open that's not connected to OSC,
    open a new VS Code window with `File` > `New Window`.
 
-   2. In the `Recent` section in the VS Code "Welcome" document,
-   you should see the `PAS3454` OSC folder with the `osc-cardinal-compute` connection ---
-   click on that line to open that folder and in the process connect to OSC!
+   - In the `Recent` section in the VS Code "Welcome" document,
+     you should see the OSC folder with your OSC username for the `osc-cardinal-compute` ---
+     click on that line to open that folder and in the process connect to OSC!
 
-   ![](/img/vscode-recents.png){fig-align="center" width="40%" fig-alt="Screenshot of the VS Code Welcome document, showing the 'Recents' section with the 'Open Folder...' button highlighted"}
+     ![](/img/vscode-recents.png){fig-align="center" width="40%" fig-alt="Screenshot of the VS Code Welcome document, showing the 'Recents' section with the 'Open Folder...' button highlighted"}
 
-   If you don't see the `PAS3454` OSC folder in the `Recent` section after Step 1,
-   simply start a new session, for example like so:
-
-   3. Click the `Connect to...` button in the "Welcome" document
-   (also visible in the screenshot above),
+   If you don't see this folder in the `Recent` section after Step 1,
+   simply start a new session, for example by clicking the
+   `Connect to...` button in the "Welcome" document (also visible in the screenshot above),
    and select the `osc-cardinal-compute` connection.
+   Once connected, click `File` > `Open Folder`
+   (or `Open...` with a folder icon in the Welcome document) and select you dir
+   `/fs/scratch/PAS3454/people/<user>`.
 
    </details>
 
-2. Once connected to OSC, click `File` > `Open Folder...`,
-   and to open you personal folder `/fs/scratch/PAS3454/people/<user>`.
-
-3. Open a terminal and check that are indeed in dir `/fs/scratch/PAS3454/people/<user>`:
+3. Open a terminal and check that you are indeed in dir `/fs/scratch/PAS3454/people/<user>`:
    
    ```bash
    pwd
    ```
    ```bash-out
+   # Make sure it's not your home dir, which starts with /users/, instead
    /fs/scratch/PAS3454/people/jane
    ```
 
-   If not, redo step 2! The terminal will automatically start in the folder you opened in VS Code.
+   _(If you're elsewhere, use the Open Folder functionality to try again.)_
 
-3. Copy a shared data dir to your personal dir:
+4. Copy a shared data dir with the @iqbal2025 files to your personal dir:
 
    ```bash
    # After this, the data will be in `/fs/scratch/PAS3454/people/<user>/iqbal`
@@ -97,8 +96,8 @@ sequencing dataset to analyze with the help of our AI tools.
    ```bash-out
    '/fs/scratch/PAS3454/data/iqbal' -> './iqbal'
    '/fs/scratch/PAS3454/data/iqbal/ref' -> './iqbal/ref'
-   '/fs/scratch/PAS3454/data/iqbal/ref/GCA_000004655.2_ASM465v1_genomic.fna' -> './iqbal/ref/GCA_000004655.2_ASM465v1_genomic.fna'
-   '/fs/scratch/PAS3454/data/iqbal/ref/GCA_000004655.2_ASM465v1_genomic.gff' -> './iqbal/ref/GCA_000004655.2_ASM465v1_genomic.gff'
+   '/fs/scratch/PAS3454/data/iqbal/ref/GCA_000004655.2.fna' -> './iqbal/ref/GCA_000004655.2.fna'
+   '/fs/scratch/PAS3454/data/iqbal/ref/GCA_000004655.2.gtf' -> './iqbal/ref/GCA_000004655.2.gtf'
    '/fs/scratch/PAS3454/data/iqbal/meta.tsv' -> './iqbal/meta.tsv'
    '/fs/scratch/PAS3454/data/iqbal/README.md' -> './iqbal/README.md'
    '/fs/scratch/PAS3454/data/iqbal/fastq' -> './iqbal/fastq'
@@ -108,13 +107,13 @@ sequencing dataset to analyze with the help of our AI tools.
    # [...output truncated...]
    ```
 
-4. Create a new dir `S06` (as in: session 6) within your `/fs/scratch/PAS3454/people/<user>` dir:
+5. Create a new dir `S06` (as in: session 6) within your `/fs/scratch/PAS3454/people/<user>` dir:
 
    ```bash
    mkdir S06
    ```
 
-5. Run the `tree` command to understand the current structure of your dirs and files:
+6. Run the `tree` command to understand the current structure of your dirs and files:
 
    ```bash
    tree
@@ -136,12 +135,16 @@ sequencing dataset to analyze with the help of our AI tools.
     │       └── GCA_000004655.2.gtf
    ```
 
-#### What do we have in the `iqbal` dir?
+#### What is in the `iqbal` dir?
 
-This is RNA-Seq data from @iqbal2025, with:
+This is RNA-Seq data from the paper @iqbal2025, in which two different
+rice lines were inoculated with a pathogenic fungus and sequenced the
+transcriptomes of the plants to see how they responded.
+We have the following files:
 
-- The raw (paired-end Illumina) reads in the dir `fastq` --- though subsampled
-  by us to keep the file sizes and analysis times short for use during the workshop
+- The raw (paired-end Illumina) reads in the dir `fastq` --- though note that
+  these were subsampled by us to keep file sizes and analysis times short for
+  use during the workshop.
 - The sample metadata (e.g., rice variety and inoculation treatment information)
   in the file `meta.tsv`.
 - [Rice reference genome](https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000004655.2/)
@@ -159,7 +162,7 @@ Ask AI to explain this to you if you don't know what this means.
 
 </details>
 
-<details><summary> {{< fa comments >}} What do the `.fna` and `gtf` file in the `ref` dir represent? _(Click to see the answer)_</summary>
+<details><summary> {{< fa comments >}} What do the `.fna` and `.gtf` file in the `ref` dir represent? _(Click to see the answer)_</summary>
 
 - The `.fna` file is a FASTA file with the entire genome sequence.
 - The `.gtf` file a GTF file with the genome annotation
@@ -174,7 +177,7 @@ and is the first of two similar tools we will use in this workshop, the other be
 
 GitHub Copilot is **not** the same as the "general" Microsoft Copilot.
 And while GitHub Copilot _is_ a Microsoft product, hence the similar name,
-you cannot –currently– use it institutionally at OSU.
+you cannot currently use it institutionally at OSU.
 Instead, access runs through a **personal GitHub account**.
 It's easy and free to create a GitHub account,
 and you may already have one from previous usage or because you followed 
@@ -188,8 +191,8 @@ Nevertheless, with your GitHub account,
 you are nowadays also automatically enrolled in the GitHub Copilot free plan.
 :::
 
-While there's also a stand-alone app and web-based interface for it,
-**we will use GitHub Copilot within VS Code**.
+While there's also a stand-alone app, a stand-alone CLI, and a web-based interface for it,
+**we will use the GitHub Copilot panel within VS Code**.
 
 We also mentioned that in this workshop,
 we'll use GitHub Copilot for code completions and Claude Code for agentic chat.
@@ -202,7 +205,7 @@ Here is an overview of the pros and cons of GitHub Copilot vs. Claude Code:
 | Free usage with a personal, "academic", account | ✅ [^1] | ❌ |
 | Possible to pay for use with university funds | ❌ | ✅ | 
 | Institutional approval for use with private data | ❌ | ✅ |
-| Often considered the best code assist tool | ❌ | ✅ |
+| _Often considered the best code assist tool_ | ❌ | ✅ |
 
 [^1]: Quite limited free access without educational credentials,
       but more useful as a student or especially teacher/faculty: see below.
@@ -226,7 +229,7 @@ But feel free to do so in a break or after the workshop.
 
 ## Setting up GitHub Copilot
 
-GitHub Copilot is available in VS Code as a pre-installed plugin.
+GitHub Copilot is available in VS Code as a pre-installed extension.
 Therefore, not much setup is needed:
 the steps below only serve to log in to your GitHub account or create one along the way.
 
@@ -260,8 +263,8 @@ the steps below only serve to log in to your GitHub account or create one along 
      Google login by clicking the "Continue with Google" button.
 
    - For those **with** a GitHub account, you can log in with your existing credentials.
-     Don't use Continue with Google unless you know your GitHub account is already linked to your Google account,
-     or account confusion may arise.
+     Don't use "Continue with Google" unless you know your GitHub account is already
+     linked to your Google account, or account confusion may arise.
    :::
 
    ::: {.callout-note collapse="true"}
@@ -313,11 +316,26 @@ GitHub Copilot is likely to suggest the full shebang line `#!/bin/bash` for you:
 
 ![I typed `#!`, and the `/bin/bash` suggestion appeared.<br>The purple highlighting is also done by Copilot to draw attention to it.](/img/copilot-ghost1.png){fig-align="center" width="45%" fig-alt="Ghost text suggestions in GitHub Copilot" .lightbox}
 
-![](/img/copilot-useful-autocomplete){fig-align="center" width="45%" fig-alt="Ghost text suggestions in GitHub Copilot" .lightbox}
+::: callout-note
+#### A different kind of example
+
+Here's a quite different kind of example, which goes to show that Copilot can be
+useful for many kinds of text.
+(This is especially illustrative if you know some (Quarto) Markdown.)
+
+In a Quarto Markdown document that is part of the source code of this very website,
+I typed `[](/img/claude-interrupt1.png){}`, and Copilot suggested the part in gray:
+
+![](/img/copilot-useful-autocomplete.png){fig-align="center" width="90%" fig-alt="Ghost text suggestions in GitHub Copilot" .lightbox}
+
+That is, it suggested lots of boilerplate code typically added to format a figure,
+and even added fairly reasonable alt text for the figure, based on the file name.
+:::
 
 #### Suggestions based on a code comment you have written
 
-These try to generate code that implements what you described in the comment.
+These suggestions generate code that tries to implement what you described in the comment.
+
 For example, if you write a comment ``# Count the number of dirs in `people` ``
 in a shell script, press <kbd>Enter</kbd>, and wait a second,
 Copilot should suggest something like this:
@@ -345,7 +363,7 @@ while not as suitable for more complex questions.
    </details>
 
    ::: {.callout-note appearance="simple"}
-   You should immediately see the following, which is also a ghost text suggestion,
+   Likely, you will immediately see the following, which is also a ghost text suggestion,
    in your new file.
    For now, ignore that --- when you start to type it will disappear.
 
@@ -383,10 +401,10 @@ You can also implicitly dismiss a suggestion by continuing to type.
 ### Next edit suggestions
 
 ["Next edit" suggestions](https://code.visualstudio.com/docs/editing/ai-powered-suggestions#_next-edit-suggestions)
-will suggest a modification to code or other text you have already written.
+will suggest a modification to code or other text **you have already written**.
 A number of scenarios can trigger next edit suggestions, such as:
 
-- Syntax, spelling, or style errors in your code (e.g., a missing closing bracket or quote)
+- Syntax, spelling, or style errors in your code (e.g., a missing closing bracket or quote).
 - When you change one instance of a recurring pattern in your code (e.g., a variable name or a path),
   it will suggest to change the other instances as well.
 
@@ -419,9 +437,9 @@ and <kbd>Tab</kbd> again to accept that one, and so on:
 
 ![](/img/copilot-nextedit-pattern2.png){fig-align="center" width="45%" fig-alt="Screenshot of Copilot next edit suggestion for recurring pattern"}
 
-These types of suggestions are sometimes off-target
-(e.g., maybe you don't want to change the other instances of `people` to `data`!),
-but in my experience, they are often quite useful and not just a time-saver,
+These types of suggestions are sometimes off-target ---
+e.g., maybe you don't, in fact, want to change the other instances of `people` to `data`!
+But in my experience, they are often quite useful and not just a time-saver,
 but also a way to avoid mistakes (e.g., forgetting to change one of the instances).
 
 ### Related: Inline chat
@@ -469,8 +487,8 @@ there and operate on the command you typed in the terminal.
 
 #### Explain code
 
-Until recently, the inline chat feature would by default start by having you choose
-whether you want to modify or explain code.
+Until recently, the inline chat feature would first have you choose
+whether you want to _modify_ or _explain_ code.
 The explain option is still available,
 but now you have to explicitly ask for it with a so-called "slash command"
 (we'll talk more about slash commands in the Claude section) ---
@@ -494,7 +512,8 @@ unlimited code completions are included (!), but this is not true for chat featu
 
 ::: {.callout-tip}
 #### Code completion can be used safely with internal data
-If you use code completion features within your code and documentation files,
+If you use code completion features _only_ within your code and documentation files
+(which you should do anyway),
 you are not exposing any internal data you may have elsewhere in the dir hierarchy
 that you have open in VS Code.
 :::
@@ -533,7 +552,7 @@ play around with asking questions via comments and see what Copilot suggests.
 but I'd suggest using this exercise to explore the @iqbal2025 data files a bit.
 For example:
 
-- Count the number of reads in `data/iqbal/SRR31869590_1.fastq`
+- Count the number of reads in `iqbal/fastq/SRR31869590_1.fastq.gz`
   (or any other fastq file in the `fastq` dir)
 
 - Count the number of entries in the FASTA files
@@ -572,43 +591,123 @@ You can also use the inline chat option to ask Copilot to explain the code it su
   slowly start typing out the command yourself, and see if/how Copilot wants to complete it.
 :::
 
-## One example chat prompt
+## An example chat prompt
 
-While we'll be exploring the chat functionality of these types of AI tools
-with Claude Code,
-let's end this session with one example prompt in the GitHub Copilot chat.
+We'll really start exploring the chat functionality of these types of AI tools
+with our next tool, Claude Code,
+But let's end this session with one example prompt in the GitHub Copilot chat.
 
-In the Copilot prompt box
-(which should have ghost text "_Describe what to build_" – or something similar),
-enter:
+### Writing contents of a `README.md` file
+
+A `README.md` file is a Markdown file that is often used to provide a summary of
+the contents of a directory or project.
+Start by opening the `README.md` file in the `iqbal` dir
+(for example, find it in the Explorer in the side bar, and click on it.)
+It is empty! [😳]{style="font-size: 1.2em"}
+
+{{< fa user-edit >}} In the Copilot prompt box
+(which has ghost text "_Describe what to build_" – or something similar), enter:
 
 > _Help me understand the files in the iqbal dir. Put this information in the currently empty README.md file_
 
-Because we're asking Copilot for information that it can only access after
-actually performing an action (running a command),
-it will by default ask for permission to do so:
+Here's the response that I got:
 
-![TBA - REPLACE EXAMPLE](/img/copilot-asks-permission.png){fig-align="center" width="70%" fig-alt="Screenshot of the GitHub Copilot prompt asking for permission to run a command"}
+![](/img/copilot-readme-1.png){fig-align="center" width="70%" fig-alt="Screenshot of the GitHub Copilot prompt asking for permission to run a command"}
+
+And the file `README.md` is now filled with a summary of the files in the `iqbal` dir,
+with the changes that are suggested but waiting for approval highlighted in green ---
+click `Keep` to accept the changes:
+
+![](/img/copilot-readme-2.png){fig-align="center" width="85%" fig-alt="Screenshot of the GitHub Copilot prompt asking for permission to run a command"}
+
+<details><summary>_Click to see the full text of the `README.md` Copilot suggested for me_</summary>
+
+```markdown
+## iqbal dataset overview
+
+This directory contains RNA-seq input data and reference files for downstream analysis.
+
+## Directory contents
+
+- `fastq/`: gzipped paired-end FASTQ files (`*_1.fastq.gz` and `*_2.fastq.gz`) for each sample.
+- `meta.tsv`: sample metadata table linking SRA run IDs to line, time, and treatment.
+- `ref/`: reference genome and gene annotation used for alignment/quantification.
+
+## File details
+
+### `meta.tsv`
+
+Columns:
+- `sample`: SRA run accession (matches FASTQ filename prefix).
+- `line`: biological line (`D502` or `D506`).
+- `time`: timepoint (`0`, `24`, or `48`).
+- `treatment`: condition (`mock` or `treatment`).
+
+Design summary from metadata:
+- Total samples: 18
+- Lines: 2 (`D502`, `D506`)
+- Timepoints: 3 (`0`, `24`, `48`)
+- Replicates: 3 per line/timepoint combination
+- Condition mapping:
+	- `0` hours -> `mock`
+	- `24` and `48` hours -> `treatment`
+
+### `fastq/`
+
+- Contains 36 files total (18 samples x 2 mates), consistent with paired-end sequencing.
+- Filename convention:
+	- `SRR..._1.fastq.gz`: read 1
+	- `SRR..._2.fastq.gz`: read 2
+
+### `ref/`
+
+- `GCA_000004655.2.fna`: reference genome FASTA.
+- `GCA_000004655.2.gtf`: gene annotation in GTF format.
+
+## Quick usage notes
+
+- Use the `sample` column in `meta.tsv` to join metadata to FASTQ pairs by filename prefix.
+- Keep reference files and metadata versioned together with analysis outputs for reproducibility.
+```
+
+</details>
+
+::: {style="color: darkblue;"}
+{{< fa comments >}} Did you get something similar? Does this look reasonable? Do any questions come to mind about these files, or about Copilot's response?
+:::
+
+<hr style="height:1pt; visibility:hidden;" />
+
+::: {.callout-note collapse="true"}
+#### Another prompt example, one that makes Copilot run a shell command _(Click to expand)_
+
+Ask GitHub Copilot the following question:
+
+> _How many reads are in the fastq file iqbal/fastq/SRR31869590_1.fastq.gz?_
+
+In this case, Copilot wants to run an arbitrary shell command to get the answer,
+and it should ask you for permission to do so:
+
+![(Note: the path is incorrect in this screenshot.)](/img/copilot-asks-permission.png){fig-align="center" width="70%" fig-alt="Screenshot of the GitHub Copilot prompt asking for permission to run a command"}
 
 Click `Allow` and it will run the command and return the answer:
 
-![TBA - REPLACE EXAMPLE](/img/copilot-readnr-answer.png){fig-align="center" width="70%" fig-alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"}
+![](/img/copilot-readnr-answer.png){fig-align="center" width="70%" fig-alt="Screenshot of the GitHub Copilot prompt showing the answer to the question about how many reads are in the specified fastq file"}
+
+This looks correct!
+And it turns out we can get Copilot to run shell commands.
+:::
 
 #### What did we just witness?
 This example shows how in-editor AI like GitHub Copilot can perform actions
 themselves, rather than just providing information or code snippets.
-In technical terms, as part of this agentic behavior, it "calls a tool"
-(or: "performs **tool calls**") that allow it to run arbitrary commands in the terminal.
+It examined the file structure, read at least one of the files, and wrote the requested
+information into the `README.md` file.
 
-We'll soon see another type of extremely useful in-editor agentic behavior,
-where it can **read and/or edit your code**.
-This latter type of behavior is what we'll use most in this workshop.
-That's because broadly speaking, the example above notwithstanding,
-_the goal in this workshop is not to let AI analyze the data for us,_
-_but rather to let it help us write code to appropriately analyze the data with_
-_existing non-AI programs._
+In technical terms, as part of this **agentic behavior**,
+it performed several "_tool calls_" to fulfill the request.
 
-![From the [Claude Code docs](https://code.claude.com/docs/en/how-claude-code-works)](/img/claude-agentic-loop.svg){fig-align="center" width="50%" fig-alt="Diagram showing the agentic loop of an AI tool, where it can read and edit code, and call tools to run commands"}
+![The "agentic loop". While this image is from the [Claude Code docs](https://code.claude.com/docs/en/how-claude-code-works), GitHub Copilot works very similarly.](/img/claude-agentic-loop.svg){fig-align="center" width="95%" fig-alt="Diagram showing the agentic loop of an AI tool, where it can read and edit code, and call tools to run commands"}
 
 <!---
 - `editor.action.inlineSuggest.trigger` => keyboard shortcut to trigger inline suggestions
