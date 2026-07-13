@@ -879,7 +879,14 @@
     "href": "13-diy.html#introduction",
     "title": "DIY with own (or other) data",
     "section": "1 Introduction",
-    "text": "1 Introduction"
+    "text": "1 Introduction\n\n\n\n\n\n\nWarning\n\n\n\n\nDon’t go overboard with very big asks, especially ones far removed from the omics data analysis context. If you want to try that, please use your own API key."
+  },
+  {
+    "objectID": "13-diy.html#example-dataset",
+    "href": "13-diy.html#example-dataset",
+    "title": "DIY with own (or other) data",
+    "section": "2 Example dataset",
+    "text": "2 Example dataset\nIf you want to continue working with the example dataset:\n\nGet it to help you run the Nextflow/nf-core rnaseq pipeline\nWrite a simple but reproducible pipeline"
   },
   {
     "objectID": "o1-practical.html",
