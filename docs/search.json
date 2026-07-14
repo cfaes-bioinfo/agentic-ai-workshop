@@ -812,11 +812,11 @@
     "text": "Responsible use and limitations of AI\nWith great power, comes great responsibility!\n\nWhat do you think ‘responsible use’ entails?\nWhat do you think are some limitations of AI?\n\n\nThey actually go hand in hand with each other. Understanding the limits of AI will allow you to responsibly use it."
   },
   {
-    "objectID": "11-responsible-use.html#first-lets-review-some-content-and-reflect",
-    "href": "11-responsible-use.html#first-lets-review-some-content-and-reflect",
+    "objectID": "11-responsible-use.html#first-lets-review-and-also-learn-a-new-term",
+    "href": "11-responsible-use.html#first-lets-review-and-also-learn-a-new-term",
     "title": "Limitations and responsible use of AI",
-    "section": "First, let’s review some content and reflect",
-    "text": "First, let’s review some content and reflect\n\n\nIf you remember from yesterday morning, LMs are trained to predict the next token or sequence of token, based on its training data.\nThroughout this presentation, I will be using the terms comfortability and limitation zone. Comfortability zone is just like your own comfort zone! As you get near the edge of your comfort zone, you become less certain and for AI, it transitions into the limitation zone. AI models work the same way."
+    "section": "First, let’s review and also learn a new term",
+    "text": "First, let’s review and also learn a new term\n\n\nIf you remember from yesterday morning, LMs are trained to predict the next token or sequence of token, based on its training data.\nThroughout this presentation, I will be using the terms comfortability and limitation zone. Comfortability zone is just like your own comfort zone! As you get near the edge of your comfort zone, you become less certain. For AI, it transitions into the limitation zone. AI models work the same way."
   },
   {
     "objectID": "11-responsible-use.html#search-engine-more-like-autocomplete",
@@ -838,6 +838,13 @@
     "title": "Limitations and responsible use of AI",
     "section": "Next token prediction risks (cont)",
     "text": "Next token prediction risks (cont)\nHow can you protect yourself from the risks posed by next token prediction?\n\nYou are the one interacting with the AI model, you are responsible for what you do with the response. The best thing you can do is VERIFY the information AI is providing you.\nConsider all output from AI as a draft that must be reviewed.\nIf you ask for sources, ensure they are real. A link that works, does not mean the information on that site is relevant to what you asked.\nAI models DO NOT know if they are providing you with fabricated/hallucinated information."
+  },
+  {
+    "objectID": "11-responsible-use.html#next-token-prediction-risks-cont-1",
+    "href": "11-responsible-use.html#next-token-prediction-risks-cont-1",
+    "title": "Limitations and responsible use of AI",
+    "section": "Next token prediction risks (cont)",
+    "text": "Next token prediction risks (cont)\n\n\nLet’s go through an example to test our knowledge of the comfortability and limitation zone.\nFrom the two prompts below, which prompt would recieve the better response? Where would these two prompts fall on the comfortability/limitation circle?\n\nSummarize the second chapter of How to Kill a Mockingbird. Provide me key details I would need to know for a pop quiz.\nProvide the citations to the three most recent publications in the Plant Disease journal. Provide the affiliations of all of the authors from each citation."
   },
   {
     "objectID": "11-responsible-use.html#knowledge-gaps-in-ai-models",
@@ -1118,19 +1125,5 @@
     "title": "Advanced agentic options and skills",
     "section": "4 Guardrails",
     "text": "4 Guardrails\nAI agents such as Claude Code can read files, modify code, execute shell commands, install software, and automate many aspects of a bioinformatics workflow. These capabilities make them powerful collaborators, but they also introduce risk if they are not properly constrained.\nGuardrails are the rules, permissions, and safety mechanisms that control what Claude is allowed to do and how it should behave. Their purpose is to prevent accidental, unsafe, or unwanted actions while still allowing Claude to be productive.\nThink of guardrails like the safety rails on a mountain road. They do not stop you from driving—they help prevent you from accidentally going over the edge.\nWhy Guardrails Matter in Bioinformatics\nImagine a new member joins your laboratory. They may unintentionally:\n\nOverwrite your raw files\nDelete intermediate analysis results\nModify reference genomes or annotation databases\nExecute commands in the wrong directory\nIgnore the laboratory’s coding standards\nCommit API keys or passwords to GitHub\n\nGuardrails provide an additional layer of protection that helps catch these mistakes before they happen.\n\n4.1 Built-in Security Guardrails\nClaude Code includes several security features:\n\nPermission-based architecture : By default, Claude Code is read-only. Whenever Claude wants to edit files, run tests, execute commands, it ask for your permission\nLimited write access : Claude can only write inside the directory where it was started (and its subdirectories). If Claude starts inside project/, it cannot accidentally modify files outside that project without additional permission.\nPrompt injection protection : Claude includes built-in protections that help detect many prompt injection attempts and may request additional approval before performing potentially risky actions. These protections reduce but do not eliminate the risk, so users should still review requested actions.\n\n\n\n4.2 User-configurable Guardrails\n\nPermission: Permissions determine which files & commands Claude is allowed to access. Permissions are configured in settings.json file. This prevents Claude from accidentally exposing confidential information by denying access to the sensitive files. For examples:\n\n\nDenying access to .env\n\nBlocking secrets/\n\nPreventing access to SSH keys use /fs/scratch/PAS3454/people/menuka/.claude/settings.json as an example.\n\n\nHooks : Hooks are small programs or scripts that run automatically before or after Claude uses a tool. Unlike instructions in CLAUDE.md, hooks are always executed whenever the specified event occurs. This makes them ideal for enforcing mandatory safety rules. Because hooks execute automatically, they act as hard guardrails rather than recommendations.\nProject Guardrails (CLAUDE.md) : Where hooks and permissions define what Claude can do, CLAUDE.md defines how Claude should work. A good CLAUDE.md establishes project conventions such as:\n\n\nPreferred programming languages\nCoding style\nSoftware versions\nDirectory structure\nWorkflow order\n\nThese are not security restrictions but behavioral instructions that help Claude work consistently across the project.\n\n\n\nFigure 1. Three user-configurable guardrails in Claude Code: permissions, hooks, and project instructions (CLAUDE.md)\n\n\n\n\n\n\n\n\nTipBest Practice\n\n\n\nGuardrails complement but not replace human review. Always review Claude’s proposed code, analyses, and file changes, especially when working with sensitive datasets."
-  },
-  {
-    "objectID": "11-responsible-use.html#first-lets-review-and-also-learn-a-new-term",
-    "href": "11-responsible-use.html#first-lets-review-and-also-learn-a-new-term",
-    "title": "Limitations and responsible use of AI",
-    "section": "First, let’s review and also learn a new term",
-    "text": "First, let’s review and also learn a new term\n\n\nIf you remember from yesterday morning, LMs are trained to predict the next token or sequence of token, based on its training data.\nThroughout this presentation, I will be using the terms comfortability and limitation zone. Comfortability zone is just like your own comfort zone! As you get near the edge of your comfort zone, you become less certain. For AI, it transitions into the limitation zone. AI models work the same way."
-  },
-  {
-    "objectID": "11-responsible-use.html#next-token-prediction-risks-cont-1",
-    "href": "11-responsible-use.html#next-token-prediction-risks-cont-1",
-    "title": "Limitations and responsible use of AI",
-    "section": "Next token prediction risks (cont)",
-    "text": "Next token prediction risks (cont)\n\n\nLet’s go through an example to test our knowledge of the comfortability and limitation zone.\nFrom the two prompts below, which prompt would recieve the better response? Where would these two prompts fall on the comfortability/limitation circle?\n\nSummarize the second chapter of How to Kill a Mockingbird. Provide me key details I would need to know for a pop quiz.\nProvide the citations to the three most recent publications in the Plant Disease journal. Provide the affiliations of all of the authors from each citation."
   }
 ]
