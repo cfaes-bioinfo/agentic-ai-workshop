@@ -107,7 +107,9 @@ While good prompting begins with our three building blocks, the language we use 
 ## To get the most out of your prompts...
 ::: {.incremental}
 - **More is not *always* better**: Too much information, details, or directions can overwhelm the AI model and can create problematic responses. If you have multiple directions, break them up into **multiple prompts**. Avoid giving the AI model too many details that are **irrelevant** to the task.
-  + *Example*: "...counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count>." **NEW PROMPT: "This script worked. Now, can you modify it to count the number of > characters as well? Do not edit the existing code, only add the necessary modifications**"
+  + *Example*: "...counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count>." 
+    + *wait for AI response...*
+      + **NEW PROMPT: "This script worked. Now, can you modify it to count the number of > characters as well? Do not edit the existing code, only add the necessary modifications**"
   + *Example of what **not** to do*: "Write me a script that counts all A, T, C, and G characters in a FASTA file. This FASTA file is a bacterial genome that is 5 Mb in size and belongs to the genus *Pseudomonas*. It was isolated from a tomato plant in New York."
 :::
 

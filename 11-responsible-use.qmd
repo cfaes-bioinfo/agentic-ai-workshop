@@ -1,6 +1,6 @@
 ---
 title: "Limitations and responsible use of AI"
-subtitle: "Day 2 - 11:45 AM - 12:15 PM"
+subtitle: "Day 2 - 1:00 PM - 1:30 PM"
 date: 2026-07-14
 date-modified: today
 author:
@@ -54,12 +54,12 @@ bibliography: refs.bib # You can add reference to this files if you have and cit
 They actually go hand in hand with each other. **Understanding the limits of AI will allow you to responsibly use it.**
 ::::
 
-## First, let's review some content and reflect
+## First, let's review and also learn a new term
 :::: {.columns}
 ::: {.column width="60%"}
 If you remember from yesterday morning, LMs are trained to **predict** the next token or sequence of token, based on its **training data**.
 
-Throughout this presentation, I will be using the terms comfortability and limitation zone. Comfortability zone is just like your own comfort zone! As you get near the edge of your comfort zone, you become less certain and for AI, it transitions into the limitation zone. AI models work the same way.
+Throughout this presentation, I will be using the terms *comfortability* and *limitation* zone. Comfortability zone is just like your own comfort zone! As you get near the edge of your comfort zone, you become less certain. For AI, it transitions into the limitation zone. AI models work the same way.
 :::
 
 ::: {.column width="40%"}
@@ -91,13 +91,12 @@ Hallucination/frabication occur in AI models when it generates *confident*, *wel
 - Obsecure task requests
 :::
 
-:::: {.fragment}
-How can you *protect* yourself?
-::::
+## Next token prediction risks (cont)
+*How can you protect yourself from the risks posed by next token prediction?*
 
 ::: {.incremental}
 - You are the one interacting with the AI model, you are **responsible** for what you do with the response. The best thing you can do is **VERIFY** the information AI is providing you.
-- Consider AI outputs as drafts that **must** be reviewed.
+- Consider all output from AI as a *draft* that must be reviewed. 
 - If you ask for sources, ensure they are **real**. A link that works, *does not* mean the information on that site is relevant to what you asked.
 - **AI models DO NOT know if they are providing you with fabricated/hallucinated information**.
 :::
@@ -122,6 +121,7 @@ From the two prompts below, which prompt would recieve the *better* response? Wh
 AI models are trained on datasets much larger than any human could comprehend. However, these datasets are **finite**, and training has a *start* and an *end* date. This leads to models that may not be up to date on current events. 
 
 *How can you protect yourself*
+
 ::: {.incremental}
 - Test the model to determine event accuracy if time sensitive
 - Use tools, such as retrival-augmented generation, to gather recent data
@@ -164,7 +164,6 @@ AI companies will impose limits on your usage. Take Github Copilot inline sugges
 ::: {.column width="40%"}
 ![](/img/copilot-limits.png)
 :::
-
 ::::
 
 

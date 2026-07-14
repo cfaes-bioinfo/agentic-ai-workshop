@@ -86,6 +86,14 @@ Pretend you are apart of my local extension office providing a quick pitch about
 ### Generative code prompt
 Let's create a prompt that will generate code for us. I recommend using Github Copilot or Claude in your VS code to do this but use whatever you would like.
 
+If you use your terminal, navigate back to where we were yesterday:
+
+1. Click `Open...` with a folder icon in the Welcome document
+   (or: `File` > `Open Folder`)
+2. Type (or select) the path to your folder (`/fs/scratch/PAS3454/people/<user>`).
+
+Let's get prompting: 
+
 1. **Task**: Let's have AI generate us a script that prints "I like bread. It is my favorite food." to the terminal.
 2. **Context/Constraints**: Let's give the following constraints:
   - we want a bash script
