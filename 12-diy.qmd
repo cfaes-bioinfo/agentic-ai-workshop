@@ -100,7 +100,7 @@ Below are some suggestions if you'd like to continue working on the @iqbal2025 d
 
   ::: {.callout-note}
   ### Working with R? Consider setting up and using Positron
-  See our [Positron setup page](./o3-positron-setup.qmd)!
+  See our [Positron setup page](./o3-positron-install.qmd)!
   :::
 
 #### Whole-genome resequencing data

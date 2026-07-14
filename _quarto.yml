@@ -42,7 +42,7 @@ website:
           - text: "12: DIY with own (or other) data"
             href: 12-diy.qmd
           - text: "13: Concluding remarks"
-            #href: 13-concluding.qmd
+            href: 13-concluding.qmd
     right:
       - text: Pre-workshop learning
         menu:

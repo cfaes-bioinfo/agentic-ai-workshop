@@ -11,17 +11,19 @@ bibliography: refs.bib
 
 ## Some final notes
 
+- **Please do the [post-workshop survey](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=NlYJ61IQlUiVKx_53x0RIRPCxiUNwTpGiKjj0kzcvzxUQkxXNERPUzVHOEVSV1VTWVk0SktERDI2Ti4u) before you leave!**
+  **It will really help us improve future workshops.**
+
 - Take a look at the [Resources page](./o2-resources.qmd) for links to further resources.
   We'd like to particularly highlight the Claude courses.
 
 - Want to use these tools but want to focus on R?
-  See the [Positron setup page](./o3-positron-setup.qmd).
+  See the [Positron setup page](./o3-positron-install.qmd) for instructions on how to set up and use Positron.
 
-- Please do the post-workshop survey before you leave!
-  It will really help us improve future workshops.
+-----
 
-::: callout-note
-## Ideas for using agentic AI in your own research
+::: {.callout-note collapse="true"}
+## Other (technical) ideas for using agentic AI for coding _(Click to expand)_
 
 A lot of our practice prompts were quite basic, covering:
 
@@ -57,9 +59,8 @@ Here are some ideas to stay in the realm of the fairly mundane, but quite useful
   - Personal website
   - Lab website
   
-- Looking for inspiration for **non-coding tasks?**
+- Looking for inspiration for **non-coding and/or non-research tasks?**
   [Here's one starting point.](https://claudeblattman.com)
-
 :::
 
 <!-------
