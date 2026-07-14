@@ -1,6 +1,5 @@
 ---
 title: "DIY with own (or other) data"
-subtitle: "TBA"
 date: 2026-07-03
 date-modified: today
 author:
@@ -25,15 +24,29 @@ bibliography: refs.bib # You can add reference to this files if you have and cit
 
 ## Introduction
 
+During this session,
+
+::: callout-tip
+### One or more plots as an end goal
+Whichever data set you use, perhaps a nice end goal is one or more plots.
+Even if you, say, only align reads to a reference genome,
+you can still make a plot of the alignment success statistics.
+:::
+
 ::: callout-warning
-
-- Don't go overboard with very big asks,
-  especially ones far removed from the omics data analysis context.
-  If you want to try that, please use your own API key.
-
+#### Keep it reasonable
+Don't go overboard with very big asks,
+especially ones far removed from the omics data analysis context.
+For example, we don't really want to you to build a massive web app for personal use, here.
+If you want to try something along those lines, please use your own API key.
 :::
 
 ## Example dataset
+
+If you don't have your own data, we'd recommend that you continue working with
+the example dataset.
+
+- Pre-made count table 
 
 If you want to continue working with the example dataset:
 

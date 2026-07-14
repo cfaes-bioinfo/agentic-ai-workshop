@@ -17,6 +17,45 @@ bibliography: refs.bib
 
 <hr style="height:1pt; visibility:hidden;" />
 
+::: callout-note
+#### Day 2: setting up
+
+## Day 2: setting up {-}
+
+1. Open VS Code, or if you already have a window open that's not connected to OSC,
+   open a new VS Code window with `File` > `New Window`.
+
+2. In the `Recent` section in the VS Code "Welcome" document,
+   you should see the OSC folder with your OSC username for the `osc-cardinal-compute` ---
+   click on that line to open that folder and in the process connect to OSC!
+
+   ![A screenshot showing an entry in the "Recent" section of the VS Code Welcome document.<br>Yours should have _your_ OSC username.](/img/vscode-recent2.png){fig-align="center" width="60%" fig-alt="Screenshot of the VS Code Welcome document, showing the 'Recents' section with the 'Open Folder...' button highlighted"}
+
+   <details><summary>What if you don't see the folder in the `Recent` section?</summary>
+   
+   - Start a new session by clicking the `Connect to...` button in the
+     "Welcome" document, and selecting the `osc-cardinal-compute` connection.
+     Alternatively, open the command palette (in the cog wheel menu)
+     and find the `Remote-SSH: Connect to Host...` option to select you connection.
+   
+   - Once connected, click `File` > `Open Folder`
+     (or `Open...` with a folder icon in the Welcome document) and select your dir
+     `/fs/scratch/PAS3454/people/<user>`.
+   
+   </details>
+
+   ::: {.callout-important appearance="simple"}
+   Can't get the `osc-cardinal-compute` connection to work?
+   Switch to `osc-cardinal-login` instead.
+   :::
+
+3. Open a terminal and check that you are indeed in dir `/fs/scratch/PAS3454/people/<user>`:
+   
+   ```bash
+   pwd
+   ```
+:::
+
 ## Introduction
 
 As mentioned in the [previous session](05-setup.qmd):
@@ -63,7 +102,7 @@ sequencing dataset to analyze with the help of our AI tools.
      you should see the OSC folder with your OSC username for the `osc-cardinal-compute` ---
      click on that line to open that folder and in the process connect to OSC!
 
-     ![](/img/vscode-recents.png){fig-align="center" width="40%" fig-alt="Screenshot of the VS Code Welcome document, showing the 'Recents' section with the 'Open Folder...' button highlighted"}
+     ![](/img/vscode-recent2.png){fig-align="center" width="40%" fig-alt="Screenshot of the VS Code Welcome document, showing the 'Recents' section with the 'Open Folder...' button highlighted"}
 
    If you don't see this folder in the `Recent` section after Step 1,
    simply start a new session, for example by clicking the

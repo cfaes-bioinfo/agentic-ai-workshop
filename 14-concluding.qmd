@@ -23,6 +23,12 @@ bibliography: refs.bib # You can add reference to this files if you have and cit
 
 <hr style="height:1pt; visibility:hidden;" />
 
+## ...
+
+- Take a look at the [Resources page](./o2-resources.qmd) for links to further resources
+
+- [Positron setup page](./o3-positron-setup.qmd)
+
 ## Ideas for using Claude Code
 
 Our above practice prompts were very basic, covering:
