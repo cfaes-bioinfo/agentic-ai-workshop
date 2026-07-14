@@ -7,12 +7,11 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c875dbb4c9335aca9cc352e974a4ec92.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.9.38">
 
-  <meta name="author" content="Hannah Toth">
-  <meta name="dcterms.date" content="2026-07-14">
-  <title>Agentic AI Workshop – Prompt engineering</title>
+  <meta name="author" content="Derek Ditmer">
+  <title>Agentic AI Workshop – Approved genAI Tools at OSU</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -34,13 +33,10 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-e6aa1254394dcca702cccdf99f11d494.css">
-  <link rel="stylesheet" href="../slides.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -134,155 +130,125 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-color="silver" class="quarto-title-block center">
-  <h1 class="title">Prompt engineering</h1>
-  <p class="subtitle">Day 2 - 10:00 AM - 10:30 AM</p>
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Approved genAI Tools at OSU</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Hannah Toth 
+Derek Ditmer 
 </div>
-<div class="quarto-title-author-email">
-<a href="mailto:toth.302@osu.edu">toth.302@osu.edu</a>
 </div>
-        <p class="quarto-title-affiliation">
-            <a href="https://plantpath.osu.edu">
-            Department of Plant Pathology, Ohio State University
-            </a>
-          </p>
-    </div>
 </div>
 
-  <p class="date">2026-07-14</p>
 </section>
-<section id="introduction-to-prompt-engineering" class="slide level2">
-<h2>Introduction to Prompt Engineering</h2>
-<div style="font-size: 1.25em; line-height: 1.4;">
-<ul>
-<li class="fragment"><strong>What is a prompt?</strong><br>
-
-<ul>
-<li class="fragment">A prompt is the input text or query that you provide to an AI model to generate a response. It can be a question, statement, or instruction.</li>
-</ul></li>
-<li class="fragment"><strong>What is prompt engineering?</strong><br>
-
-<ul>
-<li class="fragment">The process of designing and optimizing prompts to provide you relevant and accurate responses for your specific needs.</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="why-is-prompt-engineering-so-important" class="slide level2">
-<h2>Why is prompt engineering so important?</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div style="font-size: 1.25em; line-height: 1.4;">
-<ul>
-<li><p>The only thing that stands in between <strong>you</strong> and an <strong>effective solution</strong> is the <strong>prompt</strong> you generate.</p></li>
-<li><p>Prompt engineering is so important that there are entire jobs, courses, and websites dedicated to it. In fact, you can purchase prompt engineering services from companies.</p></li>
-</ul>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src=".\img/prompt-base-example.png"></p>
-<figcaption>PromptBase website</figcaption>
-</figure>
-</div>
-</div></div>
-</section>
-<section id="anatomy-of-a-well-crafted-prompt" class="slide level2">
-<h2>Anatomy of a well-crafted prompt</h2>
-<p>Fortunately, for us science-minded folks, there is an SOP of sorts to help us craft effective prompts. A well-crafted prompt should include, at minimum, the following components:</p>
-<div style="font-size: 0.9em; line-height: 1.2;">
-<ul>
-<li class="fragment"><strong>Task</strong>: What are you asking the AI model to do?
-<ul>
-<li class="fragment"><em>Example</em>: “<strong>Write a script that counts all A, T, C, and G characters in a FASTA file.</strong>”</li>
-</ul></li>
-<li class="fragment"><strong>Context and Constraints</strong>: What information does the AI model need to know to complete the task? Are there any constraints or limitations that the AI model should be aware of?
-<ul>
-<li class="fragment"><em>Example</em>: “Write a script that counts all A, T, C, and G characters in a FASTA file. <strong>The script should be written in Python 3 and use the Biopython library. The file may contain Ns, which should be ignored.</strong>”</li>
-</ul></li>
-<li class="fragment"><strong>Output Format</strong>: What format do you want the AI model to respond and/or produce?
-<ul>
-<li class="fragment"><em>Example</em>: “Write a script that counts all A, T, C, and G characters in a FASTA file. The script should be written in Python 3 and use the Biopython library. The file may contain Ns, which should be ignored. <strong>The resulting counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count></count></count></count></count></strong>”</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="language-in-prompting" class="slide level2">
-<h2>Language in prompting</h2>
-<p>While good prompting begins with our three building blocks, the language we use in prompting has a significant impact on the quality of the response we receive.</p>
-<ul>
-<li class="fragment"><p><strong>Direct</strong>: Just as we do for writing, we should be direct and concise in our prompting.</p></li>
-<li class="fragment"><p><strong>Specificity</strong>: Be specific when you describe what you want from the AI model. Avoid using vague language or unclear instructions. The more specific you are, the more likely the reponse will be relevant to what you need.</p>
-<ul>
-<li class="fragment"><em>Example</em>: “Write a <strong>python</strong> script…”</li>
-<li class="fragment"><em>Example of what <strong>not</strong> to do</em>: “Write a script that counts ATGC in a file.”</li>
-</ul></li>
-<li class="fragment"><p><strong>Detail</strong>: You want to provide enough details to the AI model to understand the scope of the task, but no so many details that it becomes overwhelmed and confused. More on this in the next slide.</p></li>
-</ul>
-</section>
-<section id="to-get-the-most-out-of-your-prompts" class="slide level2">
-<h2>To get the most out of your prompts…</h2>
-<ul>
-<li class="fragment"><strong>More is not <em>always</em> better</strong>: Too much information, details, or directions can overwhelm the AI model and can create problematic responses. If you have multiple directions, break them up into <strong>multiple prompts</strong>. Avoid giving the AI model too many details that are <strong>irrelevant</strong> to the task.
-<ul>
-<li class="fragment"><em>Example</em>: “…counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count>.”
-<ul>
-<li class="fragment"><strong>NEW PROMPT - +: “This script worked. Now, can you modify it to count the number of &gt; characters as well? Do not edit the existing code, only add the necessary modifications</strong>”</li>
-</ul></count></count></count></count></li>
-<li class="fragment"><em>Example of what <strong>not</strong> to do</em>: “Write me a script that counts all A, T, C, and G characters in a FASTA file. This FASTA file is a bacterial genome that is 5 Mb in size and belongs to the genus <em>Pseudomonas</em>. It was isolated from a tomato plant in New York.”</li>
-</ul></li>
-</ul>
-</section>
-<section id="to-get-the-most-out-of-your-prompts-cont" class="slide level2">
-<h2>To get the most out of your prompts… (cont)</h2>
-<ul>
-<li class="fragment"><strong>Examples</strong>: Providing examples of your <strong>output</strong>, <strong>problem</strong>, or <strong>both</strong> can significantly improve the quality of the response you recieve.
-<ul>
-<li class="fragment"><em>Example</em>: “…counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count>. <strong>For example, if the input file contains the following sequence: ATCGATCGNNNATCG, the output should be: A: 3 T: 3 C: 3 G: 3</strong>”</count></count></count></count></li>
-</ul></li>
-<li class="fragment"><strong>Input data</strong>: Similar to examples, it is sometimes helpful to include actual data in the form of copying and pasting or attaching a file to your prompt. However, avoid uploading large files or datasets as this can consume time and resources (aka tokens).
-<ul>
-<li class="fragment"><em>Example</em>: “…counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count>. <strong>I’ve attached a small file here to help you understand what my input data will look like.</strong>”</count></count></count></count></li>
-</ul></li>
-</ul>
-</section>
-<section id="optional-but-useful-pieces-for-prompting" class="slide level2">
-<h2>Optional, but useful pieces for prompting</h2>
-<ul>
-<li class="fragment"><strong>Role/Persona</strong>: Do you want the AI model to take on the role of a particular type of person? Do you want your AI model to act as a molecular biologist? a bioinformatician? a student? a peer?
-<ul>
-<li class="fragment"><em>Example</em>: “<strong>You are a bioinformatician with 10 years of experience in fungal, whole-genome analysis.</strong> Write a script that counts all A, T, C, and G characters…”</li>
-</ul></li>
-<li class="fragment"><strong>Audience</strong>: The AI model is creating a response <strong>for you</strong>. Do you want the response to be tailored to your level of expertise? Or to an expertise level that is higher or lower than your own?
-<ul>
-<li class="fragment"><em>Example</em>: “<strong>I am a graduate student with very little experience in bioinformatics.</strong> Write a script that counts all A, T, C, and G characters…”</li>
-</ul></li>
-</ul>
-</section>
-<section id="optional-but-useful-pieces-for-prompting-cont" class="slide level2">
-<h2>Optional, but useful pieces for prompting (cont)</h2>
-<ul>
-<li class="fragment"><strong>Ask if you need help</strong>: Sometime its useful to add onto the end of your prompt, “Ask for clarification if needed.” AI models aren’t necessarily designed to ask for clarification right off the bat.</li>
-<li class="fragment"><strong>Be iterative</strong>: If you struggle with what information to include and not include, start prompting with our three building blocks (task, context/constraints, output format) as a foundation. Build upon the response you recieve.</li>
-</ul>
-</section>
-<section id="lets-practice-prompt-engineering" class="slide level2">
-<h2>Let’s practice prompt engineering</h2>
-<p>Boot up your favorite AI model (in the terminal or online) and let’s get started!</p>
-<p><strong>Questions?</strong></p>
-
+<section>
+<section id="hi-i-am-derek" class="title-slide slide level1 center">
+<h1>Hi, I am Derek</h1>
 
 </section>
+<section id="platform-engineer" class="slide level2">
+<h2>Platform Engineer</h2>
+
+<img data-src=".\img/me.png" class="r-stretch quarto-figure-center"><p class="caption">Derek OTDI</p></section>
+<section id="approved-genai-tools" class="slide level2">
+<h2>Approved GenAI Tools</h2>
+<ol type="1">
+<li><a href="https://ai.osu.edu/" class="uri">https://ai.osu.edu/</a></li>
+<li>Resources for Buckeyes</li>
+<li>Approved Tools</li>
+</ol>
+</section>
+<section id="web-based-tools" class="slide level2">
+<h2>Web Based tools</h2>
+<ul>
+<li><h3 id="adobe">Adobe</h3>
+<ul>
+<li><a href="https://firefly.osu.edu" class="uri">https://firefly.osu.edu</a></li>
+</ul></li>
+<li><h3 id="google">Google</h3>
+<ul>
+<li><a href="https://gemini.google.com" class="uri">https://gemini.google.com</a></li>
+<li><a href="https://notebooklm.google.com/" class="uri">https://notebooklm.google.com/</a></li>
+</ul></li>
+<li><h3 id="microsoft">Microsoft</h3>
+<ul>
+<li><a href="https://copilot.microsoft.com" class="uri">https://copilot.microsoft.com</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="cloud-vendors" class="slide level2">
+<h2>Cloud Vendors</h2>
+<ul>
+<li><h3 id="google-cloude-platform-gcp">Google Cloude Platform (GCP)</h3>
+<ul>
+<li>Gemini</li>
+</ul></li>
+<li><h3 id="amazon-web-services-aws">Amazon Web Services (AWS)</h3>
+<ul>
+<li>Anthropic Claude, Nova, Kimi, Deepseek</li>
+<li>Coming soon: openai, grok, and Anthropic Fable 5</li>
+</ul></li>
+<li><h3 id="microsoft-azure">Microsoft Azure</h3>
+<ul>
+<li>OpenAI GPT</li>
+</ul></li>
+</ul>
+</section>
+<section id="osu-genai-service" class="slide level2">
+<h2>OSU GenAI Service</h2>
+<h3 id="created-for-builders-developers-researchers">Created for Builders, Developers &amp; Researchers</h3>
+<p><img data-src=".\img/image.png" alt="GenAI service, user on laptop accessing various LLMs on GCP, Azure, and AWS cloud"> <a href="https://go.osu.edu/get-genai" class="uri">https://go.osu.edu/get-genai</a></p>
+</section>
+<section id="model-access" class="slide level2">
+<h2>Model Access</h2>
+<p><img data-src=".\img/image-1.png" alt="List of models available on GenAI service"> <a href="https://go.osu.edu/api-fluency" class="uri">https://go.osu.edu/api-fluency</a></p>
+</section>
+<section id="basic-usage" class="slide level2">
+<h2>Basic usage</h2>
+<ul>
+<li>OpenAI protocol</li>
+<li>API key - sk-XXXXXXXXXX</li>
+<li>custom endpoint – <a href="https://litellm.cloud.osu.edu" class="uri">https://litellm.cloud.osu.edu</a></li>
+</ul>
+</section>
+<section id="features" class="slide level2">
+<h2>Features</h2>
+<ul>
+<li>team budgets</li>
+<li>generate api keys</li>
+<li>set api budget, expiration, and model access</li>
+</ul>
+</section>
+<section id="genai-integrations" class="slide level2">
+<h2>GenAI integrations</h2>
+<ul>
+<li><a href="https://colab.osu.edu" class="uri">https://colab.osu.edu</a></li>
+<li>claude code cli</li>
+<li>claude desktop as via 3rd party mode</li>
+<li>ide integration with continue</li>
+<li>any software with custom endpoint/api key</li>
+</ul>
+</section>
+<section id="aws-kiro" class="slide level2">
+<h2>AWS Kiro</h2>
+<ul>
+<li><a href="https://kiro.dev" class="uri">https://kiro.dev</a></li>
+<li>requires OSU AWS account</li>
+<li>monthly subscription based access to Claude</li>
+<li>kiro web ui, cli, and IDE <img data-src=".\img/image-2.png" alt="Kiro Logo"> <img data-src=".\img/image-4.png" alt="alt text"></li>
+</ul>
+</section>
+<section id="carmen-ai-assistant" class="slide level2">
+<h2>Carmen AI Assistant</h2>
+<p><a href="https://firefly.cloud.osu.edu" class="uri">https://firefly.cloud.osu.edu</a> <img data-src=".\img/image-3.png" alt="alt text"></p>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
-<p><img src="../img/CFAES-Horiz-RGBHEX.svg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://cfaes-bioinfo.github.io/agentic-ai-workshop/">~ Gen and agentic AI workshop ~</a></p>
+
 </div>
 </div></div>
 
@@ -293,7 +259,6 @@ Hannah Toth
   <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -315,9 +280,8 @@ Hannah Toth
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"width":"wide","numbers":true},
-'chalkboard': {"buttons":true,"theme":"whiteboard"},
-'smaller': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
  
         // Display controls in the bottom right corner
         controls: false,
@@ -337,7 +301,7 @@ Hannah Toth
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'c/t',
+        slideNumber: false,
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -487,7 +451,7 @@ Hannah Toth
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
           RevealNotes,

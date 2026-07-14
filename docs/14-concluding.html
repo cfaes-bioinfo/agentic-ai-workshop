@@ -45,7 +45,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-18fe6355df9e00e9561dd53ce8dc48ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1053746f56c9687f95043b1511700dc7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,8 +108,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./02-ai-intro.html">
  <span class="dropdown-text">2: Intro to Generative AI and LLMs</span></a>
   </li>  
-        <li class="dropdown-header">3: Approved genAI tools at OSU (TBA)</li>
-        <li class="dropdown-header">4: Use cases and tools for research (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./03-osu-approved.html">
+ <span class="dropdown-text">3: Approved genAI tools at OSU</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./04-genai-use-cases.pdf">
+ <span class="dropdown-text">4: Use cases and tools for research (PDF)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./05-setup.html">
  <span class="dropdown-text">5: VS Code and OSC setup</span></a>
@@ -130,9 +136,22 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./08-claude.html">
  <span class="dropdown-text">8: Agentic chat with Claude Code</span></a>
   </li>  
-        <li class="dropdown-header">9: Prompt engineering (TBA)</li>
-        <li class="dropdown-header">10: Advanced agentic options and skills (TBA)</li>
-        <li class="dropdown-header">11: Limitations and responsible use of AI (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./09-prompts-slides.html">
+ <span class="dropdown-text">9: Prompt engineering (slides)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./09-prompts-page.html">
+ <span class="dropdown-text">9: Prompt engineering (page)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./10-agentic2.html">
+ <span class="dropdown-text">10: Advanced agentic options and skills</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./11-responsible-use.html">
+ <span class="dropdown-text">11: Limitations and responsible use of AI</span></a>
+  </li>  
         <li class="dropdown-header">12: DIY with own (or other) data (TBA)</li>
     </ul>
   </li>
@@ -233,8 +252,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ideas-for-using-claude-code" id="toc-ideas-for-using-claude-code" class="nav-link active" data-scroll-target="#ideas-for-using-claude-code"><span class="header-section-number">1</span> Ideas for using Claude Code</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -275,7 +300,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 13, 2026</p>
+      <p class="date-modified">July 14, 2026</p>
     </div>
   </div>
     
@@ -299,6 +324,39 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <hr style="height:1pt; visibility:hidden;">
+<section id="ideas-for-using-claude-code" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="ideas-for-using-claude-code"><span class="header-section-number">1</span> Ideas for using Claude Code</h2>
+<p>Our above practice prompts were very basic, covering:</p>
+<ul>
+<li>Writing simple scripts</li>
+<li>Troubleshooting simple errors</li>
+<li>Writing documentation files</li>
+</ul>
+<p>You can do much more advanced and ambitious things with Claude Code. Here are some ideas to stay in the realm of the fairly mundane, but quite useful!</p>
+<ul>
+<li><p><strong>Troubleshooting complex errors:</strong> e.g., it can be stunningly good at following complex paper trails of errors in a complicated workflow or set of scripts.</p></li>
+<li><p><strong>Doing things that are (well) beyond your ability <em>and/yet</em> easy to verify</strong>:<br>
+</p>
+<ul>
+<li>A really complicated installation.</li>
+<li>Tedious, repetitive tasks that you don’t have the skill to automate yourself.</li>
+</ul></li>
+<li><p><strong>Writing entire pipelines</strong>, including in formal workflow languages like Nextflow</p></li>
+<li><p><strong>Proof-reading code (and other documents) that does work.</strong><br>
+If you have a complicated set of scripts, it’s very easy to get lost and not notice things like inconsistent variable names or other small errors. These AI tools are often quite meticulous in this sense.</p></li>
+<li><p><strong>Doing “optional next step” stuff you never get to:</strong></p>
+<ul>
+<li>Organize a disorganized project folder, create documentation, and put it under version control</li>
+<li>Turn a script into a nice notebook/Quarto doc, dashboard, or Shiny app</li>
+<li>Turning a set of R scripts into an R package</li>
+</ul></li>
+<li><p><strong>Build a (Quarto) website</strong></p>
+<ul>
+<li>Personal website</li>
+<li>Lab website</li>
+</ul></li>
+<li><p>Looking for inspiration for <strong>non-coding tasks?</strong> <a href="https://claudeblattman.com">Here’s one starting point.</a></p></li>
+</ul>
 <!-------
 
 ## Introduction
@@ -331,6 +389,7 @@ ul.task-list li input[type="checkbox"] {
 ------>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -740,7 +799,7 @@ ul.task-list li input[type="checkbox"] {
 <p>2026, Jelmer Poelstra, <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> &nbsp; <img src="http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" class="img-fluid" style="width:10.0%"></p>
 </div>   
     <div class="nav-footer-center">
-<p><img src="./img/CFAES-Horiz-RGBHEX.svg" class="img-fluid" style="width:40.0%"></p>
+<p><img src=".\img/CFAES-Horiz-RGBHEX.svg" class="img-fluid" style="width:40.0%"></p>
 </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

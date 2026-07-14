@@ -8,7 +8,6 @@
 
 <meta name="author" content="Menuka Bhandari">
 <meta name="dcterms.date" content="2026-07-14">
-<meta name="description" content="Investigate a failed Slurm or bioinformatics job using its submission script, standard output log, and error log.">
 
 <title>Advanced agentic options and skills – Agentic AI Workshop</title>
 <style>
@@ -25,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -46,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-18fe6355df9e00e9561dd53ce8dc48ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1053746f56c9687f95043b1511700dc7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -111,8 +145,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./02-ai-intro.html">
  <span class="dropdown-text">2: Intro to Generative AI and LLMs</span></a>
   </li>  
-        <li class="dropdown-header">3: Approved genAI tools at OSU (TBA)</li>
-        <li class="dropdown-header">4: Use cases and tools for research (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./03-osu-approved.html">
+ <span class="dropdown-text">3: Approved genAI tools at OSU</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./04-genai-use-cases.pdf">
+ <span class="dropdown-text">4: Use cases and tools for research (PDF)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./05-setup.html">
  <span class="dropdown-text">5: VS Code and OSC setup</span></a>
@@ -133,9 +173,22 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./08-claude.html">
  <span class="dropdown-text">8: Agentic chat with Claude Code</span></a>
   </li>  
-        <li class="dropdown-header">9: Prompt engineering (TBA)</li>
-        <li class="dropdown-header">10: Advanced agentic options and skills (TBA)</li>
-        <li class="dropdown-header">11: Limitations and responsible use of AI (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./09-prompts-slides.html">
+ <span class="dropdown-text">9: Prompt engineering (slides)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./09-prompts-page.html">
+ <span class="dropdown-text">9: Prompt engineering (page)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./10-agentic2.html">
+ <span class="dropdown-text">10: Advanced agentic options and skills</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./11-responsible-use.html">
+ <span class="dropdown-text">11: Limitations and responsible use of AI</span></a>
+  </li>  
         <li class="dropdown-header">12: DIY with own (or other) data (TBA)</li>
     </ul>
   </li>
@@ -244,17 +297,18 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
   <li><a href="#claude.md" id="toc-claude.md" class="nav-link" data-scroll-target="#claude.md"><span class="header-section-number">2</span> CLAUDE.md</a>
   <ul class="collapse">
-  <li><a href="#creating-claude.md-file" id="toc-creating-claude.md-file" class="nav-link" data-scroll-target="#creating-claude.md-file"><span class="header-section-number">2.1</span> Creating <code>CLAUDE.md</code> file</a></li>
+  <li><a href="#recommended-information-to-include-in-claude.md" id="toc-recommended-information-to-include-in-claude.md" class="nav-link" data-scroll-target="#recommended-information-to-include-in-claude.md"><span class="header-section-number">2.1</span> Recommended information to include in <code>CLAUDE.md</code></a></li>
+  <li><a href="#creating-claude.md-file" id="toc-creating-claude.md-file" class="nav-link" data-scroll-target="#creating-claude.md-file"><span class="header-section-number">2.2</span> Creating <code>CLAUDE.md</code> file</a></li>
   </ul></li>
   <li><a href="#agent-skill-in-claude-code" id="toc-agent-skill-in-claude-code" class="nav-link" data-scroll-target="#agent-skill-in-claude-code"><span class="header-section-number">3</span> Agent skill in Claude Code</a>
   <ul class="collapse">
   <li><a href="#the-skill.md-file" id="toc-the-skill.md-file" class="nav-link" data-scroll-target="#the-skill.md-file"><span class="header-section-number">3.1</span> <code>The SKILL.md file</code></a></li>
+  <li><a href="#components-of-skill.md-file" id="toc-components-of-skill.md-file" class="nav-link" data-scroll-target="#components-of-skill.md-file"><span class="header-section-number">3.2</span> Components of <code>SKILL.md</code> file</a></li>
   </ul></li>
-  <li><a href="#subagents" id="toc-subagents" class="nav-link" data-scroll-target="#subagents"><span class="header-section-number">4</span> Subagents</a></li>
-  <li><a href="#guardrails" id="toc-guardrails" class="nav-link" data-scroll-target="#guardrails"><span class="header-section-number">5</span> Guardrails</a>
+  <li><a href="#guardrails" id="toc-guardrails" class="nav-link" data-scroll-target="#guardrails"><span class="header-section-number">4</span> Guardrails</a>
   <ul class="collapse">
-  <li><a href="#built-in-security-guardrails" id="toc-built-in-security-guardrails" class="nav-link" data-scroll-target="#built-in-security-guardrails"><span class="header-section-number">5.1</span> Built-in Security Guardrails</a></li>
-  <li><a href="#user-configurable-guardrails" id="toc-user-configurable-guardrails" class="nav-link" data-scroll-target="#user-configurable-guardrails"><span class="header-section-number">5.2</span> User-configurable Guardrails</a></li>
+  <li><a href="#built-in-security-guardrails" id="toc-built-in-security-guardrails" class="nav-link" data-scroll-target="#built-in-security-guardrails"><span class="header-section-number">4.1</span> Built-in Security Guardrails</a></li>
+  <li><a href="#user-configurable-guardrails" id="toc-user-configurable-guardrails" class="nav-link" data-scroll-target="#user-configurable-guardrails"><span class="header-section-number">4.2</span> User-configurable Guardrails</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -268,11 +322,6 @@ ul.task-list li input[type="checkbox"] {
 <p class="subtitle lead">Reusable instructions and specialized agents</p>
 </div>
 
-<div>
-  <div class="description">
-    Investigate a failed Slurm or bioinformatics job using its submission script, standard output log, and error log.
-  </div>
-</div>
 
 <div class="quarto-title-meta-author">
   <div class="quarto-title-meta-heading">Author</div>
@@ -303,7 +352,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 13, 2026</p>
+      <p class="date-modified">July 14, 2026</p>
     </div>
   </div>
     
@@ -316,16 +365,6 @@ ul.task-list li input[type="checkbox"] {
 
 <hr>
 <hr style="height:1pt; visibility:hidden;">
-<div class="callout callout-style-simple callout-caution">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong><em>This page is still subject to change</em></strong></p>
-</div>
-</div>
-</div>
 <hr style="height:1pt; visibility:hidden;">
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
@@ -366,17 +405,13 @@ ul.task-list li input[type="checkbox"] {
 <td>A reusable procedure or checklist for a specific task</td>
 <td>Reviewing a Slurm script or validating a sequencing workflow</td>
 </tr>
-<tr class="odd">
-<td><strong>Subagents</strong></td>
-<td>Delegating a focused task to a specialist with separate context</td>
-<td>Asking a code-review agent to inspect a pipeline <strong>without modifying it</strong></td>
-</tr>
 </tbody>
 </table>
 </section>
 <section id="claude.md" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="claude.md"><span class="header-section-number">2</span> CLAUDE.md</h2>
-<p><code>CLAUDE.md</code> provides persistent project specific memory to your agent unlike prompting Claude at the beginning of every conversation. Therefore, you do not have to re-explain your project every time. <code>CLAUDE.md</code> is a Markdown (<code>.md</code>) file, making it easy to create, edit, and version-control alongside your code. Claude automatically consults this file whenever it works in your project, allowing it to make more informed decisions, follow your preferred workflows, and use project-specific conventions. This makes <code>CLAUDE.md</code> one of the simplest and most effective ways to customize Claude’s behavior for a research project. <strong>In bioinformatics, a well-written <code>CLAUDE.md</code> helps Claude understand your project, analysis pipeline, directory structure, coding standards, software environment, and preferred workflows</strong>. There is no required format for <code>CLAUDE.md</code>. However, this file should be concise, easy to read, and written for both humans and Claude.</p>
+<p><a href="https://claude.com/blog/using-claude-md-files">CLAUDE.md</a> provides persistent project specific memory to your agent, eliminating the need to re-explain your project at the start of every conversation. Therefore, you do not have to re-explain your project every time. <code>CLAUDE.md</code> is a Markdown (<code>.md</code>) file, making it easy to create, edit, and version-control alongside your code. Claude automatically references this file whenever it works in your project, allowing it to make more informed decisions, follow your preferred workflows, and use project-specific conventions. As a result, <code>CLAUDE.md</code> is one of the simplest and most effective ways to customize Claude’s behavior for a research project.</p>
+<p><strong>In bioinformatics, a well-written <code>CLAUDE.md</code> helps Claude understand your project, analysis pipeline, directory structure, coding standards, software environment, and preferred workflows</strong>. There is no required format for <code>CLAUDE.md</code>. However, this file should be concise, easy to read, and easy to understand for both humans and Claude.</p>
 <p><strong>Where should <code>CLAUDE.md</code> live?</strong></p>
 <ul>
 <li><strong>Most projects place it in the repository root so everyone working on the project shares the same instructions.</strong></li>
@@ -390,7 +425,8 @@ ul.task-list li input[type="checkbox"] {
 <p>You can also place a <code>CLAUDE.md</code>:<br>
 - In a parent directory for multiple related projects<br>
 - In your home directory to apply default instructions across all projects</p>
-<p>Typical information to include <code>CLAUDE.md</code> file:</p>
+<section id="recommended-information-to-include-in-claude.md" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="recommended-information-to-include-in-claude.md"><span class="header-section-number">2.1</span> Recommended information to include in <code>CLAUDE.md</code></h3>
 <ul>
 <li><strong>Project overview</strong> – research objectives and biological questions</li>
 <li><strong>Project description</strong> – datasets, organisms, sequencing technology, or experimental design</li>
@@ -401,8 +437,9 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Important notes</strong> – project-specific assumptions, quality-control requirements, or common pitfalls</li>
 </ul>
 <p>A good <code>CLAUDE.md</code> acts like a team member who already understands your project’s structure and conventions, allowing you to focus on solving biological problems instead of repeatedly providing background information.</p>
-<section id="creating-claude.md-file" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="creating-claude.md-file"><span class="header-section-number">2.1</span> Creating <code>CLAUDE.md</code> file</h3>
+</section>
+<section id="creating-claude.md-file" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="creating-claude.md-file"><span class="header-section-number">2.2</span> Creating <code>CLAUDE.md</code> file</h3>
 <p>You can create a CLAUDE.md file in two ways:</p>
 <ul>
 <li><strong>Create it manually by adding a <code>CLAUDE.md</code> file to your project</strong>.</li>
@@ -417,8 +454,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Source code organization</li>
 <li>Common development patterns</li>
 </ul>
-<p>Example of <code>CLAUDE.md</code> file generated using <code>/init</code> command is provided below: <img src="./img/claudemd_file_example.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></p>
-<p>Claude then asks where you would like to save the <code>CLAUDE.md</code> file.</p>
+<p>Example of <code>CLAUDE.md</code> file generated using <code>/init</code> command is provided below: <img src=".\img/claudemd_file_example.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p>After running the <code>/init</code>, Claude then asks where you would like to save the <code>CLAUDE.md</code> file in the project root.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -434,11 +471,12 @@ ul.task-list li input[type="checkbox"] {
 <p>Tip: If your project already contains a <code>CLAUDE.md</code> file, running <code>/init</code> again does not overwrite it blindly. Instead, Claude reviews the existing file and suggests improvements or updates based on your current project and ask if you want to edit this file.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/git_diff_claude.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<p><img src=".\img/git_diff_claude.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 <p>What you’re seeing is a Git diff, which Claude Code is showing so you can review the changes it made.</p>
-<p>🟢 Green (+) = new text that Claude added 🔴 Red (-) = old text that Claude removed or replaced</p>
+<p>🟢 Green (+) = new text that Claude added<br>
+🔴 Red (-) = old text that Claude removed or replaced</p>
 </div>
 </div>
 </div>
@@ -477,20 +515,32 @@ ul.task-list li input[type="checkbox"] {
 <p>Treat your <code>CLAUDE.md</code> as living documentation. Start with a simple file generated by <code>/init</code>, then refine it over time as your project evolves. The best <code>CLAUDE.md</code> files capture the conventions and workflows that you find yourself explaining to Claude repeatedly. As your project evolves, update your <code>CLAUDE.md</code> to reflect new workflows, software, directory structures, or analysis conventions. Keeping it current helps Claude continue to provide accurate, project-specific assistance.</p>
 </div>
 </div>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-create-claude.md-file" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-create-claude.md-file"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Create <code>CLAUDE.md</code> file</h4>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-1-create-claude.md-file" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-1-create-claude.md-file"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise 1: Create <code>CLAUDE.md</code> file</h4>
 <ol type="1">
 <li>Run the <code>/init</code> command to generate a <code>CLAUDE.md</code> file.</li>
 <li>Review the generated file.</li>
-<li>Edit it by adding at least three project-specific instructions, for example:</li>
+<li>Edit <code>CLAUDE.md</code> file by adding at project-specific instructions, for example:</li>
 </ol>
 <ul>
-<li>Raw FASTQ files are stored in <code>data/raw/</code>.</li>
 <li>Write analysis outputs to <code>results/</code>.</li>
-<li>Do not modify <code>data/raw/</code></li>
+<li>Do not modify <code>iqbal/fastq</code></li>
+</ul>
+<ol start="4" type="1">
+<li>Add the shell scripting conventions in <code>CLAUDE.md</code> file</li>
+</ol>
+<ul>
+<li>Always specify software module versions.</li>
+<li>Verify that requested modules exist in OSC before loading them.</li>
+<li>If a module is unavailable, use a Singularity/Apptainer container.</li>
+<li>Always use project account <code>PAS3454</code>.</li>
+<li>Always use strict Bash settings (<code>set -euo pipefail</code>).</li>
+<li>Always create output directories before writing results.</li>
+<li>Verify that expected output files exist and are not empty before reporting success.</li>
 </ul>
 <ol start="5" type="1">
-<li>Ask Claude:Based on my <code>CLAUDE.md</code>, where should I save the <code>FastQC</code> output and what should I avoid modifying? Review the response and verify that it follows the project instructions.</li>
+<li>Write SLURM job script to run FastQC on all FASTQ files in <code>iqbal/fastq</code> and save it in <code>script/fastqc.sh</code>.</li>
+<li>Review the response and verify that it follows the project instructions.</li>
 </ol>
 </section>
 </section>
@@ -499,7 +549,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="3" class="anchored" data-anchor-id="agent-skill-in-claude-code"><span class="header-section-number">3</span> Agent skill in Claude Code</h2>
 <section id="the-skill.md-file" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="the-skill.md-file"><span class="header-section-number">3.1</span> <code>The SKILL.md file</code></h3>
-<p>A Claude <code>SKILL.md</code> file is a markdown file written in plain English with reusable instructions that help Claude perform specific workflows consistently. Skills are useful when you find yourself repeatedly pasting the same checklist, procedure, or review criteria into the chat. A good <code>SKILL.md</code> file is short and easy to follow, focused in one task and specific about Claude what to do and what not to do.</p>
+<p>A Claude <a href="https://code.claude.com/docs/en/skills">SKILL.md</a> file is a Markdown file written in plain English that defines reusable instructions for a specific workflow or task. Skills help Claude perform tasks consistently and reduce the need to repeatedly provide the same prompts, checklists, procedures, or review criteria. An effective <code>SKILL.md</code> file is concise, easy to understand, focused on a single `purpose, and clearly specifies what Claude should do and what it should not do.</p>
 <p><strong>A project-specific skill is stored inside the project’s .claude/skills/ directory:</strong></p>
 <pre class="text"><code>rnaseq-project/
 ├── .claude/
@@ -511,24 +561,26 @@ ul.task-list li input[type="checkbox"] {
 ├── scripts/
 ├── results/
 └── README.md</code></pre>
-<p>SKILL.md consists of two parts:</p>
+</section>
+<section id="components-of-skill.md-file" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="components-of-skill.md-file"><span class="header-section-number">3.2</span> Components of <code>SKILL.md</code> file</h3>
 <ol type="1">
-<li><strong>YAML front matter</strong>: The YAML front matter provides the skill name and a short description. Claude uses the description to understand when the skill is relevant.</li>
-<li><strong>The skill instructions</strong>: The rest of the file should contain the procedure Claude should follow.</li>
+<li><p><strong>YAML front matter</strong>: A structured metadata section at the beginning of the file that defines the <strong>skill name</strong> and a <strong>brief description</strong>. Claude uses this information to determine when the skill is relevant and should be applied.</p></li>
+<li><p><strong>The skill instructions</strong>: The main body of the file that describes the workflow, procedure, guidelines, and rules Claude should follow when using the skill.</p></li>
 </ol>
 <p>Example of <code>SKILL.md</code> file is provided below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/script_file_example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<p><img src=".\img/script_file_example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
-<p>The folder name becomes the command used to invoke the skill. <strong>For example, the skill can be run from the Claude Code chat panel using <code>/review-slurm-script</code></strong>. Claude will then ask which Slurm script you want to review. You can provide the script path, such as:<code>scripts/fastqc.sh</code>. After you select a file, the skill reviews it for issues such as missing Slurm settings, unreasonable resource requests, incorrect paths, missing log files, or unsafe commands. Claude will usually separate confirmed problems from optional improvements and may then ask whether you want it to apply the suggested changes or review another script. Review the proposed changes before approving them. If you choose to apply the fixes, Claude updates the script based on the skill instructions.</p>
+<p>The folder name becomes the command used to invoke the skill. <strong>For example, the skill can be run from the Claude Code chat panel using <code>/review-slurm-script</code></strong>. Claude will then ask which Slurm script you want to review. You can provide the script path, such as:<code>scripts/fastqc.sh</code> created in <code>exercise 1</code>. After you select a file, the skill reviews it for issues such as missing Slurm settings, unreasonable resource requests, incorrect paths, missing log files, or unsafe commands. Claude will usually separate confirmed problems from optional improvements and may then ask whether you want it to apply the suggested changes or review another script. Review the proposed changes before approving them. If you choose to apply the fixes, Claude updates the script based on the skill instructions.</p>
 <p>Claude does not always need you to specify which skill to use. If a request closely matches a skill’s description, Claude may select and use that skill automatically. For example, suppose you have a skill called <code>/review-slurm-script</code> that checks Slurm scripts for common errors. If you open a Slurm file and ask:Can you check this Slurm script for mistakes? Claude may recognize that the request matches the skill and use it automatically.</p>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-test-the-skill" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-test-the-skill"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Test the skill</h4>
-<p>In this exercise, you will use a skill to investigate a failed Slurm job</p>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-2-test-the-skill" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-2-test-the-skill"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise 2: Test the skill</h4>
+<p>In this exercise, you will use a skill to investigate a failed Slurm job and identify possible solutions</p>
 <ol type="1">
-<li>Create the following skill</li>
+<li>Create the following directory structure in your project:</li>
 </ol>
 <pre class="text"><code>.claude/
 └── skills/
@@ -537,19 +589,23 @@ ul.task-list li input[type="checkbox"] {
 <ol start="2" type="1">
 <li>Add the name and the description in the SKILL.md file in the YAML front matter.</li>
 </ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> troubleshoot-slurm-job</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> Review a Slurm job submission script and identify possible errors.</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
-<li>Add the following skill instructions</li>
+<li><p>Copy the Slurm <code>/fs/scratch/PAS3454/people/menuka/script/trimgalore.sh</code> to your script folder.</p></li>
+<li><p>Add the following skill instructions</p></li>
 </ol>
 <ul>
 <li>Read the submission script.</li>
-<li>Read the standard output.</li>
 <li>Check software modules, file paths, resource requests, and command syntax.</li>
 <li>Determine whether the problem originates from: Slurm configuration, input data, bioinformatics program.</li>
 <li>Report the most likely cause and its solution.</li>
 </ul>
 <ol start="4" type="1">
-<li><p>Run the <code>/troubleshoot-slurm-job</code> skill from the Claude Code chat panel by providing the relevant files <code>@fastqc.sh</code> <code>@fastqc.out</code>.</p></li>
-<li><p>Review the Claude’s response to identify if it identifies the error and the solution to it.</p></li>
+<li><p>Run the <code>/troubleshoot-slurm-job</code> skill from the Claude Code chat panel by providing the relevant files <code>@trimgalore.sh</code>.</p></li>
+<li><p>Review the Claude’s response to check if it identifies the error and the solution to it.</p></li>
 </ol>
 </section>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -570,31 +626,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 </section>
-<section id="subagents" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="subagents"><span class="header-section-number">4</span> Subagents</h2>
-<p>A subagent is a specialized Claude assistant designed for a focused responsibility, such as reviewing code, searching scientific literature, checking data quality, or debugging a bioinformatics workflow.A subagent works in its own context window and returns its findings to the main Claude conversation. This is useful for tasks that require extensive investigation or produce large amounts of output, because the detailed work stays within the subagent instead of filling the main conversation.</p>
-<p>Project-specific subagents are stored in the <code>.claude/agents/</code> directory whereas personal sub agents are stored in <code>~/.claude/agents/</code>. Claude may select a subagent automatically when a request matches its description, or the user can ask Claude to delegate the task explicitly.</p>
-<p>A subagent is defined in a Markdown file that consists of two parts:</p>
-<ol type="1">
-<li><strong>YAML frontmatter</strong> – configures the subagent (for example, its name, description, model, and tools).</li>
-<li><strong>System prompt</strong> – follows the YAML frontmatter and provides the detailed instructions that define the subagent’s role, workflow, and expected output.</li>
-</ol>
-<p>You can create a subagent manually or ask Claude Code to generate one for you.</p>
-<p>If Claude Code cannot find a newly created user-level subagent, restart Claude Code. This is only necessary when the ~/.claude/agents/ directory did not exist when the session started.</p>
-<div class="exercise">
-<p><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise: Create and Test a Subagent</p>
-<p>In this exercise, you will create a read-only subagent that reviews a Slurm job script and suggests improvements.</p>
-<ol type="1">
-<li>Create the subagent file <code>slurm_reviwer.md</code>.</li>
-<li>Add the YAML frontmatter.</li>
-<li>Add the system prompt below YAML frontmatter.</li>
-<li>Ask Claude to use the subagent to review th Slurm script. Use the slurm-reviewer subagent to review <span class="citation" data-cites="fastqc.sh">(<a href="#ref-fastqc.sh" role="doc-biblioref"><strong>fastqc.sh?</strong></a>)</span>. Do not modify or run the script. or you may explicitely select using <code>@"slurm-reviewer (agent)"</code> review <code>@fastqc.sh</code> and suggest improvements.</li>
-<li>Review Claude’s response and check whether the subagent identifies problems with the Slurm script.</li>
-</ol>
-</div>
-</section>
-<section id="guardrails" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="guardrails"><span class="header-section-number">5</span> Guardrails</h2>
+<section id="guardrails" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="guardrails"><span class="header-section-number">4</span> Guardrails</h2>
 <p>AI agents such as Claude Code can read files, modify code, execute shell commands, install software, and automate many aspects of a bioinformatics workflow. These capabilities make them powerful collaborators, but they also introduce risk if they are not properly constrained.</p>
 <p><strong>Guardrails are the rules, permissions, and safety mechanisms that control what Claude is allowed to do and how it should behave. Their purpose is to prevent accidental, unsafe, or unwanted actions while still allowing Claude to be productive</strong>.</p>
 <p>Think of guardrails like the safety rails on a mountain road. They do not stop you from driving—they help prevent you from accidentally going over the edge.</p>
@@ -609,8 +642,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Commit API keys or passwords to GitHub</li>
 </ul>
 <p><strong>Guardrails provide an additional layer of protection that helps catch these mistakes before they happen</strong>.</p>
-<section id="built-in-security-guardrails" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="built-in-security-guardrails"><span class="header-section-number">5.1</span> Built-in Security Guardrails</h3>
+<section id="built-in-security-guardrails" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="built-in-security-guardrails"><span class="header-section-number">4.1</span> Built-in Security Guardrails</h3>
 <p>Claude Code includes several security features:</p>
 <ol type="1">
 <li><p><strong>Permission-based architecture</strong> : By default, Claude Code is read-only. Whenever Claude wants to edit files, run tests, execute commands, it ask for your permission</p></li>
@@ -618,8 +651,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Prompt injection protection</strong> : Claude includes built-in protections that help detect many prompt injection attempts and may request additional approval before performing potentially risky actions. These protections reduce but do not eliminate the risk, so users should still review requested actions.</p></li>
 </ol>
 </section>
-<section id="user-configurable-guardrails" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="user-configurable-guardrails"><span class="header-section-number">5.2</span> User-configurable Guardrails</h3>
+<section id="user-configurable-guardrails" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="user-configurable-guardrails"><span class="header-section-number">4.2</span> User-configurable Guardrails</h3>
 <ol type="1">
 <li><strong>Permission</strong>: Permissions determine which files &amp; commands Claude is allowed to access. Permissions are configured in <code>settings.json</code> file. This prevents Claude from accidentally exposing confidential information by denying access to the sensitive files. For examples:</li>
 </ol>
@@ -628,7 +661,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
 <li>Blocking <code>secrets/</code><br>
 </li>
-<li>Preventing access to <strong>SSH keys</strong> use <code>/fs/ess/PAS0471/menuka/WGS_Menuka/.claude/settings.json</code> as an example.</li>
+<li>Preventing access to <strong>SSH keys</strong> use <code>/fs/scratch/PAS3454/people/menuka/.claude/settings.json</code> as an example.</li>
 </ul>
 <ol start="2" type="1">
 <li><p><strong>Hooks</strong> : <strong>Hooks</strong> are small programs or scripts that run automatically before or after Claude uses a tool. Unlike instructions in CLAUDE.md, hooks are always executed whenever the specified event occurs. This makes them ideal for enforcing mandatory safety rules. Because hooks execute automatically, they act as hard guardrails rather than recommendations.</p></li>
@@ -644,7 +677,7 @@ ul.task-list li input[type="checkbox"] {
 <p>These are not security restrictions but behavioral instructions that help Claude work consistently across the project.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/guardrails.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p><img src=".\img/guardrails.png" class="img-fluid figure-img" style="width:50.0%"></p>
 <figcaption><strong>Figure 1. Three user-configurable guardrails in Claude Code: permissions, hooks, and project instructions (CLAUDE.md)</strong></figcaption>
 </figure>
 </div>
@@ -1074,7 +1107,7 @@ ul.task-list li input[type="checkbox"] {
 <p>2026, Jelmer Poelstra, <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> &nbsp; <img src="http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" class="img-fluid" style="width:10.0%"></p>
 </div>   
     <div class="nav-footer-center">
-<p><img src="./img/CFAES-Horiz-RGBHEX.svg" class="img-fluid" style="width:40.0%"></p>
+<p><img src=".\img/CFAES-Horiz-RGBHEX.svg" class="img-fluid" style="width:40.0%"></p>
 </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

@@ -23,6 +23,45 @@ bibliography: refs.bib # You can add reference to this files if you have and cit
 
 <hr style="height:1pt; visibility:hidden;" />
 
+## Ideas for using Claude Code
+
+Our above practice prompts were very basic, covering:
+
+- Writing simple scripts
+- Troubleshooting simple errors
+- Writing documentation files
+
+You can do much more advanced and ambitious things with Claude Code.
+Here are some ideas to stay in the realm of the fairly mundane, but quite useful!
+
+- **Troubleshooting complex errors:**
+  e.g., it can be stunningly good at following
+  complex paper trails of errors in a complicated workflow or set of scripts.
+
+- **Doing things that are (well) beyond your ability _and/yet_ easy to verify**:\
+  - A really complicated installation.
+  - Tedious, repetitive tasks that you don't have the skill to automate yourself.
+
+- **Writing entire pipelines**, including in formal workflow languages like Nextflow
+
+- **Proof-reading code (and other documents) that does work.**\
+  If you have a complicated set of scripts, it's very easy to get lost and not
+  notice things like inconsistent variable names or other small errors.
+  These AI tools are often quite meticulous in this sense.
+
+- **Doing "optional next step" stuff you never get to:**
+  - Organize a disorganized project folder, create documentation,
+    and put it under version control
+  - Turn a script into a nice notebook/Quarto doc, dashboard, or Shiny app
+  - Turning a set of R scripts into an R package
+    
+- **Build a (Quarto) website**
+  - Personal website
+  - Lab website
+  
+- Looking for inspiration for **non-coding tasks?**
+  [Here's one starting point.](https://claudeblattman.com)
+  
 <!-------
 
 ## Introduction

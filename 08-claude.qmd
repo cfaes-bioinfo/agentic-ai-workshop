@@ -17,12 +17,6 @@ bibliography: refs.bib
 
 <hr style="height:1pt; visibility:hidden;" />
 
-::: {.callout-caution appearance="simple"}
-**_This page is still subject to change_**
-:::
-
-<hr style="height:1pt; visibility:hidden;" />
-
 ## Introduction
 
 ### About Claude Code
@@ -39,7 +33,7 @@ It runs via the LiteLLM service, and these kinds of keys in general are called "
 
 A key advantage of this approach is that it allows us to use Claude Code in a way
 that is **approved for use with restricted institutional data (S2-S4)**.
-So, you can use it also with your own data this afternoon,
+So, you can also use it with your own data this afternoon,
 regardless of whether it is public or private data.
 
 ::: {.callout-tip collapse="true"}
@@ -66,7 +60,7 @@ So, if you pay for a personal Anthropic account and use that to access Claude Co
 you are **not** using it in an approved way. 
 :::
 
-Like with GitHub Copilot, the Anthropic product Claude Code comes in various forms,
+As with GitHub Copilot, the Anthropic product Claude Code comes in various forms,
 but we will use it within a VS Code extension --- which we'll set up now.
 
 ### Before we start
@@ -86,7 +80,7 @@ but we will use it within a VS Code extension --- which we'll set up now.
      "Welcome" document, and selecting the `osc-cardinal-compute` connection.
    
    - Once connected, click `File` > `Open Folder`
-     (or `Open...` with a folder icon in the Welcome document) and select you dir
+     (or `Open...` with a folder icon in the Welcome document) and select your dir
      `/fs/scratch/PAS3454/people/<user>`.
    
    </details>
@@ -150,16 +144,16 @@ but we will use it within a VS Code extension --- which we'll set up now.
    ```
    :::
 
-3. A second tab should now be available next to the Copilot tab in the side bar,
+3. A second tab should now be available next to the Copilot tab in the sidebar,
    named "CLAUDE" --- click on that
-   (_if you don't see it, you may have to widen the side bar!_):
+   (_if you don't see it, you may have to widen the sidebar!_):
 
    ![Next to "CHAT" (i.e., GitHub Copilot), a "CLAUDE CODE" tab is now available.](/img/vscode-claude-in-sidebar.png){fig-align="center" width="70%" fig-alt="Screenshot of the VS Code interface, showing the Claude Code icon in the top right corner of the window"}
 
    ::: {.callout-note collapse="true"}
    #### Alternative way of opening a Claude Code window _(Click to expand)_
    
-   Once installed, a Claude Code icon will appear in the topright of the editor pane:
+   Once installed, a Claude Code icon will appear in the top right of the editor pane:
    
    ![](/img/vscode-claude-icon.png){fig-align="center" width="20%" fig-alt="Screenshot of the VS Code interface, showing the Claude Code icon in the top right corner of the window"}
    
@@ -254,7 +248,7 @@ fastqc --outdir results/fastqc "$fastq_file"
 
 </details>
 
-We'll try running the script later -- for now, let's reflect on the outputs.
+We'll try running the script later --- for now, let's reflect on the outputs.
 
 ::: exercise
 #### {{< fa comments >}} Discuss the results
@@ -284,7 +278,7 @@ Our initial prompts to Claude Code in much of this session will be:
 
 - **Not (necessarily) well-designed**, so we can get a better feel for Claude behavior
   in different contexts, and illustrate improvement later on.
-  [The next session](./08-prompts-slides.qmd-p) will explicitly cover prompt engineering.
+  [The next session](./09-prompts-slides.qmd) will explicitly cover prompt engineering.
 :::
 
 ## Adding file context
@@ -305,7 +299,7 @@ which refers to the same thing in this context.].
 Typically, your workspace should be a folder for a specific research project.
 **It is good practice to keep all files related to a project in one folder/workspace**.
 There are a number of reasons for this,
-including to benefit reproducibility and to effectively use in-editor AI like Claude Code.
+including to improve reproducibility and to effectively use in-editor AI like Claude Code.
 
 ::: {.callout-tip appearance="simple"}
 To start with, **your entire workspace** is what we may call the "implicit context" for the chat.
@@ -338,7 +332,7 @@ Additional considerations:
 
 - If you **select one or more lines of code in the editor**,
   Claude will automatically add that selection as context.
-  You could for example ask, within a much longer script,
+  For example, you could ask, within a much longer script,
   "_these lines of code don't seem to be working, can you help me fix them?_"
 
   ![](/img/claude-select-lines.png){fig-align="center" width="70%" .lightbox fig-alt="Screenshot of the Claude Code prompt box, showing that a selection of lines in the fastqc.sh script has been added as context"}
@@ -364,7 +358,7 @@ Additional considerations:
 ::: exercise
 #### {{< fa user-edit >}} Exercise: Add context to the chat
 
-1. Run the script `fastqc.sh` in the terminal in the way that Claude suggested you to run it,
+1. Run the script `fastqc.sh` in the terminal in the way that Claude suggested running it,
    with an actual FASTQ file from the @iqbal2025 dataset as input.
 
    <details><summary>Click for a hint</summary>
@@ -373,7 +367,6 @@ Additional considerations:
    ```
    
    From your current working dir, the FASTQ files are at: `../iqbal/fastq`.
-
    </details>
 
 2. Wait for a Slurm file to appear in your working directory,
@@ -383,7 +376,7 @@ Additional considerations:
 3. Add both the `fastqc.sh` script and the Slurm file as context to the chat,
    and ask a relevant follow-up question.
    If you got an error when running the script, you could ask to troubleshoot the error.
-   If it ran successfully, you could ask to improve the script or what will end up in the Slurm file.
+   If it ran successfully, you could ask to improve the script or ask what will end up in the Slurm file.
 
    <details><summary>Click for some hints</summary>
    
@@ -427,11 +420,18 @@ Additional considerations:
    Specified output directory 'results/fastqc' does not exist
    ```
 
-   This one was likely (especially) self-inflicted, since we said "very simple script" in the prompt,
+   This one was likely self-inflicted, since we said "very simple script" in the prompt,
    so Claude didn't include code to create the output dir, which is fairly common practice.
    And most programs would make the output dir if it doesn't exist, but FastQC doesn't.
 
    </details>
+
+5. Bonus: try to improve the script with the following prompt:
+
+   > Add functional bells and whistles to the fastqc.sh script. Also report the time it took to run the script
+
+   {{< fa comments >}} Do the edits make sense? Do you understand them?
+   Are you missing anything that you think should be there?
 
 :::
 
@@ -482,7 +482,7 @@ you can control which LLM model is used and how it behaves:
 - **`Switch model...`**:
   Lets you pick which Claude model to use.
   The main trade-off is between speed/cost and capability:
-  - **_Opus_** is likely to be the default model, and is the most capable model,
+  - **_Opus_** is likely to be the default, and is the most capable model,
     but slower and more expensive.
     Best reserved for complex multi-step reasoning or tricky debugging.
   - **_Sonnet_** is fast, capable, and much cheaper.
@@ -529,8 +529,8 @@ you can control which LLM model is used and how it behaves:
 ## Permission modes
 
 On the right-hand side of the prompt box is the **Mode** indicator.
-Most of the options that can be toggled between are permission levels that Claude
-has to perform **actions like editing files and running commands**, namely:
+Most of the options that can be toggled between are permission levels
+for Claude to perform **actions like editing files and running commands**, namely:
 
 - **Manual**:
   Claude asks permission for each action.
@@ -546,12 +546,12 @@ has to perform **actions like editing files and running commands**, namely:
 
 The other mode is a little different:
 
- - **Plan mode**:
+- **Plan mode**:
   Claude writes a plan that is then opened as a rendered Markdown document,
   and which you can approve or modify.
 
 ::: exercise
-#### {{< fa user-edit >}} Exercise: Explore planning mode and models/effort
+#### {{< fa user-edit >}} Bonus exercise: Explore planning mode and models/effort
 
 In this exercise, you'll ask Claude to plan a quality control workflow for the RNA-seq data,
 first quickly and then more carefully,
@@ -598,6 +598,11 @@ For each prompt, do the following:
 - How would you verify that the plan is reasonable and complete?
 - How does it compare to what @iqbal2025 actually did in their workflow?
 - Does the "lazy" setting seem good enough here?
+
+**Bonus^2^:**
+
+- Run the code in one of the plans (or a combination of both) to see if it works.
+
 :::
 
 ## Stopping or steering Claude mid-response
@@ -621,7 +626,7 @@ you can do so in a few ways:
 
   ![](/img/claude-interrupt4.png){fig-align="center" width="60%" .lightbox fig-alt="Screenshot of the Claude Code interface, showing the 'Stop' button in the top right corner of the response box"}
 
-- **Completely stop and rewind**
+- **Completely stop and rewind:**
   Pressing <kbd>Esc</kbd> + <kbd>Esc</kbd> in quick succession will stop Claude
   and rewind the conversation to the point before it started responding.
 
@@ -640,7 +645,7 @@ Try steering and/or stopping Claude mid-response.
 The prompt below is what I used for the screenshots above,
 but you can modify it or use a different prompt if you like:
 
-> Write an R script to visualize the data in `iqbal/meta.tsv`, which should produce PNG files. Run the R script. Load the R module with "module load gcc/12.3.0 R.4.5.0"
+> Write an R script to visualize the data in `iqbal/meta.tsv`, which should produce PNG files. Run the R script. Load the R module with "module load gcc/12.3.0 R/4.5.0"
 :::
 
 ## The context window and token usage
@@ -686,7 +691,7 @@ For these reasons, it is important to **monitor and manage context usage**.
 
 ::: callout-note
 #### "Lost in the Middle" problem
-A related problem that can be useful to be aware of is that the model is most
+A related problem worth knowing about is that the model is most
 likely to "lose track" of the middle of a long conversation,
 when the context window is large but not yet full.
 :::
@@ -732,7 +737,7 @@ With an OSU LiteLLM API key, usage can be tracked on the
 At the moment, you are using the API key provided by us, so you can't access this ---
 but you will be able to do so if you get your own OSU LiteLLM API key.
 
-This dashboard e.g. shows a dollar-wise daily usage bar chart ("Usage" page),
+For example, this dashboard shows a dollar-wise daily usage bar chart ("Usage" page),
 and a table of all requests that includes the exact amount spent on each request
 ("Logs" page).
 
@@ -748,14 +753,14 @@ and a table of all requests that includes the exact amount spent on each request
 
 To reduce usage costs, you can consider switching to AI tools in your browser
 when you don't need agentic capabilities like file editing and command execution.
-For example, questions about general bioinformatics concepts and software usage and options
+For example, questions about general bioinformatics concepts and software usage
 can be answered by a browser-based LLM like Google Gemini, which is available via an OSU login.
 
 On the other hand, going back-and-forth depending on the context does mean that
 you don't have all relevant chat history in one place.
 :::
 
-### Context engineering
+### Bonus: Context engineering
 
 "Context engineering" is the practice of managing the context window to improve
 performance and reduce costs.
@@ -763,7 +768,7 @@ performance and reduce costs.
 #### Quick tips
 
 Here, we will focus on strategies related to managing the actual chat conversation,
-but a couple other strategies are worth mentioning briefly:
+but a couple of other strategies are worth mentioning briefly:
 
 - Don't load unnecessary files as context.
 
@@ -816,7 +821,7 @@ Here are two ways to have useful conversations despite length limitations:
 
 - **Clear conversation:** (`/clear`)
   Wipes the current chat history and starts fresh, but keeps the same chat "slot"
-  (as opposed to starting a genuinely new chat, see below).
+  (as opposed to starting a genuinely new chat, see above).
   Useful when a conversation has gotten long or gone down an unproductive path,
   and you want Claude to stop being influenced by it,
   without leaving behind a separate chat you'd need to find again later.
@@ -834,68 +839,6 @@ Here are two ways to have useful conversations despite length limitations:
 ![Screenshot of the top of the Claude window, with the Claude icon (left) to open a completely new window, the clock icon (right) to see previous chats, and the new chat icon (far right) to start a new chat.](/img/claude-top-buttons.png){fig-align="center" width="75%" fig-alt="Screenshot of the Claude Code interface, showing the top buttons for chat history, new chat, and opening a new Claude Code window"}
 :::
 
-## Bonus exercises
-
-::: exercise
-#### {{< fa user-edit >}} Run the code from one of the plans you generated above
-:::
-
-::: exercise
-#### {{< fa user-edit >}} Improve a script
-
-For example:
-
-> Add functional bells and whistles to the fastqc.sh script. Also report the time it took to run the script
-
-{{< fa comments >}} Do the edits make sense? Do you understand them?
-Are you missing anything that you think should be there?
-:::
-
-::: exercise
-#### {{< fa user-edit >}} Trick questions
-
-Ask a classic stumbling-block question for AIs, such as
-_"How many b's are in the word blueberry?"_
-
-Have you heard of any other classic questions that AIs struggle with? Try one out!
-:::
-
-## Ideas for using Claude Code
-
-Our above practice prompts were very basic, covering:
-
-- Writing simple scripts
-- Troubleshooting simple errors
-- Writing documentation files
-
-You can do much more advanced and ambitious things with Claude Code.
-Here are some ideas to stay in the realm of the fairly mundane, but quite useful!
-
-- **Troubleshooting complex errors:**
-  e.g., it can be stunningly good at following
-  complex paper trails of errors in a complicated workflow or set of scripts.
-
-- **Doing things that are (well) beyond your ability _and/yet_ easy to verify**:\
-  - A really complicated installation.
-  - Tedious, repetitive tasks that you don't have the skill to automate yourself.
-
-- **Writing entire pipelines**, including in formal workflow languages like Nextflow
-
-- **Proof-reading code (and other documents) that does work.**\
-  If you have a complicated set of scripts, it's very easy to get lost and not
-  notice things like inconsistent variable names or other small errors.
-  These AI tools are often quite meticulous in this sense.
-
-- **Doing "optional next step" stuff you never get to:**
-  - Organize a disorganized project folder, create documentation,
-    and put it under version control
-  - Turn a script into a nice notebook/Quarto doc, dashboard, or Shiny app
-  - Turning a set of R scripts into an R package
-    
-- **Build a (Quarto) website**
-  - Personal website
-  - Lab website
-
 <!----
 
 - Some of my use cases:
@@ -906,7 +849,7 @@ Here are some ideas to stay in the realm of the fairly mundane, but quite useful
   - Formal (Nextflow) workflows
   - Maintaining a set of scripts to be used across projects
 
-- **Tedious and repetive things**\
+- **Tedious and repetitive things**\
   This is what the OTDI video on identifying AI use cases emphasized:
   use it for "dull, dense, and/or draft-heavy" tasks.
   In research, we don't have those so much, but here's one example I have:
@@ -915,12 +858,11 @@ Here are some ideas to stay in the realm of the fairly mundane, but quite useful
   Applying the updates to all scripts is tedious and time-consuming,
   but Claude can do it very quickly.
 
-- Looking for inspiration for **non-coding tasks?**
-  [Here's one starting point.](https://claudeblattman.com)
+#### {{< fa user-edit >}} Trick questions
 
- ::: exercise
-#### {{< fa user-edit >}} A troubleshooting example
-_likely provide a script that produces errors, and ask Claude to troubleshoot it._
- :::
+Ask a classic stumbling-block question for AIs, such as
+_"How many b's are in the word blueberry?"_
+
+Have you heard of any other classic questions that AIs struggle with? Try one out!
 
 ---->
