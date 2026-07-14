@@ -28,6 +28,9 @@ The instructors will be available to help you with any questions you may have.
 - You can also continue working on the **example data**.
   We have a bit more info on that below.
 
+- We also skipped over a number of **exercises in the previous sessions**.
+  Feel free to go back and try those out, if you want to.
+
 ::: callout-note
 ### Ask AI!
 Remember that you can also ask AI ---including the Gemini options Jonathan showed---
@@ -93,6 +96,11 @@ Below are some suggestions if you'd like to continue working on the @iqbal2025 d
     [RNA-Seq analysis tutorial](https://jelmerp.github.io/ENTMLGY6703/labs/DE.html).
     This is a different dataset, so don't try to follow the exact code ---
     use Claude to adapt it, or start from scratch.
+  :::
+
+  ::: {.callout-note}
+  ### Working with R? Consider setting up and using Positron
+  See our [Positron setup page](./o3-positron-setup.qmd)!
   :::
 
 #### Whole-genome resequencing data

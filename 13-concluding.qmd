@@ -1,37 +1,29 @@
 ---
-title: "Concluding remarks and looking forward"
-subtitle: "TBA"
-date: 2026-07-03
+title: "Concluding remarks"
+date: 2026-07-14
 date-modified: today
-author:
-  - name: Jelmer Poelstra
-    orcid: 0000-0002-3514-7462
-    email: poelstra.1@osu.edu
-    affiliation: 
-      - name: CFAES Bioinformatics Core, Ohio State University
-        url: https://mcic.osu.edu/bioinformatics
-bibliography: refs.bib # You can add reference to this files if you have and cite any
+bibliography: refs.bib
 ---
 
 ---------
 
 <hr style="height:1pt; visibility:hidden;" />
 
-::: {.callout-caution appearance="simple"}
-**_This page is still subject to change_**
-:::
+## Some final notes
 
-<hr style="height:1pt; visibility:hidden;" />
+- Take a look at the [Resources page](./o2-resources.qmd) for links to further resources.
+  We'd like to particularly highlight the Claude courses.
 
-## ...
+- Want to use these tools but want to focus on R?
+  See the [Positron setup page](./o3-positron-setup.qmd).
 
-- Take a look at the [Resources page](./o2-resources.qmd) for links to further resources
+- Please do the post-workshop survey before you leave!
+  It will really help us improve future workshops.
 
-- [Positron setup page](./o3-positron-setup.qmd)
+::: callout-note
+## Ideas for using agentic AI in your own research
 
-## Ideas for using Claude Code
-
-Our above practice prompts were very basic, covering:
+A lot of our practice prompts were quite basic, covering:
 
 - Writing simple scripts
 - Troubleshooting simple errors
@@ -67,7 +59,9 @@ Here are some ideas to stay in the realm of the fairly mundane, but quite useful
   
 - Looking for inspiration for **non-coding tasks?**
   [Here's one starting point.](https://claudeblattman.com)
-  
+
+:::
+
 <!-------
 
 ## Introduction

@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jelmer Poelstra">
-<meta name="dcterms.date" content="2026-07-03">
+<meta name="dcterms.date" content="2026-07-14">
 
-<title>Concluding remarks and looking forward – Agentic AI Workshop</title>
+<title>Concluding remarks – Agentic AI Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -264,8 +263,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><span class="header-section-number">1</span> …</a></li>
-  <li><a href="#ideas-for-using-claude-code" id="toc-ideas-for-using-claude-code" class="nav-link" data-scroll-target="#ideas-for-using-claude-code"><span class="header-section-number">2</span> Ideas for using Claude Code</a></li>
+  <li><a href="#some-final-notes" id="toc-some-final-notes" class="nav-link active" data-scroll-target="#some-final-notes"><span class="header-section-number">1</span> Some final notes</a></li>
   </ul>
 </nav>
     </div>
@@ -274,34 +272,18 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Concluding remarks and looking forward</h1>
-<p class="subtitle lead">TBA</p>
+<h1 class="title">Concluding remarks</h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Jelmer Poelstra <a href="mailto:poelstra.1@osu.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-3514-7462" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="https://mcic.osu.edu/bioinformatics">
-            CFAES Bioinformatics Core, Ohio State University
-            </a>
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
+    
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 3, 2026</p>
+      <p class="date">July 14, 2026</p>
     </div>
   </div>
   
@@ -321,27 +303,24 @@ ul.task-list li input[type="checkbox"] {
 
 <hr>
 <hr style="height:1pt; visibility:hidden;">
-<div class="callout callout-style-simple callout-caution">
-<div class="callout-body d-flex">
+<section id="some-final-notes" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="some-final-notes"><span class="header-section-number">1</span> Some final notes</h2>
+<ul>
+<li><p>Take a look at the <a href="./o2-resources.html">Resources page</a> for links to further resources. We’d like to particularly highlight the Claude courses.</p></li>
+<li><p>Want to use these tools but want to focus on R? See the <a href="./o3-positron-setup.qmd">Positron setup page</a>.</p></li>
+<li><p>Please do the post-workshop survey before you leave! It will really help us improve future workshops.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p><strong><em>This page is still subject to change</em></strong></p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ideas for using agentic AI in your own research
 </div>
 </div>
-</div>
-<hr style="height:1pt; visibility:hidden;">
-<section id="section" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="section"><span class="header-section-number">1</span> …</h2>
-<ul>
-<li><p>Take a look at the <a href="./o2-resources.html">Resources page</a> for links to further resources</p></li>
-<li><p><a href="./o3-positron-setup.qmd">Positron setup page</a></p></li>
-</ul>
-</section>
-<section id="ideas-for-using-claude-code" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="ideas-for-using-claude-code"><span class="header-section-number">2</span> Ideas for using Claude Code</h2>
-<p>Our above practice prompts were very basic, covering:</p>
+<div class="callout-body-container callout-body">
+<p>A lot of our practice prompts were quite basic, covering:</p>
 <ul>
 <li>Writing simple scripts</li>
 <li>Troubleshooting simple errors</li>
@@ -372,6 +351,8 @@ If you have a complicated set of scripts, it’s very easy to get lost and not n
 </ul></li>
 <li><p>Looking for inspiration for <strong>non-coding tasks?</strong> <a href="https://claudeblattman.com">Here’s one starting point.</a></p></li>
 </ul>
+</div>
+</div>
 <!-------
 
 ## Introduction
