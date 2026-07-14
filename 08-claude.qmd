@@ -72,7 +72,7 @@ but we will use it within a VS Code extension --- which we'll set up now.
    you should see the OSC folder with your OSC username for the `osc-cardinal-compute` ---
    click on that line to open that folder and in the process connect to OSC!
 
-   ![A screenshot showing an entry in the "Recent" section of the VS Code Welcome document.<br>The one you're looking for should have your username.](/img/vscode-recents.png){fig-align="center" width="40%" fig-alt="Screenshot of the VS Code Welcome document, showing the 'Recents' section with the 'Open Folder...' button highlighted"}
+   ![A screenshot showing an entry in the "Recent" section of the VS Code Welcome document.<br>Yours should have _your_ OSC username.](/img/vscode-recent2.png){fig-align="center" width="60%" fig-alt="Screenshot of the VS Code Welcome document, showing the 'Recents' section with the 'Open Folder...' button highlighted"}
 
    <details><summary>What if you don't see the folder in the `Recent` section?</summary>
    
