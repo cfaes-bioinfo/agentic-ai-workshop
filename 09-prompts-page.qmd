@@ -99,9 +99,8 @@ Let's create a prompt that will generate code for us. I recommend using Github C
 I would like a bash script that prints "I like bread. It is my favorite food." to the terminal. I am a beginner coder, so please include comments within the script telling me what the code means. Additionally, please print instructions, outside of the script, on how to run the script.
 ```
 
-## Create a prompt relavent to you!
+## Create a prompt relevant to you!
 So far, we've been focusing on our data or examples. Create a prompt that is related to you and your scientific data. If you can't think of any, see additional ideas below.
-
 
 ## Additional ideas for you to practice prompt engineering
 - Summarize a methods section for a certain audience (undergraduate students, graduate students, or the general public)
@@ -109,4 +108,3 @@ So far, we've been focusing on our data or examples. Create a prompt that is rel
 - Pretend you're a reviewer. Critically review my introduction, abstract, methods, etc.
 - Describe the central dogma to a certain audience (5th graders, high schoolers, my grandma)
 - Compare and constrast python and C++
-- 

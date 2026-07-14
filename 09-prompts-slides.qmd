@@ -95,13 +95,13 @@ Fortunately, for us science-minded folks, there is an SOP of sorts to help us cr
 While good prompting begins with our three building blocks, the language we use in prompting has a significant impact on the quality of the response we receive. 
 
 ::: {.incremental}
-- **Direct**: Just as we do for writing, we should be direct and concise in our prompting. Avoid using vague language or unclear instructions.
+- **Direct**: Just as we do for writing, we should be direct and concise in our prompting. 
+  
+- **Specificity**: Be specific when you describe what you want from the AI model. Avoid using vague language or unclear instructions. The more specific you are, the more likely the reponse will be relevant to what you need.
+  + *Example*: "Write a **python** script..."
   + *Example of what **not** to do*: "Write a script that counts ATGC in a file."
 
-- **Specificity**: Be specific when you describe what you want from the AI model. The more specific you are, the more likely the reponse will be relevant to what you need.
-  + *Example*: "Write a **python** script..."
-
-- **Detail**: This one is tricky. You want to provide enough details to the AI model to understand the scope of the task, but no so many details that it becomes overwhelmed and confused. More on this in the next slide.
+- **Detail**: You want to provide enough details to the AI model to understand the scope of the task, but no so many details that it becomes overwhelmed and confused. More on this in the next slide.
 :::
 
 ## To get the most out of your prompts...
@@ -132,7 +132,7 @@ While good prompting begins with our three building blocks, the language we use 
 ## Optional, but useful pieces for prompting (cont)
 ::: {.incremental}
 - **Ask if you need help**: Sometime its useful to add onto the end of your prompt, "Ask for clarification if needed." AI models aren't necessarily designed to ask for clarification right off the bat.
-- **Be iterative**: If you struggle with what information to include and not include, start prompting with our three building blocks as a foundation. Build upon the response you recieve. 
+- **Be iterative**: If you struggle with what information to include and not include, start prompting with our three building blocks (task, context/constraints, output format) as a foundation. Build upon the response you recieve. 
 :::
 
 ## Let's practice prompt engineering

@@ -216,15 +216,13 @@ Hannah Toth
 <h2>Language in prompting</h2>
 <p>While good prompting begins with our three building blocks, the language we use in prompting has a significant impact on the quality of the response we receive.</p>
 <ul>
-<li class="fragment"><strong>Direct</strong>: Just as we do for writing, we should be direct and concise in our prompting. Avoid using vague language or unclear instructions.
-<ul>
-<li class="fragment"><em>Example of what <strong>not</strong> to do</em>: “Write a script that counts ATGC in a file.”</li>
-</ul></li>
-<li class="fragment"><strong>Specificity</strong>: Be specific when you describe what you want from the AI model. The more specific you are, the more likely the reponse will be relevant to what you need.
+<li class="fragment"><p><strong>Direct</strong>: Just as we do for writing, we should be direct and concise in our prompting.</p></li>
+<li class="fragment"><p><strong>Specificity</strong>: Be specific when you describe what you want from the AI model. Avoid using vague language or unclear instructions. The more specific you are, the more likely the reponse will be relevant to what you need.</p>
 <ul>
 <li class="fragment"><em>Example</em>: “Write a <strong>python</strong> script…”</li>
+<li class="fragment"><em>Example of what <strong>not</strong> to do</em>: “Write a script that counts ATGC in a file.”</li>
 </ul></li>
-<li class="fragment"><strong>Detail</strong>: This one is tricky. You want to provide enough details to the AI model to understand the scope of the task, but no so many details that it becomes overwhelmed and confused. More on this in the next slide.</li>
+<li class="fragment"><p><strong>Detail</strong>: You want to provide enough details to the AI model to understand the scope of the task, but no so many details that it becomes overwhelmed and confused. More on this in the next slide.</p></li>
 </ul>
 </section>
 <section id="to-get-the-most-out-of-your-prompts" class="slide level2">
@@ -232,7 +230,10 @@ Hannah Toth
 <ul>
 <li class="fragment"><strong>More is not <em>always</em> better</strong>: Too much information, details, or directions can overwhelm the AI model and can create problematic responses. If you have multiple directions, break them up into <strong>multiple prompts</strong>. Avoid giving the AI model too many details that are <strong>irrelevant</strong> to the task.
 <ul>
-<li class="fragment"><em>Example</em>: “…counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count>.” <strong>NEW PROMPT: “This script worked. Now, can you modify it to count the number of &gt; characters as well? Do not edit the existing code, only add the necessary modifications</strong>”</count></count></count></count></li>
+<li class="fragment"><em>Example</em>: “…counts should be printed to the console in the following format: A: <count> T: <count> C: <count> G: <count>.”
+<ul>
+<li class="fragment"><strong>NEW PROMPT - +: “This script worked. Now, can you modify it to count the number of &gt; characters as well? Do not edit the existing code, only add the necessary modifications</strong>”</li>
+</ul></count></count></count></count></li>
 <li class="fragment"><em>Example of what <strong>not</strong> to do</em>: “Write me a script that counts all A, T, C, and G characters in a FASTA file. This FASTA file is a bacterial genome that is 5 Mb in size and belongs to the genus <em>Pseudomonas</em>. It was isolated from a tomato plant in New York.”</li>
 </ul></li>
 </ul>
@@ -267,7 +268,7 @@ Hannah Toth
 <h2>Optional, but useful pieces for prompting (cont)</h2>
 <ul>
 <li class="fragment"><strong>Ask if you need help</strong>: Sometime its useful to add onto the end of your prompt, “Ask for clarification if needed.” AI models aren’t necessarily designed to ask for clarification right off the bat.</li>
-<li class="fragment"><strong>Be iterative</strong>: If you struggle with what information to include and not include, start prompting with our three building blocks as a foundation. Build upon the response you recieve.</li>
+<li class="fragment"><strong>Be iterative</strong>: If you struggle with what information to include and not include, start prompting with our three building blocks (task, context/constraints, output format) as a foundation. Build upon the response you recieve.</li>
 </ul>
 </section>
 <section id="lets-practice-prompt-engineering" class="slide level2">

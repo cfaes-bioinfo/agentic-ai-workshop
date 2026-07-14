@@ -68,7 +68,7 @@ Throughout this presentation, I will be using the terms comfortability and limit
 ::::
 
 ## Search engine? More like autocomplete
-AI models are trained to *predict the next token*, known as **next token prediction**. They are trained on a vast, but concrete datasets.
+AI models are trained to *predict the next token*, known as **next token prediction**. They are designed to predict what comes next based on training data. 
 
 :::: {.fragment}
 **What sorts of tasks or knowledge would you say would be within AI's comfortability zone?**
@@ -83,7 +83,7 @@ AI models are trained to *predict the next token*, known as **next token predict
 :::
 
 ## Next token prediction risks
-Hallucination/frabication occur in AI models when it generates *confident*, *well-structured* responses that are actually **false**, **misleading**, or **entirely made up**. Fabrication is **frequent** in (but not limited to)...
+Hallucination/frabication occur in AI models when it generates *confident*, *well-structured* responses that are actually **false**, **misleading**, or **entirely made up**. Fabrication is **frequent** in...
 
 ::: {.incremental}
 - Niche or rare information
@@ -105,10 +105,12 @@ How can you *protect* yourself?
 ## Next token prediction risks (cont)
 :::: {.columns}
 ::: {.column width="60%"}
-From the two prompts, which do you think AI would be able to answer 'the best'? Where would these two prompts fall on the comfortability/limitation circle?
+Let's go through an example to test our knowledge of the comfortability and limitation zone. 
+
+From the two prompts below, which prompt would recieve the *better* response? Where would these two prompts fall on the comfortability/limitation circle?
 
 - Summarize the second chapter of How to Kill a Mockingbird. Provide me key details I would need to know for a pop quiz.
-- Provide the citations to the three most recent publications in the Plant Disease journal.
+- Provide the citations to the three most recent publications in the Plant Disease journal. Provide the affiliations of all of the authors from each citation.
 :::
 
 ::: {.column width="40%"}
@@ -117,15 +119,16 @@ From the two prompts, which do you think AI would be able to answer 'the best'? 
 ::::
 
 ## Knowledge gaps in AI models
-AI models are trained on datasets much larger than any human could comprehend. However, these datasets are **finite**, and training has a *start* and an *end* date.
+AI models are trained on datasets much larger than any human could comprehend. However, these datasets are **finite**, and training has a *start* and an *end* date. This leads to models that may not be up to date on current events. 
 
+*How can you protect yourself*
 ::: {.incremental}
-- What sort of knowledge do you think is in AI's comfort zone?
-- What sort of knowledge do you think is towards the edge of AI's comfort zone?
+- Test the model to determine event accuracy if time sensitive
+- Use tools, such as retrival-augmented generation, to gather recent data
 :::
 
 ## What is *working memory*?
-The working memory is basically what your AI model is paying attention *right now*. Let's go over what happens when AI is developing a response to your newest prompt.
+The working memory is basically what your AI model is paying attention to *right now*. Let's go over what happens when AI is developing a response to your newest prompt.
 
 ::: {.incremental}
 - Previous prompts + responses + input data = **context window**
@@ -150,7 +153,20 @@ Similar to human memory, old prompts, responses and data is 'forgotten' or remov
 - **The *middle* area**: Research has shown content towards the beginning and end of a prompt or document will recieve higher weight/attention than content in the middle.
 
 ## Financial/token responsibility
-While lots of AI companies are offering deals on AI usage, it is important to consider the prompts you are submitting.
+:::: {.columns}
+::: {.column width="60%"}
+While you as a student or staff member may not consider the financial aspect of using AI, your usage could impact your PI's wallet (aka grants).
+
+AI companies will impose limits on your usage. Take Github Copilot inline suggestions for example (right). This is a very common practice across all AI companies. Asking too many prompts or asking AI to complete a challenging can lead to limited access depending on the platform.
+
+
+:::
+
+::: {.column width="40%"}
+![](/img/copilot-limits.png)
+:::
+
+::::
 
 
 
