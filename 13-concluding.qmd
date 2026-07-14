@@ -14,6 +14,10 @@ bibliography: refs.bib
 - **Please do the [post-workshop survey](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=NlYJ61IQlUiVKx_53x0RIRPCxiUNwTpGiKjj0kzcvzxUQkxXNERPUzVHOEVSV1VTWVk0SktERDI2Ti4u) before you leave!**
   **It will really help us improve future workshops.**
 
+- Material for all lectures, including the external ones have been added to the website.
+  Links are in the schedule on the homepage and in the dropdown menus.
+  **The website will stay up indefinitely**.
+
 - Take a look at the [Resources page](./o2-resources.qmd) for links to further resources.
   We'd like to particularly highlight the Claude courses.
 
