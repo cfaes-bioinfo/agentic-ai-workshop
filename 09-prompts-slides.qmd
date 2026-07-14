@@ -1,6 +1,6 @@
 ---
 title: "Prompt engineering"
-subtitle: "Day 2 - 9:00 AM - 9:30 AM"
+subtitle: "Day 2 - 10:00 AM - 10:30 AM"
 date: 2026-07-14
 date-modified: today
 author:
@@ -39,14 +39,6 @@ bibliography: refs.bib # You can add reference to this files if you have and cit
 ---
 
 ---------
-
-<hr style="height:1pt; visibility:hidden;" />
-
-::: {.callout-caution appearance="simple"}
-**_This page is still subject to change_**
-:::
-
-<hr style="height:1pt; visibility:hidden;" />
 
 ## Introduction to Prompt Engineering
 
@@ -102,6 +94,7 @@ Fortunately, for us science-minded folks, there is an SOP of sorts to help us cr
 ## Language in prompting
 While good prompting begins with our three building blocks, the language we use in prompting has a significant impact on the quality of the response we receive. 
 
+::: {.incremental}
 - **Direct**: Just as we do for writing, we should be direct and concise in our prompting. Avoid using vague language or unclear instructions.
   + *Example of what **not** to do*: "Write a script that counts ATGC in a file."
 
@@ -109,6 +102,7 @@ While good prompting begins with our three building blocks, the language we use 
   + *Example*: "Write a **python** script..."
 
 - **Detail**: This one is tricky. You want to provide enough details to the AI model to understand the scope of the task, but no so many details that it becomes overwhelmed and confused. More on this in the next slide.
+:::
 
 ## To get the most out of your prompts...
 ::: {.incremental}
@@ -135,9 +129,15 @@ While good prompting begins with our three building blocks, the language we use 
   + *Example*: "**I am a graduate student with very little experience in bioinformatics.** Write a script that counts all A, T, C, and G characters..."
 :::
 
+## Optional, but useful pieces for prompting (cont)
+::: {.incremental}
+- **Ask if you need help**: Sometime its useful to add onto the end of your prompt, "Ask for clarification if needed." AI models aren't necessarily designed to ask for clarification right off the bat.
+- **Be iterative**: If you struggle with what information to include and not include, start prompting with our three building blocks as a foundation. Build upon the response you recieve. 
+:::
 
 ## Let's practice prompt engineering
-Boot up your favorite AI model and let's get started!
-(likely going to add image here, just need to find a good one)
+Boot up your favorite AI model (in the terminal or online) and let's get started!
+
+**Questions?**
 
 

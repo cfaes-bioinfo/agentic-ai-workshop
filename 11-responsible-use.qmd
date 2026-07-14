@@ -108,7 +108,7 @@ How can you *protect* yourself?
 From the two prompts, which do you think AI would be able to answer 'the best'? Where would these two prompts fall on the comfortability/limitation circle?
 
 - Summarize the second chapter of How to Kill a Mockingbird. Provide me key details I would need to know for a pop quiz.
-- Provide the citations to the three most recent publications Jonathan Jacobs has contributed to
+- Provide the citations to the three most recent publications in the Plant Disease journal.
 :::
 
 ::: {.column width="40%"}

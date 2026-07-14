@@ -27,6 +27,7 @@ author:
 - Include examples and/or data
 - Role/Persona
 - Consider the audience
+- Ask for clarification
 
 ## Let's start prompting!
 I have pre-made the prompts below for you to use. However, please feel free to modify them or create your own prompts. The goal of this exercise is to observe how prompting can affect the response you recieve from an AI model. Go to the very bottom of this page for additional ideas for you to practice prompt engineering.
@@ -83,8 +84,29 @@ Pretend you are apart of my local extension office providing a quick pitch about
 ```
 
 ### Generative code prompt
-Let's create a prompt that will generate code for us. 
+Let's create a prompt that will generate code for us. I recommend using Github Copilot or Claude in your VS code to do this but use whatever you would like.
 
-## Additional ideas for you practice prompt engineering
-- Summarize a methods section for a particular audience (e.g., undergraduate students, graduate students, or the general public)
+1. **Task**: Let's have AI generate us a script that prints "I like bread. It is my favorite food." to the terminal.
+2. **Context/Constraints**: Let's give the following constraints:
+  - we want a bash script
+  - we would like AI to explain what the lines of code mean
+  - we would like AI to explain how to run the bash script in the terminal
+  - we are beginner coders!
+3. **Output format**: We want it to create a bash script and also provide us a set of instructions, outside of the script, on how to run the script.
+
+<details><summary>Click to see the prompt I created </summary>
+``` markdown
+I would like a bash script that prints "I like bread. It is my favorite food." to the terminal. I am a beginner coder, so please include comments within the script telling me what the code means. Additionally, please print instructions, outside of the script, on how to run the script.
+```
+
+## Create a prompt relavent to you!
+So far, we've been focusing on our data or examples. Create a prompt that is related to you and your scientific data. If you can't think of any, see additional ideas below.
+
+
+## Additional ideas for you to practice prompt engineering
+- Summarize a methods section for a certain audience (undergraduate students, graduate students, or the general public)
+- Develop a quick script (bash python, etc.) to do XYZ
+- Pretend you're a reviewer. Critically review my introduction, abstract, methods, etc.
+- Describe the central dogma to a certain audience (5th graders, high schoolers, my grandma)
+- Compare and constrast python and C++
 - 
