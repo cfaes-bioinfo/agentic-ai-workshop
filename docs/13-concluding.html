@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jelmer Poelstra">
 <meta name="dcterms.date" content="2026-07-03">
 
-<title>DIY with own (or other) data – Agentic AI Workshop</title>
+<title>Concluding remarks and looking forward – Agentic AI Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-4e5466e430b1db38349d513585fd1d59.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-18fe6355df9e00e9561dd53ce8dc48ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -124,7 +124,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./06-copilot.html">
  <span class="dropdown-text">6: Code completions with GitHub Copilot</span></a>
   </li>  
-        <li class="dropdown-header">7: LLM options at OSC (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./07-osc-ai.pdf">
+ <span class="dropdown-text">7: AI applications at OSC (PDF)</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -152,7 +155,11 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./11-responsible-use.html">
  <span class="dropdown-text">11: Limitations and responsible use of AI</span></a>
   </li>  
-        <li class="dropdown-header">12: DIY with own (or other) data (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./12-diy.html">
+ <span class="dropdown-text">12: DIY with own (or other) data</span></a>
+  </li>  
+        <li class="dropdown-header">13: Concluding remarks</li>
     </ul>
   </li>
 </ul>
@@ -257,8 +264,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#example-dataset" id="toc-example-dataset" class="nav-link" data-scroll-target="#example-dataset"><span class="header-section-number">2</span> Example dataset</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><span class="header-section-number">1</span> …</a></li>
+  <li><a href="#ideas-for-using-claude-code" id="toc-ideas-for-using-claude-code" class="nav-link" data-scroll-target="#ideas-for-using-claude-code"><span class="header-section-number">2</span> Ideas for using Claude Code</a></li>
   </ul>
 </nav>
     </div>
@@ -267,7 +274,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">DIY with own (or other) data</h1>
+<h1 class="title">Concluding remarks and looking forward</h1>
+<p class="subtitle lead">TBA</p>
 </div>
 
 
@@ -324,47 +332,76 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <hr style="height:1pt; visibility:hidden;">
-<section id="introduction" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
-<p>During this session,</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>One or more plots as an end goal
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Whichever data set you use, perhaps a nice end goal is one or more plots. Even if you, say, only align reads to a reference genome, you can still make a plot of the alignment success statistics.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Keep it reasonable
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Don’t go overboard with very big asks, especially ones far removed from the omics data analysis context. For example, we don’t really want to you to build a massive web app for personal use, here. If you want to try something along those lines, please use your own API key.</p>
-</div>
-</div>
+<section id="section" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="section"><span class="header-section-number">1</span> …</h2>
+<ul>
+<li><p>Take a look at the <a href="./o2-resources.html">Resources page</a> for links to further resources</p></li>
+<li><p><a href="./o3-positron-setup.qmd">Positron setup page</a></p></li>
+</ul>
 </section>
-<section id="example-dataset" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="example-dataset"><span class="header-section-number">2</span> Example dataset</h2>
-<p>If you don’t have your own data, we’d recommend that you continue working with the example dataset.</p>
+<section id="ideas-for-using-claude-code" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="ideas-for-using-claude-code"><span class="header-section-number">2</span> Ideas for using Claude Code</h2>
+<p>Our above practice prompts were very basic, covering:</p>
 <ul>
-<li>Pre-made count table</li>
+<li>Writing simple scripts</li>
+<li>Troubleshooting simple errors</li>
+<li>Writing documentation files</li>
 </ul>
-<p>If you want to continue working with the example dataset:</p>
+<p>You can do much more advanced and ambitious things with Claude Code. Here are some ideas to stay in the realm of the fairly mundane, but quite useful!</p>
 <ul>
-<li>Get it to help you run the Nextflow/nf-core rnaseq pipeline</li>
-<li>Write a simple but reproducible pipeline</li>
+<li><p><strong>Troubleshooting complex errors:</strong> e.g., it can be stunningly good at following complex paper trails of errors in a complicated workflow or set of scripts.</p></li>
+<li><p><strong>Doing things that are (well) beyond your ability <em>and/yet</em> easy to verify</strong>:<br>
+</p>
+<ul>
+<li>A really complicated installation.</li>
+<li>Tedious, repetitive tasks that you don’t have the skill to automate yourself.</li>
+</ul></li>
+<li><p><strong>Writing entire pipelines</strong>, including in formal workflow languages like Nextflow</p></li>
+<li><p><strong>Proof-reading code (and other documents) that does work.</strong><br>
+If you have a complicated set of scripts, it’s very easy to get lost and not notice things like inconsistent variable names or other small errors. These AI tools are often quite meticulous in this sense.</p></li>
+<li><p><strong>Doing “optional next step” stuff you never get to:</strong></p>
+<ul>
+<li>Organize a disorganized project folder, create documentation, and put it under version control</li>
+<li>Turn a script into a nice notebook/Quarto doc, dashboard, or Shiny app</li>
+<li>Turning a set of R scripts into an R package</li>
+</ul></li>
+<li><p><strong>Build a (Quarto) website</strong></p>
+<ul>
+<li>Personal website</li>
+<li>Lab website</li>
+</ul></li>
+<li><p>Looking for inspiration for <strong>non-coding tasks?</strong> <a href="https://claudeblattman.com">Here’s one starting point.</a></p></li>
 </ul>
+<!-------
+
+## Introduction
+
+- The new bottleneck: verification
+  "Danger zone: cheap to make, expensive to confirm"
+
+- The more you do with code and plain-text formats, the more you can use these AI tools
+
+- For more advanced users: **Version control** (Git) pairs well with agentic coding.
+  Commit before letting Claude make a batch of changes,
+  so you can easily review or revert if things go sideways.
+  If you're not using Git, you may in some cases want to make a **backup copy** of your
+  file or even workspace before letting Claude make edits.
+
+- Logging with a LOG.md and possibly DECISIONS.md
+
+- From https://anthropic.skilljar.com/claude-101/383392
+> The 4D Framework for AI Fluency, developed through research collaboration between Professor Rick Dakan (Ringling College of Art and Design) and Professor Joseph Feller (University College Cork), identifies four core competencies that, when combined, can help you make the most of your AI interactions:
+> Delegation: Deciding on what work should be done by humans, what work should be done by AI, and how to distribute tasks between them. Includes understanding your goals, AI capabilities, and making strategic choices about collaboration.
+> Description: Effectively communicating with AI systems. Includes clearly defining outputs, guiding AI processes, and specifying desired AI behaviors and interactions.
+> Discernment: Thoughtfully and critically evaluating AI outputs, processes, behaviors and interactions. Includes assessing quality, accuracy, appropriateness, and determining areas for improvement.
+> Diligence: Using AI responsibly and ethically. Includes making thoughtful choices about AI systems and interactions, maintaining transparency, and taking accountability for AI-assisted work.
+
+- Other AI application ideas:
+
+ - For non-coding tasks too, using SKILLS can be useful --
+   e.g. literature review, adversarial review of own manuscript
+
+------>
 
 
 </section>

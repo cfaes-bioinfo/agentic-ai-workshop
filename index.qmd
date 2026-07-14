@@ -23,15 +23,15 @@ format:
 
 | Section | Time | Instructor | Topic & link |
 |:-:|----|---|------------|
-| 6 | 09:00 am -- 09:30 am | Jelmer | [Code completions with GitHub Copilot (cont.)](./06-copilot.qmd) |
-| 8 | 09:30 am -- 10:30 am | Jelmer | [Agentic chat with Claude Code](./08-claude.qmd) |
-|  | [*10:30 am -- 10:45 am*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
-| 9 | 10:45 am -- 11:15 am | Hannah | Prompt engineering: [slides](./09-prompts-slides.qmd) and [page](./09-prompts-page.qmd) |
-| 10 | 11:15 am -- 12:15 pm | Menuka | [Advanced agentic options and skills](./10-agentic2.qmd) |
+| 6 | 09:00 am -- 09:45 am | Jelmer | [Code completions with GitHub Copilot (cont.)](./06-copilot.qmd) |
+| 8 | 09:45 am -- 10:45 am | Jelmer | [Agentic chat with Claude Code](./08-claude.qmd) |
+|  | [*10:45 am -- 11:00 am*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
+| 9 | 11:00 am -- 11:45 am | Hannah | Prompt engineering: [slides](./09-prompts-slides.qmd) and [page](./09-prompts-page.qmd) |
+| 10 | 11:45 am -- 01:30 pm | Menuka | [Advanced agentic options and skills](./10-agentic2.qmd) |
 |  | [*12:15 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
-| 11 | 01:00 pm -- 01:30 pm | Hannah | [Limitations and responsible use of AI](./11-responsible-use.qmd) |
-| 13 | 01:30 pm -- 03:30 pm | *all* | DIY with own (or other) data |
-| 14 | 03:30 pm -- 04:00 pm | *all* | Concluding remarks and looking forward |
+| 11 | 01:30 pm -- 02:00 pm | Hannah | [Limitations and responsible use of AI](./11-responsible-use.qmd) |
+| 12 | 02:00 pm -- 03:30 pm | *all* | [DIY with own (or other) data](./12-diy.qmd) |
+| 13 | 03:30 pm -- 04:00 pm | *all* | Concluding remarks |
 
 : {.striped .hover tbl-colwidths="[5, 22, 20, 53]"}
 
@@ -48,7 +48,7 @@ format:
 | 5 | 01:00 pm -- 03:00 pm | Jelmer | [OSC and VS Code setup](./05-setup.qmd) |
 |  | [*02:30 pm -- 02:45 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
 | 6 | 03:00 pm -- 03:30 pm | Jelmer | [Code completions with GitHub Copilot](./06-copilot.qmd) |
-| 7 | 03:30 pm -- 04:00 pm | Evan Jaffe, OSC | LLM options at OSC |
+| 7 | 03:30 pm -- 04:00 pm | Evan Jaffe, OSC | [AI applications at OSC](./07-osc-ai.pdf) |
 
 : {.striped .hover tbl-colwidths="[5, 22, 20, 53]"}
 

@@ -25,7 +25,8 @@ website:
             href: 05-setup.qmd
           - text: "6: Code completions with GitHub Copilot"
             href: 06-copilot.qmd
-          - text: "7: LLM options at OSC (TBA)"
+          - text: "7: AI applications at OSC (PDF)"
+            href: 07-osc-ai.pdf
       - text: Day 2
         menu:
           - text: "8: Agentic chat with Claude Code"
@@ -38,7 +39,10 @@ website:
             href: 10-agentic2.qmd
           - text: "11: Limitations and responsible use of AI"
             href: 11-responsible-use.qmd
-          - text: "12: DIY with own (or other) data (TBA)"
+          - text: "12: DIY with own (or other) data"
+            href: 12-diy.qmd
+          - text: "13: Concluding remarks"
+            #href: 13-concluding.qmd
     right:
       - text: Pre-workshop learning
         menu:

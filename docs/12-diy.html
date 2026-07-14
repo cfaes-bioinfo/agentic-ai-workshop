@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jelmer Poelstra">
-<meta name="dcterms.date" content="2026-07-03">
+<meta name="dcterms.date" content="2026-07-14">
 
-<title>Concluding remarks and looking forward – Agentic AI Workshop</title>
+<title>DIY with own (or other) data – Agentic AI Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,7 +25,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -42,7 +61,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-4e5466e430b1db38349d513585fd1d59.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-18fe6355df9e00e9561dd53ce8dc48ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -124,7 +143,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./06-copilot.html">
  <span class="dropdown-text">6: Code completions with GitHub Copilot</span></a>
   </li>  
-        <li class="dropdown-header">7: LLM options at OSC (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./07-osc-ai.pdf">
+ <span class="dropdown-text">7: AI applications at OSC (PDF)</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -152,7 +174,11 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./11-responsible-use.html">
  <span class="dropdown-text">11: Limitations and responsible use of AI</span></a>
   </li>  
-        <li class="dropdown-header">12: DIY with own (or other) data (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./12-diy.html">
+ <span class="dropdown-text">12: DIY with own (or other) data</span></a>
+  </li>  
+        <li class="dropdown-header">13: Concluding remarks</li>
     </ul>
   </li>
 </ul>
@@ -257,8 +283,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><span class="header-section-number">1</span> …</a></li>
-  <li><a href="#ideas-for-using-claude-code" id="toc-ideas-for-using-claude-code" class="nav-link" data-scroll-target="#ideas-for-using-claude-code"><span class="header-section-number">2</span> Ideas for using Claude Code</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#working-with-the-example-dataset" id="toc-working-with-the-example-dataset" class="nav-link" data-scroll-target="#working-with-the-example-dataset"><span class="header-section-number">2</span> Working with the example dataset</a></li>
   </ul>
 </nav>
     </div>
@@ -267,8 +293,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Concluding remarks and looking forward</h1>
-<p class="subtitle lead">TBA</p>
+<h1 class="title">DIY with own (or other) data</h1>
 </div>
 
 
@@ -294,16 +319,10 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 3, 2026</p>
+      <p class="date">July 14, 2026</p>
     </div>
   </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">July 14, 2026</p>
-    </div>
-  </div>
     
   </div>
   
@@ -314,92 +333,104 @@ ul.task-list li input[type="checkbox"] {
 
 <hr>
 <hr style="height:1pt; visibility:hidden;">
-<div class="callout callout-style-simple callout-caution">
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>During this session, you will have the opportunity to work by yourself with the tools that we have introduced during the workshop.</p>
+<p>The instructors will be available to help you with any questions you may have.</p>
+<ul>
+<li><p>You can use your <strong>own data</strong> if you’d like. Let us know if you need any help with getting started, such as uploading your data.</p></li>
+<li><p>You can also continue working on the <strong>example data</strong>. We have a bit more info on that below.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Ask AI!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember that you can also ask AI —including the Gemini options Jonathan showed— to help brainstorm what to do! Use this as an opportunity to explore the possibilities of AI in your own research context.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>One or more plots as an end goal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Whichever data set you use, perhaps a nice end goal is to <strong>create one or more plots</strong>, i.e.&nbsp;visualizations of your results. Even if you, say, only align reads to a reference genome, you can still make a plot of the alignment success statistics.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Keep the scope of your questions reasonable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Don’t go overboard with very big asks, especially ones far removed from research data analysis context that is the focus of the this workshop. For example, we don’t really want to you to build a massive web app for personal use, here. If you want to try something along those lines, please use your own API key.</p>
+<p>If you’re in doubt, please ask the instructors for guidance.</p>
+</div>
+</div>
+</section>
+<section id="working-with-the-example-dataset" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="working-with-the-example-dataset"><span class="header-section-number">2</span> Working with the example dataset</h2>
+<p>Below are some suggestions if you’d like to continue working on the <span class="citation" data-cites="iqbal2025">Iqbal et al. (<a href="#ref-iqbal2025" role="doc-biblioref">2025</a>)</span> dataset.</p>
+<ul>
+<li><p>A core first goal of almost any RNA-Seq analysis is to produce a “count table”, which has counts for each gene (a proxy for gene expression levels) for each sample. You can try to produce such a count table. If you’re unsure about the steps needed to do this, you can start by asking AI! <em>(Your <code>CLAUDE.md</code> may already have some instructions for this.)</em></p>
+<p>This can be done step-by-step with separate shell scripts, or for more advanced (or ambitious!) users, you can try to write a simple but reproducible Nextflow pipeline.</p>
+<div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong><em>This page is still subject to change</em></strong></p>
+<p>If you’re going to submit a bunch of Slurm jobs, including with <code>for</code> loops to loop over files or samples, you’ll also want a separate file (shell script, or optionally Markdown file with code blocks) to store that code. As with everything else, you can ask AI to help you write that code and design the way to organize scripts.</p>
 </div>
 </div>
+</div></li>
+<li><p>If you would prefer to start with more “downstream” analyses on the count table, such as making a PCA plot of expression profiles, doing differential expression analysis, making heatmaps, and so on.</p>
+<p><strong>There is a pre-made count table at</strong> <code>/fs/scratch/PAS3454/share/iqbal_results/salmon.merged.gene_counts_length_scaled.tsv</code></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<hr style="height:1pt; visibility:hidden;">
-<section id="section" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="section"><span class="header-section-number">1</span> …</h2>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Not sure what to do, exactly?
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><p>Take a look at the <a href="./o2-resources.html">Resources page</a> for links to further resources</p></li>
-<li><p><a href="./o3-positron-setup.qmd">Positron setup page</a></p></li>
+<li><p>One option is to give Claude some context and ask it what to do!</p></li>
+<li><p>You can also take a look at this tutorial page which goes over the typical steps of an RNA-Seq analysis: <a href="https://jelmerp.github.io/ENTMLGY6703/labs/DE.html">RNA-Seq analysis tutorial</a>. This is a different dataset, so don’t try to follow the exact code — use Claude to adapt it, or start from scratch.</p></li>
 </ul>
-</section>
-<section id="ideas-for-using-claude-code" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="ideas-for-using-claude-code"><span class="header-section-number">2</span> Ideas for using Claude Code</h2>
-<p>Our above practice prompts were very basic, covering:</p>
-<ul>
-<li>Writing simple scripts</li>
-<li>Troubleshooting simple errors</li>
-<li>Writing documentation files</li>
+</div>
+</div></li>
 </ul>
-<p>You can do much more advanced and ambitious things with Claude Code. Here are some ideas to stay in the realm of the fairly mundane, but quite useful!</p>
-<ul>
-<li><p><strong>Troubleshooting complex errors:</strong> e.g., it can be stunningly good at following complex paper trails of errors in a complicated workflow or set of scripts.</p></li>
-<li><p><strong>Doing things that are (well) beyond your ability <em>and/yet</em> easy to verify</strong>:<br>
-</p>
-<ul>
-<li>A really complicated installation.</li>
-<li>Tedious, repetitive tasks that you don’t have the skill to automate yourself.</li>
-</ul></li>
-<li><p><strong>Writing entire pipelines</strong>, including in formal workflow languages like Nextflow</p></li>
-<li><p><strong>Proof-reading code (and other documents) that does work.</strong><br>
-If you have a complicated set of scripts, it’s very easy to get lost and not notice things like inconsistent variable names or other small errors. These AI tools are often quite meticulous in this sense.</p></li>
-<li><p><strong>Doing “optional next step” stuff you never get to:</strong></p>
-<ul>
-<li>Organize a disorganized project folder, create documentation, and put it under version control</li>
-<li>Turn a script into a nice notebook/Quarto doc, dashboard, or Shiny app</li>
-<li>Turning a set of R scripts into an R package</li>
-</ul></li>
-<li><p><strong>Build a (Quarto) website</strong></p>
-<ul>
-<li>Personal website</li>
-<li>Lab website</li>
-</ul></li>
-<li><p>Looking for inspiration for <strong>non-coding tasks?</strong> <a href="https://claudeblattman.com">Here’s one starting point.</a></p></li>
-</ul>
-<!-------
+<section id="whole-genome-resequencing-data" class="level4">
+<h4 class="anchored" data-anchor-id="whole-genome-resequencing-data">Whole-genome resequencing data</h4>
+<p>If you’d like to work with the whole-genome resequencing data from this paper instead of the RNA-Seq data, this is available in <code>/fs/scratch/PAS3454/data/wgs_iqbal</code>.</p>
 
-## Introduction
-
-- The new bottleneck: verification
-  "Danger zone: cheap to make, expensive to confirm"
-
-- The more you do with code and plain-text formats, the more you can use these AI tools
-
-- For more advanced users: **Version control** (Git) pairs well with agentic coding.
-  Commit before letting Claude make a batch of changes,
-  so you can easily review or revert if things go sideways.
-  If you're not using Git, you may in some cases want to make a **backup copy** of your
-  file or even workspace before letting Claude make edits.
-
-- Logging with a LOG.md and possibly DECISIONS.md
-
-- From https://anthropic.skilljar.com/claude-101/383392
-> The 4D Framework for AI Fluency, developed through research collaboration between Professor Rick Dakan (Ringling College of Art and Design) and Professor Joseph Feller (University College Cork), identifies four core competencies that, when combined, can help you make the most of your AI interactions:
-> Delegation: Deciding on what work should be done by humans, what work should be done by AI, and how to distribute tasks between them. Includes understanding your goals, AI capabilities, and making strategic choices about collaboration.
-> Description: Effectively communicating with AI systems. Includes clearly defining outputs, guiding AI processes, and specifying desired AI behaviors and interactions.
-> Discernment: Thoughtfully and critically evaluating AI outputs, processes, behaviors and interactions. Includes assessing quality, accuracy, appropriateness, and determining areas for improvement.
-> Diligence: Using AI responsibly and ethically. Includes making thoughtful choices about AI systems and interactions, maintaining transparency, and taking accountability for AI-assisted work.
-
-- Other AI application ideas:
-
- - For non-coding tasks too, using SKILLS can be useful --
-   e.g. literature review, adversarial review of own manuscript
-
------->
 
 
 </section>
+</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-iqbal2025" class="csl-entry" role="listitem">
+Iqbal, O., X. Yang, Z. Wang, et al. 2025. <span>“Comparative Transcriptome and Genome Analysis Between Susceptible Zhefang Rice Variety Diantun 502 and Its Resistance Variety Diantun 506 Upon <span class="nocase">Magnaporthe oryzae</span> Infection.”</span> <em>BMC Plant Biology</em> 25 (1): 341. <a href="https://doi.org/10.1186/s12870-025-06357-5">https://doi.org/10.1186/s12870-025-06357-5</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
