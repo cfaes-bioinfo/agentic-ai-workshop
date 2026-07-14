@@ -1,0 +1,31 @@
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+@import url("https://assets.bux.osu.edu/bux-webfonts/bux-webfonts.css");
+
+.markdown-preview.markdown-preview {
+  // modify your style here
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "BuckeyeSerif", "Georgia", serif;
+    color: #ba0c2f;
+    text-transform: none;
+  }
+}
+
+/*
+.markdown-preview {
+  border: 20px solid #a7b1b7;
+}
+*/
+
+body {
+  &::after {
+    content: url("logo.png");
+    position: fixed;
+    bottom: 3.5em;
+    left: 3.5em;
+  }
+}

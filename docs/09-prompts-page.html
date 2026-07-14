@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-4e5466e430b1db38349d513585fd1d59.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-18fe6355df9e00e9561dd53ce8dc48ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -143,8 +143,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./02-ai-intro.html">
  <span class="dropdown-text">2: Intro to Generative AI and LLMs</span></a>
   </li>  
-        <li class="dropdown-header">3: Approved genAI tools at OSU (TBA)</li>
-        <li class="dropdown-header">4: Use cases and tools for research (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./03-osu-approved.html">
+ <span class="dropdown-text">3: Approved genAI tools at OSU</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./04-genai-use-cases.pdf">
+ <span class="dropdown-text">4: Use cases and tools for research (PDF)</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./05-setup.html">
  <span class="dropdown-text">5: VS Code and OSC setup</span></a>
@@ -165,9 +171,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="./08-claude.html">
  <span class="dropdown-text">8: Agentic chat with Claude Code</span></a>
   </li>  
-        <li class="dropdown-header">9: Prompt engineering (TBA)</li>
-        <li class="dropdown-header">10: Advanced agentic options and skills (TBA)</li>
-        <li class="dropdown-header">11: Limitations and responsible use of AI (TBA)</li>
+        <li>
+    <a class="dropdown-item" href="./09-prompts-slides.html">
+ <span class="dropdown-text">9: Prompt engineering (slides)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./09-prompts-page.html">
+ <span class="dropdown-text">9: Prompt engineering (page)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./10-agentic2.html">
+ <span class="dropdown-text">10: Advanced agentic options and skills</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./11-responsible-use.html">
+ <span class="dropdown-text">11: Limitations and responsible use of AI</span></a>
+  </li>  
         <li class="dropdown-header">12: DIY with own (or other) data (TBA)</li>
     </ul>
   </li>
@@ -284,7 +303,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#warm-up-prompt" id="toc-warm-up-prompt" class="nav-link" data-scroll-target="#warm-up-prompt"><span class="header-section-number">2.1</span> Warm-up prompt</a></li>
   <li><a href="#generative-code-prompt" id="toc-generative-code-prompt" class="nav-link" data-scroll-target="#generative-code-prompt"><span class="header-section-number">2.2</span> Generative code prompt</a></li>
   </ul></li>
-  <li><a href="#additional-ideas-for-you-to-practice-prompt-engineering" id="toc-additional-ideas-for-you-to-practice-prompt-engineering" class="nav-link" data-scroll-target="#additional-ideas-for-you-to-practice-prompt-engineering"><span class="header-section-number">3</span> Additional ideas for you to practice prompt engineering</a></li>
+  <li><a href="#create-a-prompt-relavent-to-you" id="toc-create-a-prompt-relavent-to-you" class="nav-link" data-scroll-target="#create-a-prompt-relavent-to-you"><span class="header-section-number">3</span> Create a prompt relavent to you!</a></li>
+  <li><a href="#additional-ideas-for-you-to-practice-prompt-engineering" id="toc-additional-ideas-for-you-to-practice-prompt-engineering" class="nav-link" data-scroll-target="#additional-ideas-for-you-to-practice-prompt-engineering"><span class="header-section-number">4</span> Additional ideas for you to practice prompt engineering</a></li>
   </ul>
 </nav>
     </div>
@@ -444,21 +464,28 @@ Click to see the edited prompt
 <li>we are beginner coders!</li>
 </ul>
 <ol start="3" type="1">
-<li><strong>Output format</strong>: We want it to create a bash script and also provide us a set of instructions on how to run the script.</li>
+<li><strong>Output format</strong>: We want it to create a bash script and also provide us a set of instructions, outside of the script, on how to run the script.</li>
 </ol>
 <details>
 <summary>
 Click to see the prompt I created
 </summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>I would like a bash script that prints "I like bread. It is my favorite food." to the terminal. I am a beginner coder, so please include comments within the scrip telling me what the code means. Additionally, please tell me instructions on how to run the script.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>I would like a bash script that prints "I like bread. It is my favorite food." to the terminal. I am a beginner coder, so please include comments within the script telling me what the code means. Additionally, please print instructions, outside of the script, on how to run the script.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details></section>
 </section>
-<section id="additional-ideas-for-you-to-practice-prompt-engineering" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="additional-ideas-for-you-to-practice-prompt-engineering"><span class="header-section-number">3</span> Additional ideas for you to practice prompt engineering</h2>
+<section id="create-a-prompt-relavent-to-you" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="create-a-prompt-relavent-to-you"><span class="header-section-number">3</span> Create a prompt relavent to you!</h2>
+<p>So far, we’ve been focusing on our data or examples. Create a prompt that is related to you and your scientific data. If you can’t think of any, see additional ideas below.</p>
+</section>
+<section id="additional-ideas-for-you-to-practice-prompt-engineering" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="additional-ideas-for-you-to-practice-prompt-engineering"><span class="header-section-number">4</span> Additional ideas for you to practice prompt engineering</h2>
 <ul>
-<li>Summarize a methods section for a particular audience (e.g., undergraduate students, graduate students, or the general public)</li>
+<li>Summarize a methods section for a certain audience (undergraduate students, graduate students, or the general public)</li>
 <li>Develop a quick script (bash python, etc.) to do XYZ</li>
-<li>Pretend you’re a reviewer.</li>
+<li>Pretend you’re a reviewer. Critically review my introduction, abstract, methods, etc.</li>
+<li>Describe the central dogma to a certain audience (5th graders, high schoolers, my grandma)</li>
+<li>Compare and constrast python and C++</li>
+<li></li>
 </ul>
 
 

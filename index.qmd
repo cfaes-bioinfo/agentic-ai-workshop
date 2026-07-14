@@ -26,13 +26,12 @@ format:
 | 1 | 09:00 am -- 09:45 am | _all_ | [Intro to the workshop](./01-workshop-intro.qmd) |
 | 2 | 09:45 am -- 10:45 am | Menuka | [Intro to Generative AI and LLMs](./02-ai-intro.qmd) |
 |  | [*10:45 am -- 11:00 am*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
-| 3 | 11:00 am -- 11:30 am | Derek Ditmer, OTDI | Approved genAI Tools at OSU |
-| 4 | 11:30 am -- 12:15 pm | Jonathan | GenAI use cases and tools for research |
+| 3 | 11:00 am -- 11:30 am | Derek Ditmer, OTDI | [Approved genAI Tools at OSU](./03-osu-approved.qmd) |
+| 4 | 11:30 am -- 12:15 pm | Jonathan | [GenAI use cases and tools for research](./04-genai-use-cases.pdf) |
 |  | [*12:15 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
-| 5 | 01:00 pm -- 02:00 pm | Jelmer | [OSC and VS Code setup](./05-setup.qmd) |
-|  | [*02:00 pm -- 02:15 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
-| 6 | 02:15 pm -- 03:15 pm | Jelmer | [Code completions with GitHub Copilot](./06-copilot.qmd) |
-|  | [*03:15 pm -- 03:30 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
+| 5 | 01:00 pm -- 03:00 pm | Jelmer | [OSC and VS Code setup](./05-setup.qmd) |
+|  | [*02:30 pm -- 02:45 pm*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
+| 6 | 03:00 pm -- 03:30 pm | Jelmer | [Code completions with GitHub Copilot](./06-copilot.qmd) |
 | 7 | 03:30 pm -- 04:00 pm | Evan Jaffe, OSC | LLM options at OSC |
 
 : {.striped .hover tbl-colwidths="[5, 22, 20, 53]"}
@@ -41,13 +40,14 @@ format:
 
 | Section | Time | Instructor | Topic & link |
 |:-:|----|---|------------|
-| 8 | 09:00 am -- 10:00 am | Jelmer | [Agentic chat with Claude Code](./08-claude.qmd) |
-| 9 | 10:00 am -- 10:30 am | Hannah | Prompt engineering |
+| 6 | 09:00 am -- 09:30 am | Jelmer | [Code completions with GitHub Copilot (cont.)](./06-copilot.qmd) |
+| 8 | 09:30 am -- 10:30 am | Jelmer | [Agentic chat with Claude Code](./08-claude.qmd) |
 |  | [*10:30 am -- 10:45 am*]{style="color:steelblue"} |  | ☕️ [*Break*]{style="color:steelblue"} |
-| 10 | 10:45 am -- 11:45 am | Menuka | Advanced agentic options and skills |
-| 11 | 11:45 am -- 12:15 pm | Hannah | Limitations and responsible use of AI |
+| 9 | 10:45 am -- 11:15 am | Hannah | Prompt engineering: [slides](./09-prompts-slides.qmd) and [page](./09-prompts-page.qmd) |
+| 10 | 11:15 am -- 12:15 pm | Menuka | [Advanced agentic options and skills](./10-agentic2.qmd) |
 |  | [*12:15 pm -- 01:00 pm*]{style="color:steelblue"} |  | 🍽 [*Lunch*]{style="color:steelblue"} |
-| 13 | 01:00 pm -- 03:30 pm | *all* | DIY with own (or other) data |
+| 11 | 01:00 pm -- 01:30 pm | Hannah | [Limitations and responsible use of AI](./11-responsible-use.qmd) |
+| 13 | 01:30 pm -- 03:30 pm | *all* | DIY with own (or other) data |
 | 14 | 03:30 pm -- 04:00 pm | *all* | Concluding remarks and looking forward |
 
 : {.striped .hover tbl-colwidths="[5, 22, 20, 53]"}

@@ -1,0 +1,102 @@
+---
+title: "Approved genAI Tools at OSU"
+author: Derek Ditmer
+format: revealjs
+number-sections: false
+---
+
+# Hi, I am Derek
+
+## Platform Engineer
+
+![Derek OTDI](/img/me.png)
+
+---
+
+## Approved GenAI Tools
+
+1. <https://ai.osu.edu/>
+2. Resources for Buckeyes
+3. Approved Tools
+
+---
+
+## Web Based tools
+
+- ### Adobe
+  - <https://firefly.osu.edu>
+- ### Google
+  - <https://gemini.google.com>
+  - <https://notebooklm.google.com/>
+- ### Microsoft
+  - <https://copilot.microsoft.com>
+
+---
+
+## Cloud Vendors
+
+- ### Google Cloude Platform (GCP)
+  - Gemini
+- ### Amazon Web Services (AWS)
+  - Anthropic Claude, Nova, Kimi, Deepseek
+  - Coming soon: openai, grok, and Anthropic Fable 5
+- ### Microsoft Azure
+  - OpenAI GPT
+
+---
+
+## OSU GenAI Service
+
+### Created for Builders, Developers & Researchers
+
+![GenAI service, user on laptop accessing various LLMs on GCP, Azure, and AWS cloud](/img/image.png)
+<https://go.osu.edu/get-genai>
+
+---
+
+## Model Access
+
+![List of models available on GenAI service](/img/image-1.png)
+<https://go.osu.edu/api-fluency>
+
+---
+
+## Basic usage
+
+- OpenAI protocol
+- API key - sk-XXXXXXXXXX
+- custom endpoint -- <https://litellm.cloud.osu.edu>
+
+## Features
+
+- team budgets
+- generate api keys
+- set api budget, expiration, and model access
+
+---
+
+## GenAI integrations
+
+- <https://colab.osu.edu>
+- claude code cli
+- claude desktop as via 3rd party mode
+- ide integration with continue
+- any software with custom endpoint/api key
+
+---
+
+## AWS Kiro
+
+- <https://kiro.dev>
+- requires OSU AWS account
+- monthly subscription based access to Claude
+- kiro web ui, cli, and IDE
+  ![Kiro Logo](/img/image-2.png)
+  ![alt text](/img/image-4.png)
+
+---
+
+## Carmen AI Assistant
+
+<https://firefly.cloud.osu.edu>
+![alt text](/img/image-3.png)

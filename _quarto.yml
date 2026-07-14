@@ -17,8 +17,10 @@ website:
             href: 01-workshop-intro.qmd
           - text: "2: Intro to Generative AI and LLMs"
             href: 02-ai-intro.qmd
-          - text: "3: Approved genAI tools at OSU (TBA)"
-          - text: "4: Use cases and tools for research (TBA)"
+          - text: "3: Approved genAI tools at OSU"
+            href: 03-osu-approved.qmd
+          - text: "4: Use cases and tools for research (PDF)"
+            href: 04-genai-use-cases.pdf
           - text: "5: VS Code and OSC setup"
             href: 05-setup.qmd
           - text: "6: Code completions with GitHub Copilot"
@@ -28,9 +30,14 @@ website:
         menu:
           - text: "8: Agentic chat with Claude Code"
             href: 08-claude.qmd
-          - text: "9: Prompt engineering (TBA)"
-          - text: "10: Advanced agentic options and skills (TBA)"
-          - text: "11: Limitations and responsible use of AI (TBA)"
+          - text: "9: Prompt engineering (slides)"
+            href: 09-prompts-slides.qmd
+          - text: "9: Prompt engineering (page)"
+            href: 09-prompts-page.qmd
+          - text: "10: Advanced agentic options and skills"
+            href: 10-agentic2.qmd
+          - text: "11: Limitations and responsible use of AI"
+            href: 11-responsible-use.qmd
           - text: "12: DIY with own (or other) data (TBA)"
     right:
       - text: Pre-workshop learning

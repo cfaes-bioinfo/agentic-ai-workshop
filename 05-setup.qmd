@@ -398,7 +398,9 @@ connect to OSC like so:
    In the bottom right, you should see something like the following while it is connecting:
 
    ![A little indicator will be moving back and forth while it's trying to connect.](/img/vscode-connecting.png){fig-align="center" width="60%" fig-alt="Screenshot of the VS Code window while connecting to the remote host"}
-   
+
+_[TBA - Select Operating System: Linux]_
+
 5. Once connected, the following pop-up likely appears: click "_Trust Folder and Continue_".
 
    ![](/img/vscode-trust.png){fig-align="center" width="60%" fig-alt="Screenshot of the VS Code pop-up asking whether to trust the authors of the folder you ended up in, with the 'Trust and Continue' button highlighted"}
@@ -438,7 +440,7 @@ _Otherwise, you should already have this folder._
 
 1. Click `Open...` with a folder icon in the Welcome document
    (or: `File` > `Open Folder`)
-2. Type (or select) the path to your folder (`/fs/scratch/PAS3454/PAS3454/people/<user>`).
+2. Type (or select) the path to your folder (`/fs/scratch/PAS3454/people/<user>`).
 
 ![Screenshot of part of the "Welcome" document. <br>The `Open...` button allows you to open a folder (dir) anywhere on OSC.](/img/vscode-welcome.png){fig-align="center" width="45%" fig-alt="Screenshot of the VS Code Welcome document, showing the 'Open Folder...' button highlighted"}
 
