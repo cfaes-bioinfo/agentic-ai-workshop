@@ -80,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-18fe6355df9e00e9561dd53ce8dc48ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1053746f56c9687f95043b1511700dc7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -297,7 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
   <li><a href="#claude.md" id="toc-claude.md" class="nav-link" data-scroll-target="#claude.md"><span class="header-section-number">2</span> CLAUDE.md</a>
   <ul class="collapse">
-  <li><a href="#recommended-information-to-include-in-claude.md" id="toc-recommended-information-to-include-in-claude.md" class="nav-link" data-scroll-target="#recommended-information-to-include-in-claude.md"><span class="header-section-number">2.1</span> Recommended information to include in <code>CLAUDE.md</code></a></li>
+  <li><a href="#information-to-include-in-claude.md" id="toc-information-to-include-in-claude.md" class="nav-link" data-scroll-target="#information-to-include-in-claude.md"><span class="header-section-number">2.1</span> Information to include in <code>CLAUDE.md</code></a></li>
   <li><a href="#creating-claude.md-file" id="toc-creating-claude.md-file" class="nav-link" data-scroll-target="#creating-claude.md-file"><span class="header-section-number">2.2</span> Creating <code>CLAUDE.md</code> file</a></li>
   </ul></li>
   <li><a href="#agent-skill-in-claude-code" id="toc-agent-skill-in-claude-code" class="nav-link" data-scroll-target="#agent-skill-in-claude-code"><span class="header-section-number">3</span> Agent skill in Claude Code</a>
@@ -372,14 +372,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>However, you may find yourself repeatedly telling Claude the same things:</p>
 <ul>
 <li>Never modify files in <code>data/raw/</code> folder</li>
-<li>Use the <code>OSC module</code> system rather than installing software directly</li>
+<li>Use the <code>OSC module</code> system rather than installing software directly if software is available</li>
 <li>Submit computationally intensive jobs through <code>Slurm</code></li>
 <li>Write output files to <code>results/</code></li>
 <li>Run a validation procedure after modifying a pipeline</li>
 </ul>
-<p>You may also repeat the same multi-step procedures, such as reviewing a Slurm script, validating a sequencing workflow, or checking whether a pipeline follows project standards. In other cases, you may want Claude to delegate a focused task to a specialist, such as a code-review agent that inspects a pipeline without modifying it.</p>
-<p>Claude Code provides several ways to make this information reusable. These features work when Claude Code is used through the <code>VS Code extension</code>; you do not need to operate Claude primarily from the terminal.</p>
-<p><strong>Option Use it for Example</strong><br>
+<p>You may also find repeating the same multi-step procedures, such as reviewing a Slurm script, validating a sequencing workflow, or checking whether a pipeline follows project standards. Claude Code provides several ways to make this information reusable. These features work when Claude Code is used through the <code>VS Code extension</code>; you do not need to operate Claude primarily from the terminal.</p>
+<p><strong>Examples of when to use each option</strong><br>
 </p>
 <table class="caption-top table">
 <colgroup>
@@ -401,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Project structure, software environment, coding conventions, and safety rules</td>
 </tr>
 <tr class="even">
-<td><strong>Skills</strong></td>
+<td><strong>SKILL.md</strong></td>
 <td>A reusable procedure or checklist for a specific task</td>
 <td>Reviewing a Slurm script or validating a sequencing workflow</td>
 </tr>
@@ -410,11 +409,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="claude.md" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="claude.md"><span class="header-section-number">2</span> CLAUDE.md</h2>
-<p><a href="https://claude.com/blog/using-claude-md-files">CLAUDE.md</a> provides persistent project specific memory to your agent, eliminating the need to re-explain your project at the start of every conversation. Therefore, you do not have to re-explain your project every time. <code>CLAUDE.md</code> is a Markdown (<code>.md</code>) file, making it easy to create, edit, and version-control alongside your code. Claude automatically references this file whenever it works in your project, allowing it to make more informed decisions, follow your preferred workflows, and use project-specific conventions. As a result, <code>CLAUDE.md</code> is one of the simplest and most effective ways to customize Claude’s behavior for a research project.</p>
+<p><a href="https://claude.com/blog/using-claude-md-files">CLAUDE.md</a> provides persistent project specific memory to your agent, eliminating the need to re-explain your project at the start of every conversation. <code>CLAUDE.md</code> is a Markdown (<code>.md</code>) file easy to create, edit, and version-control alongside your code. Claude automatically references this file whenever it works in your project, allowing it to make more informed decisions, follow your preferred workflows, and use project-specific conventions. As a result, <code>CLAUDE.md</code> is one of the simplest and most effective ways to customize Claude’s behavior for a research project.</p>
 <p><strong>In bioinformatics, a well-written <code>CLAUDE.md</code> helps Claude understand your project, analysis pipeline, directory structure, coding standards, software environment, and preferred workflows</strong>. There is no required format for <code>CLAUDE.md</code>. However, this file should be concise, easy to read, and easy to understand for both humans and Claude.</p>
-<p><strong>Where should <code>CLAUDE.md</code> live?</strong></p>
+<p><strong>Where should <code>CLAUDE.md</code> be stored?</strong></p>
 <ul>
-<li><strong>Most projects place it in the repository root so everyone working on the project shares the same instructions.</strong></li>
+<li><strong>The most common location is the root directory of a project repository, where it can serve as a shared reference for everyone working on the project..</strong></li>
 </ul>
 <pre class="text"><code>rnaseq-project/
 ├── CLAUDE.md
@@ -425,8 +424,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can also place a <code>CLAUDE.md</code>:<br>
 - In a parent directory for multiple related projects<br>
 - In your home directory to apply default instructions across all projects</p>
-<section id="recommended-information-to-include-in-claude.md" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="recommended-information-to-include-in-claude.md"><span class="header-section-number">2.1</span> Recommended information to include in <code>CLAUDE.md</code></h3>
+<section id="information-to-include-in-claude.md" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="information-to-include-in-claude.md"><span class="header-section-number">2.1</span> Information to include in <code>CLAUDE.md</code></h3>
 <ul>
 <li><strong>Project overview</strong> – research objectives and biological questions</li>
 <li><strong>Project description</strong> – datasets, organisms, sequencing technology, or experimental design</li>
@@ -452,10 +451,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Existing documentation</li>
 <li>Configuration files</li>
 <li>Source code organization</li>
-<li>Common development patterns</li>
 </ul>
-<p>Example of <code>CLAUDE.md</code> file generated using <code>/init</code> command is provided below: <img src="./img/claudemd_file_example.png" class="img-fluid quarto-figure quarto-figure-center" style="width:100.0%"></p>
-<p>After running the <code>/init</code>, Claude then asks where you would like to save the <code>CLAUDE.md</code> file in the project root.</p>
+<p>Example of <code>CLAUDE.md</code> file generated using <code>/init</code> command is provided below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src=".\img/claudemd_file_example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+<p>After running the <code>/init</code>, Claude analyzes your project and generates an initial draft of <code>CLAUDE.md</code>. By default, the file is typically created in the current project directory, where you can review and customize it as needed.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -471,7 +474,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Tip: If your project already contains a <code>CLAUDE.md</code> file, running <code>/init</code> again does not overwrite it blindly. Instead, Claude reviews the existing file and suggests improvements or updates based on your current project and ask if you want to edit this file.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/git_diff_claude.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<p><img src=".\img/git_diff_claude.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 <p>What you’re seeing is a Git diff, which Claude Code is showing so you can review the changes it made.</p>
@@ -520,14 +523,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Run the <code>/init</code> command to generate a <code>CLAUDE.md</code> file.</li>
 <li>Review the generated file.</li>
-<li>Edit <code>CLAUDE.md</code> file by adding at project-specific instructions, for example:</li>
+<li>Edit <code>CLAUDE.md</code> file by adding project-specific instructions, for example:</li>
 </ol>
 <ul>
 <li>Write analysis outputs to <code>results/</code>.</li>
 <li>Do not modify <code>iqbal/fastq</code></li>
 </ul>
 <ol start="4" type="1">
-<li>Add the shell scripting conventions in <code>CLAUDE.md</code> file</li>
+<li>Add the shell scripting conventions in <code>CLAUDE.md</code> file.</li>
 </ol>
 <ul>
 <li>Always specify software module versions.</li>
@@ -549,7 +552,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="3" class="anchored" data-anchor-id="agent-skill-in-claude-code"><span class="header-section-number">3</span> Agent skill in Claude Code</h2>
 <section id="the-skill.md-file" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="the-skill.md-file"><span class="header-section-number">3.1</span> <code>The SKILL.md file</code></h3>
-<p>A Claude <a href="https://code.claude.com/docs/en/skills">SKILL.md</a> file is a Markdown file written in plain English that defines reusable instructions for a specific workflow or task. Skills help Claude perform tasks consistently and reduce the need to repeatedly provide the same prompts, checklists, procedures, or review criteria. An effective <code>SKILL.md</code> file is concise, easy to understand, focused on a single `purpose, and clearly specifies what Claude should do and what it should not do.</p>
+<p>A Claude <a href="https://code.claude.com/docs/en/skills">SKILL.md</a> file is a Markdown file that defines reusable instructions for a specific workflow or task. Skills help Claude perform tasks consistently and reduce the need to repeatedly provide the same prompts, checklists, procedures, or review criteria. An effective <code>SKILL.md</code> file is concise, easy to understand, focused on a single `purpose, and clearly specifies what Claude should do and what it should not do.</p>
 <p><strong>A project-specific skill is stored inside the project’s .claude/skills/ directory:</strong></p>
 <pre class="text"><code>rnaseq-project/
 ├── .claude/
@@ -565,17 +568,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="components-of-skill.md-file" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="components-of-skill.md-file"><span class="header-section-number">3.2</span> Components of <code>SKILL.md</code> file</h3>
 <ol type="1">
-<li><p><strong>YAML front matter</strong>: A structured metadata section at the beginning of the file that defines the <strong>skill name</strong> and a <strong>brief description</strong>. Claude uses this information to determine when the skill is relevant and should be applied.</p></li>
+<li><p><strong>YAML front matter</strong>: A structured metadata section at the beginning of the <code>SKILL.md</code> file that defines the <strong>skill name</strong> and a <strong>brief description</strong>. It is enclosed between two lines containing three hyphens <code>(---)</code>. Claude uses this information to determine when the skill is relevant and should be applied.</p></li>
 <li><p><strong>The skill instructions</strong>: The main body of the file that describes the workflow, procedure, guidelines, and rules Claude should follow when using the skill.</p></li>
 </ol>
 <p>Example of <code>SKILL.md</code> file is provided below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/script_file_example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<p><img src=".\img/script_file_example.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 <p>The folder name becomes the command used to invoke the skill. <strong>For example, the skill can be run from the Claude Code chat panel using <code>/review-slurm-script</code></strong>. Claude will then ask which Slurm script you want to review. You can provide the script path, such as:<code>scripts/fastqc.sh</code> created in <code>exercise 1</code>. After you select a file, the skill reviews it for issues such as missing Slurm settings, unreasonable resource requests, incorrect paths, missing log files, or unsafe commands. Claude will usually separate confirmed problems from optional improvements and may then ask whether you want it to apply the suggested changes or review another script. Review the proposed changes before approving them. If you choose to apply the fixes, Claude updates the script based on the skill instructions.</p>
-<p>Claude does not always need you to specify which skill to use. If a request closely matches a skill’s description, Claude may select and use that skill automatically. For example, suppose you have a skill called <code>/review-slurm-script</code> that checks Slurm scripts for common errors. If you open a Slurm file and ask:Can you check this Slurm script for mistakes? Claude may recognize that the request matches the skill and use it automatically.</p>
+<p>Claude does not always need an explicit instruction to use a skill. When a request closely matches a skill’s description, Claude can often identify and apply the appropriate skill automatically. For example, suppose you have a skill called <code>/review-slurm-script</code> that checks Slurm scripts for common errors. If you open a Slurm file and ask: <code>Can you check this Slurm script for mistakes?</code> Claude may recognize that the request matches the skill and use it automatically.</p>
 <section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-2-test-the-skill" class="level4 exercise">
 <h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-exercise-2-test-the-skill"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> Exercise 2: Test the skill</h4>
 <p>In this exercise, you will use a skill to investigate a failed Slurm job and identify possible solutions</p>
@@ -587,7 +590,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     └── troubleshoot-slurm-job/
         └── SKILL.md</code></pre>
 <ol start="2" type="1">
-<li>Add the name and the description in the SKILL.md file in the YAML front matter.</li>
+<li>Add the name and the description in the <code>SKILL.m</code>d file in the YAML front matter.</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> troubleshoot-slurm-job</span></span>
@@ -646,26 +649,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="4.1" class="anchored" data-anchor-id="built-in-security-guardrails"><span class="header-section-number">4.1</span> Built-in Security Guardrails</h3>
 <p>Claude Code includes several security features:</p>
 <ol type="1">
-<li><p><strong>Permission-based architecture</strong> : By default, Claude Code is read-only. Whenever Claude wants to edit files, run tests, execute commands, it ask for your permission</p></li>
+<li><p><strong>Permission-based architecture</strong> : By default, Claude Code is read-only. Whenever Claude wants to edit files, run tests, execute commands, it ask for your permission.</p></li>
 <li><p><strong>Limited write access</strong> : Claude can only write inside the directory where it was started (and its subdirectories). If Claude starts inside <code>project/</code>, it cannot accidentally modify files outside that project without additional permission.</p></li>
-<li><p><strong>Prompt injection protection</strong> : Claude includes built-in protections that help detect many prompt injection attempts and may request additional approval before performing potentially risky actions. These protections reduce but do not eliminate the risk, so users should still review requested actions.</p></li>
+<li><p><strong>Prompt injection protection</strong> : Claude includes safeguards designed to identify potentially untrusted instructions embedded in files, web pages, or other content it reads. When an instruction could result in a sensitive or potentially harmful action, Claude may request additional confirmation before proceeding. These protections improve safety but are not foolproof, so users should always review proposed actions before approving them.</p></li>
 </ol>
 </section>
 <section id="user-configurable-guardrails" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="user-configurable-guardrails"><span class="header-section-number">4.2</span> User-configurable Guardrails</h3>
 <ol type="1">
-<li><strong>Permission</strong>: Permissions determine which files &amp; commands Claude is allowed to access. Permissions are configured in <code>settings.json</code> file. This prevents Claude from accidentally exposing confidential information by denying access to the sensitive files. For examples:</li>
+<li><strong>Permission</strong>: Permissions control what Claude is allowed to read, modify, and execute. These rules are defined in the <code>settings.json</code>file and help protect sensitive information while reducing the risk of accidental or harmful actions. For example, you can prevent Claude from reading environment files, secrets directories, or SSH keys, while allowing it to run approved bioinformatics tools.</li>
 </ol>
-<ul>
-<li>Denying access to <code>.env</code><br>
-</li>
-<li>Blocking <code>secrets/</code><br>
-</li>
-<li>Preventing access to <strong>SSH keys</strong> use <code>/fs/scratch/PAS3454/people/menuka/.claude/settings.json</code> as an example.</li>
-</ul>
+<p>Example: The permissions defined in <code>/fs/scratch/PAS3454/people/menuka/.claude/settings.json</code> allow Claude to read project files and run approved bioinformatics tools such as fastqc, STAR, and Rscript. Claude must ask for approval before editing files, deleting files, or pushing changes to GitHub. Access to sensitive information including .env files, secrets/ directories, and SSH keys—is completely blocked.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src=".\img/permission_json.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+</figure>
+</div>
 <ol start="2" type="1">
-<li><p><strong>Hooks</strong> : <strong>Hooks</strong> are small programs or scripts that run automatically before or after Claude uses a tool. Unlike instructions in CLAUDE.md, hooks are always executed whenever the specified event occurs. This makes them ideal for enforcing mandatory safety rules. Because hooks execute automatically, they act as hard guardrails rather than recommendations.</p></li>
-<li><p><strong>Project Guardrails (<code>CLAUDE.md</code>)</strong> : Where hooks and permissions define what Claude can do, CLAUDE.md defines how Claude should work. A good <code>CLAUDE.md</code> establishes project conventions such as:</p></li>
+<li><strong>Hooks</strong> : <a href="https://code.claude.com/docs/en/hooks"><strong>Hooks</strong></a> are small programs or scripts that run automatically before or after Claude uses a tool. Unlike instructions in CLAUDE.md, hooks are always executed whenever the specified event occurs. This makes them ideal for enforcing mandatory safety rules. Because hooks execute automatically, they act as hard guardrails rather than recommendations.</li>
+</ol>
+<p>The following hook events are useful for enforcing project standards, protecting data, and validating workflows in bioinformatics projects.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 33%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Event</th>
+<th>When it runs</th>
+<th>Example use case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>PreToolUse</strong></td>
+<td>Before Claude executes a command or tool</td>
+<td>Block dangerous commands such as <code>rm -rf</code></td>
+</tr>
+<tr class="even">
+<td><strong>PostToolUse</strong></td>
+<td>After a command or tool completes successfully</td>
+<td>Validate a Slurm script after Claude edits it</td>
+</tr>
+<tr class="odd">
+<td><strong>FileChanged</strong></td>
+<td>When a monitored file changes</td>
+<td>Re-run workflow validation after a pipeline is modified</td>
+</tr>
+<tr class="even">
+<td><strong>SessionStart</strong></td>
+<td>When a Claude session begins</td>
+<td>Load environment information or display project guidelines</td>
+</tr>
+</tbody>
+</table>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src=".\img/hook.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p>This hook protects raw FASTQ data from accidental modification. Before Claude edits or writes a file, it automatically runs a script that blocks changes to files stored in protected directories.</p>
+<ol start="3" type="1">
+<li><strong>Project Guardrails (<code>CLAUDE.md</code>)</strong> : Where hooks and permissions define what Claude can do, CLAUDE.md defines how Claude should work. A good <code>CLAUDE.md</code> establishes project conventions such as:</li>
 </ol>
 <ul>
 <li>Preferred programming languages</li>
@@ -677,7 +724,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>These are not security restrictions but behavioral instructions that help Claude work consistently across the project.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="./img/guardrails.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p><img src=".\img/guardrails.png" class="img-fluid figure-img" style="width:50.0%"></p>
 <figcaption><strong>Figure 1. Three user-configurable guardrails in Claude Code: permissions, hooks, and project instructions (CLAUDE.md)</strong></figcaption>
 </figure>
 </div>
@@ -1107,7 +1154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>2026, Jelmer Poelstra, <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> &nbsp; <img src="http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png" class="img-fluid" style="width:10.0%"></p>
 </div>   
     <div class="nav-footer-center">
-<p><img src="./img/CFAES-Horiz-RGBHEX.svg" class="img-fluid" style="width:40.0%"></p>
+<p><img src=".\img/CFAES-Horiz-RGBHEX.svg" class="img-fluid" style="width:40.0%"></p>
 </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
