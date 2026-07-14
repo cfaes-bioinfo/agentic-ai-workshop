@@ -155,10 +155,9 @@ Similar to human memory, old prompts, responses and data is 'forgotten' or remov
 ## Financial/token responsibility
 :::: {.columns}
 ::: {.column width="60%"}
-While you as a student or staff member may not consider the financial aspect of using AI, your usage could impact your PI's wallet (aka grants).
+While you as a student or staff member may not consider the financial aspect of using AI, your usage could impact you or your PI's wallet.
 
-AI companies will impose limits on your usage. Take Github Copilot inline suggestions for example (right). This is a very common practice across all AI companies. Asking too many prompts or asking AI to complete a challenging can lead to limited access depending on the platform.
-
+AI companies will impose limits on your usage. Take Github Copilot inline suggestions for example (right). This is a very common practice across all AI companies. Asking **too many prompts** or asking AI to complete a challenging can lead to limited access depending on the platform.
 
 :::
 
