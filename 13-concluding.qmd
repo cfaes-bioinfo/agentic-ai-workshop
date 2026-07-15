@@ -9,7 +9,7 @@ bibliography: refs.bib
 
 <hr style="height:1pt; visibility:hidden;" />
 
-## Some final notes
+## Final notes
 
 - **Please do the [post-workshop survey](https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=NlYJ61IQlUiVKx_53x0RIRPCxiUNwTpGiKjj0kzcvzxUQkxXNERPUzVHOEVSV1VTWVk0SktERDI2Ti4u) before you leave!**
   **It will really help us improve future workshops.**
@@ -23,6 +23,10 @@ bibliography: refs.bib
 
 - Want to use these tools but want to focus on R?
   See the [Positron setup page](./o3-positron-install.qmd) for instructions on how to set up and use Positron.
+
+----
+
+- **Let's hear about what you did in the DIY session!**
 
 -----
 

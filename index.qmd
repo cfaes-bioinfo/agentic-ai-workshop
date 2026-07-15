@@ -49,7 +49,7 @@ format:
 | 10 | 01:00 pm -- 01:30 pm | Menuka | [Advanced agentic options and skills](./10-agentic2.qmd) (cont.) |
 | 11 | 01:30 pm -- 02:00 pm | Hannah | [Limitations and responsible use of AI](./11-responsible-use.qmd) |
 | 12 | 02:00 pm -- 03:30 pm | *all* | [DIY with own (or other) data](./12-diy.qmd) |
-| 13 | 03:30 pm -- 04:00 pm | *all* | [Concluding remarks](./13-concluding.qmd) |
+| 13 | 03:30 pm -- 03:45 pm | *all* | [Concluding remarks](./13-concluding.qmd) |
 
 : {.striped .hover tbl-colwidths="[5, 22, 20, 53]"}
 
