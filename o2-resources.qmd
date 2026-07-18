@@ -1,18 +1,12 @@
 ---
 title: "Further Resources"
 date: 2026-07-05
-date-modified: today
+date-modified: last-modified
 number-sections: true
 toc: true
 ---
 
 ---------
-
-<hr style="height:1pt; visibility:hidden;" />
-
-::: {.callout-caution appearance="simple"}
-**_This page is still subject to change_**
-:::
 
 <hr style="height:1pt; visibility:hidden;" />
 
@@ -47,6 +41,8 @@ toc: true
 - [The Hitchhiker’s Guide to Agentic AI](https://arxiv.org/pdf/2606.24937v1)
 
 ## Background reading
+
+- [Ten simple rules for optimal and careful use of generative AI in science](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1013588) --- Helmy et al., PLOS Computational Biology, 2025, on best practices for using generative AI in science.
 
 - [Why General AI Models Still Cannot Be Trusted for Data Analysis](https://nickpotkalitsky.substack.com/p/why-general-ai-models-still-cannot) --- a blog post by Nick Potkalitsky, PhD, on the limitations of general AI models for data analysis (June 2026).
 

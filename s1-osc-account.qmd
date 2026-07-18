@@ -2,7 +2,7 @@
 title: "OSC account setup"
 subtitle: "Create an Ohio Supercomputer Center account if you don't have one"
 date: 2026-07-01
-date-modified: today
+date-modified: 2026-07-10
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462

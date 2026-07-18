@@ -1,8 +1,7 @@
 ---
 title: "Prompt engineering"
-subtitle: "Day 2 - 10:00 AM - 10:30 AM"
 date: 2026-07-14
-date-modified: today
+date-modified: 2026-07-14
 author:
   - name: Hannah Toth
     email: toth.302@osu.edu
@@ -29,7 +28,7 @@ format:
     toc-depth: 1
     toc-title: TBD
     footer: "[~ Gen and agentic AI workshop ~](https://cfaes-bioinfo.github.io/agentic-ai-workshop/)"
-    logo: ../img/CFAES-Horiz-RGBHEX.svg
+    logo: /img/CFAES-Horiz-RGBHEX.svg
     menu:
       width: wide
       numbers: true

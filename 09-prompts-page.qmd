@@ -2,7 +2,7 @@
 title: "Prompt engineering"
 subtitle: "Day 2 - 9:00 AM - 9:30 AM"
 date: 2026-07-14
-date-modified: today
+date-modified: 2026-07-14
 author:
   - name: Hannah Toth
     email: toth.302@osu.edu

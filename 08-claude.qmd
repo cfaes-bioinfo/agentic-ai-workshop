@@ -2,7 +2,7 @@
 title: "8: Agentic chat with Claude Code"
 subtitle: "Getting started with this extremely powerful tool"
 date: 2026-07-03
-date-modified: today
+date-modified: 2026-07-14
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462

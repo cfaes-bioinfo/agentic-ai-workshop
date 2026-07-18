@@ -2,7 +2,7 @@
 title: "Limitations and responsible use of AI"
 subtitle: "Day 2 - 1:00 PM - 1:30 PM"
 date: 2026-07-14
-date-modified: today
+date-modified: 2026-07-14
 author:
   - name: Hannah Toth
     email: toth.302@osu.edu

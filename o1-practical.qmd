@@ -1,6 +1,7 @@
 ---
 title: "Practical workshop information"
 date: 2026-07-01
+date-modified: 2026-07-12
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462

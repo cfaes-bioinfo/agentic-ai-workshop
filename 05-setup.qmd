@@ -2,7 +2,7 @@
 title: "5: VS Code and OSC setup"
 subtitle: "Exploring VS Code and configuring its connection to OSC"
 date: 2026-07-03
-date-modified: today
+date-modified: 2026-07-15
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462

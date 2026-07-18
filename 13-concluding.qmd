@@ -1,7 +1,6 @@
 ---
 title: "Concluding remarks"
 date: 2026-07-14
-date-modified: today
 bibliography: refs.bib
 ---
 

@@ -2,7 +2,7 @@
 title: "6: Code completions with GitHub Copilot"
 subtitle: "Setting up and using our first agentic AI tool!"
 date: 2026-07-03
-date-modified: today
+date-modified: 2026-07-14
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462

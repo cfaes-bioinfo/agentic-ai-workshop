@@ -2,7 +2,7 @@
 title: "Optional GitHub account setup"
 subtitle: "Create a GitHub account and apply for free GitHub Copilot Student/Pro access"
 date: 2026-07-01
-date-modified: today
+date-modified: 2026-07-09
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462

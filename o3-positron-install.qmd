@@ -3,7 +3,7 @@ title: "Positron installation and setup"
 subtitle: "Getting started with this highly recommended new IDE for R"
 number-sections: true
 date: 2026-07-07
-date-modified: today
+date-modified: 2026-07-12
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462

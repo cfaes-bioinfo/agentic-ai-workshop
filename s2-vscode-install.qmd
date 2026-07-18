@@ -3,6 +3,7 @@ title: "VS Code installation"
 subtitle: "Install the Visual Studio Code (VS Code) editor on your own laptop"
 number-sections: true
 date: 2026-07-01
+date-modified: 2026-07-10
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462

@@ -3,7 +3,7 @@ title: "Command-line software"
 subtitle: "Part III of the pre-workshop learning session"
 number-sections: true
 date: 2026-07-01
-date-modified: today
+date-modified: 2026-07-10
 author:
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462

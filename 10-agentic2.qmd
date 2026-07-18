@@ -2,7 +2,7 @@
 title: "Advanced agentic options and skills"
 subtitle: "Reusable instructions and specialized agents"
 date: 2026-07-14
-date-modified: today
+date-modified: 2026-07-14
 author:
   - name: Menuka Bhandari
     orcid: 0009-0004-0630-0837
